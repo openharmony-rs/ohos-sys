@@ -4,7 +4,8 @@
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
 
-/// A string that identifies the common event sent after battery capacity changes.
+/// Defines the common event indicating a battery capacity change.
+///
 ///
 /// Available since API-level: 13
 ///
@@ -12,7 +13,8 @@
 #[cfg(feature = "api-13")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
 pub const COMMON_EVENT_KEY_CAPACITY: &::core::ffi::CStr = c"soc";
-/// A string that identifies the common event sent after charge state changes.
+/// Defines the common event indicating a charging status change.
+///
 ///
 /// Available since API-level: 13
 ///
@@ -20,7 +22,8 @@ pub const COMMON_EVENT_KEY_CAPACITY: &::core::ffi::CStr = c"soc";
 #[cfg(feature = "api-13")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
 pub const COMMON_EVENT_KEY_CHARGE_STATE: &::core::ffi::CStr = c"chargeState";
-/// A string that identifies the common event sent after plugged type changes.
+/// Defines the common event indicating a battery plugged type change.
+///
 ///
 /// Available since API-level: 13
 ///
@@ -31,20 +34,45 @@ pub const COMMON_EVENT_KEY_PLUGGED_TYPE: &::core::ffi::CStr = c"pluggedType";
 #[cfg(feature = "api-13")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
 impl BatteryInfo_BatteryPluggedType {
-    /// Power source is unplugged.
+    /// No power supply.
+    ///
+    ///
+    /// Available since API-level: 13
+    #[cfg(feature = "api-13")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub const PLUGGED_TYPE_NONE: BatteryInfo_BatteryPluggedType = BatteryInfo_BatteryPluggedType(0);
-    /// Power source is an AC charger.
+    /// AC charging.
+    ///
+    ///
+    /// Available since API-level: 13
+    #[cfg(feature = "api-13")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub const PLUGGED_TYPE_AC: BatteryInfo_BatteryPluggedType = BatteryInfo_BatteryPluggedType(1);
-    /// Power source is a USB DC charger.
+    /// USB DC charging.
+    ///
+    ///
+    /// Available since API-level: 13
+    #[cfg(feature = "api-13")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub const PLUGGED_TYPE_USB: BatteryInfo_BatteryPluggedType = BatteryInfo_BatteryPluggedType(2);
-    /// Power source is wireless charger.
+    /// Wireless charging.
+    ///
+    ///
+    /// Available since API-level: 13
+    #[cfg(feature = "api-13")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub const PLUGGED_TYPE_WIRELESS: BatteryInfo_BatteryPluggedType =
         BatteryInfo_BatteryPluggedType(3);
-    /// The bottom of the enum.
+    /// Unknown type.
+    ///
+    ///
+    /// Available since API-level: 13
+    #[cfg(feature = "api-13")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub const PLUGGED_TYPE_BUTT: BatteryInfo_BatteryPluggedType = BatteryInfo_BatteryPluggedType(4);
 }
 #[repr(transparent)]
-/// Defines plugged types.
+/// Enumerates the battery plugged types.
 ///
 ///
 /// Available since API-level: 13
@@ -55,27 +83,27 @@ impl BatteryInfo_BatteryPluggedType {
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct BatteryInfo_BatteryPluggedType(pub ::core::ffi::c_uint);
 extern "C" {
-    /// This API returns the current battery capacity.
+    /// Obtains the current battery capacity in percent.
     ///
     ///
     /// # Returns
     ///
-    /// * Returns number between 0 and 100.
+    /// * A number in the range from 0 to 100.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub fn OH_BatteryInfo_GetCapacity() -> i32;
-    /// This API returns the current plugged type.
+    /// Obtains the battery plugged type.
     ///
     ///
     /// # Returns
     ///
-    /// * [`BatteryInfo_BatteryPluggedType#PLUGGED_TYPE_NONE`](crate::battery_info::BatteryInfo_BatteryPluggedType::PLUGGED_TYPE_NONE) if the power source is unplugged.
-    /// [`PLUGGED_TYPE_AC`](crate::battery_info::BatteryInfo_BatteryPluggedType::PLUGGED_TYPE_AC) if the power source is an AC charger.
-    /// [`PLUGGED_TYPE_USB`](crate::battery_info::BatteryInfo_BatteryPluggedType::PLUGGED_TYPE_USB) if the power source is an USB DC charger.
-    /// [`PLUGGED_TYPE_WIRELESS`](crate::battery_info::BatteryInfo_BatteryPluggedType::PLUGGED_TYPE_WIRELESS) if the power source is wireless charger.
-    /// [`PLUGGED_TYPE_BUTT`](crate::battery_info::BatteryInfo_BatteryPluggedType::PLUGGED_TYPE_BUTT) if the type is unknown.
+    /// - [`PLUGGED_TYPE_NONE`](crate::battery_info::BatteryInfo_BatteryPluggedType::PLUGGED_TYPE_NONE) if there is no power supply;
+    /// - [`PLUGGED_TYPE_AC`](crate::battery_info::BatteryInfo_BatteryPluggedType::PLUGGED_TYPE_AC) if the power supply is in AC charging mode;
+    /// - [`PLUGGED_TYPE_USB`](crate::battery_info::BatteryInfo_BatteryPluggedType::PLUGGED_TYPE_USB) if the power supply is in USB DC charging mode;
+    /// - [`PLUGGED_TYPE_WIRELESS`](crate::battery_info::BatteryInfo_BatteryPluggedType::PLUGGED_TYPE_WIRELESS) if the power supply is in wireless charging mode;
+    /// - [`PLUGGED_TYPE_BUTT`](crate::battery_info::BatteryInfo_BatteryPluggedType::PLUGGED_TYPE_BUTT) if the battery plugged type is unknown.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]

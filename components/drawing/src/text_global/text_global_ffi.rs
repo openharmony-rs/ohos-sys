@@ -8,18 +8,21 @@ use crate::types::*;
 #[cfg(feature = "api-20")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
 impl OH_Drawing_TextHighContrast {
-    /// Follow system's high contrast settings for text rendering
+    /// Follows the high contrast mode for text rendering in the system settings.
     pub const TEXT_FOLLOW_SYSTEM_HIGH_CONTRAST: OH_Drawing_TextHighContrast =
         OH_Drawing_TextHighContrast(0);
-    /// Disable high contrast rendering regardless of system settings
+    /// Disables the app's text rendering high contrast configuration. The priority of this mode is higher than the high
+    /// contrast text configuration in system settings.
     pub const TEXT_APP_DISABLE_HIGH_CONTRAST: OH_Drawing_TextHighContrast =
         OH_Drawing_TextHighContrast(1);
-    /// Enable high contrast rendering regardless of system settings
+    /// Enables the app's text rendering high contrast configuration. The priority of this mode is higher than the high
+    /// contrast text configuration in system settings.
     pub const TEXT_APP_ENABLE_HIGH_CONTRAST: OH_Drawing_TextHighContrast =
         OH_Drawing_TextHighContrast(2);
 }
 #[repr(transparent)]
-/// Defines text rendering high contrast mode to enhance readability.
+/// Defines an enum of the high contrast modes for text rendering.
+///
 ///
 /// Available since API-level: 20
 ///
@@ -31,15 +34,15 @@ pub struct OH_Drawing_TextHighContrast(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-20")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
 impl OH_Drawing_TextUndefinedGlyphDisplay {
-    /// Uses the glyph defined in the font file, which could be an empty box, blank space, or custom symbol etc.
+    /// Uses the default glyph (which may be a blank box, space, or custom symbol) defined in the font file.
     pub const TEXT_NO_GLYPH_USE_DEFAULT: OH_Drawing_TextUndefinedGlyphDisplay =
         OH_Drawing_TextUndefinedGlyphDisplay(0);
-    /// Always render tofu blocks for missing glyphs.
+    /// Always uses tofu blocks to represent absent glyphs.
     pub const TEXT_NO_GLYPH_USE_TOFU: OH_Drawing_TextUndefinedGlyphDisplay =
         OH_Drawing_TextUndefinedGlyphDisplay(1);
 }
 #[repr(transparent)]
-/// Visual representations for undefined (.notdef) glyphs.
+/// Defines an enum of the modes for displaying undefined glyphs.
 ///
 ///
 /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
@@ -50,25 +53,33 @@ impl OH_Drawing_TextUndefinedGlyphDisplay {
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OH_Drawing_TextUndefinedGlyphDisplay(pub ::core::ffi::c_uint);
 extern "C" {
-    /// Sets high contrast mode of text rendering.
+    /// Sets the high contrast mode for text rendering.
+    /// <br>The setting of this API takes effect for the entire process, and all pages in the process share the same mode.
+    /// <br>The text rendering high contrast mode can be set by calling this API, or enabled/disabled through the high
+    /// contrast text configuration switch in the system settings screen. The text rendering high contrast mode set by this
+    /// API takes precedence over the system settings.
+    /// <br>This API does not take effect for the text drawing scenario.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `action` - <b>OH_Drawing_TextHighContrast</b> object.
+    /// * `action` - High contrast mode for text rendering. The value is an enumerated value of the
+    /// [`OH_Drawing_TextHighContrast`](crate::text_global::OH_Drawing_TextHighContrast) type.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_Drawing_SetTextHighContrast(action: OH_Drawing_TextHighContrast);
-    /// Controls how undefined glyphs are visually presented, affects all text rendered after this call.
+    /// Sets the presentation mode of undefined glyphs. After this API is called, it affects all subsequently
+    /// rendered text in the current process.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `undefinedGlyphDisplay` - Indicates a <b>OH_Drawing_TextUndefinedGlyphDisplay</b> to be set.
+    /// * `undefinedGlyphDisplay` - Mode of displaying undefined glyphs. The value is an enumerated value of the
+    /// [`OH_Drawing_TextUndefinedGlyphDisplay`](crate::text_global::OH_Drawing_TextUndefinedGlyphDisplay) type.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]

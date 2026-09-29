@@ -6,40 +6,43 @@
 use crate::native_huks_type::*;
 
 extern "C" {
-    /// Initializing the parameter set, with no parameter information, allocating the default available memory space
-    /// for the parameter set.
-    /// The parameter set after initialisation needs to be released via OH_Huks_FreeParamSet.
-    /// The set of parameters to which parameters are added must use OH_Huks_AddParams to add parameters and must use
-    /// OH_Huks_BuildParamSet to construct the parameter set.
+    /// Initializes a parameter set. No parameter information is required, and the default available memory space is
+    /// allocated to the parameter set. The initialized parameter set needs to be released by using
+    /// [`OH_Huks_FreeParamSet`](crate::native_huks_param::OH_Huks_FreeParamSet). To add parameters to a parameter set, you need to use [`OH_Huks_AddParams`](crate::native_huks_param::OH_Huks_AddParams) to add
+    /// parameters and use [`OH_Huks_BuildParamSet`](crate::native_huks_param::OH_Huks_BuildParamSet) to construct the parameter set.
     ///
     /// # Arguments
     ///
-    /// * `paramSet` - Indicates the double pointer to the parameter set to initialize.
+    /// * `paramSet` - Pointer to the parameter set to initialize.
     ///
     /// # Returns
     ///
-    /// * [`OH_Huks_ErrCode#OH_HUKS_SUCCESS`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_SUCCESS) 0 - If the initialization is successful.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY) 12000014 - If the memory is insufficient.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT) 401 - If the paramset is null.
+    /// * Possible error codes (**errorCode**):
+    /// <br>OH_HUKS_SUCCESS 0: Initialization successful.
+    /// <br>OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY 12000014: Insufficient memory.
+    /// <br>OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT 401: **paramSet** is invalid.
     ///
     /// Available since API-level: 9
     ///
     /// Version: 1.0
     pub fn OH_Huks_InitParamSet(paramSet: *mut *mut OH_Huks_ParamSet) -> OH_Huks_Result;
-    /// Adds parameters to a parameter set.
+    /// Adds parameters to a parameter set. After the parameters are added, use [`OH_Huks_BuildParamSet`](crate::native_huks_param::OH_Huks_BuildParamSet) to
+    /// construct a parameter set.
     ///
     /// # Arguments
     ///
-    /// * `paramSet` - Indicates the pointer to the parameter set to which parameters are to be added.
+    /// * `paramSet` - Pointer to the parameter set to which parameters are to be added. This parameter needs to be
+    /// initialized by using [`OH_Huks_InitParamSet`](crate::native_huks_param::OH_Huks_InitParamSet).
     ///
-    /// * `params` - Indicates the pointer to the array of parameters to add.
+    /// * `params` - Pointer to an array of parameters to add.
     ///
-    /// * `paramCnt` - Indicates the number of parameters to add.
+    /// * `paramCnt` - Number of parameters to add.
     ///
     /// # Returns
     ///
-    /// * [`OH_Huks_ErrCode#OH_HUKS_SUCCESS`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_SUCCESS) 0 - If the operation is successful.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT) 401 - If params is null or paramSet is invalid.
+    /// * Possible error codes (**errorCode**):
+    /// <br>OH_HUKS_SUCCESS 0: Operation successful.
+    /// <br>OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT 401: **params** is a null pointer or **paramSet** is invalid.
     ///
     /// Available since API-level: 9
     ///
@@ -49,28 +52,30 @@ extern "C" {
         params: *const OH_Huks_Param,
         paramCnt: u32,
     ) -> OH_Huks_Result;
-    /// After initializing the parameter set and adding parameters, serialize the parameter set and copy the
-    /// blob type data to the adjacent memory area at the end of the paramSet structure.
+    /// Constructs a parameter set. After [`OH_Huks_InitParamSet`](crate::native_huks_param::OH_Huks_InitParamSet) is called to initialize the parameter set and
+    /// [`OH_Huks_AddParams`](crate::native_huks_param::OH_Huks_AddParams) is called to add parameters, serialize the parameter set and copy the data of the BLOB
+    /// type to the adjacent memory area at the end of the **paramSet** structure.
     ///
     /// # Arguments
     ///
-    /// * `paramSet` - Indicates the double pointer to the parameter set to construct.
+    /// * `paramSet` - Double pointer to the parameter set to build.
     ///
     /// # Returns
     ///
-    /// * [`OH_Huks_ErrCode#OH_HUKS_SUCCESS`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_SUCCESS) 0 - If the operation is successful.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT) 401 - If paramSet is invalid.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY) 12000014 - If the memory is insufficient.
+    /// * Possible error codes (**errorCode**):
+    /// <br>OH_HUKS_SUCCESS 0: Operation successful.
+    /// <br>OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT 401: **paramSet** is invalid.
+    /// <br>OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY 12000014: Insufficient memory.
     ///
     /// Available since API-level: 9
     ///
     /// Version: 1.0
     pub fn OH_Huks_BuildParamSet(paramSet: *mut *mut OH_Huks_ParamSet) -> OH_Huks_Result;
-    /// Destroys a parameter set.
+    /// Frees a parameter set. This function frees the memory allocated by [`OH_Huks_InitParamSet`](crate::native_huks_param::OH_Huks_InitParamSet).
     ///
     /// # Arguments
     ///
-    /// * `paramSet` - Indicates the double pointer to the parameter set to destroy.
+    /// * `paramSet` - Pointer to the parameter set to free.
     ///
     /// Available since API-level: 9
     ///
@@ -80,18 +85,19 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `fromParamSet` - Indicates the pointer to the parameter set to copy.
+    /// * `fromParamSet` - Pointer to the parameter set to copy.
     ///
-    /// * `fromParamSetSize` - Indicates the memory size occupied by the source parameter set.
+    /// * `fromParamSetSize` - Size of the memory occupied by the copied parameter set.
     ///
-    /// * `paramSet` - Indicates the double pointer to the new parameter set generated.
+    /// * `paramSet` - Double pointer to the new parameter set generated.
     ///
     /// # Returns
     ///
-    /// * [`OH_Huks_ErrCode#OH_HUKS_SUCCESS`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_SUCCESS) 0 - If the operation is successful.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT) 401 - If fromParamSet or fromParamSetSize
-    /// or paramSet is invalid.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY) 12000014 - If the memory is insufficient.
+    /// * Possible error codes (**errorCode**):
+    /// <br>OH_HUKS_SUCCESS 0: Operation successful.
+    /// <br>OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT 401: **fromParamSet**, **fromParamSetSize**, or **paramSet**
+    /// is invalid.
+    /// <br>OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY 12000014: Insufficient memory.
     ///
     /// Available since API-level: 9
     ///
@@ -101,21 +107,22 @@ extern "C" {
         fromParamSetSize: u32,
         paramSet: *mut *mut OH_Huks_ParamSet,
     ) -> OH_Huks_Result;
-    /// Obtains parameters from a parameter set.
+    /// Obtains a parameter from a parameter set.
     ///
     /// # Arguments
     ///
-    /// * `paramSet` - Indicates the pointer to the target parameter set.
+    /// * `paramSet` - Pointer to the parameter set to check.
     ///
-    /// * `tag` - Indicates the value of the parameter to be obtained.
+    /// * `tag` - Tag value of the parameter to be obtained.
     ///
-    /// * `param` - Indicates the double pointer to the parameter obtained.
+    /// * `param` - Double pointer to the obtained parameter.
     ///
     /// # Returns
     ///
-    /// * [`OH_Huks_ErrCode#OH_HUKS_SUCCESS`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_SUCCESS) 0 - If the operation is successful,
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT) 401 - If paramSet or param is invalid,
-    /// or if the param doesn't exist in the pararmSet.
+    /// * Possible error codes (**errorCode**):
+    /// <br>OH_HUKS_SUCCESS 0: Operation successful.
+    /// <br>OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT 401: **paramSet** or **param** is invalid, or **param** is not in *
+    /// *paramSet**.
     ///
     /// Available since API-level: 9
     ///
@@ -125,37 +132,38 @@ extern "C" {
         tag: u32,
         param: *mut *mut OH_Huks_Param,
     ) -> OH_Huks_Result;
-    /// Refreshes data of the <b>Blob</b> type in a parameter set.
+    /// Refreshes the [`OH_Huks_Blob`](crate::native_huks_type::OH_Huks_Blob) data in the parameter set.
     ///
     /// # Arguments
     ///
-    /// * `paramSet` - Indicates the pointer to the target parameter set.
+    /// * `paramSet` - Pointer to the parameter set to check.
     ///
-    /// * `isCopy` - Specifies whether to copy the data of the <b>Blob</b> type to the parameter set.
-    /// If yes, the data of the <b>Blob</b> type will be copied to the parameter set.
-    /// Otherwise, only the address of the <b>Blob</b> data will be refreshed.
+    /// * `isCopy` - If the value is **true**, the address of the [`OH_Huks_Blob`](crate::native_huks_type::OH_Huks_Blob) data is refreshed and copied to the
+    /// parameter set. If the value is **false**, only the address of the [`OH_Huks_Blob`](crate::native_huks_type::OH_Huks_Blob) data is refreshed.
     ///
     /// # Returns
     ///
-    /// * [`OH_Huks_ErrCode#OH_HUKS_SUCCESS`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_SUCCESS) 0 - If operation is successful.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT) 401 - If paramSet is invalid.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY) 12000014 - If the memory is insufficient.
+    /// * Possible error codes (**errorCode**):
+    /// <br>OH_HUKS_SUCCESS 0: Operation successful.
+    /// <br>OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT 401: **paramSet** is invalid.
+    /// <br>OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY 12000014: Insufficient memory.
     ///
     /// Available since API-level: 9
     ///
     /// Version: 1.0
     pub fn OH_Huks_FreshParamSet(paramSet: *mut OH_Huks_ParamSet, isCopy: bool) -> OH_Huks_Result;
-    /// Checks whether the parameters in a parameter set are valid.
+    /// Checks whether the tags in a parameter set are valid.
     ///
     /// # Arguments
     ///
-    /// * `paramSet` - Indicates the pointer to the parameter set to check.
+    /// * `paramSet` - Pointer to the parameter set to check.
     ///
     /// # Returns
     ///
-    /// * [`OH_Huks_ErrCode#OH_HUKS_SUCCESS`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_SUCCESS) 0 - If the parameters in the parameter set are valid.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT) 401 - If paramSet is invalid or
-    /// the parameter set has invalid, duplicate, or incorrect tags.
+    /// * Possible error codes (**errorCode**):
+    /// <br>OH_HUKS_SUCCESS 0: All tags in **paramSet** are valid.
+    /// <br>OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT 401: **paramSet** is invalid, or the parameter set contains
+    /// invalid, duplicate, or incorrect tags.
     ///
     /// Available since API-level: 9
     ///
@@ -165,14 +173,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `paramSet` - Indicates the pointer to the parameter set to check.
+    /// * `paramSet` - Pointer to the parameter set to check.
     ///
-    /// * `size` - Indicates the memory size occupied by the parameter set.
+    /// * `size` - Memory size occupied by the parameter set.
     ///
     /// # Returns
     ///
-    /// * [`OH_Huks_ErrCode#OH_HUKS_SUCCESS`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_SUCCESS) 0 - If the parameter set is of the valid size.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT) 401 - If paramSet is invalid.
+    /// * Possible error codes (**errorCode**):
+    /// <br>OH_HUKS_SUCCESS 0: The size of the parameter set is valid.
+    /// <br>OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT 401: The **paramSet** or **size** parameter is invalid.
     ///
     /// Available since API-level: 9
     ///
@@ -182,15 +191,16 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `baseParam` - Indicates the pointer to the first parameter.
+    /// * `baseParam` - Pointer to the first parameter to compare.
     ///
-    /// * `param` - Indicates the pointer to the second parameter.
+    /// * `param` - Pointer to the second parameter to compare.
     ///
     /// # Returns
     ///
-    /// * [`OH_Huks_ErrCode#OH_HUKS_SUCCESS`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_SUCCESS) 0 - If the two parameters are the same.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT) 401 - If one of the paramSet is invalid,
-    /// or if the params don't match, or if the tag inside is invalid.
+    /// * Possible error codes (**errorCode**):
+    /// <br>OH_HUKS_SUCCESS 0: The two parameters to be compared are the same.
+    /// <br>OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT 401: One of the parameters is invalid or the parameters do not
+    /// match.
     ///
     /// Available since API-level: 9
     ///
@@ -199,11 +209,11 @@ extern "C" {
         baseParam: *const OH_Huks_Param,
         param: *const OH_Huks_Param,
     ) -> OH_Huks_Result;
-    /// Destroys a key alias parameter set.
+    /// Frees a key alias set.
     ///
     /// # Arguments
     ///
-    /// * `keyAliasSet` - Indicates the pointer to the key alias parameter set to destroy.
+    /// * `keyAliasSet` - Pointer to the key alias set to be destroyed.
     ///
     /// Available since API-level: 20
     ///

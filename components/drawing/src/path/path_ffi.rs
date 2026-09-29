@@ -3,18 +3,20 @@
 #![allow(non_upper_case_globals)]
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
+#[cfg(feature = "api-26")]
+use crate::path_iterator::OH_Drawing_PathIteratorVerb;
 use crate::types::*;
 
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl OH_Drawing_PathDirection {
-    /// clockwise direction for adding closed contours
+    /// Adds a closed contour clockwise.
     pub const PATH_DIRECTION_CW: OH_Drawing_PathDirection = OH_Drawing_PathDirection(0);
-    /// counter-clockwise direction for adding closed contours
+    /// Adds a closed contour counterclockwise.
     pub const PATH_DIRECTION_CCW: OH_Drawing_PathDirection = OH_Drawing_PathDirection(1);
 }
 #[repr(transparent)]
-/// Direction for adding closed contours.
+/// Enumerates the directions of a closed contour.
 ///
 ///
 /// Available since API-level: 12
@@ -27,17 +29,23 @@ pub struct OH_Drawing_PathDirection(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl OH_Drawing_PathFillType {
-    /// Specifies that "inside" is computed by a non-zero sum of signed edge crossings
+    /// For any point within the drawing area, a ray is cast in an arbitrary direction. The count starts at 0 for all
+    /// intersections between this ray and the path.<br>Each clockwise intersection—where the path crosses the ray from
+    /// left to right—results in the count being incremented by 1, while each counterclockwise intersection—where the
+    /// path crosses the ray from right to left—causes the count to be decremented by 1. A point is deemed inside the
+    /// path and needs to be colored if the final count is non-zero; if the count is 0, the point remains uncolored.
     pub const PATH_FILL_TYPE_WINDING: OH_Drawing_PathFillType = OH_Drawing_PathFillType(0);
-    /// Specifies that "inside" is computed by an odd number of edge crossings
+    /// For any point in the drawing area, a ray is cast in an arbitrary direction. If the number of intersections
+    /// between this ray and the path is odd, the point is deemed inside the path and needs to be colored; if the number
+    /// is even, it remains uncolored.
     pub const PATH_FILL_TYPE_EVEN_ODD: OH_Drawing_PathFillType = OH_Drawing_PathFillType(1);
-    /// Same as Winding, but draws outside of the path, rather than inside
+    /// Same as **PATH_FILL_TYPE_WINDING**, but draws outside of the path, rather than inside.
     pub const PATH_FILL_TYPE_INVERSE_WINDING: OH_Drawing_PathFillType = OH_Drawing_PathFillType(2);
-    /// Same as EvenOdd, but draws outside of the path, rather than inside
+    /// Same as **PATH_FILL_TYPE_EVEN_ODD**, but draws outside of the path, rather than inside.
     pub const PATH_FILL_TYPE_INVERSE_EVEN_ODD: OH_Drawing_PathFillType = OH_Drawing_PathFillType(3);
 }
 #[repr(transparent)]
-/// FillType of path.
+/// Enumerates the fill types of a path.
 ///
 ///
 /// Available since API-level: 12
@@ -50,13 +58,13 @@ pub struct OH_Drawing_PathFillType(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl OH_Drawing_PathAddMode {
-    /// Appended to destination unaltered
+    /// Adds a path in append mode.
     pub const PATH_ADD_MODE_APPEND: OH_Drawing_PathAddMode = OH_Drawing_PathAddMode(0);
-    /// Add line if prior contour is not closed
+    /// Adds a line segment to close the path if the previous path is not closed.
     pub const PATH_ADD_MODE_EXTEND: OH_Drawing_PathAddMode = OH_Drawing_PathAddMode(1);
 }
 #[repr(transparent)]
-/// Add mode of path.
+/// Enumerates the path adding modes.
 ///
 ///
 /// Available since API-level: 12
@@ -71,17 +79,17 @@ pub struct OH_Drawing_PathAddMode(pub ::core::ffi::c_uint);
 impl OH_Drawing_PathOpMode {
     /// Difference operation.
     pub const PATH_OP_MODE_DIFFERENCE: OH_Drawing_PathOpMode = OH_Drawing_PathOpMode(0);
-    /// Intersect operation.
+    /// Intersection operation.
     pub const PATH_OP_MODE_INTERSECT: OH_Drawing_PathOpMode = OH_Drawing_PathOpMode(1);
     /// Union operation.
     pub const PATH_OP_MODE_UNION: OH_Drawing_PathOpMode = OH_Drawing_PathOpMode(2);
-    /// Xor operation.
+    /// XOR operation.
     pub const PATH_OP_MODE_XOR: OH_Drawing_PathOpMode = OH_Drawing_PathOpMode(3);
     /// Reverse difference operation.
     pub const PATH_OP_MODE_REVERSE_DIFFERENCE: OH_Drawing_PathOpMode = OH_Drawing_PathOpMode(4);
 }
 #[repr(transparent)]
-/// Operations when two paths are combined.
+/// Enumerates the operation modes available for a path.
 ///
 ///
 /// Available since API-level: 12
@@ -94,18 +102,18 @@ pub struct OH_Drawing_PathOpMode(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl OH_Drawing_PathMeasureMatrixFlags {
-    /// Gets position.
+    /// Matrix corresponding to the position information.
     pub const GET_POSITION_MATRIX: OH_Drawing_PathMeasureMatrixFlags =
         OH_Drawing_PathMeasureMatrixFlags(0);
-    /// Gets tangent.
+    /// Matrix corresponding to the tangent information.
     pub const GET_TANGENT_MATRIX: OH_Drawing_PathMeasureMatrixFlags =
         OH_Drawing_PathMeasureMatrixFlags(1);
-    /// Gets both position and tangent.
+    /// Matrix corresponding to the position and tangent information.
     pub const GET_POSITION_AND_TANGENT_MATRIX: OH_Drawing_PathMeasureMatrixFlags =
         OH_Drawing_PathMeasureMatrixFlags(2);
 }
 #[repr(transparent)]
-/// Enumerates the matrix information corresponding to the path measurements.
+/// Enumerates the types of matrix information obtained during path measurement.
 ///
 ///
 /// Available since API-level: 12
@@ -116,30 +124,28 @@ impl OH_Drawing_PathMeasureMatrixFlags {
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OH_Drawing_PathMeasureMatrixFlags(pub ::core::ffi::c_uint);
 extern "C" {
-    /// Creates an <b>OH_Drawing_Path</b> object.
+    /// Creates an **OH_Drawing_Path** object.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the <b>OH_Drawing_Path</b> object created.
+    /// * Returns the pointer to the **OH_Drawing_Path** object created.
     ///
     /// Available since API-level: 8
     ///
     /// Version: 1.0
     pub fn OH_Drawing_PathCreate() -> *mut OH_Drawing_Path;
-    /// Creates an <b>OH_Drawing_Path</b> copy object.
+    /// Creates a copy of the [`OH_Drawing_Path`](crate::types::OH_Drawing_Path) object.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **path** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `path` - Pointer to the [`OH_Drawing_Path`](crate::types::OH_Drawing_Path) object.
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the <b>OH_Drawing_Path</b> object created.
+    /// * Pointer to the copy of the [`OH_Drawing_Path`](crate::types::OH_Drawing_Path) object.
     ///
     /// Available since API-level: 12
     ///
@@ -147,33 +153,29 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_PathCopy(path: *mut OH_Drawing_Path) -> *mut OH_Drawing_Path;
-    /// Destroys an <b>OH_Drawing_Path</b> object and reclaims the memory occupied by the object.
+    /// Destroys an **OH_Drawing_Path** object and reclaims the memory occupied by the object.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `path` - Pointer to an **OH_Drawing_Path** object.
     ///
     /// Available since API-level: 8
     ///
     /// Version: 1.0
     pub fn OH_Drawing_PathDestroy(path: *mut OH_Drawing_Path);
-    /// Sets <b>OH_Drawing_Path</b> object with the same content of another.
+    /// Sets a path object as the current path object.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `path` - Pointer to the [`OH_Drawing_Path`](crate::types::OH_Drawing_Path) object.
     ///
-    /// * `other` - Indicates the pointer to an <b>OH_Drawing_Path</b> object to copy content from.
+    /// * `other` - Pointer to the [`OH_Drawing_Path`](crate::types::OH_Drawing_Path) object to be set.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`](crate::error_code::DrawingErrorCode::INVALID_PARAMETER) if path or other is nullptr.
+    /// * Execution result.
+    /// **OH_DRAWING_SUCCESS** if the operation is successful.
+    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if **path** or **other** is NULL.
     ///
     /// Available since API-level: 20
     ///
@@ -184,21 +186,20 @@ extern "C" {
         path: *mut OH_Drawing_Path,
         other: *mut OH_Drawing_Path,
     ) -> crate::error_code::DrawingResult;
-    /// Checks if <b>OH_Drawing_Path</b> object is empty.
+    /// Checks whether a path object is empty.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `path` - Pointer to the [`OH_Drawing_Path`](crate::types::OH_Drawing_Path) object.
     ///
-    /// * `isEmpty` - Indicates the return value.
+    /// * `isEmpty` - Whether the path object is empty. **true** means empty; **false** otherwise. It as an output
+    /// parameter.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`](crate::error_code::DrawingErrorCode::INVALID_PARAMETER) if path or isEmpty is nullptr.
+    /// * Execution result.
+    /// **OH_DRAWING_SUCCESS** if the operation is successful.
+    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if **path** or **isEmpty** is NULL.
     ///
     /// Available since API-level: 20
     ///
@@ -209,23 +210,21 @@ extern "C" {
         path: *mut OH_Drawing_Path,
         isEmpty: *mut bool,
     ) -> crate::error_code::DrawingResult;
-    /// Checks if <b>OH_Drawing_Path</b> represents a rectangle.
+    /// Checks whether a path object forms a rectangle.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `path` - Pointer to the [`OH_Drawing_Path`](crate::types::OH_Drawing_Path) object.
     ///
-    /// * `rect` - Indicates the Pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `rect` - Pointer to the [`OH_Drawing_Rect`](crate::types::OH_Drawing_Rect) object, which is used as an output parameter and can be null.
     ///
-    /// * `isRect` - Indicates the return value.
+    /// * `isRect` - Whether a path forms a rectangle. **true** means yes; **false** otherwise. It as an output parameter.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`](crate::error_code::DrawingErrorCode::INVALID_PARAMETER) if path or isRect is nullptr.
+    /// * Execution result.
+    /// **OH_DRAWING_SUCCESS** if the operation is successful.
+    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if **path** or **isRect** is NULL.
     ///
     /// Available since API-level: 20
     ///
@@ -237,62 +236,64 @@ extern "C" {
         rect: *mut OH_Drawing_Rect,
         isRect: *mut bool,
     ) -> crate::error_code::DrawingResult;
-    /// Sets the start point of a path.
+    /// Sets the start point of this path.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **path** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `path` - Pointer to an **OH_Drawing_Path** object.
     ///
-    /// * `x` - Indicates the x coordinate of the start point.
+    /// * `x` - X coordinate of the start point.
     ///
-    /// * `y` - Indicates the y coordinate of the start point.
+    /// * `y` - Y coordinate of the start point.
     ///
     /// Available since API-level: 8
     ///
     /// Version: 1.0
     pub fn OH_Drawing_PathMoveTo(path: *mut OH_Drawing_Path, x: f32, y: f32);
-    /// Draws a line segment from the last point of a path to the target point.
+    /// Draws a line segment from the last point of this path to the target point. If the path is empty, the start
+    /// point (0, 0) is used.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **path** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `path` - Pointer to an **OH_Drawing_Path** object.
     ///
-    /// * `x` - Indicates the x coordinate of the target point.
+    /// * `x` - X coordinate of the target point.
     ///
-    /// * `y` - Indicates the y coordinate of the target point.
+    /// * `y` - Y coordinate of the target point.
     ///
     /// Available since API-level: 8
     ///
     /// Version: 1.0
     pub fn OH_Drawing_PathLineTo(path: *mut OH_Drawing_Path, x: f32, y: f32);
-    /// Draws an arc to a path.
+    /// Draws an arc to a path. This is done by using angle arc mode. In this mode, a rectangle is specified first,
+    /// and then a start angle and scanning degree are specified. The inscribed ellipse of the rectangle will be used to
+    /// intercept the arc.
+    /// The arc is a portion of the ellipse defined by the start angle and the sweep angle. If the path is empty, a line
+    /// segment from the last point of the path to the start point of the arc is also added.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **path** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    /// This is done by using angle arc mode. In this mode, a rectangle that encloses an ellipse is specified first,
-    /// and then a start angle and a sweep angle are specified.
-    /// The arc is a portion of the ellipse defined by the start angle and the sweep angle.
-    /// By default, a line segment from the last point of the path to the start point of the arc is also added.
-    ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `path` - Pointer to an **OH_Drawing_Path** object.
     ///
-    /// * `x1` - Indicates the x coordinate of the upper left corner of the rectangle.
+    /// * `x1` - X coordinate of the upper left corner of the rectangle.
     ///
-    /// * `y1` - Indicates the y coordinate of the upper left corner of the rectangle.
+    /// * `y1` - Y coordinate of the upper left corner of the rectangle.
     ///
-    /// * `x2` - Indicates the x coordinate of the lower right corner of the rectangle.
+    /// * `x2` - X coordinate of the lower right corner of the rectangle.
     ///
-    /// * `y2` - Indicates the y coordinate of the lower right corner of the rectangle.
+    /// * `y2` - Y coordinate of the lower right corner of the rectangle.
     ///
-    /// * `startDeg` - Indicates the start angle, in degrees.
+    /// * `startDeg` - Start angle. The start direction (0°) of the angle is the positive direction of the X axis.
     ///
-    /// * `sweepDeg` - Indicates the angle to sweep, in degrees.
+    /// * `sweepDeg` - Angle to sweep, in degrees. A positive number indicates a clockwise sweep, and a negative value
+    /// indicates a counterclockwise swipe. The actual swipe degree is the modulo operation result of the input parameter by
+    /// 360.
     ///
     /// Available since API-level: 8
     ///
@@ -306,21 +307,22 @@ extern "C" {
         startDeg: f32,
         sweepDeg: f32,
     );
-    /// Draws a quadratic Bezier curve from the last point of a path to the target point.
+    /// Draws a quadratic Bezier curve from the last point of a path to the target point. If the path is empty, the
+    /// start point (0, 0) is used.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **path** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `path` - Pointer to an **OH_Drawing_Path** object.
     ///
-    /// * `ctrlX` - Indicates the x coordinate of the control point.
+    /// * `ctrlX` - X coordinate of the control point.
     ///
-    /// * `ctrlY` - Indicates the y coordinate of the control point.
+    /// * `ctrlY` - Y coordinate of the control point.
     ///
-    /// * `endX` - Indicates the x coordinate of the target point.
+    /// * `endX` - X coordinate of the target point.
     ///
-    /// * `endY` - Indicates the y coordinate of the target point.
+    /// * `endY` - Y coordinate of the target point.
     ///
     /// Available since API-level: 8
     ///
@@ -332,23 +334,28 @@ extern "C" {
         endX: f32,
         endY: f32,
     );
-    /// Draws a conic from the last point of a path to the target point.
+    /// Draws a conic curve from the last point of a path to the target point. If the path is empty, the start point (
+    /// 0, 0) is used.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **path** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `path` - Pointer to the [`OH_Drawing_Path`](crate::types::OH_Drawing_Path) object.
     ///
-    /// * `ctrlX` - Indicates the x coordinate of the control point.
+    /// * `ctrlX` - X coordinate of the control point.
     ///
-    /// * `ctrlY` - Indicates the y coordinate of the control point.
+    /// * `ctrlY` - Y coordinate of the control point.
     ///
-    /// * `endX` - Indicates the x coordinate of the target point.
+    /// * `endX` - X coordinate of the target point.
     ///
-    /// * `endY` - Indicates the y coordinate of the target point.
+    /// * `endY` - Y coordinate of the target point.
     ///
-    /// * `weight` - Indicates the weight of added conic.
+    /// * `weight` - Weight of the curve, which determines its shape. The larger the value, the closer of the curve to the
+    /// control point.
+    /// If the value is less than or equal to **0**, the result is equivalent to a line segment from the start point to the
+    /// end point, which is added by calling [`OH_Drawing_PathLineTo`](crate::path::OH_Drawing_PathLineTo).
+    /// If the value is **1**, the result is equivalent to [`OH_Drawing_PathQuadTo`](crate::path::OH_Drawing_PathQuadTo).
     ///
     /// Available since API-level: 12
     ///
@@ -363,25 +370,26 @@ extern "C" {
         endY: f32,
         weight: f32,
     );
-    /// Draws a cubic Bezier curve from the last point of a path to the target point.
+    /// Draws a cubic Bezier curve from the last point of this path to the target point. If the path is empty, the
+    /// start point (0, 0) is used.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **path** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `path` - Pointer to an **OH_Drawing_Path** object.
     ///
-    /// * `ctrlX1` - Indicates the x coordinate of the first control point.
+    /// * `ctrlX1` - X coordinate of the first control point.
     ///
-    /// * `ctrlY1` - Indicates the y coordinate of the first control point.
+    /// * `ctrlY1` - Y coordinate of the first control point.
     ///
-    /// * `ctrlX2` - Indicates the x coordinate of the second control point.
+    /// * `ctrlX2` - X coordinate of the second control point.
     ///
-    /// * `ctrlY2` - Indicates the y coordinate of the second control point.
+    /// * `ctrlY2` - Y coordinate of the second control point.
     ///
-    /// * `endX` - Indicates the x coordinate of the target point.
+    /// * `endX` - X coordinate of the target point.
     ///
-    /// * `endY` - Indicates the y coordinate of the target point.
+    /// * `endY` - Y coordinate of the target point.
     ///
     /// Available since API-level: 8
     ///
@@ -395,17 +403,20 @@ extern "C" {
         endX: f32,
         endY: f32,
     );
-    /// Sets the relative starting point of a path.
+    /// Sets the start position relative to the last point of a path. If the path is empty, the start point (0, 0) is
+    /// used.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **path** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `path` - Pointer to the [`OH_Drawing_Path`](crate::types::OH_Drawing_Path) object.
     ///
-    /// * `x` - Indicates the x coordinate of the relative starting point.
+    /// * `x` - X-axis offset relative to the end point of a path. A positive number indicates an offset in the positive
+    /// direction of the X axis, and a negative number indicates an offset in the negative direction of the X axis.
     ///
-    /// * `y` - Indicates the y coordinate of the relative starting point.
+    /// * `y` - Y-axis offset relative to the end point of a path. A positive number indicates an offset in the positive
+    /// direction of the Y axis, and a negative number indicates an offset in the negative direction of the Y axis.
     ///
     /// Available since API-level: 12
     ///
@@ -413,17 +424,18 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_PathRMoveTo(path: *mut OH_Drawing_Path, x: f32, y: f32);
-    /// Draws a line segment from the last point of a path to the relative target point.
+    /// Draws a line segment from the last point of this path to a point relative to the last point. If the path is
+    /// empty, the start point (0, 0) is used.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **path** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `path` - Pointer to the [`OH_Drawing_Path`](crate::types::OH_Drawing_Path) object.
     ///
-    /// * `x` - Indicates the x coordinate of the relative target point.
+    /// * `x` - X offset relative to the last point, which is used to specify the X coordinate of the target point.
     ///
-    /// * `y` - Indicates the y coordinate of the relative target point.
+    /// * `y` - Y offset relative to the last point, which is used to specify the X coordinate of the target point.
     ///
     /// Available since API-level: 12
     ///
@@ -431,21 +443,22 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_PathRLineTo(path: *mut OH_Drawing_Path, x: f32, y: f32);
-    /// Draws a quadratic bezier curve from the last point of a path to the relative target point.
+    /// Draws a quadratic Bezier curve from the last point of this path to a point relative to the last point. If the
+    /// path is empty, the start point (0, 0) is used.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **path** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `path` - Pointer to the [`OH_Drawing_Path`](crate::types::OH_Drawing_Path) object.
     ///
-    /// * `ctrlX` - Indicates the x coordinate of the relative control point.
+    /// * `ctrlX` - X offset relative to the last point, which is used to specify the X coordinate of the control point.
     ///
-    /// * `ctrlY` - Indicates the y coordinate of the relative control point.
+    /// * `ctrlY` - Y offset relative to the last point, which is used to specify the Y coordinate of the control point.
     ///
-    /// * `endX` - Indicates the x coordinate of the relative target point.
+    /// * `endX` - X offset relative to the last point, which is used to specify the X coordinate of the target point.
     ///
-    /// * `endY` - Indicates the y coordinate of the relative target point.
+    /// * `endY` - Y offset relative to the last point, which is used to specify the Y coordinate of the target point.
     ///
     /// Available since API-level: 12
     ///
@@ -459,23 +472,28 @@ extern "C" {
         endX: f32,
         endY: f32,
     );
-    /// Draws a conic from the last point of a path to the relative target point.
+    /// Draws a conic curve from the last point of a path to a point relative to the last point. If the path is empty,
+    /// the start point (0, 0) is used.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **path** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `path` - Pointer to the [`OH_Drawing_Path`](crate::types::OH_Drawing_Path) object.
     ///
-    /// * `ctrlX` - Indicates the x coordinate of the relative control point.
+    /// * `ctrlX` - X offset relative to the last point, which is used to specify the X coordinate of the control point.
     ///
-    /// * `ctrlY` - Indicates the y coordinate of the relative control point.
+    /// * `ctrlY` - Y offset relative to the last point, which is used to specify the Y coordinate of the control point.
     ///
-    /// * `endX` - Indicates the x coordinate of the relative target point.
+    /// * `endX` - X offset relative to the last point, which is used to specify the X coordinate of the target point.
     ///
-    /// * `endY` - Indicates the y coordinate of the relative target point.
+    /// * `endY` - Y offset relative to the last point, which is used to specify the Y coordinate of the target point.
     ///
-    /// * `weight` - Indicates the weight of added conic.
+    /// * `weight` - Weight of the curve, which determines its shape. The larger the value, the closer of the curve to the
+    /// control point.
+    /// If the value is less than or equal to **0**, the result is equivalent to a line segment from the start point to the
+    /// end point, which is added by calling [`OH_Drawing_PathRLineTo`](crate::path::OH_Drawing_PathRLineTo).
+    /// If the value is **1**, the result is equivalent to [`OH_Drawing_PathRQuadTo`](crate::path::OH_Drawing_PathRQuadTo).
     ///
     /// Available since API-level: 12
     ///
@@ -490,25 +508,30 @@ extern "C" {
         endY: f32,
         weight: f32,
     );
-    /// Draws a cubic bezier curve from the last point of a path to the relative target point.
+    /// Draws a cubic Bezier curve from the last point of a path to a point relative to the last point. If the path
+    /// is empty, the start point (0, 0) is used.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **path** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `path` - Pointer to the [`OH_Drawing_Path`](crate::types::OH_Drawing_Path) object.
     ///
-    /// * `ctrlX1` - Indicates the x coordinate of the first relative control point.
+    /// * `ctrlX1` - X offset relative to the last point, which is used to specify the X coordinate of the first control
+    /// point.
     ///
-    /// * `ctrlY1` - Indicates the y coordinate of the first relative control point.
+    /// * `ctrlY1` - Y offset relative to the last point, which is used to specify the Y coordinate of the first control
+    /// point.
     ///
-    /// * `ctrlX2` - Indicates the x coordinate of the second relative control point.
+    /// * `ctrlX2` - X offset relative to the last point, which is used to specify the X coordinate of the second control
+    /// point.
     ///
-    /// * `ctrlY2` - Indicates the y coordinate of the second relative control point.
+    /// * `ctrlY2` - Y offset relative to the last point, which is used to specify the Y coordinate of the second control
+    /// point.
     ///
-    /// * `endX` - Indicates the x coordinate of the relative target point.
+    /// * `endX` - X offset relative to the last point, which is used to specify the X coordinate of the target point.
     ///
-    /// * `endY` - Indicates the y coordinate of the relative target point.
+    /// * `endY` - Y offset relative to the last point, which is used to specify the Y coordinate of the target point.
     ///
     /// Available since API-level: 12
     ///
@@ -524,23 +547,26 @@ extern "C" {
         endX: f32,
         endY: f32,
     );
-    /// Adds a new contour to the path, defined by the rect, and wound in the specified direction.
+    /// Adds a rectangle to a path in the specified direction. The start point is the upper left corner of the
+    /// rectangle.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **path** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
+    /// If **pathDirection** is not set to one of the enumerated values, **OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE** is
+    /// returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `path` - Pointer to the [`OH_Drawing_Path`](crate::types::OH_Drawing_Path) object.
     ///
-    /// * `left` - Indicates the left coordinate of the upper left corner of the rectangle.
+    /// * `left` - X coordinate of the upper left corner of the rectangle.
     ///
-    /// * `top` - Indicates the top coordinate of the upper top corner of the rectangle.
+    /// * `top` - Y coordinate of the upper left corner of the rectangle.
     ///
-    /// * `right` - Indicates the right coordinate of the lower right corner of the rectangle.
+    /// * `right` - X coordinate of the lower right corner of the rectangle.
     ///
-    /// * `bottom` - Indicates the bottom coordinate of the lower bottom corner of the rectangle.
+    /// * `bottom` - Y coordinate of the lower right corner of the rectangle.
     ///
-    /// * `pathDirection` - Indicates the path direction.
+    /// * `pathDirection` - [`OH_Drawing_PathDirection`](crate::path::OH_Drawing_PathDirection) object.
     ///
     /// Available since API-level: 12
     ///
@@ -555,19 +581,23 @@ extern "C" {
         bottom: f32,
         pathDirection: OH_Drawing_PathDirection,
     );
-    /// Adds a new contour to the path, defined by the rect, and wound in the specified direction.
+    /// Adds a rectangle contour to a path in the specified direction.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If either **path** or **rect** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
+    /// If **pathDirection** is not set to one of the enumerated values, **OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE** is
+    /// returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `path` - Pointer to the [`OH_Drawing_Path`](crate::types::OH_Drawing_Path) object.
     ///
-    /// * `rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `rect` - Pointer to the [`OH_Drawing_Rect`](crate::types::OH_Drawing_Rect) object.
     ///
     /// * `pathDirection` - Indicates the path direction.
     ///
-    /// * `start` - Indicates initial corner of rect to add.
+    /// * `start` - Start point, indicating the corner of the rectangle from which the path is drawn. The value **0** means
+    /// the upper left corner, **1** means the upper right corner, **2** means the lower right corner, and **3** means the
+    /// lower left corner.
     ///
     /// Available since API-level: 12
     ///
@@ -580,17 +610,22 @@ extern "C" {
         pathDirection: OH_Drawing_PathDirection,
         start: u32,
     );
-    /// Adds a new contour to the path, defined by the round rect, and wound in the specified direction.
+    /// Adds a rounded rectangle to a path in the specified direction. When the path direction is clockwise, the
+    /// start point is at the intersection of the rounded rectangle's left boundary and its lower left corner. When the path
+    /// direction is counterclockwise, the start point is at the intersection point between the left boundary and the upper
+    /// left corner.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If either **path** or **roundRect** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
+    /// If **pathDirection** is not set to one of the enumerated values, **OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE** is
+    /// returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `path` - Pointer to the [`OH_Drawing_Path`](crate::types::OH_Drawing_Path) object.
     ///
-    /// * `roundRect` - Indicates the pointer to an <b>OH_Drawing_RoundRect</b> object.
+    /// * `roundRect` - Pointer to the [`OH_Drawing_RoundRect`](crate::types::OH_Drawing_RoundRect) object.
     ///
-    /// * `pathDirection` - Indicates the path direction.
+    /// * `pathDirection` - [`OH_Drawing_PathDirection`](crate::path::OH_Drawing_PathDirection) object.
     ///
     /// Available since API-level: 12
     ///
@@ -602,19 +637,22 @@ extern "C" {
         roundRect: *const OH_Drawing_RoundRect,
         pathDirection: OH_Drawing_PathDirection,
     );
-    /// Adds a oval to the path, defined by the rect, and wound in the specified direction.
+    /// Adds an oval to a path. **OH_Drawing_Rect** specifies the outer tangent rectangle of the oval, and **
+    /// OH_Drawing_PathDirection** specifies whether the drawing is clockwise or counterclockwise.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If either **path** or **rect** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
+    /// If **pathDirection** is not set to one of the enumerated values, **OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE** is
+    /// returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `path` - Pointer to the [`OH_Drawing_Path`](crate::types::OH_Drawing_Path) object.
     ///
-    /// * `rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `rect` - Pointer to the [`OH_Drawing_Rect`](crate::types::OH_Drawing_Rect) object.
     ///
-    /// * `start` - Index of initial point of ellipse.
+    /// * `start` - Start point of the oval.
     ///
-    /// * `pathDirection` - Indicates the path direction.
+    /// * `pathDirection` - [`OH_Drawing_PathDirection`](crate::path::OH_Drawing_PathDirection) object.
     ///
     /// Available since API-level: 12
     ///
@@ -627,17 +665,19 @@ extern "C" {
         start: u32,
         pathDirection: OH_Drawing_PathDirection,
     );
-    /// Adds a oval to the path, defined by the rect, and wound in the specified direction.
+    /// Adds an oval to a path in the specified direction.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If either **path** or **rect** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
+    /// If **pathDirection** is not set to one of the enumerated values, **OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE** is
+    /// returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `path` - Pointer to the [`OH_Drawing_Path`](crate::types::OH_Drawing_Path) object.
     ///
-    /// * `rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `rect` - Pointer to the [`OH_Drawing_Rect`](crate::types::OH_Drawing_Rect) object.
     ///
-    /// * `pathDirection` - Indicates the path direction.
+    /// * `pathDirection` - [`OH_Drawing_PathDirection`](crate::path::OH_Drawing_PathDirection) object.
     ///
     /// Available since API-level: 12
     ///
@@ -649,23 +689,24 @@ extern "C" {
         rect: *const OH_Drawing_Rect,
         pathDirection: OH_Drawing_PathDirection,
     );
-    /// Appends arc to path, as the start of new contour.Arc added is part of ellipse bounded by oval,
-    /// from startAngle through sweepAngle. Both startAngle and sweepAngle are measured in degrees, where zero degrees
-    /// is aligned with the positive x-axis, and positive sweeps extends arc clockwise.If sweepAngle <= -360, or
-    /// sweepAngle >= 360; and startAngle modulo 90 is nearly zero, append oval instead of arc. Otherwise, sweepAngle
-    /// values are treated modulo 360, and arc may or may not draw depending on numeric rounding.
+    /// Adds an arc to a path as the start of a new contour. The arc added is part of the inscribed ellipse of the
+    /// rectangle, from the start angle through the sweep angle. If the sweep angle is less than or equal to -360°, or if
+    /// the sweep angle is greater than or equal to 360°, and start angle modulo 90 is nearly zero, an oval instead of an
+    /// ellipse is added.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If either **path** or **rect** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `path` - Pointer to the [`OH_Drawing_Path`](crate::types::OH_Drawing_Path) object.
     ///
-    /// * `rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `rect` - Pointer to the [`OH_Drawing_Rect`](crate::types::OH_Drawing_Rect) object.
     ///
-    /// * `startAngle` - Indicates the starting angle of arc in degrees.
+    /// * `startAngle` - Start angle of the arc, in degrees.
     ///
-    /// * `sweepAngle` - Indicates the sweep, in degrees. Positive is clockwise.
+    /// * `sweepAngle` - Angle to sweep, in degrees. A positive number indicates a clockwise sweep, and a negative value
+    /// indicates a counterclockwise swipe. The actual swipe degree is the modulo operation result of the input parameter by
+    /// 360.
     ///
     /// Available since API-level: 12
     ///
@@ -678,18 +719,17 @@ extern "C" {
         startAngle: f32,
         sweepAngle: f32,
     );
-    /// Appends src path to path, transformed by matrix. Transformed curves may have different verbs,
-    /// point, and conic weights.
+    /// Transforms the points in a **src** path by a matrix and adds the new one to the current path.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If either **path** or **src** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `path` - Pointer to the existing [`OH_Drawing_Path`](crate::types::OH_Drawing_Path) object.
     ///
-    /// * `src` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `src` - Pointer to the source [`OH_Drawing_Path`](crate::types::OH_Drawing_Path) object.
     ///
-    /// * `matrix` - Indicates the length of the <b>OH_Drawing_Matrix</b> object.
+    /// * `matrix` - Pointer to the [`OH_Drawing_Matrix`](crate::types::OH_Drawing_Matrix) object. A null pointer means an identity matrix.
     ///
     /// Available since API-level: 12
     ///
@@ -701,20 +741,22 @@ extern "C" {
         src: *const OH_Drawing_Path,
         matrix: *const OH_Drawing_Matrix,
     );
-    /// Appends src path to path, transformed by matrix and mode. Transformed curves may have different verbs,
-    /// point, and conic weights.
+    /// Transforms the points in a **src** path by a matrix and adds the new one to the current path with the
+    /// specified adding mode.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If either **path** or **src** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
+    /// If **pathAddMode** is not set to one of the enumerated values, **OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE** is
+    /// returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `path` - Pointer to the existing [`OH_Drawing_Path`](crate::types::OH_Drawing_Path) object.
     ///
-    /// * `src` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `src` - Pointer to the source [`OH_Drawing_Path`](crate::types::OH_Drawing_Path) object.
     ///
-    /// * `matrix` - Indicates the length of the <b>OH_Drawing_Matrix</b> object.
+    /// * `matrix` - Pointer to the [`OH_Drawing_Matrix`](crate::types::OH_Drawing_Matrix) object. A null pointer means an identity matrix.
     ///
-    /// * `pathAddMode` - Indicates the add path's add mode.
+    /// * `pathAddMode` - [`OH_Drawing_PathAddMode`](crate::path::OH_Drawing_PathAddMode) object.
     ///
     /// Available since API-level: 12
     ///
@@ -727,18 +769,19 @@ extern "C" {
         matrix: *const OH_Drawing_Matrix,
         pathAddMode: OH_Drawing_PathAddMode,
     );
-    /// Appends src path to path, transformed by mode. Transformed curves may have different verbs,
-    /// point, and conic weights.
+    /// Adds a **src** path to the current path with the specified adding mode.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If either **path** or **src** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
+    /// If **pathAddMode** is not set to one of the enumerated values, **OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE** is
+    /// returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `path` - Pointer to the existing [`OH_Drawing_Path`](crate::types::OH_Drawing_Path) object.
     ///
-    /// * `src` - Indicates the pointer to an <b>OH_Drawing_Path</b> object, which is Appends src path to path.
+    /// * `src` - Pointer to the source [`OH_Drawing_Path`](crate::types::OH_Drawing_Path) object.
     ///
-    /// * `pathAddMode` - Indicates the add path's add mode.
+    /// * `pathAddMode` - [`OH_Drawing_PathAddMode`](crate::path::OH_Drawing_PathAddMode) object.
     ///
     /// Available since API-level: 12
     ///
@@ -750,22 +793,24 @@ extern "C" {
         src: *const OH_Drawing_Path,
         pathAddMode: OH_Drawing_PathAddMode,
     );
-    /// Appends src path to path, transformed by offset and mode. Transformed curves may have different verbs,
-    /// point, and conic weights.
+    /// Translates a **src** path by an offset and adds the new one to the current path with the specified adding
+    /// mode.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If either **path** or **src** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
+    /// If **pathAddMode** is not set to one of the enumerated values, **OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE** is
+    /// returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `path` - Pointer to the existing [`OH_Drawing_Path`](crate::types::OH_Drawing_Path) object.
     ///
-    /// * `src` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `src` - Pointer to the source [`OH_Drawing_Path`](crate::types::OH_Drawing_Path) object.
     ///
-    /// * `dx` - Indicates offset added to src path x-axis coordinates.
+    /// * `dx` - X offset.
     ///
-    /// * `dy` - Indicates offset added to src path y-axis coordinates.
+    /// * `dy` - Y offset.
     ///
-    /// * `pathAddMode` - Indicates the add path's add mode.
+    /// * `pathAddMode` - [`OH_Drawing_PathAddMode`](crate::path::OH_Drawing_PathAddMode) object.
     ///
     /// Available since API-level: 12
     ///
@@ -779,19 +824,20 @@ extern "C" {
         dy: f32,
         pathAddMode: OH_Drawing_PathAddMode,
     );
-    /// Adds contour created from point array, adding (count - 1) line segments.
+    /// Adds a polygon to a path.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If either **path** or **points** is NULL or **count** is **0**, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `path` - Pointer to the existing [`OH_Drawing_Path`](crate::types::OH_Drawing_Path) object.
     ///
-    /// * `points` - Indicates the point array.
+    /// * `points` - Pointer to an array that holds the vertex coordinates of the polygon.
     ///
-    /// * `count` - Indicates the size of point array.
+    /// * `count` - Size of the array.
     ///
-    /// * `isClosed` - Indicates Whether to add lines that connect the end and start.
+    /// * `isClosed` - Whether the path is closed. The value **true** means that the path is closed, and **false** means
+    /// the opposite.
     ///
     /// Available since API-level: 12
     ///
@@ -804,21 +850,24 @@ extern "C" {
         count: u32,
         isClosed: bool,
     );
-    ///  Adds a circle to the path, and wound in the specified direction.
+    /// Adds a circle to a path in the specified direction.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **path** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
+    /// If **radius** is less than or equal to 0, **OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE** is returned.
+    /// If **pathDirection** is not set to one of the enumerated values, **OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE** is
+    /// returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `path` - Pointer to the [`OH_Drawing_Path`](crate::types::OH_Drawing_Path) object.
     ///
-    /// * `x` - Indicates the x coordinate of the center of the circle.
+    /// * `x` - X coordinate of the circle center.
     ///
-    /// * `y` - Indicates the y coordinate of the center of the circle.
+    /// * `y` - Y coordinate of the circle center.
     ///
-    /// * `radius` - Indicates the radius of the circle.
+    /// * `radius` - Radius of the circle.
     ///
-    /// * `pathDirection` - Indicates the path direction.
+    /// * `pathDirection` - [`OH_Drawing_PathDirection`](crate::path::OH_Drawing_PathDirection) object.
     ///
     /// Available since API-level: 12
     ///
@@ -832,19 +881,19 @@ extern "C" {
         radius: f32,
         pathDirection: OH_Drawing_PathDirection,
     );
-    /// Parses the svg path from the string.
+    /// Parses the path represented by an SVG string.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If either **path** or **str** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `path` - Pointer to the [`OH_Drawing_Path`](crate::types::OH_Drawing_Path) object.
     ///
-    /// * `str` - Indicates the string of the SVG path.
+    /// * `str` - Pointer to the SVG string.
     ///
     /// # Returns
     ///
-    /// * Returns true if build path is successful, returns false otherwise.
+    /// * Returns whether the SVG string is successfully parsed. **true** means successful; **false** otherwise.
     ///
     /// Available since API-level: 12
     ///
@@ -855,21 +904,117 @@ extern "C" {
         path: *mut OH_Drawing_Path,
         str_: *const ::core::ffi::c_char,
     ) -> bool;
-    /// Return the status that point (x, y) is contained by path.
+    /// Convert path to an SVG string.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
     /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
     ///
-    /// * `x` - Indicates the x-axis value of containment test.
+    /// * `str` - Indicates the SVG string. API users are responsible for allocating and freeing memory.
     ///
-    /// * `y` - Indicates the y-axis value of containment test.
+    /// * `strSize` - Indicates the SVG string memory size in bytes.
     ///
     /// # Returns
     ///
-    /// * Returns true if the point (x, y) is contained by path.
+    /// * Returns the error code.
+    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`](crate::error_code::DrawingErrorCode::INCORRECT_PARAMETER) if path or strSize is nullptr.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_Drawing_PathConvertToSvgString(
+        path: *const OH_Drawing_Path,
+        str_: *mut ::core::ffi::c_char,
+        strSize: *mut usize,
+    ) -> crate::error_code::DrawingResult;
+    /// Get path point data.
+    ///
+    /// # Arguments
+    ///
+    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    ///
+    /// * `points` - Indicates the path point array.
+    ///
+    /// * `count` - Indicates the size of point array.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`](crate::error_code::DrawingErrorCode::INCORRECT_PARAMETER) if path or count is nullptr.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_Drawing_PathGetPointData(
+        path: *const OH_Drawing_Path,
+        points: *mut OH_Drawing_Point2D,
+        count: *mut u32,
+    ) -> crate::error_code::DrawingResult;
+    /// Get path verb data.
+    ///
+    /// # Arguments
+    ///
+    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    ///
+    /// * `verbs` - Indicates the path verb array.
+    ///
+    /// * `count` - Indicates the size of verb array.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`](crate::error_code::DrawingErrorCode::INCORRECT_PARAMETER) if path or count is nullptr.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_Drawing_PathGetVerbData(
+        path: *const OH_Drawing_Path,
+        verbs: *mut OH_Drawing_PathIteratorVerb,
+        count: *mut u32,
+    ) -> crate::error_code::DrawingResult;
+    /// Get path conic weight data.
+    ///
+    /// # Arguments
+    ///
+    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    ///
+    /// * `conicWeights` - Indicates the path conic weight array.
+    ///
+    /// * `count` - Indicates the size of conic weight array.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`](crate::error_code::DrawingErrorCode::INCORRECT_PARAMETER) if path or count is nullptr.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_Drawing_PathGetConicWeightData(
+        path: *const OH_Drawing_Path,
+        conicWeights: *mut f32,
+        count: *mut u32,
+    ) -> crate::error_code::DrawingResult;
+    /// Checks whether a coordinate point is included in this path. For details, see [`OH_Drawing_PathFillType`](crate::path::OH_Drawing_PathFillType).
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **path** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
+    ///
+    /// # Arguments
+    ///
+    /// * `path` - Pointer to the [`OH_Drawing_Path`](crate::types::OH_Drawing_Path) object.
+    ///
+    /// * `x` - Coordinate point on the X axis.
+    ///
+    /// * `y` - Coordinate point on the Y axis.
+    ///
+    /// # Returns
+    ///
+    /// * Returns **true** if the coordinate point is included in the path; returns **false** otherwise.
     ///
     /// Available since API-level: 12
     ///
@@ -877,16 +1022,15 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_PathContains(path: *mut OH_Drawing_Path, x: f32, y: f32) -> bool;
-    /// Transforms verb array, point array, and weight by matrix. transform may change verbs
-    /// and increase their number. path is replaced by transformed data.
+    /// Transforms the points in a path by matrix.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If either **path** or **matrix** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `path` - Pointer to the [`OH_Drawing_Path`](crate::types::OH_Drawing_Path) object.
     ///
-    /// * `matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    /// * `matrix` - Pointer to the [`OH_Drawing_Matrix`](crate::types::OH_Drawing_Matrix) object.
     ///
     /// Available since API-level: 12
     ///
@@ -894,20 +1038,21 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_PathTransform(path: *mut OH_Drawing_Path, matrix: *const OH_Drawing_Matrix);
-    /// Transforms verb array, point array, and weight by matrix.
-    /// Transform may change verbs and increase their number.
+    /// Transforms the points in a path by matrix, and uses the new one to replace the **dst** path. If **dst** is
+    /// NULL, the **src** path is replaced.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If either **src** or **matrix** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `src` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `src` - Pointer to the [`OH_Drawing_Path`](crate::types::OH_Drawing_Path) object.
     ///
-    /// * `matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    /// * `matrix` - Pointer to the [`OH_Drawing_Matrix`](crate::types::OH_Drawing_Matrix) object.
     ///
-    /// * `dst` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `dst` - Pointer to the target [`OH_Drawing_Path`](crate::types::OH_Drawing_Path) object.
     ///
-    /// * `applyPerspectiveClip` - Indicates whether to apply perspective clip.
+    /// * `applyPerspectiveClip` - Whether to apply perspective cropping to the new path. The value **true** means to apply
+    /// perspective cropping, and **false** means the opposite.
     ///
     /// Available since API-level: 12
     ///
@@ -920,15 +1065,17 @@ extern "C" {
         dst: *mut OH_Drawing_Path,
         applyPerspectiveClip: bool,
     );
-    /// Sets FillType, the rule used to fill path.
+    /// Sets the fill type of a path. The fill type determines how "inside" of the path is drawn.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **path** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
+    /// If **pathFillType** is not set to one of the enumerated values, **OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE** is
+    /// returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `path` - Pointer to the [`OH_Drawing_Path`](crate::types::OH_Drawing_Path) object.
     ///
-    /// * `pathFillType` - Indicates the add path's fill type.
+    /// * `pathFillType` - [`OH_Drawing_PathFillType`](crate::path::OH_Drawing_PathFillType) object.
     ///
     /// Available since API-level: 12
     ///
@@ -939,21 +1086,19 @@ extern "C" {
         path: *mut OH_Drawing_Path,
         pathFillType: OH_Drawing_PathFillType,
     );
-    /// Gets FillType, the rule used to fill path.
+    /// Obtains the fill type of a path.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `path` - Pointer to the [`OH_Drawing_Path`](crate::types::OH_Drawing_Path) object.
     ///
-    /// * `pathFillType` - Indicates the FillType apply to path.
+    /// * `pathFillType` - Pointer to the [`OH_Drawing_PathFillType`](crate::path::OH_Drawing_PathFillType) object.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`](crate::error_code::DrawingErrorCode::INVALID_PARAMETER) if path or pathFillType is nullptr.
+    /// * Execution result.
+    /// **OH_DRAWING_SUCCESS** if the operation is successful.
+    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if **path** or **pathFillType** is NULL.
     ///
     /// Available since API-level: 20
     ///
@@ -964,19 +1109,20 @@ extern "C" {
         path: *mut OH_Drawing_Path,
         pathFillType: *mut OH_Drawing_PathFillType,
     ) -> crate::error_code::DrawingResult;
-    /// Gets the length of the current path object.
+    /// Obtains the length of a path.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **path** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `path` - Pointer to the [`OH_Drawing_Path`](crate::types::OH_Drawing_Path) object.
     ///
-    /// * `forceClosed` - Indicates whether free to modify/delete the path after this call.
+    /// * `forceClosed` - Whether the path is measured as a closed path. **true** means that the path is forcibly
+    /// considered as a closed path; **false** means that the path is measured depending on whether it is a closed path.
     ///
     /// # Returns
     ///
-    /// * Returns the length of the current path object.
+    /// * Returns the length of the path.
     ///
     /// Available since API-level: 12
     ///
@@ -984,15 +1130,15 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_PathGetLength(path: *mut OH_Drawing_Path, forceClosed: bool) -> f32;
-    /// Gets the smallest bounding box that contains the path.
+    /// Obtains the minimum bounds that enclose a path.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If either **path** or **rect** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `path` - Pointer to the [`OH_Drawing_Path`](crate::types::OH_Drawing_Path) object.
     ///
-    /// * `rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `rect` - Pointer to the [`OH_Drawing_Rect`](crate::types::OH_Drawing_Rect) object.
     ///
     /// Available since API-level: 12
     ///
@@ -1000,31 +1146,32 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_PathGetBounds(path: *mut OH_Drawing_Path, rect: *mut OH_Drawing_Rect);
-    /// Closes a path. A line segment from the start point to the last point of the path is added.
+    /// Draws a line segment from the current point to the start point of this path.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **path** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `path` - Pointer to the [`OH_Drawing_Path`](crate::types::OH_Drawing_Path) object.
     ///
     /// Available since API-level: 8
     ///
     /// Version: 1.0
     pub fn OH_Drawing_PathClose(path: *mut OH_Drawing_Path);
-    /// Offset path replaces dst.
+    /// Translates a path by an offset along the X axis and Y axis and adds the new one to the **dst** path.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **path** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `path` - Pointer to the existing [`OH_Drawing_Path`](crate::types::OH_Drawing_Path) object.
     ///
-    /// * `dst` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `dst` - Pointer to a destination path, which is an [`OH_Drawing_Path`](crate::types::OH_Drawing_Path) object. If NULL is passed in, the
+    /// result is stored in the current path.
     ///
-    /// * `dx` - Indicates offset added to dst path x-axis coordinates.
+    /// * `dx` - X offset.
     ///
-    /// * `dy` - Indicates offset added to dst path y-axis coordinates.
+    /// * `dy` - Y offset.
     ///
     /// Available since API-level: 12
     ///
@@ -1037,31 +1184,33 @@ extern "C" {
         dx: f32,
         dy: f32,
     );
-    /// Resets path data.
+    /// Resets the path data.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **path** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `path` - Pointer to an **OH_Drawing_Path** object.
     ///
     /// Available since API-level: 8
     ///
     /// Version: 1.0
     pub fn OH_Drawing_PathReset(path: *mut OH_Drawing_Path);
-    /// Determines whether the path current contour is closed.
+    /// Checks whether a path is closed.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **path** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `path` - Pointer to the [`OH_Drawing_Path`](crate::types::OH_Drawing_Path) object.
     ///
-    /// * `forceClosed` - Whether to close the Path.
+    /// * `forceClosed` - Whether the path is measured as a closed path. The value **true** means that the path is
+    /// considered closed during measurement, and **false** means that the path is measured based on the actual closed
+    /// status.
     ///
     /// # Returns
     ///
-    /// * Returns <b>true</b> if the path current contour is closed; returns <b>false</b> otherwise.
+    /// * Returns **true** if the path is closed; returns **false** otherwise.
     ///
     /// Available since API-level: 12
     ///
@@ -1069,25 +1218,29 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_PathIsClosed(path: *mut OH_Drawing_Path, forceClosed: bool) -> bool;
-    /// Gets the position and tangent of the distance from the starting position of the Path.
+    /// Obtains the coordinates and tangent at a distance from the start point of this path.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If any of **path**, **position**, or **tangent** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `path` - Pointer to the [`OH_Drawing_Path`](crate::types::OH_Drawing_Path) object.
     ///
-    /// * `forceClosed` - Whether to close the Path.
+    /// * `forceClosed` - Whether the path is measured as a closed path. The value **true** means that the path is
+    /// considered closed during measurement, and **false** means that the path is measured based on the actual closed
+    /// status.
     ///
-    /// * `distance` - The distance from the start of the Path.
+    /// * `distance` - Distance from the start point. If the distance is less than 0, it is considered as 0. If the
+    /// distance is greater than the path length, it is considered as the path length.
     ///
-    /// * `position` - Sets to the position of distance from the starting position of the Path.
+    /// * `position` - Pointer to the coordinates.
     ///
-    /// * `tangent` - Sets to the tangent of distance from the starting position of the Path.
+    /// * `tangent` - Pointer to the tangent, where **tangent.x** and **tangent.y** represent the cosine and sine of the
+    /// tangent of the point, respectively.
     ///
     /// # Returns
     ///
-    /// * Returns <b>true</b> if succeeded; returns <b>false</b> otherwise.
+    /// * Returns whether the measurement is successful. **true** means successful; **false** otherwise.
     ///
     /// Available since API-level: 12
     ///
@@ -1101,32 +1254,37 @@ extern "C" {
         position: *mut OH_Drawing_Point2D,
         tangent: *mut OH_Drawing_Point2D,
     ) -> bool;
-    /// Gets the path between the start and end points.
+    /// Extracts a segment of a path and appends it to a destination path.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `path` - Pointer to the [`OH_Drawing_Path`](crate::types::OH_Drawing_Path) object.
     ///
-    /// * `forceClosed` - Whether to close the path.
+    /// * `forceClosed` - Whether the path is measured as a closed path. The value **true** means that the path is
+    /// considered closed during measurement, and **false** means that the path is measured based on the actual closed
+    /// status.
     ///
-    /// * `start` - The distance from the starting point of the segment to the starting point of the path.
+    /// * `start` - Distance from the start point of the path to the start point of the segment. If it is less than 0, it
+    /// defaults to 0. If it is greater than or equal to **stop**, the extraction fails.
     ///
-    /// * `stop` - The distance from the end point of the segment to the starting point of the path.
+    /// * `stop` - Distance from the start point of the path to the end point of the segment. If it is less than or equal
+    /// to **start**, the extraction fails. If it is greater than the path length, it defaults to the path length.
     ///
-    /// * `startWithMoveTo` - Whether the path obtained moveTo to the starting segment.
+    /// * `startWithMoveTo` - Whether to execute [`OH_Drawing_PathMoveTo`](crate::path::OH_Drawing_PathMoveTo) in the destination path to move to its start
+    /// point. The value **true** means to move to the start point, and **false** means the opposite.
     ///
-    /// * `dst` - The path obtained.
+    /// * `dst` - Pointer to a destination path, which is an [`OH_Drawing_Path`](crate::types::OH_Drawing_Path) object. If the extraction succeeds,
+    /// the segment is appended to the path. If the extraction fails, nothing changes.
     ///
-    /// * `result` - Indicates the result of getting the path segment.
-    /// The value is false if the segment is zero-length or start >= stop, and true otherwise.
+    /// * `result` - Pointer to the extraction result. The value **true** means that the extraction is successful, and **
+    /// false** means the opposite. It as an output parameter.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`](crate::error_code::DrawingErrorCode::INVALID_PARAMETER) if any of path, dst and result is nullptr.
+    /// * Returns one of the following result codes:
+    /// **OH_DRAWING_SUCCESS** if the operation is successful.
+    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if at least one of the **path**, **dst**, and **result** parameters is a null
+    /// pointer.
     ///
     /// Available since API-level: 18
     ///
@@ -1142,21 +1300,22 @@ extern "C" {
         dst: *mut OH_Drawing_Path,
         result: *mut bool,
     ) -> crate::error_code::DrawingResult;
-    /// Combines two paths.
+    /// Combines two paths based on the specified operation mode.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If either **path** or **srcPath** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
+    /// If **op** is not set to one of the enumerated values, **OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `path` - Pointer to an [`OH_Drawing_Path`](crate::types::OH_Drawing_Path) object, in which the resulting path is saved.
     ///
-    /// * `other` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `other` - Pointer to the [`OH_Drawing_Path`](crate::types::OH_Drawing_Path) object.
     ///
-    /// * `op` - Indicates the operation to apply to combine.
+    /// * `op` - Operation mode of the path. For details about the available options, see [`OH_Drawing_PathOpMode`](crate::path::OH_Drawing_PathOpMode).
     ///
     /// # Returns
     ///
-    /// * Returns <b>true</b> if constructed path is not empty; returns <b>false</b> otherwise.
+    /// * Returns **true** if the resulting path is not empty; returns **false** otherwise.
     ///
     /// Available since API-level: 12
     ///
@@ -1168,26 +1327,32 @@ extern "C" {
         other: *const OH_Drawing_Path,
         op: OH_Drawing_PathOpMode,
     ) -> bool;
-    /// Computes the corresponding matrix at the specified distance.
+    /// Obtains a transformation matrix at a distance from the start point of this path.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If either **path** or **matrix** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
+    /// If **flag** is not set to one of the enumerated values, **OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `path` - Pointer to the [`OH_Drawing_Path`](crate::types::OH_Drawing_Path) object.
     ///
-    /// * `forceClosed` - Whether to close the Path.
+    /// * `forceClosed` - Whether the path is measured as a closed path. The value **true** means that the path is
+    /// considered closed during measurement, and **false** means that the path is measured based on the actual closed
+    /// status.
     ///
-    /// * `distance` - The distance from the start of the Path.
+    /// * `distance` - Distance from the start point. If the distance is less than 0, it is considered as 0. If the
+    /// distance is greater than the path length, it is considered as the path length.
     ///
-    /// * `matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    /// * `matrix` - Pointer to the transformation matrix.
     ///
-    /// * `flag` - Indicates what should be returned in the matrix.
+    /// * `flag` - Type of the matrix information. For details about the available options, see
+    /// [`OH_Drawing_PathMeasureMatrixFlags`](crate::path::OH_Drawing_PathMeasureMatrixFlags)
+    /// .
     ///
     /// # Returns
     ///
-    /// * Returns <b>false</b> if path is nullptr or zero-length;
-    /// returns <b>true</b> if path is not nullptr and not zero-length.
+    /// * Returns **true** if the transformation matrix is obtained successfully; returns **false** otherwise. The
+    /// possible failure cause is that **path** is NULL or the path length is 0.
     ///
     /// Available since API-level: 12
     ///
@@ -1201,30 +1366,35 @@ extern "C" {
         matrix: *mut OH_Drawing_Matrix,
         flag: OH_Drawing_PathMeasureMatrixFlags,
     ) -> bool;
-    /// Approximates the path with a series of line segments.
+    /// Converts the existing path into an approximate path consisting of consecutive line segments.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `path` - Pointer to the [`OH_Drawing_Path`](crate::types::OH_Drawing_Path) object.
     ///
-    /// * `acceptableError` - Indicates the acceptable error for a line on the path. Should be no less than 0.
+    /// * `acceptableError` - Acceptable error of each line segment on the path. The value cannot be less than 0.
+    /// 1. Avoid setting **acceptableError** to **0** as it heavily divides the curve path, significantly impacting
+    /// performance and memory usage.
+    /// 2. Setting a high **acceptableError** simplifies the path greatly by keeping only essential points, potentially
+    /// distorting the original shape.
+    /// 3. When you set a high **acceptableError** for curves such as ellipses, the fitting process often simplifies them to
+    /// polygons by keeping just the start and end points of their Bezier curve segments.
     ///
-    /// * `vals` - Indicates the storage for the computed array containing point components.
-    /// There are three components for each point:
-    /// 1.Fraction along the length of the path that the point resides.
-    /// 2.The x coordinate of the point.
-    /// 3.The y coordinate of the point.
+    /// * `vals` - An array of approximate points of the path.
+    /// Each point consists of three values, indicating:
+    /// 1. Length ratio of the point to the start point of the path.
+    /// 2. X coordinate of the point.
+    /// 3. Y coordinate of the point.
     ///
-    /// * `count` - Returns with the size of array.
+    /// * `count` - Size of the returned array, which is at least 6. The size of the point array after fitting is returned
+    /// if **vals** is a null pointer.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`](crate::error_code::DrawingErrorCode::INVALID_PARAMETER) if path or count is nullptr.
-    /// Returns [`OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE`](crate::error_code::DrawingErrorCode::PARAMETER_OUT_OF_RANGE) if acceptableError is less than 0.
+    /// * Execution result.
+    /// **OH_DRAWING_SUCCESS** if the operation is successful.
+    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if **path** or **count** is a null pointer.
+    /// **OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE** if **acceptableError** is less than 0.
     ///
     /// Available since API-level: 20
     ///
@@ -1237,30 +1407,31 @@ extern "C" {
         vals: *mut f32,
         count: *mut u32,
     ) -> crate::error_code::DrawingResult;
-    /// Performs interpolation between the current path and another path based on a given weight, and stores the
-    /// result in the target path object.
+    /// Interpolates between the existing path and another path based on the given weight and stores the result in
+    /// the target path object.
+    /// Interpolation is achievable if the two paths have the same number of points. The target path is created based on the
+    /// structure of the existing path.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `path` - Pointer to the [`OH_Drawing_Path`](crate::types::OH_Drawing_Path) object.
     ///
-    /// * `other` - Indicates the pointer to an <b>OH_Drawing_Path</b> object to be interpolated with path.
+    /// * `other` - Pointer to the [`OH_Drawing_Path`](crate::types::OH_Drawing_Path) object of the other path used for interpolation.
     ///
-    /// * `weight` - Indicates the interpolation weight, which must be in the range \[0, 1\].
+    /// * `weight` - Interpolation weight. The value range is \[0, 1\].
     ///
-    /// * `success` - Indicates the interpolation is success or not.
+    /// * `success` - Whether the interpolation is successful. **true** means yes; **false** otherwise. It as an output
+    /// parameter.
     ///
-    /// * `interpolatedPath` - Indicates the pointer to an <b>OH_Drawing_Path</b> object to store the result.
+    /// * `interpolatedPath` - Pointer to the [`OH_Drawing_Path`](crate::types::OH_Drawing_Path) object used to store the interpolation result.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`](crate::error_code::DrawingErrorCode::INVALID_PARAMETER) if either path, other, success or interpolatedPath is
-    /// nullptr.
-    /// Returns [`OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE`](crate::error_code::DrawingErrorCode::PARAMETER_OUT_OF_RANGE) if weight is outside the range \[0, 1\].
+    /// * Execution result.
+    /// **OH_DRAWING_SUCCESS** if the operation is successful.
+    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if **path**, **other**, **success**, or **interpolatedPath** is a null
+    /// pointer.
+    /// **OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE** if **weight** is not in the range of \[0, 1\].
     ///
     /// Available since API-level: 20
     ///
@@ -1274,26 +1445,24 @@ extern "C" {
         success: *mut bool,
         interpolatedPath: *mut OH_Drawing_Path,
     ) -> crate::error_code::DrawingResult;
-    /// Checks whether the current path is compatible with another path (other) for interpolation, which means
-    /// they have exactly the same structure, both paths must have the same operations, in the same order.
-    /// If any of the operations are of type CONIC, then the weights of those conics must also match.
+    /// Checks whether the existing path and another path (**other**) are compatible for interpolation in terms of
+    /// structure and operation sequence.
+    /// If the paths contain conic operations, the weight values of the operations must be the same.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `path` - Pointer to the [`OH_Drawing_Path`](crate::types::OH_Drawing_Path) object.
     ///
-    /// * `other` - Indicates the pointer to an <b>OH_Drawing_Path</b> object to be interpolated with path.
+    /// * `other` - Pointer to the [`OH_Drawing_Path`](crate::types::OH_Drawing_Path) object.
     ///
-    /// * `result` - Indicates whether the current path and the other path are compatible for interpolation.
-    /// The value is true if the paths are compatible, and false otherwise.
+    /// * `result` - Checks whether a path is compatible with another path. It is used as an output parameter.
+    /// **true** if the paths are compatible, **false** otherwise.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`](crate::error_code::DrawingErrorCode::INVALID_PARAMETER) if either path, other or result is nullptr.
+    /// * Execution result.
+    /// **OH_DRAWING_SUCCESS** if the operation is successful.
+    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if **path**, **other**, or **result** is a null pointer.
     ///
     /// Available since API-level: 20
     ///
@@ -1305,19 +1474,41 @@ extern "C" {
         other: *mut OH_Drawing_Path,
         result: *mut bool,
     ) -> crate::error_code::DrawingResult;
-    /// Checks if the fill type is one of the INVERSE variants.
+    /// Gets the last point of the path.
     ///
     /// # Arguments
     ///
     /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
     ///
-    /// * `isInverse` - Indicates if the filltype is one of the INVERSE variants.
+    /// * `point` - Indicates the pointer to an <b>OH_Drawing_Point2D</b> object to store the last point.
     ///
     /// # Returns
     ///
     /// * Returns the error code.
     /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`](crate::error_code::DrawingErrorCode::INCORRECT_PARAMETER) if path or isInverse is nullptr.
+    /// Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`](crate::error_code::DrawingErrorCode::INCORRECT_PARAMETER) if path or point is nullptr, or the path is empty.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_Drawing_PathGetLastPoint(
+        path: *mut OH_Drawing_Path,
+        point: *mut OH_Drawing_Point2D,
+    ) -> crate::error_code::DrawingResult;
+    /// Checks whether the fill type of the path is the inverse type.
+    ///
+    /// # Arguments
+    ///
+    /// * `path` - Pointer to the [`OH_Drawing_Path`](crate::types::OH_Drawing_Path) object.
+    ///
+    /// * `isInverse` - Whether the fill type is the inverse type. It is used as an output parameter. **true** if the fill
+    /// type is the inverse type; **false** otherwise.
+    ///
+    /// # Returns
+    ///
+    /// * Execution result.
+    /// **OH_DRAWING_SUCCESS** if the operation is successful.
+    /// **OH_DRAWING_ERROR_INCORRECT_PARAMETER** if **path** or **isInverse** is a null pointer.
     ///
     /// Available since API-level: 23
     ///
@@ -1328,17 +1519,17 @@ extern "C" {
         path: *const OH_Drawing_Path,
         isInverse: *mut bool,
     ) -> crate::error_code::DrawingResult;
-    /// Toggles the INVERSE state of the filltype.
+    /// Toggles the fill type of the path to the inverse type.
     ///
     /// # Arguments
     ///
-    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `path` - Pointer to the [`OH_Drawing_Path`](crate::types::OH_Drawing_Path) object.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`](crate::error_code::DrawingErrorCode::INCORRECT_PARAMETER) if path is nullptr.
+    /// * Execution result.
+    /// **OH_DRAWING_SUCCESS** if the operation is successful.
+    /// **OH_DRAWING_ERROR_INCORRECT_PARAMETER** if **path** is a null pointer.
     ///
     /// Available since API-level: 23
     ///
@@ -1347,5 +1538,29 @@ extern "C" {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub fn OH_Drawing_PathToggleInverseFillType(
         path: *mut OH_Drawing_Path,
+    ) -> crate::error_code::DrawingResult;
+    /// Checks if two paths are equal.
+    ///
+    /// # Arguments
+    ///
+    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    ///
+    /// * `other` - Indicates the pointer to another <b>OH_Drawing_Path</b> object to compare.
+    ///
+    /// * `equal` - Indicates whether the two paths are equal.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`](crate::error_code::DrawingErrorCode::INCORRECT_PARAMETER) if path or other is nullptr, or equal is nullptr.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_Drawing_PathIsEqual(
+        path: *mut OH_Drawing_Path,
+        other: *mut OH_Drawing_Path,
+        equal: *mut bool,
     ) -> crate::error_code::DrawingResult;
 }

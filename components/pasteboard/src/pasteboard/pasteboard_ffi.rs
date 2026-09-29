@@ -13,13 +13,13 @@ pub const PASTEBOARD_MIMETYPE_TEXT_WANT: &::core::ffi::CStr = c"text/want";
 #[cfg(feature = "api-13")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
 impl Pasteboard_NotifyType {
-    /// Change of the Pasteboard data in the local device.
+    /// The pasteboard data of the local device is changed.
     pub const LOCAL_DATA_CHANGE: Pasteboard_NotifyType = Pasteboard_NotifyType(1);
-    /// Change of the Pasteboard data in the remote devices.
+    /// The pasteboard data of a non-local device on the network is changed.
     pub const REMOTE_DATA_CHANGE: Pasteboard_NotifyType = Pasteboard_NotifyType(2);
 }
 #[repr(transparent)]
-/// Enumerates the types of data changes that can be observed.
+/// Enumerates the data change types of the pasteboard.
 ///
 ///
 /// Available since API-level: 13
@@ -30,14 +30,14 @@ pub struct Pasteboard_NotifyType(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-15")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
 impl Pasteboard_FileConflictOptions {
-    /// Overwrite when destUir has file with same name.
+    /// Overwrites the file with the same name in the destination directory.
     pub const PASTEBOARD_OVERWRITE: Pasteboard_FileConflictOptions =
         Pasteboard_FileConflictOptions(0);
-    /// Skip when destUir has file with same name.
+    /// Skips the file if there is a file with the same name in the destination directory.
     pub const PASTEBOARD_SKIP: Pasteboard_FileConflictOptions = Pasteboard_FileConflictOptions(1);
 }
 #[repr(transparent)]
-/// Enumerates the types of file confilct options when getting data from the Pastedboard.
+/// Enumerates the options used to resolve file copy conflicts.
 ///
 ///
 /// Available since API-level: 15
@@ -48,13 +48,13 @@ pub struct Pasteboard_FileConflictOptions(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-15")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
 impl Pasteboard_ProgressIndicator {
-    /// Getting data without system default progress indicator.
+    /// The system default progress indicator is not used.
     pub const PASTEBOARD_NONE: Pasteboard_ProgressIndicator = Pasteboard_ProgressIndicator(0);
-    /// Getting data with system default progress indicator.
+    /// The system default progress indicator is used.
     pub const PASTEBOARD_DEFAULT: Pasteboard_ProgressIndicator = Pasteboard_ProgressIndicator(1);
 }
 #[repr(transparent)]
-/// Enumerates the types of progress indicator when getting data from the Pastedboard.
+/// Enumerates the progress indicator options. You can use the default progress indicator as required.
 ///
 ///
 /// Available since API-level: 15
@@ -62,7 +62,7 @@ impl Pasteboard_ProgressIndicator {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct Pasteboard_ProgressIndicator(pub ::core::ffi::c_uint);
-/// Represents the Pasteboard progress information.
+/// Defines a struct for the progress information.
 ///
 ///
 /// Available since API-level: 15
@@ -72,18 +72,20 @@ pub struct Pasteboard_ProgressIndicator(pub ::core::ffi::c_uint);
 pub struct Pasteboard_ProgressInfo {
     _unused: [u8; 0],
 }
-/// Defines the callback function used to return the progress information when getting PasteData.
+/// Defines a callback to be invoked to obtain the progress information when the default progress indicator is
+/// not used.
 ///
 /// # Arguments
 ///
-/// * `progressInfo` - The progress information notified to Application.
+/// * `progressInfo` - A struct for the progress information.
+/// This information is reported only when [`Pasteboard_ProgressInfo`](crate::Pasteboard_ProgressInfo) is set to **NONE**.
 ///
 /// Available since API-level: 15
 #[cfg(feature = "api-15")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
 pub type OH_Pasteboard_ProgressListener =
     ::core::option::Option<unsafe extern "C" fn(progressInfo: *mut Pasteboard_ProgressInfo)>;
-/// Represents the pasteboard get data parameters when getting data from Pasteboard.
+/// Defines the parameters required for obtaining the pasteboard data and paste progress.
 ///
 ///
 /// Available since API-level: 15
@@ -93,13 +95,13 @@ pub type OH_Pasteboard_ProgressListener =
 pub struct Pasteboard_GetDataParams {
     _unused: [u8; 0],
 }
-/// Defines the callback function used to return the Pasteboard data changed.
+/// Defines a callback to be invoked when the pasteboard content changes.
 ///
 /// # Arguments
 ///
-/// * `context` - The context set by [`OH_PasteboardObserver_SetData`](crate::OH_PasteboardObserver_SetData) function.
+/// * `context` - Context information, which is passed by the [`OH_PasteboardObserver_SetData`](crate::OH_PasteboardObserver_SetData) function.
 ///
-/// * `type` - The types of data changes. For details, see [`Pasteboard_NotifyType`](crate::Pasteboard_NotifyType).
+/// * `type` - Data change type. For details, see [`Pasteboard_NotifyType`](crate::Pasteboard_NotifyType).
 ///
 /// Available since API-level: 13
 #[cfg(feature = "api-13")]
@@ -107,17 +109,18 @@ pub struct Pasteboard_GetDataParams {
 pub type Pasteboard_Notify = ::core::option::Option<
     unsafe extern "C" fn(context: *mut ::core::ffi::c_void, type_: Pasteboard_NotifyType),
 >;
-/// Defines the callback function used free the context.
+/// Defines a callback to be invoked to release the context when the pasteboard observer object is destroyed.
+///
 /// # Arguments
 ///
-/// * `context` - Pointer to the context which is to be free.
+/// * `context` - Pointer to the context to release.
 ///
 /// Available since API-level: 13
 #[cfg(feature = "api-13")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
 pub type Pasteboard_Finalize =
     ::core::option::Option<unsafe extern "C" fn(context: *mut ::core::ffi::c_void)>;
-/// Defines the Pasteboard subscriber information
+/// Defines the pasteboard observer.
 ///
 ///
 /// Available since API-level: 13
@@ -127,7 +130,7 @@ pub type Pasteboard_Finalize =
 pub struct OH_PasteboardObserver {
     _unused: [u8; 0],
 }
-/// Represents the Pasteboard information.
+/// Defines the pasteboard object to operate the system pasteboard.
 ///
 ///
 /// Available since API-level: 13
@@ -138,13 +141,15 @@ pub struct OH_Pasteboard {
     _unused: [u8; 0],
 }
 extern "C" {
-    /// Creates a [`OH_PasteboardObserver`](crate::OH_PasteboardObserver) instance.
+    /// Creates an [`OH_PasteboardObserver`](crate::OH_PasteboardObserver) instance and a pointer to it.
     ///
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the [`OH_PasteboardObserver`](crate::OH_PasteboardObserver) instance created if the operation is successful.
-    /// Returns nullptr if the operation is failed.
+    /// * Returns a pointer to the [`OH_PasteboardObserver`](crate::OH_PasteboardObserver) instance created if the operation is successful;
+    /// returns **nullptr** otherwise.
+    /// If this pointer is no longer required, use [`OH_PasteboardObserver_Destroy`](crate::OH_PasteboardObserver_Destroy) to destroy it. Otherwise, memory
+    /// leaks may occur.
     ///
     /// **See also:** [`OH_PasteboardObserver`](crate::OH_PasteboardObserver).
     ///
@@ -152,17 +157,17 @@ extern "C" {
     #[cfg(feature = "api-13")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub fn OH_PasteboardObserver_Create() -> *mut OH_PasteboardObserver;
-    /// Destroy a [`OH_PasteboardObserver`](crate::OH_PasteboardObserver) instance.
+    /// Destroys the [`OH_PasteboardObserver`](crate::OH_PasteboardObserver) instance.
     ///
     /// # Arguments
     ///
-    /// * `observer` - Pointer to the [`OH_PasteboardObserver`](crate::OH_PasteboardObserver) instance to destroy.
+    /// * `observer` - Pointer to an [`OH_PasteboardObserver`](crate::OH_PasteboardObserver) instance.
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution. For details, see [`PASTEBOARD_ErrCode`](crate::PASTEBOARD_ErrCode).
-    /// Returns [`ERR_OK`](crate::PASTEBOARD_ErrCode::OK) if the operation is successful.
-    /// Returns [`ERR_INVALID_PARAMETER`](crate::PASTEBOARD_ErrCode::INVALID_PARAMETER) if invalid args are detected.
+    /// * Returns an error code. For details about the error codes, see [`PASTEBOARD_ErrCode`](crate::PASTEBOARD_ErrCode).
+    /// Returns **ERR_OK** if the operation is successful.
+    /// Returns **ERR_INVALID_PARAMETER** if an invalid parameter is passed in.
     ///
     /// **See also:** [`OH_PasteboardObserver`](crate::OH_PasteboardObserver) [`PASTEBOARD_ErrCode`](crate::PASTEBOARD_ErrCode).
     ///
@@ -172,24 +177,24 @@ extern "C" {
     pub fn OH_PasteboardObserver_Destroy(
         observer: *mut OH_PasteboardObserver,
     ) -> ::core::ffi::c_int;
-    /// Sets a callback function to return the Pasteboard data changed.
+    /// Sets a callback for the pasteboard observer.
     ///
     /// # Arguments
     ///
-    /// * `observer` - Pointer to the [`OH_PasteboardObserver`](crate::OH_PasteboardObserver) instance.
+    /// * `observer` - Pointer to an [`OH_PasteboardObserver`](crate::OH_PasteboardObserver) instance.
     ///
-    /// * `context` - Pointer to the context set, which is the first parameter in Pasteboard_Notify.
+    /// * `context` - Pointer to the context, which is passed to [`Pasteboard_Notify`](crate::Pasteboard_Notify) as the first parameter.
     ///
-    /// * `callback` - Callback to set. For details, see [`Pasteboard_Notify`](crate::Pasteboard_Notify).
+    /// * `callback` - Callback to be invoked when the data changes. For details, see [`Pasteboard_Notify`](crate::Pasteboard_Notify).
     ///
-    /// * `finalize` - Optional callback that can free context when destroy observer.
-    /// For details, see [`Pasteboard_Finalize`](crate::Pasteboard_Finalize).
+    /// * `finalize` - Optional callback, which can be used to release context data when the pasteboard observer is
+    /// destroyed. For details, see [`Pasteboard_Finalize`](crate::Pasteboard_Finalize).
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution. For details, see [`PASTEBOARD_ErrCode`](crate::PASTEBOARD_ErrCode).
-    /// Returns [`ERR_OK`](crate::PASTEBOARD_ErrCode::OK) if the operation is successful.
-    /// Returns [`ERR_INVALID_PARAMETER`](crate::PASTEBOARD_ErrCode::INVALID_PARAMETER) if invalid args are detected.
+    /// * Returns an error code. For details about the error codes, see [`PASTEBOARD_ErrCode`](crate::PASTEBOARD_ErrCode).
+    /// Returns **ERR_OK** if the operation is successful.
+    /// Returns **ERR_INVALID_PARAMETER** if an invalid parameter is passed in.
     ///
     /// **See also:** [`OH_PasteboardObserver`](crate::OH_PasteboardObserver) [`Pasteboard_Notify`](crate::Pasteboard_Notify) [`PASTEBOARD_ErrCode`](crate::PASTEBOARD_ErrCode).
     ///
@@ -202,13 +207,15 @@ extern "C" {
         callback: Pasteboard_Notify,
         finalize: Pasteboard_Finalize,
     ) -> ::core::ffi::c_int;
-    /// Creates a [`OH_Pasteboard`](crate::OH_Pasteboard) instance.
+    /// Creates an [`OH_Pasteboard`](crate::OH_Pasteboard) instance and a pointer to it.
     ///
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the [`OH_Pasteboard`](crate::OH_Pasteboard) instance created if the operation is successful.
-    /// Returns nullptr if the memory is not enough.
+    /// * Returns a pointer to the [`OH_Pasteboard`](crate::OH_Pasteboard) instance created if the operation is successful;
+    /// returns **nullptr** otherwise.
+    /// If this pointer is no longer required, use [`OH_Pasteboard_Destroy`](crate::OH_Pasteboard_Destroy) to destroy it. Otherwise, memory
+    /// leaks may occur.
     ///
     /// **See also:** [`OH_Pasteboard`](crate::OH_Pasteboard).
     ///
@@ -216,11 +223,11 @@ extern "C" {
     #[cfg(feature = "api-13")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub fn OH_Pasteboard_Create() -> *mut OH_Pasteboard;
-    /// Destroy a [`OH_Pasteboard`](crate::OH_Pasteboard) instance.
+    /// Destroys the [`OH_Pasteboard`](crate::OH_Pasteboard) instance.
     ///
     /// # Arguments
     ///
-    /// * `pasteboard` - Pointer to the [`OH_Pasteboard`](crate::OH_Pasteboard) instance to destroy.
+    /// * `pasteboard` - Pointer to an [`OH_Pasteboard`](crate::OH_Pasteboard) instance.
     ///
     /// **See also:** [`OH_Pasteboard`](crate::OH_Pasteboard).
     ///
@@ -228,23 +235,22 @@ extern "C" {
     #[cfg(feature = "api-13")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub fn OH_Pasteboard_Destroy(pasteboard: *mut OH_Pasteboard);
-    /// Subscribes to the Pasteboard data change.
+    /// Subscribes to the pasteboard observer.
     ///
     /// # Arguments
     ///
-    /// * `pasteboard` - Pointer to the [`OH_Pasteboard`](crate::OH_Pasteboard) instance.
+    /// * `pasteboard` - Pointer to an [`OH_Pasteboard`](crate::OH_Pasteboard) instance.
     ///
-    /// * `type` - Event type to subscribe to report the pasteboard data change.
-    /// For details, see [`Pasteboard_NotifyType`](crate::Pasteboard_NotifyType).
+    /// * `type` - Subscribed data change type of the pasteboard. For details, see [`Pasteboard_NotifyType`](crate::Pasteboard_NotifyType).
     ///
-    /// * `observer` - - Pointer to the observer information, which specifies the callback used to
-    /// reporting the pasteboard data change. For details, see [`OH_PasteboardObserver`](crate::OH_PasteboardObserver).
+    /// * `observer` - Pointer to an [`OH_PasteboardObserver`](crate::OH_PasteboardObserver) instance. It specifies the callback to be invoked when
+    /// the pasteboard data changes. For details, see [`OH_PasteboardObserver`](crate::OH_PasteboardObserver).
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution. For details, [`PASTEBOARD_ErrCode`](crate::PASTEBOARD_ErrCode).
-    /// Returns [`ERR_OK`](crate::PASTEBOARD_ErrCode::OK) if the operation is successful.
-    /// Returns [`ERR_INVALID_PARAMETER`](crate::PASTEBOARD_ErrCode::INVALID_PARAMETER) if invalid args are detected.
+    /// * Returns an error code. For details about the error codes, see [`PASTEBOARD_ErrCode`](crate::PASTEBOARD_ErrCode).
+    /// Returns **ERR_OK** if the operation is successful.
+    /// Returns **ERR_INVALID_PARAMETER** if an invalid parameter is passed in.
     ///
     /// **See also:** [`OH_Pasteboard`](crate::OH_Pasteboard) [`OH_PasteboardObserver`](crate::OH_PasteboardObserver) [`Pasteboard_NotifyType`](crate::Pasteboard_NotifyType) [`PASTEBOARD_ErrCode`](crate::PASTEBOARD_ErrCode).
     ///
@@ -256,23 +262,22 @@ extern "C" {
         type_: ::core::ffi::c_int,
         observer: *const OH_PasteboardObserver,
     ) -> ::core::ffi::c_int;
-    /// Unsubscribes from the Pasteboard data change.
+    /// Unsubscribes from the pasteboard observer.
     ///
     /// # Arguments
     ///
-    /// * `pasteboard` - Pointer to the [`OH_Pasteboard`](crate::OH_Pasteboard) instance.
+    /// * `pasteboard` - Pointer to an [`OH_Pasteboard`](crate::OH_Pasteboard) instance.
     ///
-    /// * `type` - Event type to subscribe to report the pasteboard data change.
-    /// For details, see [`Pasteboard_NotifyType`](crate::Pasteboard_NotifyType).
+    /// * `type` - Subscribed data change type of the pasteboard. For details, see [`Pasteboard_NotifyType`](crate::Pasteboard_NotifyType).
     ///
-    /// * `observer` - - Pointer to the observer information, which specifies the callback used to
-    /// reporting the pasteboard data change. For details, see [`OH_PasteboardObserver`](crate::OH_PasteboardObserver).
+    /// * `observer` - Pointer to an [`OH_PasteboardObserver`](crate::OH_PasteboardObserver) instance. It specifies the callback to be invoked when
+    /// the pasteboard data changes. For details, see [`OH_PasteboardObserver`](crate::OH_PasteboardObserver).
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution. For details, [`PASTEBOARD_ErrCode`](crate::PASTEBOARD_ErrCode).
-    /// Returns [`ERR_OK`](crate::PASTEBOARD_ErrCode::OK) if the operation is successful.
-    /// Returns [`ERR_INVALID_PARAMETER`](crate::PASTEBOARD_ErrCode::INVALID_PARAMETER) if invalid args are detected.
+    /// * Returns an error code. For details about the error codes, see [`PASTEBOARD_ErrCode`](crate::PASTEBOARD_ErrCode).
+    /// Returns **ERR_OK** if the operation is successful.
+    /// Returns **ERR_INVALID_PARAMETER** if an invalid parameter is passed in.
     ///
     /// **See also:** [`OH_Pasteboard`](crate::OH_Pasteboard) [`OH_PasteboardObserver`](crate::OH_PasteboardObserver) [`Pasteboard_NotifyType`](crate::Pasteboard_NotifyType) [`PASTEBOARD_ErrCode`](crate::PASTEBOARD_ErrCode).
     ///
@@ -284,17 +289,16 @@ extern "C" {
         type_: ::core::ffi::c_int,
         observer: *const OH_PasteboardObserver,
     ) -> ::core::ffi::c_int;
-    /// Checks whether the Pasteboard data is from a remote device.
+    /// Checks whether the pasteboard data comes from remote devices.
     ///
     /// # Arguments
     ///
-    /// * `pasteboard` - Pointer to the [`OH_Pasteboard`](crate::OH_Pasteboard) instance.
+    /// * `pasteboard` - Pointer to an [`OH_Pasteboard`](crate::OH_Pasteboard) instance.
     ///
     /// # Returns
     ///
-    /// * Returns a boolean value, which indicates whether the the data is from a remote device.
-    /// The value `false` means Pasteboard data is not from a remote device.
-    /// The value `true` means the opposite.
+    /// * Returns a Boolean value indicating whether the data comes from a remote device. The value **true** means the
+    /// data is from a remote device; **false** means the data is from the local device.
     ///
     /// **See also:** [`OH_Pasteboard`](crate::OH_Pasteboard).
     ///
@@ -302,21 +306,23 @@ extern "C" {
     #[cfg(feature = "api-13")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub fn OH_Pasteboard_IsRemoteData(pasteboard: *mut OH_Pasteboard) -> bool;
-    /// Obtains the source of Pasteboard data.
+    /// Obtains the pasteboard data source.
     ///
     /// # Arguments
     ///
-    /// * `pasteboard` - Pointer to the [`OH_Pasteboard`](crate::OH_Pasteboard) instance.
+    /// * `pasteboard` - Pointer to an [`OH_Pasteboard`](crate::OH_Pasteboard) instance.
     ///
-    /// * `source` - Pointer to the source data.
+    /// * `source` - Pointer to the pasteboard data source instance. You need to allocate the memory for the pointer before
+    /// calling this API.
     ///
-    /// * `len` - Length of the source data.
+    /// * `len` - Memory length corresponding to the source. If the memory length is insufficient, the API call will fail.
+    /// The recommended length is 128 bytes.
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution. For details, see [`PASTEBOARD_ErrCode`](crate::PASTEBOARD_ErrCode).
-    /// Returns [`ERR_OK`](crate::PASTEBOARD_ErrCode::OK) if the operation is successful.
-    /// Returns [`ERR_INVALID_PARAMETER`](crate::PASTEBOARD_ErrCode::INVALID_PARAMETER) if invalid args are detected.
+    /// * Returns an error code. For details about the error codes, see [`PASTEBOARD_ErrCode`](crate::PASTEBOARD_ErrCode).
+    /// Returns **ERR_OK** if the operation is successful.
+    /// Returns **ERR_INVALID_PARAMETER** if an invalid parameter is passed in.
     ///
     /// **See also:** [`OH_Pasteboard`](crate::OH_Pasteboard) [`PASTEBOARD_ErrCode`](crate::PASTEBOARD_ErrCode).
     ///
@@ -328,19 +334,20 @@ extern "C" {
         source: *mut ::core::ffi::c_char,
         len: ::core::ffi::c_uint,
     ) -> ::core::ffi::c_int;
-    /// Checks whether the Pasteboard has the specified type of data.
+    /// Checks whether the pasteboard contains data of the specified type.
     ///
     /// # Arguments
     ///
-    /// * `pasteboard` - Pointer to the [`OH_Pasteboard`](crate::OH_Pasteboard) instance.
+    /// * `pasteboard` - Pointer to an [`OH_Pasteboard`](crate::OH_Pasteboard) instance.
     ///
-    /// * `type` - Poniter to the type of data to check.
+    /// * `type` - Data type to be checked, which includes the basic data types and custom data types. The options of the
+    /// basic data types are as follows: **"text/plain"**, **"text/html"**, **"text/uri"**, **"text/want"**,
+    /// and **"pixelMap"**. For details, see `Macros`.
     ///
     /// # Returns
     ///
-    /// * Returns a boolean value, which indicates whether the Pasteboard has the specified type of data.
-    /// The value `true` means the Pasteboard has the specified type of data.
-    /// The value `false` means the opposite.
+    /// * Returns a Boolean value indicating whether the pasteboard contains data of the specified type. The value
+    /// **true** means the pasteboard contains data of the specified type; the value **false** means the opposite.
     ///
     /// **See also:** [`OH_Pasteboard`](crate::OH_Pasteboard).
     ///
@@ -351,17 +358,16 @@ extern "C" {
         pasteboard: *mut OH_Pasteboard,
         type_: *const ::core::ffi::c_char,
     ) -> bool;
-    /// Checks whether there is data in the Pasteboard.
+    /// Checks whether the pasteboard contains data.
     ///
     /// # Arguments
     ///
-    /// * `pasteboard` - Pointer to the [`OH_Pasteboard`](crate::OH_Pasteboard) instance.
+    /// * `pasteboard` - Pointer to an [`OH_Pasteboard`](crate::OH_Pasteboard) instance.
     ///
     /// # Returns
     ///
-    /// * Returns a boolean value, which indicates whether there is data in the Pasteboard.
-    /// The value `true` means there is data in Pasteboard.
-    /// The value `false` means the opposite.
+    /// * Returns a Boolean value indicating whether the pasteboard contains data. The value **true** means the
+    /// pasteboard contains data; the value **false** means the opposite.
     ///
     /// **See also:** [`OH_Pasteboard`](crate::OH_Pasteboard).
     ///
@@ -369,19 +375,40 @@ extern "C" {
     #[cfg(feature = "api-13")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub fn OH_Pasteboard_HasData(pasteboard: *mut OH_Pasteboard) -> bool;
-    /// Obtains data from the Pasteboard.
+    /// Checks whether the pasteboard data is on a remote device. Transferring data across devices takes time. If the
+    /// pasteboard data is on a remote device, do not check for custom data types or read the pasteboard data on the UI
+    /// thread.
+    ///
+    /// # Arguments
+    ///
+    /// * `pasteboard` - Pointer to an [`OH_Pasteboard`](crate::OH_Pasteboard) instance.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the check result. The value **true** indicates that the pasteboard data is on a remote device,
+    /// and **false** indicates the opposite. Default value: **false**.
+    ///
+    /// **See also:** [`OH_Pasteboard`](crate::OH_Pasteboard).
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_Pasteboard_HasRemoteData(pasteboard: *mut OH_Pasteboard) -> bool;
+    /// Obtains data from the pasteboard.
     ///
     ///
     /// Required Permissions: ohos.permission.READ_PASTEBOARD
     /// # Arguments
     ///
-    /// * `pasteboard` - Pointer to the [`OH_Pasteboard`](crate::OH_Pasteboard) instance.
+    /// * `pasteboard` - Pointer to an [`OH_Pasteboard`](crate::OH_Pasteboard) instance.
     ///
-    /// * `status` - The status code of the execution. For details, see [`PASTEBOARD_ErrCode`](crate::PASTEBOARD_ErrCode).
+    /// * `status` - Output parameter, indicating the error code of the operation.
+    /// For details about the error codes, see [`PASTEBOARD_ErrCode`](crate::PASTEBOARD_ErrCode).
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the [`OH_UdmfData`](ohos_sys_opaque_types::OH_UdmfData) instance.
+    /// * Returns the pointer to an [`OH_UdmfData`](ohos_sys_opaque_types::OH_UdmfData) instance obtained if the operation is successful; returns a
+    /// null pointer otherwise.
     ///
     /// **See also:** [`OH_Pasteboard`](crate::OH_Pasteboard) [`OH_UdmfData`](ohos_sys_opaque_types::OH_UdmfData) [`PASTEBOARD_ErrCode`](crate::PASTEBOARD_ErrCode).
     ///
@@ -392,19 +419,19 @@ extern "C" {
         pasteboard: *mut OH_Pasteboard,
         status: *mut ::core::ffi::c_int,
     ) -> *mut OH_UdmfData;
-    /// Writes data to the Pasteboard.
+    /// Writes the unified data object to the OH_Pasteboard instance.
     ///
     /// # Arguments
     ///
     /// * `pasteboard` - Pointer to the [`OH_Pasteboard`](crate::OH_Pasteboard) instance.
     ///
-    /// * `data` - Pointer to the [`OH_UdmfData`](ohos_sys_opaque_types::OH_UdmfData) instance.
+    /// * `data` - Pointer to an [`OH_UdmfData`](ohos_sys_opaque_types::OH_UdmfData) instance.
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution. For details, see [`PASTEBOARD_ErrCode`](crate::PASTEBOARD_ErrCode).
-    /// Returns [`ERR_OK`](crate::PASTEBOARD_ErrCode::OK) if the operation is successful.
-    /// Returns [`ERR_INVALID_PARAMETER`](crate::PASTEBOARD_ErrCode::INVALID_PARAMETER) if invalid args are detected.
+    /// * Returns an error code. For details about the error codes, see [`PASTEBOARD_ErrCode`](crate::PASTEBOARD_ErrCode).
+    /// Returns **ERR_OK** if the operation is successful.
+    /// Returns **ERR_INVALID_PARAMETER** if an invalid parameter is passed in.
     ///
     /// **See also:** [`OH_Pasteboard`](crate::OH_Pasteboard) [`OH_UdmfData`](ohos_sys_opaque_types::OH_UdmfData) [`PASTEBOARD_ErrCode`](crate::PASTEBOARD_ErrCode).
     ///
@@ -415,17 +442,17 @@ extern "C" {
         pasteboard: *mut OH_Pasteboard,
         data: *mut OH_UdmfData,
     ) -> ::core::ffi::c_int;
-    /// Clears the data in the Pastedboard.
+    /// Clears data in the Pasteboard.
     ///
     /// # Arguments
     ///
-    /// * `pasteboard` - Pointer to the [`OH_Pasteboard`](crate::OH_Pasteboard) instance.
+    /// * `pasteboard` - Pointer to an [`OH_Pasteboard`](crate::OH_Pasteboard) instance.
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution. For details, see [`PASTEBOARD_ErrCode`](crate::PASTEBOARD_ErrCode).
-    /// Returns [`ERR_OK`](crate::PASTEBOARD_ErrCode::OK) if the operation is successful.
-    /// Returns [`ERR_INVALID_PARAMETER`](crate::PASTEBOARD_ErrCode::INVALID_PARAMETER) if invalid args are detected.
+    /// * Returns an error code. For details about the error codes, see [`PASTEBOARD_ErrCode`](crate::PASTEBOARD_ErrCode).
+    /// Returns **ERR_OK** if the operation is successful.
+    /// Returns **ERR_INVALID_PARAMETER** if an invalid parameter is passed in.
     ///
     /// **See also:** [`OH_Pasteboard`](crate::OH_Pasteboard) [`PASTEBOARD_ErrCode`](crate::PASTEBOARD_ErrCode).
     ///
@@ -433,18 +460,17 @@ extern "C" {
     #[cfg(feature = "api-13")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub fn OH_Pasteboard_ClearData(pasteboard: *mut OH_Pasteboard) -> ::core::ffi::c_int;
-    /// Obtains all MIME types of Pasteboard data.
+    /// Obtains the types of data in the pasteboard.
     ///
     /// # Arguments
     ///
-    /// * `pasteboard` - Pointer to the [`OH_Pasteboard`](crate::OH_Pasteboard) instance.
+    /// * `pasteboard` - Pointer to an [`OH_Pasteboard`](crate::OH_Pasteboard) instance.
     ///
-    /// * `count` - Poniter to the count of MIME types.
+    /// * `count` - Pointer to the number of MIME types obtained.
     ///
     /// # Returns
     ///
-    /// * Returns char array of MIME types in the Pasteboard.
-    /// Returns nullptr if the operation is failed.
+    /// * Returns the types obtained if the operation is successful; returns **nullptr** otherwise.
     ///
     /// **See also:** [`OH_Pasteboard`](crate::OH_Pasteboard).
     ///
@@ -455,28 +481,35 @@ extern "C" {
         pasteboard: *mut OH_Pasteboard,
         count: *mut ::core::ffi::c_uint,
     ) -> *mut *mut ::core::ffi::c_char;
-    /// Gets the number of Pasteboard data changes.
+    /// Obtains the number of pasteboard content changes.
     ///
     /// # Arguments
     ///
-    /// * `pasteboard` - Pointer to the [`OH_Pasteboard`](crate::OH_Pasteboard) instance.
+    /// * `pasteboard` - Pointer to an [`OH_Pasteboard`](crate::OH_Pasteboard) instance.
     ///
     /// # Returns
     ///
-    /// * the number of Pasteboard data changes.
-    /// Returns 0 means initial value or invalid value.In this case, no action is required.
+    /// * Returns the number of pasteboard content changes if this API is called successfully;
+    /// otherwise, returns **0**.
+    /// Even though the pasteboard data expires, or the data becomes empty because of the called **OH_Pasteboard_ClearData**
+    /// API, the number of data changes remains.
+    /// When the system is restarted, or the pasteboard service is restarted due to an exception, the number of pasteboard
+    /// data changes counts from 0. In addition, copying the same data repeatedly is considered to change the data for
+    /// multiple times. Therefore, each time the data is copied, the number of data changes increases.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
     pub fn OH_Pasteboard_GetChangeCount(pasteboard: *mut OH_Pasteboard) -> u32;
-    /// Create a pointer to the instance of the [`Pasteboard_GetDataParams`](crate::Pasteboard_GetDataParams).
+    /// Creates a [`Pasteboard_GetDataParams`](crate::Pasteboard_GetDataParams) instance and a pointer to it.
     ///
     ///
     /// # Returns
     ///
-    /// * If the operation is successful, a pointer to the instance of the [`Pasteboard_GetDataParams`](crate::Pasteboard_GetDataParams)
-    /// structure is returned. If the operation is failed, nullptr is returned.
+    /// * Returns a pointer to the [`Pasteboard_GetDataParams`](crate::Pasteboard_GetDataParams) instance created if the operation is successful;
+    /// returns **nullptr** otherwise.
+    /// If this pointer is no longer required, use [`OH_Pasteboard_GetDataParams_Destroy`](crate::OH_Pasteboard_GetDataParams_Destroy) to destroy it. Otherwise,
+    /// memory leaks may occur.
     ///
     /// **See also:** [`Pasteboard_GetDataParams`](crate::Pasteboard_GetDataParams).
     ///
@@ -484,11 +517,11 @@ extern "C" {
     #[cfg(feature = "api-15")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub fn OH_Pasteboard_GetDataParams_Create() -> *mut Pasteboard_GetDataParams;
-    /// Destroy a pointer that points to an instance of [`Pasteboard_GetDataParams`](crate::Pasteboard_GetDataParams).
+    /// Destroys the [`Pasteboard_GetDataParams`](crate::Pasteboard_GetDataParams) instance.
     ///
     /// # Arguments
     ///
-    /// * `params` - Represents a pointer to an instance of [`Pasteboard_GetDataParams`](crate::Pasteboard_GetDataParams).
+    /// * `params` - Pointer to an **Pasteboard_GetDataParams** instance.
     ///
     /// **See also:** [`Pasteboard_GetDataParams`](crate::Pasteboard_GetDataParams).
     ///
@@ -496,13 +529,14 @@ extern "C" {
     #[cfg(feature = "api-15")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub fn OH_Pasteboard_GetDataParams_Destroy(params: *mut Pasteboard_GetDataParams);
-    /// Set the progress indicator to the [`Pasteboard_GetDataParams`](crate::Pasteboard_GetDataParams).
+    /// Sets a progress indicator in [`Pasteboard_GetDataParams`](crate::Pasteboard_GetDataParams).
+    /// You can use the default progress indicator as required.
     ///
     /// # Arguments
     ///
-    /// * `params` - Represents a pointer to an instance of [`Pasteboard_GetDataParams`](crate::Pasteboard_GetDataParams).
+    /// * `params` - Pointer to an **Pasteboard_GetDataParams** instance.
     ///
-    /// * `progressIndicator` - Represents to the progress indicator.
+    /// * `progressIndicator` - Progress indicator to set.
     ///
     /// **See also:** [`Pasteboard_GetDataParams`](crate::Pasteboard_GetDataParams) [`Pasteboard_ProgressIndicator`](crate::Pasteboard_ProgressIndicator).
     ///
@@ -513,15 +547,17 @@ extern "C" {
         params: *mut Pasteboard_GetDataParams,
         progressIndicator: Pasteboard_ProgressIndicator,
     );
-    /// Set the destination uri to the [`Pasteboard_GetDataParams`](crate::Pasteboard_GetDataParams).
+    /// Sets the destination URI for copying files. If file processing is not supported, this parameter is not
+    /// required. If the application involves complex file processing policies or needs to distinguish file multipathing
+    /// storage, you are advised not to set this parameter but let the application copies files by itself.
     ///
     /// # Arguments
     ///
-    /// * `params` - Represents a pointer to an instance of [`Pasteboard_GetDataParams`](crate::Pasteboard_GetDataParams).
+    /// * `params` - Pointer to an **Pasteboard_GetDataParams** instance.
     ///
-    /// * `destUri` - Pointer to a destination uri.
+    /// * `destUri` - Destination URI of the copied file.
     ///
-    /// * `destUriLen` - Indicates the length of destination uri.
+    /// * `destUriLen` - Length of the destination URI of the copied file.
     ///
     /// **See also:** [`Pasteboard_GetDataParams`](crate::Pasteboard_GetDataParams).
     ///
@@ -533,13 +569,13 @@ extern "C" {
         destUri: *const ::core::ffi::c_char,
         destUriLen: u32,
     );
-    /// Set the file conflict options to the [`Pasteboard_GetDataParams`](crate::Pasteboard_GetDataParams).
+    /// Sets the options used to resolve file copy conflicts in a [`Pasteboard_GetDataParams`](crate::Pasteboard_GetDataParams) instance.
     ///
     /// # Arguments
     ///
-    /// * `params` - Represents a pointer to an instance of [`Pasteboard_GetDataParams`](crate::Pasteboard_GetDataParams).
+    /// * `params` - Pointer to an **Pasteboard_GetDataParams** instance.
     ///
-    /// * `option` - Represents to the file conflict options.
+    /// * `option` - Options used to resolve file copy conflicts. The default value is **PASTEBOARD_OVERWRITE**.
     ///
     /// **See also:** [`Pasteboard_GetDataParams`](crate::Pasteboard_GetDataParams) [`Pasteboard_FileConflictOptions`](crate::Pasteboard_FileConflictOptions).
     ///
@@ -550,13 +586,13 @@ extern "C" {
         params: *mut Pasteboard_GetDataParams,
         option: Pasteboard_FileConflictOptions,
     );
-    /// Set the progress indicator to the [`Pasteboard_GetDataParams`](crate::Pasteboard_GetDataParams).
+    /// Sets a progress listener in a [`Pasteboard_GetDataParams`](crate::Pasteboard_GetDataParams) instance.
     ///
     /// # Arguments
     ///
-    /// * `params` - Represents a pointer to an instance of [`Pasteboard_GetDataParams`](crate::Pasteboard_GetDataParams).
+    /// * `params` - Pointer to an **Pasteboard_GetDataParams** instance.
     ///
-    /// * `listener` - Represents to the data progress listener.
+    /// * `listener` - Progress listener.
     ///
     /// **See also:** [`Pasteboard_GetDataParams`](crate::Pasteboard_GetDataParams) [`OH_Pasteboard_ProgressListener`](crate::OH_Pasteboard_ProgressListener).
     ///
@@ -567,15 +603,15 @@ extern "C" {
         params: *mut Pasteboard_GetDataParams,
         listener: OH_Pasteboard_ProgressListener,
     );
-    /// Get the progress from the [`Pasteboard_ProgressInfo`](crate::Pasteboard_ProgressInfo).
+    /// Obtains the paste progress in a [`Pasteboard_ProgressInfo`](crate::Pasteboard_ProgressInfo) instance.
     ///
     /// # Arguments
     ///
-    /// * `progressInfo` - Represents a pointer to an instance of [`Pasteboard_ProgressInfo`](crate::Pasteboard_ProgressInfo).
+    /// * `progressInfo` - Pointer to a [`Pasteboard_ProgressInfo`](crate::Pasteboard_ProgressInfo) instance.
     ///
     /// # Returns
     ///
-    /// * Returns the progress.
+    /// * Percentage of the paste progress.
     ///
     /// **See also:** [`Pasteboard_ProgressInfo`](crate::Pasteboard_ProgressInfo).
     ///
@@ -585,11 +621,11 @@ extern "C" {
     pub fn OH_Pasteboard_ProgressInfo_GetProgress(
         progressInfo: *mut Pasteboard_ProgressInfo,
     ) -> ::core::ffi::c_int;
-    /// Defines the cancel function used to cancel the progress when getting PasteData.
+    /// Cancels the ongoing paste operation when the pasteboard data is obtained.
     ///
     /// # Arguments
     ///
-    /// * `params` - Pointer to indicates the [`Pasteboard_GetDataParams`](crate::Pasteboard_GetDataParams).
+    /// * `params` - Pointer to an **Pasteboard_GetDataParams** instance.
     ///
     /// **See also:** [`Pasteboard_GetDataParams`](crate::Pasteboard_GetDataParams).
     ///
@@ -597,21 +633,23 @@ extern "C" {
     #[cfg(feature = "api-15")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub fn OH_Pasteboard_ProgressCancel(params: *mut Pasteboard_GetDataParams);
-    /// Obtains data from the Pasteboard with system progress indicator.
+    /// Obtains the pasteboard data and paste progress. Folders cannot be copied.
     ///
     ///
     /// Required Permissions: ohos.permission.READ_PASTEBOARD
     /// # Arguments
     ///
-    /// * `pasteboard` - Pointer to the [`OH_Pasteboard`](crate::OH_Pasteboard) instance.
+    /// * `pasteboard` - Pointer to an [`OH_Pasteboard`](crate::OH_Pasteboard) instance.
     ///
-    /// * `params` - Pointer to indicates the `OH_Pasteboard_GetDataParams`.
+    /// * `params` - Pointer to an **Pasteboard_GetDataParams** instance.
     ///
-    /// * `status` - The status code of the execution. For details, see `PASTEBOARD_Errcode`.
+    /// * `status` - Output parameter, indicating the error code of the operation.
+    /// For details about the error codes, see [`PASTEBOARD_ErrCode`](crate::PASTEBOARD_ErrCode).
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the `OH_PasteData` instance.
+    /// * Returns a pointer to the **OH_UdmfData** instance obtained if the operation is successful; returns a null
+    /// pointer otherwise.
     ///
     /// **See also:** [`OH_Pasteboard`](crate::OH_Pasteboard) `OH_PasteData` [`PASTEBOARD_ErrCode`](crate::PASTEBOARD_ErrCode).
     ///
@@ -623,11 +661,16 @@ extern "C" {
         params: *mut Pasteboard_GetDataParams,
         status: *mut ::core::ffi::c_int,
     ) -> *mut OH_UdmfData;
-    /// Notifies the system pasteboard to synchronize all time-lapse paste data from application.
+    /// Syncs all delayed data from the application to the pasteboard. Use this API together with the
+    /// `OH_UdmfRecordProvider_SetData`API.When the application uses the delayed copy feature,
+    /// only the data types supported by the application are written to the pasteboard. Before the application exits,
+    /// it should call the [`OH_Pasteboard_SetData`](crate::OH_Pasteboard_SetData) API to submit all copied data or call the
+    /// **OH_Pasteboard_SyncDelayedDataAsync** API to notify the pasteboard to obtain all data. The application can exit only
+    /// after the data sync is complete. Otherwise, other applications may fail to obtain the data.
     ///
     /// # Arguments
     ///
-    /// * `pasteboard` - Pointer to the [`OH_Pasteboard`](crate::OH_Pasteboard) instance.
+    /// * `pasteboard` - Pointer to an [`OH_Pasteboard`](crate::OH_Pasteboard) instance.
     ///
     /// * `callback` - Indicates the pointer to the callback that is called after the synchronize is finished.
     ///

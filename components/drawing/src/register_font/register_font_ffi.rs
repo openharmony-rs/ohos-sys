@@ -7,21 +7,29 @@ use crate::text_declaration::*;
 use crate::types::*;
 
 extern "C" {
-    /// Defines an <b>OH_Drawing_RegisterFont</b>, which is used to register a customized font in the FontManager.
+    /// Registers a custom font with the font manager. The supported font file formats are .ttf and .otf.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_FontCollection` - Indicates the pointer to an <b>OH_Drawing_FontCollection</b> object.
+    /// * `fontCollection` - Indicates the pointer to an <b>OH_Drawing_FontCollection</b> object.
     ///
-    /// * `fontFamily` - Indicates the family-name of the font which need to register.
+    /// * `fontFamily` - Name of the font to register.
     ///
-    /// * `familySrc` - Indicates the path of the font file which need to register.
+    /// * `familySrc` - Path to the font file to register.
     ///
     /// # Returns
     ///
-    /// * error code.
+    /// * Result code.
+    /// <br>Returns 0 if the operation is successful.
+    /// <br>Returns 1 if the file does not exist.
+    /// <br>Returns 2 if opening the file fails.
+    /// <br>Returns 3 if reading the file fails.
+    /// <br>Returns 4 if seeking the file fails.
+    /// <br>Returns 5 if obtaining the file size fails.
+    /// <br>Returns 8 if fontCollection is NULL.
+    /// <br>Returns 9 if the file is corrupted.
     ///
     /// Available since API-level: 11
     ///
@@ -29,28 +37,31 @@ extern "C" {
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn OH_Drawing_RegisterFont(
-        arg1: *mut OH_Drawing_FontCollection,
+        fontCollection: *mut OH_Drawing_FontCollection,
         fontFamily: *const ::core::ffi::c_char,
         familySrc: *const ::core::ffi::c_char,
     ) -> u32;
-    /// Defines an <b>OH_Drawing_RegisterFontBuffer</b>, which is used to register a customized font in the
-    /// FontManager.
+    /// Registers a font buffer in the font manager, supporting data read from ttf and otf files.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_FontCollection` - Indicates the pointer to an <b>OH_Drawing_FontCollection</b> object.
+    /// * `fontCollection` - Indicates the pointer to an <b>OH_Drawing_FontCollection</b> object.
     ///
-    /// * `fontFamily` - Indicates the family-name of the font which need to register.
+    /// * `fontFamily` - Font name of the font to register.
     ///
-    /// * `fontBuffer` - Indicates the buffer of the font file which need to register.
+    /// * `fontBuffer` - Buffer of the font file to register.
     ///
-    /// * `length` - Indicates the length of the font file which need to register.
+    /// * `length` - Length of the font file to register. Must match the actual length of fontBuffer.
     ///
     /// # Returns
     ///
-    /// * error code.
+    /// * Result code.
+    /// <br>Returns 0 if the operation is successful.
+    /// <br>Returns 6 if fontBuffer is NULL.
+    /// <br>Returns 7 if the buffer size is zero.
+    /// <br>Returns 8 if fontCollection is NULL.
     ///
     /// Available since API-level: 11
     ///
@@ -58,26 +69,29 @@ extern "C" {
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn OH_Drawing_RegisterFontBuffer(
-        arg1: *mut OH_Drawing_FontCollection,
+        fontCollection: *mut OH_Drawing_FontCollection,
         fontFamily: *const ::core::ffi::c_char,
         fontBuffer: *mut u8,
         length: usize,
     ) -> u32;
-    /// Defines an <b>OH_Drawing_RegisterFontByIndex</b>, which is used to register font from ttc file.
+    /// Registers a custom font using a ttc/otc file, with the index parameter specifying the font index to register.
     ///
     /// # Arguments
     ///
-    /// * `fontCollection` - Indicates the pointer to an <b>OH_Drawing_FontCollection</b> object.
+    /// * `fontCollection` - Pointer to an [`OH_Drawing_FontCollection`](crate::text_declaration::OH_Drawing_FontCollection) object.
     ///
-    /// * `fontFamily` - Indicates the family name of the font which need to register.
+    /// * `fontFamily` - Family name of the font to register.
     ///
-    /// * `familySrc` - Indicates the path of the font file which need to register.
+    /// * `familySrc` - Path of the font file to register.
     ///
-    /// * `index` - Indicates the index of the font data in the ttc file.
+    /// * `index` - Index of the font in the ttc/otc file. The value ranges from 0 to the total number of fonts minus 1.
+    /// For non-ttc/otc files, set this parameter to 0.
     ///
     /// # Returns
     ///
-    /// * error code.
+    /// * Result code. 0 indicates function execution is successful, 1 indicates file does not exist, 2 indicates file
+    /// opening failure, 3 indicates file reading failure, 4 indicates file seeking failure, 5 indicates size obtaining
+    /// failure, 8 indicates fontCollection is NULL, and 9 indicates file corruption.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -88,23 +102,29 @@ extern "C" {
         familySrc: *const ::core::ffi::c_char,
         index: u32,
     ) -> u32;
-    /// Defines an <b>OH_Drawing_RegisterFontBufferByIndex</b>, which is used to register font from ttc buffer.
+    /// Registers a font using the font buffer of a TTC/OTC file.
     ///
     /// # Arguments
     ///
-    /// * `fontCollection` - Indicates the pointer to an <b>OH_Drawing_FontCollection</b> object.
+    /// * `fontCollection` - Pointer to an [`OH_Drawing_FontCollection`](crate::text_declaration::OH_Drawing_FontCollection) object.
     ///
-    /// * `fontFamily` - Indicates the family name of the font which need to register.
+    /// * `fontFamily` - Family name of the font to register.
     ///
-    /// * `fontBuffer` - Indicates the font data which need to register.
+    /// * `fontBuffer` - Font buffer of the font file to register.
     ///
-    /// * `length` - Indicates the font data length.
+    /// * `length` - Length of the byte stream data, which must match the actual length of fontBuffer.
     ///
-    /// * `index` - Indicates the index of the font data in the ttc file.
+    /// * `index` - Index of the font in the ttc/otc file. The value ranges from 0 to the number of fonts minus 1. For
+    /// files in non-ttc/otc formats, set this parameter to 0.
     ///
     /// # Returns
     ///
-    /// * error code.
+    /// * Result code.
+    /// <br>Returns 0 the function is executed successfully.
+    /// <br>Returns 6 if fontBuffer is NULL.
+    /// <br>Returns 7 if the buffer size is zero.
+    /// <br>Returns 8 if fontCollection is NULL.
+    /// <br>Returns 9 if the file is corrupted.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -116,22 +136,23 @@ extern "C" {
         length: usize,
         index: u32,
     ) -> u32;
-    /// Unregister a customized font by the font family.
-    /// Unregistering a font that is currently in use by UI components may lead to text rendering anomalies,
-    /// including garbled characters or missing glyphs.
-    /// All typography using the unregistered font family should be destroyed and re-created.
+    /// Unregisters a custom font by font name.
+    /// <br>Unregistering a font that is currently in use may lead to text rendering exceptions (such as garbled characters
+    /// or missing glyphs).
+    /// <br>All typesetting objects that use the unregistered font name should be destroyed and recreated.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `fontCollection` - Indicates the pointer to an <b>OH_Drawing_FontCollection</b> object.
+    /// * `fontCollection` - Pointer to an [`OH_Drawing_FontCollection`](crate::text_declaration::OH_Drawing_FontCollection) object.
     ///
-    /// * `fontFamily` - Indicates the family-name of the font which need to be unregistered.
+    /// * `fontFamily` - Font name to unregister.
     ///
     /// # Returns
     ///
-    /// * error code.
+    /// * Result code. Returns 0 if the function is executed successfully, 8 if the input parameter is invalid, and 1
+    /// if the unregistration fails.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -140,31 +161,31 @@ extern "C" {
         fontCollection: *mut OH_Drawing_FontCollection,
         fontFamily: *const ::core::ffi::c_char,
     ) -> u32;
-    /// Checks whether the font format specified by the path is supported.
+    /// Checks whether the system supports the font format of the specified path.
     ///
     /// # Arguments
     ///
-    /// * `path` - The absolute path to the font file.
+    /// * `path` - Absolute path of the font file.
     ///
     /// # Returns
     ///
-    /// * Returns true if the font is supported; otherwise, returns false.
+    /// * Returns **true** if the font is supported; returns **false** otherwise.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub fn OH_Drawing_IsFontSupportedFromPath(path: *const ::core::ffi::c_char) -> bool;
-    /// Checks whether the font format specified by the buffer is supported.
+    /// Checks whether the system supports the font format specified in the buffer.
     ///
     /// # Arguments
     ///
-    /// * `data` - A pointer to the memory buffer containing font data.
+    /// * `data` - Pointer to the buffer that contains the font data.
     ///
-    /// * `dataLength` - The size of the font data in bytes.
+    /// * `dataLength` - Size of the font data, in bytes. Must match the actual length of data.
     ///
     /// # Returns
     ///
-    /// * Returns true if the font is supported; otherwise, returns false.
+    /// * Returns **true** if the font is supported; returns **false** otherwise.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]

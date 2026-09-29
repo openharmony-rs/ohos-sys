@@ -6,7 +6,7 @@
 pub use ohos_sys_opaque_types::OH_Utd;
 
 extern "C" {
-    /// Prouct a pointer to the instance of the [`OH_Utd`](ohos_sys_opaque_types::OH_Utd).
+    /// Creates a pointer to the instance of the [`OH_Utd`](ohos_sys_opaque_types::OH_Utd).
     ///
     /// # Arguments
     ///
@@ -16,7 +16,7 @@ extern "C" {
     ///
     /// * If the operation is successful, a pointer to the instance of the [`OH_Utd`](ohos_sys_opaque_types::OH_Utd)
     /// structure is returned.If the operation is failed, nullptr is returned.
-    /// Must be destroyed with `OH_Utd_DestroyTypeDescriptor` when not needed.
+    /// Must be destroyed with [`OH_Utd_Destroy`](crate::type_descriptor::OH_Utd_Destroy) when not needed.
     ///
     /// **See also:** [`OH_Utd`](ohos_sys_opaque_types::OH_Utd).
     ///

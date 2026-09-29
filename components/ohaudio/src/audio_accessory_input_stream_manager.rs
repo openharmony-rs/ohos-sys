@@ -1,0 +1,2 @@
+mod audio_accessory_input_stream_manager_ffi;
+pub use audio_accessory_input_stream_manager_ffi::*;

@@ -21,7 +21,7 @@ pub const UI_TOUCH_EVENT_ACTION_MOVE: _bindgen_ty_1 = _bindgen_ty_1(2);
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub const UI_TOUCH_EVENT_ACTION_UP: _bindgen_ty_1 = _bindgen_ty_1(3);
 #[repr(transparent)]
-/// Defines the action code of the input event.
+/// Defines the action types of the input event.
 ///
 ///
 /// Available since API-level: 12
@@ -101,23 +101,23 @@ pub const UI_INPUT_EVENT_SOURCE_TYPE_JOYSTICK: _bindgen_ty_3 = _bindgen_ty_3(5);
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct _bindgen_ty_3(pub ::core::ffi::c_uint);
-/// Invalid.
+/// Unknown action.
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub const UI_MOUSE_EVENT_ACTION_UNKNOWN: _bindgen_ty_4 = _bindgen_ty_4(0);
-/// Press.
+/// The mouse button is pressed.
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub const UI_MOUSE_EVENT_ACTION_PRESS: _bindgen_ty_4 = _bindgen_ty_4(1);
-/// Release.
+/// The mouse button is released.
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub const UI_MOUSE_EVENT_ACTION_RELEASE: _bindgen_ty_4 = _bindgen_ty_4(2);
-/// Move.
+/// The mouse cursor moves.
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub const UI_MOUSE_EVENT_ACTION_MOVE: _bindgen_ty_4 = _bindgen_ty_4(3);
-/// Cancel.
+/// The mouse button action is canceled.
 ///
 /// Available since API-level: 18
 #[cfg(feature = "api-18")]
@@ -126,7 +126,7 @@ pub const UI_MOUSE_EVENT_ACTION_MOVE: _bindgen_ty_4 = _bindgen_ty_4(3);
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub const UI_MOUSE_EVENT_ACTION_CANCEL: _bindgen_ty_4 = _bindgen_ty_4(13);
 #[repr(transparent)]
-/// Define the Action Code for mouse events.
+/// Define the action types of the mouse event.
 ///
 ///
 /// Available since API-level: 12
@@ -134,27 +134,27 @@ pub const UI_MOUSE_EVENT_ACTION_CANCEL: _bindgen_ty_4 = _bindgen_ty_4(13);
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct _bindgen_ty_4(pub ::core::ffi::c_uint);
-/// None.
+/// No button.
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub const UI_MOUSE_EVENT_BUTTON_NONE: _bindgen_ty_5 = _bindgen_ty_5(0);
-/// Left.
+/// Left button.
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub const UI_MOUSE_EVENT_BUTTON_LEFT: _bindgen_ty_5 = _bindgen_ty_5(1);
-/// Right.
+/// Right button.
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub const UI_MOUSE_EVENT_BUTTON_RIGHT: _bindgen_ty_5 = _bindgen_ty_5(2);
-/// Middle.
+/// Middle button.
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub const UI_MOUSE_EVENT_BUTTON_MIDDLE: _bindgen_ty_5 = _bindgen_ty_5(3);
-/// Back.
+/// Back button on the left of the mouse.
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub const UI_MOUSE_EVENT_BUTTON_BACK: _bindgen_ty_5 = _bindgen_ty_5(4);
-/// Forward.
+/// Forward button on the left of the mouse.
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub const UI_MOUSE_EVENT_BUTTON_FORWARD: _bindgen_ty_5 = _bindgen_ty_5(5);

@@ -15,55 +15,56 @@ use crate::display_info::NativeDisplayManager_Rotation;
 #[cfg(feature = "api-20")]
 use crate::display_info::{NativeDisplayManager_Rect, NativeDisplayManager_SourceMode};
 
-/// the callback function type when display change.
+/// Defines a callback function to listen for display status changes.
 ///
 /// # Arguments
 ///
-/// * `displayId` - change display id.
+/// * `displayId` - ID of the display.
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub type OH_NativeDisplayManager_DisplayChangeCallback =
     ::core::option::Option<unsafe extern "C" fn(displayId: u64)>;
-/// the callback function type when display fold change.
+/// Defines a callback function to listen for folded/unfolded state changes of the display.
 ///
 /// # Arguments
 ///
-/// * `displayMode` - current fold display mode.
+/// * `displayMode` - Folded or unfolded state of the display. For details about the available options, see
+/// [`NativeDisplayManager_FoldDisplayMode`](crate::display_info::NativeDisplayManager_FoldDisplayMode).
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub type OH_NativeDisplayManager_FoldDisplayModeChangeCallback =
     ::core::option::Option<unsafe extern "C" fn(displayMode: NativeDisplayManager_FoldDisplayMode)>;
-/// the callback function type when available area change.
+/// Defines a callback function to listen for available area changes of a display.
 ///
 /// # Arguments
 ///
-/// * `displayId` - The changed display id.
+/// * `displayId` - Display ID, which is a non-negative integer.
 ///
 /// Available since API-level: 20
 #[cfg(feature = "api-20")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
 pub type OH_NativeDisplayManager_AvailableAreaChangeCallback =
     ::core::option::Option<unsafe extern "C" fn(displayId: u64)>;
-/// the callback function type when display connect.
+/// Defines a callback function to listen for display addition events.
 ///
 /// # Arguments
 ///
-/// * `displayId` - The added display id.
+/// * `displayId` - Display ID, which is a non-negative integer.
 ///
 /// Available since API-level: 20
 #[cfg(feature = "api-20")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
 pub type OH_NativeDisplayManager_DisplayAddCallback =
     ::core::option::Option<unsafe extern "C" fn(displayId: u64)>;
-/// the callback function type when display disconnect.
+/// Defines a callback function to listen for display removal events.
 ///
 /// # Arguments
 ///
-/// * `displayId` - The removed display id.
+/// * `displayId` - Display ID, which is a non-negative integer.
 ///
 /// Available since API-level: 20
 #[cfg(feature = "api-20")]
@@ -71,17 +72,17 @@ pub type OH_NativeDisplayManager_DisplayAddCallback =
 pub type OH_NativeDisplayManager_DisplayRemoveCallback =
     ::core::option::Option<unsafe extern "C" fn(displayId: u64)>;
 extern "C" {
-    /// Obtain the default display Id.
+    /// Obtains the ID of the default display.
     ///
     /// # Arguments
     ///
-    /// * `displayId` - Indicates the pointer to an <b>uint64_t</b> object.
+    /// * `displayId` - Pointer to the display ID. The value is a non-negative integer.
     ///
     /// # Returns
     ///
-    /// * { DISPLAY_MANAGER_OK } If the operation is successful
-    /// { DISPLAY_MANAGER_ERROR_INVALID_PARAM } If Parameter error.
-    /// { DISPLAY_MANAGER_ERROR_SYSTEM_ABNORMAL } If display manager service works abnormally.
+    /// - [`DISPLAY_MANAGER_OK`](crate::display_info::NativeDisplayManagerResult) If the operation is successful.
+    /// - [`DISPLAY_MANAGER_ERROR_INVALID_PARAM`](crate::display_info::NativeDisplayManagerErrorCode::INVALID_PARAM) If parameter error.
+    /// - [`DISPLAY_MANAGER_ERROR_SYSTEM_ABNORMAL`](crate::display_info::NativeDisplayManagerErrorCode::SYSTEM_ABNORMAL) If display manager service works abnormally.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -89,17 +90,17 @@ extern "C" {
     pub fn OH_NativeDisplayManager_GetDefaultDisplayId(
         displayId: *mut u64,
     ) -> NativeDisplayManagerResult;
-    /// Obtain the default display width.
+    /// Obtains the width of the default display.
     ///
     /// # Arguments
     ///
-    /// * `displayWidth` - Indicates the pointer to an <b>int32_t</b> object.
+    /// * `displayWidth` - Pointer to the width, in px. The value is an integer.
     ///
     /// # Returns
     ///
-    /// * { DISPLAY_MANAGER_OK } If the operation is successful
-    /// { DISPLAY_MANAGER_ERROR_INVALID_PARAM } If Parameter error.
-    /// { DISPLAY_MANAGER_ERROR_SYSTEM_ABNORMAL } If display manager service works abnormally.
+    /// - [`DISPLAY_MANAGER_OK`](crate::display_info::NativeDisplayManagerResult) If the operation is successful.
+    /// - [`DISPLAY_MANAGER_ERROR_INVALID_PARAM`](crate::display_info::NativeDisplayManagerErrorCode::INVALID_PARAM) If parameter error.
+    /// - [`DISPLAY_MANAGER_ERROR_SYSTEM_ABNORMAL`](crate::display_info::NativeDisplayManagerErrorCode::SYSTEM_ABNORMAL) If display manager service works abnormally.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -107,17 +108,17 @@ extern "C" {
     pub fn OH_NativeDisplayManager_GetDefaultDisplayWidth(
         displayWidth: *mut i32,
     ) -> NativeDisplayManagerResult;
-    /// Obtain the default display height.
+    /// Obtains the height of the default display.
     ///
     /// # Arguments
     ///
-    /// * `displayHeight` - Indicates the pointer to an <b>int32_t</b> object.
+    /// * `displayHeight` - Pointer to the height, in px. The value is an integer.
     ///
     /// # Returns
     ///
-    /// * { DISPLAY_MANAGER_OK } If the operation is successful
-    /// { DISPLAY_MANAGER_ERROR_INVALID_PARAM } If Parameter error.
-    /// { DISPLAY_MANAGER_ERROR_SYSTEM_ABNORMAL } If display manager service works abnormally.
+    /// - [`DISPLAY_MANAGER_OK`](crate::display_info::NativeDisplayManagerResult) If the operation is successful.
+    /// - [`DISPLAY_MANAGER_ERROR_INVALID_PARAM`](crate::display_info::NativeDisplayManagerErrorCode::INVALID_PARAM) If parameter error.
+    /// - [`DISPLAY_MANAGER_ERROR_SYSTEM_ABNORMAL`](crate::display_info::NativeDisplayManagerErrorCode::SYSTEM_ABNORMAL) If display manager service works abnormally.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -125,17 +126,18 @@ extern "C" {
     pub fn OH_NativeDisplayManager_GetDefaultDisplayHeight(
         displayHeight: *mut i32,
     ) -> NativeDisplayManagerResult;
-    /// Obtain the default display rotation.
+    /// Obtains the clockwise rotation angle of the default display.
     ///
     /// # Arguments
     ///
-    /// * `displayRotation` - Indicates the pointer to an <b>NativeDisplayManager_Rotation</b> object.
+    /// * `displayRotation` - Pointer to the clockwise rotation angle. For details about the available options, see
+    /// [`NativeDisplayManager_Rotation`](crate::display_info::NativeDisplayManager_Rotation).
     ///
     /// # Returns
     ///
-    /// * { DISPLAY_MANAGER_OK } If the operation is successful
-    /// { DISPLAY_MANAGER_ERROR_INVALID_PARAM } If Parameter error.
-    /// { DISPLAY_MANAGER_ERROR_SYSTEM_ABNORMAL } If display manager service works abnormally.
+    /// - [`DISPLAY_MANAGER_OK`](crate::display_info::NativeDisplayManagerResult) If the operation is successful.
+    /// - [`DISPLAY_MANAGER_ERROR_INVALID_PARAM`](crate::display_info::NativeDisplayManagerErrorCode::INVALID_PARAM) If parameter error.
+    /// - [`DISPLAY_MANAGER_ERROR_SYSTEM_ABNORMAL`](crate::display_info::NativeDisplayManagerErrorCode::SYSTEM_ABNORMAL) If display manager service works abnormally.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -143,17 +145,18 @@ extern "C" {
     pub fn OH_NativeDisplayManager_GetDefaultDisplayRotation(
         displayRotation: *mut NativeDisplayManager_Rotation,
     ) -> NativeDisplayManagerResult;
-    /// Obtain the default display orientation.
+    /// Obtains the orientation of the default display.
     ///
     /// # Arguments
     ///
-    /// * `displayOrientation` - Indicates the pointer to an <b>NativeDisplayManager_Orientation</b> object.
+    /// * `displayOrientation` - Pointer to the orientation. For details about the available options, see
+    /// [`NativeDisplayManager_Orientation`](crate::display_info::NativeDisplayManager_Orientation).
     ///
     /// # Returns
     ///
-    /// * { DISPLAY_MANAGER_OK } If the operation is successful
-    /// { DISPLAY_MANAGER_ERROR_INVALID_PARAM } If Parameter error.
-    /// { DISPLAY_MANAGER_ERROR_SYSTEM_ABNORMAL } If display manager service works abnormally.
+    /// - [`DISPLAY_MANAGER_OK`](crate::display_info::NativeDisplayManagerResult) If the operation is successful.
+    /// - [`DISPLAY_MANAGER_ERROR_INVALID_PARAM`](crate::display_info::NativeDisplayManagerErrorCode::INVALID_PARAM) If parameter error.
+    /// - [`DISPLAY_MANAGER_ERROR_SYSTEM_ABNORMAL`](crate::display_info::NativeDisplayManagerErrorCode::SYSTEM_ABNORMAL) If display manager service works abnormally.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -161,17 +164,18 @@ extern "C" {
     pub fn OH_NativeDisplayManager_GetDefaultDisplayOrientation(
         displayOrientation: *mut NativeDisplayManager_Orientation,
     ) -> NativeDisplayManagerResult;
-    /// Obtain the default display virtualPixels.
+    /// Obtains the virtual pixel ratio of the default display.
     ///
     /// # Arguments
     ///
-    /// * `virtualPixels` - Indicates the pointer to an <b>float</b> object.
+    /// * `virtualPixels` - Pointer to the virtual pixel ratio. The value is a floating-point number, and it is usually the
+    /// same as that of **densityPixels**.
     ///
     /// # Returns
     ///
-    /// * { DISPLAY_MANAGER_OK } If the operation is successful
-    /// { DISPLAY_MANAGER_ERROR_INVALID_PARAM } If Parameter error.
-    /// { DISPLAY_MANAGER_ERROR_SYSTEM_ABNORMAL } If display manager service works abnormally.
+    /// - [`DISPLAY_MANAGER_OK`](crate::display_info::NativeDisplayManagerResult) If the operation is successful.
+    /// - [`DISPLAY_MANAGER_ERROR_INVALID_PARAM`](crate::display_info::NativeDisplayManagerErrorCode::INVALID_PARAM) If parameter error.
+    /// - [`DISPLAY_MANAGER_ERROR_SYSTEM_ABNORMAL`](crate::display_info::NativeDisplayManagerErrorCode::SYSTEM_ABNORMAL) If display manager service works abnormally.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -179,17 +183,17 @@ extern "C" {
     pub fn OH_NativeDisplayManager_GetDefaultDisplayVirtualPixelRatio(
         virtualPixels: *mut f32,
     ) -> NativeDisplayManagerResult;
-    /// Obtain the default display refreshRate.
+    /// Obtains the refresh rate of the default display.
     ///
     /// # Arguments
     ///
-    /// * `refreshRate` - Indicates the pointer to an <b>uint32_t</b> object.
+    /// * `refreshRate` - Pointer to the refresh rate. The value is an integer, in Hz.
     ///
     /// # Returns
     ///
-    /// * { DISPLAY_MANAGER_OK } If the operation is successful
-    /// { DISPLAY_MANAGER_ERROR_INVALID_PARAM } If Parameter error.
-    /// { DISPLAY_MANAGER_ERROR_SYSTEM_ABNORMAL } If display manager service works abnormally.
+    /// - [`DISPLAY_MANAGER_OK`](crate::display_info::NativeDisplayManagerResult) If the operation is successful.
+    /// - [`DISPLAY_MANAGER_ERROR_INVALID_PARAM`](crate::display_info::NativeDisplayManagerErrorCode::INVALID_PARAM) If parameter error.
+    /// - [`DISPLAY_MANAGER_ERROR_SYSTEM_ABNORMAL`](crate::display_info::NativeDisplayManagerErrorCode::SYSTEM_ABNORMAL) If display manager service works abnormally.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -197,17 +201,18 @@ extern "C" {
     pub fn OH_NativeDisplayManager_GetDefaultDisplayRefreshRate(
         refreshRate: *mut u32,
     ) -> NativeDisplayManagerResult;
-    /// Obtain the default display densityDpi.
+    /// Obtains the physical pixel density of the default display.
     ///
     /// # Arguments
     ///
-    /// * `densityDpi` - Indicates the pointer to an <b>int32_t</b> object.
+    /// * `densityDpi` - Pointer to the physical pixel density, that is, the number of pixels per inch. The value is an
+    /// integer, in px. The actual value depends on the options provided in device settings.
     ///
     /// # Returns
     ///
-    /// * { DISPLAY_MANAGER_OK } If the operation is successful
-    /// { DISPLAY_MANAGER_ERROR_INVALID_PARAM } If Parameter error.
-    /// { DISPLAY_MANAGER_ERROR_SYSTEM_ABNORMAL } If display manager service works abnormally.
+    /// - [`DISPLAY_MANAGER_OK`](crate::display_info::NativeDisplayManagerResult) If the operation is successful.
+    /// - [`DISPLAY_MANAGER_ERROR_INVALID_PARAM`](crate::display_info::NativeDisplayManagerErrorCode::INVALID_PARAM) If parameter error.
+    /// - [`DISPLAY_MANAGER_ERROR_SYSTEM_ABNORMAL`](crate::display_info::NativeDisplayManagerErrorCode::SYSTEM_ABNORMAL) If display manager service works abnormally.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -215,17 +220,19 @@ extern "C" {
     pub fn OH_NativeDisplayManager_GetDefaultDisplayDensityDpi(
         densityDpi: *mut i32,
     ) -> NativeDisplayManagerResult;
-    /// Obtain the default display densityPixels.
+    /// Obtains the logical pixel density of the default display.
     ///
     /// # Arguments
     ///
-    /// * `densityPixels` - Indicates the pointer to an <b>float</b> object.
+    /// * `densityPixels` - Pointer to the logical pixel density, which indicates the scaling coefficient of the physical
+    /// pixels and logical pixels. The value is a floating-point number in the range \[0.5, 4.0\]. Generally, the value is
+    /// **1.0** or **3.0**. The actual value depends on the density DPI provided by the device in use.
     ///
     /// # Returns
     ///
-    /// * { DISPLAY_MANAGER_OK } If the operation is successful
-    /// { DISPLAY_MANAGER_ERROR_INVALID_PARAM } If Parameter error.
-    /// { DISPLAY_MANAGER_ERROR_SYSTEM_ABNORMAL } If display manager service works abnormally.
+    /// - [`DISPLAY_MANAGER_OK`](crate::display_info::NativeDisplayManagerResult) If the operation is successful.
+    /// - [`DISPLAY_MANAGER_ERROR_INVALID_PARAM`](crate::display_info::NativeDisplayManagerErrorCode::INVALID_PARAM) If parameter error.
+    /// - [`DISPLAY_MANAGER_ERROR_SYSTEM_ABNORMAL`](crate::display_info::NativeDisplayManagerErrorCode::SYSTEM_ABNORMAL) If display manager service works abnormally.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -233,17 +240,18 @@ extern "C" {
     pub fn OH_NativeDisplayManager_GetDefaultDisplayDensityPixels(
         densityPixels: *mut f32,
     ) -> NativeDisplayManagerResult;
-    /// Obtain the default display scaledDensity.
+    /// Obtains the scale factor of fonts displayed on the default display.
     ///
     /// # Arguments
     ///
-    /// * `scaledDensity` - Indicates the pointer to an <b>float</b> object.
+    /// * `scaledDensity` - Pointer to the scale factor. The value is a floating-point number, and it is usually the same
+    /// as that of **densityPixels**.
     ///
     /// # Returns
     ///
-    /// * { DISPLAY_MANAGER_OK } If the operation is successful
-    /// { DISPLAY_MANAGER_ERROR_INVALID_PARAM } If Parameter error.
-    /// { DISPLAY_MANAGER_ERROR_SYSTEM_ABNORMAL } If display manager service works abnormally.
+    /// - [`DISPLAY_MANAGER_OK`](crate::display_info::NativeDisplayManagerResult) If the operation is successful.
+    /// - [`DISPLAY_MANAGER_ERROR_INVALID_PARAM`](crate::display_info::NativeDisplayManagerErrorCode::INVALID_PARAM) If parameter error.
+    /// - [`DISPLAY_MANAGER_ERROR_SYSTEM_ABNORMAL`](crate::display_info::NativeDisplayManagerErrorCode::SYSTEM_ABNORMAL) If display manager service works abnormally.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -251,17 +259,18 @@ extern "C" {
     pub fn OH_NativeDisplayManager_GetDefaultDisplayScaledDensity(
         scaledDensity: *mut f32,
     ) -> NativeDisplayManagerResult;
-    /// Obtain the default display xDpi.
+    /// Obtains the number of physical pixels per inch on the default display in the X dimension.
     ///
     /// # Arguments
     ///
-    /// * `xDpi` - Indicates the pointer to an <b>float</b> object.
+    /// * `xDpi` - Pointer to the number of physical pixels per inch in the X dimension. The value is a floating-point
+    /// number.
     ///
     /// # Returns
     ///
-    /// * { DISPLAY_MANAGER_OK } If the operation is successful
-    /// { DISPLAY_MANAGER_ERROR_INVALID_PARAM } If Parameter error.
-    /// { DISPLAY_MANAGER_ERROR_SYSTEM_ABNORMAL } If display manager service works abnormally.
+    /// - [`DISPLAY_MANAGER_OK`](crate::display_info::NativeDisplayManagerResult) If the operation is successful.
+    /// - [`DISPLAY_MANAGER_ERROR_INVALID_PARAM`](crate::display_info::NativeDisplayManagerErrorCode::INVALID_PARAM) If parameter error.
+    /// - [`DISPLAY_MANAGER_ERROR_SYSTEM_ABNORMAL`](crate::display_info::NativeDisplayManagerErrorCode::SYSTEM_ABNORMAL) If display manager service works abnormally.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -269,17 +278,18 @@ extern "C" {
     pub fn OH_NativeDisplayManager_GetDefaultDisplayDensityXdpi(
         xDpi: *mut f32,
     ) -> NativeDisplayManagerResult;
-    /// Obtain the default display yDpi.
+    /// Obtains the number of physical pixels per inch on the default display in the Y dimension.
     ///
     /// # Arguments
     ///
-    /// * `yDpi` - Indicates the pointer to an <b>float</b> object.
+    /// * `yDpi` - Pointer to the number of physical pixels per inch in the Y dimension. The value is a floating-point
+    /// number.
     ///
     /// # Returns
     ///
-    /// * { DISPLAY_MANAGER_OK } If the operation is successful
-    /// { DISPLAY_MANAGER_ERROR_INVALID_PARAM } If Parameter error.
-    /// { DISPLAY_MANAGER_ERROR_SYSTEM_ABNORMAL } If display manager service works abnormally.
+    /// - [`DISPLAY_MANAGER_OK`](crate::display_info::NativeDisplayManagerResult) If the operation is successful.
+    /// - [`DISPLAY_MANAGER_ERROR_INVALID_PARAM`](crate::display_info::NativeDisplayManagerErrorCode::INVALID_PARAM) If parameter error.
+    /// - [`DISPLAY_MANAGER_ERROR_SYSTEM_ABNORMAL`](crate::display_info::NativeDisplayManagerErrorCode::SYSTEM_ABNORMAL) If display manager service works abnormally.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -287,17 +297,19 @@ extern "C" {
     pub fn OH_NativeDisplayManager_GetDefaultDisplayDensityYdpi(
         yDpi: *mut f32,
     ) -> NativeDisplayManagerResult;
-    /// Create the cutout info of the device.
+    /// Obtains the unusable area of the default display, including punch hole, notch, and curved area of a waterfall
+    /// display.
     ///
     /// # Arguments
     ///
-    /// * `cutoutInfo` - Indicates the pointer to an <b>NativeDisplayManager_CutoutInfo</b> object.
+    /// * `cutoutInfo` - Double pointer to the unusable area information, which is encapsulated in
+    /// [`NativeDisplayManager_CutoutInfo`](crate::display_info::NativeDisplayManager_CutoutInfo).
     ///
     /// # Returns
     ///
-    /// * { DISPLAY_MANAGER_OK } If the operation is successful
-    /// { DISPLAY_MANAGER_ERROR_INVALID_PARAM } If Parameter error.
-    /// { DISPLAY_MANAGER_ERROR_SYSTEM_ABNORMAL } If display manager service works abnormally.
+    /// - [`DISPLAY_MANAGER_OK`](crate::display_info::NativeDisplayManagerResult) If the operation is successful.
+    /// - [`DISPLAY_MANAGER_ERROR_INVALID_PARAM`](crate::display_info::NativeDisplayManagerErrorCode::INVALID_PARAM) If parameter error.
+    /// - [`DISPLAY_MANAGER_ERROR_SYSTEM_ABNORMAL`](crate::display_info::NativeDisplayManagerErrorCode::SYSTEM_ABNORMAL) If display manager service works abnormally.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -305,16 +317,19 @@ extern "C" {
     pub fn OH_NativeDisplayManager_CreateDefaultDisplayCutoutInfo(
         cutoutInfo: *mut *mut NativeDisplayManager_CutoutInfo,
     ) -> NativeDisplayManagerResult;
-    /// Destroy an <b>NativeDisplayManager_CutoutInfo</b> object and reclaims the memory occupied by the object.
+    /// Destroys the unusable area of the default display, including punch hole, notch, and curved area of a
+    /// waterfall display.
     ///
     /// # Arguments
     ///
-    /// * `cutoutInfo` - Indicates the pointer to an <b>NativeDisplayManager_CutoutInfo</b> object.
+    /// * `cutoutInfo` - Pointer to the unusable area information object, which is obtained by calling
+    /// [`OH_NativeDisplayManager_CreateDefaultDisplayCutoutInfo`](crate::display_manager::OH_NativeDisplayManager_CreateDefaultDisplayCutoutInfo). For details, see
+    /// [`NativeDisplayManager_CutoutInfo`](crate::display_info::NativeDisplayManager_CutoutInfo).
     ///
     /// # Returns
     ///
-    /// * { DISPLAY_MANAGER_OK } If the operation is successful
-    /// { DISPLAY_MANAGER_ERROR_INVALID_PARAM } If Parameter error.
+    /// - [`DISPLAY_MANAGER_OK`](crate::display_info::NativeDisplayManagerResult) If the operation is successful.
+    /// - [`DISPLAY_MANAGER_ERROR_INVALID_PARAM`](crate::display_info::NativeDisplayManagerErrorCode::INVALID_PARAM) If parameter error.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -322,7 +337,7 @@ extern "C" {
     pub fn OH_NativeDisplayManager_DestroyDefaultDisplayCutoutInfo(
         cutoutInfo: *mut NativeDisplayManager_CutoutInfo,
     ) -> NativeDisplayManagerResult;
-    /// Check whether the device is foldable.
+    /// Checks whether the current device is foldable.
     ///
     ///
     /// # Returns
@@ -333,17 +348,18 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_NativeDisplayManager_IsFoldable() -> bool;
-    /// Get the display mode of the foldable device.
+    /// Obtains the display mode of the foldable device.
     ///
     /// # Arguments
     ///
-    /// * `displayMode` - Indicates the pointer to an <b>NativeDisplayManager_FoldDisplayMode</b> object.
+    /// * `displayMode` - Pointer to the display mode. For details about the available options, see
+    /// [`NativeDisplayManager_FoldDisplayMode`](crate::display_info::NativeDisplayManager_FoldDisplayMode).
     ///
     /// # Returns
     ///
-    /// * { DISPLAY_MANAGER_OK } If the operation is successful
-    /// { DISPLAY_MANAGER_ERROR_INVALID_PARAM } If Parameter error.
-    /// { DISPLAY_MANAGER_ERROR_DEVICE_NOT_SUPPORTED } device not support.
+    /// - [`DISPLAY_MANAGER_OK`](crate::display_info::NativeDisplayManagerResult) If the operation is successful.
+    /// - [`DISPLAY_MANAGER_ERROR_INVALID_PARAM`](crate::display_info::NativeDisplayManagerErrorCode::INVALID_PARAM) If parameter error.
+    /// - [`DISPLAY_MANAGER_ERROR_DEVICE_NOT_SUPPORTED`](crate::display_info::NativeDisplayManagerErrorCode::DEVICE_NOT_SUPPORTED) If device not support.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -351,19 +367,21 @@ extern "C" {
     pub fn OH_NativeDisplayManager_GetFoldDisplayMode(
         displayMode: *mut NativeDisplayManager_FoldDisplayMode,
     ) -> NativeDisplayManagerResult;
-    /// Register the callback for display change listener.
+    /// Registers a listener for display status changes (such as rotation, refresh rate, DPI, and resolution changes).
     ///
     /// # Arguments
     ///
-    /// * `displayChangeCallback` - display change callback.
+    /// * `displayChangeCallback` - Callback function triggered when the display status is changed. For details, see
+    /// [`OH_NativeDisplayManager_DisplayChangeCallback`](crate::display_manager::OH_NativeDisplayManager_DisplayChangeCallback).
     ///
-    /// * `listenerIndex` - Indicates the pointer to an <b>uint32_t</b> object. used in unregister call.
+    /// * `listenerIndex` - Pointer to the index of the listener registered. It can be used as an input parameter of
+    /// [`OH_NativeDisplayManager_UnregisterDisplayChangeListener`](crate::display_manager::OH_NativeDisplayManager_UnregisterDisplayChangeListener).
     ///
     /// # Returns
     ///
-    /// * { DISPLAY_MANAGER_OK } If the operation is successful
-    /// { DISPLAY_MANAGER_ERROR_INVALID_PARAM } If Parameter error.
-    /// { DISPLAY_MANAGER_ERROR_SYSTEM_ABNORMAL } If display manager service works abnormally.
+    /// - [`DISPLAY_MANAGER_OK`](crate::display_info::NativeDisplayManagerResult) If the operation is successful.
+    /// - [`DISPLAY_MANAGER_ERROR_INVALID_PARAM`](crate::display_info::NativeDisplayManagerErrorCode::INVALID_PARAM) If parameter error.
+    /// - [`DISPLAY_MANAGER_ERROR_SYSTEM_ABNORMAL`](crate::display_info::NativeDisplayManagerErrorCode::SYSTEM_ABNORMAL) If display manager service works abnormally.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -372,17 +390,18 @@ extern "C" {
         displayChangeCallback: OH_NativeDisplayManager_DisplayChangeCallback,
         listenerIndex: *mut u32,
     ) -> NativeDisplayManagerResult;
-    /// Unregister the callback for display changes listener.
+    /// Unregisters a listener for display status changes.
     ///
     /// # Arguments
     ///
-    /// * `listenerIndex` - display changed listener index.
+    /// * `listenerIndex` - Index of the listener returned when
+    /// [`OH_NativeDisplayManager_RegisterDisplayChangeListener`](crate::display_manager::OH_NativeDisplayManager_RegisterDisplayChangeListener) is called.
     ///
     /// # Returns
     ///
-    /// * { DISPLAY_MANAGER_OK } If the operation is successful
-    /// { DISPLAY_MANAGER_ERROR_INVALID_PARAM } If Parameter error.
-    /// { DISPLAY_MANAGER_ERROR_SYSTEM_ABNORMAL } If display manager service works abnormally.
+    /// - [`DISPLAY_MANAGER_OK`](crate::display_info::NativeDisplayManagerResult) If the operation is successful.
+    /// - [`DISPLAY_MANAGER_ERROR_INVALID_PARAM`](crate::display_info::NativeDisplayManagerErrorCode::INVALID_PARAM) If parameter error.
+    /// - [`DISPLAY_MANAGER_ERROR_SYSTEM_ABNORMAL`](crate::display_info::NativeDisplayManagerErrorCode::SYSTEM_ABNORMAL) If display manager service works abnormally.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -390,20 +409,22 @@ extern "C" {
     pub fn OH_NativeDisplayManager_UnregisterDisplayChangeListener(
         listenerIndex: u32,
     ) -> NativeDisplayManagerResult;
-    /// Register the callback for display mode change listener.
+    /// Registers a listener for folded/unfolded state changes of the display.
     ///
     /// # Arguments
     ///
-    /// * `displayModeChangeCallback` - display mode change callback.
+    /// * `displayModeChangeCallback` - Callback function triggered when the folded/unfolded state of the display is
+    /// changed. For details, see [`OH_NativeDisplayManager_FoldDisplayModeChangeCallback`](crate::display_manager::OH_NativeDisplayManager_FoldDisplayModeChangeCallback).
     ///
-    /// * `listenerIndex` - Indicates the pointer to an <b>uint32_t</b> object. used in unregister call.
+    /// * `listenerIndex` - Pointer to the index of the listener registered. It can be used as an input parameter of
+    /// [`OH_NativeDisplayManager_UnregisterFoldDisplayModeChangeListener`](crate::display_manager::OH_NativeDisplayManager_UnregisterFoldDisplayModeChangeListener).
     ///
     /// # Returns
     ///
-    /// * { DISPLAY_MANAGER_OK } If the operation is successful
-    /// { DISPLAY_MANAGER_ERROR_INVALID_PARAM } If Parameter error.
-    /// { DISPLAY_MANAGER_ERROR_DEVICE_NOT_SUPPORTED } device not support.
-    /// { DISPLAY_MANAGER_ERROR_SYSTEM_ABNORMAL } If display manager service works abnormally.
+    /// - [`DISPLAY_MANAGER_OK`](crate::display_info::NativeDisplayManagerResult) If the operation is successful.
+    /// - [`DISPLAY_MANAGER_ERROR_INVALID_PARAM`](crate::display_info::NativeDisplayManagerErrorCode::INVALID_PARAM) If parameter error.
+    /// - [`DISPLAY_MANAGER_ERROR_DEVICE_NOT_SUPPORTED`](crate::display_info::NativeDisplayManagerErrorCode::DEVICE_NOT_SUPPORTED) If device not support.
+    /// - [`DISPLAY_MANAGER_ERROR_SYSTEM_ABNORMAL`](crate::display_info::NativeDisplayManagerErrorCode::SYSTEM_ABNORMAL) If display manager service works abnormally.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -412,18 +433,19 @@ extern "C" {
         displayModeChangeCallback: OH_NativeDisplayManager_FoldDisplayModeChangeCallback,
         listenerIndex: *mut u32,
     ) -> NativeDisplayManagerResult;
-    /// Unregister the callback for display mode change listener.
+    /// Unregisters a listener for folded/unfolded state changes of the display.
     ///
     /// # Arguments
     ///
-    /// * `listenerIndex` - display mode change listener index.
+    /// * `listenerIndex` - Index of the listener returned when
+    /// [`OH_NativeDisplayManager_RegisterFoldDisplayModeChangeListener`](crate::display_manager::OH_NativeDisplayManager_RegisterFoldDisplayModeChangeListener) is called.
     ///
     /// # Returns
     ///
-    /// * { DISPLAY_MANAGER_OK } If the operation is successful
-    /// { DISPLAY_MANAGER_ERROR_INVALID_PARAM } If Parameter error.
-    /// { DISPLAY_MANAGER_ERROR_DEVICE_NOT_SUPPORTED } device not support.
-    /// { DISPLAY_MANAGER_ERROR_SYSTEM_ABNORMAL } If display manager service works abnormally.
+    /// - [`DISPLAY_MANAGER_OK`](crate::display_info::NativeDisplayManagerResult) If the operation is successful.
+    /// - [`DISPLAY_MANAGER_ERROR_INVALID_PARAM`](crate::display_info::NativeDisplayManagerErrorCode::INVALID_PARAM) If parameter error.
+    /// - [`DISPLAY_MANAGER_ERROR_DEVICE_NOT_SUPPORTED`](crate::display_info::NativeDisplayManagerErrorCode::DEVICE_NOT_SUPPORTED) If device not support.
+    /// - [`DISPLAY_MANAGER_ERROR_SYSTEM_ABNORMAL`](crate::display_info::NativeDisplayManagerErrorCode::SYSTEM_ABNORMAL) If display manager service works abnormally.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -431,17 +453,18 @@ extern "C" {
     pub fn OH_NativeDisplayManager_UnregisterFoldDisplayModeChangeListener(
         listenerIndex: u32,
     ) -> NativeDisplayManagerResult;
-    /// Create all displays.
+    /// Obtains the object that contains the information about all displays.
     ///
     /// # Arguments
     ///
-    /// * `allDisplays` - Output parameter for all displays information.
+    /// * `allDisplays` - Double pointer to the display information, which is encapsulated in
+    /// [`NativeDisplayManager_DisplaysInfo`](crate::display_info::NativeDisplayManager_DisplaysInfo).
     ///
     /// # Returns
     ///
-    /// * { DISPLAY_MANAGER_OK } If the operation is successful.
-    /// { DISPLAY_MANAGER_ERROR_INVALID_PARAM } If Parameter error.
-    /// { DISPLAY_MANAGER_ERROR_SYSTEM_ABNORMAL } If display manager service works abnormally.
+    /// - [`DISPLAY_MANAGER_OK`](crate::display_info::NativeDisplayManagerResult) If the operation is successful.
+    /// - [`DISPLAY_MANAGER_ERROR_INVALID_PARAM`](crate::display_info::NativeDisplayManagerErrorCode::INVALID_PARAM) If parameter error.
+    /// - [`DISPLAY_MANAGER_ERROR_SYSTEM_ABNORMAL`](crate::display_info::NativeDisplayManagerErrorCode::SYSTEM_ABNORMAL) If display manager service works abnormally.
     ///
     /// Available since API-level: 14
     #[cfg(feature = "api-14")]
@@ -449,11 +472,12 @@ extern "C" {
     pub fn OH_NativeDisplayManager_CreateAllDisplays(
         allDisplays: *mut *mut NativeDisplayManager_DisplaysInfo,
     ) -> NativeDisplayManagerResult;
-    /// Destroy all displays.
+    /// Destroys the object that contains the information about all displays.
     ///
     /// # Arguments
     ///
-    /// * `allDisplays` - all displays to be free.
+    /// * `allDisplays` - Pointer to the display information object, which is obtained by calling
+    /// [`OH_NativeDisplayManager_CreateAllDisplays`](crate::display_manager::OH_NativeDisplayManager_CreateAllDisplays). For details, see [`NativeDisplayManager_DisplaysInfo`](crate::display_info::NativeDisplayManager_DisplaysInfo).
     ///
     /// Available since API-level: 14
     #[cfg(feature = "api-14")]
@@ -461,19 +485,20 @@ extern "C" {
     pub fn OH_NativeDisplayManager_DestroyAllDisplays(
         allDisplays: *mut NativeDisplayManager_DisplaysInfo,
     );
-    /// Create display information by display id.
+    /// Obtains the object that contains the information about a display.
     ///
     /// # Arguments
     ///
-    /// * `displayId` - The display id.
+    /// * `displayId` - ID of the display. The value must be a non-negative integer.
     ///
-    /// * `displayInfo` - The pointer to the display information.
+    /// * `displayInfo` - Double pointer to the display information, which is encapsulated in
+    /// [`NativeDisplayManager_DisplayInfo`](crate::display_info::NativeDisplayManager_DisplayInfo).
     ///
     /// # Returns
     ///
-    /// * { DISPLAY_MANAGER_OK } If the operation is successful.
-    /// { DISPLAY_MANAGER_ERROR_INVALID_PARAM } If Parameter error.
-    /// { DISPLAY_MANAGER_ERROR_SYSTEM_ABNORMAL } If display manager service works abnormally.
+    /// - [`DISPLAY_MANAGER_OK`](crate::display_info::NativeDisplayManagerResult) If the operation is successful.
+    /// - [`DISPLAY_MANAGER_ERROR_INVALID_PARAM`](crate::display_info::NativeDisplayManagerErrorCode::INVALID_PARAM) If parameter error.
+    /// - [`DISPLAY_MANAGER_ERROR_SYSTEM_ABNORMAL`](crate::display_info::NativeDisplayManagerErrorCode::SYSTEM_ABNORMAL) If display manager service works abnormally.
     ///
     /// Available since API-level: 14
     #[cfg(feature = "api-14")]
@@ -482,11 +507,13 @@ extern "C" {
         displayId: u32,
         displayInfo: *mut *mut NativeDisplayManager_DisplayInfo,
     ) -> NativeDisplayManagerResult;
-    /// Destroy the display information.
+    /// Destroys the object that contains the information about a display.
     ///
     /// # Arguments
     ///
-    /// * `displayInfo` - the target display to be free.
+    /// * `displayInfo` - Pointer to the display information object, which is obtained by calling
+    /// [`OH_NativeDisplayManager_CreateDisplayById`](crate::display_manager::OH_NativeDisplayManager_CreateDisplayById) or [`OH_NativeDisplayManager_CreatePrimaryDisplay`](crate::display_manager::OH_NativeDisplayManager_CreatePrimaryDisplay). For
+    /// details, see [`NativeDisplayManager_DisplayInfo`](crate::display_info::NativeDisplayManager_DisplayInfo).
     ///
     /// Available since API-level: 14
     #[cfg(feature = "api-14")]
@@ -494,17 +521,21 @@ extern "C" {
     pub fn OH_NativeDisplayManager_DestroyDisplay(
         displayInfo: *mut NativeDisplayManager_DisplayInfo,
     );
-    /// Create a primary display.
+    /// Obtains the object that contains the information about the primary display. For devices other than 2-in-1
+    /// devices, the displayInfo object obtained contains information about the built-in screen. For 2-in-1 devices with an
+    /// external screen, the displayInfo object obtained contains information about the current primary screen. For 2-in-1
+    /// devices without an external screen, the displayInfo object obtained contains information about the built-in screen.
     ///
     /// # Arguments
     ///
-    /// * `displayInfo` - The information of the created display.
+    /// * `displayInfo` - Double pointer to the display information, which is encapsulated in
+    /// [`NativeDisplayManager_DisplayInfo`](crate::display_info::NativeDisplayManager_DisplayInfo).
     ///
     /// # Returns
     ///
-    /// * { DISPLAY_MANAGER_OK } If the operation is successful.
-    /// { DISPLAY_MANAGER_ERROR_INVALID_PARAM } If Parameter error.
-    /// { DISPLAY_MANAGER_ERROR_SYSTEM_ABNORMAL } If display manager service works abnormally.
+    /// - [`DISPLAY_MANAGER_OK`](crate::display_info::NativeDisplayManagerResult) If the operation is successful.
+    /// - [`DISPLAY_MANAGER_ERROR_INVALID_PARAM`](crate::display_info::NativeDisplayManagerErrorCode::INVALID_PARAM) If parameter error.
+    /// - [`DISPLAY_MANAGER_ERROR_SYSTEM_ABNORMAL`](crate::display_info::NativeDisplayManagerErrorCode::SYSTEM_ABNORMAL) If display manager service works abnormally.
     ///
     /// Available since API-level: 14
     #[cfg(feature = "api-14")]
@@ -512,19 +543,26 @@ extern "C" {
     pub fn OH_NativeDisplayManager_CreatePrimaryDisplay(
         displayInfo: *mut *mut NativeDisplayManager_DisplayInfo,
     ) -> NativeDisplayManagerResult;
-    /// Register the callback for available area change listener.
+    /// Registers a listener for available area changes of the display.
+    ///
+    /// This API can be properly called on devices running OpenHarmony 7.0.0 or later.
+    /// For devices running versions earlier than OpenHarmony 7.0.0,
+    /// this API can be properly called on PCs/2-in-1 devices and tablets.
+    /// If being called on other device types, it does not take effect and no error is reported.
     ///
     /// # Arguments
     ///
-    /// * `availableAreaChangeCallback` - Available area change callback.
+    /// * `availableAreaChangeCallback` - Callback function triggered when the available area of the display changes.
+    /// For details, see [`OH_NativeDisplayManager_AvailableAreaChangeCallback`](crate::display_manager::OH_NativeDisplayManager_AvailableAreaChangeCallback).
     ///
-    /// * `listenerIndex` - Indicates the pointer to an <b>uint32_t</b> object. used in unregister call.
+    /// * `listenerIndex` - Pointer to the index of the listener registered.
+    /// It can be used as an input parameter of [`OH_NativeDisplayManager_UnregisterAvailableAreaChangeListener`](crate::display_manager::OH_NativeDisplayManager_UnregisterAvailableAreaChangeListener).
     ///
     /// # Returns
     ///
-    /// * { DISPLAY_MANAGER_OK } If the operation is successful
-    /// { DISPLAY_MANAGER_ERROR_ILLEGAL_PARAM } If Parameter illegal.
-    /// { DISPLAY_MANAGER_ERROR_SYSTEM_ABNORMAL } If display manager service works abnormally.
+    /// - [`DISPLAY_MANAGER_OK`](crate::display_info::NativeDisplayManagerResult) If the operation is successful.
+    /// - [`DISPLAY_MANAGER_ERROR_ILLEGAL_PARAM`](crate::display_info::NativeDisplayManagerErrorCode::ILLEGAL_PARAM) If parameter illegal.
+    /// - [`DISPLAY_MANAGER_ERROR_SYSTEM_ABNORMAL`](crate::display_info::NativeDisplayManagerErrorCode::SYSTEM_ABNORMAL) If display manager service works abnormally.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -533,17 +571,23 @@ extern "C" {
         availableAreaChangeCallback: OH_NativeDisplayManager_AvailableAreaChangeCallback,
         listenerIndex: *mut u32,
     ) -> NativeDisplayManagerResult;
-    /// Unregister the callback for available area changes listener.
+    /// Unregisters a listener for available area changes of the display.
+    ///
+    /// This API can be properly called on devices running OpenHarmony 7.0.0 or later.
+    /// For devices running versions earlier than OpenHarmony 7.0.0,
+    /// this API can be properly called on PCs/2-in-1 devices and tablets.
+    /// If being called on other device types, it does not take effect and no error is reported.
     ///
     /// # Arguments
     ///
-    /// * `listenerIndex` - The display changed listener index.
+    /// * `listenerIndex` - Index of the listener returned
+    /// when [`OH_NativeDisplayManager_RegisterAvailableAreaChangeListener`](crate::display_manager::OH_NativeDisplayManager_RegisterAvailableAreaChangeListener) is called.
     ///
     /// # Returns
     ///
-    /// * { DISPLAY_MANAGER_OK } If the operation is successful
-    /// { DISPLAY_MANAGER_ERROR_ILLEGAL_PARAM } If Parameter illegal.
-    /// { DISPLAY_MANAGER_ERROR_SYSTEM_ABNORMAL } If display manager service works abnormally.
+    /// - [`DISPLAY_MANAGER_OK`](crate::display_info::NativeDisplayManagerResult) If the operation is successful.
+    /// - [`DISPLAY_MANAGER_ERROR_ILLEGAL_PARAM`](crate::display_info::NativeDisplayManagerErrorCode::ILLEGAL_PARAM) If parameter illegal.
+    /// - [`DISPLAY_MANAGER_ERROR_SYSTEM_ABNORMAL`](crate::display_info::NativeDisplayManagerErrorCode::SYSTEM_ABNORMAL) If display manager service works abnormally.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -551,19 +595,26 @@ extern "C" {
     pub fn OH_NativeDisplayManager_UnregisterAvailableAreaChangeListener(
         listenerIndex: u32,
     ) -> NativeDisplayManagerResult;
-    /// Create the available area.
+    /// Obtains the available area of a display.
+    ///
+    /// This API can be properly called on devices running OpenHarmony 7.0.0 or later.
+    /// For devices running versions earlier than OpenHarmony 7.0.0,
+    /// this API can be properly called on PCs/2-in-1 devices and tablets, but does not work for other device types.
+    /// To obtain the available screen area on the current device, call
+    /// [`OH_NativeDisplayManager_GetDefaultDisplayWidth`](crate::display_manager::OH_NativeDisplayManager_GetDefaultDisplayWidth) and [`OH_NativeDisplayManager_GetDefaultDisplayHeight`](crate::display_manager::OH_NativeDisplayManager_GetDefaultDisplayHeight).
     ///
     /// # Arguments
     ///
-    /// * `displayId` - The display id.
+    /// * `displayId` - Display ID, which is a non-negative integer.
     ///
-    /// * `availableArea` - Indicates the pointer to an <b>NativeDisplayManager_Rect</b> object.
+    /// * `availableArea` - Double pointer to the available area of the display. For details, see
+    /// [`NativeDisplayManager_Rect`](crate::display_info::NativeDisplayManager_Rect).
     ///
     /// # Returns
     ///
-    /// * { DISPLAY_MANAGER_OK } If the operation is successful
-    /// { DISPLAY_MANAGER_ERROR_DEVICE_NOT_SUPPORTED } device not support.
-    /// { DISPLAY_MANAGER_ERROR_SYSTEM_ABNORMAL } If display manager service works abnormally.
+    /// - [`DISPLAY_MANAGER_OK`](crate::display_info::NativeDisplayManagerResult) If the operation is successful.
+    /// - [`DISPLAY_MANAGER_ERROR_ILLEGAL_PARAM`](crate::display_info::NativeDisplayManagerErrorCode::ILLEGAL_PARAM) If parameter illegal.
+    /// - [`DISPLAY_MANAGER_ERROR_SYSTEM_ABNORMAL`](crate::display_info::NativeDisplayManagerErrorCode::SYSTEM_ABNORMAL) If display manager service works abnormally.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -572,16 +623,18 @@ extern "C" {
         displayId: u64,
         availableArea: *mut *mut NativeDisplayManager_Rect,
     ) -> NativeDisplayManagerResult;
-    /// Destroy an <b>NativeDisplayManager_Rect</b> object and reclaims the memory occupied by the object.
+    /// Destroys the available area of a display.
     ///
     /// # Arguments
     ///
-    /// * `availableArea` - Indicates the pointer to an <b>NativeDisplayManager_Rect</b> object.
+    /// * `availableArea` - Pointer to the available area, which is obtained by calling
+    /// [`OH_NativeDisplayManager_CreateAvailableArea`](crate::display_manager::OH_NativeDisplayManager_CreateAvailableArea).
+    /// For details about the available area, see [`NativeDisplayManager_Rect`](crate::display_info::NativeDisplayManager_Rect).
     ///
     /// # Returns
     ///
-    /// * { DISPLAY_MANAGER_OK } If the operation is successful
-    /// { DISPLAY_MANAGER_ERROR_ILLEGAL_PARAM } If Parameter illegal.
+    /// - [`DISPLAY_MANAGER_OK`](crate::display_info::NativeDisplayManagerResult) If the operation is successful.
+    /// - [`DISPLAY_MANAGER_ERROR_ILLEGAL_PARAM`](crate::display_info::NativeDisplayManagerErrorCode::ILLEGAL_PARAM) If parameter illegal.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -589,19 +642,21 @@ extern "C" {
     pub fn OH_NativeDisplayManager_DestroyAvailableArea(
         availableArea: *mut NativeDisplayManager_Rect,
     ) -> NativeDisplayManagerResult;
-    /// Register the callback for display connect listener.
+    /// Registers a listener for display addition events (for example, monitor inserted).
     ///
     /// # Arguments
     ///
-    /// * `displayAddCallback` - display add callback.
+    /// * `displayAddCallback` - Callback function triggered when a display is added. For details, see
+    /// [`OH_NativeDisplayManager_DisplayAddCallback`](crate::display_manager::OH_NativeDisplayManager_DisplayAddCallback).
     ///
-    /// * `listenerIndex` - Indicates the pointer to an <b>uint32_t</b> object. used in unregister call.
+    /// * `listenerIndex` - Pointer to the index of the listener registered.
+    /// It can be used as an input parameter of [`OH_NativeDisplayManager_UnregisterDisplayAddListener`](crate::display_manager::OH_NativeDisplayManager_UnregisterDisplayAddListener).
     ///
     /// # Returns
     ///
-    /// * { DISPLAY_MANAGER_OK } If the operation is successful
-    /// { DISPLAY_MANAGER_ERROR_ILLEGAL_PARAM } If Parameter illegal.
-    /// { DISPLAY_MANAGER_ERROR_SYSTEM_ABNORMAL } If display manager service works abnormally.
+    /// - [`DISPLAY_MANAGER_OK`](crate::display_info::NativeDisplayManagerResult) If the operation is successful.
+    /// - [`DISPLAY_MANAGER_ERROR_ILLEGAL_PARAM`](crate::display_info::NativeDisplayManagerErrorCode::ILLEGAL_PARAM) If parameter illegal.
+    /// - [`DISPLAY_MANAGER_ERROR_SYSTEM_ABNORMAL`](crate::display_info::NativeDisplayManagerErrorCode::SYSTEM_ABNORMAL) If display manager service works abnormally.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -610,17 +665,18 @@ extern "C" {
         displayAddCallback: OH_NativeDisplayManager_DisplayAddCallback,
         listenerIndex: *mut u32,
     ) -> NativeDisplayManagerResult;
-    /// Unregister the callback for display connect listener.
+    /// Unregisters a listener for display addition events.
     ///
     /// # Arguments
     ///
-    /// * `listenerIndex` - The display add listener index.
+    /// * `listenerIndex` - Index of the listener returned when [`OH_NativeDisplayManager_RegisterDisplayAddListener`](crate::display_manager::OH_NativeDisplayManager_RegisterDisplayAddListener)
+    /// is called.
     ///
     /// # Returns
     ///
-    /// * { DISPLAY_MANAGER_OK } If the operation is successful
-    /// { DISPLAY_MANAGER_ERROR_ILLEGAL_PARAM } If Parameter illegal.
-    /// { DISPLAY_MANAGER_ERROR_SYSTEM_ABNORMAL } If display manager service works abnormally.
+    /// - [`DISPLAY_MANAGER_OK`](crate::display_info::NativeDisplayManagerResult) If the operation is successful.
+    /// - [`DISPLAY_MANAGER_ERROR_ILLEGAL_PARAM`](crate::display_info::NativeDisplayManagerErrorCode::ILLEGAL_PARAM) If parameter illegal.
+    /// - [`DISPLAY_MANAGER_ERROR_SYSTEM_ABNORMAL`](crate::display_info::NativeDisplayManagerErrorCode::SYSTEM_ABNORMAL) If display manager service works abnormally.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -628,19 +684,21 @@ extern "C" {
     pub fn OH_NativeDisplayManager_UnregisterDisplayAddListener(
         listenerIndex: u32,
     ) -> NativeDisplayManagerResult;
-    /// Register the callback for display disconnect listener.
+    /// Registers a listener for display removal events (for example, monitor removed).
     ///
     /// # Arguments
     ///
-    /// * `displayRemoveCallback` - display remove callback.
+    /// * `displayRemoveCallback` - Callback function triggered when a display is removed. For details, see
+    /// [`OH_NativeDisplayManager_DisplayRemoveCallback`](crate::display_manager::OH_NativeDisplayManager_DisplayRemoveCallback).
     ///
-    /// * `listenerIndex` - Indicates the pointer to an <b>uint32_t</b> object. used in unregister call.
+    /// * `listenerIndex` - Pointer to the index of the listener registered.
+    /// It can be used as an input parameter of [`OH_NativeDisplayManager_UnregisterDisplayRemoveListener`](crate::display_manager::OH_NativeDisplayManager_UnregisterDisplayRemoveListener).
     ///
     /// # Returns
     ///
-    /// * { DISPLAY_MANAGER_OK } If the operation is successful
-    /// { DISPLAY_MANAGER_ERROR_ILLEGAL_PARAM } If Parameter illegal.
-    /// { DISPLAY_MANAGER_ERROR_SYSTEM_ABNORMAL } If display manager service works abnormally.
+    /// - [`DISPLAY_MANAGER_OK`](crate::display_info::NativeDisplayManagerResult) If the operation is successful.
+    /// - [`DISPLAY_MANAGER_ERROR_ILLEGAL_PARAM`](crate::display_info::NativeDisplayManagerErrorCode::ILLEGAL_PARAM) If parameter illegal.
+    /// - [`DISPLAY_MANAGER_ERROR_SYSTEM_ABNORMAL`](crate::display_info::NativeDisplayManagerErrorCode::SYSTEM_ABNORMAL) If display manager service works abnormally.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -649,17 +707,18 @@ extern "C" {
         displayRemoveCallback: OH_NativeDisplayManager_DisplayRemoveCallback,
         listenerIndex: *mut u32,
     ) -> NativeDisplayManagerResult;
-    /// Unregister the callback for display disconnect listener.
+    /// Unregisters the listener for display removal events.
     ///
     /// # Arguments
     ///
-    /// * `listenerIndex` - The display remove listener index.
+    /// * `listenerIndex` - Index of the listener returned when
+    /// [`OH_NativeDisplayManager_RegisterDisplayRemoveListener`](crate::display_manager::OH_NativeDisplayManager_RegisterDisplayRemoveListener) is called.
     ///
     /// # Returns
     ///
-    /// * { DISPLAY_MANAGER_OK } If the operation is successful
-    /// { DISPLAY_MANAGER_ERROR_ILLEGAL_PARAM } If Parameter illegal.
-    /// { DISPLAY_MANAGER_ERROR_SYSTEM_ABNORMAL } If display manager service works abnormally.
+    /// - [`DISPLAY_MANAGER_OK`](crate::display_info::NativeDisplayManagerResult) If the operation is successful.
+    /// - [`DISPLAY_MANAGER_ERROR_ILLEGAL_PARAM`](crate::display_info::NativeDisplayManagerErrorCode::ILLEGAL_PARAM) If parameter illegal.
+    /// - [`DISPLAY_MANAGER_ERROR_SYSTEM_ABNORMAL`](crate::display_info::NativeDisplayManagerErrorCode::SYSTEM_ABNORMAL) If display manager service works abnormally.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -667,18 +726,20 @@ extern "C" {
     pub fn OH_NativeDisplayManager_UnregisterDisplayRemoveListener(
         listenerIndex: u32,
     ) -> NativeDisplayManagerResult;
-    /// Get the source mode of the device.
+    /// Obtains the display source mode. The default value is **DisplaySourceMode.None**.
     ///
     /// # Arguments
     ///
-    /// * `displayId` - The display id.
+    /// * `displayId` - Display ID, which is a non-negative integer.
     ///
-    /// * `sourceMode` - Indicates the pointer to an <b>NativeDisplayManager_SourceMode</b> object.
+    /// * `sourceMode` - Pointer to the source mode. For details about the available options, see
+    /// [`NativeDisplayManager_SourceMode`](crate::display_info::NativeDisplayManager_SourceMode).
     ///
     /// # Returns
     ///
-    /// * { DISPLAY_MANAGER_OK } If the operation is successful
-    /// { DISPLAY_MANAGER_ERROR_SYSTEM_ABNORMAL } If display manager service works abnormally.
+    /// - [`DISPLAY_MANAGER_OK`](crate::display_info::NativeDisplayManagerResult) If the operation is successful.
+    /// - [`DISPLAY_MANAGER_ERROR_ILLEGAL_PARAM`](crate::display_info::NativeDisplayManagerErrorCode::ILLEGAL_PARAM) If Parameter illegal.
+    /// - [`DISPLAY_MANAGER_ERROR_SYSTEM_ABNORMAL`](crate::display_info::NativeDisplayManagerErrorCode::SYSTEM_ABNORMAL) If display manager service works abnormally.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -687,20 +748,24 @@ extern "C" {
         displayId: u64,
         sourceMode: *mut NativeDisplayManager_SourceMode,
     ) -> NativeDisplayManagerResult;
-    /// Get the position of the device.
+    /// Obtains the display position, that is, the x-coordinate and y-coordinate relative to the original point (the
+    /// upper left corner of the main screen).
     ///
     /// # Arguments
     ///
-    /// * `displayId` - The display id.
+    /// * `displayId` - Display ID, which is a non-negative integer.
     ///
-    /// * `x` - The x-coordinate of the screen's top-left corner relative to the primary screen's origin (in px).
+    /// * `x` - Pointer to the x-coordinate relative to the upper left corner of the main screen, in px. The value must be
+    /// an integer and is returned as an output parameter.
     ///
-    /// * `y` - The y-coordinate of the screen's top-left corner relative to the primary screen's origin (in px).
+    /// * `y` - Pointer to the y-coordinate relative to the upper left corner of the main screen, in px. The value must be
+    /// an integer and is returned as an output parameter.
     ///
     /// # Returns
     ///
-    /// * { DISPLAY_MANAGER_OK } If the operation is successful
-    /// { DISPLAY_MANAGER_ERROR_SYSTEM_ABNORMAL } If display manager service works abnormally.
+    /// - [`DISPLAY_MANAGER_OK`](crate::display_info::NativeDisplayManagerResult) If the operation is successful.
+    /// - [`DISPLAY_MANAGER_ERROR_ILLEGAL_PARAM`](crate::display_info::NativeDisplayManagerErrorCode::ILLEGAL_PARAM) If Parameter illegal.
+    /// - [`DISPLAY_MANAGER_ERROR_SYSTEM_ABNORMAL`](crate::display_info::NativeDisplayManagerErrorCode::SYSTEM_ABNORMAL) If display manager service works abnormally.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]

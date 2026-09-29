@@ -11,13 +11,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `hasDefaultNet` - Pointer to the result that specifies whether a default activated data network is available.
+    /// * `hasDefaultNet` - Whether there is a default network.
     ///
     /// # Returns
     ///
-    /// * 0 - Success. 201 - Missing permissions.
-    /// 401 - Parameter error. 2100002 - Unable to connect to service.
-    /// 2100003 - Internal error.
+    /// * **0**: Success. **201**: Missing permissions.
+    /// <br>**401**: Parameter error. **2100002**: Service connection failure.
+    /// <br>**2100003**: Internal error.
     ///
     /// Required Permissions: ohos.permission.GET_NETWORK_INFO
     ///
@@ -33,13 +33,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `netHandle` - Pointer to the network handle that contains the network ID.
+    /// * `netHandle` - Network ID.
     ///
     /// # Returns
     ///
-    /// * 0 - Success. 201 - Missing permissions.
-    /// 401 - Parameter error. 2100002 - Unable to connect to service.
-    /// 2100003 - Internal error.
+    /// * **0**: Success. **201**: Missing permissions.
+    /// <br>**401**: Parameter error. **2100002**: Service connection failure.
+    /// <br>**2100003**: Internal error.
     ///
     /// Required Permissions: ohos.permission.GET_NETWORK_INFO
     ///
@@ -55,13 +55,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `isMetered` - Pointer to the result that specifies whether metering is enabled.
+    /// * `isMetered` - Whether metering is enabled.
     ///
     /// # Returns
     ///
-    /// * 0 - Success. 201 - Missing permissions.
-    /// 401 - Parameter error. 2100002 - Unable to connect to service.
-    /// 2100003 - Internal error.
+    /// * **0**: Success. **201**: Missing permissions.
+    /// <br>**401**: Parameter error. **2100002**: Service connection failure.
+    /// <br>**2100003**: Internal error.
     ///
     /// Required Permissions: ohos.permission.GET_NETWORK_INFO
     ///
@@ -73,19 +73,19 @@ extern "C" {
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn OH_NetConn_IsDefaultNetMetered(isMetered: *mut i32) -> i32;
-    /// Obtains the connection properties of a data network.
+    /// Obtains the link information of a data network.
     ///
     /// # Arguments
     ///
-    /// * `netHandle` - Pointer to the network handle that contains the network ID.
+    /// * `netHandle` - Network ID.
     ///
-    /// * `prop` - Pointer to the connection properties.
+    /// * `prop` - Link information.
     ///
     /// # Returns
     ///
-    /// * 0 - Success. 201 - Missing permissions.
-    /// 401 - Parameter error. 2100002 - Unable to connect to service.
-    /// 2100003 - Internal error.
+    /// * **0**: Success. **201**: Missing permissions.
+    /// <br>**401**: Parameter error. **2100002**: Service connection failure.
+    /// <br>**2100003**: Internal error.
     ///
     /// Required Permissions: ohos.permission.GET_NETWORK_INFO
     ///
@@ -104,15 +104,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `netHandle` - Pointer to the network handle that contains the network ID.
+    /// * `netHandle` - Network ID.
     ///
-    /// * `netCapacities` - Pointer to the network capabilities.
+    /// * `netCapabilities` - Capability set.
     ///
     /// # Returns
     ///
-    /// * 0 - Success. 201 - Missing permissions.
-    /// 401 - Parameter error. 2100002 - Unable to connect to service.
-    /// 2100003 - Internal error.
+    /// * **0**: Success. **201**: Missing permissions.
+    /// <br>**401**: Parameter error. **2100002**: Service connection failure.
+    /// <br>**2100003**: Internal error.
     ///
     /// Required Permissions: ohos.permission.GET_NETWORK_INFO
     ///
@@ -127,17 +127,17 @@ extern "C" {
         netHandle: *mut NetConn_NetHandle,
         netCapabilities: *mut NetConn_NetCapabilities,
     ) -> i32;
-    /// Obtains the default http proxy.
+    /// Obtains the default network proxy.
     ///
     /// # Arguments
     ///
-    /// * `httpProxy` - Pointer to the HTTP proxy.
+    /// * `httpProxy` - Proxy configuration.
     ///
     /// # Returns
     ///
-    /// * 0 - Success. 201 - Missing permissions.
-    /// 401 - Parameter error. 2100002 - Unable to connect to service.
-    /// 2100003 - Internal error.
+    /// * **0**: Success. **201**: Missing permissions.
+    /// <br>**401**: Parameter error. **2100002**: Service connection failure.
+    /// <br>**2100003**: Internal error.
     ///
     /// Required System Capabilities: SystemCapability.Communication.NetManager.Core
     ///
@@ -147,25 +147,25 @@ extern "C" {
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn OH_NetConn_GetDefaultHttpProxy(httpProxy: *mut NetConn_HttpProxy) -> i32;
-    /// Get DNS result with netId.
+    /// Obtains the DNS result based on the specified **netId**.
     ///
     /// # Arguments
     ///
-    /// * `host` - The host name to query.
+    /// * `host` - Host name.
     ///
     /// * `serv` - Service name.
     ///
     /// * `hint` - Pointer to the addrinfo structure.
     ///
-    /// * `res` - Store DNS query results and return them in a linked list format.
+    /// * `res` - DNS query result, which is in the format of linked lists.
     ///
-    /// * `netId` - DNS query netId, 0 is used for default netid query.
+    /// * `netId` - If **netId** is set to **0**, the default **netid** is used for query.
     ///
     /// # Returns
     ///
-    /// * 0 - Success. 201 - Missing permissions.
-    /// 401 - Parameter error. 2100002 - Unable to connect to service.
-    /// 2100003 - Internal error.
+    /// * **0**: Success. **201**: Missing permissions.
+    /// <br>**401**: Parameter error. **2100002**: Service connection failure.
+    /// <br>**2100003**: Internal error.
     ///
     /// Required Permissions: ohos.permission.INTERNET
     ///
@@ -183,17 +183,17 @@ extern "C" {
         res: *mut *mut addrinfo,
         netId: i32,
     ) -> i32;
-    /// Free DNS result.
+    /// Releases the DNS query result.
     ///
     /// # Arguments
     ///
-    /// * `res` - DNS query result chain header.
+    /// * `res` - Header of the DNS query result, which is in the format of linked lists.
     ///
     /// # Returns
     ///
-    /// * 0 - Success. 201 - Missing permissions.
-    /// 401 - Parameter error. 2100002 - Unable to connect to service.
-    /// 2100003 - Internal error.
+    /// * **0**: Success. **201**: Missing permissions.
+    /// <br>**401**: Parameter error. **2100002**: Service connection failure.
+    /// <br>**2100003**: Internal error.
     ///
     /// Required Permissions: ohos.permission.INTERNET
     ///
@@ -205,17 +205,17 @@ extern "C" {
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn OH_NetConn_FreeDnsResult(res: *mut addrinfo) -> i32;
-    /// Queries all activated data networks.
+    /// Obtains all activated data networks.
     ///
     /// # Arguments
     ///
-    /// * `netHandleList` - Network handle that stores the network ID list.
+    /// * `netHandleList` - Network information list.
     ///
     /// # Returns
     ///
-    /// * 0 - Success. 201 - Missing permissions.
-    /// 401 - Parameter error. 2100002 - Unable to connect to service.
-    /// 2100003 - Internal error.
+    /// * **0**: Success. **201**: Missing permissions.
+    /// <br>**401**: Parameter error. **2100002**: Service connection failure.
+    /// <br>**2100003**: Internal error.
     ///
     /// Required Permissions: ohos.permission.GET_NETWORK_INFO
     ///
@@ -235,9 +235,8 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * 0 - Success.
-    /// 401 - Parameter error. 2100002 - Unable to connect to service.
-    /// 2100003 - Internal error.
+    /// * **0**: Success. **401**: Parameter error.
+    /// <br>**2100002**: Service connection failure. **2100003**: Internal error.
     ///
     /// Required System Capabilities: SystemCapability.Communication.NetManager.Core
     ///
@@ -257,9 +256,9 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * 0 - Success.
-    /// 2100002 - Unable to connect to service.
-    /// 2100003 - Internal error.
+    /// * **0**: Success.
+    /// <br>**2100002**: Service connection failure.
+    /// <br>**2100003**: Internal error.
     ///
     /// Required System Capabilities: SystemCapability.Communication.NetManager.Core
     ///
@@ -282,49 +281,92 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns the result code.
-    /// `NETMANAGER_EXT_SUCCESS` if the operation is successful.
-    /// `NETMANAGER_ERR_PARAMETER_ERROR` Parameter error. Please enter a correct parameter.
+    /// * Result code.
+    /// <br>**NETMANAGER_EXT_SUCCESS**: Operation success.
+    /// <br>**NETMANAGER_ERR_PARAMETER_ERROR**: Parameter error. Enter a correct parameter.
     ///
-    /// Required System Capabilities: SystemCapability.Communication.NetManager.Core
+    /// **Deprecated** since 26
+    ///
+    /// **Use instead:** OH_NetConn_RegisterCustomDnsResolver
     ///
     /// Available since API-level: 13
     ///
     /// Version: 1.0
     #[cfg(feature = "api-13")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
+    #[deprecated(
+        since = "26",
+        note = "Use instead: OH_NetConn_RegisterCustomDnsResolver"
+    )]
     pub fn OH_NetConn_RegisterDnsResolver(resolver: OH_NetConn_CustomDnsResolver) -> i32;
     /// Unregisters a custom DNS resolver.
     ///
     ///
     /// # Returns
     ///
-    /// * 0 - Success.
-    /// 2100002 - Unable to connect to service.
-    /// 2100003 - Internal error.
+    /// * **0**: Success.
+    /// <br>**2100002**: Service connection failure.
+    /// <br>**2100003**: Internal error.
     ///
-    /// Required System Capabilities: SystemCapability.Communication.NetManager.Core
+    /// **Deprecated** since 26
+    ///
+    /// **Use instead:** OH_NetConn_UnregisterCustomDnsResolver
     ///
     /// Available since API-level: 13
     ///
     /// Version: 1.0
     #[cfg(feature = "api-13")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
+    #[deprecated(
+        since = "26",
+        note = "Use instead: OH_NetConn_UnregisterCustomDnsResolver"
+    )]
     pub fn OH_NetConn_UnregisterDnsResolver() -> i32;
-    /// Binds a socket to the specific network.
+    /// Registers a custom DNS resolver to intercept and override DNS queries.
+    /// Falls back to system DNS if no result is specified.
+    /// Only a single resolver is allowed. You must unregister the existing one before registering a new one.
     ///
     /// # Arguments
     ///
-    /// * `socketFd` - Socket constructed by user.
-    ///
-    /// * `netHandle` - Pointer to the network handle that contains the network ID.
+    /// * `resolver` - Pointer to the custom DNS resolver. If the resolver returns 0, skip system DNS;
+    /// otherwise, fallback to system DNS.
     ///
     /// # Returns
     ///
     /// * 0 - Success.
-    /// 401 - Parameter error.
-    /// 2100002 - Unable to connect to service.
+    /// 401 - Parameter error. Please enter a correct parameter.
+    /// 2101008 - Resolver already exists. use OH_NetConn_UnregisterCustomDnsResolver before registering a new one.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_NetConn_RegisterCustomDnsResolver(resolver: OH_NetConn_CustomDnsResolver) -> i32;
+    /// Unregisters the custom DNS resolver.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * 0 - Success.
     /// 2100003 - Internal error.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_NetConn_UnregisterCustomDnsResolver() -> i32;
+    /// Binds a socket to the specified network.
+    ///
+    /// # Arguments
+    ///
+    /// * `socketFd` - Socket constructed by the user.
+    ///
+    /// * `netHandle` - Pointer to the network handle containing the network ID.
+    ///
+    /// # Returns
+    ///
+    /// * **0**: Success.
+    /// <br>**401**: Parameter error.
+    /// <br>**2100002**: Service connection failure.
+    /// <br>**2100003**: Internal error.
     ///
     /// Required System Capabilities: SystemCapability.Communication.NetManager.Core
     ///
@@ -334,16 +376,16 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_NetConn_BindSocket(socketFd: i32, netHandle: *mut NetConn_NetHandle) -> i32;
-    /// Sets http proxy information to current application.
+    /// Sets an HTTP proxy for the current application.
     ///
     /// # Arguments
     ///
-    /// * `httpProxy` - Information about the proxy that needs to be set.
+    /// * `httpProxy` - HTTP proxy to set.
     ///
     /// # Returns
     ///
-    /// * 0 - Success.
-    /// 401 - Parameter error.
+    /// * **0**: Success.
+    /// <br>**401**: Parameter error.
     ///
     /// Required System Capabilities: SystemCapability.Communication.NetManager.Core
     ///
@@ -353,18 +395,18 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_NetConn_SetAppHttpProxy(httpProxy: *mut NetConn_HttpProxy) -> i32;
-    /// Registers callback to listen for changes to the application-level http proxy.
+    /// Registers a callback for HTTP proxy changes of the application.
     ///
     /// # Arguments
     ///
-    /// * `appHttpProxyChange` - Callback that need to be registered to listen for changes to the http proxy.
+    /// * `appHttpProxyChange` - Callback to register.
     ///
-    /// * `callbackId` - Callback id returned after registration, associated with a registered callback.
+    /// * `callbackId` - ID of the registered callback.
     ///
     /// # Returns
     ///
-    /// * 0 - Success.
-    /// 401 - Parameter error.
+    /// * **0**: Success.
+    /// <br>**401**: Parameter error.
     ///
     /// Required System Capabilities: SystemCapability.Communication.NetManager.Core
     ///
@@ -377,11 +419,11 @@ extern "C" {
         appHttpProxyChange: OH_NetConn_AppHttpProxyChange,
         callbackId: *mut u32,
     ) -> i32;
-    /// Unregisters a callback function that listens for application-level proxy changes.
+    /// Unregisters the callback for HTTP proxy changes of the application.
     ///
     /// # Arguments
     ///
-    /// * `callbackId` - Id of the callback function that needs to be deregistered.
+    /// * `callbackId` - ID of the callback to unregister.
     ///
     /// Required System Capabilities: SystemCapability.Communication.NetManager.Core
     ///
@@ -391,27 +433,66 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_NetConn_UnregisterAppHttpProxyCallback(callbackId: u32);
-    /// Registers callback, used to monitor specific network status.
+    /// Requests global HTTP proxy re-authentication and reports the result through a one-shot callback.
     ///
+    /// This function submits an asynchronous re-authentication request. A return value of 0 indicates
+    /// that the request has been accepted. It does not indicate that re-authentication has succeeded.
+    /// The final result is reported through the callback.<br>
+    ///
+    /// If this function returns 0, the callback will be invoked at most once. After the callback is
+    /// invoked, it is automatically released by the system.<br>
+    ///
+    /// If this function returns a non-zero value, the callback will not be invoked.<br>
+    ///
+    /// The callback may be invoked on a system worker thread. The caller must ensure that the callback
+    /// implementation is thread-safe and returns quickly.<br>
+    ///
+    /// The caller must ensure that the callback function and userData remain valid until the callback
+    /// is invoked.
+    ///
+    ///
+    /// Required Permissions: ohos.permission.INTERNET
     /// # Arguments
     ///
-    /// * `netSpecifier` - specifier information.
+    /// * `callback` - The one-shot callback used to receive the re-authentication result. It must not be NULL.
     ///
-    /// * `callback` - The callback needed to be registered.
-    ///
-    /// * `timeout` - The timeout period in milliseconds.
-    ///
-    /// * `callbackId` - out param, corresponding to a registered callback.
+    /// * `userContext` - The user-defined data passed to the callback. It can be NULL. The system does
+    /// not access, copy, or release it.
     ///
     /// # Returns
     ///
-    /// * 0 - Success.
-    /// 201 - Permission denied.
-    /// 401 - Parameter error.
-    /// 2100002 - Failed to connect to the service.
-    /// 2100003 - System internal error.
-    /// 2101008 - The callback already exists.
-    /// 2101022 - The number of requests exceeded the maximum allowed.
+    /// - 0 - Success.
+    /// - 201 - Permission denied.
+    /// - 401 - Parameter error.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_NetConn_RefreshGlobalHttpProxyWithCallback(
+        callback: OH_NetConn_GlobalHttpProxyRefreshCallback,
+        userContext: *mut ::core::ffi::c_void,
+    ) -> i32;
+    /// Registers a callback for network status changes.
+    ///
+    /// # Arguments
+    ///
+    /// * `netSpecifier` - Network feature set.
+    ///
+    /// * `callback` - Registered callbacks.
+    ///
+    /// * `timeout` - Timeout duration, in milliseconds. The value **0** indicates infinite waiting.
+    ///
+    /// * `callbackId` - Callback IDs.
+    ///
+    /// # Returns
+    ///
+    /// * **0**: Success.
+    /// <br>**201**: Missing permissions.
+    /// <br>**401**: Parameter error.
+    /// <br>**2100002**: Service connection failure.
+    /// <br>**2100003**: Internal error.
+    /// <br>**2101008**: Callback already registered.
+    /// <br>**2101022**: Maximum number of requests exceeded.
     ///
     /// Required Permissions: ohos.permission.GET_NETWORK_INFO
     ///
@@ -428,23 +509,23 @@ extern "C" {
         timeout: u32,
         callbackId: *mut u32,
     ) -> i32;
-    /// Registers a callback to listen default network's status changed.
+    /// Registers a callback for status changes of the default network.
     ///
     /// # Arguments
     ///
-    /// * `callback` - The callback needed to be registered.
+    /// * `callback` - Registered callbacks.
     ///
-    /// * `callbackId` - out param, corresponding to a registered callback.
+    /// * `callbackId` - Callback IDs.
     ///
     /// # Returns
     ///
-    /// * 0 - Success.
-    /// 201 - Permission denied.
-    /// 401 - Parameter error.
-    /// 2100002 - Failed to connect to the service.
-    /// 2100003 - System internal error.
-    /// 2101008 - The callback already exists.
-    /// 2101022 - The number of requests exceeded the maximum allowed.
+    /// * **0**: Success.
+    /// <br>**201**: Missing permissions.
+    /// <br>**401**: Parameter error.
+    /// <br>**2100002**: Service connection failure.
+    /// <br>**2100003**: Internal error.
+    /// <br>**2101008**: Callback already registered.
+    /// <br>**2101022**: Maximum number of requests exceeded.
     ///
     /// Required Permissions: ohos.permission.GET_NETWORK_INFO
     ///
@@ -459,20 +540,20 @@ extern "C" {
         netConnCallback: *mut NetConn_NetConnCallback,
         callbackId: *mut u32,
     ) -> i32;
-    /// Unregisters network status callback.
+    /// Unregisters the callback for network status changes.
     ///
     /// # Arguments
     ///
-    /// * `callBackId` - the id corresponding to a registered callback.
+    /// * `callBackId` - ID of the callback to unregister.
     ///
     /// # Returns
     ///
-    /// * 0 - Success.
-    /// 201 - Permission denied.
-    /// 401 - Parameter error.
-    /// 2100002 - Failed to connect to the service.
-    /// 2100003 - System internal error.
-    /// 2101007 - The callback does not exists.
+    /// * **0**: Success.
+    /// <br>**201**: Missing permissions.
+    /// <br>**401**: Parameter error.
+    /// <br>**2100002**: Service connection failure.
+    /// <br>**2100003**: Internal error.
+    /// <br>**2101007**: Callback not exist.
     ///
     /// Required Permissions: ohos.permission.GET_NETWORK_INFO
     ///
@@ -484,20 +565,21 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_NetConn_UnregisterNetConnCallback(callBackId: u32) -> i32;
-    /// Sets the URL of the current PAC script.
+    /// Sets the URL of the system-level Proxy Auto Config (PAC) script, for example, **http://127.0.0.1:21998/
+    /// PacProxyScript.pac**. You can obtain the proxy information by parsing the URL.
     ///
     /// # Arguments
     ///
-    /// * `pacUrl` - the URL of the current PAC script.
+    /// * `pacUrl` - Address of the PAC script.
     ///
     /// # Returns
     ///
-    /// * the result defines in [`NetConn_ErrorCode`](crate::net_connection_type::NetConn_ErrorCode).
-    /// [`NETCONN_SUCCESS`](crate::net_connection_type::NetConn_ErrorCode::NETCONN_SUCCESS) Success.
-    /// [`NETCONN_PERMISSION_DENIED`](crate::net_connection_type::NetConn_ErrorCode::NETCONN_PERMISSION_DENIED) Permission denied.
-    /// [`NETCONN_PARAMETER_ERROR`](crate::net_connection_type::NetConn_ErrorCode::NETCONN_PARAMETER_ERROR) Parameter check failed.
-    /// [`NETCONN_OPERATION_FAILED`](crate::net_connection_type::NetConn_ErrorCode::NETCONN_OPERATION_FAILED) Failed to connect to the service.
-    /// [`NETCONN_INTERNAL_ERROR`](crate::net_connection_type::NetConn_ErrorCode::NETCONN_INTERNAL_ERROR) System internal error.
+    /// * Result code defined in [`NetConn_ErrorCode`](crate::net_connection_type::NetConn_ErrorCode).
+    /// <br>[`NETCONN_SUCCESS`](crate::net_connection_type::NetConn_ErrorCode::NETCONN_SUCCESS): success.
+    /// <br>[`NETCONN_PERMISSION_DENIED`](crate::net_connection_type::NetConn_ErrorCode::NETCONN_PERMISSION_DENIED): permission denied.
+    /// <br>[`NETCONN_PARAMETER_ERROR`](crate::net_connection_type::NetConn_ErrorCode::NETCONN_PARAMETER_ERROR): parameter error.
+    /// <br>[`NETCONN_OPERATION_FAILED`](crate::net_connection_type::NetConn_ErrorCode::NETCONN_OPERATION_FAILED): unable to connect to the service.
+    /// <br>[`NETCONN_INTERNAL_ERROR`](crate::net_connection_type::NetConn_ErrorCode::NETCONN_INTERNAL_ERROR): internal error.
     ///
     /// Required Permissions: ohos.permission.SET_PAC_URL
     ///
@@ -505,40 +587,45 @@ extern "C" {
     #[cfg(feature = "api-15")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub fn OH_NetConn_SetPacUrl(pacUrl: *const ::core::ffi::c_char) -> NetConn_ErrorCode;
-    /// Obtains the URL of the current PAC script.
+    /// Obtains the URL of the system-level PAC script.
     ///
     /// # Arguments
     ///
-    /// * `pacUrl` - the URL of the current PAC script.
+    /// * `pacUrl` - URL of the PAC script.
     ///
     /// # Returns
     ///
-    /// * the result defines in [`NetConn_ErrorCode`](crate::net_connection_type::NetConn_ErrorCode).
-    /// [`NETCONN_SUCCESS`](crate::net_connection_type::NetConn_ErrorCode::NETCONN_SUCCESS) Success.
-    /// [`NETCONN_PARAMETER_ERROR`](crate::net_connection_type::NetConn_ErrorCode::NETCONN_PARAMETER_ERROR) Parameter check failed.
-    /// [`NETCONN_OPERATION_FAILED`](crate::net_connection_type::NetConn_ErrorCode::NETCONN_OPERATION_FAILED) Failed to connect to the service.
-    /// [`NETCONN_INTERNAL_ERROR`](crate::net_connection_type::NetConn_ErrorCode::NETCONN_INTERNAL_ERROR) System internal error.
+    /// * Result code defined in [`NetConn_ErrorCode`](crate::net_connection_type::NetConn_ErrorCode).
+    /// <br>[`NETCONN_SUCCESS`](crate::net_connection_type::NetConn_ErrorCode::NETCONN_SUCCESS): success.
+    /// <br>[`NETCONN_PARAMETER_ERROR`](crate::net_connection_type::NetConn_ErrorCode::NETCONN_PARAMETER_ERROR): parameter error.
+    /// <br>[`NETCONN_OPERATION_FAILED`](crate::net_connection_type::NetConn_ErrorCode::NETCONN_OPERATION_FAILED): unable to connect to the service.
+    /// <br>[`NETCONN_INTERNAL_ERROR`](crate::net_connection_type::NetConn_ErrorCode::NETCONN_INTERNAL_ERROR): internal error.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub fn OH_NetConn_GetPacUrl(pacUrl: *mut ::core::ffi::c_char) -> NetConn_ErrorCode;
-    /// Query a network probe result.
+    /// Queries network probe results. If an exception (for example, network disconnection) occurs and the request
+    /// fails to be sent, the API immediately returns the result without performing subsequent detection. This API involves
+    /// network operations. Do not call it in the main process. Otherwise, the UI may freeze.
     ///
     /// # Arguments
     ///
-    /// * `destination` - Pointer to the destination.
+    /// * `destination` - Target domain name or IP address to be detected. For a domain name, the domain name is resolved
+    /// to the target IP address before the detection, and then the detection is initiated. The domain name resolution
+    /// time is not included in the probe duration indicated by duration.
     ///
-    /// * `duration` - probe duration. Unit: second.
+    /// * `duration` - Probe duration. in seconds. The detection interval is 1 second. Therefore, you can use this field to
+    /// control the number of detections.
     ///
-    /// * `probeResultInfo` - Pointer to probe loss rate and rtt.
+    /// * `probeResultInfo` - Packet loss rate and round-trip time (RTT).
     ///
     /// # Returns
     ///
-    /// * 0 - Success.
-    /// 201 - Missing permissions.
-    /// 401 - Parameter error.
-    /// 2100003 - Internal error.
+    /// * **0**: Success.
+    /// <br>**201**: Missing permissions.
+    /// <br>**401**: Parameter error.
+    /// <br>**2100003**: Internal error.
     ///
     /// Required Permissions: ohos.permission.INTERNET
     ///
@@ -550,20 +637,22 @@ extern "C" {
         duration: i32,
         probeResultInfo: *mut NetConn_ProbeResultInfo,
     ) -> i32;
-    /// Query a network trace route.
+    /// Queries network trace route information.
     ///
     /// # Arguments
     ///
-    /// * `destination` - Pointer to the destination.
+    /// * `destination` - Destination address.
     ///
-    /// * `option` - Pointer to the trace route option
+    /// * `option` - Route options.
     ///
-    /// * `traceRouteInfo` - Pointer to trace route result.
+    /// * `traceRouteInfo` - Route result. An array pointer needs to be passed. The array size indicates the number of
+    /// route hops, which is **30** by default. If you customize the number of hops, ensure that the array size is the
+    /// same as the value of **maxJumpNumber** in the **option** field.
     ///
     /// # Returns
     ///
-    /// * 0 - Success.
-    /// 201 - Missing permissions.
+    /// * **0**: Success.
+    /// <br>**201**: Missing permissions.
     ///
     /// Required Permissions: ohos.permission.INTERNET and ohos.permission.LOCATION and ohos.permission.ACCESS_NET_TRACE_INFO
     ///

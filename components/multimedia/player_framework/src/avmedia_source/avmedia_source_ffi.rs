@@ -8,7 +8,8 @@ use crate::avcodec_base::OH_AVDataSource;
 #[allow(unused_imports)]
 use crate::averrors::OH_AVErrCode;
 
-/// Declares the http header type.
+/// Defines a struct for the HTTP header.
+///
 ///
 /// Available since API-level: 23
 #[cfg(feature = "api-23")]
@@ -17,7 +18,8 @@ use crate::averrors::OH_AVErrCode;
 pub struct OH_AVHttpHeader {
     _unused: [u8; 0],
 }
-/// Declares media source type.
+/// Defines a struct for the media source.
+///
 ///
 /// Available since API-level: 23
 #[cfg(feature = "api-23")]
@@ -26,7 +28,9 @@ pub struct OH_AVHttpHeader {
 pub struct OH_AVMediaSource {
     _unused: [u8; 0],
 }
-/// Loading Request object. Application obtains the requested resource location through this object
+/// Defines a load request object for the media resource, through which the application obtains the location of
+/// the requested resource.
+///
 ///
 /// Available since API-level: 23
 #[cfg(feature = "api-23")]
@@ -35,7 +39,8 @@ pub struct OH_AVMediaSource {
 pub struct OH_AVMediaSourceLoadingRequest {
     _unused: [u8; 0],
 }
-/// Declares media data loader type, which is implemented by applications.
+/// Declares the media source loader type, which is implemented by the application.
+///
 ///
 /// Available since API-level: 23
 #[cfg(feature = "api-23")]
@@ -47,23 +52,24 @@ pub struct OH_AVMediaSourceLoader {
 #[cfg(feature = "api-23")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
 impl AVLoadingRequestError {
-    /// Resouce is loaded successfully
+    /// The resource is successfully downloaded.
     pub const AV_LOADING_ERROR_SUCCESS: AVLoadingRequestError = AVLoadingRequestError(0);
-    /// Resource is not ready for access
+    /// The resource is not ready and cannot be accessed.
     pub const AV_LOADING_ERROR_NOT_READY: AVLoadingRequestError = AVLoadingRequestError(1);
-    /// Resource url does not exist
+    /// The resource URL does not exist.
     pub const AV_LOADING_ERROR_NO_RESOURCE: AVLoadingRequestError = AVLoadingRequestError(2);
-    /// The uuid of resource handle is valid
+    /// The UUID of the resource handle is invalid.
     pub const AV_LOADING_ERROR_INVALID_HANDLE: AVLoadingRequestError = AVLoadingRequestError(3);
-    /// The client has no right to request the resource
+    /// The client does not have the permission to request the resource.
     pub const AV_LOADING_ERROR_ACCESS_DENIED: AVLoadingRequestError = AVLoadingRequestError(4);
-    /// Access time out
+    /// The access times out.
     pub const AV_LOADING_ERROR_ACCESS_TIMEOUT: AVLoadingRequestError = AVLoadingRequestError(5);
-    /// Authorization failed
+    /// The authorization failed.
     pub const AV_LOADING_ERROR_AUTHORIZE_FAILED: AVLoadingRequestError = AVLoadingRequestError(6);
 }
 #[repr(transparent)]
-/// The enum of the error code of network loading request.
+/// Enumerates the error codes of network loading requests.
+///
 ///
 /// Available since API-level: 23
 #[cfg(feature = "api-23")]
@@ -96,20 +102,20 @@ pub type OH_AVMediaSourceLoaderOnSourceOpenedCallback = ::core::option::Option<
         userData: *mut ::core::ffi::c_void,
     ) -> i64,
 >;
-/// Defines the SourceReadCallback function which is called by the service. Client should record the read requests
-/// and push the data through the (OH_AVMediaSourceLoadingRequest_RespondData) and
-/// (OH_AVMediaSourceLoadingRequest_RespondHeader)
-/// method of the request object when there is sufficient data.
-/// The client must return the handle immediately after processing the request.
+/// Defines the **SourceReadCallback** function called by the server. The client should record the read request
+/// and push data using the [`OH_AVMediaSourceLoadingRequest_RespondData`](crate::avmedia_source::OH_AVMediaSourceLoadingRequest_RespondData) and [`OH_AVMediaSourceLoadingRequest_RespondHeader`](crate::avmedia_source::OH_AVMediaSourceLoadingRequest_RespondHeader)
+/// methods of the request object when there is sufficient data. The client must return immediately after the request
+/// is processed.
+///
 /// # Arguments
 ///
-/// * `uuid` - ID for the resource handle.
+/// * `uuid` - ID of the resource handle.
 ///
 /// * `requestedOffset` - Offset of the current media data relative to the start of the resource.
 ///
-/// * `requestedLength` - Length of the current request.
-/// -1 means reaching the end of the resource, need to inform the player of the end of
-/// the push through the (OH_AVMediaSourceLoadingRequest_FinishLoading) method.
+/// * `requestedLength` - Length of the requested data. The value **-1** indicates that the end of the resource has
+/// been reached. In this case, call the [`OH_AVMediaSourceLoadingRequest_FinishLoading`](crate::avmedia_source::OH_AVMediaSourceLoadingRequest_FinishLoading) method to notify the
+/// player that the push is complete.
 ///
 /// * `userData` - The data set by user in OH_AVMediaSourceLoader_SetSourceReadCallback
 ///
@@ -124,12 +130,12 @@ pub type OH_AVMediaSourceLoaderOnSourceReadCallback = ::core::option::Option<
         userData: *mut ::core::ffi::c_void,
     ),
 >;
-/// Defines the SourceCloseCallback function which is called by the service.
-/// Client should release related resources.
-/// The client must return the handle immediately after processing the request.
+/// Defines the **SourceCloseCallback** function called by the server. The client should release related
+/// resources and return immediately after the request is processed.
+///
 /// # Arguments
 ///
-/// * `uuid` - ID for the resource handle.
+/// * `uuid` - ID of the resource handle.
 ///
 /// * `userData` - The data set by user in OH_AVMediaSourceLoader_SetSourceCloseCallback
 ///
@@ -139,62 +145,67 @@ pub type OH_AVMediaSourceLoaderOnSourceReadCallback = ::core::option::Option<
 pub type OH_AVMediaSourceLoaderOnSourceClosedCallback =
     ::core::option::Option<unsafe extern "C" fn(uuid: i64, userData: *mut ::core::ffi::c_void)>;
 extern "C" {
-    /// Create an http header instance
+    /// Creates an HTTP header instance.
+    ///
     ///
     /// # Returns
     ///
-    /// * Returns a pointer to an OH_AVHttpHeader instance for success, nullptr for failure
+    /// * Pointer to the **OH_AVHttpHeader** instance if the operation is successful; null pointer if the operation
+    /// fails.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub fn OH_AVHttpHeader_Create() -> *mut OH_AVHttpHeader;
-    /// Releases an http header instance
+    /// Releases an HTTP header instance.
+    ///
     /// # Arguments
     ///
-    /// * `header` - Pointer to an OH_AVHttpHeader instance
+    /// * `header` - Pointer to the **OH_AVHttpHeader** instance.
     ///
     /// # Returns
     ///
-    /// * Function result code.
-    /// (AV_ERR_OK) if the execution is successful.
-    /// (AV_ERR_INVALID_VAL) if input header is nullptr or player release failed.
+    /// * Execution result of the function.
+    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The header is a null pointer or the instance fails to be destroyed.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub fn OH_AVHttpHeader_Destroy(header: *mut OH_AVHttpHeader) -> OH_AVErrCode;
-    /// Get the record count in the http header instance
+    /// Obtains the number of records in an HTTP header instance.
+    ///
     /// # Arguments
     ///
-    /// * `header` - Pointer to an OH_AVHttpHeader instance
+    /// * `header` - Pointer to the **OH_AVHttpHeader** instance.
     ///
-    /// * `count` - The output record item count in the header instance
+    /// * `count` - Pointer to the number of records in the header instance.
     ///
     /// # Returns
     ///
-    /// * Function result code.
-    /// (AV_ERR_OK) if the execution is successful.
-    /// (AV_ERR_INVALID_VAL) if input header is nullptr.
+    /// * Execution result of the function.
+    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The header is a null pointer.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub fn OH_AVHttpHeader_GetCount(header: *mut OH_AVHttpHeader, count: *mut u32) -> OH_AVErrCode;
-    /// add a key-value pair record to the http header instance
+    /// Adds a key-value pair record to an HTTP header instance.
+    ///
     /// # Arguments
     ///
-    /// * `header` - Pointer to an OH_AVHttpHeader instance
+    /// * `header` - Pointer to the **OH_AVHttpHeader** instance.
     ///
-    /// * `key` - The key name of the record
+    /// * `key` - Pointer to the key name of the record.
     ///
-    /// * `value` - The value of the record
+    /// * `value` - Pointer to the value of the record.
     ///
     /// # Returns
     ///
-    /// * Function result code.
-    /// (AV_ERR_OK) if the execution is successful.
-    /// (AV_ERR_INVALID_VAL) if one of the parameters is nullptr.
+    /// * Execution result of the function.
+    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): Any parameter is a null pointer.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -204,22 +215,23 @@ extern "C" {
         key: *const ::core::ffi::c_char,
         value: *const ::core::ffi::c_char,
     ) -> OH_AVErrCode;
-    /// get the key-value pair record of the http header instance by the index
+    /// Obtains a key-value pair record in an HTTP header instance by index.
+    ///
     /// # Arguments
     ///
-    /// * `header` - Pointer to an OH_AVHttpHeader instance
+    /// * `header` - Pointer to the **OH_AVHttpHeader** instance.
     ///
-    /// * `index` - the position of the record in the header
+    /// * `index` - Position of the record in the header.
     ///
-    /// * `key` - The output key name of the record
+    /// * `key` - Double pointer to the key name of the record.
     ///
-    /// * `value` - The output value of the record
+    /// * `value` - Double pointer to the value of the record.
     ///
     /// # Returns
     ///
-    /// * Function result code.
-    /// (AV_ERR_OK) if the execution is successful.
-    /// (AV_ERR_INVALID_VAL) if header is nullptr or index out of bound.
+    /// * Execution result of the function.
+    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The header is a null pointer or the index is out of range.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -230,17 +242,19 @@ extern "C" {
         key: *mut *const ::core::ffi::c_char,
         value: *mut *const ::core::ffi::c_char,
     ) -> OH_AVErrCode;
-    /// Creates a media source from url.
+    /// Creates a media source using a URL.
+    ///
     /// # Arguments
     ///
-    /// * `url` - Url of the media source. The following streaming media formats are supported: HLS,
-    /// HTTP-FLV, DASH, and HTTPS.
+    /// * `url` - Pointer to the URL of the media source. The following streaming media formats are supported: HLS, HTTP-
+    /// FLV, DASH, and HTTPS.
     ///
-    /// * `header` - Http headers attached to network request.
+    /// * `header` - Pointer to the HTTP header attached to the network request.
     ///
     /// # Returns
     ///
-    /// * Returns a pointer to an OH_AVMediaSource instance for success, nullptr for failure
+    /// * Pointer to the **OH_AVMediaSource** instance if the operation is successful; null pointer if the operation
+    /// fails.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -249,14 +263,16 @@ extern "C" {
         url: *const ::core::ffi::c_char,
         header: *mut OH_AVHttpHeader,
     ) -> *mut OH_AVMediaSource;
-    /// Creates a media source from OH_AVDataSource.
+    /// Creates a media source using **OH_AVDataSource**.
+    ///
     /// # Arguments
     ///
-    /// * `dataSource` - Pointer to a OH_AVDataSource
+    /// * `dataSource` - Pointer to **OH_AVDataSource**.
     ///
     /// # Returns
     ///
-    /// * Returns a pointer to an OH_AVMediaSource instance for success, nullptr for failure
+    /// * Pointer to the **OH_AVMediaSource** instance if the operation is successful; null pointer if the operation
+    /// fails.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -264,18 +280,20 @@ extern "C" {
     pub fn OH_AVMediaSource_CreateWithDataSource(
         dataSource: *mut OH_AVDataSource,
     ) -> *mut OH_AVMediaSource;
-    /// Creates a media source from the FileDescriptor.
+    /// Creates a media source using a file descriptor.
+    ///
     /// # Arguments
     ///
-    /// * `fd` - The fileDescriptor of data source.
+    /// * `fd` - FD of a media source file.
     ///
-    /// * `offset` - The offset into the file to start reading.
+    /// * `offset` - Offset of the file to be read.
     ///
-    /// * `size` - The file size in bytes.
+    /// * `size` - File size, in bytes
     ///
     /// # Returns
     ///
-    /// * Returns a pointer to an OH_AVMediaSource instance for success, nullptr for failure
+    /// * Pointer to the **OH_AVMediaSource** instance if the operation is successful; null pointer if the operation
+    /// fails.
     ///
     ///
     /// Possible failure causes:
@@ -289,35 +307,36 @@ extern "C" {
     #[cfg(feature = "api-23")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub fn OH_AVMediaSource_CreateWithFd(fd: i32, offset: i64, size: i64) -> *mut OH_AVMediaSource;
-    /// Release media source instance
+    /// Releases a media source instance.
+    ///
     /// # Arguments
     ///
-    /// * `source` - Pointer to an OH_AVMediaSource instance
+    /// * `source` - Pointer to the **OH_AVMediaSource** instance.
     ///
     /// # Returns
     ///
-    /// * Function result code.
-    /// (AV_ERR_OK) if the execution is successful.
-    /// (AV_ERR_INVALID_VAL) if source is nullptr or release failed.
+    /// * Execution result of the function.
+    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The **source** is a null pointer or fails to be released.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub fn OH_AVMediaSource_Destroy(source: *mut OH_AVMediaSource) -> OH_AVErrCode;
-    /// Set media mime type to handle extended media source.
+    /// Sets the MIME type to process extended media sources.
+    ///
     /// # Arguments
     ///
-    /// * `source` - Pointer to a OH_AVMediaSource.
+    /// * `source` - Pointer to the **OH_AVMediaSource** instance.
     ///
-    ///
-    /// * `mimetype` - Source's mime type. (AV_MimeTypes).
+    /// * `mimetype` - Pointer to the MIME type (`AV_MimeTypes`) of the media source.
     ///
     /// # Returns
     ///
-    /// * Function result code.
-    /// (AV_ERR_OK) if the execution is successful.
-    /// (AV_ERR_INVALID_VAL) if source or mimetype is nullptr.
-    /// (AV_ERR_UNSUPPORTED_FORMAT) if mimetype is not supported.
+    /// * Execution result of the function.
+    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The **source** or **mimetype** is a null pointer.
+    /// [`AV_ERR_UNSUPPORTED_FORMAT`](crate::averrors::OH_AVErrCode::AV_ERR_UNSUPPORTED_FORMAT): The **mimetype** is not supported.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -326,18 +345,19 @@ extern "C" {
         source: *mut OH_AVMediaSource,
         mimetype: *const ::core::ffi::c_char,
     ) -> OH_AVErrCode;
-    /// Get the request url.
+    /// Obtains the URL of a request.
+    ///
     /// # Arguments
     ///
-    /// * `request` - the OH_AVMediaSourceLoadingRequest instance.
+    /// * `request` - Pointer to the **OH_AVMediaSourceLoadingRequest** instance.
     ///
-    /// * `url` - the output url string.
+    /// * `url` - Double pointer to the URL for output.
     ///
     /// # Returns
     ///
-    /// * Function result code.
-    /// (AV_ERR_OK) if the execution is successful.
-    /// (AV_ERR_INVALID_VAL) if request is nullptr or there is no url.
+    /// * Execution result of the function.
+    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The **request** is a null pointer or the URL does not exist.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -346,18 +366,19 @@ extern "C" {
         request: *mut OH_AVMediaSourceLoadingRequest,
         url: *mut *const ::core::ffi::c_char,
     ) -> OH_AVErrCode;
-    /// Get the request http header.
+    /// Obtains the HTTP header of a request.
+    ///
     /// # Arguments
     ///
-    /// * `request` - the OH_AVMediaSourceLoadingRequest instance.
+    /// * `request` - Pointer to the **OH_AVMediaSourceLoadingRequest** instance.
     ///
-    /// * `header` - the http header need to use in the http request.
+    /// * `header` - Double pointer to the HTTP header used for the HTTP request.
     ///
     /// # Returns
     ///
-    /// * Function result code.
-    /// (AV_ERR_OK) if the execution is successful.
-    /// (AV_ERR_INVALID_VAL) if request is nullptr.
+    /// * Execution result of the function.
+    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The **request** is a null pointer.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -366,24 +387,27 @@ extern "C" {
         request: *mut OH_AVMediaSourceLoadingRequest,
         header: *mut *mut OH_AVHttpHeader,
     ) -> OH_AVErrCode;
-    /// The interface for application used to send requested data to AVPlayer.
+    /// Sends request data to the AVPlayer.
+    ///
     /// # Arguments
     ///
-    /// * `request` - Parameters for the resource open request.
+    /// * `request` - Pointer to the request for opening a resource.
     ///
-    /// * `uuid` - ID for the resource handle.
+    /// * `uuid` - ID of the resource handle.
     ///
     /// * `offset` - Offset of the current media data relative to the start of the resource.
     ///
-    /// * `data` - Media data sent to the player.
+    /// * `data` - Pointer to the media data sent to the player.
     ///
-    /// * `dataSize` - - data length sent to player.
+    /// * `dataSize` - Length of the data sent to the player.
     ///
     /// # Returns
     ///
-    /// * Accepted bytes for current read. The value less than zero means failed.
-    /// -2, Means player needs current data any more, the client should stop current read process.
-    /// -3, means player buffer is full, the client should wait for next read.
+    /// * Number of bytes accepted by the current read operation. If the return value is less than 0, the operation
+    /// fails.
+    /// The value **-2** indicates that the player no longer needs the current data, and the client should stop the current
+    /// read process.
+    /// The value **-3** indicates that the player's buffer is full, and the client should wait for the next read.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -395,19 +419,20 @@ extern "C" {
         data: *const u8,
         dataSize: u64,
     ) -> i32;
-    /// The interface for application used to send respond header to AVPlayer
-    /// should be called before calling the (OH_AVMediaSourceLoadingRequest_RespondData()) for the first time.
+    /// Sends the response header to the AVPlayer. This API must be called before [`OH_AVMediaSourceLoadingRequest_RespondData`](crate::avmedia_source::OH_AVMediaSourceLoadingRequest_RespondData)
+    /// is called for the first time.
+    ///
     /// # Arguments
     ///
-    /// * `request` - Parameters for the resource open request.
+    /// * `request` - Pointer to the request for opening a resource.
     ///
-    /// * `uuid` - ID for the resource handle.
+    /// * `uuid` - ID of the resource handle.
     ///
-    /// * `header` - Header info in the http response.
-    /// The application can intersect the header fields with the fields supported by the underlying layer for
-    /// parsing or directly pass in all corresponding header information.
+    /// * `header` - Pointer to the header information in the HTTP response.
+    /// The application can intersect the header field with the supported fields at the bottom layer and then pass the
+    /// intersection result to the AVPlayer, or directly pass all the corresponding header information.
     ///
-    /// * `redirectUrl` - Redirect url from the http response if exist.
+    /// * `redirectUrl` - Pointer to the redirection URL contained in the HTTP response (if any).
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -418,16 +443,16 @@ extern "C" {
         header: *mut OH_AVHttpHeader,
         redirectUrl: *const ::core::ffi::c_char,
     );
-    /// Notifies the player of the current request status. After pushing all the data for a single resource, the
-    /// application should send the *LOADING_ERROR_SUCCESS* state to notify the player that the resource push is
-    /// complete.
+    /// Notifies the player of the current request status. After pushing all data of a single resource, the
+    /// application should send the **LOADING_ERROR_SUCCESS** state to notify the player that the resource push is complete.
+    ///
     /// # Arguments
     ///
-    /// * `request` - Parameters for the resource open request.
+    /// * `request` - Pointer to the request for opening a resource.
     ///
-    /// * `uuid` - ID for the resource handle.
+    /// * `uuid` - ID of the resource handle.
     ///
-    /// * `error` - Error state.
+    /// * `error` - Audio playback is in the error state.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -437,7 +462,9 @@ extern "C" {
         uuid: i64,
         error: AVLoadingRequestError,
     );
-    /// Create a OH_AVMediaSourceLoader instance.
+    /// Creates an **OH_AVMediaSourceLoader** instance. If the operation is successful, the **OH_AVMediaSourceLoader**
+    /// pointer is returned. If the operation fails, a null pointer is returned.
+    ///
     ///
     /// # Returns
     ///
@@ -447,33 +474,35 @@ extern "C" {
     #[cfg(feature = "api-23")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub fn OH_AVMediaSourceLoader_Create() -> *mut OH_AVMediaSourceLoader;
-    /// Releases the OH_AVMediaSourceLoader instance.
+    /// Releases an **OH_AVMediaSourceLoader** instance.
+    ///
     /// # Arguments
     ///
-    /// * `loader` - The OH_AVMediaSourceLoader instance which to be released.
+    /// * `loader` - Pointer to the **OH_AVMediaSourceLoader** instance to be released.
     ///
     /// # Returns
     ///
-    /// * Function result code.
-    /// (AV_ERR_OK) if the execution is successful.
-    /// (AV_ERR_INVALID_VAL) if loader is nullptr or release failed.
+    /// * Execution result of the function.
+    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The **loader** is a null pointer or fails to be released.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub fn OH_AVMediaSourceLoader_Destroy(loader: *mut OH_AVMediaSourceLoader) -> OH_AVErrCode;
-    /// Set a source loader to a media source instance.
+    /// Sets a source loader for the media source instance.
+    ///
     /// # Arguments
     ///
-    /// * `source` - the OH_AVMediaSource which need network delegation.
+    /// * `source` - Pointer to the **OH_AVMediaSource** that requires a network proxy.
     ///
-    /// * `loader` - The OH_AVMediaSourceLoader instance
+    /// * `loader` - Pointer to the **OH_AVMediaSourceLoader** instance.
     ///
     /// # Returns
     ///
-    /// * Function result code.
-    /// (AV_ERR_OK) if the execution is successful.
-    /// (AV_ERR_INVALID_VAL) if sourcer or loader is nullptr or release failed.
+    /// * Execution result of the function.
+    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The **source** or **loader** is a null pointer, or the operation fails.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -482,20 +511,21 @@ extern "C" {
         source: *mut OH_AVMediaSource,
         loader: *mut OH_AVMediaSourceLoader,
     ) -> OH_AVErrCode;
-    /// Set open callback function to the OH_AVMediaSourceLoader
+    /// Sets the open callback function for **OH_AVMediaSourceLoader**.
+    ///
     /// # Arguments
     ///
-    /// * `loader` - The OH_AVMediaSourceLoader callback function interface set.
+    /// * `loader` - Pointer to the **OH_AVMediaSourceLoader** instance for which the callback function is to be set.
     ///
-    /// * `callback` - The open callback function to set.
+    /// * `callback` - Open callback function to be set.
     ///
-    /// * `userData` - The user defined data used in callback function.
+    /// * `userData` - Pointer to the user-defined data used in the callback function.
     ///
     /// # Returns
     ///
-    /// * Function result code.
-    /// (AV_ERR_OK) if the execution is successful.
-    /// (AV_ERR_INVALID_VAL) if loader is nullptr or release failed.
+    /// * Execution result of the function.
+    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The **loader** is a null pointer or the operation fails.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -505,20 +535,21 @@ extern "C" {
         callback: OH_AVMediaSourceLoaderOnSourceOpenedCallback,
         userData: *mut ::core::ffi::c_void,
     ) -> OH_AVErrCode;
-    /// Set read callback function to the OH_AVMediaSourceLoader
+    /// Sets the read callback function for **OH_AVMediaSourceLoader**.
+    ///
     /// # Arguments
     ///
-    /// * `loader` - The OH_AVMediaSourceLoader callback function interface set.
+    /// * `loader` - Pointer to the **OH_AVMediaSourceLoader** instance for which the callback function is to be set.
     ///
-    /// * `callback` - The read callback function to set.
+    /// * `callback` - Read callback function to be set.
     ///
-    /// * `userData` - The user defined data used in callback function.
+    /// * `userData` - Pointer to the user-defined data used in the callback function.
     ///
     /// # Returns
     ///
-    /// * Function result code.
-    /// (AV_ERR_OK) if the execution is successful.
-    /// (AV_ERR_INVALID_VAL) if loader is nullptr or release failed.
+    /// * Execution result of the function.
+    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The **loader** is a null pointer or the operation fails.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -528,20 +559,21 @@ extern "C" {
         callback: OH_AVMediaSourceLoaderOnSourceReadCallback,
         userData: *mut ::core::ffi::c_void,
     ) -> OH_AVErrCode;
-    /// Set close callback function to the OH_AVMediaSourceLoader
+    /// Sets the close callback function for **OH_AVMediaSourceLoader**.
+    ///
     /// # Arguments
     ///
-    /// * `loader` - The OH_AVMediaSourceLoader callback function interface set.
+    /// * `loader` - Pointer to the **OH_AVMediaSourceLoader** instance for which the callback function is to be set.
     ///
-    /// * `callback` - The close callback function to set.
+    /// * `callback` - Close callback function to be set.
     ///
-    /// * `userData` - The user defined data used in callback function.
+    /// * `userData` - Pointer to the user-defined data used in the callback function.
     ///
     /// # Returns
     ///
-    /// * Function result code.
-    /// (AV_ERR_OK) if the execution is successful.
-    /// (AV_ERR_INVALID_VAL) if loader is nullptr or release failed.
+    /// * Execution result of the function.
+    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The **loader** is a null pointer or the operation fails.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]

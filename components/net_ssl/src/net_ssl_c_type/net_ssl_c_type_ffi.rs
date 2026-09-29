@@ -7,15 +7,15 @@
 #[cfg(feature = "api-11")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
 impl NetStack_CertType {
-    /// PEM certificate
+    /// PEM certificate.
     pub const NETSTACK_CERT_TYPE_PEM: NetStack_CertType = NetStack_CertType(0);
-    /// DER certificate
+    /// DER certificate.
     pub const NETSTACK_CERT_TYPE_DER: NetStack_CertType = NetStack_CertType(1);
-    /// Invalid certificate
+    /// Invalid certificate.
     pub const NETSTACK_CERT_TYPE_INVALID: NetStack_CertType = NetStack_CertType(2);
 }
 #[repr(transparent)]
-/// Enumerates certificate types.
+/// Certificate type enums.
 ///
 ///
 /// Available since API-level: 11
@@ -36,21 +36,21 @@ pub struct NetStack_CertType(pub ::core::ffi::c_uint);
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct NetStack_CertBlob {
-    /// Certificate type
+    /// Certificate type.
     pub type_: NetStack_CertType,
-    /// Certificate content length
+    /// Certificate content length.
     pub size: u32,
-    /// Certificate content
+    /// Certificate data.
     pub data: *mut u8,
 }
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl NetStack_CertificatePinningKind {
-    /// Public key pinning
+    /// Public key lock type.
     pub const PUBLIC_KEY: NetStack_CertificatePinningKind = NetStack_CertificatePinningKind(0);
 }
 #[repr(transparent)]
-/// Defines the certificate lock type.
+/// Certificate pinning type enums.
 ///
 ///
 /// Available since API-level: 12
@@ -67,7 +67,7 @@ impl NetStack_HashAlgorithm {
     pub const SHA_256: NetStack_HashAlgorithm = NetStack_HashAlgorithm(0);
 }
 #[repr(transparent)]
-/// Defines the hash algorithm.
+/// Hash algorithm enums.
 ///
 ///
 /// Available since API-level: 12
@@ -77,7 +77,7 @@ impl NetStack_HashAlgorithm {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct NetStack_HashAlgorithm(pub ::core::ffi::c_uint);
-/// Defines the certificate lock information.
+/// Defines certificate pinning information.
 ///
 ///
 /// Available since API-level: 12
@@ -100,7 +100,7 @@ pub struct NetStack_CertificatePinning {
 pub union NetStack_CertificatePinning__bindgen_ty_1 {
     pub publicKeyHash: *mut ::core::ffi::c_char,
 }
-/// Defines the certificate information.
+/// Define certificate information.
 ///
 ///
 /// Available since API-level: 12
@@ -110,8 +110,8 @@ pub union NetStack_CertificatePinning__bindgen_ty_1 {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[repr(C)]
 pub struct NetStack_Certificates {
-    /// PEM content of the certificates
+    /// PEM content of the certificate.
     pub content: *mut *mut ::core::ffi::c_char,
-    /// Number of certificates
+    /// Number of certificates.
     pub length: usize,
 }

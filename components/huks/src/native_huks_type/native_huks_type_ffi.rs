@@ -55,15 +55,15 @@ impl OH_Huks_KeyPurpose {
     pub const OH_HUKS_KEY_PURPOSE_ENCRYPT: OH_Huks_KeyPurpose = OH_Huks_KeyPurpose(1);
     /// Used to decrypt the cipher text.
     pub const OH_HUKS_KEY_PURPOSE_DECRYPT: OH_Huks_KeyPurpose = OH_Huks_KeyPurpose(2);
-    /// Used to sign data.
+    /// Used for signing.
     pub const OH_HUKS_KEY_PURPOSE_SIGN: OH_Huks_KeyPurpose = OH_Huks_KeyPurpose(4);
     /// Used to verify the signature.
     pub const OH_HUKS_KEY_PURPOSE_VERIFY: OH_Huks_KeyPurpose = OH_Huks_KeyPurpose(8);
     /// Used to derive a key.
     pub const OH_HUKS_KEY_PURPOSE_DERIVE: OH_Huks_KeyPurpose = OH_Huks_KeyPurpose(16);
-    /// Used for an encrypted export.
+    /// Used for exporting a key in ciphertext.
     pub const OH_HUKS_KEY_PURPOSE_WRAP: OH_Huks_KeyPurpose = OH_Huks_KeyPurpose(32);
-    /// Used for an encrypted import.
+    /// Used for importing a key in ciphertext.
     pub const OH_HUKS_KEY_PURPOSE_UNWRAP: OH_Huks_KeyPurpose = OH_Huks_KeyPurpose(64);
     /// Used to generate a message authentication code (MAC).
     pub const OH_HUKS_KEY_PURPOSE_MAC: OH_Huks_KeyPurpose = OH_Huks_KeyPurpose(128);
@@ -71,7 +71,7 @@ impl OH_Huks_KeyPurpose {
     pub const OH_HUKS_KEY_PURPOSE_AGREE: OH_Huks_KeyPurpose = OH_Huks_KeyPurpose(256);
 }
 #[repr(transparent)]
-/// Enumerates the key purposes.
+/// Enumerates the key purposes. Multiple purposes can be combined using bitwise OR (\|).
 ///
 ///
 /// Available since API-level: 9
@@ -109,23 +109,23 @@ pub struct OH_Huks_KeyDigest(pub ::core::ffi::c_uint);
 impl OH_Huks_KeyPadding {
     /// No padding algorithm.
     pub const OH_HUKS_PADDING_NONE: OH_Huks_KeyPadding = OH_Huks_KeyPadding(0);
-    /// Optimal Asymmetric Encryption Padding (OAEP).
+    /// OAEP.
     pub const OH_HUKS_PADDING_OAEP: OH_Huks_KeyPadding = OH_Huks_KeyPadding(1);
-    /// Probabilistic Signature Scheme (PSS).
+    /// PSS.
     pub const OH_HUKS_PADDING_PSS: OH_Huks_KeyPadding = OH_Huks_KeyPadding(2);
-    /// Public Key Cryptography Standards (PKCS) #1 v1.5.
+    /// PKCS1_V1_5.
     pub const OH_HUKS_PADDING_PKCS1_V1_5: OH_Huks_KeyPadding = OH_Huks_KeyPadding(3);
     /// PKCS #5.
     pub const OH_HUKS_PADDING_PKCS5: OH_Huks_KeyPadding = OH_Huks_KeyPadding(4);
     /// PKCS #7.
     pub const OH_HUKS_PADDING_PKCS7: OH_Huks_KeyPadding = OH_Huks_KeyPadding(5);
-    /// ISO IEC 9796-2
+    /// ISO IEC 9796-2.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
     pub const OH_HUKS_PADDING_ISO_IEC_9796_2: OH_Huks_KeyPadding = OH_Huks_KeyPadding(6);
-    /// ISO IEC 9797-1
+    /// ISO IEC 9797-1.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -133,7 +133,7 @@ impl OH_Huks_KeyPadding {
     pub const OH_HUKS_PADDING_ISO_IEC_9797_1: OH_Huks_KeyPadding = OH_Huks_KeyPadding(7);
 }
 #[repr(transparent)]
-/// Enumerates the padding algorithms.
+/// Enumerates the padding algorithm types.
 ///
 ///
 /// Available since API-level: 9
@@ -142,27 +142,27 @@ impl OH_Huks_KeyPadding {
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OH_Huks_KeyPadding(pub ::core::ffi::c_uint);
 impl OH_Huks_CipherMode {
-    /// Electronic Code Block (ECB) mode.
+    /// ECB.
     pub const OH_HUKS_MODE_ECB: OH_Huks_CipherMode = OH_Huks_CipherMode(1);
-    /// Cipher Block Chaining (CBC) mode.
+    /// CBC.
     pub const OH_HUKS_MODE_CBC: OH_Huks_CipherMode = OH_Huks_CipherMode(2);
-    /// Counter (CTR) mode.
+    /// CTR.
     pub const OH_HUKS_MODE_CTR: OH_Huks_CipherMode = OH_Huks_CipherMode(3);
-    /// Output Feedback (OFB) mode.
+    /// OFB.
     pub const OH_HUKS_MODE_OFB: OH_Huks_CipherMode = OH_Huks_CipherMode(4);
-    /// Cipher Feedback (CFB) mode.
+    /// CFB.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const OH_HUKS_MODE_CFB: OH_Huks_CipherMode = OH_Huks_CipherMode(5);
-    /// Counter with CBC-MAC (CCM) mode.
+    /// CCM.
     pub const OH_HUKS_MODE_CCM: OH_Huks_CipherMode = OH_Huks_CipherMode(31);
-    /// Galois/Counter (GCM) mode.
+    /// GCM.
     pub const OH_HUKS_MODE_GCM: OH_Huks_CipherMode = OH_Huks_CipherMode(32);
 }
 #[repr(transparent)]
-/// Enumerates the cipher modes.
+/// Cipher mode.
 ///
 ///
 /// Available since API-level: 9
@@ -171,7 +171,7 @@ impl OH_Huks_CipherMode {
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OH_Huks_CipherMode(pub ::core::ffi::c_uint);
 impl OH_Huks_KeySize {
-    /// Rivest-Shamir-Adleman (RSA) key of 512 bits.
+    /// RSA key of 512 bits.
     pub const OH_HUKS_RSA_KEY_SIZE_512: OH_Huks_KeySize = OH_Huks_KeySize(512);
     /// RSA key of 768 bits.
     pub const OH_HUKS_RSA_KEY_SIZE_768: OH_Huks_KeySize = OH_Huks_KeySize(768);
@@ -183,7 +183,7 @@ impl OH_Huks_KeySize {
     pub const OH_HUKS_RSA_KEY_SIZE_3072: OH_Huks_KeySize = OH_Huks_KeySize(3072);
     /// RSA key of 4096 bits.
     pub const OH_HUKS_RSA_KEY_SIZE_4096: OH_Huks_KeySize = OH_Huks_KeySize(4096);
-    /// Elliptic Curve Cryptography (ECC) key of 224 bits.
+    /// ECC key of 224 bits.
     pub const OH_HUKS_ECC_KEY_SIZE_224: OH_Huks_KeySize = OH_Huks_KeySize(224);
     /// ECC key of 256 bits.
     pub const OH_HUKS_ECC_KEY_SIZE_256: OH_Huks_KeySize = OH_Huks_KeySize(256);
@@ -191,7 +191,7 @@ impl OH_Huks_KeySize {
     pub const OH_HUKS_ECC_KEY_SIZE_384: OH_Huks_KeySize = OH_Huks_KeySize(384);
     /// ECC key of 521 bits.
     pub const OH_HUKS_ECC_KEY_SIZE_521: OH_Huks_KeySize = OH_Huks_KeySize(521);
-    /// Advanced Encryption Standard (AES) key of 128 bits.
+    /// AES key of 128 bits.
     pub const OH_HUKS_AES_KEY_SIZE_128: OH_Huks_KeySize = OH_Huks_KeySize(128);
     /// AES key of 192 bits.
     pub const OH_HUKS_AES_KEY_SIZE_192: OH_Huks_KeySize = OH_Huks_KeySize(192);
@@ -201,15 +201,15 @@ impl OH_Huks_KeySize {
     pub const OH_HUKS_AES_KEY_SIZE_512: OH_Huks_KeySize = OH_Huks_KeySize(512);
     /// Curve25519 key of 256 bits.
     pub const OH_HUKS_CURVE25519_KEY_SIZE_256: OH_Huks_KeySize = OH_Huks_KeySize(256);
-    /// Diffie-Hellman (DH) key of 2048 bits.
+    /// DH key of 2048 bits.
     pub const OH_HUKS_DH_KEY_SIZE_2048: OH_Huks_KeySize = OH_Huks_KeySize(2048);
     /// DH key of 3072 bits.
     pub const OH_HUKS_DH_KEY_SIZE_3072: OH_Huks_KeySize = OH_Huks_KeySize(3072);
     /// DH key of 4096 bits.
     pub const OH_HUKS_DH_KEY_SIZE_4096: OH_Huks_KeySize = OH_Huks_KeySize(4096);
-    /// ShangMi2 (SM2) key of 256 bits.
+    /// SM2 key of 256 bits.
     pub const OH_HUKS_SM2_KEY_SIZE_256: OH_Huks_KeySize = OH_Huks_KeySize(256);
-    /// ShangMi4 (SM4) key of 128 bits.
+    /// SM4 key of 128 bits.
     pub const OH_HUKS_SM4_KEY_SIZE_128: OH_Huks_KeySize = OH_Huks_KeySize(128);
     /// DES key of 64 bits.
     ///
@@ -231,7 +231,7 @@ impl OH_Huks_KeySize {
     pub const OH_HUKS_3DES_KEY_SIZE_192: OH_Huks_KeySize = OH_Huks_KeySize(192);
 }
 #[repr(transparent)]
-/// Enumerates the key sizes.
+/// Enumerates the key sizes of different algorithms.
 ///
 ///
 /// Available since API-level: 9
@@ -246,9 +246,9 @@ impl OH_Huks_KeyAlg {
     pub const OH_HUKS_ALG_ECC: OH_Huks_KeyAlg = OH_Huks_KeyAlg(2);
     /// DSA.
     pub const OH_HUKS_ALG_DSA: OH_Huks_KeyAlg = OH_Huks_KeyAlg(3);
-    /// AES.
+    /// Advanced Encryption Standard (AES).
     pub const OH_HUKS_ALG_AES: OH_Huks_KeyAlg = OH_Huks_KeyAlg(20);
-    /// HMAC.
+    /// HMAC algorithm.
     pub const OH_HUKS_ALG_HMAC: OH_Huks_KeyAlg = OH_Huks_KeyAlg(50);
     /// HKDF.
     pub const OH_HUKS_ALG_HKDF: OH_Huks_KeyAlg = OH_Huks_KeyAlg(51);
@@ -262,7 +262,7 @@ impl OH_Huks_KeyAlg {
     pub const OH_HUKS_ALG_ED25519: OH_Huks_KeyAlg = OH_Huks_KeyAlg(102);
     /// DH.
     pub const OH_HUKS_ALG_DH: OH_Huks_KeyAlg = OH_Huks_KeyAlg(103);
-    /// SM2.
+    /// ShangMi2 (SM2).
     pub const OH_HUKS_ALG_SM2: OH_Huks_KeyAlg = OH_Huks_KeyAlg(150);
     /// SM3.
     pub const OH_HUKS_ALG_SM3: OH_Huks_KeyAlg = OH_Huks_KeyAlg(151);
@@ -288,7 +288,7 @@ impl OH_Huks_KeyAlg {
     pub const OH_HUKS_ALG_CMAC: OH_Huks_KeyAlg = OH_Huks_KeyAlg(162);
 }
 #[repr(transparent)]
-/// Enumerates the key algorithms.
+/// Enumerates the algorithms for keys.
 ///
 ///
 /// Available since API-level: 9
@@ -297,25 +297,17 @@ impl OH_Huks_KeyAlg {
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OH_Huks_KeyAlg(pub ::core::ffi::c_uint);
 impl OH_Huks_AlgSuite {
-    /// Key material format (Length-Value format), X25519 key agreement, and AES-256-GCM encryption and decryption.
-    /// | x25519_plain_pubkey_length (4 Byte) | x25519_plain_pubkey | agreekey_aad_length (4 Byte) | agreekey_aad
-    /// | agreekey_nonce_length (4 Byte) | agreekey_nonce |
-    /// | agreekey_aead_tag_len (4 Byte) | agreekey_aead_tag |
-    /// | kek_enc_data_length (4 Byte) | kek_enc_data | kek_aad_length (4 Byte) | kek_aad
-    /// | kek_nonce_length (4 Byte) | kek_nonce | kek_aead_tag_len (4 Byte) | kek_aead_tag
-    /// | key_material_size_len (4 Byte) | key_material_size | key_mat_enc_length (4 Byte) | key_mat_enc_data
+    /// Key material in Length-Value format, using X25519 for key agreement and AES-256-GCM for encryption and
+    /// decryption. For details about the material format, see the preceding description.
     pub const OH_HUKS_UNWRAP_SUITE_X25519_AES_256_GCM_NOPADDING: OH_Huks_AlgSuite =
         OH_Huks_AlgSuite(1);
-    /// Key material format (Length-Value format), ECDH-p256 key agreement, and AES-256-GCM encryption and decryption.
-    /// | ECC_plain_pubkey_length (4 Byte) | ECC_plain_pubkey | agreekey_aad_length (4 Byte) | agreekey_aad
-    /// | agreekey_nonce_length (4 Byte) | agreekey_nonce |
-    /// | agreekey_aead_tag_len (4 Byte) | agreekey_aead_tag |
-    /// | kek_enc_data_length (4 Byte) | kek_enc_data | kek_aad_length (4 Byte) | kek_aad
-    /// | kek_nonce_length (4 Byte) | kek_nonce | kek_aead_tag_len (4 Byte) | kek_aead_tag
-    /// | key_material_size_len (4 Byte) | key_material_size | key_mat_enc_length (4 Byte) | key_mat_enc_data
+    /// Key material in Length-Value format, using ECDH-p256 for key agreement and AES-256-GCM for encryption and
+    /// decryption. For details about the material format, see the preceding description.
     pub const OH_HUKS_UNWRAP_SUITE_ECDH_AES_256_GCM_NOPADDING: OH_Huks_AlgSuite =
         OH_Huks_AlgSuite(2);
-    /// Use SM2 and then use SM4-ECB-NoPadding to encrypt the key
+    /// Key material in Length-Value format, using the temporary SM4 key to encrypt the imported key and using
+    /// the SM2 key that has been imported to HUKS to encrypt the SM4 key. For details about the material format, see
+    /// the preceding description.
     ///
     ///
     /// Available since API-level: 23
@@ -324,7 +316,23 @@ impl OH_Huks_AlgSuite {
     pub const OH_HUKS_UNWRAP_SUITE_SM2_SM4_ECB_NOPADDING: OH_Huks_AlgSuite = OH_Huks_AlgSuite(5);
 }
 #[repr(transparent)]
-/// Enumerates the algorithm suites required for ciphertext imports.
+/// Enumerates the algorithm suites that can be used for importing of a key in ciphertext.
+/// <br>Key material format for **OH_HUKS_UNWRAP_SUITE_X25519_AES_256_GCM_NOPADDING**:
+/// | x25519_plain_pubkey_length (4 Byte) | x25519_plain_pubkey | agreekey_aad_length (4 Byte) | agreekey_aad
+/// | agreekey_nonce_length (4 Byte) | agreekey_nonce | agreekey_aead_tag_len(4 Byte) | agreekey_aead_tag
+/// | kek_enc_data_length (4 Byte) | kek_enc_data | kek_aad_length (4 Byte) | kek_aad
+/// | kek_nonce_length (4 Byte) | kek_nonce | kek_aead_tag_len (4 Byte) | kek_aead_tag
+/// | key_material_size_len (4 Byte) | key_material_size | key_mat_enc_length (4 Byte) | key_mat_enc_data
+///
+/// <br>Key material format for **OH_HUKS_UNWRAP_SUITE_ECDH_AES_256_GCM_NOPADDING**:
+/// | ECC_plain_pubkey_length (4 Byte) | ECC_plain_pubkey | agreekey_aad_length (4 Byte) | agreekey_aad
+/// | agreekey_nonce_length (4 Byte) | agreekey_nonce | agreekey_aead_tag_len(4 Byte) | agreekey_aead_tag
+/// | kek_enc_data_length (4 Byte) | kek_enc_data | kek_aad_length (4 Byte) | kek_aad
+/// | kek_nonce_length (4 Byte) | kek_nonce | kek_aead_tag_len (4 Byte) | kek_aead_tag
+/// | key_material_size_len (4 Byte) | key_material_size | key_mat_enc_length (4 Byte) | key_mat_enc_data
+///
+/// <br>Key material format for **OH_HUKS_UNWRAP_SUITE_SM2_SM4_ECB_NOPADDING**:
+/// | kek_SM4_enc_length (4 Byte) | EN_SM4_key | importkey_enc_length (4 Byte) | importkey_enc
 ///
 ///
 /// Available since API-level: 9
@@ -339,8 +347,27 @@ impl OH_Huks_KeyGenerateType {
     /// Derived key.
     pub const OH_HUKS_KEY_GENERATE_TYPE_DERIVE: OH_Huks_KeyGenerateType =
         OH_Huks_KeyGenerateType(1);
-    /// Key obtained by key agreement.
+    /// Key generated by key agreement.
     pub const OH_HUKS_KEY_GENERATE_TYPE_AGREE: OH_Huks_KeyGenerateType = OH_Huks_KeyGenerateType(2);
+}
+#[repr(transparent)]
+/// Enumerates the types of the key generated.
+///
+///
+/// Available since API-level: 9
+///
+/// Version: 1.0
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct OH_Huks_KeyGenerateType(pub ::core::ffi::c_uint);
+impl OH_Huks_KeyFlag {
+    /// Import a public key using a function.
+    pub const OH_HUKS_KEY_FLAG_IMPORT_KEY: OH_Huks_KeyFlag = OH_Huks_KeyFlag(1);
+    /// Generate a key by using a function.
+    pub const OH_HUKS_KEY_FLAG_GENERATE_KEY: OH_Huks_KeyFlag = OH_Huks_KeyFlag(2);
+    /// Generate a key by using a key agreement function.
+    pub const OH_HUKS_KEY_FLAG_AGREE_KEY: OH_Huks_KeyFlag = OH_Huks_KeyFlag(3);
+    /// Derive a key by using a function.
+    pub const OH_HUKS_KEY_FLAG_DERIVE_KEY: OH_Huks_KeyFlag = OH_Huks_KeyFlag(4);
 }
 #[repr(transparent)]
 /// Enumerates the key generation types.
@@ -350,39 +377,20 @@ impl OH_Huks_KeyGenerateType {
 ///
 /// Version: 1.0
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
-pub struct OH_Huks_KeyGenerateType(pub ::core::ffi::c_uint);
-impl OH_Huks_KeyFlag {
-    /// Import a public key using an API.
-    pub const OH_HUKS_KEY_FLAG_IMPORT_KEY: OH_Huks_KeyFlag = OH_Huks_KeyFlag(1);
-    /// Generate a key by using an API.
-    pub const OH_HUKS_KEY_FLAG_GENERATE_KEY: OH_Huks_KeyFlag = OH_Huks_KeyFlag(2);
-    /// Generate a key by using a key agreement API.
-    pub const OH_HUKS_KEY_FLAG_AGREE_KEY: OH_Huks_KeyFlag = OH_Huks_KeyFlag(3);
-    /// Derive a key by using an API.
-    pub const OH_HUKS_KEY_FLAG_DERIVE_KEY: OH_Huks_KeyFlag = OH_Huks_KeyFlag(4);
-}
-#[repr(transparent)]
-/// Enumerates the key generation modes.
-///
-///
-/// Available since API-level: 9
-///
-/// Version: 1.0
-#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OH_Huks_KeyFlag(pub ::core::ffi::c_uint);
 impl OH_Huks_KeyStorageType {
-    /// The key is managed locally.
+    /// Return the key to the service via the API.
     pub const OH_HUKS_STORAGE_TEMP: OH_Huks_KeyStorageType = OH_Huks_KeyStorageType(0);
-    /// The key is managed by the HUKS service.
+    /// Store the key in HUKS.
     pub const OH_HUKS_STORAGE_PERSISTENT: OH_Huks_KeyStorageType = OH_Huks_KeyStorageType(1);
-    /// The key is only used in huks.
+    /// Store the key generated from key derivation or key agreement in HUKS.
     pub const OH_HUKS_STORAGE_ONLY_USED_IN_HUKS: OH_Huks_KeyStorageType = OH_Huks_KeyStorageType(2);
-    /// The key can be allowed to export.
+    /// Return the key generated from key derivation or key agreement to the service.
     pub const OH_HUKS_STORAGE_KEY_EXPORT_ALLOWED: OH_Huks_KeyStorageType =
         OH_Huks_KeyStorageType(3);
 }
 #[repr(transparent)]
-/// Enumerates the key storage modes.
+/// Enumerates the key storage types.
 ///
 ///
 /// Available since API-level: 9
@@ -399,8 +407,8 @@ impl OH_Huks_ImportKeyType {
     pub const OH_HUKS_KEY_TYPE_KEY_PAIR: OH_Huks_ImportKeyType = OH_Huks_ImportKeyType(2);
 }
 #[repr(transparent)]
-/// Enumerates the types of keys to import. By default,
-/// a public key is imported. This field is not required when a symmetric key is imported.
+/// Enumerates the types of the key to import. By default, a public key is imported. This field is not required
+/// when a symmetric key is imported.
 ///
 ///
 /// Available since API-level: 9
@@ -409,16 +417,15 @@ impl OH_Huks_ImportKeyType {
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OH_Huks_ImportKeyType(pub ::core::ffi::c_uint);
 impl OH_Huks_RsaPssSaltLenType {
-    /// Salt length matches digest.
+    /// The salt length is set to the digest length.
     pub const OH_HUKS_RSA_PSS_SALT_LEN_DIGEST: OH_Huks_RsaPssSaltLenType =
         OH_Huks_RsaPssSaltLenType(0);
-    /// Set salt length to maximum possible, default type.
+    /// The salt length is set to the maximum length.
     pub const OH_HUKS_RSA_PSS_SALT_LEN_MAX: OH_Huks_RsaPssSaltLenType =
         OH_Huks_RsaPssSaltLenType(1);
 }
 #[repr(transparent)]
-/// Enumerates the salt_len types to set when PSS padding is used in RSA signing or signature
-/// verification.
+/// Enumerates the length types of the salt value in PSS padding mode of the RSA algorithm.
 ///
 ///
 /// Available since API-level: 10
@@ -427,11 +434,11 @@ impl OH_Huks_RsaPssSaltLenType {
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OH_Huks_RsaPssSaltLenType(pub ::core::ffi::c_uint);
 impl OH_Huks_ErrCode {
-    /// The operation is successful.
+    /// Success.
     pub const OH_HUKS_SUCCESS: OH_Huks_ErrCode = OH_Huks_ErrCode(0);
     /// Permission verification failed.
     pub const OH_HUKS_ERR_CODE_PERMISSION_FAIL: OH_Huks_ErrCode = OH_Huks_ErrCode(201);
-    /// Invalid parameters are detected.
+    /// Invalid parameter (universal).
     pub const OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT: OH_Huks_ErrCode = OH_Huks_ErrCode(401);
     /// The API is not supported.
     pub const OH_HUKS_ERR_CODE_NOT_SUPPORTED_API: OH_Huks_ErrCode = OH_Huks_ErrCode(801);
@@ -440,14 +447,14 @@ impl OH_Huks_ErrCode {
     /// Key algorithm parameters are missing.
     pub const OH_HUKS_ERR_CODE_MISSING_CRYPTO_ALG_ARGUMENT: OH_Huks_ErrCode =
         OH_Huks_ErrCode(12000002);
-    /// Invalid key algorithm parameters are detected.
+    /// Invalid key algorithm parameter.
     pub const OH_HUKS_ERR_CODE_INVALID_CRYPTO_ALG_ARGUMENT: OH_Huks_ErrCode =
         OH_Huks_ErrCode(12000003);
-    /// Failed to operate the file.
+    /// File operation failed.
     pub const OH_HUKS_ERR_CODE_FILE_OPERATION_FAIL: OH_Huks_ErrCode = OH_Huks_ErrCode(12000004);
     /// The process communication failed.
     pub const OH_HUKS_ERR_CODE_COMMUNICATION_FAIL: OH_Huks_ErrCode = OH_Huks_ErrCode(12000005);
-    /// Failed to operate the algorithm library.
+    /// Crypto operation failed.
     pub const OH_HUKS_ERR_CODE_CRYPTO_FAIL: OH_Huks_ErrCode = OH_Huks_ErrCode(12000006);
     /// Failed to access the key because the key has expired.
     pub const OH_HUKS_ERR_CODE_KEY_AUTH_PERMANENTLY_INVALIDATED: OH_Huks_ErrCode =
@@ -464,75 +471,65 @@ impl OH_Huks_ErrCode {
     pub const OH_HUKS_ERR_CODE_INTERNAL_ERROR: OH_Huks_ErrCode = OH_Huks_ErrCode(12000012);
     /// The authentication credential does not exist.
     pub const OH_HUKS_ERR_CODE_CREDENTIAL_NOT_EXIST: OH_Huks_ErrCode = OH_Huks_ErrCode(12000013);
-    /// The memory is not sufficient.
+    /// Insufficient memory.
     pub const OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY: OH_Huks_ErrCode = OH_Huks_ErrCode(12000014);
-    /// Failed to call service.
+    /// Failed to invoke the service.
     pub const OH_HUKS_ERR_CODE_CALL_SERVICE_FAILED: OH_Huks_ErrCode = OH_Huks_ErrCode(12000015);
-    /// A device password is required but not set.
-    ///
+    /// The lock screen password required is not set.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub const OH_HUKS_ERR_CODE_DEVICE_PASSWORD_UNSET: OH_Huks_ErrCode = OH_Huks_ErrCode(12000016);
-    /// The key with same alias is already exist.
-    ///
+    /// A key with the same name already exists.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const OH_HUKS_ERR_CODE_KEY_ALREADY_EXIST: OH_Huks_ErrCode = OH_Huks_ErrCode(12000017);
-    /// The input parameter is invalid..
-    ///
+    /// An input parameter is invalid.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const OH_HUKS_ERR_CODE_INVALID_ARGUMENT: OH_Huks_ErrCode = OH_Huks_ErrCode(12000018);
-    /// The item already exists.
-    ///
+    /// The entity already exists.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub const OH_HUKS_ERR_CODE_ITEM_EXISTS: OH_Huks_ErrCode = OH_Huks_ErrCode(12000019);
-    /// An error occurred in the external module.
-    ///
+    /// The provider or UKey internal execution fails.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub const OH_HUKS_ERR_CODE_EXTERNAL_MODULE: OH_Huks_ErrCode = OH_Huks_ErrCode(12000020);
-    /// The Ukey PIN is locked.
-    ///
+    /// The PIN is locked.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub const OH_HUKS_ERR_CODE_PIN_LOCKED: OH_Huks_ErrCode = OH_Huks_ErrCode(12000021);
-    /// The Ukey PIN is incorrect.
-    ///
+    /// Incorrect PIN.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub const OH_HUKS_ERR_CODE_PIN_INCORRECT: OH_Huks_ErrCode = OH_Huks_ErrCode(12000022);
-    /// The Ukey PIN is not authenticated.
-    ///
+    /// PIN authentication fails.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub const OH_HUKS_ERR_CODE_PIN_NO_AUTH: OH_Huks_ErrCode = OH_Huks_ErrCode(12000023);
-    /// The device or resource is busy.
-    ///
+    /// The provider or UKey resources are being used.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub const OH_HUKS_ERR_CODE_BUSY: OH_Huks_ErrCode = OH_Huks_ErrCode(12000024);
-    /// The resource exceeds the limit.
-    ///
+    /// The resource limit is exceeded.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -540,7 +537,7 @@ impl OH_Huks_ErrCode {
     pub const OH_HUKS_ERR_CODE_EXCEED_LIMIT: OH_Huks_ErrCode = OH_Huks_ErrCode(12000025);
 }
 #[repr(transparent)]
-/// Enumerates the error codes.
+/// Enumerates error codes.
 ///
 ///
 /// Available since API-level: 9
@@ -553,17 +550,18 @@ impl OH_Huks_TagType {
     pub const OH_HUKS_TAG_TYPE_INVALID: OH_Huks_TagType = OH_Huks_TagType(0);
     /// int32_t.
     pub const OH_HUKS_TAG_TYPE_INT: OH_Huks_TagType = OH_Huks_TagType(268435456);
-    /// uin32_t.
+    /// uint32_t.
     pub const OH_HUKS_TAG_TYPE_UINT: OH_Huks_TagType = OH_Huks_TagType(536870912);
-    /// uin64_t.
+    /// uint64_t.
     pub const OH_HUKS_TAG_TYPE_ULONG: OH_Huks_TagType = OH_Huks_TagType(805306368);
     /// Boolean.
     pub const OH_HUKS_TAG_TYPE_BOOL: OH_Huks_TagType = OH_Huks_TagType(1073741824);
-    /// OH_Huks_Blob.
+    /// [`OH_Huks_Blob`](crate::native_huks_type::OH_Huks_Blob).
     pub const OH_HUKS_TAG_TYPE_BYTES: OH_Huks_TagType = OH_Huks_TagType(1342177280);
 }
 #[repr(transparent)]
-/// Enumerates the tag types.
+/// Enumerates parameter types.
+///
 ///
 /// **See also:** [`OH_Huks_Param`](crate::native_huks_type::OH_Huks_Param)
 ///
@@ -580,8 +578,7 @@ impl OH_Huks_UserAuthType {
     pub const OH_HUKS_USER_AUTH_TYPE_FACE: OH_Huks_UserAuthType = OH_Huks_UserAuthType(2);
     /// PIN authentication.
     pub const OH_HUKS_USER_AUTH_TYPE_PIN: OH_Huks_UserAuthType = OH_Huks_UserAuthType(4);
-    /// Enum for tui pin auth type.
-    ///
+    /// TUI PIN authentication.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -589,7 +586,7 @@ impl OH_Huks_UserAuthType {
     pub const OH_HUKS_USER_AUTH_TYPE_TUI_PIN: OH_Huks_UserAuthType = OH_Huks_UserAuthType(32);
 }
 #[repr(transparent)]
-/// Enumerates the user authentication types.
+/// Enumerates the user authentication types in key access control.
 ///
 ///
 /// Available since API-level: 9
@@ -598,14 +595,13 @@ impl OH_Huks_UserAuthType {
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OH_Huks_UserAuthType(pub ::core::ffi::c_uint);
 impl OH_Huks_AuthAccessType {
-    /// The key is invalid after the password is cleared.
+    /// The key becomes invalid after the password is cleared.
     pub const OH_HUKS_AUTH_ACCESS_INVALID_CLEAR_PASSWORD: OH_Huks_AuthAccessType =
         OH_Huks_AuthAccessType(1);
-    /// The key is invalid after a new biometric feature is enrolled.
+    /// The key becomes invalid after a new biometric feature is enrolled.
     pub const OH_HUKS_AUTH_ACCESS_INVALID_NEW_BIO_ENROLL: OH_Huks_AuthAccessType =
         OH_Huks_AuthAccessType(2);
     /// The key is always valid.
-    ///
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -613,7 +609,7 @@ impl OH_Huks_AuthAccessType {
     pub const OH_HUKS_AUTH_ACCESS_ALWAYS_VALID: OH_Huks_AuthAccessType = OH_Huks_AuthAccessType(4);
 }
 #[repr(transparent)]
-/// Enumerates the access control types.
+/// Enumerates the rules for invalidating a key.
 ///
 ///
 /// Available since API-level: 9
@@ -624,19 +620,19 @@ pub struct OH_Huks_AuthAccessType(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-11")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
 impl OH_Huks_AuthStorageLevel {
-    /// Key file storage security level for device encryption standard.
+    /// The key can be accessed only after the device is started.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub const OH_HUKS_AUTH_STORAGE_LEVEL_DE: OH_Huks_AuthStorageLevel = OH_Huks_AuthStorageLevel(0);
-    /// Key file storage security level for credential encryption standard.
+    /// The key can be accessed only after the first unlock of the device.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub const OH_HUKS_AUTH_STORAGE_LEVEL_CE: OH_Huks_AuthStorageLevel = OH_Huks_AuthStorageLevel(1);
-    /// Key file storage security level for enhanced credential encryption standard.
+    /// The key can be accessed only when the device is unlocked.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -645,7 +641,7 @@ impl OH_Huks_AuthStorageLevel {
         OH_Huks_AuthStorageLevel(2);
 }
 #[repr(transparent)]
-/// Enumerates key file storage authentication levels.
+/// Enumerates the security levels for storing the key generated or imported.
 ///
 ///
 /// Available since API-level: 11
@@ -656,13 +652,13 @@ pub struct OH_Huks_AuthStorageLevel(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl OH_Huks_UserAuthMode {
-    /// Auth mode for local scenarios.
+    /// Local authentication.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const OH_HUKS_USER_AUTH_MODE_LOCAL: OH_Huks_UserAuthMode = OH_Huks_UserAuthMode(0);
-    /// Auth mode for co-auth scenarios.
+    /// Cross-device collaborative authentication.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -670,7 +666,7 @@ impl OH_Huks_UserAuthMode {
     pub const OH_HUKS_USER_AUTH_MODE_COAUTH: OH_Huks_UserAuthMode = OH_Huks_UserAuthMode(1);
 }
 #[repr(transparent)]
-/// Enumerates the user authentication mode.
+/// Enumerates the user authentication modes in key access control.
 ///
 ///
 /// Available since API-level: 12
@@ -683,14 +679,15 @@ pub struct OH_Huks_UserAuthMode(pub ::core::ffi::c_uint);
 impl OH_Huks_ChallengeType {
     /// Normal challenge, which is of 32 bytes by default.
     pub const OH_HUKS_CHALLENGE_TYPE_NORMAL: OH_Huks_ChallengeType = OH_Huks_ChallengeType(0);
-    /// Custom challenge, which supports only one authentication for multiple keys.
-    /// The valid value of a custom challenge is of 8 bytes.
+    /// Custom challenge, which supports one-time authentication for multiple keys. The valid value of a custom
+    /// challenge is of 8 bytes.
     pub const OH_HUKS_CHALLENGE_TYPE_CUSTOM: OH_Huks_ChallengeType = OH_Huks_ChallengeType(1);
     /// Challenge is not required.
     pub const OH_HUKS_CHALLENGE_TYPE_NONE: OH_Huks_ChallengeType = OH_Huks_ChallengeType(2);
 }
 #[repr(transparent)]
-/// Enumerates the types of the challenges generated when a key is used.
+/// Enumerates the types of the challenge generated when a key is used.
+///
 ///
 /// **See also:** [`OH_Huks_ChallengePosition`](crate::native_huks_type::OH_Huks_ChallengePosition)
 ///
@@ -720,17 +717,14 @@ impl OH_Huks_ChallengePosition {
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OH_Huks_ChallengePosition(pub ::core::ffi::c_uint);
 impl OH_Huks_SecureSignType {
-    /// The signature carries authentication information. This field is specified when a key
-    /// is generated or imported. When the key is used to sign data, the data will be added with
-    /// the authentication information and then be signed.
-    /// NOTICE:
-    /// The carried authentication information contains personal identification details. Developers are required
-    /// to clearly state the purpose of use, retention policy, and destruction method of such personal information in
-    /// their privacy statement.
+    /// The signature carries authentication information. This field is specified when a key is generated or imported.
+    /// When the key is used for signing, the data will be added with the authentication information and then be signed.
+    /// Note: The carried authentication information includes identity information. You need to describe the purpose,
+    /// retention policy, and destruction method of the identity information in the privacy statement.
     pub const OH_HUKS_SECURE_SIGN_WITH_AUTHINFO: OH_Huks_SecureSignType = OH_Huks_SecureSignType(1);
 }
 #[repr(transparent)]
-/// Enumerates the signature types of the keys generated or imported.
+/// Enumerates the signature types of the key generated or imported.
 ///
 ///
 /// Available since API-level: 9
@@ -741,14 +735,14 @@ pub struct OH_Huks_SecureSignType(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-22")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
 impl OH_Huks_KeyClassType {
-    /// The default type specifics the key is stored in huks.
+    /// Default type. The key is stored in HUKS.
     ///
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub const OH_HUKS_KEY_CLASS_DEFAULT: OH_Huks_KeyClassType = OH_Huks_KeyClassType(0);
-    /// The key is stored in external crypto provider.
+    /// The key is stored in an external encryption capability provider.
     ///
     ///
     /// Available since API-level: 22
@@ -757,7 +751,7 @@ impl OH_Huks_KeyClassType {
     pub const OH_HUKS_KEY_CLASS_EXTENSION: OH_Huks_KeyClassType = OH_Huks_KeyClassType(1);
 }
 #[repr(transparent)]
-/// Enumerates the types of keys.
+/// Key type.
 ///
 ///
 /// Available since API-level: 22
@@ -768,8 +762,7 @@ pub struct OH_Huks_KeyClassType(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-20")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
 impl OH_Huks_KeyWrapType {
-    /// The hardware unique key wrap type.
-    ///
+    /// Wrap type of the unique hardware key.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -777,8 +770,7 @@ impl OH_Huks_KeyWrapType {
     pub const OH_HUKS_KEY_WRAP_TYPE_HUK_BASED: OH_Huks_KeyWrapType = OH_Huks_KeyWrapType(2);
 }
 #[repr(transparent)]
-/// Enum for key wrap type.
-///
+/// Enumerates the wrap type of the key generated or imported.
 ///
 /// Available since API-level: 20
 #[cfg(feature = "api-20")]
@@ -786,24 +778,23 @@ impl OH_Huks_KeyWrapType {
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OH_Huks_KeyWrapType(pub ::core::ffi::c_uint);
 impl OH_Huks_Tag {
-    /// Tags for key parameters. The value range is 1 to 200. */
-    ////** Algorithm.
+    /// Algorithm type. For details, see [`OH_Huks_KeyAlg`](crate::native_huks_type::OH_Huks_KeyAlg).
     pub const OH_HUKS_TAG_ALGORITHM: OH_Huks_Tag = OH_Huks_Tag(536870913);
-    /// Key purpose.
+    /// Key purpose. For details, see [`OH_Huks_KeyPurpose`](crate::native_huks_type::OH_Huks_KeyPurpose).
     pub const OH_HUKS_TAG_PURPOSE: OH_Huks_Tag = OH_Huks_Tag(536870914);
-    /// Key size.
+    /// Key length, in bits. For details, see [`OH_Huks_KeySize`](crate::native_huks_type::OH_Huks_KeySize).
     pub const OH_HUKS_TAG_KEY_SIZE: OH_Huks_Tag = OH_Huks_Tag(536870915);
-    /// Digest algorithm.
+    /// Digest algorithm. For details, see [`OH_Huks_KeyDigest`](crate::native_huks_type::OH_Huks_KeyDigest).
     pub const OH_HUKS_TAG_DIGEST: OH_Huks_Tag = OH_Huks_Tag(536870916);
-    /// Padding algorithm.
+    /// Padding algorithm. For details, see [`OH_Huks_KeyPadding`](crate::native_huks_type::OH_Huks_KeyPadding).
     pub const OH_HUKS_TAG_PADDING: OH_Huks_Tag = OH_Huks_Tag(536870917);
-    /// Cipher mode.
+    /// Encryption mode. For details, see [`OH_Huks_CipherMode`](crate::native_huks_type::OH_Huks_CipherMode).
     pub const OH_HUKS_TAG_BLOCK_MODE: OH_Huks_Tag = OH_Huks_Tag(536870918);
     /// Key type.
     pub const OH_HUKS_TAG_KEY_TYPE: OH_Huks_Tag = OH_Huks_Tag(536870919);
     /// Associated authentication data.
     pub const OH_HUKS_TAG_ASSOCIATED_DATA: OH_Huks_Tag = OH_Huks_Tag(1342177288);
-    /// Field for key encryption and decryption.
+    /// **NONCE** field for key encryption and decryption.
     pub const OH_HUKS_TAG_NONCE: OH_Huks_Tag = OH_Huks_Tag(1342177289);
     /// Initialized vector (IV).
     pub const OH_HUKS_TAG_IV: OH_Huks_Tag = OH_Huks_Tag(1342177290);
@@ -823,104 +814,99 @@ impl OH_Huks_Tag {
     pub const OH_HUKS_TAG_AGREE_PRIVATE_KEY_ALIAS: OH_Huks_Tag = OH_Huks_Tag(1342177301);
     /// Public key used for key agreement.
     pub const OH_HUKS_TAG_AGREE_PUBLIC_KEY: OH_Huks_Tag = OH_Huks_Tag(1342177302);
-    /// Alias of the key.
+    /// Key alias.
     pub const OH_HUKS_TAG_KEY_ALIAS: OH_Huks_Tag = OH_Huks_Tag(1342177303);
-    /// Size of the derived key.
+    /// Size of the derived key, in bytes.
     pub const OH_HUKS_TAG_DERIVE_KEY_SIZE: OH_Huks_Tag = OH_Huks_Tag(536870936);
-    /// Type of the key to import. For details, see [`OH_Huks_ImportKeyType`](crate::native_huks_type::OH_Huks_ImportKeyType).
+    /// Type of the imported key. For details, see [`OH_Huks_ImportKeyType`](crate::native_huks_type::OH_Huks_ImportKeyType).
     pub const OH_HUKS_TAG_IMPORT_KEY_TYPE: OH_Huks_Tag = OH_Huks_Tag(536870937);
-    /// Algorithm suite required for encrypted imports.
+    /// Suite of the imported encryption key. For details, see [`OH_Huks_AlgSuite`](crate::native_huks_type::OH_Huks_AlgSuite).
     pub const OH_HUKS_TAG_UNWRAP_ALGORITHM_SUITE: OH_Huks_Tag = OH_Huks_Tag(536870938);
-    /// Storage mode of derived or agree keys. For details, see [`OH_Huks_KeyStorageType`](crate::native_huks_type::OH_Huks_KeyStorageType).
+    /// Storage type of the derived key or key produced after key agreement. For details, see
+    /// [`OH_Huks_KeyStorageType`](crate::native_huks_type::OH_Huks_KeyStorageType).
     pub const OH_HUKS_TAG_DERIVED_AGREED_KEY_STORAGE_FLAG: OH_Huks_Tag = OH_Huks_Tag(536870941);
-    /// Type of rsa pss salt length.
+    /// Salt length type when the padding mode of the RSA algorithm is PSS. For details, see
+    /// [`OH_Huks_RsaPssSaltLenType`](crate::native_huks_type::OH_Huks_RsaPssSaltLenType).
     pub const OH_HUKS_TAG_RSA_PSS_SALT_LEN_TYPE: OH_Huks_Tag = OH_Huks_Tag(536870942);
-    /// Tags for access control and user authentication. The value range is 301 to 500. */
-    ////** All users in the multi-user scenario.
+    /// All users in the multi-user scenario.
     pub const OH_HUKS_TAG_ALL_USERS: OH_Huks_Tag = OH_Huks_Tag(1073742125);
     /// Multi-user ID.
     pub const OH_HUKS_TAG_USER_ID: OH_Huks_Tag = OH_Huks_Tag(536871214);
-    /// Specifies whether key access control is required.
+    /// Whether key access control is required.
     pub const OH_HUKS_TAG_NO_AUTH_REQUIRED: OH_Huks_Tag = OH_Huks_Tag(1073742127);
-    /// User authentication type in key access control.
+    /// User authentication mode in key access control. For details, see [`OH_Huks_UserAuthType`](crate::native_huks_type::OH_Huks_UserAuthType).
     pub const OH_HUKS_TAG_USER_AUTH_TYPE: OH_Huks_Tag = OH_Huks_Tag(536871216);
-    /// Timeout duration for key access.
+    /// Timeout duration for key access in key access control, in seconds.
     pub const OH_HUKS_TAG_AUTH_TIMEOUT: OH_Huks_Tag = OH_Huks_Tag(536871217);
     /// Authentication token for the key.
     pub const OH_HUKS_TAG_AUTH_TOKEN: OH_Huks_Tag = OH_Huks_Tag(1342177586);
-    /// Access control type. For details, see [`OH_Huks_AuthAccessType`](crate::native_huks_type::OH_Huks_AuthAccessType).
-    /// This parameter must be set together with the user authentication type.
+    /// Key access control type, which must be set together with the user authentication type. For details, see
+    /// [`OH_Huks_AuthAccessType`](crate::native_huks_type::OH_Huks_AuthAccessType).
     pub const OH_HUKS_TAG_KEY_AUTH_ACCESS_TYPE: OH_Huks_Tag = OH_Huks_Tag(536871219);
-    /// Signature type for the key to be generated or imported.
+    /// Signature type of the key generated or imported.
     pub const OH_HUKS_TAG_KEY_SECURE_SIGN_TYPE: OH_Huks_Tag = OH_Huks_Tag(536871220);
     /// Challenge type. For details, see [`OH_Huks_ChallengeType`](crate::native_huks_type::OH_Huks_ChallengeType).
     pub const OH_HUKS_TAG_CHALLENGE_TYPE: OH_Huks_Tag = OH_Huks_Tag(536871221);
-    /// Position of the 8-byte valid value in a custom challenge.
-    /// For details, see [`OH_Huks_ChallengePosition`](crate::native_huks_type::OH_Huks_ChallengePosition).
+    /// Position of the 8-byte valid value in a custom challenge. For details, see [`OH_Huks_ChallengePosition`](crate::native_huks_type::OH_Huks_ChallengePosition).
     pub const OH_HUKS_TAG_CHALLENGE_POS: OH_Huks_Tag = OH_Huks_Tag(536871222);
-    /// Purpose of key authentication
+    /// Type of the key authentication purpose.
     pub const OH_HUKS_TAG_KEY_AUTH_PURPOSE: OH_Huks_Tag = OH_Huks_Tag(536871223);
-    /// Security level of access control for key file storage, whose optional values are from OH_Huks_AuthStorageLevel.
-    ///
+    /// Security levels for storing the key. For details, see [`OH_Huks_AuthStorageLevel`](crate::native_huks_type::OH_Huks_AuthStorageLevel).
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub const OH_HUKS_TAG_AUTH_STORAGE_LEVEL: OH_Huks_Tag = OH_Huks_Tag(536871228);
-    /// Authentication mode of the user authtoken，whose optional values are from enum HuksUserAuthMode.
-    ///
+    /// User authentication mode in key access control. For details, see [`OH_Huks_UserAuthMode`](crate::native_huks_type::OH_Huks_UserAuthMode).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const OH_HUKS_TAG_USER_AUTH_MODE: OH_Huks_Tag = OH_Huks_Tag(536871231);
-    /// Tags for key attestation. The value range is 501 to 600. */
-    ////** Challenge value used in the attestation.
+    /// Challenge value used in the attestation.
     pub const OH_HUKS_TAG_ATTESTATION_CHALLENGE: OH_Huks_Tag = OH_Huks_Tag(1342177781);
-    /// Application ID used in the attestation.
+    /// ID of the application that has the key during key authentication.
     pub const OH_HUKS_TAG_ATTESTATION_APPLICATION_ID: OH_Huks_Tag = OH_Huks_Tag(1342177782);
-    /// Alias of the key.
+    /// Key alias.
     pub const OH_HUKS_TAG_ATTESTATION_ID_ALIAS: OH_Huks_Tag = OH_Huks_Tag(1342177791);
-    /// Security level used in the attestation.
+    /// Security level used in key attestation.
     pub const OH_HUKS_TAG_ATTESTATION_ID_SEC_LEVEL_INFO: OH_Huks_Tag = OH_Huks_Tag(1342177794);
-    /// Version information used in the attestation.
+    /// Version information used in key attestation.
     pub const OH_HUKS_TAG_ATTESTATION_ID_VERSION_INFO: OH_Huks_Tag = OH_Huks_Tag(1342177795);
-    /// The tag indicates whether to overwrite the key with same alias
+    /// Whether to overwrite the key with the same name.
     ///
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const OH_HUKS_TAG_KEY_OVERRIDE: OH_Huks_Tag = OH_Huks_Tag(1073742344);
-    /// The tag indicates the length of AEAD for CCM mode.
+    /// Length of the specified AEAD in CCM mode.
     ///
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub const OH_HUKS_TAG_AE_TAG_LEN: OH_Huks_Tag = OH_Huks_Tag(536871433);
-    /// The tag indicates the key class type.
+    /// Key type, which is used to distinguish the key managed by HUKS on the device from the key stored in an
+    /// external device.
     ///
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub const OH_HUKS_TAG_KEY_CLASS: OH_Huks_Tag = OH_Huks_Tag(536871434);
-    /// The tag indicates a group of shared keys among applications with the same developer ID.
+    /// Group ID. Keys can be shared among the same group of developers with the same developer ID.
     ///
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub const OH_HUKS_TAG_KEY_ACCESS_GROUP: OH_Huks_Tag = OH_Huks_Tag(1342177803);
-    /// 601 to 1000 are reserved for other tags.
-    ///
-    /// Extended tags. The value range is 1001 to 9999.
-    ////** Specifies whether it is a key alias.
+    /// Whether it is a key alias.
     pub const OH_HUKS_TAG_IS_KEY_ALIAS: OH_Huks_Tag = OH_Huks_Tag(1073742825);
     /// Key storage mode. For details, see [`OH_Huks_KeyStorageType`](crate::native_huks_type::OH_Huks_KeyStorageType).
     pub const OH_HUKS_TAG_KEY_STORAGE_FLAG: OH_Huks_Tag = OH_Huks_Tag(536871914);
-    /// Specifies whether to allow the key to be wrapped.
+    /// Whether to allow the key to be wrapped.
     pub const OH_HUKS_TAG_IS_ALLOWED_WRAP: OH_Huks_Tag = OH_Huks_Tag(1073742827);
     /// Key wrap type.
     pub const OH_HUKS_TAG_KEY_WRAP_TYPE: OH_Huks_Tag = OH_Huks_Tag(536871916);
@@ -930,24 +916,21 @@ impl OH_Huks_Tag {
     pub const OH_HUKS_TAG_KEY_ROLE: OH_Huks_Tag = OH_Huks_Tag(536871918);
     /// Key flag. For details, see [`OH_Huks_KeyFlag`](crate::native_huks_type::OH_Huks_KeyFlag).
     pub const OH_HUKS_TAG_KEY_FLAG: OH_Huks_Tag = OH_Huks_Tag(536871919);
-    /// Specifies whether this API is asynchronous.
+    /// Whether the invocation is asynchronous.
     pub const OH_HUKS_TAG_IS_ASYNCHRONIZED: OH_Huks_Tag = OH_Huks_Tag(536871920);
     /// Key domain.
     pub const OH_HUKS_TAG_KEY_DOMAIN: OH_Huks_Tag = OH_Huks_Tag(536871923);
-    /// Key access control based on device password setting status.
-    /// True means the key can only be generated and used when the password is set.
-    ///
+    /// Whether the key is accessible only when the user sets a lock screen password.<br> **true** indicates that the
+    /// key can be generated and used only when a password is set. **false** indicates that the key can be generated and
+    /// used without setting a password.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub const OH_HUKS_TAG_IS_DEVICE_PASSWORD_SET: OH_Huks_Tag = OH_Huks_Tag(1073742836);
-    /// Authenticated Encryption.
+    /// AEAD in GCM mode.
     pub const OH_HUKS_TAG_AE_TAG: OH_Huks_Tag = OH_Huks_Tag(1342187289);
-    /// 11000 to 12000 are reserved.
-    ///
-    /// 20001 to N are reserved for other tags.
-    ////** Symmetric key data.
+    /// Symmetric key data.
     pub const OH_HUKS_TAG_SYMMETRIC_KEY_DATA: OH_Huks_Tag = OH_Huks_Tag(1342197281);
     /// Public key data of the asymmetric key pair.
     pub const OH_HUKS_TAG_ASYMMETRIC_PUBLIC_KEY_DATA: OH_Huks_Tag = OH_Huks_Tag(1342197282);
@@ -955,7 +938,14 @@ impl OH_Huks_Tag {
     pub const OH_HUKS_TAG_ASYMMETRIC_PRIVATE_KEY_DATA: OH_Huks_Tag = OH_Huks_Tag(1342197283);
 }
 #[repr(transparent)]
-/// Enumerates the tag values used in parameter sets.
+/// Enumerates the tags contained in a parameter set.
+/// <br>1 to 200: key parameter tag values.
+/// <br>301 to 500: tag values related to access control and authentication of key usage.
+/// <br>501 to 600: tag values related to key authentication.
+/// <br>601 to 1000: reserved values for other types of tag values.
+/// <br>1001 to 9999: extended tag values.
+/// <br>11000 to 12000: reserved values.
+/// <br>20001 to N: reserved tag values.
 ///
 ///
 /// Available since API-level: 9
@@ -963,7 +953,7 @@ impl OH_Huks_Tag {
 /// Version: 1.0
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OH_Huks_Tag(pub ::core::ffi::c_uint);
-/// Defines the return data, including the result code and message.
+/// Defines the returned data, including a status code and related description.
 ///
 ///
 /// Available since API-level: 9
@@ -972,14 +962,14 @@ pub struct OH_Huks_Tag(pub ::core::ffi::c_uint);
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct OH_Huks_Result {
-    /// Result code.
+    /// Status code. For details, see [`OH_Huks_ErrCode`](crate::native_huks_type::OH_Huks_ErrCode).
     pub errorCode: i32,
-    /// Description of the result code.
+    /// Description of the status code.
     pub errorMsg: *const ::core::ffi::c_char,
-    /// Other data returned.
+    /// Other data.
     pub data: *mut u8,
 }
-/// Defines the structure for storing data.
+/// Defines the struct of a binary large object (BLOB).
 ///
 ///
 /// Available since API-level: 9
@@ -988,12 +978,12 @@ pub struct OH_Huks_Result {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct OH_Huks_Blob {
-    /// Data size.
+    /// Data size in bytes.
     pub size: u32,
-    /// Pointer to the memory in which the data is stored.
+    /// Pointer to the data.
     pub data: *mut u8,
 }
-/// Defines the parameter structure in a parameter set.
+/// Defines the types of the parameters in a parameter set.
 ///
 ///
 /// Available since API-level: 9
@@ -1020,7 +1010,7 @@ pub union OH_Huks_Param__bindgen_ty_1 {
     /// Parameter of the struct OH_Huks_Blob type.
     pub blob: OH_Huks_Blob,
 }
-/// Defines the structure of the parameter set.
+/// Defines the struct of a parameter set.
 ///
 ///
 /// Available since API-level: 9
@@ -1035,7 +1025,7 @@ pub struct OH_Huks_ParamSet {
     /// Parameter array.
     pub params: __IncompleteArrayField<OH_Huks_Param>,
 }
-/// Defines the structure of the certificate chain.
+/// Defines the struct of a certificate chain.
 ///
 ///
 /// Available since API-level: 9
@@ -1049,7 +1039,7 @@ pub struct OH_Huks_CertChain {
     /// Number of certificates.
     pub certsCount: u32,
 }
-/// Defines the key information structure.
+/// Defines the struct of key information.
 ///
 ///
 /// Available since API-level: 9
@@ -1058,12 +1048,12 @@ pub struct OH_Huks_CertChain {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct OH_Huks_KeyInfo {
-    /// Alias of the key.
+    /// Key alias.
     pub alias: OH_Huks_Blob,
     /// Pointer to the key parameter set.
     pub paramSet: *mut OH_Huks_ParamSet,
 }
-/// Defines the structure of a public key.
+/// Defines the struct of a public key.
 ///
 ///
 /// Available since API-level: 9
@@ -1076,14 +1066,14 @@ pub struct OH_Huks_PubKeyInfo {
     pub keyAlg: OH_Huks_KeyAlg,
     /// Length of the public key.
     pub keySize: u32,
-    /// Length of the n or X value.
+    /// Length of **n** or **X**.
     pub nOrXSize: u32,
-    /// Length of the e or Y value.
+    /// Length of **e** or **Y**.
     pub eOrYSize: u32,
-    /// Placeholder size.
+    /// Placeholder size, intended for memory alignment or reserving space for future algorithmic extensions.
     pub placeHolder: u32,
 }
-/// Defines the structure of an RSA key.
+/// Defines the struct for an RSA key.
 ///
 ///
 /// Available since API-level: 9
@@ -1096,14 +1086,14 @@ pub struct OH_Huks_KeyMaterialRsa {
     pub keyAlg: OH_Huks_KeyAlg,
     /// Length of the key.
     pub keySize: u32,
-    /// Length of the n value.
+    /// Length of **n**.
     pub nSize: u32,
-    /// Length of the e value.
+    /// Length of **e**.
     pub eSize: u32,
-    /// Length of the d value.
+    /// Length of **d**.
     pub dSize: u32,
 }
-/// Defines the structure of an ECC key.
+/// Defines the struct for an ECC key.
 ///
 ///
 /// Available since API-level: 9
@@ -1116,14 +1106,14 @@ pub struct OH_Huks_KeyMaterialEcc {
     pub keyAlg: OH_Huks_KeyAlg,
     /// Length of the key.
     pub keySize: u32,
-    /// Length of the x value.
+    /// Length of **x**.
     pub xSize: u32,
-    /// Length of the y value.
+    /// Length of **y**.
     pub ySize: u32,
-    /// Length of the z value.
+    /// Length of **z**, which corresponds to the size of the private key d.
     pub zSize: u32,
 }
-/// Defines the structure of a DSA key.
+/// Defines the struct for a DSA key.
 ///
 ///
 /// Available since API-level: 9
@@ -1136,18 +1126,18 @@ pub struct OH_Huks_KeyMaterialDsa {
     pub keyAlg: OH_Huks_KeyAlg,
     /// Length of the key.
     pub keySize: u32,
-    /// Length of the x value.
+    /// Length of **x**.
     pub xSize: u32,
-    /// Length of the y value.
+    /// Length of **y**.
     pub ySize: u32,
-    /// Length of the p value.
+    /// Length of **p**.
     pub pSize: u32,
-    /// Length of the q value.
+    /// Length of **q**.
     pub qSize: u32,
-    /// Length of the g value.
+    /// Length of **g**.
     pub gSize: u32,
 }
-/// Defines the structure of a DH key.
+/// Defines the struct for a DH key.
 ///
 ///
 /// Available since API-level: 9
@@ -1164,10 +1154,10 @@ pub struct OH_Huks_KeyMaterialDh {
     pub pubKeySize: u32,
     /// Length of the private key.
     pub priKeySize: u32,
-    /// Reserved.
+    /// Reserved field.
     pub reserved: u32,
 }
-/// Defines the structure of a 25519 key.
+/// Defines a struct of a 25519 key.
 ///
 ///
 /// Available since API-level: 9
@@ -1184,10 +1174,10 @@ pub struct OH_Huks_KeyMaterial25519 {
     pub pubKeySize: u32,
     /// Length of the private key.
     pub priKeySize: u32,
-    /// Reserved.
+    /// Reserved field.
     pub reserved: u32,
 }
-/// Defines the structure of the alias set.
+/// Defines the struct of a key alias set.
 ///
 ///
 /// Available since API-level: 20
@@ -1198,8 +1188,8 @@ pub struct OH_Huks_KeyMaterial25519 {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct OH_Huks_KeyAliasSet {
-    /// Number of aliases.
+    /// Number of key aliases.
     pub aliasesCnt: u32,
-    /// Aliases array.
+    /// Pointer to the key alias set.
     pub aliases: *mut OH_Huks_Blob,
 }

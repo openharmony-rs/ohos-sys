@@ -133,10 +133,9 @@ pub(crate) fn get_bindings_config(_api_version: u32) -> Vec<BindingConf> {
                         }),
                         rename_enum_variant: None,
                     }))
-                    // `OH_QOS_GEWU_INVALID_{SESSION,REQUEST}_ID` are defined with
-                    // C++ `static_cast<…>(0xffffffffU)` which bindgen drops
-                    // silently in both C and C++ modes (its macro evaluator
-                    // doesn't handle `static_cast` even though clang parses it).
+                    // `OH_QOS_GEWU_INVALID_{SESSION,REQUEST}_ID` are defined with casts
+                    // (`((OH_QoS_GewuSession)(0xffffffffU))`), which bindgen's macro
+                    // evaluator drops silently.
                     // Blocklist and re-emit as plain Rust constants — gated on
                     // api-20 since both ids and their types are `@since 20`.
                     .blocklist_item("OH_QOS_GEWU_INVALID_SESSION_ID")
@@ -184,6 +183,12 @@ pub(crate) fn get_bindings_config(_api_version: u32) -> Vec<BindingConf> {
                     .raw_line("use ohos_drawing_sys::text_typography::{OH_Drawing_LineMetrics, OH_Drawing_RectHeightStyle, OH_Drawing_RectWidthStyle};")
                     .raw_line("#[cfg(feature = \"api-22\")]")
                     .raw_line("use ohos_sys_opaque_types::{OH_Drawing_PositionAndAffinity, OH_Drawing_TextBox};")
+                    .raw_line("#[cfg(feature = \"api-24\")]")
+                    .raw_line("use super::OH_ArkUI_ImageAttachment;")
+                    .raw_line("#[cfg(feature = \"api-26\")]")
+                    .raw_line("use super::OH_ArkUI_TextEncoding;")
+                    .raw_line("#[cfg(feature = \"api-24\")]")
+                    .raw_line("use ohos_drawing_sys::{text_declaration::OH_Drawing_Range, types::OH_Drawing_ColorFilter};")
             }),
         },
         BindingConf {

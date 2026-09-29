@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Add API-24, API-25 and API-26 bindings.
+
 ## 0.1.5
 
 - Update bindings to API-22 and API-23.

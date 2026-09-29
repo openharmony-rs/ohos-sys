@@ -6,8 +6,7 @@
 use crate::common::{CryptoResult, Crypto_DataBlob};
 use crate::sym_key::OH_CryptoSymKey;
 
-/// Defines the MAC structure.
-///
+/// MAC structure, representing a MAC context.
 ///
 /// Available since API-level: 20
 #[cfg(feature = "api-20")]
@@ -19,14 +18,25 @@ pub struct OH_CryptoMac {
 #[cfg(feature = "api-20")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
 impl CryptoMac_ParamType {
-    /// Indicates the algorithm name of the message digest function for HMAC. e.g. "SHA256".
+    /// Algorithm name of the message digest function for HMAC, set via [`OH_CryptoMac_SetParam`](crate::mac::OH_CryptoMac_SetParam).
+    /// Values: "SHA1", "SHA224", "SHA256", "SHA384", "SHA512", "SM3", "MD5".
+    /// "SHA3-256", "SHA3-384", "SHA3-512" are supported since API version 26.0.0.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const CRYPTO_MAC_DIGEST_NAME_STR: CryptoMac_ParamType = CryptoMac_ParamType(0);
-    /// Indicates the algorithm name of the symmetric cipher function for CMAC. e.g. "AES256".
+    /// Algorithm name of the symmetric cipher function for CMAC, set via
+    /// [`OH_CryptoMac_SetParam`](crate::mac::OH_CryptoMac_SetParam).
+    /// Values: "AES128", "AES256".
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const CRYPTO_MAC_CIPHER_NAME_STR: CryptoMac_ParamType = CryptoMac_ParamType(1);
 }
 #[repr(transparent)]
-/// Defines the MAC algorithm parameter type.
-///
+/// Defines MAC algorithm parameter types.
 ///
 /// Available since API-level: 20
 #[cfg(feature = "api-20")]
@@ -34,48 +44,53 @@ impl CryptoMac_ParamType {
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct CryptoMac_ParamType(pub ::core::ffi::c_uint);
 extern "C" {
-    /// Creates a MAC context according to the given algorithm name.
-    ///
+    /// Creates a MAC context based on the given algorithm name.
     /// # Arguments
     ///
-    /// * `algoName` - Indicates the algorithm name for generating the MAC context. e.g. "HMAC", "CMAC".
+    /// * `algoName` - \[in\] MAC algorithm name. Cannot be NULL. Supports "HMAC" and "CMAC".
     ///
-    /// * `ctx` - Indicates the pointer to the MAC context.
+    /// * `ctx` - \[out\] Pointer to the MAC context pointer. ctx cannot be NULL, *ctx must be NULL.
     ///
     /// # Returns
     ///
-    /// * [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) 0 - If the operation is successful.
-    /// [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) 801 - If the operation is not supported.
-    /// [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) 17620001 - If memory operation failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) 17620003 - If parameter check failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) 17630001 - If crypto operation failed.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) if the operation succeeds.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) if algoName or ctx is NULL, algoName is not "HMAC" or "CMAC".
+    /// - [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) if unsupported operation or algorithm.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) if memory operation fails.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) if crypto operation fails.
+    ///
+    /// **Note:** Release `ctx` with [`OH_CryptoMac_Destroy`](crate::mac::OH_CryptoMac_Destroy).
     ///
     /// Available since API-level: 20
+    ///
+    /// **See also:** [`OH_CryptoMac_SetParam`](crate::mac::OH_CryptoMac_SetParam) Sets the specified parameter of the MAC context.
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_CryptoMac_Create(
         algoName: *const ::core::ffi::c_char,
         ctx: *mut *mut OH_CryptoMac,
     ) -> CryptoResult;
-    /// Sets the specified parameter to the MAC context.
-    ///
+    /// Sets the specified parameter of the MAC context.
     /// # Arguments
     ///
-    /// * `ctx` - Indicates the MAC context.
+    /// * `ctx` - \[in\] MAC context. Cannot be NULL.
     ///
-    /// * `type` - Indicates the MAC parameter type.
+    /// * `type` - \[in\] MAC parameter type.
     ///
-    /// * `value` - Indicates the parameter value.
+    /// * `value` - \[in\] Parameter value. This function performs a deep copy of the data in value. The
+    /// caller can release value immediately after the function returns. Cannot be NULL.
     ///
     /// # Returns
     ///
-    /// * [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) 0 - If the operation is successful.
-    /// [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) 801 - If the operation is not supported.
-    /// [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) 17620001 - If memory operation failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) 17620003 - If parameter check failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) 17630001 - If crypto operation failed.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) if the operation succeeds.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) if ctx, value, or value->data is NULL, type is not valid for the MAC algorithm, or the digest/cipher algorithm name is not supported.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) if unsupported operation or algorithm.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) if memory allocation for param copy fails.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) if crypto operation fails.
     ///
     /// Available since API-level: 20
+    ///
+    /// **See also:** [`OH_CryptoMac_Init`](crate::mac::OH_CryptoMac_Init) Initializes the MAC context with a symmetric key.
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_CryptoMac_SetParam(
@@ -84,103 +99,93 @@ extern "C" {
         value: *const Crypto_DataBlob,
     ) -> CryptoResult;
     /// Initializes the MAC context with a symmetric key.
-    ///
     /// # Arguments
     ///
-    /// * `ctx` - Indicates the MAC context.
+    /// * `ctx` - \[in\] MAC context. Cannot be NULL.
     ///
-    /// * `key` - Indicates the symmetric key.
+    /// * `key` - \[in\] Symmetric key. Cannot be NULL.
     ///
     /// # Returns
     ///
-    /// * [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) 0 - If the operation is successful.
-    /// [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) 801 - If the operation is not supported.
-    /// [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) 17620001 - If memory operation failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) 17620003 - If parameter check failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) 17630001 - If crypto operation failed.
-    ///
-    /// **See also:** [`OH_CryptoMac_Update`](crate::mac::OH_CryptoMac_Update)
-    ///
-    /// **See also:** [`OH_CryptoMac_Final`](crate::mac::OH_CryptoMac_Final)
+    /// - [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) if the operation succeeds.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) if ctx or key is NULL.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) if unsupported operation or algorithm.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) if memory operation fails.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) if MAC init fails. Possible causes: the key length does not match the algorithm (e.g. CMAC with AES-128 requires a 16-byte key).
     ///
     /// Available since API-level: 20
+    ///
+    /// **See also:** [`OH_CryptoMac_Update`](crate::mac::OH_CryptoMac_Update) Updates MAC data.
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_CryptoMac_Init(ctx: *mut OH_CryptoMac, key: *const OH_CryptoSymKey) -> CryptoResult;
-    /// Updates the MAC context with data.
-    ///
+    /// Updates MAC data.
     /// # Arguments
     ///
-    /// * `ctx` - Indicates the MAC context.
+    /// * `ctx` - \[in\] MAC context. Cannot be NULL.
     ///
-    /// * `in` - Indicates the data to update.
+    /// * `in` - \[in\] Data to update. Cannot be NULL.
     ///
     /// # Returns
     ///
-    /// * [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) 0 - If the operation is successful.
-    /// [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) 801 - If the operation is not supported.
-    /// [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) 17620001 - If memory operation failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) 17620003 - If parameter check failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) 17630001 - If crypto operation failed.
-    ///
-    /// **See also:** [`OH_CryptoMac_Init`](crate::mac::OH_CryptoMac_Init)
-    ///
-    /// **See also:** [`OH_CryptoMac_Final`](crate::mac::OH_CryptoMac_Final)
+    /// - [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) if the operation succeeds.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) if ctx or in is NULL.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) if unsupported operation or algorithm.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) if memory operation fails.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) if MAC update fails.
     ///
     /// Available since API-level: 20
+    ///
+    /// **See also:** [`OH_CryptoMac_Final`](crate::mac::OH_CryptoMac_Final) Finishes the MAC operation.
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_CryptoMac_Update(ctx: *mut OH_CryptoMac, in_: *const Crypto_DataBlob)
         -> CryptoResult;
-    /// Finalizes the MAC operation.
-    ///
+    /// Finishes the MAC operation.
     /// # Arguments
     ///
-    /// * `ctx` - Indicates the MAC context.
+    /// * `ctx` - \[in\] MAC context. Cannot be NULL.
     ///
-    /// * `out` - Indicates the MAC result.
+    /// * `out` - \[out\] Pointer to the Crypto_DataBlob structure for storing the MAC result. Cannot be NULL.
+    /// Initialize out to {0} before calling. Do not pre-allocate out->data.
     ///
     /// # Returns
     ///
-    /// * [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) 0 - If the operation is successful.
-    /// [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) 801 - If the operation is not supported.
-    /// [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) 17620001 - If memory operation failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) 17620003 - If parameter check failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) 17630001 - If crypto operation failed.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) if the operation succeeds.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) if ctx or out is NULL.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) if unsupported operation or algorithm.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) if memory operation fails.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) if MAC final fails.
     ///
-    /// **See also:** [`OH_CryptoMac_Init`](crate::mac::OH_CryptoMac_Init)
-    ///
-    /// **See also:** [`OH_CryptoMac_Update`](crate::mac::OH_CryptoMac_Update)
+    /// **Note:** Release `out` with [`OH_Crypto_FreeDataBlob`](crate::common::OH_Crypto_FreeDataBlob).
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_CryptoMac_Final(ctx: *mut OH_CryptoMac, out: *mut Crypto_DataBlob) -> CryptoResult;
-    /// Gets the length of the MAC.
-    ///
+    /// Obtains the MAC result length.
     /// # Arguments
     ///
-    /// * `ctx` - Indicates the MAC context.
+    /// * `ctx` - \[in\] MAC context. Cannot be NULL.
     ///
-    /// * `length` - Indicates the MAC length.
+    /// * `length` - \[out\] MAC length in bytes. Cannot be NULL. Memory allocated by the caller.
     ///
     /// # Returns
     ///
-    /// * [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) 0 - If the operation is successful.
-    /// [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) 801 - If the operation is not supported.
-    /// [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) 17620001 - If memory operation failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) 17620003 - If parameter check failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) 17630001 - If crypto operation failed.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) if the operation succeeds.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) if ctx or length is NULL.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) if unsupported operation or algorithm.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) if memory operation fails.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) if crypto operation fails.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_CryptoMac_GetLength(ctx: *mut OH_CryptoMac, length: *mut u32) -> CryptoResult;
     /// Destroys the MAC context.
-    ///
     /// # Arguments
     ///
-    /// * `ctx` - Indicates the MAC context.
+    /// * `ctx` - \[in\] MAC context.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]

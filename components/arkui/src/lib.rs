@@ -24,11 +24,19 @@ extern "C" {}
 
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
+pub mod common_type;
+
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub mod drag_and_drop;
 
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub mod drawable_descriptor;
+
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
+pub mod error_code;
 
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
@@ -54,6 +62,10 @@ pub mod native_interface_accessibility;
 #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
 pub mod native_interface_focus;
 
+#[cfg(feature = "api-26")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+pub mod native_material;
+
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub mod native_node;
@@ -65,6 +77,14 @@ pub mod native_node_napi;
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub mod native_type;
+
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
+pub mod native_type_visual;
+
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
+pub mod node_attributes;
 
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]

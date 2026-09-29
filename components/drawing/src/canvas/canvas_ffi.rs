@@ -10,15 +10,15 @@ use crate::types::*;
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl OH_Drawing_SrcRectConstraint {
-    /// Using sampling only inside bounds in a slower manner.
+    /// The source rectangle must be completely contained in the image.
     pub const STRICT_SRC_RECT_CONSTRAINT: OH_Drawing_SrcRectConstraint =
         OH_Drawing_SrcRectConstraint(0);
-    /// Using sampling outside bounds in a faster manner.
+    /// The source rectangle can be partly outside the image.
     pub const FAST_SRC_RECT_CONSTRAINT: OH_Drawing_SrcRectConstraint =
         OH_Drawing_SrcRectConstraint(1);
 }
 #[repr(transparent)]
-/// Enumeration defines the constraint type.
+/// Enumerates the constraint types of the source rectangle.
 ///
 ///
 /// Available since API-level: 12
@@ -31,16 +31,16 @@ pub struct OH_Drawing_SrcRectConstraint(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl OH_Drawing_PointMode {
-    /// Draw each point separately.
+    /// Draws each point separately.
     pub const POINT_MODE_POINTS: OH_Drawing_PointMode = OH_Drawing_PointMode(0);
-    /// Draw each pair of points as a line segment.
+    /// Draws every two points as a line segment.
     pub const POINT_MODE_LINES: OH_Drawing_PointMode = OH_Drawing_PointMode(1);
-    /// Draw the array of points as a open polygon.
+    /// Draws an array of points as an open polygon.
     pub const POINT_MODE_POLYGON: OH_Drawing_PointMode = OH_Drawing_PointMode(2);
 }
 #[repr(transparent)]
-/// Enumerates of scale to fit flags, selects if an array of points are drawn as discrete points, as lines,
-/// or as an open polygon.
+/// Enumerates the modes of drawing multiple points. The modes include discrete points, line segments, and open
+/// polygons.
 ///
 ///
 /// Available since API-level: 12
@@ -53,13 +53,13 @@ pub struct OH_Drawing_PointMode(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-11")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
 impl OH_Drawing_CanvasClipOp {
-    /// Clip with difference.
+    /// Clips a specified area. That is, the difference set is obtained.
     pub const DIFFERENCE: OH_Drawing_CanvasClipOp = OH_Drawing_CanvasClipOp(0);
-    /// Clip with intersection.
+    /// Retains a specified area. That is, the intersection is obtained.
     pub const INTERSECT: OH_Drawing_CanvasClipOp = OH_Drawing_CanvasClipOp(1);
 }
 #[repr(transparent)]
-/// Enumerates clip op.
+/// Enumerates the canvas clipping modes.
 ///
 ///
 /// Available since API-level: 11
@@ -72,19 +72,19 @@ pub struct OH_Drawing_CanvasClipOp(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl OH_Drawing_CanvasShadowFlags {
-    /// Use no shadow flags.
+    /// There is no shadow flag.
     pub const SHADOW_FLAGS_NONE: OH_Drawing_CanvasShadowFlags = OH_Drawing_CanvasShadowFlags(0);
     /// The occluding object is transparent.
     pub const SHADOW_FLAGS_TRANSPARENT_OCCLUDER: OH_Drawing_CanvasShadowFlags =
         OH_Drawing_CanvasShadowFlags(1);
-    /// No need to analyze shadows.
+    /// No analysis on the shadows is required.
     pub const SHADOW_FLAGS_GEOMETRIC_ONLY: OH_Drawing_CanvasShadowFlags =
         OH_Drawing_CanvasShadowFlags(2);
-    /// Use all shadow flags.
+    /// All the preceding shadow flags are used.
     pub const SHADOW_FLAGS_ALL: OH_Drawing_CanvasShadowFlags = OH_Drawing_CanvasShadowFlags(3);
 }
 #[repr(transparent)]
-/// Enumerates of shadow flags.
+/// Enumerates the shadow flags.
 ///
 ///
 /// Available since API-level: 12
@@ -97,15 +97,18 @@ pub struct OH_Drawing_CanvasShadowFlags(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl OH_Drawing_VertexMode {
-    /// The vertices are a triangle list.
+    /// Draws a triangle list. Specifically, a list of isolated triangles are drawn using every three vertices. If the
+    /// number of vertices is not a multiple of 3, the extra vertices will be ignored.
     pub const VERTEX_MODE_TRIANGLES: OH_Drawing_VertexMode = OH_Drawing_VertexMode(0);
-    /// The vertices are a triangle strip.
+    /// Draws a triangle strip. Specifically, the first triangle is drawn between the first 3 vertices, and all
+    /// subsequent triangles use the previous 2 vertices plus the next additional vertex.
     pub const VERTEX_MODE_TRIANGLES_STRIP: OH_Drawing_VertexMode = OH_Drawing_VertexMode(1);
-    /// The vertices are a triangle fan.
+    /// Draws a triangle fan. A triangle fan is similar to a triangle strip, except that all the triangles share one
+    /// vertex (the first vertex).
     pub const VERTEX_MODE_TRIANGLE_FAN: OH_Drawing_VertexMode = OH_Drawing_VertexMode(2);
 }
 #[repr(transparent)]
-/// Enumerates of vertices flags.
+/// Enumerates the modes of interpreting the geometry of a given vertex.
 ///
 ///
 /// Available since API-level: 12
@@ -116,33 +119,30 @@ impl OH_Drawing_VertexMode {
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OH_Drawing_VertexMode(pub ::core::ffi::c_uint);
 extern "C" {
-    /// Creates an <b>OH_Drawing_Canvas</b> object.
+    /// Creates an **OH_Drawing_Canvas** object.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the <b>OH_Drawing_Canvas</b> object created.
+    /// * Returns the pointer to the **OH_Drawing_Canvas** object created.
     ///
     /// Available since API-level: 8
     ///
     /// Version: 1.0
     pub fn OH_Drawing_CanvasCreate() -> *mut OH_Drawing_Canvas;
-    /// Creates an <b>OH_Drawing_Canvas</b> object from <b>OH_Drawing_PixelMap</b>.
-    /// The OH_Drawing_PixelMap should be dissolved by OH_Drawing_PixelMapDissolve after the OH_Drawing_Canvas is destroyed.
+    /// Binds a pixel map to a canvas so that the content drawn on the canvas is output to the pixel map. (This
+    /// process is called CPU rendering.) A canvas bound to a pixel map is a non-recording canvas.
+    /// You should unbind the pixel map object by calling [`OH_Drawing_PixelMapDissolve`](crate::pixel_map::OH_Drawing_PixelMapDissolve) after the canvas object is
+    /// destroyed.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `pixelMap` - Indicates the pointer to an <b>OH_Drawing_PixelMap</b> object.
+    /// * `pixelMap` - Pointer to the [`OH_Drawing_PixelMap`](crate::types::OH_Drawing_PixelMap) object.
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the <b>OH_Drawing_Canvas</b> object created.
-    /// If nullptr is returned, the creation fails.
-    /// The possible cause of the failure is that the available memory is empty or pixelMap is nullptr.
+    /// * Pointer to the created canvas object [`OH_Drawing_Canvas`](crate::types::OH_Drawing_Canvas). If the returned object is NULL, the creation
+    /// fails due to insufficient memory or an empty pixel map object.
     ///
     /// Available since API-level: 20
     ///
@@ -152,69 +152,71 @@ extern "C" {
     pub fn OH_Drawing_CanvasCreateWithPixelMap(
         pixelMap: *mut OH_Drawing_PixelMap,
     ) -> *mut OH_Drawing_Canvas;
-    /// Destroys an <b>OH_Drawing_Canvas</b> object and reclaims the memory occupied by the object.
+    /// Destroys an **OH_Drawing_Canvas** object and reclaims the memory occupied by the object.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Pointer to an **OH_Drawing_Canvas** object.
     ///
     /// Available since API-level: 8
     ///
     /// Version: 1.0
     pub fn OH_Drawing_CanvasDestroy(canvas: *mut OH_Drawing_Canvas);
-    /// Binds a bitmap to a canvas so that the content drawn on the canvas
-    /// is output to the bitmap (this process is called CPU rendering).
+    /// Binds a bitmap to a canvas so that the content drawn on the canvas is output to the bitmap. (This process is
+    /// called CPU rendering.) A canvas bound to a bitmap is a non-recording canvas.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If either **canvas** or **bitmap** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Pointer to an **OH_Drawing_Canvas** object.
     ///
-    /// * `bitmap` - Indicates the pointer to an <b>OH_Drawing_Bitmap</b> object.
+    /// * `bitmap` - Pointer to an **OH_Drawing_Bitmap** object.
     ///
     /// Available since API-level: 8
     ///
     /// Version: 1.0
     pub fn OH_Drawing_CanvasBind(canvas: *mut OH_Drawing_Canvas, bitmap: *mut OH_Drawing_Bitmap);
-    /// Attaches a pen to a canvas so that the canvas will use the style and color of the pen to outline a shape.
+    /// Attaches a pen to a canvas so that the canvas can use the style and color of the pen to outline a shape. If
+    /// the pen effect changes after this function is called, you must call the function again to use the new effect in the
+    /// subsequent drawing.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If either **canvas** or **pen** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Pointer to an **OH_Drawing_Canvas** object.
     ///
-    /// * `pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
+    /// * `pen` - Pointer to an **OH_Drawing_Pen** object.
     ///
     /// Available since API-level: 8
     ///
     /// Version: 1.0
     pub fn OH_Drawing_CanvasAttachPen(canvas: *mut OH_Drawing_Canvas, pen: *const OH_Drawing_Pen);
-    /// Detaches the pen from a canvas so that the canvas will not use the style
-    /// and color of the pen to outline a shape.
+    /// Detaches the pen from a canvas so that the canvas can no longer use the style and color of the pen to outline
+    /// a shape.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **canvas** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Pointer to an **OH_Drawing_Canvas** object.
     ///
     /// Available since API-level: 8
     ///
     /// Version: 1.0
     pub fn OH_Drawing_CanvasDetachPen(canvas: *mut OH_Drawing_Canvas);
-    /// Attaches a brush to a canvas so that the canvas will use the style and color of the brush to fill in a shape.
+    /// Attaches a brush to a canvas so that the canvas can use the style and color of the brush to fill in a shape.
+    /// If the brush effect changes after this function is called, you must call the function again to use the new effect in
+    /// the subsequent drawing.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If either **canvas** or **brush** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Pointer to an **OH_Drawing_Canvas** object.
     ///
-    /// * `brush` - Indicates the pointer to an <b>OH_Drawing_Brush</b> object.
+    /// * `brush` - Pointer to an **OH_Drawing_Brush** object.
     ///
     /// Available since API-level: 8
     ///
@@ -223,43 +225,47 @@ extern "C" {
         canvas: *mut OH_Drawing_Canvas,
         brush: *const OH_Drawing_Brush,
     );
-    /// Detaches the brush from a canvas so that the canvas will not use the style
-    /// and color of the brush to fill in a shape.
+    /// Detaches the brush from a canvas so that the canvas can no longer use the previously set brush to fill in a
+    /// shape.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **canvas** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Pointer to an **OH_Drawing_Canvas** object.
     ///
     /// Available since API-level: 8
     ///
     /// Version: 1.0
     pub fn OH_Drawing_CanvasDetachBrush(canvas: *mut OH_Drawing_Canvas);
-    /// Saves the current canvas status (canvas matrix) to the top of the stack.
+    /// Saves the current canvas status (canvas matrix) to the top of the stack. This function works with
+    /// [`OH_Drawing_CanvasRestore`](crate::canvas::OH_Drawing_CanvasRestore).
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **canvas** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Pointer to an **OH_Drawing_Canvas** object.
     ///
     /// Available since API-level: 8
     ///
     /// Version: 1.0
     pub fn OH_Drawing_CanvasSave(canvas: *mut OH_Drawing_Canvas);
-    /// Saves matrix and clip, and allocates a bitmap for subsequent drawing.
-    /// Calling restore discards changes to matrix and clip, and draws the bitmap.
+    /// Saves the matrix and cropping region, and allocates a bitmap for subsequent drawing. If you call
+    /// [`OH_Drawing_CanvasRestore`](crate::canvas::OH_Drawing_CanvasRestore), changes made to the matrix and clipping region are discarded,
+    /// and the bitmap is drawn.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **canvas** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Pointer to the [`OH_Drawing_Canvas`](crate::types::OH_Drawing_Canvas) object.
     ///
-    /// * `rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `rect` - Pointer to the [`OH_Drawing_Rect`](crate::types::OH_Drawing_Rect) object, which is used to limit the layer size. A null pointer
+    /// means no limit.
     ///
-    /// * `brush` - Indicates the pointer to an <b>OH_Drawing_Brush</b> object.
+    /// * `brush` - Pointer to an [`OH_Drawing_Brush`](crate::types::OH_Drawing_Brush) object. The alpha value, filter effect, and blend mode of the
+    /// brush are applied when the bitmap is drawn. If NULL is passed in, no effect is applied.
     ///
     /// Available since API-level: 12
     ///
@@ -272,28 +278,29 @@ extern "C" {
         brush: *const OH_Drawing_Brush,
     );
     /// Restores the canvas status (canvas matrix) saved on the top of the stack.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **canvas** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Pointer to an **OH_Drawing_Canvas** object.
     ///
     /// Available since API-level: 8
     ///
     /// Version: 1.0
     pub fn OH_Drawing_CanvasRestore(canvas: *mut OH_Drawing_Canvas);
-    /// Gets the number of the canvas status (canvas matrix) saved in the stack.
+    /// Obtains the number of canvas statuses (canvas matrices) saved in the stack.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **canvas** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Pointer to an **OH_Drawing_Canvas** object.
     ///
     /// # Returns
     ///
-    /// * Returns a 32-bit variable that describes the number of canvas status.
+    /// * Returns a 32-bit value that describes the number of canvas statuses (canvas matrices). The initial number is
+    /// **1**.
     ///
     /// Available since API-level: 11
     ///
@@ -301,15 +308,17 @@ extern "C" {
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn OH_Drawing_CanvasGetSaveCount(canvas: *mut OH_Drawing_Canvas) -> u32;
-    /// Restores the specific number of the canvas status (canvas matrix) saved in the stack.
+    /// Restores to a given number of canvas statuses (canvas matrices).
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **canvas** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Pointer to an **OH_Drawing_Canvas** object.
     ///
-    /// * `saveCount` - Indicates the specific number of canvas status.
+    /// * `saveCount` - Number of canvas statuses (canvas matrices). If the value is less than or equal to 1, the canvas is
+    /// restored to the initial state. If the value is greater than the number of canvas statuses that have been saved, no
+    /// operation is performed.
     ///
     /// Available since API-level: 11
     ///
@@ -318,20 +327,20 @@ extern "C" {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn OH_Drawing_CanvasRestoreToCount(canvas: *mut OH_Drawing_Canvas, saveCount: u32);
     /// Draws a line segment.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **canvas** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Pointer to an **OH_Drawing_Canvas** object.
     ///
-    /// * `x1` - Indicates the x coordinate of the start point of the line segment.
+    /// * `x1` - X coordinate of the start point of the line segment.
     ///
-    /// * `y1` - Indicates the y coordinate of the start point of the line segment.
+    /// * `y1` - Y coordinate of the start point of the line segment.
     ///
-    /// * `x2` - Indicates the x coordinate of the end point of the line segment.
+    /// * `x2` - X coordinate of the end point of the line segment.
     ///
-    /// * `y2` - Indicates the y coordinate of the end point of the line segment.
+    /// * `y2` - Y coordinate of the end point of the line segment.
     ///
     /// Available since API-level: 8
     ///
@@ -344,49 +353,52 @@ extern "C" {
         y2: f32,
     );
     /// Draws a path.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If either **canvas** or **path** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Pointer to an **OH_Drawing_Canvas** object.
     ///
-    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `path` - Pointer to an **OH_Drawing_Path** object.
     ///
     /// Available since API-level: 8
     ///
     /// Version: 1.0
     pub fn OH_Drawing_CanvasDrawPath(canvas: *mut OH_Drawing_Canvas, path: *const OH_Drawing_Path);
-    /// Draw a pixel map on the grid, with the grid evenly distributed over the pixel map.
+    /// Draws a PixelMap based on a mesh, where mesh vertices are evenly distributed across the PixelMap. (This API
+    /// works with brushes but not pens.)
     ///
     /// # Arguments
     ///
-    /// * `cCanvas` - Indicates the pointer to an OH_Drawing_Canvas object.
+    /// * `cCanvas` - Pointer to the [`OH_Drawing_Canvas`](crate::types::OH_Drawing_Canvas) object.
     ///
-    /// * `pixelMap` - Indicates the pointer to an OH_Drawing_PixelMap.
+    /// * `pixelMap` - Pointer to the [`OH_Drawing_PixelMap`](crate::types::OH_Drawing_PixelMap) object.
     ///
-    /// * `meshWidth` - The number of columns in the mesh.
+    /// * `meshWidth` - Number of columns in the mesh. The value is an integer greater than 0.
     ///
-    /// * `meshHeight` - The number of rows in the mesh.
+    /// * `meshHeight` - Number of rows in the mesh. The value is an integer greater than 0.
     ///
-    /// * `vertices` - Indicates the vertex array that specifies the drawing positions of the mesh.
+    /// * `vertices` - Pointer to the mesh vertex array.
     ///
-    /// * `verticesSize` - The size of vertices.
+    /// * `verticesSize` - Size of the mesh vertex array. The value must be ((meshWidth + 1) * (meshHeight + 1) +
+    /// vertoffset) * 2.
     ///
-    /// * `vertOffset` - The number of vert elements to skip before drawing.
+    /// * `vertOffset` - Number of vertices to skip before drawing. The value is an integer greater than or equal to 0.
     ///
-    /// * `colors` - Indicates the color array that specifies a color at each vertex.
+    /// * `colors` - Pointer to the mesh color array, which can be null.
     ///
-    /// * `colorsSize` - The size of colors.
+    /// * `colorsSize` - Size of the mesh color array. If the array exists, the size must be (meshWidth + 1) * (meshHeight +
+    /// 1) + colorOffset.
     ///
-    /// * `colorOffset` - The number of color elements to skip before drawing.
+    /// * `colorOffset` - Number of colors to skip before drawing. The value is an integer greater than or equal to 0.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`](crate::error_code::DrawingErrorCode::INCORRECT_PARAMETER) if any of canvas, pixelMap
-    /// and dst is nullptr.
+    /// * Returns one of the following result codes:
+    /// **OH_DRAWING_SUCCESS** if the operation is successful.
+    /// **OH_DRAWING_ERROR_INCORRECT_PARAMETER** if any of the parameters, such as **cCanvas**, **pixelMap**, and **vertices*
+    /// *, is empty or the input parameter does not meet the value rule.
     ///
     /// Available since API-level: 23
     ///
@@ -405,30 +417,31 @@ extern "C" {
         colorsSize: u32,
         colorOffset: u32,
     ) -> crate::error_code::DrawingResult;
-    /// Divides the pixelmap into a grid with nine sections: four sides, four corners, and the center.
-    /// Draws the specified section of the pixelmap onto the canvas, corners are unmodified or scaled down if they exceed
-    /// the destination rectangle, center and four sides are scaled to fit remaining space.
+    /// Splits a pixel map into nine sections using two horizontal and two vertical lines: four edge sections, four
+    /// corner sections, and a central section.
+    /// If the four corner sections are smaller than the target rectangle, they will be drawn in the target rectangle
+    /// without scaling. Otherwise, they will be scaled to fit the target rectangle.
+    /// Any remaining space will be filled by stretching or compressing the other five sections to cover the entire target
+    /// rectangle.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Pointer to the [`OH_Drawing_Canvas`](crate::types::OH_Drawing_Canvas) object.
     ///
-    /// * `pixelMap` - Indicates the pointer to an <b>OH_Drawing_PixelMap</b> object.
+    /// * `pixelMap` - Pointer to the [`OH_Drawing_PixelMap`](crate::types::OH_Drawing_PixelMap) object.
     ///
-    /// * `center` - Divides the pixelmap into nine sections: four sides, four corners, and the center.
+    /// * `center` - Pointer to the [`OH_Drawing_Rect`](crate::types::OH_Drawing_Rect) object, which indicates the central rectangle splitting the
+    /// pixel map. It divides the image into nine sections by extending its four edges.
     ///
-    /// * `dst` - The area of destination canvas.
+    /// * `dst` - Pointer to the [`OH_Drawing_Rect`](crate::types::OH_Drawing_Rect) object, which indicates the target region on the canvas.
     ///
-    /// * `mode` - Filter mode.
+    /// * `mode` - Enumeration of filter modes.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`](crate::error_code::DrawingErrorCode::INVALID_PARAMETER) if any of canvas, pixelMap
-    /// and dst is nullptr.
+    /// * Returns one of the following result codes:
+    /// **OH_DRAWING_SUCCESS** if the operation is successful.
+    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if **canvas**, **pixelMap**, or **dst** is NULL.
     ///
     /// Available since API-level: 18
     ///
@@ -442,21 +455,22 @@ extern "C" {
         dst: *const OH_Drawing_Rect,
         mode: OH_Drawing_FilterMode,
     ) -> crate::error_code::DrawingResult;
-    /// Draw the specified area of the Media::PixelMap to the specified area of the canvas.
+    /// Draws a portion of a pixel map onto a specified area of the canvas.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If one of **canvas**, **pixelMap**, or **dst** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Pointer to the [`OH_Drawing_Canvas`](crate::types::OH_Drawing_Canvas) object.
     ///
-    /// * `pixelMap` - Indicates the pointer to an <b>OH_Drawing_PixelMap</b> object.
+    /// * `pixelMap` - Pointer to the [`OH_Drawing_PixelMap`](crate::types::OH_Drawing_PixelMap) object.
     ///
-    /// * `src` - the area of source pixelmap.
+    /// * `src` - Pointer to a rectangle on the pixel map. If NULL is passed in, it refers to the entire pixel map.
     ///
-    /// * `dst` - the area of destination canvas.
+    /// * `dst` - Pointer to a rectangle on the canvas.
     ///
-    /// * `samplingOptions` - the sampling mode.
+    /// * `samplingOptions` - Pointer to the [`OH_Drawing_SamplingOptions`](crate::types::OH_Drawing_SamplingOptions) object. A null pointer means that the
+    /// default sampling options are used.
     ///
     /// Available since API-level: 12
     ///
@@ -470,30 +484,28 @@ extern "C" {
         dst: *const OH_Drawing_Rect,
         samplingOptions: *const OH_Drawing_SamplingOptions,
     );
-    /// Draw the specified area of the Media::PixelMap to the specified area of the canvas.
+    /// Draws a portion of a pixel map onto a specified area of the canvas.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Pointer to the [`OH_Drawing_Canvas`](crate::types::OH_Drawing_Canvas) object.
     ///
-    /// * `pixelMap` - Indicates the pointer to an <b>OH_Drawing_PixelMap</b> object.
+    /// * `pixelMap` - Pointer to the [`OH_Drawing_PixelMap`](crate::types::OH_Drawing_PixelMap) object.
     ///
-    /// * `src` - Indicates the area of source pixelmap.
+    /// * `src` - Pointer to a rectangle on the pixel map. If NULL is passed in, it refers to the entire pixel map.
     ///
-    /// * `dst` - Indicates the area of destination canvas.
+    /// * `dst` - Pointer to a rectangle on the canvas.
     ///
-    /// * `samplingOptions` - Indicates the sampling mode.
+    /// * `samplingOptions` - Pointer to the [`OH_Drawing_SamplingOptions`](crate::types::OH_Drawing_SamplingOptions) object. A null pointer means that the
+    /// default sampling options are used.
     ///
-    /// * `constraint` - Indicates constraint type.
+    /// * `constraint` - Constraint type. For details about the available options, see [`OH_Drawing_SrcRectConstraint`](crate::canvas::OH_Drawing_SrcRectConstraint).
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`](crate::error_code::DrawingErrorCode::INVALID_PARAMETER) if any of canvas, pixelMap
-    /// and dst is nullptr.
+    /// * Execution result.
+    /// **OH_DRAWING_SUCCESS** if the operation is successful.
+    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if **canvas**, **pixelMap**, or **dst** is NULL.
     ///
     /// Available since API-level: 20
     ///
@@ -508,15 +520,15 @@ extern "C" {
         samplingOptions: *const OH_Drawing_SamplingOptions,
         constraint: OH_Drawing_SrcRectConstraint,
     ) -> crate::error_code::DrawingResult;
-    /// Fills clipped canvas area with brush.
+    /// Draws a background filled with a brush.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If either **canvas** or **brush** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Pointer to an **OH_Drawing_Canvas** object.
     ///
-    /// * `brush` - Indicates the pointer to an <b>OH_Drawing_Brush</b> object.
+    /// * `brush` - Pointer to an **OH_Drawing_Brush** object.
     ///
     /// Available since API-level: 12
     ///
@@ -527,15 +539,15 @@ extern "C" {
         canvas: *mut OH_Drawing_Canvas,
         brush: *const OH_Drawing_Brush,
     );
-    /// Draws region using clip, matrix and paint.
+    /// Draws a region.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If either **canvas** or **region** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Pointer to an **OH_Drawing_Canvas** object.
     ///
-    /// * `region` - Indicates the pointer to an <b>OH_Drawing_Region</b> object.
+    /// * `region` - Pointer to an **OH_Drawing_Region** object.
     ///
     /// Available since API-level: 12
     ///
@@ -548,19 +560,17 @@ extern "C" {
     );
     /// Draws a point.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Pointer to the [`OH_Drawing_Canvas`](crate::types::OH_Drawing_Canvas) object.
     ///
-    /// * `point` - Indicates the pointer to an <b>OH_Drawing_Point</b> object.
+    /// * `point` - Pointer to the [`OH_Drawing_Point2D`](crate::types::OH_Drawing_Point2D) object.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`](crate::error_code::DrawingErrorCode::INVALID_PARAMETER) if canvas or point is nullptr.
+    /// * Returns one of the following result codes:
+    /// **OH_DRAWING_SUCCESS** if the operation is successful.
+    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if either **canvas** or **point** is NULL.
     ///
     /// Available since API-level: 12
     ///
@@ -571,19 +581,20 @@ extern "C" {
         canvas: *mut OH_Drawing_Canvas,
         point: *const OH_Drawing_Point2D,
     ) -> crate::error_code::DrawingResult;
-    /// Draws point array as separate point, line segment or open polygon according to given point mode.
+    /// Draws multiple points. You can draw a single point, a line segment, or an open polygon.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If either **canvas** or **point2D** is NULL, or **count** is **0**, **OH_DRAWING_ERROR_INVALID_PARAMETER** is
+    /// returned. If **mode** is not within the enumerated range, **OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Pointer to an **OH_Drawing_Canvas** object.
     ///
-    /// * `mode` - Draw points enum.
+    /// * `mode` - Mode for drawing multiple points. For details, see [`OH_Drawing_PointMode`](crate::canvas::OH_Drawing_PointMode).
     ///
-    /// * `count` - The point count.
+    /// * `count` - Number of vertices, that is, the number of vertices in the vertex array.
     ///
-    /// * `point2D` - Point struct array.
+    /// * `point2D` - Pointer to an array holding the vertices.
     ///
     /// Available since API-level: 12
     ///
@@ -596,19 +607,20 @@ extern "C" {
         count: u32,
         point2D: *const OH_Drawing_Point2D,
     );
-    /// Draws a bitmap.
+    /// Draws a bitmap. A bitmap, also referred to as a dot matrix image, a pixel map image, or a grid image,
+    /// includes single points called pixels (image elements).
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If either **canvas** or **bitmap** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Pointer to an **OH_Drawing_Canvas** object.
     ///
-    /// * `bitmap` - Indicates the pointer to an <b>OH_Drawing_Bitmap</b> object.
+    /// * `bitmap` - Pointer to an **OH_Drawing_Bitmap** object.
     ///
-    /// * `left` - Indicates the left position of the <b>OH_Drawing_Bitmap</b>.
+    /// * `left` - X coordinate of the upper left corner of the bitmap.
     ///
-    /// * `top` - Indicates the top position of the <b>OH_Drawing_Bitmap</b>.
+    /// * `top` - Y coordinate of the upper left corner of the bitmap.
     ///
     /// Available since API-level: 11
     ///
@@ -621,21 +633,22 @@ extern "C" {
         left: f32,
         top: f32,
     );
-    /// Draw the specified area of the bitmap to the specified area of the canvas.
+    /// Draws a portion of a bitmap onto a specified area of the canvas.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If one of **canvas**, **bitmap**, or **dst** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Pointer to the [`OH_Drawing_Canvas`](crate::types::OH_Drawing_Canvas) object.
     ///
-    /// * `bitmap` - Indicates the pointer to an <b>OH_Drawing_Bitmap</b> object.
+    /// * `bitmap` - Pointer to the [`OH_Drawing_Bitmap`](crate::types::OH_Drawing_Bitmap) object.
     ///
-    /// * `src` - the area of source bitmap, can be nullptr.
+    /// * `src` - Pointer to a rectangle on the bitmap. If NULL is passed in, it refers to the entire bitmap.
     ///
-    /// * `dst` - the area of destination canvas.
+    /// * `dst` - Pointer to a rectangle on the canvas.
     ///
-    /// * `samplingOptions` - the sampling mode.
+    /// * `samplingOptions` - Pointer to the [`OH_Drawing_SamplingOptions`](crate::types::OH_Drawing_SamplingOptions) object. A null pointer means that the
+    /// default sampling options are used.
     ///
     /// Available since API-level: 12
     ///
@@ -649,15 +662,15 @@ extern "C" {
         dst: *const OH_Drawing_Rect,
         samplingOptions: *const OH_Drawing_SamplingOptions,
     );
-    /// Draws a rect.
+    /// Draws a rectangle.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If either **canvas** or **OH_Drawing_Rect** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Pointer to an **OH_Drawing_Canvas** object.
     ///
-    /// * `rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `rect` - Pointer to an **OH_Drawing_Rect** object.
     ///
     /// Available since API-level: 11
     ///
@@ -665,17 +678,17 @@ extern "C" {
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn OH_Drawing_CanvasDrawRect(canvas: *mut OH_Drawing_Canvas, rect: *const OH_Drawing_Rect);
-    /// Draws a circle.
+    /// Draws a circle. This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet). If
+    /// either **canvas** or **point** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
+    /// If **radius** is less than or equal to 0, **OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Pointer to an **OH_Drawing_Canvas** object.
     ///
-    /// * `point` - Indicates the pointer to an <b>OH_Drawing_Point</b> object.
+    /// * `point` - Pointer to an **OH_Drawing_Point** object, which indicates the center of the circle.
     ///
-    /// * `radius` - Indicates the radius of the circle.
+    /// * `radius` - Radius of the circle. The value is invalid if it is less than or equal to 0.
     ///
     /// Available since API-level: 11
     ///
@@ -689,21 +702,20 @@ extern "C" {
     );
     /// Fills the entire canvas with the specified color and blend mode.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Pointer to the [`OH_Drawing_Canvas`](crate::types::OH_Drawing_Canvas) object.
     ///
-    /// * `color` - Indicates the color, which is a 32-bit variable.
+    /// * `color` - Color, represented by a 32-bit (ARGB) variable.
     ///
-    /// * `blendMode` - Indicates the blend mode.
+    /// * `blendMode` - Blend mode.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`](crate::error_code::DrawingErrorCode::INVALID_PARAMETER) if canvas is nullptr.
+    /// * Returns one of the following result codes:
+    /// **OH_DRAWING_SUCCESS** if the operation is successful.
+    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if **canvas** is NULL.
+    /// **OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE** if **blendMode** is not set to one of the enumerated values.
     ///
     /// Available since API-level: 12
     ///
@@ -715,15 +727,14 @@ extern "C" {
         color: u32,
         blendMode: OH_Drawing_BlendMode,
     ) -> crate::error_code::DrawingResult;
-    /// Draws an oval.
+    /// Draws an oval. This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet). If
+    /// either **canvas** or **rect** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Pointer to an **OH_Drawing_Canvas** object.
     ///
-    /// * `rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `rect` - Pointer to an **OH_Drawing_Rect** object.
     ///
     /// Available since API-level: 11
     ///
@@ -731,19 +742,23 @@ extern "C" {
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn OH_Drawing_CanvasDrawOval(canvas: *mut OH_Drawing_Canvas, rect: *const OH_Drawing_Rect);
-    /// Draws an arc.
+    /// Draws an arc. If the absolute value of the sweep angle exceeds 360 degrees, an ellipse is drawn.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If either **canvas** or **rect** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Pointer to an **OH_Drawing_Canvas** object.
     ///
-    /// * `rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `rect` - Pointer to an **OH_Drawing_Rect** object.
     ///
-    /// * `startAngle` - Indicates the startAngle of the arc.
+    /// * `startAngle` - Start angle. When the degree is 0, the start point is located at the right end of the oval. A
+    /// positive number indicates that the start point is placed clockwise, and a negative number indicates that the start
+    /// point is placed counterclockwise.
     ///
-    /// * `sweepAngle` - Indicates the sweepAngle of the arc.
+    /// * `sweepAngle` - Angle to sweep, in degrees. A positive number indicates a clockwise sweep, and a negative value
+    /// indicates a counterclockwise swipe. The valid range is from -360 degrees to 360 degrees. If the absolute value of
+    /// the sweep angle exceeds 360 degrees, an ellipse is drawn.
     ///
     /// Available since API-level: 11
     ///
@@ -756,27 +771,31 @@ extern "C" {
         startAngle: f32,
         sweepAngle: f32,
     );
-    /// Draws an arc with use center.
+    /// Draws an arc. It enables you to define the start angle, sweep angle, and whether the arc's endpoints should
+    /// connect to its center.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Pointer to the [`OH_Drawing_Canvas`](crate::types::OH_Drawing_Canvas) object.
     ///
-    /// * `rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `rect` - Pointer to the [`OH_Drawing_Rect`](crate::types::OH_Drawing_Rect) object.
     ///
-    /// * `startAngle` - Indicates the startAngle of the arc.
+    /// * `startAngle` - Start angle, in degrees. The value is a floating point number. When the degree is 0, the start
+    /// point is located at the right end of the oval. A positive number indicates that the start point is placed clockwise,
+    /// and a negative number indicates that the start point is placed counterclockwise.
     ///
-    /// * `sweepAngle` - Indicates the sweepAngle of the arc.
+    /// * `sweepAngle` - Angle to sweep, in degrees. The value is a floating point number. A positive number indicates a
+    /// clockwise sweep, and a negative value indicates a counterclockwise swipe. The swipe angle can exceed 360 degrees,
+    /// and a complete ellipse is drawn.
     ///
-    /// * `useCenter` - If true, include the center of the oval in the arc, and close it if it is being stroked.
+    /// * `useCenter` - Whether the start point and end point of the arc are connected to its center. The value **true**
+    /// means that they are connected to the center; the value **false** means the opposite.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`](crate::error_code::DrawingErrorCode::INVALID_PARAMETER) if canvas or rect is nullptr.
+    /// * Returns one of the following result codes:
+    /// **OH_DRAWING_SUCCESS** if the operation is successful.
+    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if either **canvas** or **rect** is NULL.
     ///
     /// Available since API-level: 18
     ///
@@ -790,15 +809,15 @@ extern "C" {
         sweepAngle: f32,
         useCenter: bool,
     ) -> crate::error_code::DrawingResult;
-    /// Draws a roundrect.
+    /// Draws a rounded rectangle. This API may return an error code. For details, call
+    /// [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet). If either **canvas** or **roundRect** is NULL,
+    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Pointer to an **OH_Drawing_Canvas** object.
     ///
-    /// * `roundRect` - Indicates the pointer to an <b>OH_Drawing_RoundRect</b> object.
+    /// * `roundRect` - Pointer to an **OH_Drawing_RoundRect** object.
     ///
     /// Available since API-level: 11
     ///
@@ -809,24 +828,22 @@ extern "C" {
         canvas: *mut OH_Drawing_Canvas,
         roundRect: *const OH_Drawing_RoundRect,
     );
-    /// Draw two nested rounded rectangles.
+    /// Draws two nested rounded rectangles. The outer rectangle boundary must contain the inner rectangle boundary.
+    /// Otherwise, there is no drawing effect.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Pointer to the [`OH_Drawing_Canvas`](crate::types::OH_Drawing_Canvas) object.
     ///
-    /// * `outer` - Rounded rectangle object, representing the outer rounded rectangle boundary.
+    /// * `outer` - Pointer to the [`OH_Drawing_RoundRect`](crate::types::OH_Drawing_RoundRect) object, indicating the outer rounded rectangle.
     ///
-    /// * `inner` - Rounded rectangle object, representing the internal rounded rectangle boundary.
+    /// * `inner` - Pointer to the [`OH_Drawing_RoundRect`](crate::types::OH_Drawing_RoundRect) object, indicating the inner rounded rectangle.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`](crate::error_code::DrawingErrorCode::INVALID_PARAMETER) if any of canvas, outer
-    /// and inner is nullptr.
+    /// * Returns one of the following result codes:
+    /// **OH_DRAWING_SUCCESS** if the operation is successful.
+    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if **canvas**, **outer**, or **inner** is NULL.
     ///
     /// Available since API-level: 18
     ///
@@ -838,28 +855,28 @@ extern "C" {
         outer: *const OH_Drawing_RoundRect,
         inner: *const OH_Drawing_RoundRect,
     ) -> crate::error_code::DrawingResult;
-    /// Draws a single character.
+    /// Draws a single character. If the typeface of the current font does not support the character to draw, the
+    /// system typeface is used to draw the character.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Pointer to the [`OH_Drawing_Canvas`](crate::types::OH_Drawing_Canvas) object.
     ///
-    /// * `str` - Indicates the single character encoded in UTF-8.
+    /// * `str` - Pointer to the single character to draw. A string can be passed in, but only the first character in the
+    /// string is parsed and drawn in UTF-8 encoding.
     ///
-    /// * `font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `font` - Pointer to the [`OH_Drawing_Font`](crate::types::OH_Drawing_Font) object.
     ///
-    /// * `x` - Indicates the horizontal offset applied to the single character.
+    /// * `x` - X coordinate of the left point of the character baseline.
     ///
-    /// * `y` - Indicates the vertical offset applied to the single character.
+    /// * `y` - Y coordinate of the left point of the character baseline.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`](crate::error_code::DrawingErrorCode::INVALID_PARAMETER) if any of canvas, str
-    /// and font is nullptr or strlen(str) is 0.
+    /// * Returns one of the following result codes:
+    /// **OH_DRAWING_SUCCESS** if the operation is successful.
+    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if at least one of the parameters **canvas**, **str**, or **font** is NULL,
+    /// or the length of **str** is **0**.
     ///
     /// Available since API-level: 12
     ///
@@ -873,30 +890,31 @@ extern "C" {
         x: f32,
         y: f32,
     ) -> crate::error_code::DrawingResult;
-    /// Draws a single character with font features.
+    /// Draws a single character with font features. If the typeface of the current font does not support the
+    /// character to draw, the system typeface is used to draw the character.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Pointer to the [`OH_Drawing_Canvas`](crate::types::OH_Drawing_Canvas) object.
     ///
-    /// * `str` - Indicates the single character encoded in UTF-8.
+    /// * `str` - Pointer to the single character to draw. A string can be passed in, but only the first character in the
+    /// string is parsed and drawn in UTF-8 encoding.
     ///
-    /// * `font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `font` - Pointer to the [`OH_Drawing_Font`](crate::types::OH_Drawing_Font) object.
     ///
-    /// * `x` - Indicates the horizontal offset applied to the single character.
+    /// * `x` - X coordinate of the left point of the character baseline.
     ///
-    /// * `y` - Indicates the vertical offset applied to the single character.
+    /// * `y` - Y coordinate of the left point of the character baseline.
     ///
-    /// * `fontFeatures` - Indicates the pointer to an <b>OH_Drawing_FontFeatures</b> object.
+    /// * `fontFeatures` - Pointer to the [`OH_Drawing_FontFeatures`](crate::types::OH_Drawing_FontFeatures) object. If no font feature is set, the preset
+    /// font feature in the TrueType fonts (TTF) file is used.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`](crate::error_code::DrawingErrorCode::INVALID_PARAMETER) if any of canvas, str, font
-    /// or fontFeatures is nullptr, or if strlen(str) is 0.
+    /// * Execution result.
+    /// **OH_DRAWING_SUCCESS** if the operation is successful.
+    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if at least one of the parameters **canvas**, **str**, **font**, or **
+    /// fontFeatures** is NULL, or the length of **str** is **0**.
     ///
     /// Available since API-level: 20
     ///
@@ -911,19 +929,20 @@ extern "C" {
         y: f32,
         fontFeatures: *mut OH_Drawing_FontFeatures,
     ) -> crate::error_code::DrawingResult;
-    /// Draws a textblob.
+    /// Draws a text blob. If the typeface used to construct **OH_Drawing_TextBlob** does not support a character,
+    /// that character will not be drawn.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If either **canvas** or **textBlob** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Pointer to an **OH_Drawing_Canvas** object.
     ///
-    /// * `textBlob` - Indicates the pointer to an <b>OH_Drawing_TextBlob</b> object.
+    /// * `textBlob` - Pointer to an **OH_Drawing_TextBlob** object.
     ///
-    /// * `x` - Indicates the horizontal offset applied to blob.
+    /// * `x` - X coordinate of the left point of the text baseline.
     ///
-    /// * `y` - Indicates the vertical offset applied to blob.
+    /// * `y` - Y coordinate of the left point of the text baseline.
     ///
     /// Available since API-level: 11
     ///
@@ -936,19 +955,65 @@ extern "C" {
         x: f32,
         y: f32,
     );
-    /// Clip a rect.
+    /// Draws the array of glyphs with specified font. Nothing is drawn if glyphCount is smaller than or equals to 0.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
     /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
-    /// * `rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `glyphIds` - Indicates an array of glyph IDs.
     ///
-    /// * `clipOp` - Indicates the operation to apply to clip.
+    /// * `glyphIdCount` - Indicates the size of glyphId array.
     ///
-    /// * `doAntiAlias` - Indicates whether clip operation requires anti-aliased.
+    /// * `glyphIdOffset` - Indicates the number of elements to skip before drawing in glyphIds array.
+    ///
+    /// * `positions` - Indicates an array of positions.
+    ///
+    /// * `positionCount` - Indicates the size of position array.
+    ///
+    /// * `positionOffset` - Indicates the number of elements to skip before drawing in positions array.
+    ///
+    /// * `glyphCount` - Indicates the number of glyphs to be drawn.
+    ///
+    /// * `font` - Indicates the font used for drawing.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`](crate::error_code::DrawingErrorCode::INCORRECT_PARAMETER) if any of canvas, glyphIds, positions and font is nullptr.
+    /// Returns [`OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE`](crate::error_code::DrawingErrorCode::PARAMETER_OUT_OF_RANGE) if glyphIdOffset or positionOffset is less than 0, or if
+    /// glyphIdCount is less than (glyphIdOffset + glyphCount) or positionCount is less than (positionOffset + glyphCount).
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_Drawing_CanvasDrawGlyphs(
+        canvas: *const OH_Drawing_Canvas,
+        glyphIds: *const ::core::ffi::c_int,
+        glyphIdCount: ::core::ffi::c_int,
+        glyphIdOffset: ::core::ffi::c_int,
+        positions: *const OH_Drawing_Point2D,
+        positionCount: ::core::ffi::c_int,
+        positionOffset: ::core::ffi::c_int,
+        glyphCount: ::core::ffi::c_int,
+        font: *const OH_Drawing_Font,
+    ) -> crate::error_code::DrawingResult;
+    /// Clips a rectangle.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If either **canvas** or **rect** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
+    /// If **clipOp** is not set to one of the enumerated values, **OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE** is returned.
+    ///
+    /// # Arguments
+    ///
+    /// * `canvas` - Pointer to an **OH_Drawing_Canvas** object.
+    ///
+    /// * `rect` - Pointer to an **OH_Drawing_Rect** object.
+    ///
+    /// * `clipOp` - Clip mode. For details about the available options, see [`OH_Drawing_CanvasClipOp`](crate::canvas::OH_Drawing_CanvasClipOp).
+    ///
+    /// * `doAntiAlias` - Whether to enable anti-aliasing. The value **true** means to enable anti-aliasing, and **false**
+    /// means the opposite.
     ///
     /// Available since API-level: 11
     ///
@@ -961,19 +1026,21 @@ extern "C" {
         clipOp: OH_Drawing_CanvasClipOp,
         doAntiAlias: bool,
     );
-    /// Clip a round rect.
+    /// Clips a rounded rectangle.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If either **canvas** or **roundRect** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
+    /// If **clipOp** is not set to one of the enumerated values, **OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Pointer to an **OH_Drawing_Canvas** object.
     ///
-    /// * `roundRect` - Indicates the pointer to an <b>OH_Drawing_RoundRect</b> object.
+    /// * `roundRect` - Pointer to an **OH_Drawing_RoundRect** object.
     ///
-    /// * `clipOp` - Indicates the operation to apply to clip.
+    /// * `clipOp` - Clip mode. For details about the available options, see [`OH_Drawing_CanvasClipOp`](crate::canvas::OH_Drawing_CanvasClipOp).
     ///
-    /// * `doAntiAlias` - Indicates whether clip operation requires anti-aliased.
+    /// * `doAntiAlias` - Whether to perform anti-aliasing. The value **true** means to perform anti-aliasing, and **false**
+    /// means the opposite.
     ///
     /// Available since API-level: 12
     ///
@@ -986,19 +1053,21 @@ extern "C" {
         clipOp: OH_Drawing_CanvasClipOp,
         doAntiAlias: bool,
     );
-    /// Clip a path.
+    /// Clips a path.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If either **canvas** or **path** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
+    /// If **clipOp** is not set to one of the enumerated values, **OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Pointer to an **OH_Drawing_Canvas** object.
     ///
-    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `path` - Pointer to an **OH_Drawing_Path** object.
     ///
-    /// * `clipOp` - Indicates the operation to apply to clip.
+    /// * `clipOp` - Clip mode. For details about the available options, see [`OH_Drawing_CanvasClipOp`](crate::canvas::OH_Drawing_CanvasClipOp).
     ///
-    /// * `doAntiAlias` - Indicates whether clip operation requires anti-aliased.
+    /// * `doAntiAlias` - Whether to enable anti-aliasing. The value **true** means to enable anti-aliasing, and **false**
+    /// means the opposite.
     ///
     /// Available since API-level: 11
     ///
@@ -1011,23 +1080,22 @@ extern "C" {
         clipOp: OH_Drawing_CanvasClipOp,
         doAntiAlias: bool,
     );
-    /// Clips a region.
+    /// Clips a rectangle.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Pointer to the [`OH_Drawing_Canvas`](crate::types::OH_Drawing_Canvas) object.
     ///
-    /// * `region` - Indicates the pointer to an <b>OH_Drawing_Region</b> object.
+    /// * `region` - Pointer to the [`OH_Drawing_Region`](crate::types::OH_Drawing_Region) object.
     ///
-    /// * `clipOp` - To apply to clip.
+    /// * `clipOp` - Clip mode. For details about the available options, see [`OH_Drawing_CanvasClipOp`](crate::canvas::OH_Drawing_CanvasClipOp).
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`](crate::error_code::DrawingErrorCode::INVALID_PARAMETER) if canvas or region is nullptr.
+    /// * Returns one of the following result codes:
+    /// **OH_DRAWING_SUCCESS** if the operation is successful.
+    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if either **canvas** or **region** is NULL.
+    /// **OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE** if **clipOp** is not set to one of the enumerated values.
     ///
     /// Available since API-level: 12
     ///
@@ -1039,19 +1107,20 @@ extern "C" {
         region: *const OH_Drawing_Region,
         clipOp: OH_Drawing_CanvasClipOp,
     ) -> crate::error_code::DrawingResult;
-    /// Rotates by degrees. Positive degrees rotates clockwise.
+    /// Rotates a canvas by a given angle. A positive value indicates a clockwise rotation, and a negative value
+    /// indicates a counterclockwise rotation.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **canvas** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Pointer to an **OH_Drawing_Canvas** object.
     ///
-    /// * `degrees` - Indicates the amount to rotate, in degrees.
+    /// * `degrees` - Rotation angle.
     ///
-    /// * `px` - Indicates the x-axis value of the point to rotate about.
+    /// * `px` - X coordinate of the rotation point.
     ///
-    /// * `py` - Indicates the y-axis value of the point to rotate about.
+    /// * `py` - Y coordinate of the rotation point.
     ///
     /// Available since API-level: 11
     ///
@@ -1059,17 +1128,17 @@ extern "C" {
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn OH_Drawing_CanvasRotate(canvas: *mut OH_Drawing_Canvas, degrees: f32, px: f32, py: f32);
-    /// Translates by dx along the x-axis and dy along the y-axis.
+    /// Translates a canvas by a given distance.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **canvas** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Pointer to an **OH_Drawing_Canvas** object.
     ///
-    /// * `dx` - Indicates the distance to translate on x-axis.
+    /// * `dx` - Distance to translate on the X axis.
     ///
-    /// * `dy` - Indicates the distance to translate on y-axis.
+    /// * `dy` - Distance to translate on the Y axis.
     ///
     /// Available since API-level: 11
     ///
@@ -1077,17 +1146,17 @@ extern "C" {
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn OH_Drawing_CanvasTranslate(canvas: *mut OH_Drawing_Canvas, dx: f32, dy: f32);
-    /// Scales by sx on the x-axis and sy on the y-axis.
+    /// Scales a canvas.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **canvas** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Pointer to an **OH_Drawing_Canvas** object.
     ///
-    /// * `sx` - Indicates the amount to scale on x-axis.
+    /// * `sx` - Scale ratio on the X axis.
     ///
-    /// * `sy` - Indicates the amount to scale on y-axis.
+    /// * `sy` - Scale ratio on the Y axis.
     ///
     /// Available since API-level: 11
     ///
@@ -1095,17 +1164,23 @@ extern "C" {
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn OH_Drawing_CanvasScale(canvas: *mut OH_Drawing_Canvas, sx: f32, sy: f32);
-    /// Skew by sx on the x-axis and sy on the y-axis.
+    /// Skews a canvas. This function premultiplies the current canvas matrix by a skew transformation matrix and
+    /// applies the resulting matrix to the canvas. The skew transformation matrix is as follows:
+    /// |1 sx 0|
+    /// |sy 1 0|
+    /// |0 0 1|
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **canvas** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Pointer to an **OH_Drawing_Canvas** object.
     ///
-    /// * `sx` - Indicates the amount to skew on x-axis.
+    /// * `sx` - Amount of tilt on the X axis. A positive number tilts the drawing rightwards along the positive direction
+    /// of the Y axis, and a negative number tilts the drawing leftwards along the positive direction of the Y axis.
     ///
-    /// * `sy` - Indicates the amount to skew on y-axis.
+    /// * `sy` - Amount of tilt on the Y axis. A positive number tilts the drawing downwards along the positive direction
+    /// of the X axis, and a negative number tilts the drawing upwards along the positive direction of the X axis.
     ///
     /// Available since API-level: 12
     ///
@@ -1113,13 +1188,17 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_CanvasSkew(canvas: *mut OH_Drawing_Canvas, sx: f32, sy: f32);
-    /// Get the width of a canvas.
+    /// Obtains the canvas width.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **canvas** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Pointer to the [`OH_Drawing_Canvas`](crate::types::OH_Drawing_Canvas) object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the width.
     ///
     /// Available since API-level: 12
     ///
@@ -1127,13 +1206,17 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_CanvasGetWidth(canvas: *mut OH_Drawing_Canvas) -> i32;
-    /// Get the height of a canvas.
+    /// Obtains the canvas height.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **canvas** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Pointer to the [`OH_Drawing_Canvas`](crate::types::OH_Drawing_Canvas) object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the height.
     ///
     /// Available since API-level: 12
     ///
@@ -1141,15 +1224,17 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_CanvasGetHeight(canvas: *mut OH_Drawing_Canvas) -> i32;
-    /// Get the bounds of clip of a canvas.
+    /// Obtains the bounds of the cropping region of the canvas. This function cannot be used for a canvas of the
+    /// recording type.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If either **canvas** or **rect** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Pointer to the [`OH_Drawing_Canvas`](crate::types::OH_Drawing_Canvas) object.
     ///
-    /// * `rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `rect` - Pointer to the [`OH_Drawing_Rect`](crate::types::OH_Drawing_Rect) object. You can call [`OH_Drawing_RectCreate`](crate::rect::OH_Drawing_RectCreate) to create a
+    /// rectangle object.
     ///
     /// Available since API-level: 12
     ///
@@ -1160,15 +1245,16 @@ extern "C" {
         canvas: *mut OH_Drawing_Canvas,
         rect: *mut OH_Drawing_Rect,
     );
-    /// Get a 3x3 matrix of the transform from local coordinates to 'device'.
+    /// Obtains the 3x3 matrix of a canvas.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If either **canvas** or **matrix** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Pointer to the [`OH_Drawing_Canvas`](crate::types::OH_Drawing_Canvas) object.
     ///
-    /// * `matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    /// * `matrix` - Pointer to the [`OH_Drawing_Matrix`](crate::types::OH_Drawing_Matrix) object. You can call [`OH_Drawing_MatrixCreate`](crate::matrix::OH_Drawing_MatrixCreate) to
+    /// create a matrix object.
     ///
     /// Available since API-level: 12
     ///
@@ -1179,16 +1265,16 @@ extern "C" {
         canvas: *mut OH_Drawing_Canvas,
         matrix: *mut OH_Drawing_Matrix,
     );
-    /// Use the passed matrix to transforming the geometry, then use existing matrix.
+    /// Preconcats the existing matrix of the canvas with the passed-in matrix. The drawing operation triggered
+    /// before this API is called is not affected.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If either **canvas** or **matrix** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Pointer to the [`OH_Drawing_Canvas`](crate::types::OH_Drawing_Canvas) object.
     ///
-    /// * `matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object,
-    /// represents the matrix which is passed.
+    /// * `matrix` - Pointer to the [`OH_Drawing_Matrix`](crate::types::OH_Drawing_Matrix) object.
     ///
     /// Available since API-level: 12
     ///
@@ -1199,28 +1285,28 @@ extern "C" {
         canvas: *mut OH_Drawing_Canvas,
         matrix: *mut OH_Drawing_Matrix,
     );
-    /// Use circular light to draw an offset spot shadow and outlining ambient shadow for the given path.
+    /// Draws a spot shadow and uses a given path to outline the ambient shadow.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If either **canvas** or **path** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
+    /// If **flag** is not set to one of the enumerated values, **OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Pointer to the [`OH_Drawing_Canvas`](crate::types::OH_Drawing_Canvas) object.
     ///
-    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object, use to generate shadows.
+    /// * `path` - Pointer to the [`OH_Drawing_Path`](crate::types::OH_Drawing_Path) object, which is used to generate shadows.
     ///
-    /// * `planeParams` - Represents the value of the function which returns Z offset of the occluder from the
-    /// canvas based on x and y.
+    /// * `planeParams` - Z-axis offset of an occluder relative to the canvas, based on its x and y coordinates.
     ///
-    /// * `devLightPos` - Represents the position of the light relative to the canvas.
+    /// * `devLightPos` - Position of the light relative to the canvas.
     ///
-    /// * `lightRadius` - The radius of the circular light.
+    /// * `lightRadius` - Radius of the light source. The value must be greater than or equal to 0.
     ///
-    /// * `ambientColor` - Ambient shadow's color.
+    /// * `ambientColor` - Ambient shadow color, which is represented by a 32-bit (ARGB) variable.
     ///
-    /// * `spotColor` - Spot shadow's color.
+    /// * `spotColor` - Point shadow color, which is represented by a 32-bit (ARGB) variable.
     ///
-    /// * `flag` - Indicates the flag to control opaque occluder, shadow, and light position.
+    /// * `flag` - Enumeration of shadow flags.
     ///
     /// Available since API-level: 12
     ///
@@ -1237,29 +1323,30 @@ extern "C" {
         spotColor: u32,
         flag: OH_Drawing_CanvasShadowFlags,
     );
-    /// Clears a canvas by using a specified color.
+    /// Clears a canvas by using a given color.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **canvas** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Pointer to an **OH_Drawing_Canvas** object.
     ///
-    /// * `color` - Indicates the color, which is a 32-bit (ARGB) variable.
+    /// * `color` - Color, which is a 32-bit (ARGB) variable.
     ///
     /// Available since API-level: 8
     ///
     /// Version: 1.0
     pub fn OH_Drawing_CanvasClear(canvas: *mut OH_Drawing_Canvas, color: u32);
-    /// Sets matrix of canvas.
+    /// Sets the matrix status for a canvas.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If either **canvas** or **matrix** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Pointer to the [`OH_Drawing_Canvas`](crate::types::OH_Drawing_Canvas) object.
     ///
-    /// * `matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    /// * `matrix` - Pointer to the [`OH_Drawing_Matrix`](crate::types::OH_Drawing_Matrix) object. You can call [`OH_Drawing_MatrixCreate`](crate::matrix::OH_Drawing_MatrixCreate) to
+    /// create a matrix object.
     ///
     /// Available since API-level: 12
     ///
@@ -1270,13 +1357,13 @@ extern "C" {
         canvas: *mut OH_Drawing_Canvas,
         matrix: *mut OH_Drawing_Matrix,
     );
-    /// Reset matrix to the idenmtity matrix, any prior matrix state is overwritten.
+    /// Resets the matrix of this canvas to an identity matrix.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **canvas** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Pointer to the [`OH_Drawing_Canvas`](crate::types::OH_Drawing_Canvas) object.
     ///
     /// Available since API-level: 12
     ///
@@ -1284,24 +1371,44 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_CanvasResetMatrix(canvas: *mut OH_Drawing_Canvas);
-    /// Draws the specified source rectangle of the image onto the canvas,
-    /// scaled and translated to the destination rectangle.
+    /// Reset the clip status.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
     /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
-    /// * `image` - Indicates the pointer to an <b>OH_Drawing_Image</b> object.
+    /// # Returns
     ///
-    /// * `src` - The area of source image.
+    /// * Returns the error code.
+    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`](crate::error_code::DrawingErrorCode::INVALID_PARAMETER) if canvas is nullptr.
     ///
-    /// * `dst` - The area of destination canvas.
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_Drawing_CanvasResetClip(
+        canvas: *mut OH_Drawing_Canvas,
+    ) -> crate::error_code::DrawingResult;
+    /// Draws a portion of an image onto a specified area of the canvas. The area selected by the source rectangle is
+    /// scaled and translated to the destination rectangle.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If one of **canvas**, **image**, **src**, or **dst** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    /// * `samplingOptions` - Indicates the pointer to an <b>OH_Drawing_SamplingOptions</b> object.
+    /// # Arguments
     ///
-    /// * `srcRectConstraint` - Constraint type.
+    /// * `canvas` - Pointer to the [`OH_Drawing_Canvas`](crate::types::OH_Drawing_Canvas) object.
+    ///
+    /// * `image` - Pointer to the [`OH_Drawing_Image`](crate::types::OH_Drawing_Image) object.
+    ///
+    /// * `src` - Pointer to the [`OH_Drawing_Rect`](crate::types::OH_Drawing_Rect) object.
+    ///
+    /// * `dst` - Pointer to the [`OH_Drawing_Rect`](crate::types::OH_Drawing_Rect) object.
+    ///
+    /// * `samplingOptions` - Pointer to the [`OH_Drawing_SamplingOptions`](crate::types::OH_Drawing_SamplingOptions) object. A null pointer means that the
+    /// default sampling options are used.
+    ///
+    /// * `srcRectConstraint` - Constraint type. For details about the available options, see
+    /// [`OH_Drawing_SrcRectConstraint`](crate::canvas::OH_Drawing_SrcRectConstraint).
     ///
     /// Available since API-level: 12
     ///
@@ -1316,20 +1423,20 @@ extern "C" {
         samplingOptions: *const OH_Drawing_SamplingOptions,
         srcRectConstraint: OH_Drawing_SrcRectConstraint,
     );
-    /// Draws the specified source rectangle of the image onto the canvas,
-    /// scaled and translated to the destination rectangle.
+    /// Draws an image onto a specified area of the canvas.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If one of **canvas**, **image**, or **dst** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Pointer to the [`OH_Drawing_Canvas`](crate::types::OH_Drawing_Canvas) object.
     ///
-    /// * `image` - Indicates the pointer to an <b>OH_Drawing_Image</b> object.
+    /// * `image` - Pointer to the [`OH_Drawing_Image`](crate::types::OH_Drawing_Image) object.
     ///
-    /// * `rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `rect` - Pointer to the [`OH_Drawing_Rect`](crate::types::OH_Drawing_Rect) object.
     ///
-    /// * `samplingOptions` - Indicates the pointer to an <b>OH_Drawing_SamplingOptions</b> object.
+    /// * `samplingOptions` - Pointer to the [`OH_Drawing_SamplingOptions`](crate::types::OH_Drawing_SamplingOptions) object. A null pointer means that the
+    /// default sampling options are used.
     ///
     /// Available since API-level: 12
     ///
@@ -1342,29 +1449,38 @@ extern "C" {
         rect: *mut OH_Drawing_Rect,
         samplingOptions: *mut OH_Drawing_SamplingOptions,
     );
-    /// Draw a triangular mesh with vertex descriptions.
+    /// Draws a triangular grid described by a vertex array.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If either **canvas** or **positions** is NULL, **vertexCount** is less than 3, or **indexCount** is less than 3 but
+    /// not 0, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
+    /// If either **vertexMmode** or **mode** is not set to one of the enumerated values, **
+    /// OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Pointer to an **OH_Drawing_Canvas** object.
     ///
-    /// * `vertexMmode` - Draw a set of vertices.
+    /// * `vertexMmode` - Mode for drawing vertices. For details about the available options, see
+    /// [`OH_Drawing_VertexMode`](crate::canvas::OH_Drawing_VertexMode).
     ///
-    /// * `vertexCount` - Vertex count.
+    /// * `vertexCount` - Number of elements in the vertex array. The value must be greater than or equal to 3.
     ///
-    /// * `positions` - Positions data pointer.
+    /// * `positions` - Pointer to the array that holds the position of every vertex. The array cannot be null and its
+    /// length must be equal to the value of **vertexCount**.
     ///
-    /// * `texs` - Texture coordinate data pointer.
+    /// * `texs` - Pointer to the array that holds the texture space coordinate corresponding to each vertex. The array can
+    /// be null. If the array is not null, its length must be equal to the value of **vertexCount**.
     ///
-    /// * `colors` - Color data pointer.
+    /// * `colors` - Pointer to the array that holds the color corresponding to each vertex. It is used for interpolation
+    /// in a triangle. The array can be null. If the array is not null, its length must be equal to the value of **
+    /// vertexCount**.
     ///
-    /// * `indexCount` - Index count.
+    /// * `indexCount` - Number of indices. The value can be 0 or a value greater than or equal to 3.
     ///
-    /// * `indices` - Index data pointer.
+    /// * `indices` - Pointer to the array that holds the index of each vertex. The array can be null. If the array is not
+    /// null, its length must be equal to the value of **indexCount**.
     ///
-    /// * `mode` - Blend mode used for drawing.
+    /// * `mode` - Enumeration of blend modes. For details about the available options, see [`OH_Drawing_BlendMode`](crate::types::OH_Drawing_BlendMode).
     ///
     /// Available since API-level: 12
     ///
@@ -1382,27 +1498,29 @@ extern "C" {
         indices: *const u16,
         mode: OH_Drawing_BlendMode,
     );
-    /// Read pixels data from canvas.
+    /// Copies pixel data from a canvas to a specified address. This function cannot be used for a canvas of the
+    /// recording type.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If one of **canvas**, **imageInfo**, or **dstPixels** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Pointer to the [`OH_Drawing_Canvas`](crate::types::OH_Drawing_Canvas) object.
     ///
-    /// * `imageInfo` - width, height, colorType, and alphaType of dstPixels.
+    /// * `imageInfo` - Pointer to the [`OH_Drawing_Image_Info`](crate::types::OH_Drawing_Image_Info) object.
     ///
-    /// * `dstPixels` - destination pixel storage.
+    /// * `dstPixels` - Pointer to the start address for storing the pixel data.
     ///
-    /// * `dstRowBytes` - size of one row of pixels.
+    /// * `dstRowBytes` - Number of bytes in each row of pixels. The value is invalid if it is less than or equal to 0.
     ///
-    /// * `srcX` - offset into canvas writable pixels on x-axis.
+    /// * `srcX` - X offset of the pixels on the canvas, in px.
     ///
-    /// * `srcY` - offset into canvas writable pixels on y-axis.
+    /// * `srcY` - Y offset of the pixels on the canvas, in px.
     ///
     /// # Returns
     ///
-    /// * true if pixels are copied to dstPixels.
+    /// * Returns **true** if the pixel data is copied to the start address of the storage; returns **false**
+    /// otherwise.
     ///
     /// Available since API-level: 12
     ///
@@ -1417,23 +1535,23 @@ extern "C" {
         srcX: i32,
         srcY: i32,
     ) -> bool;
-    /// Read pixels data to a bitmap from canvas.
+    /// Copies pixel data from a canvas to an image. This function cannot be used for a canvas of the recording type.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If either **canvas** or **bitmap** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Pointer to the [`OH_Drawing_Canvas`](crate::types::OH_Drawing_Canvas) object.
     ///
-    /// * `bitmap` - Indicates the pointer to an <b>OH_Drawing_Bitmap</b> object.
+    /// * `bitmap` - Pointer to the [`OH_Drawing_Bitmap`](crate::types::OH_Drawing_Bitmap) object.
     ///
-    /// * `srcX` - offset into canvas writable pixels on x-axis.
+    /// * `srcX` - X offset of the pixels on the canvas, in px.
     ///
-    /// * `srcY` - offset into canvas writable pixels on y-axis.
+    /// * `srcY` - Y offset of the pixels on the canvas, in px.
     ///
     /// # Returns
     ///
-    /// * true if pixels are copied to dstBitmap.
+    /// * Returns **true** if the pixel data is copied to the image; returns **false** otherwise.
     ///
     /// Available since API-level: 12
     ///
@@ -1446,21 +1564,20 @@ extern "C" {
         srcX: i32,
         srcY: i32,
     ) -> bool;
-    /// Checks whether the drawable area is empty.
+    /// Checks whether the region that can be drawn is empty after clipping.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Pointer to the [`OH_Drawing_Canvas`](crate::types::OH_Drawing_Canvas) object.
     ///
-    /// * `isClipEmpty` - Indicates if drawable area is empty.
+    /// * `isClipEmpty` - Pointer to the variable that specifies whether the region is empty. The value **true** means that
+    /// the region is empty, and **false** means the opposite.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`](crate::error_code::DrawingErrorCode::INVALID_PARAMETER) if canvas or isClipEmpty is nullptr.
+    /// * Returns one of the following result codes:
+    /// **OH_DRAWING_SUCCESS** if the operation is successful.
+    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if either **canvas** or **isClipEmpty** is NULL.
     ///
     /// Available since API-level: 12
     ///
@@ -1471,21 +1588,19 @@ extern "C" {
         canvas: *mut OH_Drawing_Canvas,
         isClipEmpty: *mut bool,
     ) -> crate::error_code::DrawingResult;
-    /// Gets image info of canvas.
+    /// Obtains the image information of a canvas.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Pointer to the [`OH_Drawing_Canvas`](crate::types::OH_Drawing_Canvas) object.
     ///
-    /// * `imageInfo` - Indicates the pointer to an <b>OH_Drawing_Image_Info</b> object.
+    /// * `imageInfo` - Pointer to the [`OH_Drawing_Image_Info`](crate::types::OH_Drawing_Image_Info) object.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`](crate::error_code::DrawingErrorCode::INVALID_PARAMETER) if canvas or imageInfo is nullptr.
+    /// * Returns one of the following result codes:
+    /// **OH_DRAWING_SUCCESS** if the operation is successful.
+    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if either **canvas** or **imageInfo** is NULL.
     ///
     /// Available since API-level: 12
     ///
@@ -1496,21 +1611,19 @@ extern "C" {
         canvas: *mut OH_Drawing_Canvas,
         imageInfo: *mut OH_Drawing_Image_Info,
     ) -> crate::error_code::DrawingResult;
-    /// Replay drawing command.
+    /// Draws an **OH_Drawing_RecordCmd** object.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Pointer to the [`OH_Drawing_Canvas`](crate::types::OH_Drawing_Canvas) object. Only the canvas of the recording type is supported.
     ///
-    /// * `recordCmd` - Indicates the pointer to an <b>OH_Drawing_RecordCmd</b> object.
+    /// * `recordCmd` - Pointer to the [`OH_Drawing_RecordCmd`](crate::types::OH_Drawing_RecordCmd) object.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`](crate::error_code::DrawingErrorCode::INVALID_PARAMETER) if canvas or recordCmd is nullptr.
+    /// * Returns one of the following result codes:
+    /// **OH_DRAWING_SUCCESS** if the operation is successful.
+    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if either **canvas** or **recordCmd** is NULL.
     ///
     /// Available since API-level: 13
     ///
@@ -1521,21 +1634,19 @@ extern "C" {
         canvas: *mut OH_Drawing_Canvas,
         recordCmd: *mut OH_Drawing_RecordCmd,
     ) -> crate::error_code::DrawingResult;
-    /// Replay drawing command.
+    /// Draws an **OH_Drawing_RecordCmd** object. This API supports nesting.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Pointer to the [`OH_Drawing_Canvas`](crate::types::OH_Drawing_Canvas) object. Only the canvas of the recording type is supported.
     ///
-    /// * `recordCmd` - Indicates the pointer to an <b>OH_Drawing_RecordCmd</b> object.
+    /// * `recordCmd` - Pointer to the [`OH_Drawing_RecordCmd`](crate::types::OH_Drawing_RecordCmd) object.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`](crate::error_code::DrawingErrorCode::INVALID_PARAMETER) if canvas or recordCmd is nullptr.
+    /// * Operation code.
+    /// **OH_DRAWING_SUCCESS** if the operation is successful.
+    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if either **canvas** or **recordCmd** is NULL.
     ///
     /// Available since API-level: 19
     ///
@@ -1546,24 +1657,22 @@ extern "C" {
         canvas: *mut OH_Drawing_Canvas,
         recordCmd: *mut OH_Drawing_RecordCmd,
     ) -> crate::error_code::DrawingResult;
-    /// Checks if the path has been cut off.
+    /// Checks whether the path is not intersecting with the canvas area. The canvas area includes its boundaries.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Pointer to the [`OH_Drawing_Canvas`](crate::types::OH_Drawing_Canvas) object.
     ///
-    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Paht</b> object.
+    /// * `path` - Pointer to the [`OH_Drawing_Path`](crate::types::OH_Drawing_Path) object.
     ///
-    /// * `quickReject` - Indicates if the path has been cut off.
+    /// * `quickReject` - Pointer to the check result. The value **true** means that the path is not intersecting with the
+    /// canvas area, and **false** means the opposite.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`](crate::error_code::DrawingErrorCode::INVALID_PARAMETER) if canvas or path is nullptr,
-    /// or quickReject is nullptr.
+    /// * Returns one of the following result codes:
+    /// **OH_DRAWING_SUCCESS** if the operation is successful.
+    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if **canvas**, **path**, or **quickReject** is NULL.
     ///
     /// Available since API-level: 18
     ///
@@ -1575,24 +1684,23 @@ extern "C" {
         path: *const OH_Drawing_Path,
         quickReject: *mut bool,
     ) -> crate::error_code::DrawingResult;
-    /// Checks if the rect has been cut off.
+    /// Checks whether the rectangle is not intersecting with the canvas area. The canvas area includes its
+    /// boundaries.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Pointer to the [`OH_Drawing_Canvas`](crate::types::OH_Drawing_Canvas) object.
     ///
-    /// * `rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `rect` - Pointer to the [`OH_Drawing_Rect`](crate::types::OH_Drawing_Rect) object.
     ///
-    /// * `quickReject` - Indicates if the rect has been cut off.
+    /// * `quickReject` - Pointer to the check result. The value **true** means that the rectangle is not intersecting with
+    /// the canvas area, and **false** means the opposite.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`](crate::error_code::DrawingErrorCode::INVALID_PARAMETER) if canvas or rect is nullptr,
-    /// or quickReject is nullptr.
+    /// * Returns one of the following result codes:
+    /// **OH_DRAWING_SUCCESS** if the operation is successful.
+    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if **canvas**, **rect**, or **quickReject** is NULL.
     ///
     /// Available since API-level: 18
     ///
@@ -1603,5 +1711,26 @@ extern "C" {
         canvas: *mut OH_Drawing_Canvas,
         rect: *const OH_Drawing_Rect,
         quickReject: *mut bool,
+    ) -> crate::error_code::DrawingResult;
+    /// Checks if the current layer that drawn into the device is opaque.
+    ///
+    /// # Arguments
+    ///
+    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    ///
+    /// * `isOpaque` - Indicates if the canvas is opaque.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`](crate::error_code::DrawingErrorCode::INCORRECT_PARAMETER) if canvas or isOpaque is nullptr.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_Drawing_CanvasIsOpaque(
+        canvas: *const OH_Drawing_Canvas,
+        isOpaque: *mut bool,
     ) -> crate::error_code::DrawingResult;
 }

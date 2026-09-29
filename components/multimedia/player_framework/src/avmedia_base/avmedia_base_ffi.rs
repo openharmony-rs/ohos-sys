@@ -10,17 +10,17 @@ use crate::averrors::OH_AVErrCode;
 #[cfg(feature = "api-23")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
 impl OH_AVMedia_SeekMode {
-    /// Seek to keyframe after the time point.
+    /// The key frame at or next to the specified time is selected.
     pub const OH_AVMEDIA_SEEK_NEXT_SYNC: OH_AVMedia_SeekMode = OH_AVMedia_SeekMode(0);
-    /// Seek to keyframe before the time point.
+    /// The key frame at or prior to the specified time is selected.
     pub const OH_AVMEDIA_SEEK_PREVIOUS_SYNC: OH_AVMedia_SeekMode = OH_AVMedia_SeekMode(1);
-    /// Seek to closest keyframe near the time point.
+    /// The key frame closest to the specified time is selected.
     pub const OH_AVMEDIA_SEEK_CLOSEST_SYNC: OH_AVMedia_SeekMode = OH_AVMedia_SeekMode(2);
-    /// Seek to the time point
+    /// The frame (not necessarily a key frame) closest to the specified time is selected.
     pub const OH_AVMEDIA_SEEK_CLOSEST: OH_AVMedia_SeekMode = OH_AVMedia_SeekMode(3);
 }
 #[repr(transparent)]
-/// Enumerates the seek mode by the given time and the key frame.
+/// Enumerates the mappings between time points and frames.
 ///
 ///
 /// Available since API-level: 23

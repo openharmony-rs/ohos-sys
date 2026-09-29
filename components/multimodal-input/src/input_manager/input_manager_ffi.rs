@@ -17,19 +17,19 @@ use ohos_sys_opaque_types::{
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl Input_KeyStateAction {
-    /// Default
+    /// Default state.
     pub const KEY_DEFAULT: Input_KeyStateAction = Input_KeyStateAction(-1);
-    /// Pressing of a key
+    /// Key press.
     pub const KEY_PRESSED: Input_KeyStateAction = Input_KeyStateAction(0);
-    /// Release of a key
+    /// Key release.
     pub const KEY_RELEASED: Input_KeyStateAction = Input_KeyStateAction(1);
-    /// Key switch enabled
+    /// Key switch enabled.
     pub const KEY_SWITCH_ON: Input_KeyStateAction = Input_KeyStateAction(2);
-    /// Key switch disabled
+    /// Key switch disabled.
     pub const KEY_SWITCH_OFF: Input_KeyStateAction = Input_KeyStateAction(3);
 }
 #[repr(transparent)]
-/// Enumerated values of key event action.
+/// Provides the enum values of the key status.
 ///
 ///
 /// Available since API-level: 12
@@ -40,15 +40,15 @@ pub struct Input_KeyStateAction(pub ::core::ffi::c_int);
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl Input_KeyEventAction {
-    /// Cancellation of a key action.
+    /// Button action canceled.
     pub const KEY_ACTION_CANCEL: Input_KeyEventAction = Input_KeyEventAction(0);
-    /// Pressing of a key.
+    /// Key press.
     pub const KEY_ACTION_DOWN: Input_KeyEventAction = Input_KeyEventAction(1);
-    /// Release of a key.
+    /// Key release.
     pub const KEY_ACTION_UP: Input_KeyEventAction = Input_KeyEventAction(2);
 }
 #[repr(transparent)]
-/// Enumerates key event types.
+/// Provides the enum values of the key event type.
 ///
 ///
 /// Available since API-level: 12
@@ -59,23 +59,23 @@ pub struct Input_KeyEventAction(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl Input_MouseEventAction {
-    /// Cancel.
+    /// Cancellation of the mouse action.
     pub const MOUSE_ACTION_CANCEL: Input_MouseEventAction = Input_MouseEventAction(0);
     /// Moving of the mouse pointer.
     pub const MOUSE_ACTION_MOVE: Input_MouseEventAction = Input_MouseEventAction(1);
-    /// Pressing down of the mouse.
+    /// Pressing of the mouse button.
     pub const MOUSE_ACTION_BUTTON_DOWN: Input_MouseEventAction = Input_MouseEventAction(2);
-    /// Lifting of the mouse button.
+    /// Release of the mouse button.
     pub const MOUSE_ACTION_BUTTON_UP: Input_MouseEventAction = Input_MouseEventAction(3);
-    /// Beginning of the mouse axis event
+    /// Beginning of the mouse axis event.
     pub const MOUSE_ACTION_AXIS_BEGIN: Input_MouseEventAction = Input_MouseEventAction(4);
-    /// Updating of the mouse axis event
+    /// Updating of the mouse axis event.
     pub const MOUSE_ACTION_AXIS_UPDATE: Input_MouseEventAction = Input_MouseEventAction(5);
-    /// End of the mouse axis event
+    /// End of the mouse axis event.
     pub const MOUSE_ACTION_AXIS_END: Input_MouseEventAction = Input_MouseEventAction(6);
 }
 #[repr(transparent)]
-/// Enumerated values of mouse event action.
+/// Provides the enum values of mouse actions.
 ///
 ///
 /// Available since API-level: 12
@@ -86,13 +86,13 @@ pub struct Input_MouseEventAction(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl InputEvent_MouseAxis {
-    /// Vertical scroll axis
+    /// Vertical scroll axis.
     pub const MOUSE_AXIS_SCROLL_VERTICAL: InputEvent_MouseAxis = InputEvent_MouseAxis(0);
-    /// Horizontal scroll axis
+    /// Horizontal scroll axis.
     pub const MOUSE_AXIS_SCROLL_HORIZONTAL: InputEvent_MouseAxis = InputEvent_MouseAxis(1);
 }
 #[repr(transparent)]
-/// Mouse axis types.
+/// Provides the enum values of mouse axis event types.
 ///
 ///
 /// Available since API-level: 12
@@ -103,21 +103,21 @@ pub struct InputEvent_MouseAxis(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl Input_MouseEventButton {
-    /// Invalid button
+    /// Invalid button.
     pub const MOUSE_BUTTON_NONE: Input_MouseEventButton = Input_MouseEventButton(-1);
-    /// Left button on the mouse.
+    /// Left button.
     pub const MOUSE_BUTTON_LEFT: Input_MouseEventButton = Input_MouseEventButton(0);
-    /// Middle button on the mouse.
+    /// Middle button.
     pub const MOUSE_BUTTON_MIDDLE: Input_MouseEventButton = Input_MouseEventButton(1);
-    /// Right button on the mouse.
+    /// Right button.
     pub const MOUSE_BUTTON_RIGHT: Input_MouseEventButton = Input_MouseEventButton(2);
-    /// Forward button on the mouse.
+    /// Forward button.
     pub const MOUSE_BUTTON_FORWARD: Input_MouseEventButton = Input_MouseEventButton(3);
-    /// Back button on the mouse.
+    /// Back button.
     pub const MOUSE_BUTTON_BACK: Input_MouseEventButton = Input_MouseEventButton(4);
 }
 #[repr(transparent)]
-/// Enumerated values of mouse event button.
+/// Provides the enum values of mouse buttons.
 ///
 ///
 /// Available since API-level: 12
@@ -128,17 +128,17 @@ pub struct Input_MouseEventButton(pub ::core::ffi::c_int);
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl Input_TouchEventAction {
-    /// Touch cancelled.
+    /// Touch cancellation.
     pub const TOUCH_ACTION_CANCEL: Input_TouchEventAction = Input_TouchEventAction(0);
-    /// Touch pressed.
+    /// Touch press.
     pub const TOUCH_ACTION_DOWN: Input_TouchEventAction = Input_TouchEventAction(1);
-    /// Touch moved.
+    /// Touch moving.
     pub const TOUCH_ACTION_MOVE: Input_TouchEventAction = Input_TouchEventAction(2);
-    /// Touch lifted.
+    /// Touch release.
     pub const TOUCH_ACTION_UP: Input_TouchEventAction = Input_TouchEventAction(3);
 }
 #[repr(transparent)]
-/// Enumerated values of touch event action.
+/// Provides the enum values of touch actions.
 ///
 ///
 /// Available since API-level: 12
@@ -149,21 +149,21 @@ pub struct Input_TouchEventAction(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-13")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
 impl Input_KeyboardType {
-    /// Keyboard without keys
+    /// Keyboard without keys.
     pub const KEYBOARD_TYPE_NONE: Input_KeyboardType = Input_KeyboardType(0);
-    /// Keyboard with unknown keys
+    /// Keyboard with unknown keys.
     pub const KEYBOARD_TYPE_UNKNOWN: Input_KeyboardType = Input_KeyboardType(1);
-    /// Full keyboard
+    /// Full keyboard.
     pub const KEYBOARD_TYPE_ALPHABETIC: Input_KeyboardType = Input_KeyboardType(2);
-    /// Digital keyboard
+    /// Numeric keypad.
     pub const KEYBOARD_TYPE_DIGITAL: Input_KeyboardType = Input_KeyboardType(3);
-    /// Stylus
+    /// Stylus.
     pub const KEYBOARD_TYPE_STYLUS: Input_KeyboardType = Input_KeyboardType(4);
-    /// Remote control
+    /// Remote control.
     pub const KEYBOARD_TYPE_REMOTE_CONTROL: Input_KeyboardType = Input_KeyboardType(5);
 }
 #[repr(transparent)]
-/// Enumerates keyboard types.
+/// Provides the enum values of keyboard types of the input device.
 ///
 ///
 /// Available since API-level: 13
@@ -174,15 +174,15 @@ pub struct Input_KeyboardType(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-20")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
 impl Input_InjectionStatus {
-    /// Unauthorized
+    /// Permission not granted.
     pub const UNAUTHORIZED: Input_InjectionStatus = Input_InjectionStatus(0);
-    /// Authorizing
+    /// Permission being granted.
     pub const AUTHORIZING: Input_InjectionStatus = Input_InjectionStatus(1);
-    /// Authorized
+    /// Permission granted.
     pub const AUTHORIZED: Input_InjectionStatus = Input_InjectionStatus(2);
 }
 #[repr(transparent)]
-/// Enumerates the injection authorization status.
+/// Provides the enum values of injection permission states.
 ///
 ///
 /// Available since API-level: 20
@@ -193,23 +193,19 @@ pub struct Input_InjectionStatus(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl InputEvent_SourceType {
-    /// Indicates that the input source generates events similar to mouse cursor movement,
-    /// button press and release, and wheel scrolling.
-    ///
+    /// Source that generates events similar to mouse pointer movement, button press and release, and wheel scrolling.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const SOURCE_TYPE_MOUSE: InputEvent_SourceType = InputEvent_SourceType(1);
-    /// Indicates that the input source generates a touchscreen multi-touch event.
-    ///
+    /// Source that generates a touchscreen multi-touch event.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const SOURCE_TYPE_TOUCHSCREEN: InputEvent_SourceType = InputEvent_SourceType(2);
-    /// Indicates that the input source generates a touchpad multi-touch event.
-    ///
+    /// Source that generates a touchpad multi-touch event.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -217,7 +213,7 @@ impl InputEvent_SourceType {
     pub const SOURCE_TYPE_TOUCHPAD: InputEvent_SourceType = InputEvent_SourceType(3);
 }
 #[repr(transparent)]
-/// Enumerates event source types.
+/// Provides the enum values of event source types.
 ///
 ///
 /// Available since API-level: 12
@@ -225,7 +221,9 @@ impl InputEvent_SourceType {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct InputEvent_SourceType(pub ::core::ffi::c_uint);
-/// Defines the cursor information.
+/// Defines mouse cursor information. It is used to manage and control the display behavior and appearance
+/// properties of the mouse cursor in the input system, including cursor display state, cursor style, cursor size level,
+/// and cursor color.
 ///
 ///
 /// Available since API-level: 22
@@ -239,88 +237,88 @@ pub type Input_Result = Result<(), InputErrorCode>;
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl InputErrorCode {
-    /// Permission verification failed
+    /// Permission verification failed.
     pub const PERMISSION_DENIED: InputErrorCode =
         InputErrorCode(const { core::num::NonZero::new(201).unwrap() });
-    /// Non-system application
+    /// Non-system application.
     pub const NOT_SYSTEM_APPLICATION: InputErrorCode =
         InputErrorCode(const { core::num::NonZero::new(202).unwrap() });
-    /// Parameter check failed
+    /// Parameter check fails.
     pub const PARAMETER_ERROR: InputErrorCode =
         InputErrorCode(const { core::num::NonZero::new(401).unwrap() });
-    /// Device not support
+    /// Function not supported.
     pub const DEVICE_NOT_SUPPORTED: InputErrorCode =
         InputErrorCode(const { core::num::NonZero::new(801).unwrap() });
-    /// Service error
+    /// Service error.
     pub const SERVICE_EXCEPTION: InputErrorCode =
         InputErrorCode(const { core::num::NonZero::new(3800001).unwrap() });
-    /// Interceptor repeatedly created for an application
+    /// Interceptor repeatedly created.
     pub const REPEAT_INTERCEPTOR: InputErrorCode =
         InputErrorCode(const { core::num::NonZero::new(4200001).unwrap() });
-    /// Already occupied by the system
+    /// Input device occupied by a system application.
     ///
     /// Available since API-level: 14
     #[cfg(feature = "api-14")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
     pub const OCCUPIED_BY_SYSTEM: InputErrorCode =
         InputErrorCode(const { core::num::NonZero::new(4200002).unwrap() });
-    /// Already occupied by the other
+    /// Input device occupied by another application.
     ///
     /// Available since API-level: 14
     #[cfg(feature = "api-14")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
     pub const OCCUPIED_BY_OTHER: InputErrorCode =
         InputErrorCode(const { core::num::NonZero::new(4200003).unwrap() });
-    /// No keyboard device connected
+    /// Keyboard not connected.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub const KEYBOARD_DEVICE_NOT_EXIST: InputErrorCode =
         InputErrorCode(const { core::num::NonZero::new(3900002).unwrap() });
-    /// Authorizing
+    /// Authorization in progress.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const INJECTION_AUTHORIZING: InputErrorCode =
         InputErrorCode(const { core::num::NonZero::new(3900005).unwrap() });
-    /// Too many operations
+    /// Repeated request.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const INJECTION_OPERATION_FREQUENT: InputErrorCode =
         InputErrorCode(const { core::num::NonZero::new(3900006).unwrap() });
-    /// Authorized
+    /// Permission granted to the current application.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const INJECTION_AUTHORIZED: InputErrorCode =
         InputErrorCode(const { core::num::NonZero::new(3900007).unwrap() });
-    /// Authorized to other applications
+    /// Permission granted to other applications.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const INJECTION_AUTHORIZED_OTHERS: InputErrorCode =
         InputErrorCode(const { core::num::NonZero::new(3900008).unwrap() });
-    /// App is not the focused app
+    /// Application not in focus.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const APP_NOT_FOCUSED: InputErrorCode =
         InputErrorCode(const { core::num::NonZero::new(3900009).unwrap() });
-    /// The device has no pointer
+    /// No mouse device.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const DEVICE_NO_POINTER: InputErrorCode =
         InputErrorCode(const { core::num::NonZero::new(3900010).unwrap() });
-    /// Invalid windowID
+    /// Invalid window ID.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -329,7 +327,7 @@ impl InputErrorCode {
         InputErrorCode(const { core::num::NonZero::new(26500001).unwrap() });
 }
 #[repr(transparent)]
-/// Enumerates error codes.
+/// Provides return value enumerations.
 ///
 ///
 /// Available since API-level: 12
@@ -337,14 +335,82 @@ impl InputErrorCode {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct InputErrorCode(pub core::num::NonZero<::core::ffi::c_uint>);
-/// Callback used to return shortcut key events.
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+impl Input_TouchEventToolType {
+    /// Finger
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub const TOOL_TYPE_FINGER: Input_TouchEventToolType = Input_TouchEventToolType(0);
+    /// Pen
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub const TOOL_TYPE_PEN: Input_TouchEventToolType = Input_TouchEventToolType(1);
+    /// Rubber
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub const TOOL_TYPE_RUBBER: Input_TouchEventToolType = Input_TouchEventToolType(2);
+    /// Brush
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub const TOOL_TYPE_BRUSH: Input_TouchEventToolType = Input_TouchEventToolType(3);
+    /// Pencil
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub const TOOL_TYPE_PENCIL: Input_TouchEventToolType = Input_TouchEventToolType(4);
+    /// Air brush
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub const TOOL_TYPE_AIRBRUSH: Input_TouchEventToolType = Input_TouchEventToolType(5);
+    /// Mouse
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub const TOOL_TYPE_MOUSE: Input_TouchEventToolType = Input_TouchEventToolType(6);
+    /// lens
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub const TOOL_TYPE_LENS: Input_TouchEventToolType = Input_TouchEventToolType(7);
+}
+#[repr(transparent)]
+/// Enumerates touch tool types of an input device.
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct Input_TouchEventToolType(pub ::core::ffi::c_uint);
+/// Defines the callback used to return hotkey events.
+///
+/// # Arguments
+///
+/// * `hotkey` - Hotkey object.
 ///
 /// Available since API-level: 14
 #[cfg(feature = "api-14")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
 pub type Input_HotkeyCallback =
     ::core::option::Option<unsafe extern "C" fn(hotkey: *mut Input_Hotkey)>;
-/// Represents information about the input device.
+/// Defines input device information, which is used to describe the basic information and capability
+/// characteristics of an input device, including attributes such as the device type and device ID. You can use this
+/// struct to obtain and manage detailed information about input devices, facilitating device identification and
+/// configuration management.
 ///
 ///
 /// Available since API-level: 13
@@ -354,7 +420,7 @@ pub type Input_HotkeyCallback =
 pub struct Input_DeviceInfo {
     _unused: [u8; 0],
 }
-/// Pixel map resource.
+/// Defines the pixel map resource of the custom mouse pointer object.
 ///
 ///
 /// Available since API-level: 22
@@ -364,7 +430,9 @@ pub struct Input_DeviceInfo {
 pub struct Input_CustomCursor {
     _unused: [u8; 0],
 }
-/// Defines the custom cursor configuration.
+/// Defines custom mouse cursor configuration, which is used to define and manage the display style and
+/// interaction behavior of the mouse cursor in an application. It supports different cursor styles (such as default,
+/// hand, and text input), providing users with more intuitive operation feedback and enhancing user experience.
 ///
 ///
 /// Available since API-level: 22
@@ -374,72 +442,84 @@ pub struct Input_CustomCursor {
 pub struct Input_CursorConfig {
     _unused: [u8; 0],
 }
-/// Defines a lifecycle callback for keyEvent. If the callback is triggered, keyEvent will be destroyed.
+/// Defines a lifecycle callback for **keyEvent**. If the callback is triggered, **keyEvent** will be destroyed.
 ///
 /// # Arguments
 ///
-/// * `keyEvent` - Key event object.
+/// * `keyEvent` - **KeyEvent** object, which can be created through `OH_Input_CreateKeyEvent()`.
+/// <br>If the key event object is no longer needed, destroy it by calling `OH_Input_DestroyKeyEvent()`.
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub type Input_KeyEventCallback =
     ::core::option::Option<unsafe extern "C" fn(keyEvent: *const Input_KeyEvent)>;
-/// Defines a lifecycle callback for mouseEvent. If the callback is triggered, mouseEvent will be destroyed.
+/// Defines a lifecycle callback for **mouseEvent**. If the callback is triggered, **mouseEvent** will be
+/// destroyed.
 ///
 /// # Arguments
 ///
-/// * `mouseEvent` - Mouse event object.
+/// * `mouseEvent` - Mouse event object. You can call `OH_Input_CreateMouseEvent()` to create a mouse event
+/// object.
+/// <br>If the mouse event object is no longer needed, destroy it by calling `OH_Input_DestroyMouseEvent()`.
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub type Input_MouseEventCallback =
     ::core::option::Option<unsafe extern "C" fn(mouseEvent: *const Input_MouseEvent)>;
-/// Defines a lifecycle callback for touchEvent. If the callback is triggered, touchEvent will be destroyed.
+/// Defines the lifecycle callback for **TouchEvent**. If the callback is triggered, **TouchEvent** will be
+/// destroyed.
 ///
 /// # Arguments
 ///
-/// * `touchEvent` - Touch event object.
+/// * `touchEvent` - **TouchEvent** object, which can be created through `OH_Input_CreateTouchEvent()`.
+/// <br>If the **TouchEvent** object is no longer needed, destroy it by calling `OH_Input_DestroyTouchEvent()`.
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub type Input_TouchEventCallback =
     ::core::option::Option<unsafe extern "C" fn(touchEvent: *const Input_TouchEvent)>;
-/// Defines a lifecycle callback for axisEvent. If the callback is triggered, axisEvent will be destroyed.
+/// Defines a lifecycle callback for **axisEvent**. If the callback is triggered, **axisEvent** will be destroyed.
 ///
 /// # Arguments
 ///
-/// * `axisEvent` - Axis event object.
+/// * `axisEvent` - Axis event object. You can call `OH_Input_CreateAxisEvent()` to create an axis event object.
+/// <br>If the axis event object is no longer needed, destroy it by calling `OH_Input_DestroyAxisEvent()`.
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub type Input_AxisEventCallback =
     ::core::option::Option<unsafe extern "C" fn(axisEvent: *const Input_AxisEvent)>;
-/// Defines the callback for device addition events.
+/// Callback used to receive input device hot-plug events.
+///
 /// # Arguments
 ///
-/// * `deviceId` - Device ID.
+/// * `deviceId` - Unique ID of the input device. If a physical device is repeatedly reinstalled or restarted, its ID
+/// may change.
 ///
 /// Available since API-level: 13
 #[cfg(feature = "api-13")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
 pub type Input_DeviceAddedCallback = ::core::option::Option<unsafe extern "C" fn(deviceId: i32)>;
-/// Defines the callback for device removal events.
+/// Callback used to receive input device hot-unplug events.
+///
 /// # Arguments
 ///
-/// * `deviceId` - Device ID.
+/// * `deviceId` - Unique ID of the input device. If a physical device is repeatedly reinstalled or restarted, its ID
+/// may change.
 ///
 /// Available since API-level: 13
 #[cfg(feature = "api-13")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
 pub type Input_DeviceRemovedCallback = ::core::option::Option<unsafe extern "C" fn(deviceId: i32)>;
-/// Defines the event injection callback.
+/// Defines a callback used to receive the injection permission authorization status.
+///
 /// # Arguments
 ///
-/// * `authorizedStatus` - Authorization status.
+/// * `authorizedStatus` - Injection permission authorization status.
 ///
 /// Available since API-level: 20
 #[cfg(feature = "api-20")]
@@ -462,7 +542,11 @@ pub struct Input_InterceptorEventCallback {
     /// Defines a lifecycle callback for **axisEvent**.
     pub axisCallback: Input_AxisEventCallback,
 }
-/// Defines a listener for device insertion and removal events.
+/// Defines the struct for listening for device hot swapping. It is applicable to applications that need to
+/// respond to input device connection and disconnection in real time, such as games and music players. By listening for
+/// device hot swapping events, applications can update the input status in a timely manner, improving user experience
+/// and avoiding exceptions caused by device disconnection.
+///
 ///
 /// Available since API-level: 13
 #[cfg(feature = "api-13")]
@@ -470,9 +554,9 @@ pub struct Input_InterceptorEventCallback {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct Input_DeviceListener {
-    /// Callback for device addition events
+    /// Defines a callback used to receive device hot-plug events.
     pub deviceAddedCallback: Input_DeviceAddedCallback,
-    /// Callback for device removal events
+    /// Defines a callback used to receive device hot-unplug events.
     pub deviceRemovedCallback: Input_DeviceRemovedCallback,
 }
 /// Defines event interceptor options.
@@ -485,19 +569,16 @@ pub struct Input_InterceptorOptions {
     _unused: [u8; 0],
 }
 extern "C" {
-    /// Queries the key state.
+    /// Queries a key status enum object.
     ///
     /// # Arguments
     ///
-    /// * `keyState` - Key state.
+    /// * `keyState` - Key status enum object. For details, see [`Input_KeyStateAction`](crate::input_manager::Input_KeyStateAction).
     ///
     /// # Returns
     ///
-    /// * OH_Input_GetKeyState function result code.
-    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) get KeyState success.
-    ///
-    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) keyCode is invalid.
-    ///
+    /// * If the operation is successful, [`INPUT_SUCCESS`](crate::input_manager::Input_Result) is returned; if parameter verification fails,
+    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) is returned.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -505,13 +586,13 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Input_GetKeyState(keyState: *mut Input_KeyState) -> Input_Result;
-    /// Creates a key status enumeration object.
+    /// Creates a key status enum object. You can call `OH_Input_DestroyKeyState()` to destroy a key status
+    /// enum object.
     ///
     ///
     /// # Returns
     ///
-    /// * Returns an [`Input_KeyState`](ohos_sys_opaque_types::Input_KeyState) pointer object if the operation is successful.
-    /// Otherwise, a null pointer is returned. The possible cause is memory allocation failure.
+    /// * If the operations is successful, [`Input_KeyState`](ohos_sys_opaque_types::Input_KeyState) is returned. Otherwise, a null pointer is returned.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -519,11 +600,11 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Input_CreateKeyState() -> *mut Input_KeyState;
-    /// Destroys a key status enumeration object.
+    /// Destroys a key status enum object.
     ///
     /// # Arguments
     ///
-    /// * `keyState` - Key status enumeration object.
+    /// * `keyState` - Key status enum object. For details, see [`Input_KeyStateAction`](crate::input_manager::Input_KeyStateAction).
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -531,13 +612,13 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Input_DestroyKeyState(keyState: *mut *mut Input_KeyState);
-    /// Sets the key value of a key status enumeration object.
+    /// Sets the key value of a key status enum object.
     ///
     /// # Arguments
     ///
-    /// * `keyState` - Key status enumeration object.
+    /// * `keyState` - Key status enum object. For details, see [`Input_KeyStateAction`](crate::input_manager::Input_KeyStateAction).
     ///
-    /// * `keyCode` - Key value of the key status enumeration object.
+    /// * `keyCode` - Key code. For details, see `KeyCode`.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -545,15 +626,15 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Input_SetKeyCode(keyState: *mut Input_KeyState, keyCode: i32);
-    /// Obtains the key value of a key status enumeration object.
+    /// Obtains the key value of a key status enum object.
     ///
     /// # Arguments
     ///
-    /// * `keyState` - Key status enumeration object.
+    /// * `keyState` - Key status enum object. For details, see [`Input_KeyStateAction`](crate::input_manager::Input_KeyStateAction).
     ///
     /// # Returns
     ///
-    /// * Key value of the key status enumeration object.
+    /// * Key value of the key status enum object. For details, see [`Input_KeyStateAction`](crate::input_manager::Input_KeyStateAction).
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -561,13 +642,13 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Input_GetKeyCode(keyState: *const Input_KeyState) -> i32;
-    /// Sets whether the key specific to a key status enumeration object is pressed.
+    /// Sets whether the key specific to a key status enum object is pressed.
     ///
     /// # Arguments
     ///
-    /// * `keyState` - Key status enumeration object.
+    /// * `keyState` - Key status enum object. For details, see [`Input_KeyStateAction`](crate::input_manager::Input_KeyStateAction).
     ///
-    /// * `keyAction` - Whether the key is pressed.
+    /// * `keyAction` - Whether a key is pressed. For details, see [`Input_KeyEventAction`](crate::input_manager::Input_KeyEventAction).
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -575,15 +656,15 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Input_SetKeyPressed(keyState: *mut Input_KeyState, keyAction: i32);
-    /// Checks whether the key specific to a key status enumeration object is pressed.
+    /// Checks whether the key specific to a key status enum object is pressed.
     ///
     /// # Arguments
     ///
-    /// * `keyState` - Key status enumeration object.
+    /// * `keyState` - Key status enum object. For details, see [`Input_KeyStateAction`](crate::input_manager::Input_KeyStateAction).
     ///
     /// # Returns
     ///
-    /// * Key pressing status of the key status enumeration object.
+    /// * Key pressing status of the key status enum object. For details, see [`Input_KeyStateAction`](crate::input_manager::Input_KeyStateAction).
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -591,13 +672,13 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Input_GetKeyPressed(keyState: *const Input_KeyState) -> i32;
-    /// Sets the key switch of the key status enumeration object.
+    /// Sets the key switch of the key status enum object.
     ///
     /// # Arguments
     ///
-    /// * `keyState` - Key status enumeration object.
+    /// * `keyState` - Key status enum object. For details, see [`Input_KeyStateAction`](crate::input_manager::Input_KeyStateAction).
     ///
-    /// * `keySwitch` - Key switch of the key status enumeration object.
+    /// * `keySwitch` - Key switch.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -605,15 +686,49 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Input_SetKeySwitch(keyState: *mut Input_KeyState, keySwitch: i32);
-    /// Obtains the key switch of the key status enumeration object.
+    /// Injects a key event.
+    /// <br>This API does not take effect if the user has not granted authorization and the caller does not have the ohos.
+    /// permission.CONTROL_DEVICE permission.
+    /// <br>Since API version 20, you are advised to use `OH_Input_RequestInjection()` to request the required
+    /// permission before calling this API. If the status returned by `OH_Input_QueryAuthorizedStatus()` is
+    /// [`AUTHORIZED`](crate::input_manager::Input_InjectionStatus::AUTHORIZED), then you can call this API.
+    /// <br>Since API version 22, if the key press event (**KEY_ACTION_DOWN**) of a modifier key (**KEYCODE_META_LEFT**, **
+    /// KEYCODE_META_RIGHT**, **KEYCODE_CTRL_LEFT**, **KEYCODE_CTRL_RIGHT**, **KEYCODE_ALT_LEFT**, **KEYCODE_ALT_RIGHT**, **
+    /// KEYCODE_SHIFT_LEFT**, **KEYCODE_SHIFT_RIGHT**, **KEYCODE_CAPS_LOCK**, **KEYCODE_SCROLL_LOCK**, or **KEYCODE_NUM_LOCK*
+    /// *) is injected, the release event (**KEY_ACTION_UP**) of the key needs to be injected in a timely manner to avoid
+    /// the key being pressed for a long time.
+    /// <br>Since API version 26.0.0, callers that have the ohos.permission.CONTROL_DEVICE permission can use this API
+    /// directly.
     ///
+    ///
+    /// Required Permissions: ohos.permission.CONTROL_DEVICE
     /// # Arguments
     ///
-    /// * `keyState` - Key status enumeration object.
+    /// * `keyEvent` - **KeyEvent** object, which can be created through `OH_Input_CreateKeyEvent()`. You can call
+    /// `OH_Input_SetKeyEventKeyCode()` and `OH_Input_SetKeyEventAction()` to set the key value and key
+    /// event type of the key event object.
+    /// <br>If the key event object is no longer needed, destroy it by calling `OH_Input_DestroyKeyEvent()`.
     ///
     /// # Returns
     ///
-    /// * Key switch of the key status enumeration object.
+    /// * Return value of the **OH_Input_InjectKeyEvent** function.
+    /// <br>- [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
+    /// <br>- [`INPUT_PERMISSION_DENIED`](crate::input_manager::InputErrorCode::PERMISSION_DENIED) if the required permission is missing;
+    /// <br>- [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if the input parameter is incorrect.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
+    pub fn OH_Input_InjectKeyEvent(keyEvent: *const Input_KeyEvent) -> i32;
+    /// Obtains the key switch of the key status enum object.
+    ///
+    /// # Arguments
+    ///
+    /// * `keyState` - Key status enum object. For details, see [`Input_KeyStateAction`](crate::input_manager::Input_KeyStateAction).
+    ///
+    /// # Returns
+    ///
+    /// * Key switch of the key status enum object. For details, see [`Input_KeyStateAction`](crate::input_manager::Input_KeyStateAction).
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -621,39 +736,12 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Input_GetKeySwitch(keyState: *const Input_KeyState) -> i32;
-    /// Inject system keys.
-    /// since API 20, it is recommended to use OH_Input_RequestInjection
-    /// to request authorization before using the interface,
-    /// and then use OH_Input_QueryAuthorizedStatus to query the authorization status.
-    /// When the authorization status is AUTHORIZED, use the interface.
-    ///
-    /// # Arguments
-    ///
-    /// * `keyEvent` - - the key event to be injected.
-    ///
-    /// # Returns
-    ///
-    /// * OH_Input_InjectKeyEvent function result code.
-    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) inject keyEvent success.
-    ///
-    /// [`INPUT_PERMISSION_DENIED`](crate::input_manager::InputErrorCode::PERMISSION_DENIED) Permission verification failed.
-    ///
-    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) keyCode is less 0, can not process.
-    ///
-    ///
-    /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
-    ///
-    /// Available since API-level: 12
-    #[cfg(feature = "api-12")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_Input_InjectKeyEvent(keyEvent: *const Input_KeyEvent) -> i32;
-    /// Creates a key event object.
+    /// Creates a key event object. You can call `OH_Input_DestroyKeyEvent()` to destroy a key event object.
     ///
     ///
     /// # Returns
     ///
-    /// * Returns an [`Input_KeyEvent`](ohos_sys_opaque_types::Input_KeyEvent) pointer object if the operation is successful.
-    /// Otherwise, a null pointer is returned. The possible cause is memory allocation failure.
+    /// * [`Input_KeyEvent`](ohos_sys_opaque_types::Input_KeyEvent) pointer object if the operation is successful; a null pointer otherwise.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -677,9 +765,10 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `keyEvent` - Key event object.
+    /// * `keyEvent` - **KeyEvent** object, which can be created through `OH_Input_CreateKeyEvent()`.
+    /// <br>If the key event object is no longer needed, destroy it by calling `OH_Input_DestroyKeyEvent()`.
     ///
-    /// * `action` - Key event type.
+    /// * `action` - Key event type. For details, see [`Input_KeyEventAction`](crate::input_manager::Input_KeyEventAction).
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -687,15 +776,16 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Input_SetKeyEventAction(keyEvent: *mut Input_KeyEvent, action: i32);
-    /// Obtains the key event type.
+    /// Obtains the key event action.
     ///
     /// # Arguments
     ///
-    /// * `keyEvent` - Key event object.
+    /// * `keyEvent` - **KeyEvent** object, which can be created through `OH_Input_CreateKeyEvent()`.
+    /// <br>If the key event object is no longer needed, destroy it by calling `OH_Input_DestroyKeyEvent()`.
     ///
     /// # Returns
     ///
-    /// * Key event type.
+    /// * Key event type. For details, see [`Input_KeyEventAction`](crate::input_manager::Input_KeyEventAction).
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -703,13 +793,14 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Input_GetKeyEventAction(keyEvent: *const Input_KeyEvent) -> i32;
-    /// Sets the key value for a key event.
+    /// Sets the key code value for a key event.
     ///
     /// # Arguments
     ///
-    /// * `keyEvent` - Key event object.
+    /// * `keyEvent` - **KeyEvent** object, which can be created through `OH_Input_CreateKeyEvent()`.
+    /// <br>If the key event object is no longer needed, destroy it by calling `OH_Input_DestroyKeyEvent()`.
     ///
-    /// * `keyCode` - keyCode Key code.
+    /// * `keyCode` - Key value. For details, see `KeyCode`.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -717,15 +808,16 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Input_SetKeyEventKeyCode(keyEvent: *mut Input_KeyEvent, keyCode: i32);
-    /// Obtains the key value of a key event.
+    /// Obtains the key code value of a key event.
     ///
     /// # Arguments
     ///
-    /// * `keyEvent` - Key event object.
+    /// * `keyEvent` - **KeyEvent** object, which can be created through `OH_Input_CreateKeyEvent()`.
+    /// <br>If the key event object is no longer needed, destroy it by calling `OH_Input_DestroyKeyEvent()`.
     ///
     /// # Returns
     ///
-    /// * Key code.
+    /// * Key code of a key event. For details, see [`Input_KeyCode`](crate::key_code::Input_KeyCode).
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -737,9 +829,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `keyEvent` - Key event object.
+    /// * `keyEvent` - **KeyEvent** object, which can be created through `OH_Input_CreateKeyEvent()`.
+    /// <br>If the key event object is no longer needed, destroy it by calling `OH_Input_DestroyKeyEvent()`.
     ///
-    /// * `actionTime` - Time when the key event occurs.
+    /// * `actionTime` - Time when the key event occurred, representing the number of microseconds elapsed since system
+    /// startup, in microseconds (μs).
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -751,11 +845,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `keyEvent` - Key event object.
+    /// * `keyEvent` - **KeyEvent** object, which can be created through `OH_Input_CreateKeyEvent()`.
+    /// <br>If the key event object is no longer needed, destroy it by calling `OH_Input_DestroyKeyEvent()`.
     ///
     /// # Returns
     ///
-    /// * Returns the time when the key event occurs.
+    /// * Returns the time when the key event occurred, representing the number of microseconds elapsed since system
+    /// startup, in microseconds (μs).
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -763,13 +859,14 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Input_GetKeyEventActionTime(keyEvent: *const Input_KeyEvent) -> i64;
-    /// Sets the windowId for a key event.
+    /// Sets the window ID of a key event.
     ///
     /// # Arguments
     ///
-    /// * `keyEvent` - Key event object.
+    /// * `keyEvent` - **KeyEvent** object, which can be created through `OH_Input_CreateKeyEvent()`.
+    /// <br>If the key event object is no longer needed, destroy it by calling `OH_Input_DestroyKeyEvent()`.
     ///
-    /// * `windowId` - The windowId for a key event.
+    /// * `windowId` - Window ID of the key event.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -777,15 +874,16 @@ extern "C" {
     #[cfg(feature = "api-15")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub fn OH_Input_SetKeyEventWindowId(keyEvent: *mut Input_KeyEvent, windowId: i32);
-    /// Obtains the windowId of a key event.
+    /// Obtains the window ID of a key event.
     ///
     /// # Arguments
     ///
-    /// * `keyEvent` - Key event object.
+    /// * `keyEvent` - **KeyEvent** object, which can be created through `OH_Input_CreateKeyEvent()`.
+    /// <br>If the key event object is no longer needed, destroy it by calling `OH_Input_DestroyKeyEvent()`.
     ///
     /// # Returns
     ///
-    /// * windowId.
+    /// * Window ID of the key event.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -793,13 +891,14 @@ extern "C" {
     #[cfg(feature = "api-15")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub fn OH_Input_GetKeyEventWindowId(keyEvent: *const Input_KeyEvent) -> i32;
-    /// Sets the displayId for a key event.
+    /// Sets the screen ID of a key event.
     ///
     /// # Arguments
     ///
-    /// * `keyEvent` - Key event object.
+    /// * `keyEvent` - **KeyEvent** object, which can be created through `OH_Input_CreateKeyEvent()`.
+    /// <br>If the key event object is no longer needed, destroy it by calling `OH_Input_DestroyKeyEvent()`.
     ///
-    /// * `displayId` - The displayId for a key event.
+    /// * `displayId` - Screen ID of the key event.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -807,15 +906,16 @@ extern "C" {
     #[cfg(feature = "api-15")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub fn OH_Input_SetKeyEventDisplayId(keyEvent: *mut Input_KeyEvent, displayId: i32);
-    /// Obtains the displayId of a key event.
+    /// Obtains the screen ID of a key event.
     ///
     /// # Arguments
     ///
-    /// * `keyEvent` - Key event object.
+    /// * `keyEvent` - **KeyEvent** object, which can be created through `OH_Input_CreateKeyEvent()`.
+    /// <br>If the key event object is no longer needed, destroy it by calling `OH_Input_DestroyKeyEvent()`.
     ///
     /// # Returns
     ///
-    /// * displayId.
+    /// * Screen ID of the key event.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -823,21 +923,20 @@ extern "C" {
     #[cfg(feature = "api-15")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub fn OH_Input_GetKeyEventDisplayId(keyEvent: *const Input_KeyEvent) -> i32;
-    /// Get the eventId of the keyEvent.
+    /// Obtains the ID of a key event.
     ///
     /// # Arguments
     ///
-    /// * `keyEvent` - - Key event object.
+    /// * `keyEvent` - **KeyEvent** object, which can be created through `OH_Input_CreateKeyEvent()`.
+    /// <br>If the key event object is no longer needed, destroy it by calling `OH_Input_DestroyKeyEvent()`.
     ///
-    /// * `eventId` - - Get the keyEvent eventId.
+    /// * `eventId` - ID of the key event.
     ///
     /// # Returns
     ///
-    /// * OH_Input_GetKeyEventId function result code.
-    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) Get the eventId of the keyEvent success.
-    ///
-    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) Parameter check failed.
-    ///
+    /// * Return value of the **OH_Input_GetKeyEventId** function.
+    /// <br>[`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
+    /// <br>[`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if the parameter verification fails.
     ///
     /// Available since API-level: 21
     #[cfg(feature = "api-21")]
@@ -846,152 +945,144 @@ extern "C" {
         keyEvent: *const Input_KeyEvent,
         eventId: *mut i32,
     ) -> Input_Result;
-    /// Add a keyEvent interception hook function. Before using this interface,
-    /// the user needs to authorize it in the settings.
+    /// Adds a hook function for key event interception.
+    /// <br>You can call `OH_Input_RemoveKeyEventHook()` to remove a hook function that has been added. Multiple hook
+    /// functions can be set for an application, but only one hook function can be set for a process. The most recently
+    /// added hook function has a higher priority.
     ///
     ///
     /// Required Permissions: ohos.permission.HOOK_KEY_EVENT
     /// # Arguments
     ///
-    /// * `callback` - - Hook function, keyEvent will be sent to the hook function for priority processing.
+    /// * `callback` - Hook function, which is used to intercept all key events to be distributed.
     ///
     /// # Returns
     ///
-    /// * OH_Input_AddKeyEventHook function result code.
-    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) Added hook function successfully.
-    ///
-    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) Failed to add the hook function. Reason: Parameter check failed.
-    ///
-    /// [`INPUT_DEVICE_NOT_SUPPORTED`](crate::input_manager::InputErrorCode::DEVICE_NOT_SUPPORTED) Capability not supported.
-    ///
-    /// [`INPUT_PERMISSION_DENIED`](crate::input_manager::InputErrorCode::PERMISSION_DENIED) Failed to add the hook function. Reason: Permission check failed.
-    ///
-    /// [`INPUT_REPEAT_INTERCEPTOR`](crate::input_manager::InputErrorCode::REPEAT_INTERCEPTOR) Failed to add the hook function.
-    ///
-    /// Reason: Repeatedly set the hook function. A process can only have one key hook function.
-    ///
-    /// [`INPUT_SERVICE_EXCEPTION`](crate::input_manager::InputErrorCode::SERVICE_EXCEPTION) Failed to add the hook function.
-    ///
-    /// Reason: Input service exception, please try again.
-    ///
+    /// * Return value of the **OH_Input_AddKeyEventHook** function.
+    /// <br>[`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
+    /// <br>[`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if the parameter verification fails;
+    /// <br>[`INPUT_DEVICE_NOT_SUPPORTED`](crate::input_manager::InputErrorCode::DEVICE_NOT_SUPPORTED) if the function is not supported.
+    /// <br>[`INPUT_PERMISSION_DENIED`](crate::input_manager::InputErrorCode::PERMISSION_DENIED) if the permission verification fails;
+    /// <br>[`INPUT_REPEAT_INTERCEPTOR`](crate::input_manager::InputErrorCode::REPEAT_INTERCEPTOR) if the hook function is set repeatedly (only one hook function can be set
+    /// for a process);
+    /// <br>[`INPUT_SERVICE_EXCEPTION`](crate::input_manager::InputErrorCode::SERVICE_EXCEPTION) if the service is abnormal.
     ///
     /// Available since API-level: 21
     #[cfg(feature = "api-21")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
     pub fn OH_Input_AddKeyEventHook(callback: Input_KeyEventCallback) -> Input_Result;
-    /// Remove keyEvent interception hook function.
+    /// Removes the hook function for key event interception.
+    /// <br>This API is usually used together with `OH_Input_AddKeyEventHook()`.
     ///
     /// # Arguments
     ///
-    /// * `callback` - - Hook function, Same as the parameters when calling OH_Input_AddKeyEventHook.
+    /// * `callback` - Hook function, which is used to intercept all key events to be distributed.
     ///
     /// # Returns
     ///
-    /// * OH_Input_RemoveKeyEventHook function result code.
-    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) Hook function removed successfully.
-    ///
-    /// Even if the hook function has not been added before, it will return success when removed.
-    ///
-    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) Failed to remove the hook function. Reason: Parameter check failed.
-    ///
-    /// [`INPUT_SERVICE_EXCEPTION`](crate::input_manager::InputErrorCode::SERVICE_EXCEPTION) Failed to remove the hook function.
-    ///
-    /// Reason: Input service exception, please try again.
-    ///
+    /// * Return value of the **OH_Input_RemoveKeyEventHook** function.
+    /// <br>[`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful; (if a hook is not added, a success message is also
+    /// returned when the hook is removed);
+    /// <br>[`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if the parameter verification fails;
+    /// <br>[`INPUT_SERVICE_EXCEPTION`](crate::input_manager::InputErrorCode::SERVICE_EXCEPTION) if the service is abnormal.
     ///
     /// Available since API-level: 21
     #[cfg(feature = "api-21")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
     pub fn OH_Input_RemoveKeyEventHook(callback: Input_KeyEventCallback) -> Input_Result;
-    /// Redispatches keyEvent.
-    /// Only keyEvent intercepted by hook functions can be redispatched,
-    /// and the event order must be maintained during redispatching.
-    /// The hook function intercepts the input event and then redistributes it for 3 seconds.
-    /// If this time is exceeded, calling this function will return INPUT_PARAMETER_ERROR.
-    /// Re-dispatching requires event pairing, usually starting with one or more KEY_ACTION_DOWN and
-    /// ending with KEY_ACTION_UP or KEY_ACTION_CANCEL.
-    /// Only KEY_ACTION_UP or KEY_ACTION_CANCEL is redispatched, the function call succeeds,
-    /// but no actual dispatch is made.
-    /// If an event is dispatched that is not intercepted by the hook function,
-    /// the function call succeeds, but no actual dispatch action is taken.
+    /// Redispatches key events.
+    /// <br>Only key events intercepted by the hook function can be redispatched, and these events must maintain the
+    /// original priority sequence.
+    /// <br>After this API is called, key events will be redispatched within 3 seconds. If the redispatch is not completed
+    /// within 3 seconds, [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) is reported.
+    /// <br>Successful redispatch requires correct mapping of events. If one or more [`KEY_ACTION_DOWN`](crate::input_manager::Input_KeyEventAction::KEY_ACTION_DOWN) events are
+    /// redispatched, the [`KEY_ACTION_UP`](crate::input_manager::Input_KeyEventAction::KEY_ACTION_UP) or [`KEY_ACTION_CANCEL`](crate::input_manager::Input_KeyEventAction::KEY_ACTION_CANCEL) event can be redispatched.
+    /// <br>If only the [`KEY_ACTION_UP`](crate::input_manager::Input_KeyEventAction::KEY_ACTION_UP) or [`KEY_ACTION_CANCEL`](crate::input_manager::Input_KeyEventAction::KEY_ACTION_CANCEL) key events are redispatched, the API call is
+    /// successful, but the dispatch is not actually performed.
+    /// <br>If the redispatched event is not intercepted by the hook function, the API call is successful, but the dispatch
+    /// is not actually performed.
     ///
     /// # Arguments
     ///
-    /// * `eventId` - - keyEvent eventId.
+    /// * `eventId` - ID of the key event, which can be obtained through `OH_Input_GetKeyEventId()`.
     ///
     /// # Returns
     ///
-    /// * OH_Input_DispatchToNextHandler function result code.
-    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) Redistribution successful.
-    ///
-    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) Redistribution failed. Reason: KeyEvent does not exist.
-    ///
-    /// [`INPUT_SERVICE_EXCEPTION`](crate::input_manager::InputErrorCode::SERVICE_EXCEPTION) Redistribution failed.
-    ///
-    /// Reason: Input service exception, it's recommended to reset the pending distribution status.
-    ///
+    /// * Return value of the **OH_Input_DispatchToNextHandler** function.
+    /// <br>[`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
+    /// <br>[`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if the parameter verification fails; (you can call
+    /// `OH_Input_GetKeyEventId()` to check whether the input eventId is correct);
+    /// <br>[`INPUT_SERVICE_EXCEPTION`](crate::input_manager::InputErrorCode::SERVICE_EXCEPTION) if the service is abnormal.
     ///
     /// Available since API-level: 21
     #[cfg(feature = "api-21")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
     pub fn OH_Input_DispatchToNextHandler(eventId: i32) -> Input_Result;
-    /// Inject mouse event.
-    /// since API 20, it is recommended to use OH_Input_RequestInjection
-    /// to request authorization before using the interface,
-    /// and then use OH_Input_QueryAuthorizedStatus to query the authorization status.
-    /// When the authorization status is AUTHORIZED, use the interface.
+    /// Injects a mouse event by using coordinates in the relative coordinate system with the upper-left corner of
+    /// the specified screen as the origin.
+    /// <br>This API does not take effect if the user has not granted authorization and the caller does not have the ohos.
+    /// permission.CONTROL_DEVICE permission.
+    /// <br>Since API version 20, you are advised to use `OH_Input_RequestInjection()` to request the required
+    /// permission before calling this API. If the status returned by `OH_Input_QueryAuthorizedStatus()` is
+    /// [`AUTHORIZED`](crate::input_manager::Input_InjectionStatus::AUTHORIZED), then you can call this API.
+    /// <br>Since API version 26.0.0, callers that have the ohos.permission.CONTROL_DEVICE permission can use this API
+    /// directly.
     ///
+    ///
+    /// Required Permissions: ohos.permission.CONTROL_DEVICE
     /// # Arguments
     ///
-    /// * `mouseEvent` - - the mouse event to be injected.
+    /// * `mouseEvent` - Mouse event object. You can call `OH_Input_CreateMouseEvent()` to create a mouse event
+    /// object.
+    /// <br>If the mouse event object is no longer needed, destroy it by calling `OH_Input_DestroyMouseEvent()`.
     ///
     /// # Returns
     ///
-    /// * OH_Input_InjectMouseEvent function result code.
-    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) inject mouseEvent success.
-    ///
-    /// [`INPUT_PERMISSION_DENIED`](crate::input_manager::InputErrorCode::PERMISSION_DENIED) Permission verification failed.
-    ///
-    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) Parameter check failed.
-    ///
-    ///
-    /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
+    /// * Return value of the **OH_Input_InjectMouseEvent** function.
+    /// <br>[`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
+    /// <br>[`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if the parameter is incorrect;
+    /// <br>[`INPUT_PERMISSION_DENIED`](crate::input_manager::InputErrorCode::PERMISSION_DENIED) if the permission is denied.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Input_InjectMouseEvent(mouseEvent: *const Input_MouseEvent) -> i32;
-    /// Inject mouse event using global coordinate.
-    /// since API 20, it is recommended to use OH_Input_RequestInjection
-    /// to request authorization before using the interface,
-    /// and then use OH_Input_QueryAuthorizedStatus to query the authorization status.
-    /// When the authorization status is AUTHORIZED, use the interface.
+    /// Injects a mouse event by using coordinates in the global coordinate system with the upper-left corner of the
+    /// primary screen as the origin.
+    /// <br>This API does not take effect if the user has not granted authorization and the caller does not have the ohos.
+    /// permission.CONTROL_DEVICE permission.
+    /// <br>Since API version 20, you are advised to use `OH_Input_RequestInjection()` to request the required
+    /// permission before calling this API. If the status returned by `OH_Input_QueryAuthorizedStatus()` is
+    /// [`AUTHORIZED`](crate::input_manager::Input_InjectionStatus::AUTHORIZED), then you can call this API.
+    /// <br>Since API version 26.0.0, callers that have the ohos.permission.CONTROL_DEVICE permission can use this API
+    /// directly.
     ///
+    ///
+    /// Required Permissions: ohos.permission.CONTROL_DEVICE
     /// # Arguments
     ///
-    /// * `mouseEvent` - - the mouse event to be injected, set up effective globalX globalY.
+    /// * `mouseEvent` - Mouse event object. You can call `OH_Input_CreateMouseEvent()` to create a mouse event
+    /// object.
+    /// <br>If the mouse event object is no longer needed, destroy it by calling `OH_Input_DestroyMouseEvent()`.
     ///
     /// # Returns
     ///
-    /// * OH_Input_InjectMouseEventGlobal function result code.
-    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) inject mouseEvent success.
-    ///
-    /// [`INPUT_PERMISSION_DENIED`](crate::input_manager::InputErrorCode::PERMISSION_DENIED) Permission verification failed.
-    ///
-    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) Parameter check failed.
-    ///
+    /// * Return value of the **OH_Input_InjectMouseEventGlobal** function.
+    /// <br>[`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
+    /// <br>[`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if the parameter is incorrect;
+    /// <br>[`INPUT_PERMISSION_DENIED`](crate::input_manager::InputErrorCode::PERMISSION_DENIED) if the permission is denied.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_Input_InjectMouseEventGlobal(mouseEvent: *const Input_MouseEvent) -> i32;
-    /// Creates a mouse event object.
+    /// Creates a mouse event object. You can call `OH_Input_DestroyMouseEvent()` to destroy a mouse event
+    /// object.
     ///
     ///
     /// # Returns
     ///
-    /// * Returns an [`Input_MouseEvent`](ohos_sys_opaque_types::Input_MouseEvent) pointer object if the operation is successful.
-    /// Otherwise, a null pointer is returned. The possible cause is memory allocation failure.
+    /// * [`Input_MouseEvent`](ohos_sys_opaque_types::Input_MouseEvent) pointer object if the operation is successful; a null pointer otherwise.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -1015,9 +1106,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `mouseEvent` - Mouse event object.
+    /// * `mouseEvent` - Mouse event object. You can call `OH_Input_CreateMouseEvent()` to create a mouse event
+    /// object.
+    /// <br>If the mouse event object is no longer needed, destroy it by calling `OH_Input_DestroyMouseEvent()`.
     ///
-    /// * `action` - Mouse action.
+    /// * `action` - Mouse action. For details, see [`Input_MouseEventAction`](crate::input_manager::Input_MouseEventAction).
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -1029,11 +1122,14 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `mouseEvent` - Mouse event object.
+    /// * `mouseEvent` - Mouse event object. You can call `OH_Input_CreateMouseEvent()` to create a mouse event
+    /// object.
+    /// <br>If the mouse event object is no longer needed, destroy it by calling `OH_Input_DestroyMouseEvent()`.
     ///
     /// # Returns
     ///
-    /// * Mouse action.
+    /// * Mouse action. Returns -1 if mouseEvent is NULL.
+    /// For details, see [`Input_MouseEventAction`](crate::input_manager::Input_MouseEventAction).
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -1041,13 +1137,17 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Input_GetMouseEventAction(mouseEvent: *const Input_MouseEvent) -> i32;
-    /// Sets the X coordinate for a mouse event.
+    /// Sets the X coordinate of the mouse event in the relative coordinate system with the upper-left corner of the
+    /// specified screen as the origin.
     ///
     /// # Arguments
     ///
-    /// * `mouseEvent` - Mouse event object.
+    /// * `mouseEvent` - Mouse event object. You can call `OH_Input_CreateMouseEvent()` to create a mouse event
+    /// object.
+    /// <br>If the mouse event object is no longer needed, destroy it by calling `OH_Input_DestroyMouseEvent()`.
     ///
-    /// * `displayX` - X coordinate on the display.
+    /// * `displayX` - X-coordinate in the relative coordinate system with the upper left corner of the specified screen as
+    /// the origin, in pixels (px).
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -1055,15 +1155,19 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Input_SetMouseEventDisplayX(mouseEvent: *mut Input_MouseEvent, displayX: i32);
-    /// Obtains the X coordinate of a mouse event.
+    /// Obtains the X coordinate of the mouse event in the relative coordinate system with the upper-left corner of
+    /// the specified screen as the origin.
     ///
     /// # Arguments
     ///
-    /// * `mouseEvent` - Mouse event object.
+    /// * `mouseEvent` - Mouse event object. You can call `OH_Input_CreateMouseEvent()` to create a mouse event
+    /// object.
+    /// <br>If the mouse event object is no longer needed, destroy it by calling `OH_Input_DestroyMouseEvent()`.
     ///
     /// # Returns
     ///
-    /// * X coordinate on the display.
+    /// * The X coordinate of the mouse event in the relative coordinate system with the upper left corner of the
+    /// specified screen as the origin, in pixels (px). Returns -1 if mouseEvent is NULL.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -1071,13 +1175,17 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Input_GetMouseEventDisplayX(mouseEvent: *const Input_MouseEvent) -> i32;
-    /// Sets the Y coordinate for a mouse event.
+    /// Sets the Y coordinate of the mouse event in the relative coordinate system with the upper-left corner of the
+    /// specified screen as the origin.
     ///
     /// # Arguments
     ///
-    /// * `mouseEvent` - Mouse event object.
+    /// * `mouseEvent` - Mouse event object. You can call `OH_Input_CreateMouseEvent()` to create a mouse event
+    /// object.
+    /// <br>If the mouse event object is no longer needed, destroy it by calling `OH_Input_DestroyMouseEvent()`.
     ///
-    /// * `displayY` - Y coordinate on the display.
+    /// * `displayY` - Y coordinate of the mouse event in the relative coordinate system with the upper left corner of the
+    /// specified screen as the origin, in pixels (px).
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -1085,15 +1193,19 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Input_SetMouseEventDisplayY(mouseEvent: *mut Input_MouseEvent, displayY: i32);
-    /// Obtains the Y coordinate of a mouse event.
+    /// Obtains the Y coordinate of the mouse event in the relative coordinate system with the upper-left corner of
+    /// the specified screen as the origin.
     ///
     /// # Arguments
     ///
-    /// * `mouseEvent` - Mouse event object.
+    /// * `mouseEvent` - Mouse event object. You can call `OH_Input_CreateMouseEvent()` to create a mouse event
+    /// object.
+    /// <br>If the mouse event object is no longer needed, destroy it by calling `OH_Input_DestroyMouseEvent()`.
     ///
     /// # Returns
     ///
-    /// * Y coordinate on the display.
+    /// * Y-coordinate of the mouse event in the relative coordinate system with the upper left corner of the
+    /// specified screen as the origin, in pixels (px). Returns -1 if mouseEvent is NULL.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -1105,9 +1217,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `mouseEvent` - Mouse event object.
+    /// * `mouseEvent` - Mouse event object. You can call `OH_Input_CreateMouseEvent()` to create a mouse event
+    /// object.
+    /// <br>If the mouse event object is no longer needed, destroy it by calling `OH_Input_DestroyMouseEvent()`.
     ///
-    /// * `button` - Mouse button.
+    /// * `button` - Mouse button. For details, see [`Input_MouseEventButton`](crate::input_manager::Input_MouseEventButton).
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -1119,11 +1233,14 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `mouseEvent` - Mouse event object.
+    /// * `mouseEvent` - Mouse event object. You can call `OH_Input_CreateMouseEvent()` to create a mouse event
+    /// object.
+    /// <br>If the mouse event object is no longer needed, destroy it by calling `OH_Input_DestroyMouseEvent()`.
     ///
     /// # Returns
     ///
-    /// * Mouse button.
+    /// * Mouse button. Returns -1 if mouseEvent is NULL.
+    /// For details, see [`Input_MouseEventButton`](crate::input_manager::Input_MouseEventButton).
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -1131,13 +1248,16 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Input_GetMouseEventButton(mouseEvent: *const Input_MouseEvent) -> i32;
-    /// Sets the axis type for mouse event.
+    /// Sets the axis type for a mouse event.
     ///
     /// # Arguments
     ///
-    /// * `mouseEvent` - Mouse event object.
+    /// * `mouseEvent` - Mouse event object. You can call `OH_Input_CreateMouseEvent()` to create a mouse event
+    /// object.
+    /// <br>If the mouse event object is no longer needed, destroy it by calling `OH_Input_DestroyMouseEvent()`.
     ///
-    /// * `axisType` - Axis type, for example, X axis or Y axis.
+    /// * `axisType` - Mouse axis type, such as vertical axis and horizontal axis. For details, see
+    /// [`InputEvent_MouseAxis`](crate::input_manager::InputEvent_MouseAxis).
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -1149,11 +1269,14 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `mouseEvent` - Mouse event object.
+    /// * `mouseEvent` - Mouse event object. You can call `OH_Input_CreateMouseEvent()` to create a mouse event
+    /// object.
+    /// <br>If the mouse event object is no longer needed, destroy it by calling `OH_Input_DestroyMouseEvent()`.
     ///
     /// # Returns
     ///
-    /// * Axis type.
+    /// * Enumerates mouse axis types. Returns -1 if mouseEvent is NULL.
+    /// For details, see [`InputEvent_MouseAxis`](crate::input_manager::InputEvent_MouseAxis).
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -1165,10 +1288,12 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `mouseEvent` - Mouse event object.
+    /// * `mouseEvent` - Mouse event object. You can call `OH_Input_CreateMouseEvent()` to create a mouse event
+    /// object.
+    /// <br>If the mouse event object is no longer needed, destroy it by calling `OH_Input_DestroyMouseEvent()`.
     ///
-    /// * `axisValue` - Axis value. A positive value means scrolling forward,
-    /// and a negative number means scrolling backward.
+    /// * `axisValue` - Axis event value. A positive number means scrolling forward (for example, 1.0 equals one unit
+    /// forward), and a negative number means scrolling backward (for example, -1.0 equals one unit backward).
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -1176,15 +1301,17 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Input_SetMouseEventAxisValue(mouseEvent: *mut Input_MouseEvent, axisValue: f32);
-    /// Obtains the axis value of a mouse event.
+    /// Obtains the axis value of a mouse axis event.
     ///
     /// # Arguments
     ///
-    /// * `mouseEvent` - Mouse event object.
+    /// * `mouseEvent` - Mouse event object. You can call `OH_Input_CreateMouseEvent()` to create a mouse event
+    /// object.
+    /// <br>If the mouse event object is no longer needed, destroy it by calling `OH_Input_DestroyMouseEvent()`.
     ///
     /// # Returns
     ///
-    /// * Axis value.
+    /// * Axis event value. Returns -1 if mouseEvent is NULL.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -1196,9 +1323,12 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `mouseEvent` - Mouse event object.
+    /// * `mouseEvent` - Mouse event object. You can call `OH_Input_CreateMouseEvent()` to create a mouse event
+    /// object.
+    /// <br>If the mouse event object is no longer needed, destroy it by calling `OH_Input_DestroyMouseEvent()`.
     ///
-    /// * `actionTime` - Time when the mouse event occurs.
+    /// * `actionTime` - Time when the mouse event occurred, representing the number of microseconds elapsed since system
+    /// startup, in microseconds (μs).
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -1210,11 +1340,14 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `mouseEvent` - Mouse event object.
+    /// * `mouseEvent` - Mouse event object. You can call `OH_Input_CreateMouseEvent()` to create a mouse event
+    /// object.
+    /// <br>If the mouse event object is no longer needed, destroy it by calling `OH_Input_DestroyMouseEvent()`.
     ///
     /// # Returns
     ///
-    /// * Returns the time when the mouse event occurs.
+    /// * Returns the time when the mouse event occurred, representing the number of microseconds elapsed since system
+    /// startup, in microseconds (μs).
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -1222,13 +1355,15 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Input_GetMouseEventActionTime(mouseEvent: *const Input_MouseEvent) -> i64;
-    /// Sets the windowId for a mouse event.
+    /// Sets the window ID of a mouse event.
     ///
     /// # Arguments
     ///
-    /// * `mouseEvent` - Mouse event object.
+    /// * `mouseEvent` - Mouse event object. You can call `OH_Input_CreateMouseEvent()` to create a mouse event
+    /// object.
+    /// <br>If the mouse event object is no longer needed, destroy it by calling `OH_Input_DestroyMouseEvent()`.
     ///
-    /// * `windowId` - The windowId for a mouse event.
+    /// * `windowId` - Window ID of the mouse event.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -1236,15 +1371,17 @@ extern "C" {
     #[cfg(feature = "api-15")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub fn OH_Input_SetMouseEventWindowId(mouseEvent: *mut Input_MouseEvent, windowId: i32);
-    /// Obtains the windowId of a mouse event.
+    /// Obtains the window ID of a mouse event.
     ///
     /// # Arguments
     ///
-    /// * `mouseEvent` - Mouse event object.
+    /// * `mouseEvent` - Mouse event object. You can call `OH_Input_CreateMouseEvent()` to create a mouse event
+    /// object.
+    /// <br>If the mouse event object is no longer needed, destroy it by calling `OH_Input_DestroyMouseEvent()`.
     ///
     /// # Returns
     ///
-    /// * windowId.
+    /// * Window ID of the mouse event.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -1252,13 +1389,15 @@ extern "C" {
     #[cfg(feature = "api-15")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub fn OH_Input_GetMouseEventWindowId(mouseEvent: *const Input_MouseEvent) -> i32;
-    /// Sets the displayId for a mouse event.
+    /// Sets the screen ID of a mouse event.
     ///
     /// # Arguments
     ///
-    /// * `mouseEvent` - Mouse event object.
+    /// * `mouseEvent` - Mouse event object. You can call `OH_Input_CreateMouseEvent()` to create a mouse event
+    /// object.
+    /// <br>If the mouse event object is no longer needed, destroy it by calling `OH_Input_DestroyMouseEvent()`.
     ///
-    /// * `displayId` - The displayId for a mouse event.
+    /// * `displayId` - Screen ID of the mouse event.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -1266,15 +1405,17 @@ extern "C" {
     #[cfg(feature = "api-15")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub fn OH_Input_SetMouseEventDisplayId(mouseEvent: *mut Input_MouseEvent, displayId: i32);
-    /// Obtains the displayId of a mouse event.
+    /// Obtains the screen ID of a mouse event.
     ///
     /// # Arguments
     ///
-    /// * `mouseEvent` - Mouse event object.
+    /// * `mouseEvent` - Mouse event object. You can call `OH_Input_CreateMouseEvent()` to create a mouse event
+    /// object.
+    /// <br>If the mouse event object is no longer needed, destroy it by calling `OH_Input_DestroyMouseEvent()`.
     ///
     /// # Returns
     ///
-    /// * displayId.
+    /// * Screen ID if the operation is successful; **-1** if **mouseEvent** is null.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -1282,113 +1423,134 @@ extern "C" {
     #[cfg(feature = "api-15")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub fn OH_Input_GetMouseEventDisplayId(mouseEvent: *const Input_MouseEvent) -> i32;
-    /// Set the global X coordinate of the mouse event.
+    /// Sets the X coordinate of the mouse event in the global coordinate system with the upper-left corner of the
+    /// primary screen as the origin.
     ///
     /// # Arguments
     ///
-    /// * `mouseEvent` - Mouse event object.
+    /// * `mouseEvent` - Mouse Event object, which can be created through the `OH_Input_CreateMouseEvent()` API.
+    /// <br>After use, the Mouse Event object must be destroyed through the `OH_Input_DestroyMouseEvent()` API.
     ///
-    /// * `globalX` - Global X coordinate.
+    /// * `globalX` - X coordinate of the Mouse Event in the global coordinate system with the origin at the upper left
+    /// corner of the primary screen, in pixels (px).
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_Input_SetMouseEventGlobalX(mouseEvent: *mut Input_MouseEvent, globalX: i32);
-    /// Queries the global X coordinate of the mouse event.
+    /// Obtains the X coordinate of the mouse event in the global coordinate system with the upper-left corner of the
+    /// primary screen as the origin.
     ///
     /// # Arguments
     ///
-    /// * `mouseEvent` - Mouse event object.
+    /// * `mouseEvent` - Mouse event object. You can call `OH_Input_CreateMouseEvent()` to create a mouse event
+    /// object.
+    /// <br>If the mouse event object is no longer needed, destroy it by calling `OH_Input_DestroyMouseEvent()`.
     ///
     /// # Returns
     ///
-    /// * Global X coordinate.
+    /// * X-coordinate in the global coordinate system with the origin at the upper left corner of the primary screen,
+    /// in pixels (px).
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_Input_GetMouseEventGlobalX(mouseEvent: *const Input_MouseEvent) -> i32;
-    /// Set the global Y coordinate of the mouse event.
+    /// Sets the Y coordinate of the mouse event in the global coordinate system with the upper-left corner of the
+    /// primary screen as the origin.
     ///
     /// # Arguments
     ///
-    /// * `mouseEvent` - Mouse event object.
+    /// * `mouseEvent` - Mouse Event object, which can be created through the `OH_Input_CreateMouseEvent()` API.
+    /// <br>After use, the Mouse Event object must be destroyed through the `OH_Input_DestroyMouseEvent()` API.
     ///
-    /// * `globalY` - Global Y coordinate.
+    /// * `globalY` - Y-coordinate of the mouse event in the global coordinate system with the origin at the upper left
+    /// corner of the primary screen, in pixels (px).
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_Input_SetMouseEventGlobalY(mouseEvent: *mut Input_MouseEvent, globalY: i32);
-    /// Queries the global Y coordinate of the mouse event.
+    /// Obtains the Y coordinate of the mouse event in the global coordinate system with the upper-left corner of the
+    /// primary screen as the origin.
     ///
     /// # Arguments
     ///
-    /// * `mouseEvent` - Mouse event object.
+    /// * `mouseEvent` - Mouse event object. You can call `OH_Input_CreateMouseEvent()` to create a mouse event
+    /// object.
+    /// <br>If the mouse event object is no longer needed, destroy it by calling `OH_Input_DestroyMouseEvent()`.
     ///
     /// # Returns
     ///
-    /// * Global Y coordinate.
+    /// * The Y coordinate of the mouse event in the global coordinate system with the origin at the upper left corner
+    /// of the primary screen, in pixels (px).
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_Input_GetMouseEventGlobalY(mouseEvent: *const Input_MouseEvent) -> i32;
-    /// Inject touch event.
-    /// since API 20, it is recommended to use OH_Input_RequestInjection
-    /// to request authorization before using the interface,
-    /// and then use OH_Input_QueryAuthorizedStatus to query the authorization status.
-    /// When the authorization status is AUTHORIZED, use the interface.
+    /// Injects a touch event by using coordinates in the relative coordinate system with the upper-left corner of
+    /// the specified screen as the origin.
+    /// <br>This API does not take effect if the user has not granted authorization and the caller does not have the ohos.
+    /// permission.CONTROL_DEVICE permission.
+    /// <br>Since API version 20, you are advised to use `OH_Input_RequestInjection()` to request the required
+    /// permission before calling this API. If the status returned by `OH_Input_QueryAuthorizedStatus()` is
+    /// [`AUTHORIZED`](crate::input_manager::Input_InjectionStatus::AUTHORIZED), then you can call this API.
+    /// <br>Since API version 26.0.0, callers that have the ohos.permission.CONTROL_DEVICE permission can use this API
+    /// directly.
     ///
+    ///
+    /// Required Permissions: ohos.permission.CONTROL_DEVICE
     /// # Arguments
     ///
-    /// * `touchEvent` - - the touch event to be injected.
+    /// * `touchEvent` - **TouchEvent** object, which can be created through `OH_Input_CreateTouchEvent()`.
+    /// <br>If the **TouchEvent** object is no longer needed, destroy it by calling `OH_Input_DestroyTouchEvent()`.
     ///
     /// # Returns
     ///
-    /// * OH_Input_InjectTouchEvent function result code.
-    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) inject touchEvent success.
-    ///
-    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) Parameter check failed.
-    ///
-    ///
-    /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
+    /// * Return value of the OH_Input_InjectTouchEvent function.
+    /// <br>[`INPUT_SUCCESS`](crate::input_manager::Input_Result) indicates successful injection.
+    /// <br>[`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) indicates a parameter error.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Input_InjectTouchEvent(touchEvent: *const Input_TouchEvent) -> i32;
-    /// Inject touch event using global coordinate.
-    /// since API 20, it is recommended to use OH_Input_RequestInjection
-    /// to request authorization before using the interface,
-    /// and then use OH_Input_QueryAuthorizedStatus to query the authorization status.
-    /// When the authorization status is AUTHORIZED, use the interface.
+    /// Injects a touch event by using coordinates in the global coordinate system with the upper-left corner of the
+    /// primary screen as the origin.
+    /// <br>This API does not take effect if the event injection authorization is not granted and the caller does not have
+    /// the ohos.permission.CONTROL_DEVICE permission.
+    /// <br>Since API version 20, you are advised to use `OH_Input_RequestInjection()` to request the required
+    /// permission before calling this API. If the status returned by `OH_Input_QueryAuthorizedStatus()` is
+    /// [`AUTHORIZED`](crate::input_manager::Input_InjectionStatus::AUTHORIZED), then you can call this API.
+    /// <br>Since API version 26.0.0, callers that have the ohos.permission.CONTROL_DEVICE permission can use this API
+    /// directly.
     ///
+    ///
+    /// Required Permissions: ohos.permission.CONTROL_DEVICE
     /// # Arguments
     ///
-    /// * `touchEvent` - - the touch event to be injected, set up effective globalX globalY.
+    /// * `touchEvent` - **TouchEvent** object, which can be created through `OH_Input_CreateTouchEvent()`.
+    /// <br>If the **TouchEvent** object is no longer needed, destroy it by calling `OH_Input_DestroyTouchEvent()`.
     ///
     /// # Returns
     ///
-    /// * OH_Input_InjectTouchEventGlobal function result code.
-    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) inject touchEvent success.
-    ///
-    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) Parameter check failed.
-    ///
-    /// [`INPUT_PERMISSION_DENIED`](crate::input_manager::InputErrorCode::PERMISSION_DENIED) Permission verification failed.
-    ///
+    /// * Return value of the **OH_Input_InjectTouchEventGlobal** function.
+    /// <br>[`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
+    /// <br>[`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if the parameter is incorrect;
+    /// <br>[`INPUT_PERMISSION_DENIED`](crate::input_manager::InputErrorCode::PERMISSION_DENIED) if the permission is denied.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_Input_InjectTouchEventGlobal(touchEvent: *const Input_TouchEvent) -> i32;
-    /// Creates a touch event object.
+    /// Creates a **TouchEvent** object. You can call `OH_Input_DestroyTouchEvent()` to destroy a touch event
+    /// object.
     ///
     ///
     /// # Returns
     ///
-    /// * Returns an [`Input_TouchEvent`](ohos_sys_opaque_types::Input_TouchEvent) pointer object if the operation is successful.
-    /// Otherwise, a null pointer is returned. The possible cause is memory allocation failure.
+    /// * [`Input_TouchEvent`](ohos_sys_opaque_types::Input_TouchEvent) pointer object if the operation is successful; a null pointer otherwise.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -1396,11 +1558,11 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Input_CreateTouchEvent() -> *mut Input_TouchEvent;
-    /// Destroys a touch event object.
+    /// Destroys a **TouchEvent** object.
     ///
     /// # Arguments
     ///
-    /// * `touchEvent` - Touch event object.
+    /// * `touchEvent` - **TouchEvent** object.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -1408,13 +1570,14 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Input_DestroyTouchEvent(touchEvent: *mut *mut Input_TouchEvent);
-    /// Sets the action for a touch event.
+    /// Sets the action of a touch event.
     ///
     /// # Arguments
     ///
-    /// * `touchEvent` - Touch event object.
+    /// * `touchEvent` - **TouchEvent** object, which can be created through `OH_Input_CreateTouchEvent()`.
+    /// <br>If the **TouchEvent** object is no longer needed, destroy it by calling `OH_Input_DestroyTouchEvent()`.
     ///
-    /// * `action` - Touch action.
+    /// * `action` - Action of the touch event. For details, see [`Input_TouchEventAction`](crate::input_manager::Input_TouchEventAction).
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -1426,11 +1589,12 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `touchEvent` - Touch event object.
+    /// * `touchEvent` - **TouchEvent** object, which can be created through `OH_Input_CreateTouchEvent()`.
+    /// <br>If the **TouchEvent** object is no longer needed, destroy it by calling `OH_Input_DestroyTouchEvent()`.
     ///
     /// # Returns
     ///
-    /// * Touch action.
+    /// * Action of the touch event. For details, see [`Input_TouchEventAction`](crate::input_manager::Input_TouchEventAction).
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -1438,13 +1602,15 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Input_GetTouchEventAction(touchEvent: *const Input_TouchEvent) -> i32;
-    /// Sets the finger ID for the touch event.
+    /// Sets the finger ID of a touch event.
     ///
     /// # Arguments
     ///
-    /// * `touchEvent` - Touch event object.
+    /// * `touchEvent` - **TouchEvent** object, which can be created through `OH_Input_CreateTouchEvent()`.
+    /// <br>If the **TouchEvent** object is no longer needed, destroy it by calling `OH_Input_DestroyTouchEvent()`.
     ///
-    /// * `id` - Finger ID.
+    /// * `id` - Finger ID of a touch event. The ID of the first finger touching the screen is 0, the second is 1, and so
+    /// on incrementally.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -1456,11 +1622,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `touchEvent` - Touch event object.
+    /// * `touchEvent` - **TouchEvent** object, which can be created through `OH_Input_CreateTouchEvent()`.
+    /// <br>If the **TouchEvent** object is no longer needed, destroy it by calling `OH_Input_DestroyTouchEvent()`.
     ///
     /// # Returns
     ///
-    /// * Finger ID.
+    /// * Finger ID of a touch event. The ID of the first finger touching the screen is 0, the second is 1, and so on
+    /// incrementally.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -1468,13 +1636,16 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Input_GetTouchEventFingerId(touchEvent: *const Input_TouchEvent) -> i32;
-    /// Sets the X coordinate for a touch event.
+    /// Sets the X coordinate of the touch event in the relative coordinate system with the upper-left corner of the
+    /// specified screen as the origin.
     ///
     /// # Arguments
     ///
-    /// * `touchEvent` - Touch event object.
+    /// * `touchEvent` - **TouchEvent** object, which can be created through `OH_Input_CreateTouchEvent()`.
+    /// <br>If the **TouchEvent** object is no longer needed, destroy it by calling `OH_Input_DestroyTouchEvent()`.
     ///
-    /// * `displayX` - X coordinate.
+    /// * `displayX` - X coordinate of the touch screen input event in the relative coordinate system with the upper left
+    /// corner of the specified screen as the origin, in pixels (px).
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -1482,15 +1653,18 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Input_SetTouchEventDisplayX(touchEvent: *mut Input_TouchEvent, displayX: i32);
-    /// Obtains the X coordinate of a touch event.
+    /// Obtains the X coordinate of the touch event in the relative coordinate system with the upper-left corner of
+    /// the specified screen as the origin.
     ///
     /// # Arguments
     ///
-    /// * `touchEvent` - Touch event object.
+    /// * `touchEvent` - **TouchEvent** object, which can be created through `OH_Input_CreateTouchEvent()`.
+    /// <br>If the **TouchEvent** object is no longer needed, destroy it by calling `OH_Input_DestroyTouchEvent()`.
     ///
     /// # Returns
     ///
-    /// * X coordinate.
+    /// * The X coordinate of the touch screen input event in the relative coordinate system with the upper left
+    /// corner of the specified screen as the origin, in pixels (px).
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -1498,13 +1672,16 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Input_GetTouchEventDisplayX(touchEvent: *const Input_TouchEvent) -> i32;
-    /// Sets the Y coordinate for a touch event.
+    /// Sets the Y coordinate of the touch event in the relative coordinate system with the upper-left corner of the
+    /// specified screen as the origin.
     ///
     /// # Arguments
     ///
-    /// * `touchEvent` - Touch event object.
+    /// * `touchEvent` - **TouchEvent** object, which can be created through `OH_Input_CreateTouchEvent()`.
+    /// <br>If the **TouchEvent** object is no longer needed, destroy it by calling `OH_Input_DestroyTouchEvent()`.
     ///
-    /// * `displayY` - Y coordinate.
+    /// * `displayY` - Y-coordinate of the touch screen input event in the relative coordinate system with the upper left
+    /// corner of the specified screen as the origin, in pixels (px).
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -1512,15 +1689,18 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Input_SetTouchEventDisplayY(touchEvent: *mut Input_TouchEvent, displayY: i32);
-    /// Obtains the Y coordinate of a touch event.
+    /// Obtains the Y coordinate of the touch event in the relative coordinate system with the upper-left corner of
+    /// the specified screen as the origin.
     ///
     /// # Arguments
     ///
-    /// * `touchEvent` - Touch event object.
+    /// * `touchEvent` - **TouchEvent** object, which can be created through `OH_Input_CreateTouchEvent()`.
+    /// <br>If the **TouchEvent** object is no longer needed, destroy it by calling `OH_Input_DestroyTouchEvent()`.
     ///
     /// # Returns
     ///
-    /// * Y coordinate.
+    /// * The Y coordinate of the touch screen input event in the relative coordinate system with the upper left
+    /// corner of the specified screen as the origin, in pixels (px).
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -1528,13 +1708,15 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Input_GetTouchEventDisplayY(touchEvent: *const Input_TouchEvent) -> i32;
-    /// Sets the time when a touch event occurs.
+    /// Sets the time when the touch event occurs.
     ///
     /// # Arguments
     ///
-    /// * `touchEvent` - Touch event object.
+    /// * `touchEvent` - **TouchEvent** object, which can be created through `OH_Input_CreateTouchEvent()`.
+    /// <br>If the **TouchEvent** object is no longer needed, destroy it by calling `OH_Input_DestroyTouchEvent()`.
     ///
-    /// * `actionTime` - Time when the touch event occurs.
+    /// * `actionTime` - Time when the touch screen input event occurred, indicating the number of microseconds elapsed
+    /// since system startup, in microseconds (μs).
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -1542,15 +1724,16 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Input_SetTouchEventActionTime(touchEvent: *mut Input_TouchEvent, actionTime: i64);
-    /// Obtains the time when a touch event occurs.
+    /// Obtains the time when the touch event occurs.
     ///
     /// # Arguments
     ///
-    /// * `touchEvent` - touch event object.
+    /// * `touchEvent` - **TouchEvent** object, which can be created through `OH_Input_CreateTouchEvent()`.
+    /// <br>If the **TouchEvent** object is no longer needed, destroy it by calling `OH_Input_DestroyTouchEvent()`.
     ///
     /// # Returns
     ///
-    /// * Returns the time when the touch event occurs.
+    /// * Time when a touch event occurs.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -1558,13 +1741,14 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Input_GetTouchEventActionTime(touchEvent: *const Input_TouchEvent) -> i64;
-    /// Sets the windowId for a touch event.
+    /// Sets the window ID of a touch event.
     ///
     /// # Arguments
     ///
-    /// * `touchEvent` - Touch event object.
+    /// * `touchEvent` - **TouchEvent** object, which can be created through `OH_Input_CreateTouchEvent()`.
+    /// <br>If the **TouchEvent** object is no longer needed, destroy it by calling `OH_Input_DestroyTouchEvent()`.
     ///
-    /// * `windowId` - The windowId for a touch event.
+    /// * `windowId` - Window ID of a touch event.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -1572,15 +1756,16 @@ extern "C" {
     #[cfg(feature = "api-15")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub fn OH_Input_SetTouchEventWindowId(touchEvent: *mut Input_TouchEvent, windowId: i32);
-    /// Obtains the windowId of a touch event.
+    /// Obtains the window ID of a touch event.
     ///
     /// # Arguments
     ///
-    /// * `touchEvent` - Touch event object.
+    /// * `touchEvent` - **TouchEvent** object, which can be created through `OH_Input_CreateTouchEvent()`.
+    /// <br>If the **TouchEvent** object is no longer needed, destroy it by calling `OH_Input_DestroyTouchEvent()`.
     ///
     /// # Returns
     ///
-    /// * windowId.
+    /// * Window ID of a touch event.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -1588,13 +1773,14 @@ extern "C" {
     #[cfg(feature = "api-15")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub fn OH_Input_GetTouchEventWindowId(touchEvent: *const Input_TouchEvent) -> i32;
-    /// Sets the displayId for a touch event.
+    /// Sets the screen ID of a touch event.
     ///
     /// # Arguments
     ///
-    /// * `touchEvent` - Touch event object.
+    /// * `touchEvent` - **TouchEvent** object, which can be created through `OH_Input_CreateTouchEvent()`.
+    /// <br>If the **TouchEvent** object is no longer needed, destroy it by calling `OH_Input_DestroyTouchEvent()`.
     ///
-    /// * `displayId` - The displayId for a touch event.
+    /// * `displayId` - Screen ID of a touch event.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -1602,15 +1788,16 @@ extern "C" {
     #[cfg(feature = "api-15")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub fn OH_Input_SetTouchEventDisplayId(touchEvent: *mut Input_TouchEvent, displayId: i32);
-    /// Obtains the displayId of a touch event.
+    /// Obtains the screen ID of a touch event.
     ///
     /// # Arguments
     ///
-    /// * `touchEvent` - Touch event object.
+    /// * `touchEvent` - **TouchEvent** object, which can be created through `OH_Input_CreateTouchEvent()`.
+    /// <br>If the **TouchEvent** object is no longer needed, destroy it by calling `OH_Input_DestroyTouchEvent()`.
     ///
     /// # Returns
     ///
-    /// * displayId.
+    /// * Screen ID of a touch event.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -1618,59 +1805,281 @@ extern "C" {
     #[cfg(feature = "api-15")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub fn OH_Input_GetTouchEventDisplayId(touchEvent: *const Input_TouchEvent) -> i32;
-    /// Set the global X coordinate of the touch event.
+    /// Sets the X coordinate of the touch event in the global coordinate system with the upper-left corner of the
+    /// primary screen as the origin.
     ///
     /// # Arguments
     ///
-    /// * `touchEvent` - Touch event object.
+    /// * `touchEvent` - Touch screen input event object, which can be created through the
+    /// `OH_Input_CreateTouchEvent()` interface.
+    /// <br>After use, the touch screen input event object must be destroyed using the
+    /// `OH_Input_DestroyTouchEvent()` interface.
     ///
-    /// * `globalX` - Global X coordinate.
+    /// * `globalX` - X coordinate of the touch screen input event in the global coordinate system with the upper left
+    /// corner of the primary screen as the origin, in pixels (px).
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_Input_SetTouchEventGlobalX(touchEvent: *mut Input_TouchEvent, globalX: i32);
-    /// Queries the global X coordinate of the touch event.
+    /// Obtains the X coordinate of the touch event in the global coordinate system with the upper-left corner of the
+    /// primary screen as the origin.
     ///
     /// # Arguments
     ///
-    /// * `touchEvent` - Touch event object.
+    /// * `touchEvent` - **TouchEvent** object, which can be created through `OH_Input_CreateTouchEvent()`.
+    /// <br>If the **TouchEvent** object is no longer needed, destroy it by calling `OH_Input_DestroyTouchEvent()`.
     ///
     /// # Returns
     ///
-    /// * Global X coordinate.
+    /// * The X coordinate in the global coordinate system with the upper left corner of the primary screen as the
+    /// origin, in pixels (px).
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_Input_GetTouchEventGlobalX(touchEvent: *const Input_TouchEvent) -> i32;
-    /// Set the global Y coordinate of the touch event.
+    /// Sets the Y coordinate of the touch event in the global coordinate system with the upper-left corner of the
+    /// primary screen as the origin.
     ///
     /// # Arguments
     ///
-    /// * `touchEvent` - Touch event object.
+    /// * `touchEvent` - Touch screen input event object, which can be created through the
+    /// `OH_Input_CreateTouchEvent()` interface.
+    /// <br>After use, the touch screen input event object must be destroyed using the
+    /// `OH_Input_DestroyTouchEvent()` interface.
     ///
-    /// * `globalY` - Global Y coordinate.
+    /// * `globalY` - Y coordinate of the touch screen input event in the global coordinate system with the upper left
+    /// corner of the primary screen as the origin, in pixels (px).
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_Input_SetTouchEventGlobalY(touchEvent: *mut Input_TouchEvent, globalY: i32);
-    /// Queries the global Y coordinate of the touch event.
+    /// Obtains the Y coordinate of the touch event in the global coordinate system with the upper-left corner of the
+    /// primary screen as the origin.
     ///
     /// # Arguments
     ///
-    /// * `touchEvent` - Touch event object.
+    /// * `touchEvent` - **TouchEvent** object, which can be created through `OH_Input_CreateTouchEvent()`.
+    /// <br>If the **TouchEvent** object is no longer needed, destroy it by calling `OH_Input_DestroyTouchEvent()`.
     ///
     /// # Returns
     ///
-    /// * Global Y coordinate.
+    /// * The Y coordinate in the global coordinate system with the upper left corner of the primary screen as the
+    /// origin for the touch screen input event, in pixels (px).
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_Input_GetTouchEventGlobalY(touchEvent: *const Input_TouchEvent) -> i32;
-    /// Cancels event injection and revokes authorization.
+    /// Sets the pressure for a touchscreen input event. If the pressure value is not set or is not within the valid
+    /// range, the default value **0.0** is used.
+    ///
+    /// # Arguments
+    ///
+    /// * `touchEvent` - **TouchEvent** object, which can be created through `OH_Input_CreateTouchEvent()`.
+    /// <br>If the **TouchEvent** object is no longer needed, destroy it by calling `OH_Input_DestroyTouchEvent()`.
+    ///
+    /// * `pressure` - Pressure value. The value range is \[0.0, 1.0\]. Currently, the minimum pressure that can be sensed by
+    /// the touchscreen is 0.0, and the maximum pressure is 1.0. This value has no unit.
+    ///
+    /// # Returns
+    ///
+    /// * Return value of the **OH_Input_SetTouchEventPressure** function.
+    /// <br>[`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
+    /// <br>[`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if the parameter verification fails.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_Input_SetTouchEventPressure(
+        touchEvent: *mut Input_TouchEvent,
+        pressure: f64,
+    ) -> Input_Result;
+    /// Obtains the pressure of a touchscreen input event.
+    ///
+    /// # Arguments
+    ///
+    /// * `touchEvent` - **TouchEvent** object, which can be created through `OH_Input_CreateTouchEvent()`.
+    /// <br>If the **TouchEvent** object is no longer needed, destroy it by calling `OH_Input_DestroyTouchEvent()`.
+    ///
+    /// # Returns
+    ///
+    /// * Pressure value, without a unit. When touchEvent is NULL, return the default pressure 0.0.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_Input_GetTouchEventPressure(touchEvent: *const Input_TouchEvent) -> f64;
+    /// Sets the X coordinate of the touch event in the relative coordinate system with the upper-left corner of the
+    /// specified window as the origin. If the X coordinate is not set, the default value **0** is used.
+    ///
+    /// # Arguments
+    ///
+    /// * `touchEvent` - **TouchEvent** object, which can be created through `OH_Input_CreateTouchEvent()`.
+    /// <br>If the **TouchEvent** object is no longer needed, destroy it by calling `OH_Input_DestroyTouchEvent()`.
+    ///
+    /// * `windowX` - X-coordinate in the relative coordinate system with the origin at the upper left corner of the
+    /// specified window, in pixels (px).
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_Input_SetTouchEventWindowX(touchEvent: *mut Input_TouchEvent, windowX: i32);
+    /// Obtains the X coordinate of the touch event in the relative coordinate system with the upper-left corner of
+    /// the specified window as the origin.
+    ///
+    /// # Arguments
+    ///
+    /// * `touchEvent` - **TouchEvent** object, which can be created through `OH_Input_CreateTouchEvent()`.
+    /// <br>If the **TouchEvent** object is no longer needed, destroy it by calling `OH_Input_DestroyTouchEvent()`.
+    ///
+    /// # Returns
+    ///
+    /// * X coordinate in the relative coordinate system with the upper left corner of the specified window as the
+    /// origin, in pixels (px). When touchEvent is NULL, return the default value 0.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_Input_GetTouchEventWindowX(touchEvent: *const Input_TouchEvent) -> i32;
+    /// Sets the Y coordinate of the touch event in the relative coordinate system with the upper-left corner of the
+    /// specified window as the origin. If the Y coordinate is not set, the default value **0** is used.
+    ///
+    /// # Arguments
+    ///
+    /// * `touchEvent` - **TouchEvent** object, which can be created through `OH_Input_CreateTouchEvent()`.
+    /// <br>If the **TouchEvent** object is no longer needed, destroy it by calling `OH_Input_DestroyTouchEvent()`.
+    ///
+    /// * `windowY` - Y-coordinate in the relative coordinate system with the origin at the upper left corner of the window,
+    /// in pixels (px).
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_Input_SetTouchEventWindowY(touchEvent: *mut Input_TouchEvent, windowY: i32);
+    /// Obtains the Y coordinate of the touch event in the relative coordinate system with the upper-left corner of
+    /// the specified window as the origin.
+    ///
+    /// # Arguments
+    ///
+    /// * `touchEvent` - **TouchEvent** object, which can be created through `OH_Input_CreateTouchEvent()`.
+    /// <br>If the **TouchEvent** object is no longer needed, destroy it by calling `OH_Input_DestroyTouchEvent()`.
+    ///
+    /// # Returns
+    ///
+    /// * Y-coordinate in the relative coordinate system with the origin at the upper left corner of the window, in
+    /// pixels (px). When touchEvent is NULL, return the default value 0.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_Input_GetTouchEventWindowY(touchEvent: *const Input_TouchEvent) -> i32;
+    /// Sets the time when the most recent down event occurred for the finger or other touchscreen devices associated
+    /// with the current touchscreen event. If the time is not set, the default value **0** is used.
+    ///
+    /// # Arguments
+    ///
+    /// * `touchEvent` - **TouchEvent** object, which can be created through `OH_Input_CreateTouchEvent()`.
+    /// <br>If the **TouchEvent** object is no longer needed, destroy it by calling `OH_Input_DestroyTouchEvent()`.
+    ///
+    /// * `downTime` - The time when the most recent press event of the finger or other touch screen peripheral
+    /// corresponding to the current touch screen event occurred, representing the number of microseconds elapsed since
+    /// system startup, in microseconds (μs).
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_Input_SetTouchEventDownTime(touchEvent: *mut Input_TouchEvent, downTime: i64);
+    /// Obtains the time when the most recent down event occurred for the finger or other touchscreen devices
+    /// associated with the current touchscreen event.
+    ///
+    /// # Arguments
+    ///
+    /// * `touchEvent` - **TouchEvent** object, which can be created through `OH_Input_CreateTouchEvent()`.
+    /// <br>If the **TouchEvent** object is no longer needed, destroy it by calling `OH_Input_DestroyTouchEvent()`.
+    ///
+    /// # Returns
+    ///
+    /// * The time when the most recent press event of the finger or other touch peripherals corresponding to the
+    /// current touch screen input occurred, representing the number of microseconds elapsed since system startup, in
+    /// microseconds (μs). When touchEvent is NULL, return 0.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_Input_GetTouchEventDownTime(touchEvent: *const Input_TouchEvent) -> i64;
+    /// Sets the tool type for a touchscreen input event. If **toolType** is not set, the default value **
+    /// Input_TouchEventToolType.TOOL_TYPE_FINGER** is used.
+    ///
+    /// # Arguments
+    ///
+    /// * `touchEvent` - **TouchEvent** object, which can be created through `OH_Input_CreateTouchEvent()`.
+    /// <br>If the **TouchEvent** object is no longer needed, destroy it by calling `OH_Input_DestroyTouchEvent()`.
+    ///
+    /// * `toolType` - Tool type.
+    ///
+    /// # Returns
+    ///
+    /// * Return value of the **OH_Input_SetTouchEventToolType** function.
+    /// <br>[`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
+    /// <br>[`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if the parameter verification fails.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_Input_SetTouchEventToolType(
+        touchEvent: *mut Input_TouchEvent,
+        toolType: Input_TouchEventToolType,
+    ) -> Input_Result;
+    /// Obtains the tool type of a touchscreen input event.
+    ///
+    /// # Arguments
+    ///
+    /// * `touchEvent` - **TouchEvent** object, which can be created through `OH_Input_CreateTouchEvent()`.
+    /// <br>If the **TouchEvent** object is no longer needed, destroy it by calling `OH_Input_DestroyTouchEvent()`.
+    ///
+    /// # Returns
+    ///
+    /// * Tool type.[`TOOL_TYPE_FINGER`](crate::input_manager::Input_TouchEventToolType::TOOL_TYPE_FINGER) When touchEvent is NULL, return the default toolType.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_Input_GetTouchEventToolType(
+        touchEvent: *const Input_TouchEvent,
+    ) -> Input_TouchEventToolType;
+    /// Requests the permission for [`OH_Input_InjectKeyEvent`](crate::input_manager::OH_Input_InjectKeyEvent), [`OH_Input_InjectTouchEvent`](crate::input_manager::OH_Input_InjectTouchEvent), and
+    /// [`OH_Input_InjectMouseEvent`](crate::input_manager::OH_Input_InjectMouseEvent).
+    /// <br>Since API version 26.0.0, if the ohos.permission.CONTROL_DEVICE permission has been granted, you do not need to
+    /// request the injection permission. The behavior of this API is independent of the ohos.permission.CONTROL_DEVICE
+    /// permission.
+    ///
+    /// # Arguments
+    ///
+    /// * `callback` - Callback used to return the permission authorization status. For details, see
+    /// [`Input_InjectAuthorizeCallback`](crate::input_manager::Input_InjectAuthorizeCallback).
+    ///
+    /// # Returns
+    ///
+    /// * Return value. For details, see [`Input_Result`](crate::input_manager::Input_Result).
+    /// <br>INPUT_SUCCESS = 0: Operation success. The application waits for the user authorization result and returns
+    /// the authorization status through a callback.
+    /// <br>INPUT_PARAMETER_ERROR = 401: Parameter error. The callback parameter is empty.
+    /// <br>INPUT_DEVICE_NOT_SUPPORTED = 801: Function not supported.
+    /// <br>INPUT_SERVICE_EXCEPTION = 3800001: Service error.
+    /// <br>INPUT_INJECTION_AUTHORIZING = 3900005: Permission being granted.
+    /// <br>INPUT_INJECTION_OPERATION_FREQUENT = 3900006: Repeated request. The application continuously requests
+    /// permission authorization at an interval of no more than 3 seconds.
+    /// <br>INPUT_INJECTION_AUTHORIZED = 3900007: Permission granted.
+    /// <br>INPUT_INJECTION_AUTHORIZED_OTHERS = 3900008: Permission granted to other applications.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_Input_RequestInjection(callback: Input_InjectAuthorizeCallback) -> Input_Result;
+    /// Stops event injection and revokes authorization.
     ///
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
@@ -1679,63 +2088,33 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Input_CancelInjection();
-    /// Requests for injection authorization.
+    /// Queries the injection permission authorization status of the current application.
+    /// <br>Since API version 26.0.0, this API returns only the dialog authorization status. It does not indicate whether
+    /// the caller has injection capability due to holding the ohos.permission.CONTROL_DEVICE permission.
     ///
     /// # Arguments
     ///
-    /// * `callback` - - callback used to return the result.
+    /// * `status` - Injection permission authorization status of the current application. See
+    /// [`Input_InjectionStatus`](crate::input_manager::Input_InjectionStatus).
     ///
     /// # Returns
     ///
-    /// * OH_Input_RequestInjection function result code.
-    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) Success.
-    ///
-    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) The callback is NULL.
-    ///
-    /// [`INPUT_DEVICE_NOT_SUPPORTED`](crate::input_manager::InputErrorCode::DEVICE_NOT_SUPPORTED) Capability not supported.
-    ///
-    /// [`INPUT_SERVICE_EXCEPTION`](crate::input_manager::InputErrorCode::SERVICE_EXCEPTION) Service error.
-    ///
-    /// [`INPUT_INJECTION_AUTHORIZING`](crate::input_manager::InputErrorCode::INJECTION_AUTHORIZING) Authorizing.
-    ///
-    /// [`INPUT_INJECTION_OPERATION_FREQUENT`](crate::input_manager::InputErrorCode::INJECTION_OPERATION_FREQUENT) Too many operations.
-    ///
-    /// [`INPUT_INJECTION_AUTHORIZED`](crate::input_manager::InputErrorCode::INJECTION_AUTHORIZED) Authorized.
-    ///
-    /// [`INPUT_INJECTION_AUTHORIZED_OTHERS`](crate::input_manager::InputErrorCode::INJECTION_AUTHORIZED_OTHERS) Authorized to other applications.
-    ///
-    ///
-    /// Available since API-level: 20
-    #[cfg(feature = "api-20")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
-    pub fn OH_Input_RequestInjection(callback: Input_InjectAuthorizeCallback) -> Input_Result;
-    /// Queries the injection authorization status.
-    ///
-    /// # Arguments
-    ///
-    /// * `status` - Injection authorization status. For details, see [`Input_InjectionStatus`](crate::input_manager::Input_InjectionStatus).
-    ///
-    /// # Returns
-    ///
-    /// * OH_Input_QueryAuthorizedStatus function result code.
-    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) Success.
-    ///
-    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) The status is NULL
-    ///
-    /// [`INPUT_SERVICE_EXCEPTION`](crate::input_manager::InputErrorCode::SERVICE_EXCEPTION) Service error.
-    ///
+    /// * Return value. For details, see [`Input_Result`](crate::input_manager::Input_Result).
+    /// <br>INPUT_SUCCESS = 0: Operation success.
+    /// <br>INPUT_PARAMETER_ERROR = 401: Parameter error. The status parameter is empty.
+    /// <br>INPUT_SERVICE_EXCEPTION = 3800001: Service error.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_Input_QueryAuthorizedStatus(status: *mut Input_InjectionStatus) -> Input_Result;
-    /// Creates an axis event object.
+    /// Creates an axis event object. You can call `OH_Input_DestroyAxisEvent()` to destroy an axis event
+    /// object.
     ///
     ///
     /// # Returns
     ///
-    /// * If the operation is successful, a [`Input_AxisEvent`](ohos_sys_opaque_types::Input_AxisEvent) object is returned.
-    /// If the operation fails, null is returned.
+    /// * [`Input_AxisEvent`](ohos_sys_opaque_types::Input_AxisEvent) object if the operation is successful; **null** otherwise.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -1751,11 +2130,7 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * OH_Input_DestroyAxisEvent function result code.
-    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) Destroys axisEvent success.
-    ///
-    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR)The axisEvent is NULL or the *axisEvent is NULL.
-    ///
+    /// * [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful; [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if **axisEvent** is null.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -1763,21 +2138,18 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Input_DestroyAxisEvent(axisEvent: *mut *mut Input_AxisEvent) -> Input_Result;
-    /// Sets the axis event action.
+    /// Sets the action for an axis event.
     ///
     /// # Arguments
     ///
-    /// * `axisEvent` - Axis event object. For details, see [`Input_AxisEvent`](ohos_sys_opaque_types::Input_AxisEvent).
+    /// * `axisEvent` - Axis event object. You can call `OH_Input_CreateAxisEvent()` to create an axis event object.
+    /// <br>If the axis event object is no longer needed, destroy it by calling `OH_Input_DestroyAxisEvent()`.
     ///
-    /// * `action` - Axis event action. The values are defined in [`InputEvent_AxisAction`](crate::axis_type::InputEvent_AxisAction).
+    /// * `action` - Axis event action. For details, see [`InputEvent_AxisAction`](crate::axis_type::InputEvent_AxisAction).
     ///
     /// # Returns
     ///
-    /// * OH_Input_SetAxisEventAction function result code.
-    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) Sets the axis event action success.
-    ///
-    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) The axisEvent is NULL.
-    ///
+    /// * [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful; [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if **axisEvent** is null.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -1788,21 +2160,19 @@ extern "C" {
         axisEvent: *mut Input_AxisEvent,
         action: InputEvent_AxisAction,
     ) -> Input_Result;
-    /// Obtains the axis event action.
+    /// Obtains the action of an axis event.
     ///
     /// # Arguments
     ///
-    /// * `axisEvent` - Axis event object. For details, see [`Input_AxisEvent`](ohos_sys_opaque_types::Input_AxisEvent).
+    /// * `axisEvent` - Axis event object. You can call `OH_Input_CreateAxisEvent()` to create an axis event object.
+    /// <br>If the axis event object is no longer needed, destroy it by calling `OH_Input_DestroyAxisEvent()`.
     ///
-    /// * `action` - Axis event action. The values are defined in [`InputEvent_AxisAction`](crate::axis_type::InputEvent_AxisAction).
+    /// * `action` - Axis event action. For details, see [`InputEvent_AxisAction`](crate::axis_type::InputEvent_AxisAction).
     ///
     /// # Returns
     ///
-    /// * OH_Input_GetAxisEventAction function result code.
-    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) Obtains the axis event action success.
-    ///
-    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) The axisEvent is NULL or the action is NULL.
-    ///
+    /// * [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful; [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if **axisEvent** or **
+    /// action** is null.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -1813,21 +2183,20 @@ extern "C" {
         axisEvent: *const Input_AxisEvent,
         action: *mut InputEvent_AxisAction,
     ) -> Input_Result;
-    /// Sets the X coordinate of an axis event.
+    /// Sets the X coordinate of the axis event in the relative coordinate system with the upper-left corner of the
+    /// specified screen as the origin.
     ///
     /// # Arguments
     ///
-    /// * `axisEvent` - Axis event object. For details, see [`Input_AxisEvent`](ohos_sys_opaque_types::Input_AxisEvent).
+    /// * `axisEvent` - Axis event object. You can call `OH_Input_CreateAxisEvent()` to create an axis event object.
+    /// <br>If the axis event object is no longer needed, destroy it by calling `OH_Input_DestroyAxisEvent()`.
     ///
-    /// * `displayX` - X coordinate of the axis event.
+    /// * `displayX` - X coordinate in the relative coordinate system with the upper left corner of the specified screen as
+    /// the origin, in pixels (px).
     ///
     /// # Returns
     ///
-    /// * OH_Input_SetAxisEventDisplayX function result code.
-    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) Sets the X coordinate of the axis event success.
-    ///
-    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) The axisEvent is NULL.
-    ///
+    /// * [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful; [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if **axisEvent** is null.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -1838,21 +2207,21 @@ extern "C" {
         axisEvent: *mut Input_AxisEvent,
         displayX: f32,
     ) -> Input_Result;
-    /// Obtains the X coordinate of an axis event.
+    /// Obtains the X coordinate of the axis event in the relative coordinate system with the upper-left corner of
+    /// the specified screen as the origin.
     ///
     /// # Arguments
     ///
-    /// * `axisEvent` - Axis event object. For details, see [`Input_AxisEvent`](ohos_sys_opaque_types::Input_AxisEvent).
+    /// * `axisEvent` - Axis event object. You can call `OH_Input_CreateAxisEvent()` to create an axis event object.
+    /// <br>If the axis event object is no longer needed, destroy it by calling `OH_Input_DestroyAxisEvent()`.
     ///
-    /// * `displayX` - X coordinate of the axis event.
+    /// * `displayX` - Output parameter, returns the X coordinate of the axis event in the relative coordinate system with
+    /// the upper left corner of the specified screen as the origin, in pixels (px).
     ///
     /// # Returns
     ///
-    /// * OH_Input_GetAxisEventDisplayX function result code.
-    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) Obtains the X coordinate of the axis event success.
-    ///
-    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) The axisEvent is NULL or the displayX is NULL.
-    ///
+    /// * [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful; [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if **axisEvent** or **
+    /// displayX** is null.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -1863,21 +2232,20 @@ extern "C" {
         axisEvent: *const Input_AxisEvent,
         displayX: *mut f32,
     ) -> Input_Result;
-    /// Sets the Y coordinate of an axis event.
+    /// Sets the Y coordinate of the axis event in the relative coordinate system with the upper-left corner of the
+    /// specified screen as the origin.
     ///
     /// # Arguments
     ///
-    /// * `axisEvent` - Axis event object. For details, see [`Input_AxisEvent`](ohos_sys_opaque_types::Input_AxisEvent).
+    /// * `axisEvent` - Axis event object. You can call `OH_Input_CreateAxisEvent()` to create an axis event object.
+    /// <br>If the axis event object is no longer needed, destroy it by calling `OH_Input_DestroyAxisEvent()`.
     ///
-    /// * `displayY` - Y coordinate of the axis event.
+    /// * `displayY` - Y coordinate in the relative coordinate system with the upper left corner of the specified screen as
+    /// the origin, in pixels (px).
     ///
     /// # Returns
     ///
-    /// * OH_Input_SetAxisEventDisplayY function result code.
-    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) Sets the Y coordinate of the axis event success.
-    ///
-    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) The axisEvent is NULL.
-    ///
+    /// * [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful; [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if **axisEvent** is null.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -1888,21 +2256,21 @@ extern "C" {
         axisEvent: *mut Input_AxisEvent,
         displayY: f32,
     ) -> Input_Result;
-    /// Obtains the Y coordinate of an axis event.
+    /// Obtains the Y coordinate of the axis event in the relative coordinate system with the upper-left corner of
+    /// the specified screen as the origin.
     ///
     /// # Arguments
     ///
-    /// * `axisEvent` - Axis event object. For details, see [`Input_AxisEvent`](ohos_sys_opaque_types::Input_AxisEvent).
+    /// * `axisEvent` - Axis event object. You can call `OH_Input_CreateAxisEvent()` to create an axis event object.
+    /// <br>If the axis event object is no longer needed, destroy it by calling `OH_Input_DestroyAxisEvent()`.
     ///
-    /// * `displayY` - Y coordinate of the axis event.
+    /// * `displayY` - Output parameter, returns the Y coordinate of the axis event in the relative coordinate system with
+    /// the upper left corner of the specified screen as the origin, in pixels (px).
     ///
     /// # Returns
     ///
-    /// * OH_Input_GetAxisEventDisplayY function result code.
-    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) Obtains the Y coordinate of the axis event success.
-    ///
-    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) The axisEvent is NULL or the displayY is NULL.
-    ///
+    /// * [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful; [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if **axisEvent** or **
+    /// displayY** is null.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -1917,19 +2285,18 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `axisEvent` - Axis event object. For details, see [`Input_AxisEvent`](ohos_sys_opaque_types::Input_AxisEvent).
+    /// * `axisEvent` - Axis event object. You can call `OH_Input_CreateAxisEvent()` to create an axis event object.
+    /// <br>If the axis event object is no longer needed, destroy it by calling `OH_Input_DestroyAxisEvent()`.
     ///
-    /// * `axisType` - Axis type. The values are defined in [`InputEvent_AxisType`](crate::axis_type::InputEvent_AxisType).
+    /// * `axisType` - Axis type. For details, see [`InputEvent_AxisType`](crate::axis_type::InputEvent_AxisType).
     ///
-    /// * `axisValue` - Axis value.
+    /// * `axisValue` - Value of the axis event. A positive value indicates scrolling forward (for example, 1.0 means
+    /// scrolling forward by one unit), a negative value indicates scrolling backward (for example, -1.0 means scrolling
+    /// backward by one unit), and zero indicates no scrolling.
     ///
     /// # Returns
     ///
-    /// * OH_Input_SetAxisEventAxisValue function result code.
-    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) Sets the axis value of the axis event success.
-    ///
-    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) The axisEvent is NULL.
-    ///
+    /// * [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful; [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if **axisEvent** is null.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -1945,20 +2312,18 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `axisEvent` - Axis event object. For details, see [`Input_AxisEvent`](ohos_sys_opaque_types::Input_AxisEvent).
+    /// * `axisEvent` - Axis event object. You can call `OH_Input_CreateAxisEvent()` to create an axis event object.
+    /// <br>If the axis event object is no longer needed, destroy it by calling `OH_Input_DestroyAxisEvent()`.
     ///
-    /// * `axisType` - Axis type. The values are defined in [`InputEvent_AxisType`](crate::axis_type::InputEvent_AxisType).
+    /// * `axisType` - Axis type. For details, see [`InputEvent_AxisType`](crate::axis_type::InputEvent_AxisType).
     ///
-    /// * `axisValue` - Axis value.
+    /// * `axisValue` - Axis event value. A positive number means scrolling forward (for example, 1.0 equals one unit
+    /// forward), and a negative number means scrolling backward (for example, -1.0 equals one unit backward).
     ///
     /// # Returns
     ///
-    /// * OH_Input_GetAxisEventAxisValue function result code.
-    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) Obtains the axis value of the axis event success.
-    ///
-    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) The axisEvent is NULL or the axisValue is NULL,
-    /// or the axisType not found in the axisEvent.
-    ///
+    /// * [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful; [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if **axisEvent** or **
+    /// axisValue** is null.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -1974,17 +2339,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `axisEvent` - Axis event object. For details, see [`Input_AxisEvent`](ohos_sys_opaque_types::Input_AxisEvent).
+    /// * `axisEvent` - Axis event object. You can call `OH_Input_CreateAxisEvent()` to create an axis event object.
+    /// <br>If the axis event object is no longer needed, destroy it by calling `OH_Input_DestroyAxisEvent()`.
     ///
-    /// * `actionTime` - Time when an axis event occurs.
+    /// * `actionTime` - Time when the axis event occurred, representing the number of microseconds elapsed since system
+    /// startup, in microseconds (μs).
     ///
     /// # Returns
     ///
-    /// * OH_Input_SetAxisEventActionTime function result code.
-    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) Sets the time when an axis event occurs success.
-    ///
-    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) The axisEvent is NULL.
-    ///
+    /// * [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful; [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if **axisEvent** is null.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -1999,17 +2362,16 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `axisEvent` - Axis event object. For details, see [`Input_AxisEvent`](ohos_sys_opaque_types::Input_AxisEvent).
+    /// * `axisEvent` - Axis event object. You can call `OH_Input_CreateAxisEvent()` to create an axis event object.
+    /// <br>If the axis event object is no longer needed, destroy it by calling `OH_Input_DestroyAxisEvent()`.
     ///
-    /// * `actionTime` - Time when an axis event occurs.
+    /// * `actionTime` - Output parameter, returns the time when the axis event occurred, representing the number of
+    /// microseconds elapsed since system startup, in microseconds (μs).
     ///
     /// # Returns
     ///
-    /// * OH_Input_GetAxisEventActionTime function result code.
-    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) Obtains the time when an axis event occurs success.
-    ///
-    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) The axisEvent is NULL or the actionTime is NULL.
-    ///
+    /// * [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful; [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if **axisEvent** or **
+    /// actionTime** is null.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -2024,17 +2386,14 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `axisEvent` - Axis event object. For details, see [`Input_AxisEvent`](ohos_sys_opaque_types::Input_AxisEvent).
+    /// * `axisEvent` - Axis event object. You can call `OH_Input_CreateAxisEvent()` to create an axis event object.
+    /// <br>If the axis event object is no longer needed, destroy it by calling `OH_Input_DestroyAxisEvent()`.
     ///
-    /// * `axisEventType` - Axis event type. The values are defined in [`InputEvent_AxisEventType`](crate::axis_type::InputEvent_AxisEventType).
+    /// * `axisEventType` - Axis event type. For details, see [`InputEvent_AxisEventType`](crate::axis_type::InputEvent_AxisEventType).
     ///
     /// # Returns
     ///
-    /// * OH_Input_SetAxisEventType function result code.
-    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) Sets the axis event type success.
-    ///
-    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) The axisEvent is NULL.
-    ///
+    /// * [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful; [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if **axisEvent** is null.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -2049,17 +2408,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `axisEvent` - Axis event object.
+    /// * `axisEvent` - Axis event object. You can call `OH_Input_CreateAxisEvent()` to create an axis event object.
+    /// <br>If the axis event object is no longer needed, destroy it by calling `OH_Input_DestroyAxisEvent()`.
     ///
-    /// * `axisEventType` - Axis event type. The values are defined in [`InputEvent_AxisEventType`](crate::axis_type::InputEvent_AxisEventType).
+    /// * `axisEventType` - Axis event type. For details, see [`InputEvent_AxisEventType`](crate::axis_type::InputEvent_AxisEventType).
     ///
     /// # Returns
     ///
-    /// * OH_Input_GetAxisEventType function result code.
-    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) Obtains the axis event type success.
-    ///
-    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) The axisEvent is NULL or the axisEventType is NULL.
-    ///
+    /// * [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful; [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if **axisEvent** or **
+    /// axisEventType** is null.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -2074,17 +2431,14 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `axisEvent` - Axis event object.
+    /// * `axisEvent` - Axis event object. You can call `OH_Input_CreateAxisEvent()` to create an axis event object.
+    /// <br>If the axis event object is no longer needed, destroy it by calling `OH_Input_DestroyAxisEvent()`.
     ///
-    /// * `sourceType` - Axis event source type. The values are defined in [`InputEvent_SourceType`](crate::input_manager::InputEvent_SourceType).
+    /// * `sourceType` - Axis event source type. For details, see [`InputEvent_SourceType`](crate::input_manager::InputEvent_SourceType).
     ///
     /// # Returns
     ///
-    /// * OH_Input_SetAxisEventSourceType function result code.
-    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) Sets the axis event source type success.
-    ///
-    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) The axisEvent is NULL.
-    ///
+    /// * [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful; [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if **axisEvent** is null.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -2099,17 +2453,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `axisEvent` - Axis event object.
+    /// * `axisEvent` - Axis event object. You can call `OH_Input_CreateAxisEvent()` to create an axis event object.
+    /// <br>If the axis event object is no longer needed, destroy it by calling `OH_Input_DestroyAxisEvent()`.
     ///
-    /// * `sourceType` - Axis event source type. The values are defined in [`InputEvent_SourceType`](crate::input_manager::InputEvent_SourceType).
+    /// * `sourceType` - Axis event source type. For details, see [`InputEvent_SourceType`](crate::input_manager::InputEvent_SourceType).
     ///
     /// # Returns
     ///
-    /// * OH_Input_GetAxisEventSourceType function result code.
-    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) Obtains the axis event source type success.
-    ///
-    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) The axisEvent is NULL or the sourceType is NULL.
-    ///
+    /// * [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful; [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if **axisEvent** or **
+    /// sourceType** is null.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -2120,21 +2472,18 @@ extern "C" {
         axisEvent: *const Input_AxisEvent,
         sourceType: *mut InputEvent_SourceType,
     ) -> Input_Result;
-    /// Sets the windowId of an axis event.
+    /// Sets the window ID of an axis event.
     ///
     /// # Arguments
     ///
-    /// * `axisEvent` - Axis event object. For details, see [`Input_AxisEvent`](ohos_sys_opaque_types::Input_AxisEvent).
+    /// * `axisEvent` - Axis event object. You can call `OH_Input_CreateAxisEvent()` to create an axis event object.
+    /// <br>If the axis event object is no longer needed, destroy it by calling `OH_Input_DestroyAxisEvent()`.
     ///
-    /// * `windowId` - The windowId for the axis event.
+    /// * `windowId` - Window ID of an axis event.
     ///
     /// # Returns
     ///
-    /// * OH_Input_SetAxisEventWindowId function result code.
-    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) Sets the Y coordinate of the axis event success.
-    ///
-    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) The axisEvent is NULL.
-    ///
+    /// * [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful; [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if **axisEvent** is null.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -2145,21 +2494,19 @@ extern "C" {
         axisEvent: *mut Input_AxisEvent,
         windowId: i32,
     ) -> Input_Result;
-    /// Obtains the windowId of an axis event.
+    /// Obtains the window ID of an axis event.
     ///
     /// # Arguments
     ///
-    /// * `axisEvent` - Axis event object. For details, see [`Input_AxisEvent`](ohos_sys_opaque_types::Input_AxisEvent).
+    /// * `axisEvent` - Axis event object. You can call `OH_Input_CreateAxisEvent()` to create an axis event object.
+    /// <br>If the axis event object is no longer needed, destroy it by calling `OH_Input_DestroyAxisEvent()`.
     ///
-    /// * `windowId` - The windowId for the axis event.
+    /// * `windowId` - Window ID of the axis event.
     ///
     /// # Returns
     ///
-    /// * OH_Input_GetAxisEventWindowId function result code.
-    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) Obtains the Y coordinate of the axis event success.
-    ///
-    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) The axisEvent is NULL or the displayY is NULL.
-    ///
+    /// * [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful; [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if **axisEvent** or **
+    /// windowId** is null.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -2170,21 +2517,18 @@ extern "C" {
         axisEvent: *const Input_AxisEvent,
         windowId: *mut i32,
     ) -> Input_Result;
-    /// Sets the displayId of an axis event.
+    /// Sets the screen ID of an axis event.
     ///
     /// # Arguments
     ///
-    /// * `axisEvent` - Axis event object. For details, see [`Input_AxisEvent`](ohos_sys_opaque_types::Input_AxisEvent).
+    /// * `axisEvent` - Axis event object. You can call `OH_Input_CreateAxisEvent()` to create an axis event object.
+    /// <br>If the axis event object is no longer needed, destroy it by calling `OH_Input_DestroyAxisEvent()`.
     ///
-    /// * `displayId` - The displayId for the axis event.
+    /// * `displayId` - Screen ID of an axis event.
     ///
     /// # Returns
     ///
-    /// * OH_Input_SetAxisEventDisplayId function result code.
-    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) Sets the Y coordinate of the axis event success.
-    ///
-    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) The axisEvent is NULL.
-    ///
+    /// * [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful; [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if **axisEvent** is null.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -2195,21 +2539,19 @@ extern "C" {
         axisEvent: *mut Input_AxisEvent,
         displayId: i32,
     ) -> Input_Result;
-    /// Obtains the displayId of an axis event.
+    /// Obtains the screen ID of an axis event.
     ///
     /// # Arguments
     ///
-    /// * `axisEvent` - Axis event object. For details, see [`Input_AxisEvent`](ohos_sys_opaque_types::Input_AxisEvent).
+    /// * `axisEvent` - Axis event object. You can call `OH_Input_CreateAxisEvent()` to create an axis event object.
+    /// <br>If the axis event object is no longer needed, destroy it by calling `OH_Input_DestroyAxisEvent()`.
     ///
-    /// * `displayId` - The displayId for the axis event.
+    /// * `displayId` - Screen ID of the axis event.
     ///
     /// # Returns
     ///
-    /// * OH_Input_GetAxisEventDisplayId function result code.
-    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) Obtains the Y coordinate of the axis event success.
-    ///
-    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) The axisEvent is NULL or the displayY is NULL.
-    ///
+    /// * [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful; [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if **axisEvent** or **
+    /// displayId** is null.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -2220,21 +2562,21 @@ extern "C" {
         axisEvent: *const Input_AxisEvent,
         displayId: *mut i32,
     ) -> Input_Result;
-    /// Set the global X coordinate of the axis event.
+    /// Sets the X coordinate of the axis event in the global coordinate system with the upper-left corner of the
+    /// primary screen as the origin.
     ///
     /// # Arguments
     ///
-    /// * `axisEvent` - Axis event object. For details, see [`Input_AxisEvent`](ohos_sys_opaque_types::Input_AxisEvent).
+    /// * `axisEvent` - Axis event object, which can be created through the `OH_Input_CreateAxisEvent()` API.
+    /// <br>After use, the axis event object must be destroyed through the `OH_Input_DestroyAxisEvent()` API.
     ///
-    /// * `globalX` - Global X coordinate.
+    /// * `globalX` - X coordinate of the axis event in the global coordinate system with the upper left corner of the
+    /// primary screen as the origin, in pixels (px).
     ///
     /// # Returns
     ///
-    /// * OH_Input_SetAxisEventGlobalX function result code.
-    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) Success.
-    ///
-    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) The axisEvent is NULL.
-    ///
+    /// * [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
+    /// <br>[`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if **axisEvent** is a null pointer.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -2243,21 +2585,21 @@ extern "C" {
         axisEvent: *mut Input_AxisEvent,
         globalX: i32,
     ) -> Input_Result;
-    /// Queries the global X coordinate of the axis event.
+    /// Obtains the X coordinate of the axis event in the global coordinate system with the upper-left corner of the
+    /// primary screen as the origin.
     ///
     /// # Arguments
     ///
-    /// * `axisEvent` - Axis event object. For details, see [`Input_AxisEvent`](ohos_sys_opaque_types::Input_AxisEvent).
+    /// * `axisEvent` - Axis event object. You can call `OH_Input_CreateAxisEvent()` to create an axis event object.
+    /// <br>If the axis event object is no longer needed, destroy it by calling `OH_Input_DestroyAxisEvent()`.
     ///
-    /// * `globalX` - Global X coordinate.
+    /// * `globalX` - X-coordinate of the axis event in the global coordinate system with the upper left corner of the
+    /// primary screen as the origin, in pixels (px).
     ///
     /// # Returns
     ///
-    /// * OH_Input_GetAxisEventGlobalX function result code.
-    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) Success.
-    ///
-    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) The axisEvent is NULL or the globalX is NULL.
-    ///
+    /// * [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
+    /// <br>[`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if **axisEvent** or **globalX** is a null pointer.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -2266,21 +2608,21 @@ extern "C" {
         axisEvent: *const Input_AxisEvent,
         globalX: *mut i32,
     ) -> Input_Result;
-    /// Set the global Y coordinate of the axis event.
+    /// Sets the Y coordinate of the axis event in the global coordinate system with the upper-left corner of the
+    /// primary screen as the origin.
     ///
     /// # Arguments
     ///
-    /// * `axisEvent` - Axis event object. For details, see [`Input_AxisEvent`](ohos_sys_opaque_types::Input_AxisEvent).
+    /// * `axisEvent` - Axis event object, which can be created using the `OH_Input_CreateAxisEvent()` interface.
+    /// <br>After use, the axis event object must be destroyed using the `OH_Input_DestroyAxisEvent()` interface.
     ///
-    /// * `globalY` - Global Y coordinate.
+    /// * `globalY` - Y-coordinate of the axis event in the global coordinate system with the origin at the upper left
+    /// corner of the primary screen, in pixels (px).
     ///
     /// # Returns
     ///
-    /// * OH_Input_SetAxisEventGlobalY function result code.
-    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) Success.
-    ///
-    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) The axisEvent is NULL.
-    ///
+    /// * [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
+    /// <br>[`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if **axisEvent** is a null pointer.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -2289,21 +2631,21 @@ extern "C" {
         axisEvent: *mut Input_AxisEvent,
         globalY: i32,
     ) -> Input_Result;
-    /// Queries the global Y coordinate of the axis event.
+    /// Obtains the Y coordinate of the axis event in the global coordinate system with the upper-left corner of the
+    /// primary screen as the origin.
     ///
     /// # Arguments
     ///
-    /// * `axisEvent` - Axis event object. For details, see [`Input_AxisEvent`](ohos_sys_opaque_types::Input_AxisEvent).
+    /// * `axisEvent` - Axis event object. You can call `OH_Input_CreateAxisEvent()` to create an axis event object.
+    /// <br>If the axis event object is no longer needed, destroy it by calling `OH_Input_DestroyAxisEvent()`.
     ///
-    /// * `globalY` - Global Y coordinate.
+    /// * `globalY` - Y-coordinate of the axis event in the global coordinate system with the upper left corner of the
+    /// primary screen as the origin, in pixels (px).
     ///
     /// # Returns
     ///
-    /// * OH_Input_GetAxisEventGlobalY function result code.
-    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) Success.
-    ///
-    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) The axisEvent is NULL or the globalY is NULL.
-    ///
+    /// * [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
+    /// <br>[`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if **axisEvent** or **globalY** is a null pointer.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -2312,25 +2654,20 @@ extern "C" {
         axisEvent: *const Input_AxisEvent,
         globalY: *mut i32,
     ) -> Input_Result;
-    /// Adds a listener of key events.
+    /// Adds a listener for key events. Only the initial addition takes effect. Subsequent attempts will be ignored.
     ///
     ///
     /// Required Permissions: ohos.permission.INPUT_MONITORING
     /// # Arguments
     ///
-    /// * `callback` - - Callback used to receive key events.
+    /// * `callback` - Callback used to receive key events.
     ///
     /// # Returns
     ///
-    /// * OH_Input_AddKeyEventMonitor function result code.
-    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) Adds a listener of key events success.
-    ///
-    /// [`INPUT_PERMISSION_DENIED`](crate::input_manager::InputErrorCode::PERMISSION_DENIED) Permission verification failed.
-    ///
-    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) The callback is NULL.
-    ///
-    /// [`INPUT_SERVICE_EXCEPTION`](crate::input_manager::InputErrorCode::SERVICE_EXCEPTION) Failed to add the monitor because the service is exception.
-    ///
+    /// * [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful; [`INPUT_PERMISSION_DENIED`](crate::input_manager::InputErrorCode::PERMISSION_DENIED) if permission
+    /// verification fails;
+    /// <br>[`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if the callback is empty; [`INPUT_SERVICE_EXCEPTION`](crate::input_manager::InputErrorCode::SERVICE_EXCEPTION) if the service is
+    /// abnormal.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -2338,26 +2675,23 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Input_AddKeyEventMonitor(callback: Input_KeyEventCallback) -> Input_Result;
-    /// Adds a listener for mouse events, including mouse click and movement events,
-    /// but not scroll wheel events. Scroll wheel events are axis events.
+    /// Adds a listener for mouse events, including mouse click and movement events, but not scroll wheel events.
+    /// Scroll wheel events are axis events.
+    /// <br>This API can be called only when the screen recording scenario is in use. Otherwise, the call does not take
+    /// effect.
     ///
     ///
     /// Required Permissions: ohos.permission.INPUT_MONITORING
     /// # Arguments
     ///
-    /// * `callback` - - Callback used to receive mouse events.
+    /// * `callback` - Callback used to receive mouse events.
     ///
     /// # Returns
     ///
-    /// * OH_Input_AddMouseEventMonitor function result code.
-    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) Adds a listener of mouse events success.
-    ///
-    /// [`INPUT_PERMISSION_DENIED`](crate::input_manager::InputErrorCode::PERMISSION_DENIED) Permission verification failed.
-    ///
-    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) The callback is NULL.
-    ///
-    /// [`INPUT_SERVICE_EXCEPTION`](crate::input_manager::InputErrorCode::SERVICE_EXCEPTION) Failed to add the monitor because the service is exception.
-    ///
+    /// * [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful; [`INPUT_PERMISSION_DENIED`](crate::input_manager::InputErrorCode::PERMISSION_DENIED) if permission
+    /// verification fails;
+    /// <br>[`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if the callback is empty; [`INPUT_SERVICE_EXCEPTION`](crate::input_manager::InputErrorCode::SERVICE_EXCEPTION) if the service is
+    /// abnormal.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -2365,25 +2699,20 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Input_AddMouseEventMonitor(callback: Input_MouseEventCallback) -> Input_Result;
-    /// Add a listener for touch events.
+    /// Adds a listener for touch input events.
     ///
     ///
     /// Required Permissions: ohos.permission.INPUT_MONITORING
     /// # Arguments
     ///
-    /// * `callback` - - Callback used to receive touch events.
+    /// * `callback` - Callback used to receive touch events.
     ///
     /// # Returns
     ///
-    /// * OH_Input_AddTouchEventMonitor function result code.
-    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) Adds a listener of touch events success.
-    ///
-    /// [`INPUT_PERMISSION_DENIED`](crate::input_manager::InputErrorCode::PERMISSION_DENIED) Permission verification failed.
-    ///
-    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) The callback is NULL.
-    ///
-    /// [`INPUT_SERVICE_EXCEPTION`](crate::input_manager::InputErrorCode::SERVICE_EXCEPTION) Failed to add the monitor because the service is exception.
-    ///
+    /// * [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful; [`INPUT_PERMISSION_DENIED`](crate::input_manager::InputErrorCode::PERMISSION_DENIED) if permission
+    /// verification fails;
+    /// <br>[`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if the callback is empty; [`INPUT_SERVICE_EXCEPTION`](crate::input_manager::InputErrorCode::SERVICE_EXCEPTION) if the service is
+    /// abnormal.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -2391,26 +2720,20 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Input_AddTouchEventMonitor(callback: Input_TouchEventCallback) -> Input_Result;
-    /// Adds a listener for all types of axis events.
-    /// The axis event types are defined in [`InputEvent_AxisEventType`](crate::axis_type::InputEvent_AxisEventType).
+    /// Adds a listener for all types of axis events, which are defined in [`InputEvent_AxisEventType`](crate::axis_type::InputEvent_AxisEventType).
     ///
     ///
     /// Required Permissions: ohos.permission.INPUT_MONITORING
     /// # Arguments
     ///
-    /// * `callback` - - Callback used to receive axis events.
+    /// * `callback` - Callback used to receive axis events.
     ///
     /// # Returns
     ///
-    /// * OH_Input_AddAxisEventMonitorForAll function result code.
-    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) Adds a listener for all types of axis events success.
-    ///
-    /// [`INPUT_PERMISSION_DENIED`](crate::input_manager::InputErrorCode::PERMISSION_DENIED) Permission verification failed.
-    ///
-    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) The callback is NULL.
-    ///
-    /// [`INPUT_SERVICE_EXCEPTION`](crate::input_manager::InputErrorCode::SERVICE_EXCEPTION) Failed to add the monitor because the service is exception.
-    ///
+    /// * [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
+    /// <br>[`INPUT_PERMISSION_DENIED`](crate::input_manager::InputErrorCode::PERMISSION_DENIED) if permission verification fails;
+    /// <br>[`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if the callback is empty;
+    /// <br>[`INPUT_SERVICE_EXCEPTION`](crate::input_manager::InputErrorCode::SERVICE_EXCEPTION) if the service is abnormal.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -2418,27 +2741,22 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Input_AddAxisEventMonitorForAll(callback: Input_AxisEventCallback) -> Input_Result;
-    /// Adds a listener for the specified type of axis events.
+    /// Adds a listener for the specified type of axis events, which are defined in [`InputEvent_AxisEventType`](crate::axis_type::InputEvent_AxisEventType).
     ///
     ///
     /// Required Permissions: ohos.permission.INPUT_MONITORING
     /// # Arguments
     ///
-    /// * `axisEventType` - - Axis event type. The values are defined in [`InputEvent_AxisEventType`](crate::axis_type::InputEvent_AxisEventType).
+    /// * `axisEventType` - Axis event type, which is defined in [`InputEvent_AxisEventType`](crate::axis_type::InputEvent_AxisEventType).
     ///
-    /// * `callback` - - Callback used to receive the specified type of axis events.
+    /// * `callback` - Callback used to receive axis events of a specified type.
     ///
     /// # Returns
     ///
-    /// * OH_Input_AddAxisEventMonitor function result code.
-    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) Adds a listener for the specified types of axis events success.
-    ///
-    /// [`INPUT_PERMISSION_DENIED`](crate::input_manager::InputErrorCode::PERMISSION_DENIED) Permission verification failed.
-    ///
-    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) The callback is NULL.
-    ///
-    /// [`INPUT_SERVICE_EXCEPTION`](crate::input_manager::InputErrorCode::SERVICE_EXCEPTION) Failed to add the monitor because the service is exception.
-    ///
+    /// * [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
+    /// <br>[`INPUT_PERMISSION_DENIED`](crate::input_manager::InputErrorCode::PERMISSION_DENIED) if permission verification fails;
+    /// <br>[`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if the callback is empty;
+    /// <br>[`INPUT_SERVICE_EXCEPTION`](crate::input_manager::InputErrorCode::SERVICE_EXCEPTION) if the service is abnormal.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -2449,25 +2767,20 @@ extern "C" {
         axisEventType: InputEvent_AxisEventType,
         callback: Input_AxisEventCallback,
     ) -> Input_Result;
-    /// Removes a key event listener.
+    /// Removes the listener for key events.
     ///
     ///
     /// Required Permissions: ohos.permission.INPUT_MONITORING
     /// # Arguments
     ///
-    /// * `callback` - - Callback for the key event listener.
+    /// * `callback` - Callback for key events.
     ///
     /// # Returns
     ///
-    /// * OH_Input_RemoveKeyEventMonitor function result code.
-    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) Removes a key event listener success.
-    ///
-    /// [`INPUT_PERMISSION_DENIED`](crate::input_manager::InputErrorCode::PERMISSION_DENIED) Permission verification failed.
-    ///
-    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) The callback is NULL or has not been added.
-    ///
-    /// [`INPUT_SERVICE_EXCEPTION`](crate::input_manager::InputErrorCode::SERVICE_EXCEPTION) Fail to remove the monitor because the service is exception.
-    ///
+    /// * [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
+    /// <br>[`INPUT_PERMISSION_DENIED`](crate::input_manager::InputErrorCode::PERMISSION_DENIED) if permission verification fails;
+    /// <br>[`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if the callback is empty or no listener is added;
+    /// <br>[`INPUT_SERVICE_EXCEPTION`](crate::input_manager::InputErrorCode::SERVICE_EXCEPTION) if the service is abnormal.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -2475,25 +2788,20 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Input_RemoveKeyEventMonitor(callback: Input_KeyEventCallback) -> Input_Result;
-    /// Removes a mouse event listener.
+    /// Removes the listener for mouse events.
     ///
     ///
     /// Required Permissions: ohos.permission.INPUT_MONITORING
     /// # Arguments
     ///
-    /// * `callback` - - Callback for the mouse event listener.
+    /// * `callback` - Callback for mouse events.
     ///
     /// # Returns
     ///
-    /// * OH_Input_RemoveMouseEventMonitor function result code.
-    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) Removes a mouse event listener success.
-    ///
-    /// [`INPUT_PERMISSION_DENIED`](crate::input_manager::InputErrorCode::PERMISSION_DENIED) Permission verification failed.
-    ///
-    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) The callback is NULL or has not been added.
-    ///
-    /// [`INPUT_SERVICE_EXCEPTION`](crate::input_manager::InputErrorCode::SERVICE_EXCEPTION) Fail to remove the monitor because the service is exception.
-    ///
+    /// * [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
+    /// <br>[`INPUT_PERMISSION_DENIED`](crate::input_manager::InputErrorCode::PERMISSION_DENIED) if permission verification fails;
+    /// <br>[`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if the callback is empty or no listener is added;
+    /// <br>[`INPUT_SERVICE_EXCEPTION`](crate::input_manager::InputErrorCode::SERVICE_EXCEPTION) if the service is abnormal.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -2501,25 +2809,20 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Input_RemoveMouseEventMonitor(callback: Input_MouseEventCallback) -> Input_Result;
-    /// Removes a touch event listener.
+    /// Removes the listener for touch events.
     ///
     ///
     /// Required Permissions: ohos.permission.INPUT_MONITORING
     /// # Arguments
     ///
-    /// * `callback` - - Callback for the touch event listener.
+    /// * `callback` - Callback for touch events.
     ///
     /// # Returns
     ///
-    /// * OH_Input_RemoveTouchEventMonitor function result code.
-    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) Removes a touch event listener success.
-    ///
-    /// [`INPUT_PERMISSION_DENIED`](crate::input_manager::InputErrorCode::PERMISSION_DENIED) Permission verification failed.
-    ///
-    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) The callback is NULL or has not been added.
-    ///
-    /// [`INPUT_SERVICE_EXCEPTION`](crate::input_manager::InputErrorCode::SERVICE_EXCEPTION) Fail to remove the monitor because the service is exception.
-    ///
+    /// * [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
+    /// <br>[`INPUT_PERMISSION_DENIED`](crate::input_manager::InputErrorCode::PERMISSION_DENIED) if permission verification fails;
+    /// <br>[`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if the callback is empty or no listener is added;
+    /// <br>[`INPUT_SERVICE_EXCEPTION`](crate::input_manager::InputErrorCode::SERVICE_EXCEPTION) if the service is abnormal.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -2533,19 +2836,14 @@ extern "C" {
     /// Required Permissions: ohos.permission.INPUT_MONITORING
     /// # Arguments
     ///
-    /// * `callback` - - Callback for the listener used to listen for all types of axis events.
+    /// * `callback` - Callback for the all types of axis events.
     ///
     /// # Returns
     ///
-    /// * OH_Input_RemoveAxisEventMonitorForAll function result code.
-    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) Removes the listener for all types of axis events success.
-    ///
-    /// [`INPUT_PERMISSION_DENIED`](crate::input_manager::InputErrorCode::PERMISSION_DENIED) Permission verification failed.
-    ///
-    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) The callback is NULL or has not been added.
-    ///
-    /// [`INPUT_SERVICE_EXCEPTION`](crate::input_manager::InputErrorCode::SERVICE_EXCEPTION) Fail to remove the monitor because the service is exception.
-    ///
+    /// * [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
+    /// <br>[`INPUT_PERMISSION_DENIED`](crate::input_manager::InputErrorCode::PERMISSION_DENIED) if permission verification fails;
+    /// <br>[`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if the callback is empty or no listener is added;
+    /// <br>[`INPUT_SERVICE_EXCEPTION`](crate::input_manager::InputErrorCode::SERVICE_EXCEPTION) if the service is abnormal.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -2554,27 +2852,23 @@ extern "C" {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Input_RemoveAxisEventMonitorForAll(callback: Input_AxisEventCallback)
         -> Input_Result;
-    /// Removes the listener for the specified type of axis events.
+    /// Removes the listener for the specified type of axis events, which are defined in
+    /// [`InputEvent_AxisEventType`](crate::axis_type::InputEvent_AxisEventType).
     ///
     ///
     /// Required Permissions: ohos.permission.INPUT_MONITORING
     /// # Arguments
     ///
-    /// * `axisEventType` - - Axis event type. The axis event type is defined in [`InputEvent_AxisEventType`](crate::axis_type::InputEvent_AxisEventType).
+    /// * `axisEventType` - Axis event type, which is defined in [`InputEvent_AxisEventType`](crate::axis_type::InputEvent_AxisEventType).
     ///
-    /// * `callback` - - Callback for the listener used to listen for the specified type of axis events.
+    /// * `callback` - Callback for the specified type of axis events.
     ///
     /// # Returns
     ///
-    /// * OH_Input_RemoveAxisEventMonitor function result code.
-    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) Removes the listener for the specified type of axis events success.
-    ///
-    /// [`INPUT_PERMISSION_DENIED`](crate::input_manager::InputErrorCode::PERMISSION_DENIED) Permission verification failed.
-    ///
-    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) The callback is NULL or has not been added.
-    ///
-    /// [`INPUT_SERVICE_EXCEPTION`](crate::input_manager::InputErrorCode::SERVICE_EXCEPTION) Fail to remove the monitor because the service is exception.
-    ///
+    /// * [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
+    /// <br>[`INPUT_PERMISSION_DENIED`](crate::input_manager::InputErrorCode::PERMISSION_DENIED) if permission verification fails;
+    /// <br>[`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if the callback is empty or no listener is added;
+    /// <br>[`INPUT_SERVICE_EXCEPTION`](crate::input_manager::InputErrorCode::SERVICE_EXCEPTION) if the service is abnormal.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -2585,29 +2879,24 @@ extern "C" {
         axisEventType: InputEvent_AxisEventType,
         callback: Input_AxisEventCallback,
     ) -> Input_Result;
-    /// Adds a key event interceptor. If multiple interceptors are added, only the first one takes effect.
+    /// Adds a key event interceptor. Only the first addition takes effect. Subsequent requests will return error
+    /// code [`INPUT_REPEAT_INTERCEPTOR`](crate::input_manager::InputErrorCode::REPEAT_INTERCEPTOR). Key events are intercepted only when the application gains focus.
     ///
     ///
     /// Required Permissions: ohos.permission.INTERCEPT_INPUT_EVENT
     /// # Arguments
     ///
-    /// * `callback` - - Callback used to receive key events.
+    /// * `callback` - Callback used to receive key events.
     ///
-    /// * `option` - - Options for event interception. If **null** is passed, the default value is used.
+    /// * `option` - Options for event interception. If **null** is passed, the default value is used.
     ///
     /// # Returns
     ///
-    /// * OH_Input_AddKeyEventInterceptor function result code.
-    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) Adds a key event interceptor success.
-    ///
-    /// [`INPUT_PERMISSION_DENIED`](crate::input_manager::InputErrorCode::PERMISSION_DENIED) Permission verification failed.
-    ///
-    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) The callback is NULL.
-    ///
-    /// [`INPUT_REPEAT_INTERCEPTOR`](crate::input_manager::InputErrorCode::REPEAT_INTERCEPTOR) Interceptor repeatedly created for an application.
-    ///
-    /// [`INPUT_SERVICE_EXCEPTION`](crate::input_manager::InputErrorCode::SERVICE_EXCEPTION) Failed to add the interceptor because the service is exception.
-    ///
+    /// * [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
+    /// <br>[`INPUT_PERMISSION_DENIED`](crate::input_manager::InputErrorCode::PERMISSION_DENIED) if permission verification fails;
+    /// <br>[`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if the callback is empty or no listener is added;
+    /// <br>[`INPUT_REPEAT_INTERCEPTOR`](crate::input_manager::InputErrorCode::REPEAT_INTERCEPTOR) if an interceptor is repeatedly added;
+    /// <br>[`INPUT_SERVICE_EXCEPTION`](crate::input_manager::InputErrorCode::SERVICE_EXCEPTION) if the service is abnormal.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -2618,31 +2907,26 @@ extern "C" {
         callback: Input_KeyEventCallback,
         option: *mut Input_InterceptorOptions,
     ) -> Input_Result;
-    /// Adds an interceptor for input events, including mouse, touch, and axis events.
-    /// If multiple interceptors are added, only the first one takes effect.
+    /// Adds an interceptor for input events, including mouse, touch, and axis events. Only the first addition takes
+    /// effect. Subsequent requests will return error code [`INPUT_REPEAT_INTERCEPTOR`](crate::input_manager::InputErrorCode::REPEAT_INTERCEPTOR). Key events are intercepted only
+    /// when the application window is hit.
     ///
     ///
     /// Required Permissions: ohos.permission.INTERCEPT_INPUT_EVENT
     /// # Arguments
     ///
-    /// * `callback` - - Pointer to the structure of the callback for the input event interceptor.
-    /// For details, see [`Input_InterceptorEventCallback`](crate::input_manager::Input_InterceptorEventCallback).
+    /// * `callback` - Pointer to the structure of the interceptor event callback. For details, see
+    /// [`Input_InterceptorEventCallback`](crate::input_manager::Input_InterceptorEventCallback).
     ///
-    /// * `option` - - Options for event interception. If **null** is passed, the default value is used.
+    /// * `option` - Options for event interception. If **null** is passed, the default value is used.
     ///
     /// # Returns
     ///
-    /// * OH_Input_AddInputEventInterceptor function result code.
-    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) Adds an interceptor for input events success.
-    ///
-    /// [`INPUT_PERMISSION_DENIED`](crate::input_manager::InputErrorCode::PERMISSION_DENIED) Permission verification failed.
-    ///
-    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) The callback is NULL.
-    ///
-    /// [`INPUT_REPEAT_INTERCEPTOR`](crate::input_manager::InputErrorCode::REPEAT_INTERCEPTOR) Interceptor repeatedly created for an application.
-    ///
-    /// [`INPUT_SERVICE_EXCEPTION`](crate::input_manager::InputErrorCode::SERVICE_EXCEPTION) Failed to add the interceptor because the service is exception.
-    ///
+    /// * [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
+    /// <br>[`INPUT_PERMISSION_DENIED`](crate::input_manager::InputErrorCode::PERMISSION_DENIED) if permission verification fails;
+    /// <br>[`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if the callback is empty or no listener is added;
+    /// <br>[`INPUT_REPEAT_INTERCEPTOR`](crate::input_manager::InputErrorCode::REPEAT_INTERCEPTOR) if an interceptor is repeatedly added;
+    /// <br>[`INPUT_SERVICE_EXCEPTION`](crate::input_manager::InputErrorCode::SERVICE_EXCEPTION) if the service is abnormal.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -2653,20 +2937,16 @@ extern "C" {
         callback: *mut Input_InterceptorEventCallback,
         option: *mut Input_InterceptorOptions,
     ) -> Input_Result;
-    /// Removes a key event interceptor.
+    /// Removes the interceptor for key events.
     ///
     ///
     /// Required Permissions: ohos.permission.INTERCEPT_INPUT_EVENT
     ///
     /// # Returns
     ///
-    /// * OH_Input_RemoveKeyEventInterceptor function result code.
-    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result)Removes a key event interceptor success.
-    ///
-    /// [`INPUT_PERMISSION_DENIED`](crate::input_manager::InputErrorCode::PERMISSION_DENIED) Permission verification failed.
-    ///
-    /// [`INPUT_SERVICE_EXCEPTION`](crate::input_manager::InputErrorCode::SERVICE_EXCEPTION) Failed to remove the interceptor because the service is exception.
-    ///
+    /// * [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
+    /// <br>[`INPUT_PERMISSION_DENIED`](crate::input_manager::InputErrorCode::PERMISSION_DENIED) if permission verification fails;
+    /// <br>[`INPUT_SERVICE_EXCEPTION`](crate::input_manager::InputErrorCode::SERVICE_EXCEPTION) if the service is abnormal.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -2674,20 +2954,16 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Input_RemoveKeyEventInterceptor() -> Input_Result;
-    /// Removes an interceptor for input events, including mouse, touch, and axis events.
+    /// Removes the interceptor for input events, including mouse, touch, and axis events.
     ///
     ///
     /// Required Permissions: ohos.permission.INTERCEPT_INPUT_EVENT
     ///
     /// # Returns
     ///
-    /// * OH_Input_RemoveInputEventInterceptor function result code.
-    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) Removes an interceptor for input events success.
-    ///
-    /// [`INPUT_PERMISSION_DENIED`](crate::input_manager::InputErrorCode::PERMISSION_DENIED) Permission verification failed.
-    ///
-    /// [`INPUT_SERVICE_EXCEPTION`](crate::input_manager::InputErrorCode::SERVICE_EXCEPTION) Failed to remove the interceptor because the service is exception.
-    ///
+    /// * [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
+    /// <br>[`INPUT_PERMISSION_DENIED`](crate::input_manager::InputErrorCode::PERMISSION_DENIED) if permission verification fails;
+    /// <br>[`INPUT_SERVICE_EXCEPTION`](crate::input_manager::InputErrorCode::SERVICE_EXCEPTION) if the service is abnormal.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -2699,17 +2975,14 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `timeInterval` - Interval, in microseconds.
+    /// * `timeInterval` - Time interval, in microseconds (μs).
     ///
     /// # Returns
     ///
-    /// * OH_Input_GetIntervalSinceLastInput status code, specifically.
-    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the Operation is successful.
-    ///
-    /// [`INPUT_SERVICE_EXCEPTION`](crate::input_manager::InputErrorCode::SERVICE_EXCEPTION) Failed to get the interval because the service is exception.
-    ///
-    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) The timeInterval is NULL.
-    ///
+    /// * Return value of the **OH_Input_GetIntervalSinceLastInput** function.
+    /// <br>[`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the interval is obtained successfully;
+    /// <br>[`INPUT_SERVICE_EXCEPTION`](crate::input_manager::InputErrorCode::SERVICE_EXCEPTION) if the service is abnormal;
+    /// <br>[`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if the parameter is incorrect.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -2717,13 +2990,13 @@ extern "C" {
     #[cfg(feature = "api-14")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
     pub fn OH_Input_GetIntervalSinceLastInput(timeInterval: *mut i64) -> Input_Result;
-    /// Creates a hot key object.
+    /// Creates a hotkey object. You can call `OH_Input_DestroyHotkey()` to destroy a hotkey object.
     ///
     ///
     /// # Returns
     ///
-    /// * Returns an [`Input_Hotkey`](ohos_sys_opaque_types::Input_Hotkey) pointer object if the operation is successful. Otherwise, a null pointer is
-    /// returned. The possible cause is memory allocation failure.
+    /// * If the operation is successful, a pointer to an [`Input_Hotkey`](ohos_sys_opaque_types::Input_Hotkey) object is returned. Otherwise, a null
+    /// pointer is returned, possibly due to memory allocation failure.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -2731,11 +3004,11 @@ extern "C" {
     #[cfg(feature = "api-14")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
     pub fn OH_Input_CreateHotkey() -> *mut Input_Hotkey;
-    /// Destroys a hot key object.
+    /// Destroys a hotkey object.
     ///
     /// # Arguments
     ///
-    /// * `hotkey` - Hot key object.
+    /// * `hotkey` - Hotkey object.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -2743,11 +3016,11 @@ extern "C" {
     #[cfg(feature = "api-14")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
     pub fn OH_Input_DestroyHotkey(hotkey: *mut *mut Input_Hotkey);
-    /// Sets a modifier key.
+    /// Sets the modifier keys.
     ///
     /// # Arguments
     ///
-    /// * `hotkey` - Hotkey key object.
+    /// * `hotkey` - Hotkey object.
     ///
     /// * `preKeys` - List of modifier keys.
     ///
@@ -2759,11 +3032,11 @@ extern "C" {
     #[cfg(feature = "api-14")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
     pub fn OH_Input_SetPreKeys(hotkey: *mut Input_Hotkey, preKeys: *mut i32, size: i32);
-    /// Obtains a modifier key.
+    /// Obtains the modifier key.
     ///
     /// # Arguments
     ///
-    /// * `hotkey` - Hotkey key object.
+    /// * `hotkey` - Hotkey object.
     ///
     /// * `preKeys` - List of modifier keys.
     ///
@@ -2771,14 +3044,9 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * OH_Input_GetPreKeys status code, specifically,
-    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
-    ///
-    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) The hotkey is NULL or the pressedKeys is NULL or the pressedKeyCount
-    /// is NULL;
-    ///
-    /// [`INPUT_DEVICE_NOT_SUPPORTED`](crate::input_manager::InputErrorCode::DEVICE_NOT_SUPPORTED) Capability not supported.
-    ///
+    /// * Return value of the **OH_Input_GetPreKeys** function.
+    /// <br>[`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
+    /// <br>[`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) otherwise.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -2790,13 +3058,13 @@ extern "C" {
         preKeys: *mut *mut i32,
         preKeyCount: *mut i32,
     ) -> Input_Result;
-    /// Sets a modified key.
+    /// Sets the modified key.
     ///
     /// # Arguments
     ///
-    /// * `hotkey` - Hotkey key object.
+    /// * `hotkey` - Hotkey object.
     ///
-    /// * `finalKey` - Modified key. Only one modified key is supported.
+    /// * `finalKey` - Modifier key value. Only one modifier key value is allowed.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -2804,23 +3072,19 @@ extern "C" {
     #[cfg(feature = "api-14")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
     pub fn OH_Input_SetFinalKey(hotkey: *mut Input_Hotkey, finalKey: i32);
-    /// Obtains a modified key.
+    /// Obtains the modified key.
     ///
     /// # Arguments
     ///
-    /// * `hotkey` - Hotkey key object.
+    /// * `hotkey` - Hotkey object.
     ///
-    /// * `finalKeyCode` - Returns the key value of the decorated key.
+    /// * `finalKeyCode` - Modified key.
     ///
     /// # Returns
     ///
-    /// * OH_Input_GetFinalKey status code, specifically,
-    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
-    ///
-    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) The hotkey is NULL or the finalKeyCode is NULL;
-    ///
-    /// [`INPUT_DEVICE_NOT_SUPPORTED`](crate::input_manager::InputErrorCode::DEVICE_NOT_SUPPORTED) Capability not supported.
-    ///
+    /// * Return value of the **OH_Input_GetFinalKey** function.
+    /// <br>[`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
+    /// <br>[`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) otherwise.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -2831,18 +3095,18 @@ extern "C" {
         hotkey: *const Input_Hotkey,
         finalKeyCode: *mut i32,
     ) -> Input_Result;
-    /// Creates an array of [`Input_Hotkey`](ohos_sys_opaque_types::Input_Hotkey) instances.
+    /// Creates an [`Input_Hotkey`](ohos_sys_opaque_types::Input_Hotkey) array. You can call `OH_Input_GetAllSystemHotkeys()` to obtain a valid *
+    /// *count** parameter. You can call `OH_Input_DestroyAllSystemHotkeys()` to destroy the array of the
+    /// [`Input_Hotkey`](ohos_sys_opaque_types::Input_Hotkey) instance and reclaim the memory.
     ///
     /// # Arguments
     ///
-    /// * `count` - Number of [`Input_Hotkey`](ohos_sys_opaque_types::Input_Hotkey) instances to be created. The count must be the same as the number of
-    /// system shortcut keys.
+    /// * `count` - Number of [`Input_Hotkey`](ohos_sys_opaque_types::Input_Hotkey) instances.
     ///
     /// # Returns
     ///
-    /// * Returns a pointer to an array of [`Input_Hotkey`](ohos_sys_opaque_types::Input_Hotkey) instances if the operation is successful. If the
-    /// operation fails, a null pointer is returned. The possible cause is memory allocation failure or count is not equal
-    /// to the number of system hotkeys.
+    /// * Return value of the **OH_Input_CreateAllSystemHotkeys** function.
+    /// <br>which is [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -2850,14 +3114,13 @@ extern "C" {
     #[cfg(feature = "api-14")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
     pub fn OH_Input_CreateAllSystemHotkeys(count: i32) -> *mut *mut Input_Hotkey;
-    /// Destroys an array of [`Input_Hotkey`](ohos_sys_opaque_types::Input_Hotkey) instances and reclaims memory.
+    /// Destroys an [`Input_Hotkey`](ohos_sys_opaque_types::Input_Hotkey) array and reclaims the memory.
     ///
     /// # Arguments
     ///
-    /// * `hotkeys` - Pointer to an array of [`Input_Hotkey`](ohos_sys_opaque_types::Input_Hotkey) instances created by the
-    /// [`OH_Input_CreateAllSystemHotkeys`](crate::input_manager::OH_Input_CreateAllSystemHotkeys) method.
+    /// * `hotkeys` - Double pointer to the [`Input_Hotkey`](ohos_sys_opaque_types::Input_Hotkey) array.
     ///
-    /// * `count` - Count of the array to be destroyed, which must be the same as the number of system shortcut keys.
+    /// * `count` - Number of [`Input_Hotkey`](ohos_sys_opaque_types::Input_Hotkey) instances.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -2865,24 +3128,20 @@ extern "C" {
     #[cfg(feature = "api-14")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
     pub fn OH_Input_DestroyAllSystemHotkeys(hotkeys: *mut *mut Input_Hotkey, count: i32);
-    /// Obtains all hot keys supported by the system.
+    /// Obtains all configured hotkeys.
     ///
     /// # Arguments
     ///
-    /// * `hotkey` - Array of [`Input_Hotkey`](ohos_sys_opaque_types::Input_Hotkey) instances.
-    /// When calling this API for the first time, you can pass NULL to obtain the array length.
+    /// * `hotkey` - [`Input_Hotkey`](ohos_sys_opaque_types::Input_Hotkey) array. When calling this API for the first time, you can pass **NULL** to obtain
+    /// the array length.
     ///
-    /// * `count` - Number of hot keys supported by the system.
+    /// * `count` - Number of supported hotkeys.
     ///
     /// # Returns
     ///
-    /// * OH_Input_GetAllSystemHotkeys status code, specifically,
-    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
-    ///
-    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) The hotkey or count is NULL, or the value of count does not match the number
-    /// of system shortcut keys supported by the system;
-    /// [`INPUT_DEVICE_NOT_SUPPORTED`](crate::input_manager::InputErrorCode::DEVICE_NOT_SUPPORTED) Capability not supported.
-    ///
+    /// * Return value of the **OH_Input_GetAllSystemHotkeys** function.
+    /// <br>[`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
+    /// <br>[`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) otherwise.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -2897,10 +3156,10 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `hotkey` - Shortcut key object.
+    /// * `hotkey` - Hotkey object.
     ///
-    /// * `isRepeat` - Whether to report repeated key events.
-    /// The value <b>true</b> means to report repeated key events, and the value <b>false</b> means the opposite.
+    /// * `isRepeat` - Whether to report repeated key events. The value **true** means to report repeated key events, and
+    /// the value **false** means the opposite.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -2912,19 +3171,16 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `hotkey` - Shortcut key object.
+    /// * `hotkey` - Hotkey object.
     ///
-    /// * `isRepeat` - Whether a key event is repeated.
+    /// * `isRepeat` - Whether the reported key event is repeated. The value **true** indicates that the key event is
+    /// repeated, and the value **false** indicates that the key event is not repeated.
     ///
     /// # Returns
     ///
-    /// * OH_Input_GetRepeat status code, specifically,
-    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
-    ///
-    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) otherwise;
-    ///
-    /// [`INPUT_DEVICE_NOT_SUPPORTED`](crate::input_manager::InputErrorCode::DEVICE_NOT_SUPPORTED) Capability not supported.
-    ///
+    /// * Return value of the **OH_Input_GetRepeat** function.
+    /// <br>[`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
+    /// <br>[`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) otherwise.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -2932,27 +3188,23 @@ extern "C" {
     #[cfg(feature = "api-14")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
     pub fn OH_Input_GetRepeat(hotkey: *const Input_Hotkey, isRepeat: *mut bool) -> Input_Result;
-    /// Subscribes to shortcut key events.
+    /// Subscribes to hotkey events.
     ///
     /// # Arguments
     ///
-    /// * `hotkey` - Shortcut key object.
+    /// * `hotkey` - Hotkey object.
     ///
-    /// * `callback` - Callback used to return shortcut key events.
+    /// * `callback` - Defines the callback used to return hotkey events.
     ///
     /// # Returns
     ///
-    /// * OH_Input_AddHotkeyMonitor status code, specifically,
-    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
-    ///
-    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if hotkey or callback is NULL;
-    ///
-    /// [`INPUT_DEVICE_NOT_SUPPORTED`](crate::input_manager::InputErrorCode::DEVICE_NOT_SUPPORTED) Capability not supported;
-    ///
-    /// [`INPUT_OCCUPIED_BY_SYSTEM`](crate::input_manager::InputErrorCode::OCCUPIED_BY_SYSTEM) The hotkey has been used by the system. You can call the `GetAllSystemHotkeys` interface to query all system shortcut keys.
-    ///
-    /// [`INPUT_OCCUPIED_BY_OTHER`](crate::input_manager::InputErrorCode::OCCUPIED_BY_OTHER) The hotkey has been subscribed to by another.
-    ///
+    /// * Return value of the **OH_Input_AddHotkeyMonitor** function.
+    /// <br>[`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
+    /// <br>[`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if parameter verification fails;
+    /// <br>[`INPUT_OCCUPIED_BY_SYSTEM`](crate::input_manager::InputErrorCode::OCCUPIED_BY_SYSTEM) if the hotkey has been occupied by the system (you can use
+    /// `OH_Input_GetAllSystemHotkeys()` to query allsystem hotkeys);
+    /// <br>[`INPUT_OCCUPIED_BY_OTHER`](crate::input_manager::InputErrorCode::OCCUPIED_BY_OTHER) if the hotkey has been occupied by another application;
+    /// <br>[`INPUT_DEVICE_NOT_SUPPORTED`](crate::input_manager::InputErrorCode::DEVICE_NOT_SUPPORTED) if the function is not supported.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -2963,23 +3215,19 @@ extern "C" {
         hotkey: *const Input_Hotkey,
         callback: Input_HotkeyCallback,
     ) -> Input_Result;
-    /// Unsubscribes from shortcut key events.
+    /// Unsubscribes from hotkey events.
     ///
     /// # Arguments
     ///
-    /// * `hotkey` - Shortcut key object.
+    /// * `hotkey` - Hotkey object.
     ///
-    /// * `callback` - Callback used to return shortcut key events.
+    /// * `callback` - Defines the callback used to return hotkey events.
     ///
     /// # Returns
     ///
-    /// * OH_Input_RemoveHotkeyMonitor status code, specifically,
-    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
-    ///
-    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if hotkey or callback is NULL;
-    ///
-    /// [`INPUT_DEVICE_NOT_SUPPORTED`](crate::input_manager::InputErrorCode::DEVICE_NOT_SUPPORTED) Capability not supported.
-    ///
+    /// * Return value of the **OH_Input_RemoveHotkeyMonitor** function.
+    /// <br>[`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
+    /// <br>[`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if parameter verification fails.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -2994,17 +3242,17 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `deviceIds` - Array of input device IDs.
+    /// * `deviceIds` - List of input device IDs.
     ///
-    /// * `inSize` - Size of the array of input device IDs.
+    /// * `inSize` - Size of the input device ID list.
     ///
-    /// * `outSize` - Length of the list of input device IDs. The value cannot be greater than the value of inSize.
+    /// * `outSize` - Length of the output device ID list. The value must be less than or equal to the value of **inSize**.
     ///
     /// # Returns
     ///
-    /// * OH_Input_GetDeviceIds result code, specifically,
-    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
-    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if deviceIds or outSize is a null pointer or inSize is less than 0.
+    /// * [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
+    /// <br>[`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if **deviceIds** or **outSize** is a null pointer or **inSize** is less than
+    /// **0**.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -3016,20 +3264,20 @@ extern "C" {
         inSize: i32,
         outSize: *mut i32,
     ) -> Input_Result;
-    /// Obtains the information about an input device.
+    /// Obtains information about the input device.
     ///
     /// # Arguments
     ///
-    /// * `deviceId` - Device ID.
+    /// * `deviceId` - Unique ID of the input device. If a physical device is repeatedly reinstalled or restarted, its ID
+    /// may change.
     ///
-    /// * `deviceInfo` - Pointer to an [`Input_DeviceInfo`](crate::input_manager::Input_DeviceInfo) object.
+    /// * `deviceInfo` - Pointer to the [`Input_DeviceInfo`](crate::input_manager::Input_DeviceInfo) object.
     ///
     /// # Returns
     ///
-    /// * OH_Input_GetDevice result code, specifically,
-    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
-    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if the deviceInfo is a null pointer or the deviceId is invalid.
-    /// You can use the [`OH_Input_GetDeviceIds`](crate::input_manager::OH_Input_GetDeviceIds) interface to query the device IDs supported by the system.
+    /// * [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
+    /// <br>[`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if **deviceInfo** is a null pointer or **deviceId** is invalid;
+    /// <br>You can use `OH_Input_GetDeviceIds()` to query the device IDs supported by the system.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -3040,13 +3288,14 @@ extern "C" {
         deviceId: i32,
         deviceInfo: *mut *mut Input_DeviceInfo,
     ) -> Input_Result;
-    /// Creates a deviceInfo object.
+    /// Creates a **deviceInfo** object. You can call `OH_Input_DestroyDeviceInfo()` to destroy an input device
+    /// information object.
     ///
     ///
     /// # Returns
     ///
-    /// * Pointer to an [`Input_DeviceInfo`](crate::input_manager::Input_DeviceInfo) object if the operation is successful;
-    /// a null pointer otherwise (possibly because of a memory allocation failure).
+    /// * Pointer to the [`Input_DeviceInfo`](crate::input_manager::Input_DeviceInfo) object if the operation is successful; a null pointer otherwise (
+    /// possibly because of a memory allocation failure).
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -3054,11 +3303,11 @@ extern "C" {
     #[cfg(feature = "api-13")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub fn OH_Input_CreateDeviceInfo() -> *mut Input_DeviceInfo;
-    /// Destroys a deviceInfo object.
+    /// Destroys a **deviceInfo** object.
     ///
     /// # Arguments
     ///
-    /// * `deviceInfo` - information object. For details, see [`Input_DeviceInfo`](crate::input_manager::Input_DeviceInfo).
+    /// * `deviceInfo` - **deviceInfo** object.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -3066,19 +3315,19 @@ extern "C" {
     #[cfg(feature = "api-13")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub fn OH_Input_DestroyDeviceInfo(deviceInfo: *mut *mut Input_DeviceInfo);
-    /// Obtains the keyboard type of an input device.
+    /// Obtains the keyboard type of the input device.
     ///
     /// # Arguments
     ///
-    /// * `deviceId` - Device ID.
+    /// * `deviceId` - Unique ID of the input device. If a physical device is repeatedly reinstalled or restarted, its ID
+    /// may change.
     ///
     /// * `keyboardType` - Pointer to the keyboard type of the input device.
     ///
     /// # Returns
     ///
-    /// * OH_Input_GetKeyboardType result code, specifically,
-    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
-    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if the device ID is invalid or keyboardType is a null pointer.
+    /// * [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
+    /// <br>[`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if the device ID is invalid or **keyboardType** is a null pointer.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -3090,15 +3339,14 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `deviceInfo` - information object. For details, see [`Input_DeviceInfo`](crate::input_manager::Input_DeviceInfo).
+    /// * `deviceInfo` - Input device information. For details, see [`Input_DeviceInfo`](crate::input_manager::Input_DeviceInfo).
     ///
-    /// * `id` - Pointer to the ID of the input device.
+    /// * `id` - Pointer to the input device ID.
     ///
     /// # Returns
     ///
-    /// * OH_Input_GetDeviceId result code, specifically,
-    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
-    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if deviceInfo or id is a null pointer.
+    /// * [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
+    /// <br>[`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if **deviceInfo** or **ID** is a null pointer.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -3110,15 +3358,14 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `deviceInfo` - information object. For details, see [`Input_DeviceInfo`](crate::input_manager::Input_DeviceInfo).
+    /// * `deviceInfo` - Input device information. For details, see [`Input_DeviceInfo`](crate::input_manager::Input_DeviceInfo).
     ///
-    /// * `name` - Pointer to the name of the input device.
+    /// * `name` - Pointer to the input device name.
     ///
     /// # Returns
     ///
-    /// * OH_Input_GetDeviceName result code, specifically,
-    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
-    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if deviceInfo or name is a null pointer.
+    /// * [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
+    /// <br>[`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if **deviceInfo** or **name** is a null pointer.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -3133,15 +3380,14 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `deviceInfo` - information object. For details, see [`Input_DeviceInfo`](crate::input_manager::Input_DeviceInfo).
+    /// * `deviceInfo` - Input device information. For details, see [`Input_DeviceInfo`](crate::input_manager::Input_DeviceInfo).
     ///
-    /// * `capabilities` - Pointer to the capabilities of the input device.
+    /// * `capabilities` - Pointer to the capability information of the input device.
     ///
     /// # Returns
     ///
-    /// * OH_Input_GetCapabilities result code, specifically,
-    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
-    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if deviceInfo or capabilities is a null pointer.
+    /// * [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
+    /// <br>[`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if **deviceInfo** or **capabilities** is a null pointer.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -3156,15 +3402,14 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `deviceInfo` - information object. For details, see [`Input_DeviceInfo`](crate::input_manager::Input_DeviceInfo).
+    /// * `deviceInfo` - Input device information. For details, see [`Input_DeviceInfo`](crate::input_manager::Input_DeviceInfo).
     ///
     /// * `version` - Pointer to the version information of the input device.
     ///
     /// # Returns
     ///
-    /// * OH_Input_GetDeviceVersion result code, specifically,
-    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
-    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if deviceInfo or version is a null pointer.
+    /// * [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
+    /// <br>[`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if **deviceInfo** or **version** is a null pointer.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -3179,15 +3424,14 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `deviceInfo` - information object. For details, see [`Input_DeviceInfo`](crate::input_manager::Input_DeviceInfo).
+    /// * `deviceInfo` - Input device information. For details, see [`Input_DeviceInfo`](crate::input_manager::Input_DeviceInfo).
     ///
     /// * `product` - Pointer to the product information of the input device.
     ///
     /// # Returns
     ///
-    /// * OH_Input_GetDeviceProduct result code, specifically,
-    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
-    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if deviceInfo or product is a null pointer.
+    /// * [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
+    /// <br>[`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if **deviceInfo** or **product** is a null pointer.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -3202,15 +3446,14 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `deviceInfo` - information object. For details, see [`Input_DeviceInfo`](crate::input_manager::Input_DeviceInfo).
+    /// * `deviceInfo` - Input device information. For details, see [`Input_DeviceInfo`](crate::input_manager::Input_DeviceInfo).
     ///
     /// * `vendor` - Pointer to the vendor information of the input device.
     ///
     /// # Returns
     ///
-    /// * OH_Input_GetDeviceVendor result code, specifically,
-    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
-    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if deviceInfo or vendor is a null pointer.
+    /// * [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
+    /// <br>[`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if **deviceInfo** or **vendor** is a null pointer.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -3225,15 +3468,14 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `deviceInfo` - information object. For details, see [`Input_DeviceInfo`](crate::input_manager::Input_DeviceInfo).
+    /// * `deviceInfo` - Input device information. For details, see [`Input_DeviceInfo`](crate::input_manager::Input_DeviceInfo).
     ///
     /// * `address` - Pointer to the physical address of the input device.
     ///
     /// # Returns
     ///
-    /// * OH_Input_GetDeviceAddress result code, specifically,
-    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
-    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if deviceInfo or address is a null pointer.
+    /// * [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
+    /// <br>[`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if **deviceInfo** or **address** is a null pointer.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -3248,15 +3490,14 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `listener` - Pointer to an [`Input_DeviceListener`](crate::input_manager::Input_DeviceListener) object.
-    ///
+    /// * `listener` - Pointer to the [`Input_DeviceListener`](crate::input_manager::Input_DeviceListener) object.
     ///
     /// # Returns
     ///
-    /// * OH_Input_RegisterDeviceListener status code, specifically,
-    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
-    ///
-    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if listener is NULL;
+    /// * Return value of the **OH_Input_RegisterDeviceListener** function.
+    /// <br>[`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
+    /// <br>[`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if the listener is null;
+    /// <br>[`INPUT_SERVICE_EXCEPTION`](crate::input_manager::InputErrorCode::SERVICE_EXCEPTION) if the service is abnormal.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -3268,16 +3509,14 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `listener` - Pointer to the listener for device hot swap events. For details, see [`Input_DeviceListener`](crate::input_manager::Input_DeviceListener).
-    ///
+    /// * `listener` - Pointer to the [`Input_DeviceListener`](crate::input_manager::Input_DeviceListener) object.
     ///
     /// # Returns
     ///
-    /// * OH_Input_UnregisterDeviceListener status code, specifically,
-    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
-    ///
-    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if listener is NULL or no listener is registered;
-    /// [`INPUT_SERVICE_EXCEPTION`](crate::input_manager::InputErrorCode::SERVICE_EXCEPTION) if the service is abnormal.
+    /// * Return value of the **OH_Input_UnregisterDeviceListener** function.
+    /// <br>[`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
+    /// <br>[`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if **listener** is null or the listener is not registered;
+    /// <br>[`INPUT_SERVICE_EXCEPTION`](crate::input_manager::InputErrorCode::SERVICE_EXCEPTION) if the service is abnormal.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -3290,10 +3529,9 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * OH_Input_UnregisterDeviceListeners status code, specifically,
-    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
-    ///
-    /// [`INPUT_SERVICE_EXCEPTION`](crate::input_manager::InputErrorCode::SERVICE_EXCEPTION) if the service is abnormal.
+    /// * Return value of the **OH_Input_UnregisterDeviceListener** function.
+    /// <br>[`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
+    /// <br>[`INPUT_SERVICE_EXCEPTION`](crate::input_manager::InputErrorCode::SERVICE_EXCEPTION) if the service is abnormal.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -3305,17 +3543,17 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `keyCode` - Function key value. Supported function keys include capsLock, NumLock, and ScrollLock.
+    /// * `keyCode` - Function key. Currently, only the **CapsLock** key is supported. The key value is **1**.
     ///
-    /// * `state` - Function key status. The value 0 indicates that the function key is disabled,
-    /// and the value 1 indicates the opposite.
+    /// * `state` - Function key status. The value **0** indicates that the function key is disabled, and the value **1**
+    /// indicates that the function key is enabled.
     ///
     /// # Returns
     ///
-    /// * OH_Input_GetFunctionKeyState function api result code
-    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
-    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if keyCode is invalid or state is a null pointer.
-    /// [`INPUT_KEYBOARD_DEVICE_NOT_EXIST`](crate::input_manager::InputErrorCode::KEYBOARD_DEVICE_NOT_EXIST) no keyboard device connected.
+    /// * Return value of the **OH_Input_GetFunctionKeyState** function.
+    /// <br>[`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
+    /// <br>[`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if the parameter is incorrect;
+    /// <br>[`INPUT_KEYBOARD_DEVICE_NOT_EXIST`](crate::input_manager::InputErrorCode::KEYBOARD_DEVICE_NOT_EXIST) if the keyboard device does not exist.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -3323,41 +3561,43 @@ extern "C" {
     #[cfg(feature = "api-15")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub fn OH_Input_GetFunctionKeyState(keyCode: i32, state: *mut i32) -> Input_Result;
-    /// Queries the maximum number of touch points supported by the current device.
-    /// If -1 is returned, the number is unknown.
+    /// Queries the maximum number of touch points supported by the device.
     ///
     /// # Arguments
     ///
-    /// * `count` - Maximum number of touch points supported.
+    /// * `count` - Maximum number of touch points supported by the device. The value range is \[0, 10\]. The value **-1**
+    /// indicates that the number of touch points is unknown.
     ///
     /// # Returns
     ///
-    /// * OH_Input_QueryMaxTouchPoints function api result code
-    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
-    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if count is a null pointer.
+    /// * Return value of the **OH_Input_QueryMaxTouchPoints** function.
+    /// <br>[`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
+    /// <br>[`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if the parameter verification fails.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_Input_QueryMaxTouchPoints(count: *mut i32) -> Input_Result;
-    /// Get pointer location.
+    /// Obtains the coordinates of the mouse pointer on the current screen.
+    /// <br>Since API version 26.0.0, non-focused applications that have the ohos.permission.INPUT_DEVICE_CONFIGURATOR
+    /// permission can call this API.
     ///
     /// # Arguments
     ///
-    /// * `displayId` - The displayId for the pointer location.
+    /// * `displayId` - Screen ID of the current screen.
     ///
-    /// * `displayX` - The displayX for the pointer location.
+    /// * `displayX` - X coordinate of the mouse on the current screen, in pixels (px).
     ///
-    /// * `displayY` - The displayY for the pointer location.
+    /// * `displayY` - Y coordinate of the mouse on the current screen, in pixels (px).
     ///
     /// # Returns
     ///
-    /// * OH_Input_GetPointerLocation function api result code
-    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
-    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if parameter is a null pointer;
-    /// [`INPUT_APP_NOT_FOCUSED`](crate::input_manager::InputErrorCode::APP_NOT_FOCUSED) if the app is not the focused app;
-    /// [`INPUT_DEVICE_NO_POINTER`](crate::input_manager::InputErrorCode::DEVICE_NO_POINTER) if the device has no pointer;
-    /// [`INPUT_SERVICE_EXCEPTION`](crate::input_manager::InputErrorCode::SERVICE_EXCEPTION) if the service is exception.
+    /// * Return value of the **GetPointerLocation** function.
+    /// <br>[`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
+    /// <br>[`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if the parameter is incorrect;
+    /// <br>[`INPUT_SERVICE_EXCEPTION`](crate::input_manager::InputErrorCode::SERVICE_EXCEPTION) if a service exception occurs;
+    /// <br>[`INPUT_APP_NOT_FOCUSED`](crate::input_manager::InputErrorCode::APP_NOT_FOCUSED) if the current application is not in focus;
+    /// <br>[`INPUT_DEVICE_NO_POINTER`](crate::input_manager::InputErrorCode::DEVICE_NO_POINTER) if no mouse device is available.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -3367,41 +3607,45 @@ extern "C" {
         displayX: *mut f64,
         displayY: *mut f64,
     ) -> Input_Result;
-    /// Creates a cursor info object.
+    /// Creates a mouse pointer information object. You can call `OH_Input_CursorInfo_Destroy()` to destroy a
+    /// mouse pointer information object.
     ///
     ///
     /// # Returns
     ///
-    /// * Returns an [`Input_CursorInfo`](crate::input_manager::Input_CursorInfo) cursor object if the operation is successful.
-    /// Otherwise, a null cursor is returned. The possible cause is memory allocation failure.
+    /// * An [`Input_CursorInfo`](crate::input_manager::Input_CursorInfo) object if the operation is successful; a null pointer otherwise (possibly
+    /// because of a memory allocation failure).
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub fn OH_Input_CursorInfo_Create() -> *mut Input_CursorInfo;
-    /// Destroys a cursor info object.
+    /// Destroys the mouse pointer information object.
     ///
     /// # Arguments
     ///
-    /// * `cursorInfo` - Cursor info object.
+    /// * `cursorInfo` - Mouse pointer information object.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub fn OH_Input_CursorInfo_Destroy(cursorInfo: *mut *mut Input_CursorInfo);
-    /// Obtains the cursor visibility of the cursorInfo.
+    /// Obtains the pointer visible status of the specified mouse pointer information object.
     ///
     /// # Arguments
     ///
-    /// * `cursorInfo` - Cursor info object.
+    /// * `cursorInfo` - Mouse pointer information object. You can call `OH_Input_GetMouseEventCursorInfo()` to query
+    /// the mouse pointer information of a specified mouse event, or call `OH_Input_GetCursorInfo()` to query the
+    /// current mouse pointer information.
     ///
-    /// * `visible` - Visibility of the cursorInfo.
+    /// * `visible` - Visible status of the mouse pointer. The value **true** indicates that the mouse pointer is visible,
+    /// and the value **false** indicates the opposite.
     ///
     /// # Returns
     ///
-    /// * OH_Input_CursorInfo_IsVisible function api result code
-    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
-    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if parameter is a null cursor;
+    /// * Return value of the **OH_Input_CursorInfo_IsVisible** function.
+    /// <br>[`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
+    /// <br>[`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if the parameter verification fails.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -3410,19 +3654,21 @@ extern "C" {
         cursorInfo: *mut Input_CursorInfo,
         visible: *mut bool,
     ) -> Input_Result;
-    /// Obtains the cursor style of the cursorInfo.
+    /// Obtains the pointer style of the specified mouse pointer information object.
     ///
     /// # Arguments
     ///
-    /// * `cursorInfo` - Cursor info object.
+    /// * `cursorInfo` - Mouse pointer information object. You can call `OH_Input_GetMouseEventCursorInfo()` to query
+    /// the mouse pointer information of a specified mouse event, or call `OH_Input_GetCursorInfo()` to query the
+    /// current mouse pointer information.
     ///
     /// * `style` - Cursor style of the cursorInfo.
     ///
     /// # Returns
     ///
-    /// * OH_Input_CursorInfo_GetStyle function api result code
-    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
-    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if parameter is a null cursor or the cursor is invisible;
+    /// * Return value of the **OH_Input_CursorInfo_GetStyle** function.
+    /// <br>[`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
+    /// <br>[`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if the parameter verification fails or the pointer is invisible.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -3431,19 +3677,23 @@ extern "C" {
         cursorInfo: *mut Input_CursorInfo,
         style: *mut Input_PointerStyle,
     ) -> Input_Result;
-    /// Obtains the cursor sizeLevel of the cursorInfo.
+    /// Obtains the pointer size level of the specified mouse pointer information object.
     ///
     /// # Arguments
     ///
-    /// * `cursorInfo` - Cursor info object.
+    /// * `cursorInfo` - Mouse pointer information object. You can call `OH_Input_GetMouseEventCursorInfo()` to query
+    /// the mouse pointer information of a specified mouse event, or call `OH_Input_GetCursorInfo()` to query the
+    /// current mouse pointer information.
     ///
-    /// * `sizeLevel` - Cursor size level of the cursorInfo.
+    /// * `sizeLevel` - Pointer size level of the mouse pointer information object. The value is an integer ranging from 1
+    /// to 7. A larger value indicates a higher pointer size level. The size of the custom pointer
+    /// [`DEVELOPER_DEFINED_ICON`](crate::pointer_style::Input_PointerStyle::DEVELOPER_DEFINED_ICON) is subject to the actual bitmap size.
     ///
     /// # Returns
     ///
-    /// * OH_Input_CursorInfo_GetSizeLevel function api result code
-    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
-    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if parameter is a null cursor or the cursor is invisible;
+    /// * Return value of the **OH_Input_CursorInfo_GetSizeLevel** function.
+    /// <br>[`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
+    /// <br>[`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if the parameter verification fails or the pointer is invisible.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -3452,19 +3702,23 @@ extern "C" {
         cursorInfo: *mut Input_CursorInfo,
         sizeLevel: *mut i32,
     ) -> Input_Result;
-    /// Obtains the cursor color of the cursorInfo represented as a 32-bit ARGB integer.
+    /// Gets the cursor color corresponding to a specified mouse cursor info object, represented as a 32-bit ARGB
+    /// integer.
     ///
     /// # Arguments
     ///
-    /// * `cursorInfo` - Cursor info object.
+    /// * `cursorInfo` - Mouse pointer information object. You can call `OH_Input_GetMouseEventCursorInfo()` to query
+    /// the mouse pointer information of a specified mouse event, or call `OH_Input_GetCursorInfo()` to query the
+    /// current mouse pointer information.
     ///
-    /// * `color` - Cursor color of the cursorInfo represented as a 32-bit ARGB integer.
+    /// * `color` - Cursor color of the mouse cursor info, represented by a 32-bit ARGB integer. For application-defined
+    /// custom cursors [`DEVELOPER_DEFINED_ICON`](crate::pointer_style::Input_PointerStyle::DEVELOPER_DEFINED_ICON), the actual bitmap color shall prevail.
     ///
     /// # Returns
     ///
-    /// * OH_Input_CursorInfo_GetColor function api result code
-    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
-    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if parameter is a null cursor or the cursor is invisible;
+    /// * Return value of the **OH_Input_CursorInfo_GetColor** function.
+    /// <br>[`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
+    /// <br>[`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if the parameter verification fails or the pointer is invisible.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -3473,19 +3727,22 @@ extern "C" {
         cursorInfo: *mut Input_CursorInfo,
         color: *mut u32,
     ) -> Input_Result;
-    /// Get cursor info of the mouseEvent.
+    /// Obtains the mouse pointer information of the mouse event, including the pointer visible status, pointer style,
+    /// pointer size level, and pointer color.
     ///
     /// # Arguments
     ///
-    /// * `mouseEvent` - The received mouseEvent.
+    /// * `mouseEvent` - Mouse event object. You can obtain the mouse event object from the callback of
+    /// `OH_Input_AddMouseEventMonitor()` or `OH_Input_AddInputEventInterceptor()`.
     ///
-    /// * `cursorInfo` - The object to receive the cursor info.
+    /// * `cursorInfo` - Mouse pointer information object. You can call `OH_Input_CursorInfo_Create()` to create a
+    /// mouse pointer information object.
     ///
     /// # Returns
     ///
-    /// * OH_Input_GetMouseEventCursorInfo function api result code
-    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
-    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if parameter is a null cursor;
+    /// * Return value of the **OH_Input_GetMouseEventCursorInfo** function.
+    /// <br>[`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
+    /// <br>[`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if the parameter verification fails.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -3494,21 +3751,31 @@ extern "C" {
         mouseEvent: *const Input_MouseEvent,
         cursorInfo: *mut Input_CursorInfo,
     ) -> Input_Result;
-    /// Retrieves cursor information. If the pixelmap parameter is specified, and the cursor is user-defined type
-    /// currently, the cursor's pixelmap will be returned along with it.
+    /// Obtains the mouse pointer information, including the pointer visible status, pointer style, pointer size
+    /// level, and pointer color. If the **pixelmap** parameter is not empty and the pointer style is
+    /// [`DEVELOPER_DEFINED_ICON`](crate::pointer_style::Input_PointerStyle::DEVELOPER_DEFINED_ICON), the **PixelMap** object of the pointer is returned.
     ///
     /// # Arguments
     ///
-    /// * `cursorInfo` - The object to receive the cursor info.
+    /// * `cursorInfo` - Mouse pointer information object. You can call `OH_Input_CursorInfo_Create()` to create a
+    /// mouse pointer information object.
     ///
-    /// * `pixelmap` - The object to receive the cursor pixelmap, null value will be ignored.
+    /// * `pixelmap` - **PixelMap** object. If this parameter is not empty and the pointer is a custom one, the **PixelMap**
+    /// object of the pointer is returned. Otherwise, the **PixelMap** object is not returned. Firstly, create an **
+    /// OH_PixelmapInitializationOptions** object through `OH_PixelmapInitializationOptions_Create`. Then, set the
+    /// width to a value greater than **0** through `OH_PixelmapInitializationOptions_SetWidth`, set the height to
+    /// a value greater than **0** through `OH_PixelmapInitializationOptions_SetHeight`. Finally, create a **
+    /// PixelMap** object by calling `OH_PixelmapNative_CreateEmptyPixelmap` with the **
+    /// OH_PixelmapInitializationOptions** object passed in.
+    /// <br>When the **PixelMap** object is no longer needed, you need to call `OH_PixelmapNative_Release` to
+    /// release the object and then call `OH_PixelmapNative_Destroy` to destroy it.
     ///
     /// # Returns
     ///
-    /// * OH_Input_GetCursorInfo function api result code
-    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
-    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if parameter is a null cursor;
-    /// [`INPUT_SERVICE_EXCEPTION`](crate::input_manager::InputErrorCode::SERVICE_EXCEPTION) if the service is exception.
+    /// * Return value of the **OH_Input_GetCursorInfo** function.
+    /// <br>[`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
+    /// <br>[`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if the parameter verification fails;
+    /// <br>[`INPUT_SERVICE_EXCEPTION`](crate::input_manager::InputErrorCode::SERVICE_EXCEPTION) if the service is abnormal.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -3517,75 +3784,91 @@ extern "C" {
         cursorInfo: *mut Input_CursorInfo,
         pixelmap: *mut *mut OH_PixelmapNative,
     ) -> Input_Result;
-    /// Sets the visible status of the mouse pointer.
+    /// Sets the visible status of the mouse pointer in the current window.
     ///
     /// # Arguments
     ///
-    /// * `visible` - Whether the mouse pointer is visible. The value true indicates that the pointer
+    /// * `visible` - Whether the mouse pointer is visible. The value **true** indicates that the mouse pointer is visible,
+    /// and the value **false** indicates the opposite.
     ///
     /// # Returns
     ///
-    /// * OH_Input_SetPointerVisible function api result code
-    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
-    /// [`INPUT_DEVICE_NOT_SUPPORTED`](crate::input_manager::InputErrorCode::DEVICE_NOT_SUPPORTED) if the device is not supported.
-    /// [`INPUT_SERVICE_EXCEPTION`](crate::input_manager::InputErrorCode::SERVICE_EXCEPTION) if the service is exception.
+    /// * Return value of the **OH_Input_SetPointerVisible** function.
+    /// <br>[`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
+    /// <br>[`INPUT_DEVICE_NOT_SUPPORTED`](crate::input_manager::InputErrorCode::DEVICE_NOT_SUPPORTED) if the device is not supported;
+    /// <br>[`INPUT_SERVICE_EXCEPTION`](crate::input_manager::InputErrorCode::SERVICE_EXCEPTION) if the service is abnormal.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub fn OH_Input_SetPointerVisible(visible: bool) -> Input_Result;
-    /// Obtains the mouse pointer style.
+    /// Gets the mouse cursor style of a specified window. This API only supports getting the mouse cursor style of
+    /// windows within the current application process.
     ///
     /// # Arguments
     ///
-    /// * `windowId` - Window ID. The value is an integer greater than or equal to -1.
+    /// * `windowId` - Window ID. The value is an integer greater than or equal to **-1**. The value **-1** indicates the
+    /// global window.
+    /// <br>Only the ID of the current window or global window can be specified. If any other ID is specified, the
+    /// default pointer style of the global window is returned. You can obtain the ID of the current window through
+    /// `getWindowProperties`.
     ///
-    /// * `pointerStyle` - Pointer to the pointerStyle.
+    /// * `pointerStyle` - Mouse cursor style, which is an enum value of [`Input_PointerStyle`](crate::pointer_style::Input_PointerStyle).
     ///
     /// # Returns
     ///
-    /// * OH_Input_GetPointerStyle function api result code
-    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
-    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if parameter is a null pointer or window ID is invalid;
-    /// [`INPUT_SERVICE_EXCEPTION`](crate::input_manager::InputErrorCode::SERVICE_EXCEPTION) if the service is exception.
+    /// * Return value of the **OH_Input_GetPointerStyle** function.
+    /// <br>[`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
+    /// <br>[`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if the parameter verification fails;
+    /// <br>[`INPUT_SERVICE_EXCEPTION`](crate::input_manager::InputErrorCode::SERVICE_EXCEPTION) if the service is abnormal.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub fn OH_Input_GetPointerStyle(windowId: i32, pointerStyle: *mut i32) -> Input_Result;
-    /// Sets the mouse pointer style.
+    /// Sets the mouse cursor style for a specified window. This API only supports setting the mouse cursor style for
+    /// windows within the current application process.
     ///
     /// # Arguments
     ///
     /// * `windowId` - Window ID. The value is an integer greater than or equal to 0.
+    /// <br>Only the ID of the current window can be specified. If any other ID is specified, the API call is successful,
+    /// but the setting does not take effect. You can obtain the ID of the current window through
+    /// `getWindowProperties`.
     ///
-    /// * `pointerStyle` - Pointer style.The value should be a member of the [`Input_PointerStyle`](crate::pointer_style::Input_PointerStyle) enumeration.
+    /// * `pointerStyle` - Mouse pointer style. The value is an enumerated value of [`Input_PointerStyle`](crate::pointer_style::Input_PointerStyle).
     ///
     /// # Returns
     ///
-    /// * OH_Input_SetPointerStyle function api result code
-    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
-    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if window ID is invalid or pointerStyle is invalid;
-    /// [`INPUT_SERVICE_EXCEPTION`](crate::input_manager::InputErrorCode::SERVICE_EXCEPTION) if the service is exception.
+    /// * Return value of the **OH_Input_SetPointerStyle** function.
+    /// <br>[`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
+    /// <br>[`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if the parameter verification fails;
+    /// <br>[`INPUT_SERVICE_EXCEPTION`](crate::input_manager::InputErrorCode::SERVICE_EXCEPTION) if the service is abnormal.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub fn OH_Input_SetPointerStyle(windowId: i32, pointerStyle: i32) -> Input_Result;
-    /// Creates a CustomCursor object.
+    /// Creates a custom mouse pointer object. You can call `OH_Input_CustomCursor_Destroy()` to destroy a
+    /// custom mouse pointer resource object.
     ///
     /// # Arguments
     ///
-    /// * `pixelMap` - Pointer to a [`OH_PixelmapNative`](ohos_sys_opaque_types::OH_PixelmapNative) object.
+    /// * `pixelMap` - Pixel map of the custom mouse pointer object. For details, see [`OH_PixelmapNative`](ohos_sys_opaque_types::OH_PixelmapNative). The
+    /// minimum value is the minimum size of the resource image. The maximum value is 256 x 256 px.
     ///
-    /// * `anchorX` - Horizontal coordinate of the cursor focus.
+    /// * `anchorX` - Horizontal coordinate of the custom mouse cursor focus. This coordinate is limited by the size of the
+    /// custom mouse cursor. The minimum value is 0, and the maximum value is the maximum width of the resource image,
+    /// in pixels (px).
     ///
-    /// * `anchorY` - Vertical coordinate of the cursor focus.
+    /// * `anchorY` - Vertical coordinate of the custom mouse cursor focus. This coordinate is limited by the size of the
+    /// custom mouse cursor. The minimum value is 0, and the maximum value is the maximum height of the resource image,
+    /// in pixels (px).
     ///
     /// # Returns
     ///
-    /// * Returns an [`Input_CustomCursor`](crate::input_manager::Input_CustomCursor) pointer object if the operation is successful.
-    /// returns a null pointer otherwise.
+    /// * [`Input_CustomCursor`](crate::input_manager::Input_CustomCursor) object. The pointer to the custom mouse pointer object is returned if the
+    /// operation is successful, and a null pointer is returned if an exception occurs.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -3595,29 +3878,29 @@ extern "C" {
         anchorX: i32,
         anchorY: i32,
     ) -> *mut Input_CustomCursor;
-    /// Destroys a CustomCursor object.
+    /// Destroys a custom mouse pointer object.
     ///
     /// # Arguments
     ///
-    /// * `customCursor` - Pointer to a pointer to an [`Input_CustomCursor`](crate::input_manager::Input_CustomCursor) object.
+    /// * `customCursor` - Custom mouse pointer object. For details, see [`Input_CustomCursor`](crate::input_manager::Input_CustomCursor).
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub fn OH_Input_CustomCursor_Destroy(customCursor: *mut *mut Input_CustomCursor);
-    /// Obtains the pixelMap of the CustomCursor.
+    /// Obtains the pixel map of a custom mouse pointer object.
     ///
     /// # Arguments
     ///
-    /// * `customCursor` - Pointer to an [`Input_CustomCursor`](crate::input_manager::Input_CustomCursor) object.
+    /// * `customCursor` - Custom mouse pointer object. For details, see [`Input_CustomCursor`](crate::input_manager::Input_CustomCursor).
     ///
-    /// * `pixelMap` - Pointer to a [`OH_PixelmapNative`](ohos_sys_opaque_types::OH_PixelmapNative) object.
+    /// * `pixelMap` - Pixel map of the custom mouse pointer object. For details, see [`OH_PixelmapNative`](ohos_sys_opaque_types::OH_PixelmapNative).
     ///
     /// # Returns
     ///
-    /// * OH_Input_CustomCursor_GetPixelMap function result code.
-    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
-    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) The customCursor is NULL.
+    /// * Return value of the **OH_Input_CustomCursor_GetPixelMap** function.
+    /// <br>[`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
+    /// <br>[`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if the parameter verification fails.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -3626,21 +3909,21 @@ extern "C" {
         customCursor: *mut Input_CustomCursor,
         pixelMap: *mut *mut OH_PixelmapNative,
     ) -> Input_Result;
-    /// Obtains the anchor of the CustomCursor.
+    /// Obtains the focus coordinates of a custom mouse pointer object.
     ///
     /// # Arguments
     ///
-    /// * `customCursor` - Pointer to an [`Input_CustomCursor`](crate::input_manager::Input_CustomCursor) object.
+    /// * `customCursor` - Custom mouse pointer object. For details, see [`Input_CustomCursor`](crate::input_manager::Input_CustomCursor).
     ///
-    /// * `anchorX` - Pointer to horizontal coordinate of the cursor focus.
+    /// * `anchorX` - Horizontal coordinate of the focus point of the custom mouse cursor resource, in pixels (px).
     ///
-    /// * `anchorY` - Pointer to vertical coordinate of the cursor focus.
+    /// * `anchorY` - Vertical coordinate of the focus point of the custom mouse cursor resource, in pixels (px).
     ///
     /// # Returns
     ///
-    /// * OH_Input_CustomCursor_GetAnchor function result code.
-    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
-    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) The customCursor is NULL.
+    /// * Return value of the **OH_Input_CustomCursor_GetAnchor** function.
+    /// <br>[`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
+    /// <br>[`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if the parameter verification fails.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -3650,44 +3933,48 @@ extern "C" {
         anchorX: *mut i32,
         anchorY: *mut i32,
     ) -> Input_Result;
-    /// Creates a CursorConfig object.
+    /// Creates a custom mouse pointer configuration object. You can call `OH_Input_CursorConfig_Destroy()` to
+    /// destroy a custom mouse pointer configuration object.
     ///
     /// # Arguments
     ///
-    /// * `followSystem` - Pointer of the config whether to adjust the cursor size based on system settings
+    /// * `followSystem` - Whether to adjust the mouse cursor size based on system settings. false means using the custom
+    /// mouse cursor style size, true means adjusting the mouse cursor size based on system settings. The adjustable
+    /// range is: \[cursor resource image size, 256×256\], in pixels (px).
     ///
     /// # Returns
     ///
-    /// * Returns an [`Input_CursorConfig`](crate::input_manager::Input_CursorConfig) pointer object if the operation is successful.
-    /// returns a null pointer otherwise.
+    /// * Custom mouse pointer configuration object. For details, see [`Input_CursorConfig`](crate::input_manager::Input_CursorConfig).
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub fn OH_Input_CursorConfig_Create(followSystem: bool) -> *mut Input_CursorConfig;
-    /// Destroys a CursorConfig object.
+    /// Destroys a custom mouse pointer configuration object.
     ///
     /// # Arguments
     ///
-    /// * `cursorConfig` - Pointer to a pointer to an `cursorConfig` object.
+    /// * `cursorConfig` - Custom mouse pointer configuration object. For details, see [`Input_CursorConfig`](crate::input_manager::Input_CursorConfig).
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub fn OH_Input_CursorConfig_Destroy(cursorConfig: *mut *mut Input_CursorConfig);
-    /// Obtains the followSystem of the cursorConfig.
+    /// Queries whether the custom mouse pointer configuration follows the system setting to adjust the pointer size.
     ///
     /// # Arguments
     ///
-    /// * `cursorConfig` - Pointer to an [`Input_CursorConfig`](crate::input_manager::Input_CursorConfig) object.
+    /// * `cursorConfig` - Custom mouse pointer configuration object. For details, see [`Input_CursorConfig`](crate::input_manager::Input_CursorConfig).
     ///
-    /// * `followSystem` - Pointer of the config whether to adjust the cursor size based on system settings
+    /// * `followSystem` - Whether to adjust the pointer size based on the system setting. The value **true** means to
+    /// adjust the pointer size based on the system setting, and the value **false** means to use the size of custom
+    /// mouse pointer.
     ///
     /// # Returns
     ///
-    /// * OH_Input_CursorConfig_IsFollowSystem function result code.
-    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
-    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) The cursorOptions or followSystem the is NULL.
+    /// * Return value of the **OH_Input_CursorConfig_IsFollowSystem** function.
+    /// <br>[`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
+    /// <br>[`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if the parameter verification fails.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -3696,24 +3983,29 @@ extern "C" {
         cursorConfig: *mut Input_CursorConfig,
         followSystem: *mut bool,
     ) -> Input_Result;
-    /// Sets the custom cursor style.
+    /// Sets the custom mouse pointer style.
+    /// <br>The cursor may revert to the system style in the following scenarios: application window layout changes, hotspot
+    /// switching, page navigation, the cursor leaving and re-entering the window, or the cursor moving between different
+    /// areas of the window. In these cases, the developer needs to set the cursor style again. This API only supports
+    /// setting the custom mouse cursor style for windows within the current application process.
     ///
     /// # Arguments
     ///
-    /// * `windowId` - Window ID. The value is an integer greater than or equal to 0.
+    /// * `windowId` - Window ID. The value must be an integer greater than or equal to **0**. Only the pointer style of
+    /// the current window can be specified.
     ///
-    /// * `customCursor` - Pointer to an [`Input_CustomCursor`](crate::input_manager::Input_CustomCursor) object.
+    /// * `customCursor` - Custom mouse pointer object. For details, see [`Input_CustomCursor`](crate::input_manager::Input_CustomCursor).
     ///
-    /// * `cursorConfig` - Pointer to an `cursorConfig` object.
+    /// * `cursorConfig` - Custom mouse pointer configuration object. For details, see [`Input_CursorConfig`](crate::input_manager::Input_CursorConfig).
     ///
     /// # Returns
     ///
-    /// * OH_Input_SetCustomCursor function result code.
-    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
-    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if window ID is abnormal or customCursor is invalid;
-    /// [`INPUT_INVALID_WINDOWID`](crate::input_manager::InputErrorCode::INVALID_WINDOWID) if window ID is invaild.
-    /// [`INPUT_DEVICE_NOT_SUPPORTED`](crate::input_manager::InputErrorCode::DEVICE_NOT_SUPPORTED) Capability not supported.
-    /// [`INPUT_SERVICE_EXCEPTION`](crate::input_manager::InputErrorCode::SERVICE_EXCEPTION) if the service is exception.
+    /// * Return value of the **OH_Input_SetCustomCursor** function.
+    /// <br>[`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
+    /// <br>[`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if the parameter verification fails;
+    /// <br>[`INPUT_INVALID_WINDOWID`](crate::input_manager::InputErrorCode::INVALID_WINDOWID) if the window ID is invalid;
+    /// <br>[`INPUT_DEVICE_NOT_SUPPORTED`](crate::input_manager::InputErrorCode::DEVICE_NOT_SUPPORTED) if the device is not supported;
+    /// <br>[`INPUT_SERVICE_EXCEPTION`](crate::input_manager::InputErrorCode::SERVICE_EXCEPTION) if the service is abnormal.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -3723,4 +4015,27 @@ extern "C" {
         customCursor: *mut Input_CustomCursor,
         cursorConfig: *mut Input_CursorConfig,
     ) -> Input_Result;
+    /// Binds a specified input device to a specified screen.
+    ///
+    ///
+    /// Required Permissions: ohos.permission.INPUT_DEVICE_CONFIGURATOR
+    /// # Arguments
+    ///
+    /// * `inputDeviceId` - ID of the input device.
+    ///
+    /// * `displayId` - ID of the screen.
+    ///
+    /// # Returns
+    ///
+    /// * Return values of the OH_Input_BindInputDeviceToDisplay function:
+    /// <br>[`INPUT_SUCCESS`](crate::input_manager::Input_Result) indicates that the operation is successful.
+    /// <br>[`INPUT_PERMISSION_DENIED`](crate::input_manager::InputErrorCode::PERMISSION_DENIED) indicates that the permission verification fails.
+    /// <br>[`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) indicates that the parameter check fails (the input device does not exist, the
+    /// display device does not exist, or the input device is not a stylus device).
+    /// <br>[`INPUT_SERVICE_EXCEPTION`](crate::input_manager::InputErrorCode::SERVICE_EXCEPTION) indicates that the service is abnormal. Try again.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_Input_BindInputDeviceToDisplay(inputDeviceId: i32, displayId: i32) -> Input_Result;
 }

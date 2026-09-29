@@ -6,14 +6,12 @@
 use crate::types::*;
 
 extern "C" {
-    /// Creates a default <b>OH_Drawing_Typeface</b> object.
+    /// Creates a default **OH_Drawing_Typeface** object.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the <b>OH_Drawing_Typeface</b> object created.
+    /// * Returns the pointer to the **OH_Drawing_Typeface** object created.
     ///
     /// Available since API-level: 11
     ///
@@ -21,19 +19,19 @@ extern "C" {
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn OH_Drawing_TypefaceCreateDefault() -> *mut OH_Drawing_Typeface;
-    /// Creates an <b>OH_Drawing_Typeface</b> object by file.
+    /// Creates an **OH_Drawing_Typeface** object through a file.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **path** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `path` - file path.
+    /// * `path` - Pointer to the file path.
     ///
-    /// * `index` - file index.
+    /// * `index` - File index.
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the <b>OH_Drawing_Typeface</b> object created.
+    /// * Returns a pointer to the created [`OH_Drawing_Typeface`](crate::types::OH_Drawing_Typeface) object.
     ///
     /// Available since API-level: 12
     ///
@@ -44,25 +42,22 @@ extern "C" {
         path: *const ::core::ffi::c_char,
         index: ::core::ffi::c_int,
     ) -> *mut OH_Drawing_Typeface;
-    /// Creates an <b>OH_Drawing_Typeface</b> object with the specified font arguments from a file.
-    /// If the <b>OH_Drawing_Typeface</b> object does not support the variations described in fontArguments,
-    /// this function creates an <b>OH_Drawing_Typeface</b> object without font arguments.
+    /// Creates an **OH_Drawing_Typeface** object with font arguments through a file.
+    /// If the **OH_Drawing_Typeface** object does not support the variation described in the font arguments, this function
+    /// creates an **OH_Drawing_Typeface** object with the default font arguments.
     /// In this case, this function provides the same capability as [`OH_Drawing_TypefaceCreateFromFile`](crate::typeface::OH_Drawing_TypefaceCreateFromFile).
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `path` - Indicates the file path.
+    /// * `path` - Pointer to the file path.
     ///
-    /// * `fontArguments` - Indicates the pointer to an <b>OH_Drawing_FontArguments</b> object.
+    /// * `fontArguments` - Pointer to an [`OH_Drawing_FontArguments`](crate::types::OH_Drawing_FontArguments) object.
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the <b>OH_Drawing_Typeface</b> object created.
-    /// If nullptr is returned, the creation fails.
-    /// The possible cause of the failure is that the available memory is empty,
-    /// or either path or fontArguments is nullptr, or the path is invalid.
+    /// * Returns a pointer to the created [`OH_Drawing_Typeface`](crate::types::OH_Drawing_Typeface) object.
+    /// If a null pointer is returned, the creation fails. Possible causes are that no memory is available, the passed-in **
+    /// path** or **fontArguments** is NULL, or the path is invalid.
     ///
     /// Available since API-level: 13
     ///
@@ -73,24 +68,21 @@ extern "C" {
         path: *const ::core::ffi::c_char,
         fontArguments: *const OH_Drawing_FontArguments,
     ) -> *mut OH_Drawing_Typeface;
-    /// Creates an <b>OH_Drawing_Typeface</b> object with the specified font arguments from
-    /// an existing <b>OH_Drawing_Typeface</b> object.
+    /// Creates an **OH_Drawing_Typeface** object with font arguments based on an existing **OH_Drawing_Typeface**
+    /// object.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `current` - Indicates the existing <b>OH_Drawing_Typeface</b> object.
+    /// * `current` - Pointer to the [`OH_Drawing_Typeface`](crate::types::OH_Drawing_Typeface) object.
     ///
-    /// * `fontArguments` - Indicates the pointer to an <b>OH_Drawing_FontArguments</b> object.
+    /// * `fontArguments` - Pointer to an [`OH_Drawing_FontArguments`](crate::types::OH_Drawing_FontArguments) object.
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the <b>OH_Drawing_Typeface</b> object created.
-    /// If nullptr is returned, the creation fails.
-    /// The possible cause of the failure is that the available memory is empty,
-    /// or either current or fontArguments is nullptr,
-    /// or current does not support the variations described in fontArguments.
+    /// * Returns a pointer to the created [`OH_Drawing_Typeface`](crate::types::OH_Drawing_Typeface) object.
+    /// If a null pointer is returned, the creation fails. Possible causes are that no memory is available, the passed-in **
+    /// path** or **fontArguments** is NULL, or the existing **OH_Drawing_FontArguments** object does not support the
+    /// variation described in the font arguments.
     ///
     /// Available since API-level: 13
     ///
@@ -101,21 +93,21 @@ extern "C" {
         current: *const OH_Drawing_Typeface,
         fontArguments: *const OH_Drawing_FontArguments,
     ) -> *mut OH_Drawing_Typeface;
-    /// Creates an <b>OH_Drawing_Typeface</b> object by given a stream. If the stream is not a valid
-    /// font file, returns nullptr. Ownership of the stream is transferred, so the caller must not reference
-    /// it or free it again.
+    /// Creates an **OH_Drawing_Typeface** object through a memory stream. If the memory stream is an invalid font
+    /// file, a null pointer is returned. After the memory stream is passed in, the ownership is transferred and you cannot
+    /// release it.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **memoryStream** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `memoryStream` - Indicates the pointer to an <b>OH_Drawing_MemoryStream</b> object.
+    /// * `memoryStream` - Pointer to an [`OH_Drawing_MemoryStream`](crate::types::OH_Drawing_MemoryStream) object.
     ///
-    /// * `index` - memory stream index.
+    /// * `index` - Index of the memory stream.
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the <b>OH_Drawing_Typeface</b> object created.
+    /// * Returns a pointer to the created [`OH_Drawing_Typeface`](crate::types::OH_Drawing_Typeface) object.
     ///
     /// Available since API-level: 12
     ///
@@ -126,13 +118,11 @@ extern "C" {
         memoryStream: *mut OH_Drawing_MemoryStream,
         index: i32,
     ) -> *mut OH_Drawing_Typeface;
-    /// Destroys an <b>OH_Drawing_Typeface</b> object and reclaims the memory occupied by the object.
+    /// Destroys an **OH_Drawing_Typeface** object and reclaims the memory occupied by the object.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `typeface` - Indicates the pointer to an <b>OH_Drawing_Typeface</b> object.
+    /// * `typeface` - Pointer to an **OH_Drawing_Typeface** object.
     ///
     /// Available since API-level: 11
     ///
@@ -140,16 +130,13 @@ extern "C" {
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn OH_Drawing_TypefaceDestroy(typeface: *mut OH_Drawing_Typeface);
-    /// Creates an <b>OH_Drawing_FontArguments</b> object.
+    /// Creates an **OH_Drawing_FontArguments** object. The font arguments are used to create an **
+    /// OH_Drawing_Typeface** object with custom attributes.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the <b>OH_Drawing_FontArguments</b> object created.
-    /// If nullptr is returned, the creation fails.
-    /// The possible cause of the failure is that the available memory is empty.
+    /// * Returns the pointer to the **OH_Drawing_FontArguments** object created.
     ///
     /// Available since API-level: 13
     ///
@@ -157,24 +144,23 @@ extern "C" {
     #[cfg(feature = "api-13")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub fn OH_Drawing_FontArgumentsCreate() -> *mut OH_Drawing_FontArguments;
-    /// Adds a font variation axis for an <b>OH_Drawing_FontArguments</b> object.
+    /// Adds a variation to an **OH_Drawing_FontArguments** object.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `fontArguments` - Indicates the pointer to an <b>OH_Drawing_FontArguments</b> object.
+    /// * `fontArguments` - Pointer to an [`OH_Drawing_FontArguments`](crate::types::OH_Drawing_FontArguments) object.
     ///
-    /// * `axis` - Indicates the axis tag, which must contain four ASCII characters.
+    /// * `axis` - Pointer to the label of the variation. The value must contain four ASCII characters. The supported
+    /// labels depend on the loaded font file. For example, **'wght'** is the font weight label.
     ///
-    /// * `value` - Indicates the value of the axis field.
+    /// * `value` - Value of the variation label.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`](crate::error_code::DrawingErrorCode::INVALID_PARAMETER) if either fontArguments or axis is nullptr,
-    /// or the length of axis is not 4.
+    /// * Returns one of the following result codes:
+    /// **OH_DRAWING_SUCCESS** if the operation is successful.
+    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if either **fontArguments** or **axis** is NULL or the length of **axis** is
+    /// not 4.
     ///
     /// Available since API-level: 13
     ///
@@ -186,19 +172,17 @@ extern "C" {
         axis: *const ::core::ffi::c_char,
         value: f32,
     ) -> crate::error_code::DrawingResult;
-    /// Destroys an <b>OH_Drawing_FontArguments</b> object and reclaims the memory occupied by the object.
+    /// Destroys an **OH_Drawing_FontArguments** object.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `fontArguments` - Indicates the pointer to an <b>OH_Drawing_FontArguments</b> object.
+    /// * `fontArguments` - Pointer to an [`OH_Drawing_FontArguments`](crate::types::OH_Drawing_FontArguments) object.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`](crate::error_code::DrawingErrorCode::INVALID_PARAMETER) if fontArguments is nullptr.
+    /// * Returns one of the following result codes:
+    /// **OH_DRAWING_SUCCESS** if the operation is successful.
+    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if **fontArguments** is NULL.
     ///
     /// Available since API-level: 13
     ///
@@ -208,19 +192,20 @@ extern "C" {
     pub fn OH_Drawing_FontArgumentsDestroy(
         fontArguments: *mut OH_Drawing_FontArguments,
     ) -> crate::error_code::DrawingResult;
-    /// Checks if the typeface is bold.
+    /// Checks whether the typeface is bold.
     ///
     /// # Arguments
     ///
-    /// * `typeface` - Indicates the pointer to an <b>OH_Drawing_Typeface</b> object.
+    /// * `typeface` - Pointer to the [`OH_Drawing_Typeface`](crate::types::OH_Drawing_Typeface) object.
     ///
-    /// * `isBold` - Indicates if the typeface is bold.
+    /// * `isBold` - Whether the typeface is bold. It is used as an output parameter. **true** if the typeface is bold; **
+    /// false** otherwise.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`](crate::error_code::DrawingErrorCode::INCORRECT_PARAMETER) if typeface or isBold is nullptr.
+    /// * Execution result.
+    /// **OH_DRAWING_SUCCESS** if the operation is successful.
+    /// **OH_DRAWING_ERROR_INCORRECT_PARAMETER** if **typeface** or **isBold** is a null pointer.
     ///
     /// Available since API-level: 23
     ///
@@ -231,19 +216,20 @@ extern "C" {
         typeface: *const OH_Drawing_Typeface,
         isBold: *mut bool,
     ) -> crate::error_code::DrawingResult;
-    /// Checks if the typeface is italic.
+    /// Checks whether the typeface is italic.
     ///
     /// # Arguments
     ///
-    /// * `typeface` - Indicates the pointer to an <b>OH_Drawing_Typeface</b> object.
+    /// * `typeface` - Pointer to the [`OH_Drawing_Typeface`](crate::types::OH_Drawing_Typeface) object.
     ///
-    /// * `isItalic` - Indicates if the typeface is italic.
+    /// * `isItalic` - Whether the typeface is italic. It is used as an output parameter. **true** if the typeface is
+    /// italic; **false** otherwise.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`](crate::error_code::DrawingErrorCode::INCORRECT_PARAMETER) if typeface or italic is nullptr.
+    /// * Execution result.
+    /// **OH_DRAWING_SUCCESS** if the operation is successful.
+    /// **OH_DRAWING_ERROR_INCORRECT_PARAMETER** if **typeface** or **isItalic** is a null pointer.
     ///
     /// Available since API-level: 23
     ///

@@ -11,9 +11,8 @@ use crate::{
     raw_file_manager::OH_ResourceManager_OpenRawFile,
 };
 
-/// Provides access to a raw file.
-///
-///
+/// `RawFile` represents an opened rawfile object. It is obtained through [`OH_ResourceManager_OpenRawFile`](crate::raw_file_manager::OH_ResourceManager_OpenRawFile),
+/// and must be closed and released through [`OH_ResourceManager_CloseRawFile`](crate::raw_file::OH_ResourceManager_CloseRawFile) after use.
 ///
 ///
 /// Available since API-level: 8
@@ -23,7 +22,9 @@ use crate::{
 pub struct RawFile {
     _unused: [u8; 0],
 }
-/// Provides access to a raw file.
+/// `RawFile64` represents an opened rawfile object, which is used for accessing large files of 2 GB and above.
+/// It is obtained through [`OH_ResourceManager_OpenRawFile64`](crate::raw_file_manager::OH_ResourceManager_OpenRawFile64), and must be closed and released through
+/// [`OH_ResourceManager_CloseRawFile64`](crate::raw_file::OH_ResourceManager_CloseRawFile64) after use.
 ///
 ///
 /// Available since API-level: 11
@@ -35,10 +36,9 @@ pub struct RawFile {
 pub struct RawFile64 {
     _unused: [u8; 0],
 }
-/// Represent the raw file descriptor's info.
-///
-/// The RawFileDescriptor is an output parameter in the [`OH_ResourceManager_GetRawFileDescriptor`](crate::raw_file::OH_ResourceManager_GetRawFileDescriptor),
-/// and describes the raw file's file descriptor, start position and the length in the HAP.
+/// Provides rawfile file descriptor information, including the file descriptor, start position within the HAP,
+/// and file length.<br>This information is obtained through [`OH_ResourceManager_GetRawFileDescriptorData`](crate::raw_file::OH_ResourceManager_GetRawFileDescriptorData), and
+/// must be released through [`OH_ResourceManager_ReleaseRawFileDescriptorData`](crate::raw_file::OH_ResourceManager_ReleaseRawFileDescriptorData) after use.
 ///
 ///
 /// Available since API-level: 8
@@ -47,17 +47,17 @@ pub struct RawFile64 {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct RawFileDescriptor {
-    /// the raw file fd
+    /// File descriptor of the rawfile.
     pub fd: ::core::ffi::c_int,
-    /// the offset from where the raw file starts in the HAP
+    /// Start position of the rawfile in the HAP, in bytes.
     pub start: ::core::ffi::c_long,
-    /// the length of the raw file in the HAP.
+    /// Length of the rawfile, in bytes.
     pub length: ::core::ffi::c_long,
 }
-/// Represent the raw file descriptor's info.
-///
-/// The RawFileDescriptor64 is an output parameter in the [`OH_ResourceManager_GetRawFileDescriptor64`](crate::raw_file::OH_ResourceManager_GetRawFileDescriptor64),
-/// and describes the raw file's file descriptor, start position and the length in the HAP.
+/// Provides the rawfile file descriptor information, including the file descriptor, start position within the
+/// HAP, and file length. Large files larger than 2 GB are supported.<br>This information is obtained through
+/// [`OH_ResourceManager_GetRawFileDescriptor64`](crate::raw_file::OH_ResourceManager_GetRawFileDescriptor64), and must be released through
+/// [`OH_ResourceManager_ReleaseRawFileDescriptor64`](crate::raw_file::OH_ResourceManager_ReleaseRawFileDescriptor64) after use.
 ///
 ///
 /// Available since API-level: 11
@@ -68,10 +68,10 @@ pub struct RawFileDescriptor {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct RawFileDescriptor64 {
-    /// the raw file fd
+    /// File descriptor of the rawfile.
     pub fd: ::core::ffi::c_int,
-    /// the offset from where the raw file starts in the HAP
+    /// Start position of the rawfile in the HAP, in bytes.
     pub start: i64,
-    /// the length of the raw file in the HAP.
+    /// Length of the rawfile, in bytes.
     pub length: i64,
 }

@@ -5,7 +5,7 @@
 #![allow(non_snake_case)]
 use crate::types::*;
 
-/// Defines a run, supplies storage for glyphs and positions.
+/// This struct describes a run, which provides storage for glyphs and positions.
 ///
 ///
 /// Available since API-level: 11
@@ -16,24 +16,22 @@ use crate::types::*;
 #[repr(C)]
 #[derive(Debug)]
 pub struct OH_Drawing_RunBuffer {
-    /// storage for glyph indexes in run
+    /// Storage for glyph indexes in the run.
     pub glyphs: *mut u16,
-    /// storage for glyph positions in run
+    /// Storage for glyph positions in the run.
     pub pos: *mut f32,
-    /// storage for text UTF-8 code units in run
+    /// Storage for UTF-8 encoded text units in the run.
     pub utf8text: *mut ::core::ffi::c_char,
-    /// storage for glyph clusters (index of UTF-8 code unit)
+    /// Storage for glyph clusters (index of the UTF-8 encoded text unit) in the run.
     pub clusters: *mut u32,
 }
 extern "C" {
-    /// Creates an <b>OH_Drawing_TextBlobBuilder</b> object.
+    /// Creates an **OH_Drawing_TextBlobBuilder** object.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the <b>OH_Drawing_TextBlobBuilder</b> object created.
+    /// * Returns the pointer to the **OH_Drawing_TextBlobBuilder** object created.
     ///
     /// Available since API-level: 11
     ///
@@ -41,23 +39,25 @@ extern "C" {
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn OH_Drawing_TextBlobBuilderCreate() -> *mut OH_Drawing_TextBlobBuilder;
-    /// Creates an <b>OH_Drawing_TextBlob</b> object from text.
+    /// Creates an **OH_Drawing_TextBlob** object from the text.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If either **text** or **font** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
+    /// If **textEncoding** is not set to one of the enumerated values, **OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE** is
+    /// returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `text` - Indicates the the pointer to text.
+    /// * `text` - Pointer to the text.
     ///
-    /// * `byteLength` - Indicates the text length.
+    /// * `byteLength` - Length of the text, in bytes.
     ///
-    /// * `font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `font` - Pointer to the [`OH_Drawing_Font`](crate::types::OH_Drawing_Font) object.
     ///
-    /// * `textEncoding` - Indicates the pointer to an <b>OH_Drawing_TextEncoding</b> object.
+    /// * `textEncoding` - Text encoding type [`OH_Drawing_TextEncoding`](crate::types::OH_Drawing_TextEncoding).
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the <b>OH_Drawing_TextBlob</b> object created.
+    /// * Returns a pointer to the created [`OH_Drawing_TextBlob`](crate::types::OH_Drawing_TextBlob) object.
     ///
     /// Available since API-level: 12
     ///
@@ -70,25 +70,31 @@ extern "C" {
         font: *const OH_Drawing_Font,
         textEncoding: OH_Drawing_TextEncoding,
     ) -> *mut OH_Drawing_TextBlob;
-    /// Creates an <b>OH_Drawing_TextBlob</b> object from pos text.
+    /// Creates an **OH_Drawing_TextBlob** object from the text. The coordinates of each character in the **
+    /// OH_Drawing_TextBlob** object are determined by the coordinate information in the **OH_Drawing_Point2D** array.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If any of **text**, **point2D**, and **font** is NULL or **byteLength** is **0**, **
+    /// OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
+    /// If **textEncoding** is not set to one of the enumerated values, **OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE** is
+    /// returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `text` - Indicates the the pointer to text.
+    /// * `text` - Pointer to the text.
     ///
-    /// * `byteLength` - Indicates the text length.
+    /// * `byteLength` - Length of the text, in bytes.
     ///
-    /// * `point2D` - Indicates the pointer to an <b>OH_Drawing_Point2D</b> array object.
+    /// * `point2D` - Pointer to the start address of the [`OH_Drawing_Point2D`](crate::types::OH_Drawing_Point2D)
+    /// array. The number of entries in the array is determined by [`OH_Drawing_FontCountText`](crate::font::OH_Drawing_FontCountText)
+    /// .
     ///
-    /// * `font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `font` - Pointer to the [`OH_Drawing_Font`](crate::types::OH_Drawing_Font) object.
     ///
-    /// * `textEncoding` - Indicates the pointer to an <b>OH_Drawing_TextEncoding</b> object.
+    /// * `textEncoding` - Text encoding type [`OH_Drawing_TextEncoding`](crate::types::OH_Drawing_TextEncoding).
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the <b>OH_Drawing_TextBlob</b> object created.
+    /// * Returns a pointer to the created [`OH_Drawing_TextBlob`](crate::types::OH_Drawing_TextBlob) object.
     ///
     /// Available since API-level: 12
     ///
@@ -102,21 +108,23 @@ extern "C" {
         font: *const OH_Drawing_Font,
         textEncoding: OH_Drawing_TextEncoding,
     ) -> *mut OH_Drawing_TextBlob;
-    /// Creates an <b>OH_Drawing_TextBlob</b> object from pos text.
+    /// Creates an **OH_Drawing_TextBlob** object from a string.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If either **str** or **font** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
+    /// If **textEncoding** is not set to one of the enumerated values, **OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE** is
+    /// returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `str` - Indicates the the pointer to text.
+    /// * `str` - Pointer to a string.
     ///
-    /// * `font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `font` - Pointer to the [`OH_Drawing_Font`](crate::types::OH_Drawing_Font) object.
     ///
-    /// * `textEncoding` - Indicates the pointer to an <b>OH_Drawing_TextEncoding</b> object.
+    /// * `textEncoding` - Text encoding type [`OH_Drawing_TextEncoding`](crate::types::OH_Drawing_TextEncoding).
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the <b>OH_Drawing_TextBlob</b> object created.
+    /// * Returns a pointer to the created [`OH_Drawing_TextBlob`](crate::types::OH_Drawing_TextBlob) object.
     ///
     /// Available since API-level: 12
     ///
@@ -128,15 +136,16 @@ extern "C" {
         font: *const OH_Drawing_Font,
         textEncoding: OH_Drawing_TextEncoding,
     ) -> *mut OH_Drawing_TextBlob;
-    /// Gets the bounds of textblob, assigned to the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// Obtains the bounds of an **OH_Drawing_TextBlob** object.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If either **textBlob** or **rect** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `textBlob` - Indicates the pointer to an <b>OH_Drawing_TextBlob</b> object.
+    /// * `textBlob` - Pointer to the [`OH_Drawing_TextBlob`](crate::types::OH_Drawing_TextBlob) object.
     ///
-    /// * `rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `rect` - Pointer to the [`OH_Drawing_Rect`](crate::types::OH_Drawing_Rect) object. You can call [`OH_Drawing_Rect`](crate::types::OH_Drawing_Rect) to create a
+    /// rectangle object.
     ///
     /// Available since API-level: 12
     ///
@@ -147,17 +156,17 @@ extern "C" {
         textBlob: *mut OH_Drawing_TextBlob,
         rect: *mut OH_Drawing_Rect,
     );
-    /// Gets a non-zero value unique among all <b>OH_Drawing_TextBlob</b> objects.
+    /// Obtains the unique identifier of a text blob. The identifier is a non-zero value.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **textBlob** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `textBlob` - Indicates the pointer to an <b>OH_Drawing_TextBlob</b> object.
+    /// * `textBlob` - Pointer to the [`OH_Drawing_TextBlob`](crate::types::OH_Drawing_TextBlob) object.
     ///
     /// # Returns
     ///
-    /// * Returns identifier for the <b>OH_Drawing_TextBlob</b> object.
+    /// * Returns the unique identifier of the text blob.
     ///
     /// Available since API-level: 12
     ///
@@ -165,20 +174,25 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_TextBlobUniqueID(textBlob: *const OH_Drawing_TextBlob) -> u32;
-    /// Alloc run with storage for glyphs and positions. The returned pointer does not need to be managed
-    /// by the caller and is forbidden to be used after OH_Drawing_TextBlobBuilderMake is called.
+    /// Allocates a run to store glyphs and positions. The pointer returned does not need to be managed by the caller.
+    /// It can no longer be used after [`OH_Drawing_TextBlobBuilderMake`](crate::text_blob::OH_Drawing_TextBlobBuilderMake) is called.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If either **textBlobBuilder** or **font** is NULL or **count** is less than or equal to 0, **
+    /// OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `textBlobBuilder` - Indicates the pointer to an <b>OH_Drawing_TextBlobBuilder</b> object.
+    /// * `textBlobBuilder` - Pointer to an **OH_Drawing_TextBlobBuilder** object.
     ///
-    /// * `font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `font` - Pointer to an **OH_Drawing_Font** object.
     ///
-    /// * `count` - Indicates the number of glyphs.
+    /// * `count` - Number of text blobs.
     ///
-    /// * `rect` - Indicates the optional run bounding box.
+    /// * `rect` - Rectangle of the text blob. The value NULL means that no rectangle is set.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the pointer to the **OH_Drawing_RunBuffer** object created.
     ///
     /// Available since API-level: 11
     ///
@@ -191,17 +205,17 @@ extern "C" {
         count: i32,
         rect: *const OH_Drawing_Rect,
     ) -> *const OH_Drawing_RunBuffer;
-    /// Make an <b>OH_Drawing_TextBlob</b> from <b>OH_Drawing_TextBlobBuilder</b>.
+    /// Makes an **OH_Drawing_TextBlob** object from an **OH_Drawing_TextBlobBuilder**.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **textBlobBuilder** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `textBlobBuilder` - Indicates the pointer to an <b>OH_Drawing_TextBlobBuilder</b> object.
+    /// * `textBlobBuilder` - Pointer to an **OH_Drawing_TextBlobBuilder** object.
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the <b>OH_Drawing_TextBlob</b> object.
+    /// * Returns the pointer to the **OH_Drawing_TextBlob** object created.
     ///
     /// Available since API-level: 11
     ///
@@ -211,13 +225,11 @@ extern "C" {
     pub fn OH_Drawing_TextBlobBuilderMake(
         textBlobBuilder: *mut OH_Drawing_TextBlobBuilder,
     ) -> *mut OH_Drawing_TextBlob;
-    /// Destroys an <b>OH_Drawing_TextBlob</b> object and reclaims the memory occupied by the object.
+    /// Destroys an **OH_Drawing_TextBlob** object and reclaims the memory occupied by the object.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `textBlob` - Indicates the pointer to an <b>OH_Drawing_TextBlob</b> object.
+    /// * `textBlob` - Pointer to an **OH_Drawing_TextBlob** object.
     ///
     /// Available since API-level: 11
     ///
@@ -225,13 +237,11 @@ extern "C" {
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn OH_Drawing_TextBlobDestroy(textBlob: *mut OH_Drawing_TextBlob);
-    /// Destroys an <b>OH_Drawing_TextBlobBuilder</b> object and reclaims the memory occupied by the object.
+    /// Destroys an **OH_Drawing_TextBlobBuilder** object and reclaims the memory occupied by the object.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `textBlobBuilder` - Indicates the pointer to an <b>OH_Drawing_TextBlobBuilder</b> object.
+    /// * `textBlobBuilder` - Pointer to an **OH_Drawing_TextBlobBuilder** object.
     ///
     /// Available since API-level: 11
     ///

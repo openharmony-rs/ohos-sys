@@ -13,7 +13,7 @@ use crate::averrors::OH_AVErrCode;
 use crate::avmemory::OH_AVMemory;
 use crate::avsource::OH_AVSource;
 
-/// Forward declaration of OH_AVDemuxer.
+/// The struct describes a native object for the OH_AVDemuxer interface.
 ///
 ///
 /// Available since API-level: 10
@@ -21,7 +21,7 @@ use crate::avsource::OH_AVSource;
 pub struct OH_AVDemuxer {
     _unused: [u8; 0],
 }
-/// Forward declaration of DRM_MediaKeySystemInfo.
+/// The struct describes a native object for the DRM_MediaKeySystemInfo interface.
 ///
 ///
 /// Available since API-level: 11
@@ -31,7 +31,11 @@ pub struct OH_AVDemuxer {
 pub struct DRM_MediaKeySystemInfo {
     _unused: [u8; 0],
 }
-/// Callback for getting media key system information from media source.
+/// Defines a pointer to the callback function for DRM_MediaKeySystemInfo. No demuxer instance is returned. This
+/// callback function applies to the scenario where a single demuxer instance is used.
+///
+/// You need to call [`OH_AVDemuxer_SetMediaKeySystemInfoCallback`](crate::avdemuxer::OH_AVDemuxer_SetMediaKeySystemInfoCallback) to set the callback function as a callback.
+///
 ///
 /// **Deprecated** since 14
 ///
@@ -43,7 +47,13 @@ pub struct DRM_MediaKeySystemInfo {
 #[deprecated(since = "14", note = "Use instead: Demuxer_MediaKeySystemInfoCallback")]
 pub type DRM_MediaKeySystemInfoCallback =
     ::core::option::Option<unsafe extern "C" fn(mediaKeySystemInfo: *mut DRM_MediaKeySystemInfo)>;
-/// Call back will be invoked when updating DRM information.
+/// Defines a pointer to the callback function for [`DRM_MediaKeySystemInfo`](crate::avdemuxer::DRM_MediaKeySystemInfo).
+/// A demuxer instance is returned.
+/// This callback function applies to the scenario where multiple demuxer instances are used.
+///
+/// You need to call [`OH_AVDemuxer_SetDemuxerMediaKeySystemInfoCallback`](crate::avdemuxer::OH_AVDemuxer_SetDemuxerMediaKeySystemInfoCallback) to set the callback function as a
+/// callback. This callback function is recommended.
+///
 /// # Arguments
 ///
 /// * `demuxer` - Player OH_AVDemuxer.
@@ -60,125 +70,120 @@ pub type Demuxer_MediaKeySystemInfoCallback = ::core::option::Option<
     ),
 >;
 extern "C" {
-    /// Creates an OH_AVDemuxer instance for getting samples from source.
-    /// Free the resources of the instance by calling OH_AVDemuxer_Destroy.
+    /// Creates an OH_AVDemuxer instance based on a source instance.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.Spliter
+    /// For details about how to create, destroy, and use a source instance, see [`OH_AVSource`](crate::avsource::OH_AVSource).
+    ///
     /// # Arguments
     ///
     /// * `source` - Pointer to an OH_AVSource instance.
     ///
     /// # Returns
     ///
-    /// * Returns a pointer to an OH_AVDemuxer instance if the execution is successful, otherwise returns nullptr.
-    /// Possible failure causes:
-    /// 1. invalid source, is NULL pointer;
-    /// 2. non OH_AVSource instance.
+    /// * Pointer to an OH_AVDemuxer instance.
+    /// <br>If the operation fails, NULL is returned.
+    /// <br>The possible causes of an operation failure are as follows:
+    /// <br>1. The value of **source** is invalid (either nullptr or a pointer to a non-OH_AVSource instance).
+    /// <br>2. The value of **source** does not point to an OH_AVSource instance.
     ///
     /// Available since API-level: 10
     pub fn OH_AVDemuxer_CreateWithSource(source: *mut OH_AVSource) -> *mut OH_AVDemuxer;
-    /// Destroy the OH_AVDemuxer instance and free the internal resources.
-    /// The same instance can only be destroyed once. The destroyed instance
-    /// should not be used before it is created again. It is recommended setting
-    /// the instance pointer to NULL right after the instance is destroyed successfully.
+    /// Destroys an OH_AVDemuxer instance and clears internal resources. An instance can be destroyed only once.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.Spliter
+    /// The destroyed instance cannot be used until it is re-created. You are advised to set the pointer to NULL after the
+    /// instance is destroyed.
+    ///
     /// # Arguments
     ///
     /// * `demuxer` - Pointer to an OH_AVDemuxer instance.
     ///
     /// # Returns
     ///
-    /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) an invalid demuxer instance pointer is passed to parameter demuxer,
-    /// including a null pointer;
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
+    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The value of **demuxer** is nullptr or does not point to a demuxer instance.
     ///
     /// Available since API-level: 10
     pub fn OH_AVDemuxer_Destroy(demuxer: *mut OH_AVDemuxer) -> OH_AVErrCode;
-    /// The specified track is selected and the demuxer will read samples from
-    /// this track. Multiple tracks are selected by calling this interface multiple times
-    /// with different track indexes. Only the selected tracks are valid when calling
-    /// OH_AVDemuxer_ReadSample to read samples. The interface returns AV_ERR_OK and the
-    /// track is selected only once if the same track is selected multiple times.
+    /// Selects a track from which the demuxer reads sample data.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.Spliter
+    /// You can select multiple tracks by calling this API multiple times, with a different track index passed in each time.
+    ///
+    /// When [`OH_AVDemuxer_ReadSample`](crate::avdemuxer::OH_AVDemuxer_ReadSample) is called, only the data in the selected track is read. If the same track is
+    /// selected multiple times, [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) is returned and the API call takes effect only once.
+    ///
     /// # Arguments
     ///
     /// * `demuxer` - Pointer to an OH_AVDemuxer instance.
     ///
-    /// * `trackIndex` - The index of the selected track.
+    /// * `trackIndex` - Index of the track.
     ///
     /// # Returns
     ///
-    /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) demuxer is not properly initialized.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL)
-    /// 1. an invalid demuxer instance pointer is passed to parameter demuxer, including a null pointer;
-    /// 2. trackIndex is out of range;
-    /// 3. track is not supported to be read.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
+    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL):
+    /// <br>1. The value of **demuxer** is nullptr or does not point to a demuxer instance.
+    /// <br>2. The track index is out of range.
+    /// <br>3. Track reading is not supported.
+    /// <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The demuxer is not correctly initialized.
     ///
     /// Available since API-level: 10
     pub fn OH_AVDemuxer_SelectTrackByID(
         demuxer: *mut OH_AVDemuxer,
         trackIndex: u32,
     ) -> OH_AVErrCode;
-    /// The specified selected track is unselected. The unselected track's sample
-    /// can not be read from demuxer. Multiple selected tracks are unselected by calling
-    /// this interface multiple times with different track indexes. The interface returns
-    /// AV_ERR_OK and the track is unselected only once if the same track is unselected
-    /// multiple times.
+    /// Deselects a track. The demuxer no longer reads sample data from a track after it is deselected.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.Spliter
+    /// You can deselect multiple tracks by calling this API multiple times, with a different track index passed in each
+    /// time.
+    /// If the same track is deselected multiple times,
+    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) is returned and the API call takes effect only once.
+    ///
     /// # Arguments
     ///
     /// * `demuxer` - Pointer to an OH_AVDemuxer instance.
     ///
-    /// * `trackIndex` - The index of the unselected track.
+    /// * `trackIndex` - Index of the track.
     ///
     /// # Returns
     ///
-    /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) demuxer is not properly initialized.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) the input demuxer pointer is non demuxer instance or NULL.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
+    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The value of **demuxer** is nullptr or does not point to a demuxer instance.
+    /// <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The demuxer is not correctly initialized.
     ///
     /// Available since API-level: 10
     pub fn OH_AVDemuxer_UnselectTrackByID(
         demuxer: *mut OH_AVDemuxer,
         trackIndex: u32,
     ) -> OH_AVErrCode;
-    /// Get the current encoded sample and sample-related information from the specified
-    /// track. The track index must be selected before reading sample. The demuxer will advance
-    /// automatically after calling this interface.
+    /// Reads the sample and related information from the specified track.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.Spliter
+    /// You must select a track before reading the sample. After this API is called, the demuxer automatically proceeds to
+    /// the next frame.
+    ///
     /// # Arguments
     ///
     /// * `demuxer` - Pointer to an OH_AVDemuxer instance.
     ///
-    /// * `trackIndex` - The index of the track from which read an encoded sample.
+    /// * `trackIndex` - Index of the track from which the compressed frame is to be read.
     ///
-    /// * `sample` - The OH_AVMemory handle pointer to the buffer storing the sample data.
+    /// * `sample` - Pointer to the OH_AVMemory instance for storing the compressed frame data.
     ///
-    /// * `info` - The OH_AVCodecBufferAttr handle pointer to the buffer storing sample information.
+    /// * `info` - Pointer to the OH_AVCodecBufferAttr instance for storing the compressed frame information.
     ///
     /// # Returns
     ///
-    /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL)
-    /// 1. an invalid demuxer instance pointer is passed to parameter demuxer, including a null pointer;
-    /// 2. a null pointer is passed to parameter sample;
-    /// 3. trackIndex is out of range;
-    /// 4. the input sample is empty.
-    /// 5. the input info is empty.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT)
-    /// 1. trackIndex has not been selected;
-    /// 2. demuxer is not properly initialized.
-    /// [`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY) capability of sample is not enough to store frame data.
-    /// [`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN) failed to read or parse frame from file.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
+    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL):
+    /// <br>1. The value of **demuxer** is nullptr or does not point to a demuxer instance.
+    /// <br>2. The track index is out of range.
+    /// <br>3. Track reading is not supported.
+    /// <br>4. The value of **sample** is null.
+    /// <br>5. The value of **info** is null.
+    /// <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT):
+    /// <br>1. The track with the specified index is not selected.
+    /// <br>2. The demuxer is not correctly initialized.
+    /// <br>[`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): The sample capacity is insufficient to store all frame data.
+    /// <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): Failed to read or parse the frame from the file.
     ///
     /// **Deprecated** since 11
     ///
@@ -192,33 +197,32 @@ extern "C" {
         sample: *mut OH_AVMemory,
         info: *mut OH_AVCodecBufferAttr,
     ) -> OH_AVErrCode;
-    /// Get the current encoded sample and sample-related information from the specified
-    /// track. The track index must be selected before reading sample. The demuxer will advance
-    /// automatically after calling this interface.
+    /// Reads the sample and related information from the specified track.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.Spliter
+    /// You can use [`OH_AVDemuxer_SelectTrackByID`](crate::avdemuxer::OH_AVDemuxer_SelectTrackByID) to select a track before reading the sample. After this API is
+    /// called, the demuxer automatically proceeds to the next frame.
+    ///
     /// # Arguments
     ///
     /// * `demuxer` - Pointer to an OH_AVDemuxer instance.
     ///
-    /// * `trackIndex` - The index of the track from which read an encoded sample.
+    /// * `trackIndex` - Index of the track from which the compressed frame is to be read.
     ///
-    /// * `sample` - The OH_AVBuffer handle pointer to the buffer storing the sample data and corresponding attribute.
+    /// * `sample` - Pointer to the OH_AVBuffer instance for storing the compressed frame data and related information.
     ///
     /// # Returns
     ///
-    /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL)
-    /// 1. an invalid demuxer instance pointer is passed to parameter demuxer, including a null pointer;
-    /// 2. a null pointer is passed to parameter sample;
-    /// 3. trackIndex is out of range;
-    /// 4. the input sample is empty.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT)
-    /// 1. trackIndex has not been selected;
-    /// 2. demuxer is not properly initialized.
-    /// [`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY) capability of sample is not enough to store frame data.
-    /// [`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN) failed to read or parse frame from file.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
+    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL):
+    /// <br>1. The value of **demuxer** is nullptr or does not point to a demuxer instance.
+    /// <br>2. The value of **sample** is nullptr.
+    /// <br>3. The track index is out of range.
+    /// <br>4. The value of **sample** is null.
+    /// <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT):
+    /// <br>1. The track with the specified index is not selected.
+    /// <br>2. The demuxer is not correctly initialized.
+    /// <br>[`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): The sample capacity is insufficient to store all frame data.
+    /// <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): Failed to read or parse the frame from the file.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -228,32 +232,30 @@ extern "C" {
         trackIndex: u32,
         sample: *mut OH_AVBuffer,
     ) -> OH_AVErrCode;
-    /// All selected tracks seek near to the requested time according to the seek mode.
+    /// Seeks to the specified time for all the selected tracks based on a seek mode.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.Spliter
     /// # Arguments
     ///
     /// * `demuxer` - Pointer to an OH_AVDemuxer instance.
     ///
-    /// * `millisecond` - The millisecond for seeking, the timestamp is the position of
-    /// the file relative to the start of the file.
+    /// * `millisecond` - Time to seek to, in milliseconds. The timestamp is relative to the start position of the file.
     ///
-    /// * `mode` - The mode for seeking. See [`OH_AVSeekMode`](crate::avcodec_base::OH_AVSeekMode).
+    /// * `mode` - Seek mode.
     ///
     /// # Returns
     ///
-    /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL)
-    /// 1. an invalid demuxer instance pointer is passed to parameter demuxer, including a null pointer;
-    /// 2. the millisecond value is out of range.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT)
-    /// 1. trackIndex has not been selected;
-    /// 2. demuxer is not properly initialized;
-    /// 3. resource is unseekable.
-    /// [`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN)
-    /// 1. seek failed;
-    /// 2. selecting SEEK_MODE_CEXT_SYNC for OH_AVSeekMode and no I-frame after the time point may result in jump failure.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
+    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL):
+    /// <br>1. The value of **demuxer** is nullptr or does not point to a demuxer instance.
+    /// <br>2. The value of **millisecond** is out of range.
+    /// <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT):
+    /// <br>1. The track with the specified index is not selected.
+    /// <br>2. The demuxer is not correctly initialized.
+    /// <br>3. The seek operation cannot be performed on the resource.
+    /// <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN):
+    /// <br>1. The seek operation fails.
+    /// <br>2. **OH_AVSeekMode** is set to **SEEK_MODE_NEXT_SYNC** and there is no I-frame
+    /// following the specified position.
     ///
     /// Available since API-level: 10
     pub fn OH_AVDemuxer_SeekToTime(
@@ -261,20 +263,19 @@ extern "C" {
         millisecond: i64,
         mode: OH_AVSeekMode,
     ) -> OH_AVErrCode;
-    /// Method to set player media key system info callback.
+    /// Sets a callback for obtaining the media key system information.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.Spliter
     /// # Arguments
     ///
-    /// * `demuxer` - Pointer to an OH_AVDemuxer instance
+    /// * `demuxer` - Pointer to an OH_AVDemuxer instance.
     ///
-    /// * `callback` - object pointer.
+    /// * `callback` - Callback function.
     ///
     /// # Returns
     ///
-    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) 0 - Success
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) 2 - If the demuxer engine is not inited or init failed.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) 3 - If the demuxer instance is nullptr or invalid.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
+    /// <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The demuxer is not correctly initialized.
+    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The value of **demuxer** is nullptr or does not point to a demuxer instance.
     ///
     /// **Deprecated** since 14
     ///
@@ -291,20 +292,19 @@ extern "C" {
         demuxer: *mut OH_AVDemuxer,
         callback: DRM_MediaKeySystemInfoCallback,
     ) -> OH_AVErrCode;
-    /// Method to set player media key system info callback.
+    /// Sets a callback for obtaining the media key system information.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.Spliter
     /// # Arguments
     ///
-    /// * `demuxer` - Pointer to an OH_AVDemuxer instance
+    /// * `demuxer` - Pointer to an OH_AVDemuxer instance.
     ///
-    /// * `callback` - object pointer.
+    /// * `callback` - Callback function.
     ///
     /// # Returns
     ///
-    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) 0 - Success
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) 2 - If the demuxer engine is not inited or init failed.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) 3 - If the demuxer instance is nullptr or invalid.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
+    /// <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The demuxer is not correctly initialized.
+    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The value of **demuxer** is nullptr or does not point to a demuxer instance.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -313,22 +313,22 @@ extern "C" {
         demuxer: *mut OH_AVDemuxer,
         callback: Demuxer_MediaKeySystemInfoCallback,
     ) -> OH_AVErrCode;
-    /// Obtains media key system info to create media key session.
+    /// Obtains the media key system information. The media key system information can be obtained only after
+    /// [`Demuxer_MediaKeySystemInfoCallback`](crate::avdemuxer::Demuxer_MediaKeySystemInfoCallback) or [`DRM_MediaKeySystemInfoCallback`](crate::avdemuxer::DRM_MediaKeySystemInfoCallback) is successfully invoked.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.Spliter
     /// # Arguments
     ///
-    /// * `demuxer` - Pointer to an OH_AVDemuxer instance
+    /// * `demuxer` - Pointer to an OH_AVDemuxer instance.
     ///
-    /// * `mediaKeySystemInfo` - Indicates the media key system info which ram space allocated by callee and
-    /// released by caller.
+    /// * `mediaKeySystemInfo` - Pointer to the media key system information.
     ///
     /// # Returns
     ///
-    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) 0 - Success
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) 2 - If the demuxer engine is not inited or init failed.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) 3 - If the demuxer instance is nullptr or invalid
-    /// or the mediaKeySystemInfo is nullptr.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
+    /// <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The demuxer engine is not initialized or fails to be initialized.
+    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL):
+    /// <br>1. The value of **demuxer** is nullptr or does not point to a demuxer instance.
+    /// <br>2. The value of **mediaKeySystemInfo** is nullptr.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]

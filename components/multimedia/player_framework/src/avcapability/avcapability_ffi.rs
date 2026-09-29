@@ -41,6 +41,43 @@ impl OH_AVCodecCategory {
 /// Available since API-level: 10
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OH_AVCodecCategory(pub ::core::ffi::c_uint);
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+impl OH_AVCodecType {
+    /// Indicates video encoder.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub const OH_AVCODEC_TYPE_VIDEO_ENCODER: OH_AVCodecType = OH_AVCodecType(0);
+    /// Indicates video decoder.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub const OH_AVCODEC_TYPE_VIDEO_DECODER: OH_AVCodecType = OH_AVCodecType(1);
+    /// Indicates audio encoder
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub const OH_AVCODEC_TYPE_AUDIO_ENCODER: OH_AVCodecType = OH_AVCodecType(2);
+    /// Indicates audio decoder
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub const OH_AVCODEC_TYPE_AUDIO_DECODER: OH_AVCodecType = OH_AVCodecType(3);
+}
+#[repr(transparent)]
+/// The codec type
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct OH_AVCodecType(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl OH_AVCapabilityFeature {
@@ -57,6 +94,36 @@ impl OH_AVCapabilityFeature {
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const VIDEO_ENCODER_B_FRAME: OH_AVCapabilityFeature = OH_AVCapabilityFeature(7);
+    /// Feature for codec supports decoding sequence output. It is only used in video decoder.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub const VIDEO_DECODER_OUTPUT_IN_DECODING_ORDER: OH_AVCapabilityFeature =
+        OH_AVCapabilityFeature(8);
+    /// Feature for codec supports downsampling preprocessing. It is only used in video encoder.
+    ///
+    ///
+    /// **Note:** This capability can only be enabled for encoders created via the
+    /// [`OH_VideoEncoder_CreatePrimaryWithPreproc`](crate::avcodec_videoencoder::OH_VideoEncoder_CreatePrimaryWithPreproc) or
+    /// [`OH_VideoEncoder_CreateSecondaryFromPrimary`](crate::avcodec_videoencoder::OH_VideoEncoder_CreateSecondaryFromPrimary) interface.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub const VIDEO_ENCODER_PREPROC_DOWNSAMPLING: OH_AVCapabilityFeature =
+        OH_AVCapabilityFeature(9);
+    /// Feature for codec supports Crop preprocessing. It is only used in video encoder.
+    ///
+    ///
+    /// **Note:** This capability can only be enabled for encoders created via the
+    /// [`OH_VideoEncoder_CreatePrimaryWithPreproc`](crate::avcodec_videoencoder::OH_VideoEncoder_CreatePrimaryWithPreproc) or
+    /// [`OH_VideoEncoder_CreateSecondaryFromPrimary`](crate::avcodec_videoencoder::OH_VideoEncoder_CreateSecondaryFromPrimary) interface.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub const VIDEO_ENCODER_PREPROC_CROP: OH_AVCapabilityFeature = OH_AVCapabilityFeature(10);
 }
 #[repr(transparent)]
 /// The enum of optional features that can be used in specific codec seenarios.
@@ -112,6 +179,32 @@ extern "C" {
         isEncoder: bool,
         category: OH_AVCodecCategory,
     ) -> *mut OH_AVCapability;
+    /// Obtains a list of codec capabilities for a specified codec type.
+    ///
+    /// This function retrieves all matching codec capabilities based on the provided codec type.
+    ///
+    /// # Arguments
+    ///
+    /// * `codecType` - The type of codec to filter by, refer to [`OH_AVCodecType`](crate::avcapability::OH_AVCodecType).
+    ///
+    /// * `count` - Output parameter. A pointer to a uint32_t variable that will store
+    /// the number of matched codec capabilities found.
+    ///
+    /// # Returns
+    ///
+    /// * Returns a pointer to an array of [`OH_AVCapability`](crate::avcapability::OH_AVCapability) instances if matches are found;
+    /// returns NULL if no matching codecs are found or if an error occurs.
+    ///
+    /// **Note:** The memory for the codec capability list is managed internally.
+    /// Developers MUST NOT manually allocate or free this memory.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_AVCodec_GetCapabilityList(
+        codecType: OH_AVCodecType,
+        count: *mut u32,
+    ) -> *mut *mut OH_AVCapability;
     /// Check if the capability instance is describing a hardware codec.
     ///
     /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
@@ -126,6 +219,21 @@ extern "C" {
     ///
     /// Available since API-level: 10
     pub fn OH_AVCapability_IsHardware(capability: *mut OH_AVCapability) -> bool;
+    /// Check if the capability instance is describing a secure codec.
+    ///
+    /// # Arguments
+    ///
+    /// * `capability` - Codec capability pointer
+    ///
+    /// # Returns
+    ///
+    /// * Returns true if the capability instance is describing a secure codec,
+    /// false if the capability instance is describing a non-secure codec
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_AVCapability_IsSecure(capability: *mut OH_AVCapability) -> bool;
     /// Get the codec name.
     ///
     /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
@@ -139,6 +247,41 @@ extern "C" {
     ///
     /// Available since API-level: 10
     pub fn OH_AVCapability_GetName(capability: *mut OH_AVCapability) -> *const ::core::ffi::c_char;
+    /// Get the codec mime type.
+    ///
+    /// # Arguments
+    ///
+    /// * `capability` - Codec capability pointer
+    ///
+    /// # Returns
+    ///
+    /// * Returns codec mime type string
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_AVCapability_GetMimeType(
+        capability: *mut OH_AVCapability,
+    ) -> *const ::core::ffi::c_char;
+    /// Check if the mime type of the codec of the capability matches the specified mime type.
+    ///
+    /// # Arguments
+    ///
+    /// * `capability` - Codec capability pointer
+    ///
+    /// * `mimeType` - target mime type string to check
+    ///
+    /// # Returns
+    ///
+    /// * Returns true if the mime type matches, false otherwise
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_AVCapability_CheckMimeType(
+        capability: *mut OH_AVCapability,
+        mimeType: *const ::core::ffi::c_char,
+    ) -> bool;
     /// Get the supported max instance number of the codec.
     ///
     /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase

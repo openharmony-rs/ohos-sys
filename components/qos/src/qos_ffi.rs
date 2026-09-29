@@ -13,21 +13,21 @@ pub const OH_QOS_GEWU_INVALID_REQUEST_ID: OH_QoS_GewuRequest = 0xffff_ffff;
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl QoS_Level {
-    /// Means the QoS level is background.
+    /// QoS level for user invisible tasks.
     pub const QOS_BACKGROUND: QoS_Level = QoS_Level(0);
-    /// Means the QoS level is utility.
+    /// QoS level for background critical tasks.
     pub const QOS_UTILITY: QoS_Level = QoS_Level(1);
-    /// Means the QoS level is default.
+    /// Default QoS level.
     pub const QOS_DEFAULT: QoS_Level = QoS_Level(2);
-    /// Means the QoS level is user-initiated.
+    /// QoS level for user triggered tasks.
     pub const QOS_USER_INITIATED: QoS_Level = QoS_Level(3);
-    /// Means the QoS level is user-request.
+    /// QoS level for time limited tasks.
     pub const QOS_DEADLINE_REQUEST: QoS_Level = QoS_Level(4);
-    /// Means the QoS level is user-interactive.
+    /// QoS level for user interactive tasks.
     pub const QOS_USER_INTERACTIVE: QoS_Level = QoS_Level(5);
 }
 #[repr(transparent)]
-/// Describes the level of QoS.
+/// Enumerates the QoS levels.
 ///
 ///
 /// Available since API-level: 12
@@ -35,14 +35,14 @@ impl QoS_Level {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct QoS_Level(pub ::core::ffi::c_uint);
-/// Session id
+/// Session handle.
 ///
 ///
 /// Available since API-level: 20
 #[cfg(feature = "api-20")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
 pub type OH_QoS_GewuSession = ::core::ffi::c_uint;
-/// Request id
+/// Request handle.
 ///
 ///
 /// Available since API-level: 20
@@ -55,23 +55,72 @@ pub type OH_QoS_GewuResult = Result<(), OH_QoS_GewuErrorCode>;
 #[cfg(feature = "api-20")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
 impl OH_QoS_GewuErrorCode {
+    /// Permission error. Possible cause: The caller does not have the required permission. Solution: Ensure that
+    /// the caller has the required permission.
+    ///
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const NOPERM: OH_QoS_GewuErrorCode =
         OH_QoS_GewuErrorCode(const { core::num::NonZero::new(201).unwrap() });
+    /// Memory error. Possible cause: The system memory is insufficient. Solution: Release the resources and try
+    /// again.
+    ///
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const NOMEM: OH_QoS_GewuErrorCode =
         OH_QoS_GewuErrorCode(const { core::num::NonZero::new(203).unwrap() });
+    /// Parameter error. Possible cause: The parameter type is incorrect or the parameter value is invalid.
+    /// Solution: Verify the parameter type and value range.
+    ///
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const INVAL: OH_QoS_GewuErrorCode =
         OH_QoS_GewuErrorCode(const { core::num::NonZero::new(401).unwrap() });
+    /// The handle already exists. Possible cause: An attempt was made to create an existing session or request.
+    /// Solution: Do not create the session or request repeatedly, or destroy the existing handle first.
+    ///
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const EXIST: OH_QoS_GewuErrorCode =
         OH_QoS_GewuErrorCode(const { core::num::NonZero::new(501).unwrap() });
+    /// Handle not found. Possible cause: The input session or request handle is invalid or has been destroyed.
+    /// Solution: Ensure that the handle is valid.
+    ///
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const NOENT: OH_QoS_GewuErrorCode =
         OH_QoS_GewuErrorCode(const { core::num::NonZero::new(502).unwrap() });
+    /// Subsystem not found. Possible cause: The target device does not support this feature. Solution: Use a
+    /// device that supports this feature.
+    ///
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const NOSYS: OH_QoS_GewuErrorCode =
         OH_QoS_GewuErrorCode(const { core::num::NonZero::new(801).unwrap() });
+    /// Other errors. Possible cause: An uncovered internal system error occurs. Solution: Check the system logs
+    /// for detailed error information or contact technical support.
+    ///
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const FAULT: OH_QoS_GewuErrorCode =
         OH_QoS_GewuErrorCode(const { core::num::NonZero::new(901).unwrap() });
 }
 #[repr(transparent)]
-/// Gewu error codes.
+/// Enumerates the Gewu error codes.
 ///
 ///
 /// Available since API-level: 20
@@ -79,14 +128,10 @@ impl OH_QoS_GewuErrorCode {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OH_QoS_GewuErrorCode(pub core::num::NonZero<::core::ffi::c_uint>);
-/// # Arguments
-///
-/// * `session` - The created session id
-///
-/// * `error` - Error code of CreateSession
-/// - OH_QOS_GEWU_OK will be returned if the session is created successfully.
-/// - OH_QOS_GEWU_NOMEM will be returned if the system does not have sufficient memory to
-/// create the session.
+/// Return result of the **OH_QoS_GewuCreateSession()** API, used to encapsulate the execution status of the Gewu
+/// session creation operation. This struct supports unified handling of both success and failure scenarios. Upon
+/// success, the `session` field contains the handle to the created session. Upon failure, the `error` field stores the
+/// error code, helping you locate and handle exceptions.
 ///
 ///
 /// Available since API-level: 20
@@ -95,17 +140,38 @@ pub struct OH_QoS_GewuErrorCode(pub core::num::NonZero<::core::ffi::c_uint>);
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct OH_QoS_GewuCreateSessionResult {
+    /// Session handle returned after a session is successfully created. This parameter is valid only when `error`
+    /// is `OH_QOS_GEWU_OK`.
+    ///
+    ///
+    /// Available since API-level: 20
     pub session: OH_QoS_GewuSession,
+    /// Error code.
+    /// <br>- `OH_QOS_GEWU_OK`: The session is successfully created.
+    /// <br>- `OH_QOS_GEWU_NOMEM`: Insufficient memory. There is not enough memory to create the session. You are
+    /// advised to release system resources and retry the session creation.
+    /// <br>- `OH_QOS_GEWU_INVAL`: Invalid parameter. The input parameter does not meet the API requirements. Verify
+    /// the field types, formats, and values in `attributes`.
+    /// <br>- `OH_QOS_GEWU_NOPERM`: Insufficient permission. The caller lacks the required permission for the API.
+    /// Verify the application permission configuration.
+    /// <br>- `OH_QOS_GEWU_EXIST`: The session already exists. An attempt was made to create a session that already
+    /// exists. Verify the session creation process.
+    /// <br>- `OH_QOS_GEWU_NOSYS`: Subsystem not found. The system does not support the related function or the
+    /// dependent subsystems are unavailable. Check system version and the status of dependent libraries.
+    /// <br>The mapping between the above enumerated values and
+    /// their numeric codes is as follows: `OH_QOS_GEWU_OK` = **0**, `OH_QOS_GEWU_NOPERM` = **201**, `OH_QOS_GEWU_NOMEM`
+    /// = **203**, `OH_QOS_GEWU_INVAL` = **401**, `OH_QOS_GEWU_EXIST` = **501**, and `OH_QOS_GEWU_NOSYS` = **801**.
+    ///
+    ///
+    /// Available since API-level: 20
     pub error: OH_QoS_GewuResult,
 }
-/// # Arguments
-///
-/// * `request` - The created request id
-///
-/// * `error` - Error code of request submission.
-/// - OH_QOS_GEWU_OK will be returned if the request is submitted successfully.
-/// - OH_QOS_GEWU_NOMEM will be returned if the system does not have sufficient memory to
-/// submit the request.
+/// Return result of the **OH_QoS_GewuSubmitRequest()** API, used to obtain the submission status and result of a
+/// Gewu inference request. (The Gewu service is an on-device AI inference acceleration service.) Upon successful
+/// submission, the `request` field contains the created request handle, which can be used to cancel the request later.
+/// Upon failure, the `error` field stores the error code, helping you take appropriate action based on the specific
+/// error cause. This struct is applicable in scenarios where you need to determine whether a submitted on-device AI
+/// inference request has been successfully admitted into the session and obtain the request handle.
 ///
 ///
 /// Available since API-level: 20
@@ -114,25 +180,55 @@ pub struct OH_QoS_GewuCreateSessionResult {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct OH_QoS_GewuSubmitRequestResult {
+    /// Request handle created after the request is successfully submitted. It can be used to cancel the request
+    /// later. This parameter is valid only when `error` is `OH_QOS_GEWU_OK`. If the operation fails, this parameter is
+    /// invalid.
+    ///
+    ///
+    /// Available since API-level: 20
     pub request: OH_QoS_GewuRequest,
+    /// Error code.
+    /// <br>- `OH_QOS_GEWU_OK`: The request is submitted successfully.
+    /// <br>- `OH_QOS_GEWU_NOMEM`: Insufficient memory. There is not enough memory to process the request. You are
+    /// advised to release resources and retry.
+    /// <br>- `OH_QOS_GEWU_INVAL`: Invalid parameter. The input parameter such as the session handle,
+    /// request content, or callback is invalid. Verify the parameter types, formats, and values.
+    /// <br>- `OH_QOS_GEWU_NOENT`: Session not found. The specified session does not exist or has been destroyed.
+    /// Verify that the session has been successfully created and is still valid.
+    /// <br>- `OH_QOS_GEWU_NOPERM`: Insufficient permission. The caller lacks the required permission for the API.
+    /// Verify the application permission configuration.
+    /// <br>- `OH_QOS_GEWU_NOSYS`: Subsystem not found. The system does not support the related function or the
+    /// dependent subsystems are unavailable. Check system version and the status of dependent libraries.
+    /// <br>The mapping between the above enumerated values
+    /// and their numeric codes is as follows: OH_QOS_GEWU_OK = **0**, OH_QOS_GEWU_NOPERM = **201**, OH_QOS_GEWU_NOMEM =
+    /// **203**, OH_QOS_GEWU_INVAL = **401**, `OH_QOS_GEWU_NOENT` = **502**, and OH_QOS_GEWU_NOSYS = **801**.
+    ///
+    ///
+    /// Available since API-level: 20
     pub error: OH_QoS_GewuResult,
 }
-/// Callback to receive response of the request.
+/// Callback for receiving responses from the Gewu service. The Gewu service calls this callback asynchronously
+/// upon completion of inference. For non-streaming inference, it is called once. For streaming inference, it is called
+/// multiple times during the generation process. For example, when using the Gewu service for conversational AI
+/// inference, you can receive the model-generated response content through this callback.
 ///
 /// # Arguments
 ///
-/// * `context` - The user context specified when submitting the request.
+/// * `context` - User context pointer specified when the request is submitted. This pointer is passed unchanged to the
+/// **OH_QoS_GewuOnResponse** callback when a reply is received, for correlating the request with its corresponding
+/// response data.
 ///
-/// * `reponse` - The json string of the response, including the following parameters:
-/// - message: A message that contains the following fields.
-/// - role: string. Must be "assistant".
-/// - content: string. The message generated by the model in response to user messages.
-/// - finish_reason: string or null. The reason the inference stopped. Possible values:
-/// - null: Not finished yet, only present in streaming mode.
-/// - "stop": The model stopped natually.
-/// - "abort": The inference request was aborted.
-/// - "length": The generated tokens reached the limit.
-///
+/// * `response` - JSON string of the response, which contains the following parameters:
+/// <br>- **message**: object, which contains the **role** and **content** fields. The value of **role** is of the
+/// string type, indicating the role type of the message. The value must be **assistant**. The value of **content**
+/// is of the string type, indicating the message generated by the model and returned to the user.
+/// <br>- **finish_reason: string or null**: stop reason, which can be:
+/// <br>&nbsp;&nbsp;&nbsp;&nbsp;- **null**: The request is not stopped. In streaming inference, there are multiple
+/// responses, and only the last response has a non-empty **finish_reason**. In non-streaming inference, there is
+/// only one response, and **finish_reason** is not empty.
+/// <br>&nbsp;&nbsp;&nbsp;&nbsp;- **"stop"**: The request is stopped normally.
+/// <br>&nbsp;&nbsp;&nbsp;&nbsp;- **"abort"**: The request is stopped by the user in advance.
+/// <br>&nbsp;&nbsp;&nbsp;&nbsp;- **"length"**: The number of tokens exceeds the upper limit.
 ///
 /// Available since API-level: 20
 #[cfg(feature = "api-20")]
@@ -141,16 +237,23 @@ pub type OH_QoS_GewuOnResponse = ::core::option::Option<
     unsafe extern "C" fn(context: *mut ::core::ffi::c_void, response: *const ::core::ffi::c_char),
 >;
 extern "C" {
-    /// Set the QoS level of the current thread.
+    /// Sets the QoS level for the current thread. The system adjusts thread scheduling priority and resource
+    /// allocation policies based on the QoS level. Tasks with higher QoS levels generally receive more timely scheduling.
+    /// For example, for user-invisible tasks such as background downloads or data synchronization, you can use **
+    /// QOS_BACKGROUND** to reduce resource usage. For high-priority tasks such as user interaction or foreground rendering,
+    /// you can use **QOS_USER_INTERACTIVE** to achieve faster response times.
     ///
     /// # Arguments
     ///
-    /// * `level` - Indicates the level to set. Specific level can be referenced [`QoS_Level`](crate::QoS_Level).
+    /// * `level` - QoS level. Setting different levels affects thread scheduling priority and resource allocation: **
+    /// QOS_BACKGROUND** is suitable for reducing resource usage of background tasks, **QOS_USER_INTERACTIVE** is
+    /// suitable for improving the responsiveness of interactive tasks, and **QOS_DEFAULT** represents the default
+    /// scheduling policy. For details, see [`QoS_Level`](crate::QoS_Level).
     ///
     /// # Returns
     ///
-    /// * Returns 0 if the operation is successful; returns -1 if level is out of range or
-    /// internal error failed.
+    /// * If the operation is successful, **0** is returned. If the level is out of range or an internal error occurs,
+    /// **-1** is returned.
     ///
     /// **See also:** [`QoS_Level`](crate::QoS_Level)
     ///
@@ -158,13 +261,14 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_QoS_SetThreadQoS(level: QoS_Level) -> ::core::ffi::c_int;
-    /// Cancel the QoS level of the current thread.
+    /// Resets the QoS level of the current thread. The thread will revert to the default system scheduling policy.
+    /// For example, after a high-priority task is complete, you can call this API to restore the default level to avoid
+    /// unnecessary resource usage.
     ///
     ///
     /// # Returns
     ///
-    /// * Returns 0 if the operation is successful; returns -1 if not set QoS for current thread
-    /// or internal error failed.
+    /// * If the operation is successful, **0** is returned. If an internal error occurs, **-1** is returned.
     ///
     /// **See also:** [`QoS_Level`](crate::QoS_Level)
     ///
@@ -172,17 +276,20 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_QoS_ResetThreadQoS() -> ::core::ffi::c_int;
-    /// Obtains the QoS level of the current thread.
+    /// Obtains the QoS level of the current thread. This API is used to read the QoS level of the current thread. If
+    /// no QoS level is set for the current thread or an internal error occurs, **-1** is returned. For example, in
+    /// scenarios where you need to make decisions based on the current priority of a thread, you can first call this API to
+    /// obtain the QoS level and then determine the subsequent operations accordingly.
     ///
     /// # Arguments
     ///
-    /// * `level` - This parameter is the output parameter,
-    /// and the QoS level of the thread as a [`QoS_Level`](crate::QoS_Level) is written to this variable.
+    /// * `level` - Output parameter. The QoS level of the thread will be written to this variable as a [`QoS_Level`](crate::QoS_Level)
+    /// value. This parameter cannot be set to NULL. If it is set to NULL, this API returns **-1**.
     ///
     /// # Returns
     ///
-    /// * Returns 0 if the operation is successful; returns -1 if level is null, not
-    /// set QoS for current thread or internal error failed.
+    /// * If the operation is successful, **0** is returned. If the QoS level is not set for the current thread or an
+    /// internal error occurs, **-1** is returned.
     ///
     /// **See also:** [`QoS_Level`](crate::QoS_Level)
     ///
@@ -190,31 +297,35 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_QoS_GetThreadQoS(level: *mut QoS_Level) -> ::core::ffi::c_int;
-    /// Create a gewu session for inference.
-    /// The lifecycle of the returned session object spans from the return of CreateSession
-    /// to the call to DestroySession.
-    ///
-    /// json string of session attributes.
-    ///
-    /// The json string of session attributes include the following parameters
-    /// - model: string. The directory of the model of the session.
-    ///
-    /// An example of json string of session attributes:
-    /// ```json
-    /// {
-    ///     "model": "/data/storage/el2/base/files/qwen2/"
-    /// }
-    /// ```
-    ///
+    /// Creates a Gewu session. This function loads the specified AI model based on the session attributes and
+    /// initializes the inference environment to prepare for subsequent inference requests. The lifecycle of the session
+    /// object begins when the **OH_QoS_GewuCreateSession** function returns and ends when **OH_QoS_GewuDestroySession** is
+    /// called. Within the lifecycle, multiple requests can be created. You are advised to wait for all requests to complete
+    /// or abort them before destroying the session. Otherwise, they will be automatically aborted and no replies will be
+    /// received. After the session is destroyed, the session handle can no longer be used. The session attributes are
+    /// passed through a JSON string, which supports the following fields:
+    /// <br>- **model**: string, indicating the path of the model used by the session. It is mandatory.
+    /// <br>Example of the **attributes** JSON string
+    /// <br>{
+    /// <br>&nbsp;&nbsp;&nbsp;&nbsp;"model": "/data/storage/el2/base/files/qwen2/"
+    /// <br>&nbsp;}
     /// # Arguments
     ///
-    /// * `attributes` - The json string of session attributes.
-    ///
+    /// * `attributes` - Input parameter, which is a JSON string of session attributes. It is used to specify the model
+    /// path used by the session. Supported field: **model**. (The field is mandatory and of the string type, indicating
+    /// the model path used by the session. Paths that can be accessed by the application sandbox are supported.) For
+    /// details, see the JSON example in the function description.
     ///
     /// # Returns
     ///
-    /// * Result of CreateSession.
-    ///
+    /// * Gewu session creation result.
+    /// <br>- If the session is created successfully, the value of `error` in the return value `
+    /// OH_QoS_GewuCreateSessionResult` is `OH_QOS_GEWU_OK`, and the value of `session` is the session handle.
+    /// <br>- If the session fails to be created, `error` in the return value `OH_QoS_GewuCreateSessionResult` indicates
+    /// the error cause. The value `OH_QOS_GEWU_NOMEM` indicates that the memory is insufficient for creating a session,
+    /// the value `OH_QOS_GEWU_INVAL` indicates a parameter error, the value `OH_QOS_GEWU_NOPERM` indicates insufficient
+    /// permission, the value `OH_QOS_GEWU_EXIST` indicates that the session already exists, and the value `
+    /// OH_QOS_GEWU_NOSYS` indicates that the subsystem cannot be found.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -222,47 +333,49 @@ extern "C" {
     pub fn OH_QoS_GewuCreateSession(
         attributes: *const ::core::ffi::c_char,
     ) -> OH_QoS_GewuCreateSessionResult;
-    /// Destroy the specified session.
-    /// It is recommended that the client shall wait until all ongoing requests are done before calling
-    /// this interface to destroy the session. If there are remaining requests in the session when this
-    /// interface is called, those requests will be aborted and no further responses for those requests
-    /// will be sent to the client.
-    /// Note that after calling this function successfully, the session cannot be used by the user code
-    /// any more.
+    /// Destroys a Gewu session. This function releases session-related resources and cleans up the internal state.
+    /// You are advised to call this API after all requests are completed or aborted. If there are ongoing requests when
+    /// this API is called, the requests will be aborted, no response will be received, and the request handles cannot be
+    /// used anymore. Note that after this API is called, the session object cannot be used.
     ///
     /// # Arguments
     ///
-    /// * `session` - The session that will be destroyed.
-    ///
+    /// * `session` - Handle to the session to destroy.
     ///
     /// # Returns
     ///
     /// * Error code.
-    /// - OH_QOS_GEWU_OK will be returned if the session is destroyed successfully.
-    /// - OH_QOS_GEWU_NOENT will be returned if the session is not found.
-    ///
+    /// <br>- If the session is destroyed successfully, `OH_QOS_GEWU_OK` is returned.
+    /// <br>- If the session is not found, `OH_QOS_GEWU_NOENT` is returned.
+    /// <br>- If the parameter is invalid, `OH_QOS_GEWU_INVAL` is returned.
+    /// <br>- If the subsystem is not found, `OH_QOS_GEWU_NOSYS` is returned.
+    /// <br>- If another internal error occurs, `OH_QOS_GEWU_FAULT` is returned.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_QoS_GewuDestroySession(session: OH_QoS_GewuSession) -> OH_QoS_GewuResult;
-    /// Abort the specified request.
-    /// Note that after calling this function successfully, the client will not receive further responses
-    /// for this request, and the request object cannot be used by the user code any more.
+    /// Stops a specified request. This function requests the Gewu service to abort the ongoing inference computation
+    /// and cleans up the state associated with the request. Before calling this API, ensure that the passed session handle
+    /// is valid (not destroyed via **OH_QoS_GewuDestroySession**) and that the request handle is valid (already submitted
+    /// via **OH_QoS_GewuSubmitRequest**). Typical use cases include: a user actively cancels an ongoing inference request;
+    /// the application needs to release resources and terminate unnecessary requests in advance. After this function is
+    /// successfully called, the client will no longer receive any reply for the request, and the request handle can no
+    /// longer be used.
     ///
     /// # Arguments
     ///
-    /// * `session` - The session that the request was submitted through.
+    /// * `session` - Handle to the session to which the request is submitted.
     ///
-    /// * `request` - The request object.
-    ///
+    /// * `request` - Request handle.
     ///
     /// # Returns
     ///
     /// * Error code.
-    /// - OH_QOS_GEWU_OK will be returned if the request is aborted successfully.
-    /// - OH_QOS_GEWU_NOENT will be returned if the request is not found.
-    ///
+    /// <br>- If the request is successfully stopped, `OH_QOS_GEWU_OK` is returned.
+    /// <br>- If the request is not found, `OH_QOS_GEWU_NOENT` is returned.
+    /// <br>- If the parameter is invalid, `OH_QOS_GEWU_INVAL` is returned.
+    /// <br>- If the subsystem is not found, `OH_QOS_GEWU_NOSYS` is returned.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -271,54 +384,63 @@ extern "C" {
         session: OH_QoS_GewuSession,
         request: OH_QoS_GewuRequest,
     ) -> OH_QoS_GewuResult;
-    /// Submit a request.
-    ///
-    /// json string of completion request.
-    /// Completion request is a json string that specifies the following parameters:
-    /// - messages: array. A list of messages. Each message contains the following fields:
-    /// - role: string. The message type, which could be one of the following:
-    /// - "developer": Developer-provided instructions.
-    /// - "user": User-provided instructions.
-    /// - "assistant": Message generated by the model in response to user messages.
-    /// - content: string. The message content.
-    /// - stream: boolean or null; optional. Enable streaming mode or not. If set to true, partial
-    /// responses will be sent. If null or not set, defaults to nonstreaming mode.
-    ///
-    /// An example of completion request:
-    /// ```json
-    /// {
-    ///      "messages": [
-    ///          {
-    ///              "role": "developer",
-    ///              "content": "Your are a helpful assistant."
-    ///          },
-    ///          {
-    ///              "role": "user",
-    ///              "content": "What is OpenHarmony"
-    ///          }
-    ///      ],
-    ///      "stream": true
-    /// }
-    /// ```
-    ///
+    /// Submits a request. This function submits an inference request to a specified session, which is then scheduled
+    /// and executed by the Gewu service. Before calling this API, ensure that the input session handle is valid (already
+    /// created via **OH_QoS_GewuCreateSession** and not destroyed via **OH_QoS_GewuDestroySession**). The **request**
+    /// parameter is a JSON string that supports the following fields:
+    /// <br>- **messages: array** (mandatory): Array of messages, where each element supports the following fields:
+    /// <br>&nbsp;&nbsp;&nbsp;&nbsp;- **role: string**: role type of the message. The options are as follows:
+    /// <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- **"developer"**: instruction provided by the developer or
+    /// system.
+    /// <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- **"user"**: user input.
+    /// <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- **"assistant"**: model generation result.
+    /// <br>&nbsp;&nbsp;&nbsp;&nbsp;- **content: string**: message content.
+    /// <br>- **stream: boolean or null** (optional): whether to enable streaming inference. If **true** is passed,
+    /// streaming inference is enabled. This is suitable for scenarios that require step-by-step reception of generated
+    /// content and lower time-to-first-token latency. In this case, the callback function will be called multiple times. If
+    /// **false** or **null** is passed, non-streaming inference is used. This is suitable for scenarios where you need to
+    /// obtain the complete result in a single response, and the callback function will be called only once. If no value is
+    /// passed, non-streaming inference is used by default. Example of the JSON string:
+    /// <br>{
+    /// <br>&nbsp;&nbsp;&nbsp;&nbsp;"messages": \[
+    /// <br>&nbsp;&nbsp;&nbsp;&nbsp;{
+    /// <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"role": "developer",
+    /// <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"content": "You are a helpful assistant."
+    /// <br>&nbsp;&nbsp;&nbsp;&nbsp;},
+    /// <br>&nbsp;&nbsp;&nbsp;&nbsp;{
+    /// <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"role": "user",
+    /// <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"content": "What is OpenHarmony"
+    /// <br>&nbsp;&nbsp;&nbsp;&nbsp;}
+    /// <br>&nbsp;&nbsp;&nbsp;&nbsp;\],
+    /// <br>&nbsp;&nbsp;&nbsp;&nbsp;"stream": true
+    /// <br>}
     /// # Arguments
     ///
-    /// * `session` - The session object that the request should be submitted through.
+    /// * `session` - Handle to the session, specifying the target session for request submission.
     ///
-    /// * `request` - The json string of request.
+    /// * `request` - JSON string of the request. The supported fields include: **messages** (message array, where each
+    /// element contains the **role** and **content** fields, with **role** options being **developer**, **user**, and **
+    /// assistant**), and **stream** (optional, specifying whether to enable streaming inference; the value can be **
+    /// boolean** or **null**; if not passed, non-streaming is used by default). For details, see the JSON example in
+    /// the function description.
     ///
-    /// * `callback` - The callback to receive response.
+    /// * `callback` - Callback for receiving responses.
     ///
-    /// * `context` - The user context that should be passed to the response callback.
-    ///
+    /// * `context` - Pointer to the user context to be passed to the callback.
     ///
     /// # Returns
     ///
-    /// * Gewu request submission result.
-    /// - OH_QOS_GEWU_OK will be returned if the request is accepted.
-    /// - OH_QOS_GEWU_NOMEM will be returned if the system does not have sufficient memory
-    /// to accept the request.
-    ///
+    /// * Result of submitting a Gewu request. The **error** field is of the [`OH_QoS_GewuErrorCode`](crate::OH_QoS_GewuResult) type. For
+    /// the mapping between the enumerated values and numeric codes, see the enum description of
+    /// [`OH_QoS_GewuErrorCode`](crate::OH_QoS_GewuResult).
+    /// <br>- If the request is submitted successfully, `error` in `OH_QoS_GewuSubmitRequestResult` is `OH_QOS_GEWU_OK` (
+    /// **0**), and **request** is the request handle.
+    /// <br>- If the request fails to be submitted, `error` in the return value `OH_QoS_GewuSubmitRequestResult`
+    /// indicates the error cause. The value `OH_QOS_GEWU_NOMEM` (**203**) indicates that there is no sufficient memory
+    /// to process this request, the value `OH_QOS_GEWU_INVAL` (**401**) indicates a parameter error, the value `
+    /// OH_QOS_GEWU_NOENT` (**502**) indicates that the session is not found, the value `OH_QOS_GEWU_NOPERM` (**201**)
+    /// indicates insufficient permission, and the value `OH_QOS_GEWU_NOSYS` (**801**) indicates that the subsystem is
+    /// not found.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]

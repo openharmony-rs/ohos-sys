@@ -4,6 +4,13 @@
 
 ### Added
 
+- Bindings for API-24, API-25 and API-26 (OpenHarmony 7.0), behind the new `api-24`,
+  `api-25` and `api-26` features. See the changelogs of the individual crates for details.
+- `ohaudio-sys`: the `audio_session_base` module, and the `audio_accessory_*`,
+  `audio_debugging_manager` and `audio_device_enhance_manager` modules (API-26).
+  `OH_AudioSession_ConcurrencyMode` and `OH_AudioSession_Strategy` moved to `audio_session_base`
+  and are re-exported from `audio_session_manager`.
+- `ohos-sys-opaque-types`: `OHIPCRemoteStub`.
 - `bundle` — `ohos-libbundle-sys` (BundleManager / native bundle NDK,
   `libbundle_ndk.z.so`): application identity (`bundleName`, `appId`,
   `appIdentifier`, fingerprint, compatible device type, debug-mode flag),

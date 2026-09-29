@@ -9,6 +9,14 @@
 #![cfg(feature = "api-11")]
 #![cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
 
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+pub mod http_interceptor;
+
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+pub mod http_interceptor_type;
+
 #[cfg(feature = "api-20")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
 pub mod net_http;

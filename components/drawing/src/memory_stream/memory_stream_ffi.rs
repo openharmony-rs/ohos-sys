@@ -6,21 +6,22 @@
 use crate::types::*;
 
 extern "C" {
-    /// Creates a <b>OH_Drawing_MemoryStream</b> object.
+    /// Creates an **OH_Drawing_MemoryStream** object.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **data** is NULL or **length** is **0**, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the <b>OH_Drawing_MemoryStream</b> object created.
+    /// * Returns the pointer to the [`OH_Drawing_MemoryStream`](crate::types::OH_Drawing_MemoryStream) object created.
     /// # Arguments
     ///
-    /// * `data` - file path.
+    /// * `data` - Pointer to the data.
     ///
-    /// * `length` - Data length.
+    /// * `length` - Length of the data.
     ///
-    /// * `copyData` - Copy data or not.
+    /// * `copyData` - Whether to copy data. The value **true** means that the **OH_Drawing_MemoryStream** object copies
+    /// the data, and **false** means that the **OH_Drawing_MemoryStream** object directly uses the data without copying.
     ///
     /// Available since API-level: 12
     ///
@@ -32,13 +33,11 @@ extern "C" {
         length: usize,
         copyData: bool,
     ) -> *mut OH_Drawing_MemoryStream;
-    /// Destroys an <b>OH_Drawing_MemoryStream</b> object and reclaims the memory occupied by the object.
+    /// Destroys an **OH_Drawing_MemoryStream** object and reclaims the memory occupied by the object.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `memoryStream` - Indicates the pointer to an <b>OH_Drawing_MemoryStream</b> object.
+    /// * `memoryStream` - Pointer to an [`OH_Drawing_MemoryStream`](crate::types::OH_Drawing_MemoryStream) object.
     ///
     /// Available since API-level: 12
     ///

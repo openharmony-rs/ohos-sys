@@ -39,6 +39,30 @@ impl AbilityRuntimeErrorCode {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub const INCORRECT_ABILITY_TYPE: AbilityRuntimeErrorCode =
         AbilityRuntimeErrorCode(const { core::num::NonZero::new(16000002).unwrap() });
+    /// Cannot start an invisible component.
+    ///
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub const VISIBILITY_VERIFICATION_FAILED: AbilityRuntimeErrorCode =
+        AbilityRuntimeErrorCode(const { core::num::NonZero::new(16000004).unwrap() });
+    /// The specified process does not have permission.
+    ///
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub const STATIC_CFG_PERMISSION: AbilityRuntimeErrorCode =
+        AbilityRuntimeErrorCode(const { core::num::NonZero::new(16000005).unwrap() });
+    /// Cross-user operations are not allowed.
+    ///
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub const CROSS_USER_OPERATION: AbilityRuntimeErrorCode =
+        AbilityRuntimeErrorCode(const { core::num::NonZero::new(16000006).unwrap() });
     /// The crowdtesting application expires.
     ///
     /// Available since API-level: 15
@@ -154,6 +178,79 @@ impl AbilityRuntimeErrorCode {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
     pub const MAIN_THREAD_NOT_SUPPORTED: AbilityRuntimeErrorCode =
         AbilityRuntimeErrorCode(const { core::num::NonZero::new(16000134).unwrap() });
+    /// The target application does not have running abilities with UI.
+    ///
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub const NO_RUNNING_ABILITIES_WITH_UI: AbilityRuntimeErrorCode =
+        AbilityRuntimeErrorCode(const { core::num::NonZero::new(16000170).unwrap() });
+    /// The API call frequency is too high and exceeds the rate control limit.
+    ///
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub const UPPER_RATE_LIMIT: AbilityRuntimeErrorCode =
+        AbilityRuntimeErrorCode(const { core::num::NonZero::new(16000171).unwrap() });
+    /// The number of connections exceeds limit.
+    ///
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub const UPPER_CONNECTION_NUMBER_LIMIT: AbilityRuntimeErrorCode =
+        AbilityRuntimeErrorCode(const { core::num::NonZero::new(16000172).unwrap() });
+    /// The requested property, method, interface, enum, struct type, struct field,
+    /// set element, or map key is not found.
+    ///
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub const PROPERTY_NOT_FOUND: AbilityRuntimeErrorCode =
+        AbilityRuntimeErrorCode(const { core::num::NonZero::new(16000173).unwrap() });
+    /// The runtime value type does not match the expected metadata type.
+    ///
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub const TYPE_MISMATCH: AbilityRuntimeErrorCode =
+        AbilityRuntimeErrorCode(const { core::num::NonZero::new(16000174).unwrap() });
+    /// The IPC request to the remote service fails.
+    ///
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub const SEND_REQUEST_FAILED: AbilityRuntimeErrorCode =
+        AbilityRuntimeErrorCode(const { core::num::NonZero::new(16000175).unwrap() });
+    /// Caller and target are not in the same application for [`OH_ABILITY_RUNTIME_LAUNCH_MODE_IN_PROCESS`](crate::runtime::modular_object_extension_manager::OH_AbilityRuntime_LaunchMode::OH_ABILITY_RUNTIME_LAUNCH_MODE_IN_PROCESS) mode.
+    ///
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub const CROSS_APP_IN_PROCESS: AbilityRuntimeErrorCode =
+        AbilityRuntimeErrorCode(const { core::num::NonZero::new(16000176).unwrap() });
+    /// The native ability wrapper is invalid or incomplete.
+    ///
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub const ABILITY_WRAPPER_INVALID: AbilityRuntimeErrorCode =
+        AbilityRuntimeErrorCode(const { core::num::NonZero::new(16000177).unwrap() });
+    /// The type library metadata is invalid, for example, missing or duplicate main interface.
+    ///
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub const METADATA_INVALID: AbilityRuntimeErrorCode =
+        AbilityRuntimeErrorCode(const { core::num::NonZero::new(16000178).unwrap() });
 }
 #[repr(transparent)]
 /// Enumerates the error codes.

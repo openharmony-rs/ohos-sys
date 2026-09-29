@@ -5,8 +5,7 @@
 #![allow(non_snake_case)]
 use crate::common::{CryptoResult, Crypto_DataBlob};
 
-/// Define the digest structure.
-///
+/// Digest structure, representing a digest context.
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
@@ -16,71 +15,75 @@ pub struct OH_CryptoDigest {
     _unused: [u8; 0],
 }
 extern "C" {
-    /// Create a digest context according to the given algorithm name.
-    ///
+    /// Creates a digest context based on the given algorithm name.
     /// # Arguments
     ///
-    /// * `algoName` - Indicates the algorithm name for generating the digest context. Example SHA256.
+    /// * `algoName` - \[in\] Digest algorithm name. Cannot be NULL. Values:
+    /// - "SHA1", "SHA224", "SHA256", "SHA384", "SHA512", "MD5", "SM3" supported since API version 12.
+    /// - "SHA3-256", "SHA3-384", "SHA3-512" supported since API version 22.
     ///
-    /// * `ctx` - Indicates the pointer to the md context.
+    /// * `ctx` - \[out\] Pointer to the digest context pointer. ctx cannot be NULL, *ctx must be NULL.
     ///
     /// # Returns
     ///
-    /// * [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) 0 - If the operation is successful.
-    /// [`OH_Crypto_ErrCode#CRYPTO_INVALID_PARAMS`](crate::common::CryptoErrorCode::INVALID_PARAMS) 401 - If parameter is invalid.
-    /// [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) 801 - If the operation is not supported.
-    /// [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) 17620001 - If memory operation failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) 17630001 - If crypto opertion failed.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) if the operation succeeds.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_INVALID_PARAMS`](crate::common::CryptoErrorCode::INVALID_PARAMS) if ctx is NULL, algoName is NULL, algoName is not a supported digest algorithm name.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) if unsupported operation or algorithm.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) if memory allocation fails.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) if the digest operation fails.
+    ///
+    /// **Note:** Release `ctx` with [`OH_DigestCrypto_Destroy`](crate::digest::OH_DigestCrypto_Destroy).
     ///
     /// Available since API-level: 12
+    ///
+    /// **See also:** [`OH_CryptoDigest_Update`](crate::digest::OH_CryptoDigest_Update) Updates digest data.
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_CryptoDigest_Create(
         algoName: *const ::core::ffi::c_char,
         ctx: *mut *mut OH_CryptoDigest,
     ) -> CryptoResult;
-    /// Update digest with dataBlob.
-    ///
+    /// Updates digest data.
     /// # Arguments
     ///
-    /// * `ctx` - Indicates the digest context.
+    /// * `ctx` - \[in\] Digest context. Cannot be NULL.
     ///
-    /// * `in` - Indicates the dataBlob.
+    /// * `in` - \[in\] Data to be digested. Cannot be NULL.
     ///
     /// # Returns
     ///
-    /// * [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) 0 - If the operation is successful.
-    /// [`OH_Crypto_ErrCode#CRYPTO_INVALID_PARAMS`](crate::common::CryptoErrorCode::INVALID_PARAMS) 401 - If parameter is invalid.
-    /// [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) 801 - If the operation is not supported.
-    /// [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) 17620001 - If memory operation failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) 17630001 - If crypto opertion failed.
-    ///
-    /// **See also:** [`OH_CryptoDigest_Final`](crate::digest::OH_CryptoDigest_Final)
+    /// - [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) if the operation succeeds.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_INVALID_PARAMS`](crate::common::CryptoErrorCode::INVALID_PARAMS) if ctx or in is NULL.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) if unsupported operation or algorithm.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) if memory operation fails.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) if the digest update fails.
     ///
     /// Available since API-level: 12
+    ///
+    /// **See also:** [`OH_CryptoDigest_Final`](crate::digest::OH_CryptoDigest_Final) Finishes the digest operation and outputs the result.
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_CryptoDigest_Update(
         ctx: *mut OH_CryptoDigest,
         in_: *mut Crypto_DataBlob,
     ) -> CryptoResult;
-    /// Final digest with dataBlob.
-    ///
+    /// Finishes the digest operation and outputs the result.
     /// # Arguments
     ///
-    /// * `ctx` - Indicates the digest context.
+    /// * `ctx` - \[in\] Digest context. Cannot be NULL.
     ///
-    /// * `out` - Indicates the result as dataBlob.
+    /// * `out` - \[out\] Pointer to the Crypto_DataBlob structure for storing the digest result. Cannot be NULL. Initialize
+    /// out to {0} before calling. Do not pre-allocate out->data.
     ///
     /// # Returns
     ///
-    /// * [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) 0 - If the operation is successful.
-    /// [`OH_Crypto_ErrCode#CRYPTO_INVALID_PARAMS`](crate::common::CryptoErrorCode::INVALID_PARAMS) 401 - If parameter is invalid.
-    /// [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) 801 - If the operation is not supported.
-    /// [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) 17620001 - If memory operation failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) 17630001 - If crypto opertion failed.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) if the operation succeeds.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_INVALID_PARAMS`](crate::common::CryptoErrorCode::INVALID_PARAMS) if ctx or out is NULL.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) if unsupported operation or algorithm.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) if memory operation fails.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) if the digest final operation fails.
     ///
-    /// **See also:** [`OH_CryptoDigest_Update`](crate::digest::OH_CryptoDigest_Update)
+    /// **Note:** Release `out` with [`OH_Crypto_FreeDataBlob`](crate::common::OH_Crypto_FreeDataBlob).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -89,40 +92,37 @@ extern "C" {
         ctx: *mut OH_CryptoDigest,
         out: *mut Crypto_DataBlob,
     ) -> CryptoResult;
-    /// Get the digest length of the digest context.
-    ///
+    /// Obtains the length of the digest result.
     /// # Arguments
     ///
-    /// * `ctx` - Indicates the digest context.
+    /// * `ctx` - \[in\] Digest context. Cannot be NULL.
     ///
     /// # Returns
     ///
-    /// * Return the digest length.
-    /// If the input parameter ctx is NULL, 401 is returned, in other failure scenarios, 0 is returned.
+    /// * Returns the byte length of the digest result. Note: If ctx is NULL, returns 401; for other failure cases,
+    /// returns 0.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_CryptoDigest_GetLength(ctx: *mut OH_CryptoDigest) -> u32;
-    /// Get the algorithm name of the digest context.
-    ///
+    /// Obtains the algorithm name of the digest context.
     /// # Arguments
     ///
-    /// * `ctx` - Indicates the digest context.
+    /// * `ctx` - \[in\] Digest context. Cannot be NULL.
     ///
     /// # Returns
     ///
-    /// * Return md algorithm name.
+    /// * Returns the digest algorithm name. No need to free by the caller. Invalid after the context is destroyed.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_CryptoDigest_GetAlgoName(ctx: *mut OH_CryptoDigest) -> *const ::core::ffi::c_char;
-    /// Destroy the digest context.
-    ///
+    /// Destroys the digest context.
     /// # Arguments
     ///
-    /// * `ctx` - Indicates the digest context.
+    /// * `ctx` - \[in\] Digest context.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]

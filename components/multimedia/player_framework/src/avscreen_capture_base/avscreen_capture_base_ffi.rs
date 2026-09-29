@@ -10,26 +10,22 @@ use crate::avbuffer::OH_AVBuffer;
 #[allow(unused_imports)]
 use crate::averrors::OH_AVErrCode;
 
-/// Initialization of avscreeencapture
+/// Defines all the asynchronous callback function pointers of an **OH_AVScreenCapture** instance. To ensure the
+/// normal running of **OH_AVScreenCapture**, you must register the instance of this struct with the **
+/// OH_AVScreenCapture** instance to process the information reported by the callback functions.
 ///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.AVScreenCapture
 ///
 ///
 /// Available since API-level: 10
-///
-/// Version: 1.0
 #[repr(C)]
 pub struct OH_AVScreenCapture {
     _unused: [u8; 0],
 }
-/// Initialization of OH_AVScreenCapture_ContentFilter
+/// The OH_AVScreenCapture_ContentFilter struct describes the filter used to filter audio and video content.
 ///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.AVScreenCapture
 ///
 ///
 /// Available since API-level: 12
-///
-/// Version: 1.0
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[repr(C)]
@@ -43,14 +39,11 @@ impl OH_CaptureMode {
     pub const OH_CAPTURE_INVAILD: OH_CaptureMode = OH_CaptureMode(-1);
 }
 #[repr(transparent)]
-/// Enumerates screen capture mode.
+/// Enumerates the screen capture modes.
 ///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.AVScreenCapture
 ///
 ///
 /// Available since API-level: 10
-///
-/// Version: 1.0
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OH_CaptureMode(pub ::core::ffi::c_int);
 impl OH_AudioCaptureSourceType {
@@ -61,14 +54,11 @@ impl OH_AudioCaptureSourceType {
     pub const OH_APP_PLAYBACK: OH_AudioCaptureSourceType = OH_AudioCaptureSourceType(3);
 }
 #[repr(transparent)]
-/// Enumerates audio cap source type.
+/// Enumerates the audio source types during screen capture.
 ///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.AVScreenCapture
 ///
 ///
 /// Available since API-level: 10
-///
-/// Version: 1.0
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OH_AudioCaptureSourceType(pub ::core::ffi::c_int);
 impl OH_AudioCodecFormat {
@@ -77,14 +67,11 @@ impl OH_AudioCodecFormat {
     pub const OH_AUDIO_CODEC_FORMAT_BUTT: OH_AudioCodecFormat = OH_AudioCodecFormat(4);
 }
 #[repr(transparent)]
-/// Enumerates audio codec formats.
+/// Enumerates the audio encoding formats.
 ///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.AVScreenCapture
 ///
 ///
 /// Available since API-level: 10
-///
-/// Version: 1.0
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OH_AudioCodecFormat(pub ::core::ffi::c_uint);
 impl OH_VideoCodecFormat {
@@ -97,14 +84,11 @@ impl OH_VideoCodecFormat {
     pub const OH_VIDEO_CODEC_FORMAT_BUTT: OH_VideoCodecFormat = OH_VideoCodecFormat(11);
 }
 #[repr(transparent)]
-/// Enumerates video codec formats.
+/// Enumerates the video encoding formats.
 ///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.AVScreenCapture
 ///
 ///
 /// Available since API-level: 10
-///
-/// Version: 1.0
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OH_VideoCodecFormat(pub ::core::ffi::c_uint);
 impl OH_DataType {
@@ -114,31 +98,26 @@ impl OH_DataType {
     pub const OH_INVAILD: OH_DataType = OH_DataType(-1);
 }
 #[repr(transparent)]
-/// Enumerates screen capture data type.
+/// Enumerates the data types of screen capture streams.
 ///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.AVScreenCapture
 ///
 ///
 /// Available since API-level: 10
-///
-/// Version: 1.0
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OH_DataType(pub ::core::ffi::c_int);
 impl OH_VideoSourceType {
+    /// RGBA format.
     pub const OH_VIDEO_SOURCE_SURFACE_YUV: OH_VideoSourceType = OH_VideoSourceType(0);
     pub const OH_VIDEO_SOURCE_SURFACE_ES: OH_VideoSourceType = OH_VideoSourceType(1);
     pub const OH_VIDEO_SOURCE_SURFACE_RGBA: OH_VideoSourceType = OH_VideoSourceType(2);
     pub const OH_VIDEO_SOURCE_BUTT: OH_VideoSourceType = OH_VideoSourceType(3);
 }
 #[repr(transparent)]
-/// Enumerates video source types.
+/// Enumerates the video source formats. Currently, only the RGBA format is supported.
 ///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.AVScreenCapture
 ///
 ///
 /// Available since API-level: 10
-///
-/// Version: 1.0
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OH_VideoSourceType(pub ::core::ffi::c_uint);
 impl OH_ContainerFormatType {
@@ -146,63 +125,18 @@ impl OH_ContainerFormatType {
     pub const CFT_MPEG_4: OH_ContainerFormatType = OH_ContainerFormatType(1);
 }
 #[repr(transparent)]
-/// Enumerates the container format types.
+/// Enumerates the types of files generated during screen capture.
 ///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.AVScreenCapture
 ///
 ///
 /// Available since API-level: 10
-///
-/// Version: 1.0
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OH_ContainerFormatType(pub ::core::ffi::c_uint);
-#[cfg(feature = "api-22")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-impl OH_CapturePickerMode {
-    /// Show application window options only
-    pub const OH_CAPTURE_PICKER_MODE_WINDOW_ONLY: OH_CapturePickerMode = OH_CapturePickerMode(0);
-    /// Show physical screen options only
-    pub const OH_CAPTURE_PICKER_MODE_SCREEN_ONLY: OH_CapturePickerMode = OH_CapturePickerMode(1);
-    /// Show both screen and window options (default mode)
-    pub const OH_CAPTURE_PICKER_MODE_SCREEN_AND_WINDOW: OH_CapturePickerMode =
-        OH_CapturePickerMode(2);
-}
-#[repr(transparent)]
-/// Capture source selector display mode enumeration
+/// The struct describes the audio capture information.
 ///
-///
-/// Available since API-level: 22
-#[cfg(feature = "api-22")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
-pub struct OH_CapturePickerMode(pub ::core::ffi::c_uint);
-#[cfg(feature = "api-22")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-impl OH_ScreenCaptureHighlightMode {
-    /// Default mode, highlight recording area with closed border
-    pub const OH_HIGHLIGHT_MODE_CLOSED: OH_ScreenCaptureHighlightMode =
-        OH_ScreenCaptureHighlightMode(0);
-    /// highlight recording area with corner wrap border
-    pub const OH_HIGHLIGHT_MODE_CORNER_WRAP: OH_ScreenCaptureHighlightMode =
-        OH_ScreenCaptureHighlightMode(1);
-}
-#[repr(transparent)]
-/// Screen recording highlight mode definition
-///
-///
-/// Available since API-level: 22
-#[cfg(feature = "api-22")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
-pub struct OH_ScreenCaptureHighlightMode(pub ::core::ffi::c_uint);
-/// Audio capture info struct
-///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.AVScreenCapture
 ///
 ///
 /// Available since API-level: 10
-///
-/// Version: 1.0
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct OH_AudioCaptureInfo {
@@ -210,28 +144,22 @@ pub struct OH_AudioCaptureInfo {
     pub audioChannels: i32,
     pub audioSource: OH_AudioCaptureSourceType,
 }
-/// Audio encoder info
+/// The struct describes the audio encoding information.
 ///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.AVScreenCapture
 ///
 ///
 /// Available since API-level: 10
-///
-/// Version: 1.0
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct OH_AudioEncInfo {
     pub audioBitrate: i32,
     pub audioCodecformat: OH_AudioCodecFormat,
 }
-/// The audio info of avscreeencapture
+/// The struct describes the audio information.
 ///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.AVScreenCapture
 ///
 ///
 /// Available since API-level: 10
-///
-/// Version: 1.0
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct OH_AudioInfo {
@@ -239,14 +167,12 @@ pub struct OH_AudioInfo {
     pub innerCapInfo: OH_AudioCaptureInfo,
     pub audioEncInfo: OH_AudioEncInfo,
 }
-/// Video capture info
+/// The struct describes the video capture information. When **videoFrameWidth** and **videoFrameHeight** are
+/// both **0**, video-related parameters are ignored and screen data is not recorded.
 ///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.AVScreenCapture
 ///
 ///
 /// Available since API-level: 10
-///
-/// Version: 1.0
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct OH_VideoCaptureInfo {
@@ -257,14 +183,11 @@ pub struct OH_VideoCaptureInfo {
     pub videoFrameHeight: i32,
     pub videoSource: OH_VideoSourceType,
 }
-/// Videoc encoder info
+/// The struct describes the video encoding information.
 ///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.AVScreenCapture
 ///
 ///
 /// Available since API-level: 10
-///
-/// Version: 1.0
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct OH_VideoEncInfo {
@@ -272,28 +195,22 @@ pub struct OH_VideoEncInfo {
     pub videoBitrate: i32,
     pub videoFrameRate: i32,
 }
-/// Video info
+/// The struct describes the video information.
 ///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.AVScreenCapture
 ///
 ///
 /// Available since API-level: 10
-///
-/// Version: 1.0
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct OH_VideoInfo {
     pub videoCapInfo: OH_VideoCaptureInfo,
     pub videoEncInfo: OH_VideoEncInfo,
 }
-/// Recorder file info
+/// The struct describes the recording file information.
 ///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.AVScreenCapture
 ///
 ///
 /// Available since API-level: 10
-///
-/// Version: 1.0
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct OH_RecorderInfo {
@@ -301,30 +218,11 @@ pub struct OH_RecorderInfo {
     pub urlLen: u32,
     pub fileFormat: OH_ContainerFormatType,
 }
-/// Highlight configure for Capture rectangle frame info
+/// The struct describes the screen capture configuration.
 ///
-///
-/// Available since API-level: 22
-#[cfg(feature = "api-22")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct OH_AVScreenCaptureHighlightConfig {
-    /// define the style of the capture area frame.
-    pub mode: OH_ScreenCaptureHighlightMode,
-    /// define the thickness of the frame line
-    pub lineThickness: u32,
-    /// define the color of the frame line
-    pub lineColor: u32,
-}
-/// AV screeen capture config info
-///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.AVScreenCapture
 ///
 ///
 /// Available since API-level: 10
-///
-/// Version: 1.0
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct OH_AVScreenCaptureConfig {
@@ -334,37 +232,44 @@ pub struct OH_AVScreenCaptureConfig {
     pub videoInfo: OH_VideoInfo,
     pub recorderInfo: OH_RecorderInfo,
 }
-/// When an error occurs in the running of the OH_AVScreenCapture instance, the function pointer will be called
+/// Defines the privacy protection information.
 ///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.AVScreenCapture
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct OH_PrivacyProtectInfo {
+    /// Available since API-level: 24
+    pub systemWindowProtection: bool,
+    /// Available since API-level: 24
+    pub sensitiveAppProtection: bool,
+}
+/// Called when an error occurs during the running of an OH_AVScreenCapture instance.
+/// Starting from API version 12, you are advised to use [`OH_AVScreenCapture_OnError`](crate::avscreen_capture_base::OH_AVScreenCapture_OnError) instead.
+///
 /// # Arguments
 ///
-/// * `capture` - Pointer to an OH_AVScreenCapture instance
+/// * `capture` - Pointer to the OH_AVScreenCapture instance.
 ///
-/// * `errorCode` - specific error code
-///
+/// * `errorCode` - Error code.
 ///
 /// Available since API-level: 10
-///
-/// Version: 1.0
 pub type OH_AVScreenCaptureOnError =
     ::core::option::Option<unsafe extern "C" fn(capture: *mut OH_AVScreenCapture, errorCode: i32)>;
-/// When audio buffer is available during the operation of OH_AVScreenCapture, the function pointer will
-/// be called.
+/// Called when an audio buffer is available during the running of an OH_AVScreenCapture instance.
+/// Starting from API version 12, you are advised to use [`OH_AVScreenCapture_OnBufferAvailable`](crate::avscreen_capture_base::OH_AVScreenCapture_OnBufferAvailable) instead.
 ///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.AVScreenCapture
 /// # Arguments
 ///
-/// * `capture` - Pointer to an OH_AVScreenCapture instance
+/// * `capture` - Pointer to the OH_AVScreenCapture instance.
 ///
-/// * `isReady` - Information describing whether audio buffer is available
+/// * `isReady` - Whether the audio buffer is available. The values include **true** (yes) and **false** (no).
 ///
-/// * `type` - Information describing the audio source type
-///
+/// * `type` - Audio source type.
 ///
 /// Available since API-level: 10
-///
-/// Version: 1.0
 pub type OH_AVScreenCaptureOnAudioBufferAvailable = ::core::option::Option<
     unsafe extern "C" fn(
         capture: *mut OH_AVScreenCapture,
@@ -372,27 +277,22 @@ pub type OH_AVScreenCaptureOnAudioBufferAvailable = ::core::option::Option<
         type_: OH_AudioCaptureSourceType,
     ),
 >;
-/// When video buffer is available during the operation of OH_AVScreenCapture, the function pointer will
-/// be called.
+/// Called when a video buffer is available during the running of an OH_AVScreenCapture instance.
+/// Starting from API version 12, you are advised to use [`OH_AVScreenCapture_OnBufferAvailable`](crate::avscreen_capture_base::OH_AVScreenCapture_OnBufferAvailable) instead.
 ///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.AVScreenCapture
 /// # Arguments
 ///
-/// * `capture` - Pointer to an OH_AVScreenCapture instance
+/// * `capture` - Pointer to the OH_AVScreenCapture instance.
 ///
-/// * `isReady` - Information describing whether video buffer is available
-///
+/// * `isReady` - Whether the video buffer is available. The values include **true** (yes) and **false** (no).
 ///
 /// Available since API-level: 10
-///
-/// Version: 1.0
 pub type OH_AVScreenCaptureOnVideoBufferAvailable =
     ::core::option::Option<unsafe extern "C" fn(capture: *mut OH_AVScreenCapture, isReady: bool)>;
-/// A collection of all callback function pointers in OH_AVScreenCapture. Register an instance of this
-/// structure to the OH_AVScreenCapture instance, and process the information reported through the callback to ensure the
-/// normal operation of OH_AVScreenCapture.
+/// Defines all the asynchronous callback function pointers of an **OH_AVScreenCapture** instance. To ensure the
+/// normal running of **OH_AVScreenCapture**, you must register the instance of this struct with the **
+/// OH_AVScreenCapture** instance to process the information reported by the callback functions.
 ///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.AVScreenCapture
 /// # Arguments
 ///
 /// * `onError` - Monitor OH_AVScreenCapture operation errors, refer to [`OH_AVScreenCaptureOnError`](crate::avscreen_capture_base::OH_AVScreenCaptureOnError)
@@ -403,8 +303,6 @@ pub type OH_AVScreenCaptureOnVideoBufferAvailable =
 ///
 ///
 /// Available since API-level: 10
-///
-/// Version: 1.0
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct OH_AVScreenCaptureCallback {
@@ -412,14 +310,11 @@ pub struct OH_AVScreenCaptureCallback {
     pub onAudioBufferAvailable: OH_AVScreenCaptureOnAudioBufferAvailable,
     pub onVideoBufferAvailable: OH_AVScreenCaptureOnVideoBufferAvailable,
 }
-/// avscreeencapture rect info
+/// The struct describes the width, height, and image information of the rectangle used for screen capture.
 ///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.AVScreenCapture
 ///
 ///
 /// Available since API-level: 10
-///
-/// Version: 1.0
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct OH_Rect {
@@ -428,14 +323,11 @@ pub struct OH_Rect {
     pub width: i32,
     pub height: i32,
 }
-/// Audiobuffer struct info
+/// The struct describes the configuration such as the size, type, and timestamp of audio data.
 ///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.AVScreenCapture
 ///
 ///
 /// Available since API-level: 10
-///
-/// Version: 1.0
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct OH_AudioBuffer {
@@ -469,16 +361,41 @@ impl OH_AVScreenCaptureStateCode {
         OH_AVScreenCaptureStateCode(9);
     pub const OH_SCREEN_CAPTURE_STATE_STOPPED_BY_USER_SWITCHES: OH_AVScreenCaptureStateCode =
         OH_AVScreenCaptureStateCode(10);
+    /// Screen capture paused by user
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub const OH_SCREEN_CAPTURE_STATE_PAUSED_BY_USER: OH_AVScreenCaptureStateCode =
+        OH_AVScreenCaptureStateCode(11);
+    /// Screen capture resumed by user
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub const OH_SCREEN_CAPTURE_STATE_RESUMED_BY_USER: OH_AVScreenCaptureStateCode =
+        OH_AVScreenCaptureStateCode(12);
+    /// Screen capture paused by app
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub const OH_SCREEN_CAPTURE_STATE_PAUSED_BY_APP: OH_AVScreenCaptureStateCode =
+        OH_AVScreenCaptureStateCode(13);
+    /// Screen capture resumed by app
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub const OH_SCREEN_CAPTURE_STATE_RESUMED_BY_APP: OH_AVScreenCaptureStateCode =
+        OH_AVScreenCaptureStateCode(14);
 }
 #[repr(transparent)]
-/// Enumerates screen capture state code.
+/// Enumerates the screen capture states.
 ///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.AVScreenCapture
 ///
 ///
 /// Available since API-level: 12
-///
-/// Version: 1.0
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
@@ -494,14 +411,11 @@ impl OH_AVScreenCaptureBufferType {
         OH_AVScreenCaptureBufferType(2);
 }
 #[repr(transparent)]
-/// Enumerates screen capture buffer type.
+/// Enumerates the buffer types.
 ///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.AVScreenCapture
 ///
 ///
 /// Available since API-level: 12
-///
-/// Version: 1.0
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
@@ -515,84 +429,26 @@ impl OH_AVScreenCaptureFilterableAudioContent {
         OH_AVScreenCaptureFilterableAudioContent(1);
 }
 #[repr(transparent)]
-/// Enumerates screen capture buffer type.
+/// Enumerates the buffer types.
 ///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.AVScreenCapture
 ///
 ///
 /// Available since API-level: 12
-///
-/// Version: 1.0
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OH_AVScreenCaptureFilterableAudioContent(pub ::core::ffi::c_uint);
-#[cfg(feature = "api-20")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
-impl OH_AVScreenCaptureContentChangedEvent_Enum {
-    pub const OH_SCREEN_CAPTURE_CONTENT_HIDE: OH_AVScreenCaptureContentChangedEvent_Enum =
-        OH_AVScreenCaptureContentChangedEvent_Enum(0);
-    pub const OH_SCREEN_CAPTURE_CONTENT_VISIBLE: OH_AVScreenCaptureContentChangedEvent_Enum =
-        OH_AVScreenCaptureContentChangedEvent_Enum(1);
-    pub const OH_SCREEN_CAPTURE_CONTENT_UNAVAILABLE: OH_AVScreenCaptureContentChangedEvent_Enum =
-        OH_AVScreenCaptureContentChangedEvent_Enum(2);
-}
-#[repr(transparent)]
-/// Enumerates screen capture content state.
+/// Called when the state changes during the running of an OH_AVScreenCapture instance.
 ///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.AVScreenCapture
-///
-///
-/// Available since API-level: 20
-#[cfg(feature = "api-20")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
-#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
-pub struct OH_AVScreenCaptureContentChangedEvent_Enum(pub ::core::ffi::c_uint);
-/// Enumerates screen capture content state.
-///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.AVScreenCapture
-///
-///
-/// Available since API-level: 20
-#[cfg(feature = "api-20")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
-pub use self::OH_AVScreenCaptureContentChangedEvent_Enum as OH_AVScreenCaptureContentChangedEvent;
-#[cfg(feature = "api-20")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
-impl OH_AVScreenCapture_FillMode {
-    /// Keep the original image aspect ratio to match the target
-    /// image size. If the ratio is inconsistent, there may be black edges.
-    pub const OH_SCREENCAPTURE_FILLMODE_ASPECT_SCALE_FIT: OH_AVScreenCapture_FillMode =
-        OH_AVScreenCapture_FillMode(0);
-    /// The image is stretched to match the target output size.
-    /// If the ratios are inconsistent, the image will be deformed.
-    pub const OH_SCREENCAPTURE_FILLMODE_SCALE_TO_FILL: OH_AVScreenCapture_FillMode =
-        OH_AVScreenCapture_FillMode(1);
-}
-#[repr(transparent)]
-/// content fill mode.
-///
-///
-/// Available since API-level: 20
-#[cfg(feature = "api-20")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
-#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
-pub struct OH_AVScreenCapture_FillMode(pub ::core::ffi::c_uint);
-/// When state of OH_AVScreenCapture is changed, the function pointer will be called.
-///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.AVScreenCapture
 /// # Arguments
 ///
-/// * `capture` - Pointer to an OH_AVScreenCapture instance
+/// * `capture` - Pointer to the OH_AVScreenCapture instance.
 ///
-/// * `stateCode` - Information describing current state, see [`OH_AVScreenCaptureStateCode`](crate::avscreen_capture_base::OH_AVScreenCaptureStateCode)
+/// * `stateCode` - Status code.
 ///
-/// * `userData` - Pointer to user specific data
-///
+/// * `userData` - Pointer to the user-defined data carried in the function.
 ///
 /// Available since API-level: 12
-///
-/// Version: 1.0
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub type OH_AVScreenCapture_OnStateChange = ::core::option::Option<
@@ -602,21 +458,17 @@ pub type OH_AVScreenCapture_OnStateChange = ::core::option::Option<
         userData: *mut ::core::ffi::c_void,
     ),
 >;
-/// When an error occurs in the running of the OH_AVScreenCapture instance, the function pointer will be called
+/// Called when an error occurs during the running of an OH_AVScreenCapture instance.
 ///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.AVScreenCapture
 /// # Arguments
 ///
-/// * `capture` - Pointer to an OH_AVScreenCapture instance
+/// * `capture` - Pointer to the OH_AVScreenCapture instance.
 ///
-/// * `errorCode` - specific error code
+/// * `errorCode` - Error code.
 ///
-/// * `userData` - Pointer to user specific data
-///
+/// * `userData` - Pointer to the user-defined data carried in the function.
 ///
 /// Available since API-level: 12
-///
-/// Version: 1.0
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub type OH_AVScreenCapture_OnError = ::core::option::Option<
@@ -626,25 +478,22 @@ pub type OH_AVScreenCapture_OnError = ::core::option::Option<
         userData: *mut ::core::ffi::c_void,
     ),
 >;
-/// When data is ready from the OH_AVScreenCapture instance, the function pointer will be called
+/// Called when an audio buffer or a video buffer is available during the running of an OH_AVScreenCapture
+/// instance.
 ///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.AVScreenCapture
 /// # Arguments
 ///
-/// * `capture` - Pointer to an OH_AVScreenCapture instance
+/// * `capture` - Pointer to the OH_AVScreenCapture instance.
 ///
-/// * `buffer` - Pointer to a buffer containing media data
+/// * `buffer` - Pointer to the OH_AVBuffer instance. After the callback is triggered, the buffer is no longer valid.
 ///
-/// * `bufferType` - Data type of the buffer, see [`OH_AVScreenCaptureBufferType`](crate::avscreen_capture_base::OH_AVScreenCaptureBufferType)
+/// * `bufferType` - Type of the buffer.
 ///
-/// * `timestamp` - Timestamp of the buffer
+/// * `timestamp` - Timestamp, in nanoseconds.
 ///
-/// * `userData` - Pointer to user specific data
-///
+/// * `userData` - Pointer to the user-defined data carried in the function.
 ///
 /// Available since API-level: 12
-///
-/// Version: 1.0
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub type OH_AVScreenCapture_OnBufferAvailable = ::core::option::Option<
@@ -657,8 +506,6 @@ pub type OH_AVScreenCapture_OnBufferAvailable = ::core::option::Option<
     ),
 >;
 /// When one of the display devices start being captured, the function pointer will be called
-///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.AVScreenCapture
 /// # Arguments
 ///
 /// * `capture` - Pointer to an OH_AVScreenCapture instance
@@ -678,35 +525,51 @@ pub type OH_AVScreenCapture_OnDisplaySelected = ::core::option::Option<
         userData: *mut ::core::ffi::c_void,
     ),
 >;
-/// Initialization of OH_AVScreenCapture_CaptureStrategy
+#[cfg(feature = "api-20")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+impl OH_AVScreenCaptureContentChangedEvent_Enum {
+    /// The screen capture content is hidden.
+    pub const OH_SCREEN_CAPTURE_CONTENT_HIDE: OH_AVScreenCaptureContentChangedEvent_Enum =
+        OH_AVScreenCaptureContentChangedEvent_Enum(0);
+    /// The screen capture content is visible.
+    pub const OH_SCREEN_CAPTURE_CONTENT_VISIBLE: OH_AVScreenCaptureContentChangedEvent_Enum =
+        OH_AVScreenCaptureContentChangedEvent_Enum(1);
+    /// The screen capture content becomes unavailable. For example, the screen capture window is closed.
+    pub const OH_SCREEN_CAPTURE_CONTENT_UNAVAILABLE: OH_AVScreenCaptureContentChangedEvent_Enum =
+        OH_AVScreenCaptureContentChangedEvent_Enum(2);
+}
+#[repr(transparent)]
+/// Enumerates the screen capture content change events.
 ///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.AVScreenCapture
 ///
 ///
 /// Available since API-level: 20
 #[cfg(feature = "api-20")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
-#[repr(C)]
-pub struct OH_AVScreenCapture_CaptureStrategy {
-    _unused: [u8; 0],
-}
-/// When Capture Content info changes, the function will be called to notify user
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct OH_AVScreenCaptureContentChangedEvent_Enum(pub ::core::ffi::c_uint);
+/// Enumerates the screen capture content change events.
 ///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.AVScreenCapture
-/// # Arguments
-///
-/// {OH_AVScreenCapture*} capture Pointer to an OH_AVScreenCapture instance
-///
-/// {OH_AVScreenCaptureContentChangedEvent} event enum for content change event
-///
-/// {OH_Rect*} area capture content rect position
-///
-/// { void*} userData Pointer to user specific data
 ///
 ///
 /// Available since API-level: 20
+#[cfg(feature = "api-20")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+pub use self::OH_AVScreenCaptureContentChangedEvent_Enum as OH_AVScreenCaptureContentChangedEvent;
+/// Called when the screen capture content changes during the running of an OH_AVScreenCapture instance.
 ///
-/// Version: 1.0
+/// # Arguments
+///
+/// * `capture` - Pointer to an OH_AVScreenCapture instance
+///
+/// * `event` - enum for content change event
+///
+/// * `area` - capture content rect position
+///
+/// * `userData` - Pointer to user specific data
+///
+///
+/// Available since API-level: 20
 #[cfg(feature = "api-20")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
 pub type OH_AVScreenCapture_OnCaptureContentChanged = ::core::option::Option<
@@ -717,9 +580,123 @@ pub type OH_AVScreenCapture_OnCaptureContentChanged = ::core::option::Option<
         userData: *mut ::core::ffi::c_void,
     ),
 >;
-/// Initialization of OH_AVScreenCapture_UserSelectionInfo
+#[cfg(feature = "api-22")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+impl OH_ScreenCaptureHighlightMode {
+    /// Highlights the capture area with a full square border. This is the default mode.
+    pub const OH_HIGHLIGHT_MODE_CLOSED: OH_ScreenCaptureHighlightMode =
+        OH_ScreenCaptureHighlightMode(0);
+    /// Highlights the capture area with a corner-wrapping border.
+    pub const OH_HIGHLIGHT_MODE_CORNER_WRAP: OH_ScreenCaptureHighlightMode =
+        OH_ScreenCaptureHighlightMode(1);
+}
+#[repr(transparent)]
+/// Enumerates the display modes of the highlight border shown during screen capture.
 ///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.AVScreenCapture
+///
+/// Available since API-level: 22
+#[cfg(feature = "api-22")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct OH_ScreenCaptureHighlightMode(pub ::core::ffi::c_uint);
+/// The struct describes the style of the highlight border shown during screen capture, including its shape,
+/// thickness, and color.
+///
+///
+/// Available since API-level: 22
+#[cfg(feature = "api-22")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct OH_AVScreenCaptureHighlightConfig {
+    /// Shape of the highlight border. If this variable is not set, a full rectangle is used by default.
+    pub mode: OH_ScreenCaptureHighlightMode,
+    /// Thickness of the border line. If this variable is not set, the border is invisible by default. The valid value
+    /// range is 1 vp to 8 vp.
+    pub lineThickness: u32,
+    /// Color of the border line. The default value is black. Valid values are in RGB (0-0xffffff) or non-transparent
+    /// ARGB (0xff000000-0xffffffff) format.
+    pub lineColor: u32,
+}
+#[cfg(feature = "api-20")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+impl OH_AVScreenCapture_FillMode {
+    /// Keeps the original aspect ratio of the image to fit the target size. Black bars may appear if the aspect ratios
+    /// differ.
+    pub const OH_SCREENCAPTURE_FILLMODE_ASPECT_SCALE_FIT: OH_AVScreenCapture_FillMode =
+        OH_AVScreenCapture_FillMode(0);
+    /// Stretches the image to fill the target size. The image may stretch and distort if the aspect ratios differ.
+    pub const OH_SCREENCAPTURE_FILLMODE_SCALE_TO_FILL: OH_AVScreenCapture_FillMode =
+        OH_AVScreenCapture_FillMode(1);
+}
+#[repr(transparent)]
+/// Enumerates the image fill modes.
+///
+///
+/// Available since API-level: 20
+#[cfg(feature = "api-20")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct OH_AVScreenCapture_FillMode(pub ::core::ffi::c_uint);
+#[cfg(feature = "api-22")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+impl OH_CapturePickerMode {
+    /// Displays only a list of windows.
+    pub const OH_CAPTURE_PICKER_MODE_WINDOW_ONLY: OH_CapturePickerMode = OH_CapturePickerMode(0);
+    /// Displays only a list of screens.
+    pub const OH_CAPTURE_PICKER_MODE_SCREEN_ONLY: OH_CapturePickerMode = OH_CapturePickerMode(1);
+    /// Displays both screens and windows. This is the default mode.
+    pub const OH_CAPTURE_PICKER_MODE_SCREEN_AND_WINDOW: OH_CapturePickerMode =
+        OH_CapturePickerMode(2);
+    /// Show application options only.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub const OH_CAPTURE_PICKER_MODE_APP_ONLY: OH_CapturePickerMode = OH_CapturePickerMode(3);
+    /// Show both window and application options.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub const OH_CAPTURE_PICKER_MODE_WINDOW_AND_APP: OH_CapturePickerMode = OH_CapturePickerMode(4);
+    /// Show both screen and application options.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub const OH_CAPTURE_PICKER_MODE_SCREEN_AND_APP: OH_CapturePickerMode = OH_CapturePickerMode(5);
+    /// Show screen, window, and application options.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub const OH_CAPTURE_PICKER_MODE_SCREEN_WINDOW_AND_APP: OH_CapturePickerMode =
+        OH_CapturePickerMode(6);
+}
+#[repr(transparent)]
+/// Enumerates the display modes of the picker.
+///
+///
+/// Available since API-level: 22
+#[cfg(feature = "api-22")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct OH_CapturePickerMode(pub ::core::ffi::c_uint);
+/// The OH_AVScreenCapture_CaptureStrategy struct describes the screen capture strategy.
+///
+///
+///
+/// Available since API-level: 20
+#[cfg(feature = "api-20")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+#[repr(C)]
+pub struct OH_AVScreenCapture_CaptureStrategy {
+    _unused: [u8; 0],
+}
+/// The OH_AVScreenCapture_UserSelectionInfo struct describes the parameters selected by the user on the
+/// authorization UI (selection UI).
+///
 ///
 ///
 /// Available since API-level: 20
@@ -729,18 +706,16 @@ pub type OH_AVScreenCapture_OnCaptureContentChanged = ::core::option::Option<
 pub struct OH_AVScreenCapture_UserSelectionInfo {
     _unused: [u8; 0],
 }
-/// When the user selects parameters in the authorization interface (selection interface),
-/// the function interface returns the parameters to the application.
+/// Called to return the parameters selected by the user on the authorization UI to the application.
 ///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.AVScreenCapture
 /// # Arguments
 ///
-/// {OH_AVScreenCapture*} capture Pointer to an OH_AVScreenCapture instance
+/// * `capture` - Pointer to an OH_AVScreenCapture instance
 ///
-/// {OH_AVScreenCapture_UserSelectionInfo*} selections The recording parameter information
+/// * `selections` - The recording parameter information
 /// selected by the user on the authorization interface
 ///
-/// {void*} userData Pointer to user specific data
+/// * `userData` - Pointer to user specific data
 ///
 ///
 /// Available since API-level: 20
@@ -753,3 +728,51 @@ pub type OH_AVScreenCapture_OnUserSelected = ::core::option::Option<
         userData: *mut ::core::ffi::c_void,
     ),
 >;
+/// Defines a struct for the multi-screen recording capability. It includes whether the multi-screen supports
+/// joint recording and the width and height of the screen for joint recording.
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct OH_MultiDisplayCapability {
+    /// Whether multi-screen recording is supported. **true**: yes; **false**: no.
+    pub isMultiDisplaySupport: bool,
+    /// Width of the screen area that can be recorded, in pixels.
+    pub width: u32,
+    /// Height of the screen area that can be recorded, in pixels.
+    pub height: u32,
+}
+/// Called when a privacy protection event occurs during the running of the [`OH_AVScreenCapture`](crate::avscreen_capture_base::OH_AVScreenCapture) instance.
+///
+/// # Arguments
+///
+/// * `capture` - Pointer to an OH_AVScreenCapture instance
+///
+/// * `privacyProtect` - Pointer to privacy protect info
+///
+/// * `userData` - Pointer to user specific data
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+pub type OH_AVScreenCapture_OnPrivacyProtect = ::core::option::Option<
+    unsafe extern "C" fn(
+        capture: *mut OH_AVScreenCapture,
+        privacyProtect: *mut OH_PrivacyProtectInfo,
+        userData: *mut ::core::ffi::c_void,
+    ),
+>;
+extern "C" {
+    /// Key for obtaining the valid content area information in the screen recording image frame.
+    /// The returned value is an int32_t array. The array length is 4.
+    /// The array elements are defined as \[top,left,width,height\].
+    /// The value can be obtained from [`OH_AVFormat_GetIntBuffer`](crate::avformat::OH_AVFormat_GetIntBuffer).
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub static mut OH_SCREEN_CAPTURE_CONTENT_RECT: *const ::core::ffi::c_char;
+}

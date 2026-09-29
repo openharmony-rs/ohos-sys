@@ -9,17 +9,20 @@ use crate::text_declaration::{
 use crate::types::*;
 
 extern "C" {
-    /// Creates an <b>OH_Drawing_LineTypography</b> object.
+    /// Creates a pointer to a typography line object [`OH_Drawing_LineTypography`](crate::text_declaration::OH_Drawing_LineTypography). The typography line object
+    /// serves as a container for storing text content and styles, and can be used to calculate single-line typography
+    /// information.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `handler` - Indicates the pointer to an <b>OH_Drawing_TypographyCreate</b> object.
+    /// * `handler` - Pointer to the [`OH_Drawing_TypographyCreate`](crate::text_declaration::OH_Drawing_TypographyCreate) object, which is obtained from
+    /// [`OH_Drawing_CreateTypographyHandler`](crate::text_typography::OH_Drawing_CreateTypographyHandler).
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the <b>OH_Drawing_LineTypography</b> object created.
+    /// * Returns the pointer to the [`OH_Drawing_LineTypography`](crate::text_declaration::OH_Drawing_LineTypography) object created.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -27,33 +30,37 @@ extern "C" {
     pub fn OH_Drawing_CreateLineTypography(
         handler: *mut OH_Drawing_TypographyCreate,
     ) -> *mut OH_Drawing_LineTypography;
-    /// Releases the memory occupied by an <b>OH_Drawing_LineTypography</b> object.
+    /// Releases the memory occupied by an [`OH_Drawing_LineTypography`](crate::text_declaration::OH_Drawing_LineTypography) object.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `lineTypography` - Indicates the pointer to an <b>OH_Drawing_LineTypography</b> object.
+    /// * `lineTypography` - Pointer to the [`OH_Drawing_LineTypography`](crate::text_declaration::OH_Drawing_LineTypography) object, which is obtained from
+    /// [`OH_Drawing_CreateLineTypography`](crate::text_line_typography::OH_Drawing_CreateLineTypography).
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
     pub fn OH_Drawing_DestroyLineTypography(lineTypography: *mut OH_Drawing_LineTypography);
-    /// Calculate the line breakpoint based on the width provided.
+    /// Obtains the number of characters that can fit in the layout from the specified position within a limited
+    /// layout width.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `lineTypography` - Indicates the pointer to an <b>OH_Drawing_TypographyCreate</b> object.
+    /// * `lineTypography` - Pointer to the [`OH_Drawing_LineTypography`](crate::text_declaration::OH_Drawing_LineTypography) object, which is obtained from
+    /// [`OH_Drawing_CreateLineTypography`](crate::text_line_typography::OH_Drawing_CreateLineTypography).
     ///
-    /// * `startIndex` - Indicates the starting point for the line-break calculations.
+    /// * `startIndex` - Start position (inclusive) for calculating the typography. The value is an integer in the range [0,
+    /// total count of text characters).
     ///
-    /// * `width` - Indicates the requested line-break width.
+    /// * `width` - Layout width. The value is a floating point number greater than 0, in px.
     ///
     /// # Returns
     ///
-    /// * Returns the count of the characters from startIndex that would cause the line break.
+    /// * Returns the number of characters.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -63,21 +70,28 @@ extern "C" {
         startIndex: usize,
         width: f64,
     ) -> usize;
-    /// Creates a text line object based on the text range provided.
+    /// Creates a pointer to an [`OH_Drawing_TextLine`](crate::text_declaration::OH_Drawing_TextLine) object based on the text content in a specified range.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `lineTypography` - Indicates the pointer to an <b>OH_Drawing_TypographyCreate</b> object.
+    /// * `lineTypography` - Pointer to the [`OH_Drawing_LineTypography`](crate::text_declaration::OH_Drawing_LineTypography) object, which is obtained from
+    /// [`OH_Drawing_CreateLineTypography`](crate::text_line_typography::OH_Drawing_CreateLineTypography).
     ///
-    /// * `startIndex` - Indicates the starting index of the text range.
+    /// * `startIndex` - Start position for layout calculation. The value is an integer in the range [0, total number of
+    /// text characters).
     ///
-    /// * `count` - Indicates the characters count of the text range.
+    /// * `count` - Number of characters to be typeset from the specified typography start position. The value is an
+    /// integer in the range [0, total count of text characters), and the sum of startIndex and count cannot exceed the
+    /// total count of text characters.
+    /// <br>You can first use [`OH_Drawing_LineTypographyGetLineBreak`](crate::text_line_typography::OH_Drawing_LineTypographyGetLineBreak) to obtain a reasonable total count of
+    /// characters that can be typeset. If this value is set to 0, the content from startIndex to the end of the text is
+    /// returned.
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the <b>OH_Drawing_TextLine</b> object created.
+    /// * Pointer to the [`OH_Drawing_TextLine`](crate::text_declaration::OH_Drawing_TextLine) object.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]

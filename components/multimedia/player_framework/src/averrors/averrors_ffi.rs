@@ -6,24 +6,44 @@
 
 impl OH_AVErrCode {
     /// the operation completed successfully.
+    ///
+    /// Available since API-level: 9
     pub const AV_ERR_OK: OH_AVErrCode = OH_AVErrCode(0);
     /// no memory.
+    ///
+    /// Available since API-level: 9
     pub const AV_ERR_NO_MEMORY: OH_AVErrCode = OH_AVErrCode(1);
-    /// opertation not be permitted.
+    /// operation not permitted.
+    ///
+    /// Available since API-level: 9
     pub const AV_ERR_OPERATE_NOT_PERMIT: OH_AVErrCode = OH_AVErrCode(2);
     /// invalid argument.
+    ///
+    /// Available since API-level: 9
     pub const AV_ERR_INVALID_VAL: OH_AVErrCode = OH_AVErrCode(3);
     /// IO error.
+    ///
+    /// Available since API-level: 9
     pub const AV_ERR_IO: OH_AVErrCode = OH_AVErrCode(4);
     /// network timeout.
+    ///
+    /// Available since API-level: 9
     pub const AV_ERR_TIMEOUT: OH_AVErrCode = OH_AVErrCode(5);
     /// unknown error.
+    ///
+    /// Available since API-level: 9
     pub const AV_ERR_UNKNOWN: OH_AVErrCode = OH_AVErrCode(6);
     /// media service died.
+    ///
+    /// Available since API-level: 9
     pub const AV_ERR_SERVICE_DIED: OH_AVErrCode = OH_AVErrCode(7);
     /// the state is not support this operation.
+    ///
+    /// Available since API-level: 9
     pub const AV_ERR_INVALID_STATE: OH_AVErrCode = OH_AVErrCode(8);
     /// unsupport interface.
+    ///
+    /// Available since API-level: 9
     pub const AV_ERR_UNSUPPORT: OH_AVErrCode = OH_AVErrCode(9);
     /// input data error.
     ///
@@ -38,6 +58,8 @@ impl OH_AVErrCode {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
     pub const AV_ERR_UNSUPPORTED_FORMAT: OH_AVErrCode = OH_AVErrCode(11);
     /// extend err start.
+    ///
+    /// Available since API-level: 9
     pub const AV_ERR_EXTEND_START: OH_AVErrCode = OH_AVErrCode(100);
     /// drm error base.
     ///
@@ -45,7 +67,7 @@ impl OH_AVErrCode {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const AV_ERR_DRM_BASE: OH_AVErrCode = OH_AVErrCode(200);
-    /// drm decypt failed.
+    /// drm decrypt failed.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -169,12 +191,9 @@ impl OH_AVErrCode {
     pub const AV_ERR_SUPER_RESOLUTION_NOT_ENABLED: OH_AVErrCode = OH_AVErrCode(5410004);
 }
 #[repr(transparent)]
-/// AV error code
+/// Enumerates the error codes used by the media framework.
 ///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.Core
 ///
 /// Available since API-level: 9
-///
-/// Version: 1.0
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OH_AVErrCode(pub ::core::ffi::c_uint);

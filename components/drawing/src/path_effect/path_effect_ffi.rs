@@ -8,17 +8,17 @@ use crate::types::*;
 #[cfg(feature = "api-18")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
 impl OH_Drawing_PathDashStyle {
-    /// Indicates translation effect.
+    /// Translation effect.
     pub const DRAWING_PATH_DASH_STYLE_TRANSLATE: OH_Drawing_PathDashStyle =
         OH_Drawing_PathDashStyle(0);
-    /// Indicates rotation effect.
+    /// Rotation effect.
     pub const DRAWING_PATH_DASH_STYLE_ROTATE: OH_Drawing_PathDashStyle =
         OH_Drawing_PathDashStyle(1);
-    /// Indicates morph effect.
+    /// Morphing effect.
     pub const DRAWING_PATH_DASH_STYLE_MORPH: OH_Drawing_PathDashStyle = OH_Drawing_PathDashStyle(2);
 }
 #[repr(transparent)]
-/// Enumerate path dash style.
+/// Enumerates the drawing styles for path effects.
 ///
 ///
 /// Available since API-level: 18
@@ -29,20 +29,19 @@ impl OH_Drawing_PathDashStyle {
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OH_Drawing_PathDashStyle(pub ::core::ffi::c_uint);
 extern "C" {
-    /// Creates an <b>OH_Drawing_PathEffect</b> object that is a combination of paths,
-    /// applying the inner path effect first and then the outer path effect.
+    /// Creates a path effect by sequentially applying the inner effect and then the outer effect.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `outer` - Indicates an <b>OH_Drawing_PathEffect</b> object
+    /// * `outer` - Pointer to an outer effect, which is an [`OH_Drawing_PathEffect`](crate::types::OH_Drawing_PathEffect) object.
     ///
-    /// * `inner` - Indicates an <b>OH_Drawing_PathEffect</b> object
+    /// * `inner` - Pointer to an inner effect, which is an [`OH_Drawing_PathEffect`](crate::types::OH_Drawing_PathEffect) object.
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the <b>OH_Drawing_PathEffect</b> object created.
+    /// * Returns a pointer to the created [`OH_Drawing_PathEffect`](crate::types::OH_Drawing_PathEffect) object.
+    /// If a null pointer is returned, the creation fails. The possible failure cause is that **inner** or **inner** is a
+    /// null pointer.
     ///
     /// Available since API-level: 18
     ///
@@ -53,20 +52,18 @@ extern "C" {
         outer: *mut OH_Drawing_PathEffect,
         inner: *mut OH_Drawing_PathEffect,
     ) -> *mut OH_Drawing_PathEffect;
-    /// Creates an <b>OH_Drawing_PathEffect</b> object
-    /// that turns the included angle of the path into a fillet of a specified radius.
+    /// Creates a path effect that transforms the sharp angle between line segments into a rounded corner with the
+    /// specified radius.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `radius` - Indicates the degree of curvature of the arc, the radius must be greater than zero.
+    /// * `radius` - Radius of the rounded corner. The value is valid only when it is greater than 0.
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the <b>OH_Drawing_PathEffect</b> object created.
-    /// If nullptr is returned, the creation fails.
-    /// The possible cause of the failure is radius is zero or less.
+    /// * Returns a pointer to the created [`OH_Drawing_PathEffect`](crate::types::OH_Drawing_PathEffect) object.
+    /// If a null pointer is returned, the creation fails. The possible failure cause is that **radius** is less than or
+    /// equal to **0**.
     ///
     /// Available since API-level: 18
     ///
@@ -74,21 +71,22 @@ extern "C" {
     #[cfg(feature = "api-18")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
     pub fn OH_Drawing_CreateCornerPathEffect(radius: f32) -> *mut OH_Drawing_PathEffect;
-    /// Creates an <b>OH_Drawing_PathEffect</b> object.
+    /// Creates a dashed path effect. The dashed line effect is determined by a group of "on" and "off" intervals.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **intervals** is NULL or **count** is less than or equal to 0, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `intervals` - Indicates a array which contain an even number of entries.
+    /// * `intervals` - Pointer to the start address of the dashed line interval array. In the array, an even entry
+    /// indicates an "on" interval and an odd entry indicates an "off" interval. The unit is px.
     ///
-    /// * `count` - Indicates the number of elements of the intervals array.
+    /// * `count` - Number of entries in the dashed line interval array. The value must be an even number greater than 0.
     ///
-    /// * `phase` - Indicates the offset into intervals array.
+    /// * `phase` - Offset in the dashed line interval array.
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the <b>OH_Drawing_PathEffect</b> object created.
+    /// * Returns a pointer to the created [`OH_Drawing_PathEffect`](crate::types::OH_Drawing_PathEffect) object.
     ///
     /// Available since API-level: 12
     ///
@@ -100,20 +98,18 @@ extern "C" {
         count: ::core::ffi::c_int,
         phase: f32,
     ) -> *mut OH_Drawing_PathEffect;
-    /// Creates an <b>OH_Drawing_PathEffect</b> object
-    /// that breaks the path and creates an irregular distribution on the path.
+    /// Creates a path effect that segments the path and scatters the segments in an irregular pattern along the path.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `segLength` - Indicates the maximum segment length of the path.
+    /// * `segLength` - Distance along the path at which each segment is fragmented. An effect is created when it is
+    /// greater than 0.
     ///
-    /// * `deviation` - Indicates the deviation during drawing.
+    /// * `deviation` - Maximum amount by which the end points of the segments can be randomly displaced during rendering.
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the <b>OH_Drawing_PathEffect</b> object created.
+    /// * Returns a pointer to the created [`OH_Drawing_PathEffect`](crate::types::OH_Drawing_PathEffect) object.
     ///
     /// Available since API-level: 18
     ///
@@ -124,25 +120,23 @@ extern "C" {
         segLength: f32,
         deviation: f32,
     ) -> *mut OH_Drawing_PathEffect;
-    /// Creates an <b>OH_Drawing_PathEffect</b> object and sets the path effect to a dash effect.
+    /// Creates a dashed path effect.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `path` - Pointer to an [`OH_Drawing_Path`](crate::types::OH_Drawing_Path) object.
     ///
-    /// * `advance` - Indicates the distance between the dashed segments.
+    /// * `advance` - Length of each dashed line segment.
     ///
-    /// * `phase` - Indicates the offset into intervals array.
+    /// * `phase` - Offset of the pattern within the dash segment length.
     ///
-    /// * `type` - Indicates the type of the path dash effect.
+    /// * `type` - Style of the dashed path effect.
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the <b>OH_Drawing_PathEffect</b> object created.
-    /// If nullptr is returned, the creation fails.
-    /// The possible cause of the failure is advance and phase are zero or less.
+    /// * Returns a pointer to the created [`OH_Drawing_PathEffect`](crate::types::OH_Drawing_PathEffect) object.
+    /// If a null pointer is returned, the creation fails. The possible failure cause is that **path** is a null pointer or *
+    /// *advance** is less than or equal to **0**.
     ///
     /// Available since API-level: 18
     ///
@@ -155,19 +149,19 @@ extern "C" {
         phase: f32,
         type_: OH_Drawing_PathDashStyle,
     ) -> *mut OH_Drawing_PathEffect;
-    /// Creates an <b>OH_Drawing_PathEffect</b> object by overlaying two path effects.
+    /// Creates an overlay path effect based on two distinct path effects that take effect separately.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `firstPathEffect` - Indicates the pointer to an <b>OH_Drawing_PathEffect</b> object.
+    /// * `firstPathEffect` - Pointer to an [`OH_Drawing_PathEffect`](crate::types::OH_Drawing_PathEffect) object.
     ///
-    /// * `secondPathEffect` - Indicates the pointer to an <b>OH_Drawing_PathEffect</b> object.
+    /// * `secondPathEffect` - Pointer to an [`OH_Drawing_PathEffect`](crate::types::OH_Drawing_PathEffect) object.
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the <b>OH_Drawing_PathEffect</b> object created.
+    /// * Returns a pointer to the created [`OH_Drawing_PathEffect`](crate::types::OH_Drawing_PathEffect) object.
+    /// If a null pointer is returned, the creation fails. The possible failure cause is that **firstPathEffect** or **
+    /// secondPathEffect** is a null pointer.
     ///
     /// Available since API-level: 18
     ///
@@ -178,13 +172,11 @@ extern "C" {
         firstPathEffect: *mut OH_Drawing_PathEffect,
         secondPathEffect: *mut OH_Drawing_PathEffect,
     ) -> *mut OH_Drawing_PathEffect;
-    /// Destroys an <b>OH_Drawing_PathEffect</b> object and reclaims the memory occupied by the object.
+    /// Destroys an **OH_Drawing_PathEffect** object and reclaims the memory occupied by the object.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `pathEffect` - Indicates the pointer to an <b>OH_Drawing_PathEffect</b> object.
+    /// * `pathEffect` - Pointer to an [`OH_Drawing_PathEffect`](crate::types::OH_Drawing_PathEffect) object.
     ///
     /// Available since API-level: 12
     ///

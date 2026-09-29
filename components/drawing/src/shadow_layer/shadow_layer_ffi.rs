@@ -6,23 +6,23 @@
 use crate::types::*;
 
 extern "C" {
-    /// Creates an <b>OH_Drawing_ShadowLayer</b> object.
+    /// Creates an **OH_Drawing_ShadowLayer** object.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **blurRadius** is less than or equal to 0, **OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `blurRadius` - Indicates the blur radius of the shadow.
+    /// * `blurRadius` - Radius of the shadow layer. The value must be greater than 0.
     ///
-    /// * `x` - Indicates the offset point on x-axis.
+    /// * `x` - Offset on the X axis.
     ///
-    /// * `y` - Indicates the offset point on y-axis.
+    /// * `y` - Offset on the Y axis.
     ///
-    /// * `color` - Indicates the shadow color.
+    /// * `color` - Color of the shadow.
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the <b>OH_Drawing_ShadowLayer</b> object created.
+    /// * Returns the pointer to the **OH_Drawing_ShadowLayer** object created.
     ///
     /// Available since API-level: 12
     ///
@@ -35,13 +35,11 @@ extern "C" {
         y: f32,
         color: u32,
     ) -> *mut OH_Drawing_ShadowLayer;
-    /// Destroys an <b>OH_Drawing_ShadowLayer</b> object and reclaims the memory occupied by the object.
+    /// Destroys an **OH_Drawing_ShadowLayer** object and reclaims the memory occupied by the object.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `shadowLayer` - Indicates the pointer to an <b>OH_Drawing_ShadowLayer</b> object.
+    /// * `shadowLayer` - Pointer to the shadow layer.
     ///
     /// Available since API-level: 12
     ///

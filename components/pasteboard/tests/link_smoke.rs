@@ -41,4 +41,9 @@ fn link_smoke() {
 
     #[cfg(feature = "api-13")]
     touch_type::<pasteboard::PASTEBOARD_ErrCode>();
+
+    #[cfg(feature = "api-24")]
+    unsafe {
+        let _ = pasteboard::OH_Pasteboard_HasRemoteData(ptr::null_mut());
+    }
 }

@@ -9,79 +9,104 @@ pub type DrawingResult = Result<(), DrawingErrorCode>;
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl DrawingErrorCode {
-    /// Permission verification failed.
+    /// Permission denied.
+    ///
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const NO_PERMISSION: DrawingErrorCode =
         DrawingErrorCode(const { core::num::NonZero::new(201).unwrap() });
-    /// Invalid input parameter. For example, the pointer in the parameter is a nullptr.
+    /// Invalid input parameter. For example, NULL is passed in.
+    ///
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const INVALID_PARAMETER: DrawingErrorCode =
         DrawingErrorCode(const { core::num::NonZero::new(401).unwrap() });
-    /// The parameter is not in the valid range.
+    /// The input parameter is not in the valid range.
+    ///
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const PARAMETER_OUT_OF_RANGE: DrawingErrorCode =
         DrawingErrorCode(const { core::num::NonZero::new(26200001).unwrap() });
-    /// mem allocate failed.
+    /// Failed to allocate memory.
+    ///
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub const ALLOCATION_FAILED: DrawingErrorCode =
         DrawingErrorCode(const { core::num::NonZero::new(26200002).unwrap() });
-    /// The attribute id is not recognized or supported.
+    /// No function matches the input attribute ID.
+    ///
     ///
     /// Available since API-level: 21
     #[cfg(feature = "api-21")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
     pub const ATTRIBUTE_ID_MISMATCH: DrawingErrorCode =
         DrawingErrorCode(const { core::num::NonZero::new(26200003).unwrap() });
-    /// incorrect input parameter. The possible cause is that the provided pointer is null.
+    /// The input parameter is incorrect. For example, the pointer of the input parameter is null.
+    ///
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub const INCORRECT_PARAMETER: DrawingErrorCode =
         DrawingErrorCode(const { core::num::NonZero::new(26200004).unwrap() });
-    /// File not found. The specified file does not exist or the path is incorrect..
+    /// File not found. The specified file does not exist or the path is incorrect.
+    ///
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub const FILE_NOT_FOUND: DrawingErrorCode =
         DrawingErrorCode(const { core::num::NonZero::new(26200005).unwrap() });
-    /// Failed to open the file. The file cannot be opened due to permission or I/O issues.
+    /// Failed to open the file, which is caused by insufficient permissions or I/O issues.
+    ///
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub const OPEN_FILE_FAILED: DrawingErrorCode =
         DrawingErrorCode(const { core::num::NonZero::new(26200006).unwrap() });
-    /// File seek failed. The system failed to reposition the file read pointer..
+    /// Fails to seek the file. The system cannot reposition the file read pointer.
+    ///
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub const FILE_SEEK_FAILED: DrawingErrorCode =
         DrawingErrorCode(const { core::num::NonZero::new(26200007).unwrap() });
-    /// Failed to get the file size. The system was unable to obtain the file size information.
+    /// Failed to obtain the file size. The system cannot obtain the file size information.
+    ///
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub const GET_FILE_SIZE_FAILED: DrawingErrorCode =
         DrawingErrorCode(const { core::num::NonZero::new(26200008).unwrap() });
-    /// Failed to read the file. The file could not be read completely or contains unreadable data.
+    /// Failed to read the file. The file cannot be read completely or contains unreadable data.
+    ///
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub const READ_FILE_FAILED: DrawingErrorCode =
         DrawingErrorCode(const { core::num::NonZero::new(26200009).unwrap() });
-    /// Empty file. The specified file is empty and contains no valid data.
+    /// Empty file. The specified font file is empty and does not contain valid data.
+    ///
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub const EMPTY_FILE: DrawingErrorCode =
         DrawingErrorCode(const { core::num::NonZero::new(26200010).unwrap() });
-    /// Corrupted file. The file content is invalid or damaged and cannot be parsed.
+    /// Corrupted file. The file content is invalid or corrupted, and cannot be parsed.
+    ///
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -90,7 +115,8 @@ impl DrawingErrorCode {
         DrawingErrorCode(const { core::num::NonZero::new(26200011).unwrap() });
 }
 #[repr(transparent)]
-/// Enumerates error codes of drawing.
+/// Defines an enum for the error codes that may be generated by the module.
+///
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
@@ -98,10 +124,8 @@ impl DrawingErrorCode {
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct DrawingErrorCode(pub core::num::NonZero<::core::ffi::c_uint>);
 extern "C" {
-    /// Obtains the error code of the drawing module.
+    /// Obtains the error code of the module.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     ///
     /// # Returns
     ///
@@ -113,10 +137,13 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_ErrorCodeGet() -> DrawingResult;
-    /// Resets the error code of the drawing module to OH_DRAWING_SUCCESS.
+    /// Resets the error code of this module to **OH_DRAWING_SUCCESS**.
+    /// When a function that does not return an error code fails, the error code obtained through
+    /// [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet) is reset to the corresponding error number. However, it is not reset to
+    /// **OH_DRAWING_SUCCESS** for a successful operation. By calling this function, you can manually reset the
+    /// error code to **OH_DRAWING_SUCCESS**, avoiding interference between different functions and simplifying the
+    /// debugging process.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     ///
     /// Available since API-level: 18
     ///

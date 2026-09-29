@@ -5,81 +5,151 @@
 #![allow(non_snake_case)]
 
 extern "C" {
-    /// Obtains the device type represented by a string,
-    /// which can be `phone` (or `default` for phones), `wearable`, `liteWearable`,
-    /// `tablet`, `tv`, `car`, or `smartVision`.
+    /// Obtains the device type.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Returns one of the following values:
+    /// <br>**phone** (or **default**),
+    /// <br>**wearable**,
+    /// <br>**liteWearable**,
+    /// <br>**tablet**,
+    /// <br>**tv**,
+    /// <br>**car**,
+    /// <br>**smartVision**
     ///
     /// Required System Capabilities: SystemCapability.Startup.SystemInfo
     ///
     /// Available since API-level: 10
     pub fn OH_GetDeviceType() -> *const ::core::ffi::c_char;
-    /// Obtains the device manufacturer represented by a string.
+    /// Obtains the device manufacturer.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Returns a device manufacturer. The value is of the string type.
     ///
     /// Required System Capabilities: SystemCapability.Startup.SystemInfo
     ///
     /// Available since API-level: 10
     pub fn OH_GetManufacture() -> *const ::core::ffi::c_char;
-    /// Obtains the device brand represented by a string.
+    /// Obtains the device brand.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Returns a device brand. The value is of the string type.
     ///
     /// Required System Capabilities: SystemCapability.Startup.SystemInfo
     ///
     /// Available since API-level: 10
     pub fn OH_GetBrand() -> *const ::core::ffi::c_char;
-    /// Obtains the product name speaded in the market
+    /// Obtains the market name.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Returns a market name. The value is of the string type.
     ///
     /// Required System Capabilities: SystemCapability.Startup.SystemInfo
     ///
     /// Available since API-level: 10
     pub fn OH_GetMarketName() -> *const ::core::ffi::c_char;
-    /// Obtains the product series represented by a string.
+    /// Obtains the product series.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Returns the product series. The value is of the string type.
     ///
     /// Required System Capabilities: SystemCapability.Startup.SystemInfo
     ///
     /// Available since API-level: 10
     pub fn OH_GetProductSeries() -> *const ::core::ffi::c_char;
-    /// Obtains the product model represented by a string.
+    /// Obtains the product model.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Returns a product model. The value is of the string type.
     ///
     /// Required System Capabilities: SystemCapability.Startup.SystemInfo
     ///
     /// Available since API-level: 10
     pub fn OH_GetProductModel() -> *const ::core::ffi::c_char;
-    /// Obtains the software model represented by a string.
+    /// Obtains the software model.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Returns a software model. The value is of the string type.
     ///
     /// Required System Capabilities: SystemCapability.Startup.SystemInfo
     ///
     /// Available since API-level: 10
     pub fn OH_GetSoftwareModel() -> *const ::core::ffi::c_char;
-    /// Obtains the hardware model represented by a string.
+    /// Obtains the hardware model.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Returns a hardware model. The value is of the string type.
     ///
     /// Required System Capabilities: SystemCapability.Startup.SystemInfo
     ///
     /// Available since API-level: 10
     pub fn OH_GetHardwareModel() -> *const ::core::ffi::c_char;
-    /// Obtains the bootloader version number represented by a string.
+    /// Obtains the Bootloader version.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Returns a Bootloader version. The value is of the string type.
     ///
     /// Required System Capabilities: SystemCapability.Startup.SystemInfo
     ///
     /// Available since API-level: 10
     pub fn OH_GetBootloaderVersion() -> *const ::core::ffi::c_char;
-    /// Obtains the application binary interface (Abi) list represented by a string.
+    /// Obtains the ABI list.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Returns an ABI list. The value is of the string type.
     ///
     /// Required System Capabilities: SystemCapability.Startup.SystemInfo
     ///
     /// Available since API-level: 10
     pub fn OH_GetAbiList() -> *const ::core::ffi::c_char;
-    /// Obtains the security patch tag represented by a string.
+    /// Obtains the security patch tag.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Returns a security patch tag. The value is of the string type.
     ///
     /// Required System Capabilities: SystemCapability.Startup.SystemInfo
     ///
     /// Available since API-level: 10
     pub fn OH_GetSecurityPatchTag() -> *const ::core::ffi::c_char;
-    /// Obtains the product version displayed for customer represented by a string.
+    /// Obtains the display version.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Returns a display version. The value is of the string type.
     ///
     /// Required System Capabilities: SystemCapability.Startup.SystemInfo
     ///
     /// Available since API-level: 10
     pub fn OH_GetDisplayVersion() -> *const ::core::ffi::c_char;
-    /// Obtains the incremental version represented by a string.
+    /// Obtains the incremental version.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Returns an incremental version. The value is of the string type.
     ///
     /// Required System Capabilities: SystemCapability.Startup.SystemInfo
     ///
@@ -87,62 +157,109 @@ extern "C" {
     pub fn OH_GetIncrementalVersion() -> *const ::core::ffi::c_char;
     /// Obtains the OS release type represented by a string.
     ///
-    /// <p>The OS release category can be `Release`, `Beta`, or `Canary`.
-    /// The specific release type may be `Release`, `Beta1`, or others alike.
+    /// # Returns
+    ///
+    /// * Returns an OS release type. The options include **Release**, **Beta**, and **Canary**.
+    /// <br>A specific release type may be **Release**, **Beta1**, or another similar type.
     ///
     /// Required System Capabilities: SystemCapability.Startup.SystemInfo
     ///
     /// Available since API-level: 10
     pub fn OH_GetOsReleaseType() -> *const ::core::ffi::c_char;
-    /// Obtains the OS full version name represented by a string.
+    /// Obtains the OS full name.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Returns an OS full name. The value is of the string type.
     ///
     /// Required System Capabilities: SystemCapability.Startup.SystemInfo
     ///
     /// Available since API-level: 10
     pub fn OH_GetOSFullName() -> *const ::core::ffi::c_char;
-    /// Obtains the SDK API version number.
+    /// Obtains the SDK API version.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Returns an SDK API version.
     ///
     /// Required System Capabilities: SystemCapability.Startup.SystemInfo
     ///
     /// Available since API-level: 10
     pub fn OH_GetSdkApiVersion() -> ::core::ffi::c_int;
-    /// Obtains the first API version number.
+    /// Obtains the first API version.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Returns the first API version.
     ///
     /// Required System Capabilities: SystemCapability.Startup.SystemInfo
     ///
     /// Available since API-level: 10
     pub fn OH_GetFirstApiVersion() -> ::core::ffi::c_int;
-    /// Obtains the version ID by a string.
+    /// Obtains the version ID.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Returns a version ID. The value is of the string type.
     ///
     /// Required System Capabilities: SystemCapability.Startup.SystemInfo
     ///
     /// Available since API-level: 10
     pub fn OH_GetVersionId() -> *const ::core::ffi::c_char;
-    /// Obtains the build type of the current running OS.
+    /// Obtains the build type.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Returns a build type. The value is of the string type.
     ///
     /// Required System Capabilities: SystemCapability.Startup.SystemInfo
     ///
     /// Available since API-level: 10
     pub fn OH_GetBuildType() -> *const ::core::ffi::c_char;
-    /// Obtains the build user of the current running OS.
+    /// Obtains the build user.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Returns a build user. The value is of the string type.
     ///
     /// Required System Capabilities: SystemCapability.Startup.SystemInfo
     ///
     /// Available since API-level: 10
     pub fn OH_GetBuildUser() -> *const ::core::ffi::c_char;
-    /// Obtains the build host of the current running OS.
+    /// Obtains the build host.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Returns a build host. The value is of the string type.
     ///
     /// Required System Capabilities: SystemCapability.Startup.SystemInfo
     ///
     /// Available since API-level: 10
     pub fn OH_GetBuildHost() -> *const ::core::ffi::c_char;
-    /// Obtains the build time of the current running OS.
+    /// Obtains the build time.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Returns the build time. The value is of the string type.
     ///
     /// Required System Capabilities: SystemCapability.Startup.SystemInfo
     ///
     /// Available since API-level: 10
     pub fn OH_GetBuildTime() -> *const ::core::ffi::c_char;
-    /// Obtains the version hash of the current running OS.
+    /// Obtains the build root hash.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Returns a build root hash. The value is of the string type.
     ///
     /// Required System Capabilities: SystemCapability.Startup.SystemInfo
     ///
@@ -150,29 +267,46 @@ extern "C" {
     pub fn OH_GetBuildRootHash() -> *const ::core::ffi::c_char;
     /// Obtains the Distribution OS name represented by a string.
     ///
-    /// <p>Independent Software Vendor (ISV) may distribute OHOS with their own OS name.
-    /// If ISV not specified, it will return an empty string
+    /// # Returns
+    ///
+    /// * Returns an ISV distribution OS name.
+    /// <br>If no ISV is specified, an empty string is returned.
     ///
     /// Required System Capabilities: SystemCapability.Startup.SystemInfo
     ///
     /// Available since API-level: 10
     pub fn OH_GetDistributionOSName() -> *const ::core::ffi::c_char;
-    /// Obtains the ISV distribution OS version represented by a string.
-    /// If ISV not specified, it will return the same value as OH_GetOSFullName
+    /// Obtains the ISV distribution OS version.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Returns an ISV distribution OS version.
+    /// <br>If no ISV is specified, the value of [`OH_GetOSFullName`](crate::OH_GetOSFullName) is returned.
     ///
     /// Required System Capabilities: SystemCapability.Startup.SystemInfo
     ///
     /// Available since API-level: 10
     pub fn OH_GetDistributionOSVersion() -> *const ::core::ffi::c_char;
-    /// Obtains the ISV distribution OS api version represented by a integer.
-    /// If ISV not specified, it will return the same value as OH_GetSdkApiVersion
+    /// Obtains the ISV distribution OS API version.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Returns an ISV distribution OS API version.
+    /// <br>If no ISV is specified, the value of [`OH_GetSdkApiVersion`](crate::OH_GetSdkApiVersion) is returned.
     ///
     /// Required System Capabilities: SystemCapability.Startup.SystemInfo
     ///
     /// Available since API-level: 10
     pub fn OH_GetDistributionOSApiVersion() -> ::core::ffi::c_int;
-    /// Obtains the ISV distribution OS release type represented by a string.
-    /// If ISV not specified, it will return the same value as OH_GetOsReleaseType
+    /// Obtains the ISV distribution OS release type.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Returns an ISV distribution OS release type.
+    /// <br>If no ISV is specified, the value of [`OH_GetOsReleaseType`](crate::OH_GetOsReleaseType) is returned.
     ///
     /// Required System Capabilities: SystemCapability.Startup.SystemInfo
     ///

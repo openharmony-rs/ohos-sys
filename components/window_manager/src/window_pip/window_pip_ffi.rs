@@ -13,17 +13,37 @@ pub type PictureInPicture_PipConfig = *mut ::core::ffi::c_void;
 #[cfg(feature = "api-20")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
 impl PictureInPicture_PipTemplateType {
-    /// Video play.
+    /// Video playback template. A PiP window will be started during video playback, and the video playback template is
+    /// loaded.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const VIDEO_PLAY: PictureInPicture_PipTemplateType = PictureInPicture_PipTemplateType(0);
-    /// Video call.
+    /// Video call template. A PiP window will be started during a video call, and the video call template will be
+    /// loaded.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const VIDEO_CALL: PictureInPicture_PipTemplateType = PictureInPicture_PipTemplateType(1);
-    /// Video meeting.
+    /// Video meeting template. A PiP window will be started during a video meeting, and the video meeting template will
+    /// be loaded.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const VIDEO_MEETING: PictureInPicture_PipTemplateType = PictureInPicture_PipTemplateType(2);
-    /// Video live.
+    /// Live template. A PiP window will be started during a live, and the live template is loaded.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const VIDEO_LIVE: PictureInPicture_PipTemplateType = PictureInPicture_PipTemplateType(3);
 }
 #[repr(transparent)]
-/// Enumerates picture in picture template type.
+/// Enumerates the types of PiP templates.
+///
 ///
 /// Available since API-level: 20
 #[cfg(feature = "api-20")]
@@ -33,45 +53,96 @@ pub struct PictureInPicture_PipTemplateType(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-20")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
 impl PictureInPicture_PipControlGroup {
-    /// Previous/next control group for video play.
+    /// Previous/Next component group for video playback. This component group is mutually exclusive with the fast-
+    /// forward/rewind component group. It cannot be added if the fast-forward/rewind component group is added.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const VIDEO_PLAY_VIDEO_PREVIOUS_NEXT: PictureInPicture_PipControlGroup =
         PictureInPicture_PipControlGroup(101);
-    /// Fast forward/backward control group for video play.
+    /// Fast-forward/Rewind component group for video playback. This component group is mutually exclusive with the
+    /// previous/next component group. It cannot be added if the previous/next component group is added.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const VIDEO_PLAY_FAST_FORWARD_BACKWARD: PictureInPicture_PipControlGroup =
         PictureInPicture_PipControlGroup(102);
-    /// Switch on/off the microphone control group for video call.
+    /// Microphone on/off component group for video calls.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const VIDEO_CALL_MICROPHONE_SWITCH: PictureInPicture_PipControlGroup =
         PictureInPicture_PipControlGroup(201);
-    /// Hang up control group for video call.
+    /// Hang-up component group for video calls.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const VIDEO_CALL_HANG_UP_BUTTON: PictureInPicture_PipControlGroup =
         PictureInPicture_PipControlGroup(202);
-    /// Switch on/off the camera control group for video call.
+    /// Camera on/off component group for video calls.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const VIDEO_CALL_CAMERA_SWITCH: PictureInPicture_PipControlGroup =
         PictureInPicture_PipControlGroup(203);
-    /// Mute control group for video call.
+    /// Mute component group for video calls.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const VIDEO_CALL_MUTE_SWITCH: PictureInPicture_PipControlGroup =
         PictureInPicture_PipControlGroup(204);
-    /// Hang up control group for video meeting.
+    /// Hang-up component group for video meetings.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const VIDEO_MEETING_HANG_UP_BUTTON: PictureInPicture_PipControlGroup =
         PictureInPicture_PipControlGroup(301);
-    /// Switch on/off the camera control group for video meeting.
+    /// Camera on/off component group for video meetings.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const VIDEO_MEETING_CAMERA_SWITCH: PictureInPicture_PipControlGroup =
         PictureInPicture_PipControlGroup(302);
-    /// Mute control group for video meeting.
+    /// Mute component group for video meetings.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const VIDEO_MEETING_MUTE_SWITCH: PictureInPicture_PipControlGroup =
         PictureInPicture_PipControlGroup(303);
-    /// Switch on/off the microphone control group for video meeting.
+    /// Microphone on/off component group for video meetings.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const VIDEO_MEETING_MICROPHONE_SWITCH: PictureInPicture_PipControlGroup =
         PictureInPicture_PipControlGroup(304);
-    /// Video play/pause control group for video live.
+    /// Play/Pause component group for live streaming.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const VIDEO_LIVE_VIDEO_PLAY_PAUSE: PictureInPicture_PipControlGroup =
         PictureInPicture_PipControlGroup(401);
-    /// Mute control group for video live.
+    /// Mute component group for live streaming.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const VIDEO_LIVE_MUTE_SWITCH: PictureInPicture_PipControlGroup =
         PictureInPicture_PipControlGroup(402);
 }
 #[repr(transparent)]
-/// Enumerates picture in picture control group.
+/// Enumerates the types of component groups displayed on the PiP controller.
+///
 ///
 /// Available since API-level: 20
 #[cfg(feature = "api-20")]
@@ -81,29 +152,66 @@ pub struct PictureInPicture_PipControlGroup(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-20")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
 impl PictureInPicture_PipControlType {
-    /// Video play/pause.
+    /// Play/Pause component.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const VIDEO_PLAY_PAUSE: PictureInPicture_PipControlType =
         PictureInPicture_PipControlType(0);
-    /// Video previous.
+    /// Previous component in video scenarios.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const VIDEO_PREVIOUS: PictureInPicture_PipControlType = PictureInPicture_PipControlType(1);
-    /// Video next.
+    /// Next component in video scenarios.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const VIDEO_NEXT: PictureInPicture_PipControlType = PictureInPicture_PipControlType(2);
-    /// Video fast forward.
+    /// Fast-forward component in video scenarios.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const FAST_FORWARD: PictureInPicture_PipControlType = PictureInPicture_PipControlType(3);
-    /// Video back forward.
+    /// Rewind component in video scenarios.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const FAST_BACKWARD: PictureInPicture_PipControlType = PictureInPicture_PipControlType(4);
-    /// Hang up.
+    /// Hang-up component.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const HANG_UP_BUTTON: PictureInPicture_PipControlType = PictureInPicture_PipControlType(5);
-    /// Microphone switch.
+    /// Microphone on/off component.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const MICROPHONE_SWITCH: PictureInPicture_PipControlType =
         PictureInPicture_PipControlType(6);
-    /// camera switch.
+    /// Camera on/off component.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const CAMERA_SWITCH: PictureInPicture_PipControlType = PictureInPicture_PipControlType(7);
-    /// mute switch.
+    /// Mute/Unmute component.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const MUTE_SWITCH: PictureInPicture_PipControlType = PictureInPicture_PipControlType(8);
 }
 #[repr(transparent)]
-/// Enumerates picture in picture control type.
+/// Enumerates the types of components displayed on the PiP controller.
+///
 ///
 /// Available since API-level: 20
 #[cfg(feature = "api-20")]
@@ -113,17 +221,34 @@ pub struct PictureInPicture_PipControlType(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-20")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
 impl PictureInPicture_PipControlStatus {
-    /// Play.
+    /// A video is playing.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const PLAY: PictureInPicture_PipControlStatus = PictureInPicture_PipControlStatus(1);
-    /// Pause.
+    /// A video is paused.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const PAUSE: PictureInPicture_PipControlStatus = PictureInPicture_PipControlStatus(0);
-    /// Open.
+    /// The camera, microphone, and mute components are enabled.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const OPEN: PictureInPicture_PipControlStatus = PictureInPicture_PipControlStatus(1);
-    /// Close.
+    /// The camera, microphone, and mute components are disabled.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const CLOSE: PictureInPicture_PipControlStatus = PictureInPicture_PipControlStatus(0);
 }
 #[repr(transparent)]
-/// Enumerates picture in picture control status.
+/// Enumerates the statuses of components displayed on the PiP controller.
+///
 ///
 /// Available since API-level: 20
 #[cfg(feature = "api-20")]
@@ -133,49 +258,76 @@ pub struct PictureInPicture_PipControlStatus(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-20")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
 impl PictureInPicture_PipState {
-    /// About to start.
+    /// PiP is about to start.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const ABOUT_TO_START: PictureInPicture_PipState = PictureInPicture_PipState(1);
-    /// started.
+    /// PiP is started.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const STARTED: PictureInPicture_PipState = PictureInPicture_PipState(2);
-    /// About to stop.
+    /// PiP is about to stop.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const ABOUT_TO_STOP: PictureInPicture_PipState = PictureInPicture_PipState(3);
-    /// stopped.
+    /// PiP is stopped.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const STOPPED: PictureInPicture_PipState = PictureInPicture_PipState(4);
-    /// About to restore.
+    /// The original page is about to restore.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const ABOUT_TO_RESTORE: PictureInPicture_PipState = PictureInPicture_PipState(5);
-    /// Error.
+    /// An error occurs during the execution of the PiP lifecycle.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const ERROR: PictureInPicture_PipState = PictureInPicture_PipState(6);
 }
 #[repr(transparent)]
-/// Enumerates picture in picture state.
+/// Enumerates the PiP lifecycle states.
+///
 ///
 /// Available since API-level: 20
 #[cfg(feature = "api-20")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct PictureInPicture_PipState(pub ::core::ffi::c_uint);
-/// Start the picture-in-picture callback
+/// Defines a callback function for PiP window creation.
+///
 /// # Arguments
 ///
-/// * `controllerId` - The picture-in-picture controller ID
+/// * `controllerId` - ID of the PiP controller. The value is a non-negative integer.
 ///
-/// * `requestId` - The picture-in-picture requestId
+/// * `requestId` - Request ID, which indicates the number of times the PiP window has been requested to be pulled up.
 ///
-/// * `surfaceId` - The picture-in-picture surfaceId
+/// * `surfaceId` - Surface ID of the **XComponent** in PiP. It is used for application rendering.
 ///
 /// Available since API-level: 20
 #[cfg(feature = "api-20")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
 pub type WebPipStartPipCallback =
     ::core::option::Option<unsafe extern "C" fn(controllerId: u32, requestId: u8, surfaceId: u64)>;
-/// The picture-in-picture lifecycle callback
+/// Defines a callback function for PiP window lifecycle changes.
+///
 /// # Arguments
 ///
-/// * `controllerId` - The picture-in-picture controller ID
+/// * `controllerId` - ID of the PiP controller. The value is a non-negative integer.
 ///
-/// * `state` - The picture-in-picture state
+/// * `state` - PiP lifecycle state.
 ///
-/// * `errcode` - The picture-in-picture error code
+/// * `errcode` - Common status codes of PiP APIs. For details, see [`WindowManager_ErrorCode`](crate::window_comm::WindowManagerResult).
 ///
 /// Available since API-level: 20
 #[cfg(feature = "api-20")]
@@ -183,14 +335,15 @@ pub type WebPipStartPipCallback =
 pub type WebPipLifecycleCallback = ::core::option::Option<
     unsafe extern "C" fn(controllerId: u32, state: PictureInPicture_PipState, errcode: i32),
 >;
-/// The picture-in-picture control event callback
+/// Defines a callback function for the component click event of the PiP window.
+///
 /// # Arguments
 ///
-/// * `controllerId` - The picture-in-picture controller ID
+/// * `controllerId` - ID of the PiP controller. The value is a non-negative integer.
 ///
-/// * `controlType` - The picture-in-picture control type
+/// * `controlType` - Type of component displayed on the PiP controller.
 ///
-/// * `status` - The picture-in-picture control status
+/// * `status` - Status of the component displayed on the PiP controller.
 ///
 /// Available since API-level: 20
 #[cfg(feature = "api-20")]
@@ -202,16 +355,20 @@ pub type WebPipControlEventCallback = ::core::option::Option<
         status: PictureInPicture_PipControlStatus,
     ),
 >;
-/// The picture-in-picture size change callback
+/// Defines a callback function for PiP window size changes.
+///
 /// # Arguments
 ///
-/// * `controllerId` - The picture-in-picture controller ID
+/// * `controllerId` - ID of the PiP controller. The value is a non-negative integer.
 ///
-/// * `width` - The picture-in-picture window width
+/// * `width` - PiP window width, in px. The value is a positive integer and cannot be greater than the screen width.
 ///
-/// * `height` - The picture-in-picture window height
+/// * `height` - PiP window height, in px. The value is a positive integer and cannot be greater than the screen
+/// height.
 ///
-/// * `scale` - The picture-in-picture window scale
+/// * `scale` - Scale factor of the PiP window, representing the display size relative to the width and height. The
+/// value is a floating-point number in the range (0.0, 1.0]. The value **1** means that the PiP window
+/// matches specified width and height.
 ///
 /// Available since API-level: 20
 #[cfg(feature = "api-20")]
@@ -220,10 +377,11 @@ pub type WebPipResizeCallback = ::core::option::Option<
     unsafe extern "C" fn(controllerId: u32, width: u32, height: u32, scale: f64),
 >;
 extern "C" {
-    /// Create picture-in-picture config.
+    /// Creates a PiP configuration.
+    ///
     /// # Arguments
     ///
-    /// * `pipConfig` - The picture-in-picture config
+    /// * `pipConfig` - Pointer to the PiP parameter configuration.
     ///
     /// # Returns
     ///
@@ -235,10 +393,11 @@ extern "C" {
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_PictureInPicture_CreatePipConfig(pipConfig: *mut PictureInPicture_PipConfig) -> i32;
-    /// Destroy picture-in-picture config.
+    /// Destroys a PiP configuration.
+    ///
     /// # Arguments
     ///
-    /// * `pipConfig` - The picture-in-picture config
+    /// * `pipConfig` - Pointer to the PiP configuration.
     ///
     /// # Returns
     ///
@@ -250,13 +409,13 @@ extern "C" {
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_PictureInPicture_DestroyPipConfig(pipConfig: *mut PictureInPicture_PipConfig) -> i32;
-    /// Set picture-in-picture mainWindowId.
+    /// Sets the ID of the main window that launches PiP.
     ///
     /// # Arguments
     ///
-    /// * `pipConfig` - The picture-in-picture config
+    /// * `pipConfig` - PiP configuration.
     ///
-    /// * `mainWindowId` - WindowId of corresponding mainWindow
+    /// * `mainWindowId` - ID of the main window that launches PiP.
     ///
     /// # Returns
     ///
@@ -272,13 +431,13 @@ extern "C" {
         pipConfig: PictureInPicture_PipConfig,
         mainWindowId: u32,
     ) -> i32;
-    /// Set picture-in-picture templateType.
+    /// Sets the PiP template type. The default value is video playback.
     ///
     /// # Arguments
     ///
-    /// * `pipConfig` - The picture-in-picture config
+    /// * `pipConfig` - PiP configuration.
     ///
-    /// * `pipTemplateType` - The picture-in-picture template type
+    /// * `pipTemplateType` - Type of the PiP template.
     ///
     /// # Returns
     ///
@@ -294,15 +453,17 @@ extern "C" {
         pipConfig: PictureInPicture_PipConfig,
         pipTemplateType: PictureInPicture_PipTemplateType,
     ) -> i32;
-    /// Set picture-in-picture rect.
+    /// Sets the size of the PiP window for calculating the aspect ratio.
     ///
     /// # Arguments
     ///
-    /// * `pipConfig` - The picture-in-picture config
+    /// * `pipConfig` - PiP configuration.
     ///
-    /// * `width` - The picture-in-picture window width
+    /// * `width` - Width of the original content, in px. The value must be a positive integer. It is used to determine the
+    /// aspect ratio of the PiP window.
     ///
-    /// * `height` - The picture-in-picture window height
+    /// * `height` - Height of the original content, in px. The value must be a positive integer. It is used to determine
+    /// the aspect ratio of the PiP window.
     ///
     /// # Returns
     ///
@@ -319,15 +480,18 @@ extern "C" {
         width: u32,
         height: u32,
     ) -> i32;
-    /// Set picture-in-picture control group.
+    /// Sets a PiP component group, which must match the template type.
     ///
     /// # Arguments
     ///
-    /// * `pipConfig` - The picture-in-picture config
+    /// * `pipConfig` - PiP configuration.
     ///
-    /// * `controlGroup` - The picture-in-picture control group
+    /// * `controlGroup` - Pointer to an optional component group of the PiP controller. An application can configure
+    /// whether to display these optional components. If this parameter is not set for an application,
+    /// the basic components (for example, play/pause of the video playback component group) are
+    /// displayed. A maximum of three components can be configured.
     ///
-    /// * `controlGroupLength` - The length of picture-in-picture control group
+    /// * `controlGroupLength` - Number of components in the PiP component group. The value ranges from 0 to 3.
     ///
     /// # Returns
     ///
@@ -344,13 +508,13 @@ extern "C" {
         controlGroup: *mut PictureInPicture_PipControlGroup,
         controlGroupLength: u8,
     ) -> i32;
-    /// Set picture-in-picture napi env.
+    /// Sets the runtime environment for launching PiP.
     ///
     /// # Arguments
     ///
-    /// * `pipConfig` - The picture-in-picture config
+    /// * `pipConfig` - PiP configuration.
     ///
-    /// * `env` - The picture-in-picture napi env
+    /// * `env` - Pointer to the NAPI environment.
     ///
     /// # Returns
     ///
@@ -366,12 +530,13 @@ extern "C" {
         pipConfig: PictureInPicture_PipConfig,
         env: *mut ::core::ffi::c_void,
     ) -> i32;
-    /// Create picture-in-picture controller.
+    /// Creates a PiP controller.
+    ///
     /// # Arguments
     ///
-    /// * `pipConfig` - The picture-in-picture config
+    /// * `pipConfig` - PiP configuration.
     ///
-    /// * `controllerId` - The picture-in-picture controller ID
+    /// * `controllerId` - Pointer to the ID of the PiP controller created.
     ///
     /// # Returns
     ///
@@ -388,11 +553,11 @@ extern "C" {
         pipConfig: PictureInPicture_PipConfig,
         controllerId: *mut u32,
     ) -> i32;
-    /// Delete picture-in-picture controller.
+    /// Deletes a PiP controller.
     ///
     /// # Arguments
     ///
-    /// * `controllerId` - The picture-in-picture controller ID
+    /// * `controllerId` - ID of the PiP controller. The value is a non-negative integer.
     ///
     /// # Returns
     ///
@@ -404,11 +569,11 @@ extern "C" {
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_PictureInPicture_DeletePip(controllerId: u32) -> i32;
-    /// Start picture-in-picture.
+    /// Starts PiP.
     ///
     /// # Arguments
     ///
-    /// * `controllerId` - The picture-in-picture controller ID
+    /// * `controllerId` - ID of the PiP controller. The value is a non-negative integer.
     ///
     /// # Returns
     ///
@@ -424,11 +589,11 @@ extern "C" {
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_PictureInPicture_StartPip(controllerId: u32) -> i32;
-    /// Stop picture-in-picture.
+    /// Stops PiP.
     ///
     /// # Arguments
     ///
-    /// * `controllerId` - The picture-in-picture controller ID
+    /// * `controllerId` - ID of the PiP controller. The value is a non-negative integer.
     ///
     /// # Returns
     ///
@@ -444,15 +609,17 @@ extern "C" {
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_PictureInPicture_StopPip(controllerId: u32) -> i32;
-    /// Update picture-in-picture content size.
+    /// Updates the media content size when the media content changes.
     ///
     /// # Arguments
     ///
-    /// * `controllerId` - The picture-in-picture controller ID
+    /// * `controllerId` - ID of the PiP controller. The value is a non-negative integer.
     ///
-    /// * `width` - The picture-in-picture content width
+    /// * `width` - Width of the media content, in px. The value must be a positive integer. It is used to update the
+    /// aspect ratio of the PiP window.
     ///
-    /// * `height` - The picture-in-picture content height
+    /// * `height` - Height of the media content, in px. The value must be a positive integer. It is used to update the
+    /// aspect ratio of the PiP window.
     ///
     /// # Returns
     ///
@@ -469,15 +636,16 @@ extern "C" {
         width: u32,
         height: u32,
     ) -> i32;
-    /// Update picture-in-picture control status.
+    /// Updates the PiP component status.
     ///
     /// # Arguments
     ///
-    /// * `controllerId` - The picture-in-picture controller ID
+    /// * `controllerId` - ID of the PiP controller. The value is a non-negative integer.
     ///
-    /// * `controlType` - The picture-in-picture control type.
+    /// * `controlType` - Type of the component displayed on the PiP controller. Currently, only **VIDEO_PLAY_PAUSE**, **
+    /// MICROPHONE_SWITCH**, **CAMERA_SWITCH**, and **MUTE_SWITCH** are supported.
     ///
-    /// * `status` - The picture-in-picture control status.
+    /// * `status` - Status of the component displayed on the PiP controller.
     ///
     /// # Returns
     ///
@@ -494,15 +662,16 @@ extern "C" {
         controlType: PictureInPicture_PipControlType,
         status: PictureInPicture_PipControlStatus,
     ) -> i32;
-    /// Set picture-in-picture control enable status.
+    /// Sets the PiP component enabled status.
     ///
     /// # Arguments
     ///
-    /// * `controllerId` - The picture-in-picture controller ID
+    /// * `controllerId` - ID of the PiP controller. The value is a non-negative integer.
     ///
-    /// * `controlType` - The picture-in-picture control type.
+    /// * `controlType` - Type of the component displayed on the PiP controller.
     ///
-    /// * `enabled` - Indicate the picture-in-picture control is enabled.
+    /// * `enabled` - Enabled status of the component displayed on the PiP controller. **true** if enabled, **false**
+    /// otherwise.
     ///
     /// # Returns
     ///
@@ -519,13 +688,13 @@ extern "C" {
         controlType: PictureInPicture_PipControlType,
         enabled: bool,
     ) -> i32;
-    /// Set the picture-in-picture parent window ID.
+    /// Sets the main window ID for PiP.
     ///
     /// # Arguments
     ///
-    /// * `controllerId` - The picture-in-picture controller ID.
+    /// * `controllerId` - ID of the PiP controller. The value is a non-negative integer.
     ///
-    /// * `windowId` - The picture-in-picture parent window ID.
+    /// * `windowId` - ID of the main window. The value is a non-negative integer.
     ///
     /// # Returns
     ///
@@ -539,19 +708,22 @@ extern "C" {
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub fn OH_PictureInPicture_SetParentWindowId(controllerId: u32, windowId: u32) -> i32;
-    /// Set picture-in-picture initial surface rect.
+    /// Sets the initial position and size of the PiP surface when the PiP launch animation starts. It can be used to
+    /// achieve a seamless transition effect.
     ///
     /// # Arguments
     ///
-    /// * `controllerId` - The picture-in-picture controller ID
+    /// * `controllerId` - ID of the PiP controller. The value is a non-negative integer.
     ///
-    /// * `positionX` - The X position of the first frame when start the picture-in-picture.
+    /// * `positionX` - X coordinate of the PiP window relative to the top-left corner of the screen when the PiP window is
+    /// started, in px.
     ///
-    /// * `positionY` - The Y position of the first frame when start the picture-in-picture.
+    /// * `positionY` - Y coordinate of the PiP window relative to the top-left corner of the screen when the PiP window is
+    /// started, in px.
     ///
-    /// * `width` - The width of the first frame when start the picture-in-picture.
+    /// * `width` - Width of the PiP window when the PiP window is started. The value is greater than 0, measured in px.
     ///
-    /// * `height` - The height of the first frame when start the picture-in-picture.
+    /// * `height` - Height of the PiP window when the PiP window is started. The value is greater than 0, measured in px.
     ///
     /// # Returns
     ///
@@ -570,11 +742,11 @@ extern "C" {
         width: u32,
         height: u32,
     ) -> i32;
-    /// Unset picture-in-picture initial surface rect.
+    /// Cancels the previously set initial position and size for the PiP surface.
     ///
     /// # Arguments
     ///
-    /// * `controllerId` - The picture-in-picture controller ID
+    /// * `controllerId` - ID of the PiP controller. The value is a non-negative integer.
     ///
     /// # Returns
     ///
@@ -587,13 +759,13 @@ extern "C" {
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_PictureInPicture_UnsetPipInitialSurfaceRect(controllerId: u32) -> i32;
-    /// Register picture-in-picture controller start callback.
+    /// Registers a callback to listen for the completion of PiP surface creation.
     ///
     /// # Arguments
     ///
-    /// * `controllerId` - The picture-in-picture controller ID
+    /// * `controllerId` - ID of the PiP controller. The value is a non-negative integer.
     ///
-    /// * `callback` - Start the picture-in-picture callback
+    /// * `callback` - Callback function for PiP window creation.
     ///
     /// # Returns
     ///
@@ -610,13 +782,13 @@ extern "C" {
         controllerId: u32,
         callback: WebPipStartPipCallback,
     ) -> i32;
-    /// Unregister picture-in-picture controller start callback.
+    /// Unregisters the callback used to listen for the completion of PiP surface creation.
     ///
     /// # Arguments
     ///
-    /// * `controllerId` - The picture-in-picture controller ID
+    /// * `controllerId` - ID of the PiP controller. The value is a non-negative integer.
     ///
-    /// * `callback` - Start the picture-in-picture callback
+    /// * `callback` - Callback function for PiP window creation.
     ///
     /// # Returns
     ///
@@ -633,11 +805,11 @@ extern "C" {
         controllerId: u32,
         callback: WebPipStartPipCallback,
     ) -> i32;
-    /// Unregister all picture-in-picture controller start callbacks.
+    /// Unregisters all the callbacks used to listen for the completion of PiP surface creation.
     ///
     /// # Arguments
     ///
-    /// * `controllerId` - The picture-in-picture controller ID
+    /// * `controllerId` - ID of the PiP controller. The value is a non-negative integer.
     ///
     /// # Returns
     ///
@@ -651,13 +823,13 @@ extern "C" {
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_PictureInPicture_UnregisterAllStartPipCallbacks(controllerId: u32) -> i32;
-    /// Register picture-in-picture lifecycle listener callback.
+    /// Registers a callback to listen for PiP lifecycle state changes.
     ///
     /// # Arguments
     ///
-    /// * `controllerId` - The picture-in-picture controller ID
+    /// * `controllerId` - ID of the PiP controller. The value is a non-negative integer.
     ///
-    /// * `callback` - The picture-in-picture lifecycle callback.
+    /// * `callback` - Callback function for PiP window lifecycle changes.
     ///
     /// # Returns
     ///
@@ -674,13 +846,13 @@ extern "C" {
         controllerId: u32,
         callback: WebPipLifecycleCallback,
     ) -> i32;
-    /// Unregister picture-in-picture lifecycle listener callback.
+    /// Unregisters the callback used to listen for PiP lifecycle state changes.
     ///
     /// # Arguments
     ///
-    /// * `controllerId` - The picture-in-picture controller ID
+    /// * `controllerId` - ID of the PiP controller. The value is a non-negative integer.
     ///
-    /// * `callback` - The picture-in-picture lifecycle callback.
+    /// * `callback` - Callback function for PiP window lifecycle changes.
     ///
     /// # Returns
     ///
@@ -697,11 +869,11 @@ extern "C" {
         controllerId: u32,
         callback: WebPipLifecycleCallback,
     ) -> i32;
-    /// Unregister all picture-in-picture lifecycle listener callbacks.
+    /// Unregisters all the callbacks used to listen for PiP lifecycle state changes.
     ///
     /// # Arguments
     ///
-    /// * `controllerId` - The picture-in-picture controller ID
+    /// * `controllerId` - ID of the PiP controller. The value is a non-negative integer.
     ///
     /// # Returns
     ///
@@ -715,13 +887,13 @@ extern "C" {
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_PictureInPicture_UnregisterAllLifecycleListeners(controllerId: u32) -> i32;
-    /// Register picture-in-picture control event listener callback.
+    /// Registers a callback to listen for control panel action events in PiP mode.
     ///
     /// # Arguments
     ///
-    /// * `controllerId` - The picture-in-picture controller ID
+    /// * `controllerId` - ID of the PiP controller. The value is a non-negative integer.
     ///
-    /// * `callback` - The picture-in-picture control event callback.
+    /// * `callback` - Callback function for the component click event of the PiP window.
     ///
     /// # Returns
     ///
@@ -738,13 +910,13 @@ extern "C" {
         controllerId: u32,
         callback: WebPipControlEventCallback,
     ) -> i32;
-    /// Unregister picture-in-picture control event listener callback.
+    /// Unregisters the callback used to listen for control panel action events in PiP mode.
     ///
     /// # Arguments
     ///
-    /// * `controllerId` - The picture-in-picture controller ID
+    /// * `controllerId` - ID of the PiP controller. The value is a non-negative integer.
     ///
-    /// * `callback` - The picture-in-picture control event callback.
+    /// * `callback` - Callback function for the component click event of the PiP window.
     ///
     /// # Returns
     ///
@@ -761,11 +933,11 @@ extern "C" {
         controllerId: u32,
         callback: WebPipControlEventCallback,
     ) -> i32;
-    /// Unregister all picture-in-picture control event listener callbacks.
+    /// Unregisters all the callbacks used to listen for control panel action events in PiP mode.
     ///
     /// # Arguments
     ///
-    /// * `controllerId` - The picture-in-picture controller ID
+    /// * `controllerId` - ID of the PiP controller. The value is a non-negative integer.
     ///
     /// # Returns
     ///
@@ -779,13 +951,13 @@ extern "C" {
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_PictureInPicture_UnregisterAllControlEventListeners(controllerId: u32) -> i32;
-    /// Register picture-in-picture resize listener callback.
+    /// Registers a callback to listen for PiP window size changes.
     ///
     /// # Arguments
     ///
-    /// * `controllerId` - The picture-in-picture controller ID
+    /// * `controllerId` - ID of the PiP controller. The value is a non-negative integer.
     ///
-    /// * `callback` - The picture-in-picture size change callback.
+    /// * `callback` - Callback function for PiP window size changes.
     ///
     /// # Returns
     ///
@@ -802,13 +974,13 @@ extern "C" {
         controllerId: u32,
         callback: WebPipResizeCallback,
     ) -> i32;
-    /// Unregister picture-in-picture resize listener callback.
+    /// Unregisters the callback used to listen for PiP window size changes.
     ///
     /// # Arguments
     ///
-    /// * `controllerId` - The picture-in-picture controller ID
+    /// * `controllerId` - ID of the PiP controller. The value is a non-negative integer.
     ///
-    /// * `callback` - The picture-in-picture size change callback.
+    /// * `callback` - Callback function for PiP window size changes.
     ///
     /// # Returns
     ///
@@ -825,11 +997,11 @@ extern "C" {
         controllerId: u32,
         callback: WebPipResizeCallback,
     ) -> i32;
-    /// Unregister all picture-in-picture resize listener callbacks.
+    /// Unregisters all the callbacks used to listen for PiP window size changes.
     ///
     /// # Arguments
     ///
-    /// * `controllerId` - The picture-in-picture controller ID
+    /// * `controllerId` - ID of the PiP controller. The value is a non-negative integer.
     ///
     /// # Returns
     ///
@@ -843,4 +1015,27 @@ extern "C" {
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_PictureInPicture_UnregisterAllResizeListeners(controllerId: u32) -> i32;
+    /// Sets whether to automatically start a PiP window when the user returns to the home screen.
+    /// By default, no PiP window is started.
+    ///
+    /// # Arguments
+    ///
+    /// * `controllerId` - ID of the PiP controller. The value is a non-negative integer.
+    ///
+    /// * `enabled` - Whether to automatically start a PiP window when the user returns to the home screen.
+    /// **true** to start, **false** otherwise. If the PiP feature under **Settings** > **System** > **Multi-window**
+    /// is disabled, the PiP window will not be automatically started when the user returns to the home screen even
+    /// if this parameter is set to **true**.
+    ///
+    /// # Returns
+    ///
+    /// * Return the result code.
+    ///  - [`OK`](crate::window_comm::WindowManagerResult) the function call is successful.
+    ///  - [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM) parameter error. Possible cause: Can not find the PiP controller corresponding to the controllerId ID.
+    ///  - [`WINDOW_MANAGER_ERRORCODE_PIP_INTERNAL_ERROR`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_PIP_INTERNAL_ERROR) pip internal error. Possible cause: The PiP controller has been destroyed.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_PictureInPicture_SetAutoStartEnabled(controllerId: u32, enabled: bool) -> i32;
 }

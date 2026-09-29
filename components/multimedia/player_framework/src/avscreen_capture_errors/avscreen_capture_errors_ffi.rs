@@ -8,50 +8,47 @@
 use crate::averrors::OH_AVErrCode;
 
 impl OH_AVSCREEN_CAPTURE_ErrCode {
-    /// basic error mask for screen recording.
+    /// Basic value returned when an API call error occurs.
     pub const AV_SCREEN_CAPTURE_ERR_BASE: OH_AVSCREEN_CAPTURE_ErrCode =
         OH_AVSCREEN_CAPTURE_ErrCode(0);
-    /// the operation completed successfully.
+    /// Operation successful.
     pub const AV_SCREEN_CAPTURE_ERR_OK: OH_AVSCREEN_CAPTURE_ErrCode =
         OH_AVSCREEN_CAPTURE_ErrCode(0);
-    /// no memory.
+    /// Insufficient memory.
     pub const AV_SCREEN_CAPTURE_ERR_NO_MEMORY: OH_AVSCREEN_CAPTURE_ErrCode =
         OH_AVSCREEN_CAPTURE_ErrCode(1);
-    /// operation not be permitted.
+    /// Operation not allowed.
     pub const AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT: OH_AVSCREEN_CAPTURE_ErrCode =
         OH_AVSCREEN_CAPTURE_ErrCode(2);
-    /// invalid argument.
+    /// Invalid parameter.
     pub const AV_SCREEN_CAPTURE_ERR_INVALID_VAL: OH_AVSCREEN_CAPTURE_ErrCode =
         OH_AVSCREEN_CAPTURE_ErrCode(3);
-    /// IO error.
+    /// Abnormal input and output streams.
     pub const AV_SCREEN_CAPTURE_ERR_IO: OH_AVSCREEN_CAPTURE_ErrCode =
         OH_AVSCREEN_CAPTURE_ErrCode(4);
-    /// network timeout.
+    /// Network timeout.
     pub const AV_SCREEN_CAPTURE_ERR_TIMEOUT: OH_AVSCREEN_CAPTURE_ErrCode =
         OH_AVSCREEN_CAPTURE_ErrCode(5);
-    /// unknown error.
+    /// Unknown error.
     pub const AV_SCREEN_CAPTURE_ERR_UNKNOWN: OH_AVSCREEN_CAPTURE_ErrCode =
         OH_AVSCREEN_CAPTURE_ErrCode(6);
-    /// media service died.
+    /// Media service terminated.
     pub const AV_SCREEN_CAPTURE_ERR_SERVICE_DIED: OH_AVSCREEN_CAPTURE_ErrCode =
         OH_AVSCREEN_CAPTURE_ErrCode(7);
-    /// the state is not support this operation.
+    /// Unsupported operation in this state.
     pub const AV_SCREEN_CAPTURE_ERR_INVALID_STATE: OH_AVSCREEN_CAPTURE_ErrCode =
         OH_AVSCREEN_CAPTURE_ErrCode(8);
-    /// unsupport interface.
+    /// Unsupported interface.
     pub const AV_SCREEN_CAPTURE_ERR_UNSUPPORT: OH_AVSCREEN_CAPTURE_ErrCode =
         OH_AVSCREEN_CAPTURE_ErrCode(9);
-    /// extend err start.
+    /// Unexpected error.
     pub const AV_SCREEN_CAPTURE_ERR_EXTEND_START: OH_AVSCREEN_CAPTURE_ErrCode =
         OH_AVSCREEN_CAPTURE_ErrCode(100);
 }
 #[repr(transparent)]
-/// Screen capture error code
+/// Enumerates the error codes generated during screen capture.
 ///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.AVScreenCapture
 ///
 /// Available since API-level: 10
-///
-/// Version: 1.0
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OH_AVSCREEN_CAPTURE_ErrCode(pub ::core::ffi::c_uint);

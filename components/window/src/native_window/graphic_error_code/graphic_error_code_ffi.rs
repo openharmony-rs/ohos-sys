@@ -7,7 +7,7 @@
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl OHNativeErrorCode {
-    /// succeed
+    /// success
     pub const NATIVE_ERROR_OK: OHNativeErrorCode = OHNativeErrorCode(0);
     /// memory operation error
     ///
@@ -15,12 +15,18 @@ impl OHNativeErrorCode {
     #[cfg(feature = "api-15")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub const NATIVE_ERROR_MEM_OPERATION_ERROR: OHNativeErrorCode = OHNativeErrorCode(30001000);
-    /// input invalid parameter
+    /// invalid input parameter
     pub const NATIVE_ERROR_INVALID_ARGUMENTS: OHNativeErrorCode = OHNativeErrorCode(40001000);
     /// unauthorized operation
     pub const NATIVE_ERROR_NO_PERMISSION: OHNativeErrorCode = OHNativeErrorCode(40301000);
     /// no idle buffer is available
     pub const NATIVE_ERROR_NO_BUFFER: OHNativeErrorCode = OHNativeErrorCode(40601000);
+    /// invalid operation
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub const NATIVE_ERROR_INVALID_OPERATION: OHNativeErrorCode = OHNativeErrorCode(41201000);
     /// the consumer side doesn't exist
     pub const NATIVE_ERROR_NO_CONSUMER: OHNativeErrorCode = OHNativeErrorCode(41202000);
     /// uninitialized
@@ -37,7 +43,7 @@ impl OHNativeErrorCode {
     pub const NATIVE_ERROR_BUFFER_NOT_IN_CACHE: OHNativeErrorCode = OHNativeErrorCode(41210000);
     /// the consumer is disconnected
     pub const NATIVE_ERROR_CONSUMER_DISCONNECTED: OHNativeErrorCode = OHNativeErrorCode(41211000);
-    /// the consumer not register listener
+    /// no listener registered on consumer
     pub const NATIVE_ERROR_CONSUMER_NO_LISTENER_REGISTERED: OHNativeErrorCode =
         OHNativeErrorCode(41212000);
     /// the current device or platform does not support it
@@ -54,7 +60,7 @@ impl OHNativeErrorCode {
     pub const NATIVE_ERROR_EGL_API_FAILED: OHNativeErrorCode = OHNativeErrorCode(60002000);
 }
 #[repr(transparent)]
-/// interface error code.
+/// native error code.
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]

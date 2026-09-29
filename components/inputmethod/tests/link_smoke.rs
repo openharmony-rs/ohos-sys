@@ -39,4 +39,9 @@ fn link_smoke() {
     unsafe {
         let _ = ime::text_config::OH_TextConfig_SetPlaceholder(ptr::null_mut(), ptr::null(), 0);
     }
+
+    #[cfg(feature = "api-26")]
+    unsafe {
+        let _ = ime::text_config::OH_TextConfig_SetConsumeKeyEvents(ptr::null_mut(), false);
+    }
 }

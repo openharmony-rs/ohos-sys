@@ -7,7 +7,7 @@
 #[allow(unused_imports)]
 use crate::averrors::OH_AVErrCode;
 
-/// Forward declaration of OH_AVFormat.
+/// Describes a native object for the audio and video memory interface.
 ///
 ///
 /// Available since API-level: 9
@@ -16,18 +16,20 @@ pub struct OH_AVMemory {
     _unused: [u8; 0],
 }
 extern "C" {
-    /// Create an OH_AVMemory instance
+    /// Creates an OH_AVMemory instance.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.Core
     /// # Arguments
     ///
-    /// * `size` - the memory's size, bytes.
+    /// * `size` - Size of the created memory, in bytes.
     ///
     /// # Returns
     ///
-    /// * Returns a pointer to an OH_AVMemory instance for success, needs to be freed by OH_AVMemory_Destroy,
-    /// otherwise returns nullptr. Possible failure causes: 1. size <= 0. 2. create OH_AVMemory failed.
-    /// 3.failed to new OH_AVMemory.
+    /// * Pointer to the OH_AVMemory instance created. If the operation fails, NULL is returned.
+    /// <br>The instance must be released by calling [`OH_AVMemory_Destroy`](crate::avmemory::OH_AVMemory_Destroy) when it is no longer required.
+    /// <br>The possible causes of an operation failure are as follows:
+    /// <br>1. The value of **size** is less than or equal to **0**.
+    /// <br>2. The OH_AVMemory instance fails to be created.
+    /// <br>3. Memory allocation fails.
     ///
     /// **Deprecated** since 11
     ///
@@ -36,17 +38,19 @@ extern "C" {
     /// Available since API-level: 10
     #[deprecated(since = "11", note = "Use instead: OH_AVBuffer_Create")]
     pub fn OH_AVMemory_Create(size: i32) -> *mut OH_AVMemory;
-    /// Get the memory's virtual address
+    /// Obtains the virtual memory address.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.Core
     /// # Arguments
     ///
-    /// * `mem` - Encapsulate OH_AVMemory structure instance pointer
+    /// * `mem` - Pointer to an OH_AVMemory instance.
     ///
     /// # Returns
     ///
-    /// * the memory's virtual address if the memory is valid, otherwise nullptr.
-    /// Possible failure causes: 1. input mem is nullptr. 2. mem's magic error. 3. mem's memory is nullptr.
+    /// * Pointer to the virtual memory address. If the memory is invalid, NULL is returned.
+    /// <br>The possible causes of an operation failure are as follows:
+    /// <br>1. The value of **mem** is nullptr.
+    /// <br>2. The value of **mem** fails parameter structure verification.
+    /// <br>3. The memory in the passed-in value of **mem** is nullptr.
     ///
     /// **Deprecated** since 11
     ///
@@ -57,17 +61,19 @@ extern "C" {
     /// Version: 1.0
     #[deprecated(since = "11", note = "Use instead: OH_AVBuffer_GetAddr")]
     pub fn OH_AVMemory_GetAddr(mem: *mut OH_AVMemory) -> *mut u8;
-    /// Get the memory's size
+    /// Obtains the memory length.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.Core
     /// # Arguments
     ///
-    /// * `mem` - Encapsulate OH_AVMemory structure instance pointer
+    /// * `mem` - Pointer to an OH_AVMemory instance.
     ///
     /// # Returns
     ///
-    /// * the memory's size if the memory is valid, otherwise -1.
-    /// Possible failure causes: 1. input mem is nullptr. 2. mem's magic error. 3. mem's memory is nullptr.
+    /// * Memory size. If the memory is invalid, **-1** is returned.
+    /// <br>The possible causes of an operation failure are as follows:
+    /// <br>1. The value of **mem** is nullptr.
+    /// <br>2. The value of **mem** fails parameter structure verification.
+    /// <br>3. The memory in the passed-in value of **mem** is nullptr.
     ///
     /// **Deprecated** since 11
     ///
@@ -78,19 +84,19 @@ extern "C" {
     /// Version: 1.0
     #[deprecated(since = "11", note = "Use instead: OH_AVBuffer_GetCapacity")]
     pub fn OH_AVMemory_GetSize(mem: *mut OH_AVMemory) -> i32;
-    /// Clear the internal resources of the memory and destroy the memory
-    /// instance
+    /// Releases an OH_AVMemory instance.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.Core
     /// # Arguments
     ///
-    /// * `mem` - Encapsulate OH_AVMemory structure instance pointer
+    /// * `mem` - Pointer to an OH_AVMemory instance.
     ///
     /// # Returns
     ///
-    /// * Function result code.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input mem is nullptr, mem's magic error or input mem is not user created.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The release operation is successful.
+    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL):
+    /// <br>1. The value of **mem** is nullptr.
+    /// <br>2. The value of **mem** fails parameter structure verification.
+    /// <br>3. The value of **mem** is not created by the caller.
     ///
     /// **Deprecated** since 11
     ///

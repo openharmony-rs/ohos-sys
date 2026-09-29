@@ -11,24 +11,25 @@ already been generated.
 
 | API name                                | status | API-level | crate                     |
 |-----------------------------------------|--------|-----------|---------------------------|
-| AbilityKit                              | ✅      | 23        | [ohos-abilitykit-sys]     |
-| BasicServicesKit                        | ✅      | 23        | [ohos-basic-services-kit-sys] |
+| AbilityKit                              | ✅      | 26        | [ohos-abilitykit-sys]     |
+| BasicServicesKit                        | ✅      | 26        | [ohos-basic-services-kit-sys] |
 | Background Process Manager              |        |           |                           |
 | ConnectivityKit                         |        |           |                           |
-| CryptoArchitectureKit                   | ✅      | 23        | [ohos-crypto-sys]         |
+| ContentEmbedKit                         |        |           |                           |
+| CryptoArchitectureKit                   | ✅      | 26        | [ohos-crypto-sys]         |
 | DataProtectionKit                       |        |           |                           |
 | GameControllerKit                       |        |           |                           |
-| IPCKit                                  | ✅      | 23        | [ohos-ipckit-sys]         |
-| LocationKit                             | ✅      | 23        | [ohos-locationkit-sys]    |
+| IPCKit                                  | ✅      | 26        | [ohos-ipckit-sys]         |
+| LocationKit                             | ✅      | 26        | [ohos-locationkit-sys]    |
 | NotificationKit                         |        |           |                           |
 | TEEKit                                  |        |           |                           |
-| accesstoken                             | ✅      | 23        | [ohos-accesstoken-sys]    |
-| ace/xcomponent                          | ✅      | 23        | [xcomponent-sys]          |
+| accesstoken                             | ✅      | 26        | [ohos-accesstoken-sys]    |
+| ace/xcomponent                          | ✅      | 26        | [xcomponent-sys]          |
 | ark_runtime                             |        |           |                           |
-| arkui                                   | ✅      | 23        | [arkui-sys]               |
-| asset                                   | ✅      | 23        | [ohos-asset-store-sys]    |
-| bundle                                  | ✅      | 23        | [ohos-libbundle-sys]      |
-| database                                | ✅      | 23        | [ohos-rdb-sys]            |
+| arkui                                   | ✅      | 26        | [arkui-sys]               |
+| asset                                   | ✅      | 26        | [ohos-asset-store-sys]    |
+| bundle                                  | ✅      | 26        | [ohos-libbundle-sys]      |
+| database                                | ✅      | 26        | [ohos-rdb-sys]            |
 | ddk                                     |        |           |                           |
 | distributedhardware                     |        |           |                           |
 | ffrt                                    |        |           |                           |
@@ -37,50 +38,51 @@ already been generated.
 | hicollie                                |        |           |                           |
 | hid                                     |        |           |                           |
 | hidebug                                 |        |           |                           |
-| hilog                                   | ✅      | 23        | [hilog-sys]               |
-| hitrace                                 | ✅      | 23        | [hitrace-sys]             |
-| huks                                    | ✅      | 23        | [ohos-huks-sys]           |
-| info                                    | ✅      | 23        | [ohos-deviceinfo-sys]     |
-| inputmethod                             | ✅      | 23        | [ohos-ime-sys]            |
+| hilog                                   | ✅      | 26        | [hilog-sys]               |
+| hitrace                                 | ✅      | 26        | [hitrace-sys]             |
+| huks                                    | ✅      | 26        | [ohos-huks-sys]           |
+| info                                    | ✅      | 26        | [ohos-deviceinfo-sys]     |
+| inputmethod                             | ✅      | 26        | [ohos-ime-sys]            |
 | mindspore                               |        |           |                           |
 | multimedia/av_session                   |        |           |                           |
 | multimedia/drm_framework                |        |           |                           |
 | multimedia/image_effect                 |        |           |                           |
-| multimedia/image_framework              | ✅      | 23        | [ohos-image-kit-sys]      |
+| multimedia/image_framework              | ✅      | 26        | [ohos-image-kit-sys]      |
 | multimedia/media_library                |        |           |                           |
-| multimedia/player_framework             | ✅      | 23        | [ohos-media-sys]          |
-| multimedia/video_processing_engine      | ✅      | 23        | [ohos-video-processing-engine-sys] |
-| multimodalinput                         | ✅      | 23        | [ohos-input-sys]          |
-| napi                                    | ✅      | 23        |                           |
-| native_buffer                           | ✅      | 23        | [ohos-window-sys]         |
+| multimedia/player_framework             | ✅      | 26        | [ohos-media-sys]          |
+| multimedia/video_processing_engine      | ✅      | 26        | [ohos-video-processing-engine-sys] |
+| multimodalinput                         | ✅      | 26        | [ohos-input-sys]          |
+| napi                                    | ✅      | 26        |                           |
+| native_buffer                           | ✅      | 26        | [ohos-window-sys]         |
 | native_color_space_manager              |        |           |                           |
 | native_display_soloist                  |        |           |                           |
-| native_drawing                          | ✅      | 23        | [ohos-drawing-sys]        |
+| native_drawing                          | ✅      | 26        | [ohos-drawing-sys]        |
 | native_effect                           |        |           |                           |
-| native_fence                            | ✅      | 23        | [ohos-window-sys]         |
-| native_image                            | ✅      | 23        | [ohos-window-sys]         |
-| native_vsync                            | ✅      | 23        | [ohos-vsync-sys]          |
-| native_window                           | ✅      | 23        | [ohos-window-sys]         |
-| network/netmanager                      | ✅      | 23        | [ohos-netmanager-sys]     |
-| network/netstack                        | ✅      | 23        | [ohos-netstack-sys]       |
-| network/netstack/net_ssl                | ✅      | 23        | [ohos-net-ssl-sys]        |
+| native_fence                            | ✅      | 26        | [ohos-window-sys]         |
+| native_image                            | ✅      | 26        | [ohos-window-sys]         |
+| native_vsync                            | ✅      | 26        | [ohos-vsync-sys]          |
+| native_window                           | ✅      | 26        | [ohos-window-sys]         |
+| network/netmanager                      | ✅      | 26        | [ohos-netmanager-sys]     |
+| network/netstack                        | ✅      | 26        | [ohos-netstack-sys]       |
+| network/netstack/net_ssl                | ✅      | 26        | [ohos-net-ssl-sys]        |
 | neural_network_runtime                  |        |           |                           |
-| ohaudio                                 | ✅      | 23        | [ohaudio-sys]             |
+| ohaudio                                 | ✅      | 26        | [ohaudio-sys]             |
 | ohcamera                                |        |           |                           |
-| Pasteboard                              | ✅      | 23        | [ohos-pasteboard-sys]     |
+| ohmidi                                  |        |           |                           |
+| Pasteboard                              | ✅      | 26        | [ohos-pasteboard-sys]     |
 | purgeable_memory                        |        |           |                           |
-| qos                                     | ✅      | 23        | [ohos-libqos-sys]         |
-| rawfile                                 | ✅      | 23        | [ohos-rawfile-sys]        |
+| qos                                     | ✅      | 26        | [ohos-libqos-sys]         |
+| rawfile                                 | ✅      | 26        | [ohos-rawfile-sys]        |
 | resourcemanager                         |        |           |                           |
-| sensors                                 | ✅      | 23        | [ohos-sensors-sys]        |
+| sensors                                 | ✅      | 26        | [ohos-sensors-sys]        |
 | SCSI Peripherals                        |        |           |                           |
 | telephony                               |        |           |                           |
 | transient_task                          |        |           |                           |
-| Unified Data Management Framework(UDMF) | ✅      | 23        | [udmf-sys]                |
+| Unified Data Management Framework(UDMF) | ✅      | 26        | [udmf-sys]                |
 | usb                                     |        |           |                           |
 | usb serial                              |        |           |                           |
-| web                                     | ✅      | 23        | [arkweb-sys]            |
-| window_manager                          | ✅      | 23        | [ohos-window-manager-sys] |
+| web                                     | ✅      | 26        | [arkweb-sys]            |
+| window_manager                          | ✅      | 26        | [ohos-window-manager-sys] |
 
 [arkui-sys]: https://docs.rs/arkui-sys/latest/arkui_sys/
 [hilog-sys]: https://docs.rs/hilog-sys/latest/hilog_sys/
@@ -121,7 +123,7 @@ already been generated.
 ## Development
 
 The current bindings are generated with `bindgen` using `scripts/generate_bindings.sh`.
-Bindings are currently generated with the OpenHarmony SDK API level 23, but with items
+Bindings are currently generated with the OpenHarmony SDK API level 26 (OpenHarmony 7.0), but with items
 added after API level 10 feature guarded behind `api-XX` features. This is handled
 automatically by the tool based on the documentation comments in the C header files.
 

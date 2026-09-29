@@ -2,6 +2,18 @@
 
 ## Unreleased
 
+- Add API-24, API-25 and API-26 bindings.
+- API-26 split `native_type.h` into `common_type.h`, `error_code.h`, `native_type_visual.h` and
+  the headers in `node_attributes/`. These are now the `common_type`, `error_code`,
+  `native_type_visual` and `node_attributes::*` modules. `native_type` re-exports all of them,
+  so existing paths keep working.
+- `ArkUI_AttributeItem`, `ArkUI_NodeEvent` and `ArkUI_NodeCustomEventType` moved out of
+  `native_node`, and `ArkUI_NodeEvent` out of `drag_and_drop`. They are re-exported at their
+  old paths. `drag_and_drop::ArkUI_NodeEvent` and `native_node::ArkUI_NodeEvent` are now the
+  same type.
+- Add the `native_material` module (API-26).
+- The new `styled_string` functions using `ohos-drawing-sys` types are available with the
+  `drawing` feature.
 - Add `MouseEventButton`, and `InputEventSourceType::KEY` and `InputEventSourceType::JOYSTICK`
   (API-22), which were missing.
 - The API-22 `OH_ArkUI_TextLayoutManager_*` functions using `ohos-drawing-sys` types, which

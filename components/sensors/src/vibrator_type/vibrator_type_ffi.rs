@@ -13,7 +13,7 @@ impl Vibrator_ErrorCode {
     pub const DEVICE_OPERATION_FAILED: Vibrator_ErrorCode = Vibrator_ErrorCode(14600101);
 }
 #[repr(transparent)]
-/// Defines an enum that enumerates the error codes.
+/// Enumerates the vibrator error codes.
 ///
 ///
 /// Available since API-level: 11
@@ -24,28 +24,28 @@ pub struct Vibrator_ErrorCode(pub i32);
 #[cfg(feature = "api-11")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
 impl Vibrator_Usage {
-    /// Vibration is used for unknown, lowest priority
+    /// Unknown scenario
     pub const VIBRATOR_USAGE_UNKNOWN: Vibrator_Usage = Vibrator_Usage(0);
-    /// Vibration is used for alarm
+    /// Alarming
     pub const VIBRATOR_USAGE_ALARM: Vibrator_Usage = Vibrator_Usage(1);
-    /// Vibration is used for ring
+    /// Ringing
     pub const VIBRATOR_USAGE_RING: Vibrator_Usage = Vibrator_Usage(2);
-    /// Vibration is used for notification
+    /// Notification
     pub const VIBRATOR_USAGE_NOTIFICATION: Vibrator_Usage = Vibrator_Usage(3);
-    /// Vibration is used for communication
+    /// Telecommunications
     pub const VIBRATOR_USAGE_COMMUNICATION: Vibrator_Usage = Vibrator_Usage(4);
-    /// Vibration is used for touch
+    /// Touch
     pub const VIBRATOR_USAGE_TOUCH: Vibrator_Usage = Vibrator_Usage(5);
-    /// Vibration is used for media
+    /// Multimedia
     pub const VIBRATOR_USAGE_MEDIA: Vibrator_Usage = Vibrator_Usage(6);
-    /// Vibration is used for physical feedback
+    /// Physical feedback
     pub const VIBRATOR_USAGE_PHYSICAL_FEEDBACK: Vibrator_Usage = Vibrator_Usage(7);
-    /// Vibration is used for simulate reality
+    /// Simulated reality
     pub const VIBRATOR_USAGE_SIMULATED_REALITY: Vibrator_Usage = Vibrator_Usage(8);
     pub const VIBRATOR_USAGE_MAX: Vibrator_Usage = Vibrator_Usage(9);
 }
 #[repr(transparent)]
-/// Enumerates vibration usages scenarios.
+/// Enumerates the vibration scenarios.
 ///
 ///
 /// Available since API-level: 11

@@ -79,10 +79,8 @@ impl AudioChannelSet {
     pub const AMBISONICS_ACN15: AudioChannelSet = AudioChannelSet(72057594037927936);
 }
 #[repr(transparent)]
-/// Audio Channel Set
-/// A 64-bit integer with bits set for each channel.
+/// Enumerates the audio channels. Each channel is mapped to a variable of uint64_t.
 ///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
 ///
 /// **Deprecated** since 11
 ///
@@ -136,11 +134,9 @@ impl AudioChannelLayout {
     pub const HOA_THIRD: AudioChannelLayout = AudioChannelLayout(144112989052600320);
 }
 #[repr(transparent)]
-/// Audio AudioChannel Layout
-/// Indicates that the channel order in which the user requests decoder output
-/// is the native codec channel order.
+/// Enumerates the layouts of audio channels. The output format of the decoder is described using the channel
+/// layout of the codec.
 ///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
 ///
 /// **Deprecated** since 11
 ///

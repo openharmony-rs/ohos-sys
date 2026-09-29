@@ -30,314 +30,324 @@ use crate::avscreen_capture_base::{
     OH_AVScreenCapture_OnCaptureContentChanged, OH_AVScreenCapture_OnUserSelected,
     OH_AVScreenCapture_UserSelectionInfo,
 };
+#[cfg(feature = "api-24")]
+use crate::avscreen_capture_base::{
+    OH_AVScreenCapture_OnPrivacyProtect, OH_MultiDisplayCapability,
+};
 #[allow(unused_imports)]
 use crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode;
 #[allow(unused_imports)]
 use ohos_sys_opaque_types::{OHNativeWindow, OH_NativeBuffer};
 
 extern "C" {
-    /// Create a screen capture
+    /// Creates an OH_AVScreenCapture instance.
+    /// You can release the instance by calling [`OH_AVScreenCapture_Release`](crate::avscreen_capture::OH_AVScreenCapture_Release).
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.AVScreenCapture
     ///
     /// # Returns
     ///
-    /// * Returns a pointer to an OH_AVScreenCapture instance
+    /// * Pointer to the OH_AVScreenCapture instance.
     ///
     /// Available since API-level: 10
-    ///
-    /// Version: 1.0
     pub fn OH_AVScreenCapture_Create() -> *mut OH_AVScreenCapture;
-    /// To init the screen capture, typically, you need to configure the description information of the audio
-    /// and video, which can be extracted from the container. This interface must be called before StartAVScreenCapture
-    /// called.
+    /// Initializes parameters related to an [`OH_AVScreenCapture`](crate::avscreen_capture_base::OH_AVScreenCapture) instance, including audio sampling parameters
+    /// for external capture using microphones (optional), audio sampling parameters for internal capture, and video
+    /// resolution parameters.
+    /// In the scenario where screen recording files are stored, the application must ensure that the video encoding
+    /// parameters, video sampling parameters, audio encoding parameters, audio sampling parameters for internal capture,
+    /// and audio sampling parameters for external capture using microphones (optional) are valid.
+    /// In the scenario where screen capture streams are generated, the application must ensure that either audio sampling
+    /// parameters for internal capture or video sampling parameters are valid, or both are valid, and audio sampling
+    /// parameters for external capture using microphones are valid (optional).
+    /// The members of the struct variables are not initialized during initialization. Therefore, the application must
+    /// correctly set the parameters based on the use scenario. You are advised to set all memory bytes of the
+    /// OH_AVScreenCaptureConfig struct variables to **0**, and then set valid parameters based on the screen capture
+    /// scenario.
+    /// If both **audioSampleRate** and **audioChannels** in the [`OH_AudioCaptureInfo`](crate::avscreen_capture_base::OH_AudioCaptureInfo) struct are **0**, the
+    /// OH_AVScreenCapture instance ignores the corresponding audio parameters and does not collect the audio data.
+    /// If both **videoFrameWidth** and **videoFrameHeight** in the [`OH_VideoCaptureInfo`](crate::avscreen_capture_base::OH_VideoCaptureInfo) struct are **0**, the
+    /// OH_AVScreenCapture instance ignores the corresponding video parameters and does not collect the screen data.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.AVScreenCapture
     /// # Arguments
     ///
-    /// * `capture` - Pointer to an OH_AVScreenCapture instance
+    /// * `capture` - Pointer to the OH_AVScreenCapture instance.
     ///
-    /// * `config` - Information describing the audio and video config
+    /// * `config` - Parameters related to screen capture initialization.
     ///
     /// # Returns
     ///
-    /// * Function result code.
-    /// [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK) if the execution is successful.
-    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL) input capture is nullptr.
-    /// [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT) opertation not be permitted, init config failed.
+    /// * [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK): The operation is successful.
+    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **capture** is nullptr.
+    /// [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT): The operation is not allowed. The configuration fails to be
+    /// initialized.
     ///
     /// Available since API-level: 10
-    ///
-    /// Version: 1.0
     pub fn OH_AVScreenCapture_Init(
         capture: *mut OH_AVScreenCapture,
         config: OH_AVScreenCaptureConfig,
     ) -> OH_AVSCREEN_CAPTURE_ErrCode;
-    /// Start the av screen capture
+    /// Starts screen capture and collects original streams.
+    /// After this function is called, the callback [`OH_AVScreenCapture_OnBufferAvailable`](crate::avscreen_capture_base::OH_AVScreenCapture_OnBufferAvailable) can be used to check whether streams are generated, and the callback [`OH_AVScreenCapture_OnStateChange`](crate::avscreen_capture_base::OH_AVScreenCapture_OnStateChange)
+    /// can be used to check the startup status.
+    /// The application can obtain the original streams of screen capture by calling [`OH_AVScreenCapture_AcquireAudioBuffer`](crate::avscreen_capture::OH_AVScreenCapture_AcquireAudioBuffer)
+    /// and [`OH_AVScreenCapture_AcquireVideoBuffer`](crate::avscreen_capture::OH_AVScreenCapture_AcquireVideoBuffer).
+    ///
     /// # Arguments
     ///
-    /// {struct OH_AVScreenCapture*} capture Pointer to an OH_AVScreenCapture instance
+    /// * `capture` - Pointer to an OH_AVScreenCapture instance
     ///
     /// # Returns
     ///
-    /// * Function result code.
-    /// [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK) if the execution is successful.
-    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL) input capture is nullptr.
-    /// [`AV_SCREEN_CAPTURE_ERR_UNSUPPORT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_UNSUPPORT) device doesn't support certain configurations. add since api20.
-    /// [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT) opertation not be permitted, set privacy authority enabled
-    /// failed or start ScreenCapture failed.
+    /// * [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK): The operation is successful.
+    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **capture** is nullptr.
+    /// [`AV_SCREEN_CAPTURE_ERR_UNSUPPORT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_UNSUPPORT) (available since API version 20): The device does not support the operation.
+    /// [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT): The operation is not allowed. The privacy permission fails to be
+    /// enabled or screen capture fails to start.
     ///
     /// Available since API-level: 10
     pub fn OH_AVScreenCapture_StartScreenCapture(
         capture: *mut OH_AVScreenCapture,
     ) -> OH_AVSCREEN_CAPTURE_ErrCode;
-    /// Stop the av screen capture
+    /// Stops screen capture. This function is used in pair with [`OH_AVScreenCapture_StartScreenCapture`](crate::avscreen_capture::OH_AVScreenCapture_StartScreenCapture). After
+    /// calling this function, the application stops screen capture or screen share and releases the microphone.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.AVScreenCapture
+    /// # Arguments
+    ///
+    /// * `capture` - Pointer to the OH_AVScreenCapture instance.
+    ///
+    /// # Returns
+    ///
+    /// * [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK): The operation is successful.
+    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **capture** is nullptr.
+    /// [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT): The operation is not allowed. Screen capture fails to stop.
+    ///
+    /// Available since API-level: 10
+    pub fn OH_AVScreenCapture_StopScreenCapture(
+        capture: *mut OH_AVScreenCapture,
+    ) -> OH_AVSCREEN_CAPTURE_ErrCode;
+    /// Starts screen recording, with recordings saved in files.
+    ///
     /// # Arguments
     ///
     /// * `capture` - Pointer to an OH_AVScreenCapture instance
     ///
     /// # Returns
     ///
-    /// * Function result code.
-    /// [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK) if the execution is successful.
-    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL) input capture is nullptr.
-    /// [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT) opertation not be permitted, stop ScreenCapture failed.
-    ///
-    /// Available since API-level: 10
-    ///
-    /// Version: 1.0
-    pub fn OH_AVScreenCapture_StopScreenCapture(
-        capture: *mut OH_AVScreenCapture,
-    ) -> OH_AVSCREEN_CAPTURE_ErrCode;
-    /// Start av screen record use to start save screen record file.
-    /// # Arguments
-    ///
-    /// {struct OH_AVScreenCapture*} capture Pointer to an OH_AVScreenCapture instance
-    ///
-    /// # Returns
-    ///
-    /// * Function result code.
-    /// [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK) if the execution is successful.
-    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL) input capture is nullptr.
-    /// [`AV_SCREEN_CAPTURE_ERR_UNSUPPORT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_UNSUPPORT) device doesn't support certain configurations. add since api20.
-    /// [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT) opertation not be permitted, set privacy authority enabled
-    /// failed or start ScreenRecording failed.
+    /// * [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK): The operation is successful.
+    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **capture** is nullptr.
+    /// [`AV_SCREEN_CAPTURE_ERR_UNSUPPORT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_UNSUPPORT) (available since API version 20): The device does not support the operation.
+    /// [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT): The operation is not allowed. The privacy permission fails to be
+    /// enabled or screen capture fails to start.
     ///
     /// Available since API-level: 10
     pub fn OH_AVScreenCapture_StartScreenRecording(
         capture: *mut OH_AVScreenCapture,
     ) -> OH_AVSCREEN_CAPTURE_ErrCode;
-    /// Start av screen record use to stop save screen record file.
+    /// Stops screen recording. This function is used in pair with [`OH_AVScreenCapture_StartScreenRecording`](crate::avscreen_capture::OH_AVScreenCapture_StartScreenRecording).
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.AVScreenCapture
     /// # Arguments
     ///
-    /// * `capture` - Pointer to an OH_AVScreenCapture instance
+    /// * `capture` - Pointer to the OH_AVScreenCapture instance.
     ///
     /// # Returns
     ///
-    /// * Function result code.
-    /// [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK) if the execution is successful.
-    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL) input capture is nullptr.
-    /// [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT) opertation not be permitted, stop ScreenRecording failed.
+    /// * [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK): The operation is successful.
+    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **capture** is nullptr.
+    /// [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT): The operation is not allowed. Screen capture fails to stop.
     ///
     /// Available since API-level: 10
-    ///
-    /// Version: 1.0
     pub fn OH_AVScreenCapture_StopScreenRecording(
         capture: *mut OH_AVScreenCapture,
     ) -> OH_AVSCREEN_CAPTURE_ErrCode;
-    /// Acquire the audio buffer for the av screen capture
+    /// Obtains an audio buffer. When calling this function, the application must allocate the memory of the
+    /// corresponding struct size to the audio buffer.
+    /// Starting from API version 12, you are advised to use [`OH_AVScreenCapture_OnBufferAvailable`](crate::avscreen_capture_base::OH_AVScreenCapture_OnBufferAvailable) instead.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.AVScreenCapture
     /// # Arguments
     ///
-    /// * `capture` - Pointer to an OH_AVScreenCapture instance
+    /// * `capture` - Pointer to the OH_AVScreenCapture instance.
     ///
-    /// * `audiobuffer` - Information describing the audio buffer of the capture
+    /// * `audiobuffer` - Pointer to the struct for storing the audio buffer. This struct is used to obtain the information
+    /// about the audio buffer and the timestamp of the buffer.
     ///
-    /// * `type` - Information describing the audio source type
+    /// * `type` - Type of the audio buffer, which is used to distinguish external streams recorded by the microphone from
+    /// internal streams played by the system.
     ///
     /// # Returns
     ///
-    /// * Function result code.
-    /// [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK) if the execution is successful.
-    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL) input capture is nullptr or input **audiobuffer is nullptr.
-    /// [`AV_SCREEN_CAPTURE_ERR_NO_MEMORY`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_NO_MEMORY) no memory, audiobuffer allocate failed.
-    /// [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT) opertation not be permitted, not permit for has set
-    /// DataCallback or acquire AudioBuffer failed.
+    /// * [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK): The operation is successful.
+    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **capture** or **audiobuffer** is nullptr.
+    /// [`AV_SCREEN_CAPTURE_ERR_NO_MEMORY`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_NO_MEMORY): The audio buffer fails to be allocated due to insufficient memory.
+    /// [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT): The operation is not allowed. The privacy permission fails to be
+    /// enabled or the audio buffer fails to be obtained.
     ///
     /// Available since API-level: 10
-    ///
-    /// Version: 1.0
     pub fn OH_AVScreenCapture_AcquireAudioBuffer(
         capture: *mut OH_AVScreenCapture,
         audiobuffer: *mut *mut OH_AudioBuffer,
         type_: OH_AudioCaptureSourceType,
     ) -> OH_AVSCREEN_CAPTURE_ErrCode;
-    /// Acquire the video buffer for the av screen capture
+    /// Obtains a video buffer. The application can call this function to obtain information such as the video buffer
+    /// and timestamp.
+    /// When a video buffer is no longer needed, call **OH_AVScreenCapture_ReleaseVideoBuffer** to release it.
+    /// Starting from API version 12, you are advised to use [`OH_AVScreenCapture_OnBufferAvailable`](crate::avscreen_capture_base::OH_AVScreenCapture_OnBufferAvailable) instead.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.AVScreenCapture
     /// # Arguments
     ///
-    /// * `capture` - Pointer to an OH_AVScreenCapture instance
+    /// * `capture` - Pointer to the OH_AVScreenCapture instance.
     ///
-    /// * `fence` - A processing state of display buffer
+    /// * `fence` - Pointer to parameters for synchronization display.
     ///
-    /// * `timestamp` - Information about the video buffer
+    /// * `timestamp` - Pointer to the timestamp of the video frame, in nanosecond.
     ///
-    /// * `region` - Information about the video buffer
+    /// * `region` - Pointer to the coordinates related to video display.
     ///
     /// # Returns
     ///
-    /// * Returns a pointer to an OH_NativeBuffer instance
+    /// * OH_NativeBuffer object if the operation is successful. The application can call the APIs provided by the
+    /// OH_NativeBuffer object to obtain information such as the video buffer and resolution.
     ///
     /// Available since API-level: 10
-    ///
-    /// Version: 1.0
     pub fn OH_AVScreenCapture_AcquireVideoBuffer(
         capture: *mut OH_AVScreenCapture,
         fence: *mut i32,
         timestamp: *mut i64,
         region: *mut OH_Rect,
     ) -> *mut OH_NativeBuffer;
-    /// Release the audio buffer for the av screen capture
+    /// Releases an audio buffer. When an audio buffer is no longer needed, call this function to release it.
+    /// Starting from API version 12, you are advised to use [`OH_AVScreenCapture_OnBufferAvailable`](crate::avscreen_capture_base::OH_AVScreenCapture_OnBufferAvailable) instead.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.AVScreenCapture
     /// # Arguments
     ///
-    /// * `capture` - Pointer to an OH_AVScreenCapture instance
+    /// * `capture` - Pointer to the OH_AVScreenCapture instance.
     ///
-    /// * `type` - Information describing the audio source type
+    /// * `type` - Type of the audio buffer, which is used to distinguish external streams recorded by the microphone from
+    /// internal streams played by the system.
     ///
     /// # Returns
     ///
-    /// * Function result code.
-    /// [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK) if the execution is successful.
-    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL) input capture is nullptr.
-    /// [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT) opertation not be permitted, not permit for has set
-    /// DataCallback or Release AudioBuffer failed.
+    /// * [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK): The operation is successful.
+    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **capture** is nullptr.
+    /// [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT): The operation is not allowed. The data callback has been set or the
+    /// audio buffer fails to be released.
     ///
     /// Available since API-level: 10
-    ///
-    /// Version: 1.0
     pub fn OH_AVScreenCapture_ReleaseAudioBuffer(
         capture: *mut OH_AVScreenCapture,
         type_: OH_AudioCaptureSourceType,
     ) -> OH_AVSCREEN_CAPTURE_ErrCode;
-    /// Release the video buffer for the av screen capture
+    /// Releases a video buffer. When a video buffer is no longer needed, call this function to release it.
+    /// Starting from API version 12, you are advised to use [`OH_AVScreenCapture_OnBufferAvailable`](crate::avscreen_capture_base::OH_AVScreenCapture_OnBufferAvailable) instead.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.AVScreenCapture
     /// # Arguments
     ///
-    /// * `capture` - Pointer to an OH_AVScreenCapture instance
+    /// * `capture` - Pointer to the OH_AVScreenCapture instance.
     ///
     /// # Returns
     ///
-    /// * Function result code.
-    /// [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK) if the execution is successful.
-    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL) input capture is nullptr.
-    /// [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT) opertation not be permitted, not permit for has set
-    /// DataCallback or Release VideoBuffer failed.
+    /// * [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK): The operation is successful.
+    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **capture** is nullptr.
+    /// [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT): The operation is not allowed. The data callback has been set or the
+    /// vedio buffer fails to be released.
     ///
     /// Available since API-level: 10
-    ///
-    /// Version: 1.0
     pub fn OH_AVScreenCapture_ReleaseVideoBuffer(
         capture: *mut OH_AVScreenCapture,
     ) -> OH_AVSCREEN_CAPTURE_ErrCode;
-    /// Set the callback function so that your application
-    /// can respond to the events generated by the av screen capture. This interface must be called before Init is called.
+    /// Sets a callback to listen for available video buffers and audio buffers and errors that occur during the
+    /// function calling.
+    /// Starting from API version 12, you are advised to use [`OH_AVScreenCapture_SetErrorCallback`](crate::avscreen_capture::OH_AVScreenCapture_SetErrorCallback) and [`OH_AVScreenCapture_SetDataCallback`](crate::avscreen_capture::OH_AVScreenCapture_SetDataCallback)
+    /// instead.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.AVScreenCapture
     /// # Arguments
     ///
-    /// * `capture` - Pointer to an OH_AVScreenCapture instance
+    /// * `capture` - Pointer to the OH_AVScreenCapture instance.
     ///
-    /// * `callback` - A collection of all callback functions, see [`OH_AVScreenCaptureCallback`](crate::avscreen_capture_base::OH_AVScreenCaptureCallback)
+    /// * `callback` - OH_AVScreenCaptureCallback struct, which stores related callback function pointers.
     ///
     /// # Returns
     ///
-    /// * Function result code.
-    /// [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK) if the execution is successful.
-    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL) input capture is nullptr or input callback is nullptr.
-    /// [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT) opertation not be permitted, set callback failed.
+    /// * [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK): The operation is successful.
+    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **capture** or **callback** is nullptr.
+    /// [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT): The operation is not allowed. The callback fails to be set.
     ///
     /// Available since API-level: 10
-    ///
-    /// Version: 1.0
     pub fn OH_AVScreenCapture_SetCallback(
         capture: *mut OH_AVScreenCapture,
         callback: OH_AVScreenCaptureCallback,
     ) -> OH_AVSCREEN_CAPTURE_ErrCode;
-    /// Release the av screen capture
+    /// Releases an OH_AVScreenCapture instance. This function is used in pair with [`OH_AVScreenCapture_Create`](crate::avscreen_capture::OH_AVScreenCapture_Create).
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.AVScreenCapture
     /// # Arguments
     ///
-    /// * `capture` - Pointer to an OH_AVScreenCapture instance
+    /// * `capture` - Pointer to the OH_AVScreenCapture instance.
     ///
     /// # Returns
     ///
-    /// * Function result code.
-    /// [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK) if the execution is successful.
-    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL) input capture is nullptr.
-    /// [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT) opertation not be permitted, screen capture release failed.
+    /// * [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK): The operation is successful.
+    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **capture** is nullptr.
+    /// [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT): The operation is not allowed. The OH_AVScreenCapture instance fails to
+    /// be released.
     ///
     /// Available since API-level: 10
-    ///
-    /// Version: 1.0
     pub fn OH_AVScreenCapture_Release(
         capture: *mut OH_AVScreenCapture,
     ) -> OH_AVSCREEN_CAPTURE_ErrCode;
-    /// Controls the switch of the microphone, which is turned on by default
+    /// Enables or disables the microphone.
+    /// When **isMicrophone** is set to **true**, the microphone is enabled, and the original PCM data of the microphone can
+    /// be obtained by calling [`OH_AVScreenCapture_StartScreenCapture`](crate::avscreen_capture::OH_AVScreenCapture_StartScreenCapture) and [`OH_AVScreenCapture_AcquireAudioBuffer`](crate::avscreen_capture::OH_AVScreenCapture_AcquireAudioBuffer).
+    /// When **isMicrophone** is set to **false**, the obtained audio data is silent data.
+    /// By default, the microphone is enabled.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.AVScreenCapture
     /// # Arguments
     ///
-    /// * `capture` - Pointer to an OH_AVScreenCapture instance
+    /// * `capture` - Pointer to the OH_AVScreenCapture instance.
     ///
-    /// * `isMicrophone` - The switch of the microphone
+    /// * `isMicrophone` - Whether to enable the microphone.
+    /// **true** to enable, **false** to disable.
+    /// The default value is **true**.
     ///
     /// # Returns
     ///
-    /// * Function result code.
-    /// [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK) if the execution is successful.
-    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL) input capture is nullptr.
-    /// [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT) opertation not be permitted, set microphone enable failed.
+    /// * [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK): The operation is successful.
+    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **capture** is nullptr.
+    /// [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT): The operation is not allowed. The microphone fails to be enabled or
+    /// disabled.
     ///
     /// Available since API-level: 10
-    ///
-    /// Version: 1.0
     pub fn OH_AVScreenCapture_SetMicrophoneEnabled(
         capture: *mut OH_AVScreenCapture,
         isMicrophone: bool,
     ) -> OH_AVSCREEN_CAPTURE_ErrCode;
-    /// Set the state callback function so that your application can respond to the
-    /// state change events generated by the av screen capture. This interface must be called before Start is called.
+    /// Sets a state change callback. This function must be called before screen capture starts.
+    /// The callback is triggered when the state changes during the running of an OH_AVScreenCapture instance.
+    /// A privacy dialog box is displayed to ask for user consent before screen capture starts. After a successful call to
+    /// this function, the following scenarios are possible:
+    /// 1. If the user agrees, the screen capture startup process starts. If screen capture starts successfully, the state
+    /// change callback is triggered to report the [`OH_AVScreenCaptureStateCode`](crate::avscreen_capture_base::OH_AVScreenCaptureStateCode).OH_SCREEN_CAPTURE_STATE_STARTED status to notify the application of the startup success, with a screen capture notification displayed. If screen capture fails to start, the state change callback is triggered to report the failure information (for example, [`OH_AVScreenCaptureStateCode`](crate::avscreen_capture_base::OH_AVScreenCaptureStateCode).
+    /// OH_SCREEN_CAPTURE_STATE_MIC_UNAVAILABLE if the microphone is unavailable), or the error processing callback [`OH_AVScreenCapture_OnError`](crate::avscreen_capture_base::OH_AVScreenCapture_OnError)
+    /// is triggered to report the error information.
+    /// 2. If the user disagrees, the screen capture startup process stops. The state change callback is triggered to report
+    /// the [`OH_AVScreenCaptureStateCode`](crate::avscreen_capture_base::OH_AVScreenCaptureStateCode).OH_SCREEN_CAPTURE_STATE_CANCELED status to notify the application of the
+    /// startup failure due to user rejection.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.AVScreenCapture
     /// # Arguments
     ///
-    /// * `capture` - Pointer to an OH_AVScreenCapture instance
+    /// * `capture` - Pointer to the OH_AVScreenCapture instance.
     ///
-    /// * `callback` - State callback function, see [`OH_AVScreenCapture_OnStateChange`](crate::avscreen_capture_base::OH_AVScreenCapture_OnStateChange)
+    /// * `callback` - State change callback.
     ///
-    /// * `userData` - Pointer to user specific data
+    /// * `userData` - Pointer to the user-defined data. The data is returned as an input parameter when the state change
+    /// callback is triggered.
     ///
     /// # Returns
     ///
-    /// * Function result code.
-    /// [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK) if the execution is successful.
-    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL) input capture is nullptr or input callback is nullptr.
-    /// [`AV_SCREEN_CAPTURE_ERR_NO_MEMORY`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_NO_MEMORY) no memory, mem allocate failed.
-    /// [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT) opertation not be permitted, set StateCallback failed.
+    /// * [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK): The operation is successful.
+    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **capture** or **callback** is nullptr.
+    /// [`AV_SCREEN_CAPTURE_ERR_NO_MEMORY`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_NO_MEMORY): The memory fails to be allocated due to insufficient memory.
+    /// [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT): The operation is not allowed. The state callback fails to be set.
     ///
     /// Available since API-level: 12
-    ///
-    /// Version: 1.0
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_AVScreenCapture_SetStateCallback(
@@ -345,29 +355,35 @@ extern "C" {
         callback: OH_AVScreenCapture_OnStateChange,
         userData: *mut ::core::ffi::c_void,
     ) -> OH_AVSCREEN_CAPTURE_ErrCode;
-    /// Set the data callback function so that your application can respond to the
-    /// data available events generated by the av screen capture. This interface must be called before Start is called.
+    /// Sets a data processing callback. This function must be called before screen capture starts.
+    /// The callback is triggered when an audio buffer or a video buffer becomes available during the running of an
+    /// OH_AVScreenCapture instance.
+    /// The application needs to process microphone audio, internal audio, and video data based on the data type in the
+    /// callback. After the callback is triggered, the buffer is no longer valid.
+    /// A successful call to this function leads to the following scenarios:
+    /// 1. The callbacks [`OH_AVScreenCaptureOnAudioBufferAvailable`](crate::avscreen_capture_base::OH_AVScreenCaptureOnAudioBufferAvailable) and [`OH_AVScreenCaptureOnVideoBufferAvailable`](crate::avscreen_capture_base::OH_AVScreenCaptureOnVideoBufferAvailable)
+    /// set by calling [`OH_AVScreenCapture_SetCallback`](crate::avscreen_capture::OH_AVScreenCapture_SetCallback) will no longer be triggered, even when an audio buffer or a
+    /// video buffer becomes available.
+    /// 2. A failure message is returned for a call to any of the following functions: [`OH_AVScreenCapture_AcquireAudioBuffer`](crate::avscreen_capture::OH_AVScreenCapture_AcquireAudioBuffer),
+    /// [`OH_AVScreenCapture_ReleaseAudioBuffer`](crate::avscreen_capture::OH_AVScreenCapture_ReleaseAudioBuffer), [`OH_AVScreenCapture_AcquireVideoBuffer`](crate::avscreen_capture::OH_AVScreenCapture_AcquireVideoBuffer), and [`OH_AVScreenCapture_ReleaseVideoBuffer`](crate::avscreen_capture::OH_AVScreenCapture_ReleaseVideoBuffer).
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.AVScreenCapture
     /// # Arguments
     ///
-    /// * `capture` - Pointer to an OH_AVScreenCapture instance
+    /// * `capture` - Pointer to the OH_AVScreenCapture instance.
     ///
-    /// * `callback` - Data callback function, see [`OH_AVScreenCapture_OnBufferAvailable`](crate::avscreen_capture_base::OH_AVScreenCapture_OnBufferAvailable)
+    /// * `callback` - Data processing callback.
     ///
-    /// * `userData` - Pointer to user specific data
+    /// * `userData` - Pointer to the user-defined data. The data is returned as an input parameter when the data
+    /// processing callback is triggered.
     ///
     /// # Returns
     ///
-    /// * Function result code.
-    /// [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK) if the execution is successful.
-    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL) input capture is nullptr or input callback is nullptr.
-    /// [`AV_SCREEN_CAPTURE_ERR_NO_MEMORY`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_NO_MEMORY) no memory, mem allocate failed.
-    /// [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT) opertation not be permitted, set DataCallback failed.
+    /// * [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK): The operation is successful.
+    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **capture** or **callback** is nullptr.
+    /// [`AV_SCREEN_CAPTURE_ERR_NO_MEMORY`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_NO_MEMORY): The memory fails to be allocated due to insufficient memory.
+    /// [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT): The operation is not allowed. The data callback fails to be set.
     ///
     /// Available since API-level: 12
-    ///
-    /// Version: 1.0
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_AVScreenCapture_SetDataCallback(
@@ -375,29 +391,28 @@ extern "C" {
         callback: OH_AVScreenCapture_OnBufferAvailable,
         userData: *mut ::core::ffi::c_void,
     ) -> OH_AVSCREEN_CAPTURE_ErrCode;
-    /// Set the error callback function so that your application can respond to the
-    /// error events generated by the av screen capture. This interface must be called before Start is called.
+    /// Sets an error processing callback. This function must be called before screen capture starts.
+    /// The callback is triggered when an error occurs during the running of an OH_AVScreenCapture instance.
+    /// After a successful call to this function, the callback [`OH_AVScreenCaptureOnError`](crate::avscreen_capture_base::OH_AVScreenCaptureOnError) set by calling [`OH_AVScreenCapture_SetCallback`](crate::avscreen_capture::OH_AVScreenCapture_SetCallback)
+    /// will no longer be triggered, even when an error occurs in the OH_AVScreenCapture instance.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.AVScreenCapture
     /// # Arguments
     ///
-    /// * `capture` - Pointer to an OH_AVScreenCapture instance
+    /// * `capture` - Pointer to the OH_AVScreenCapture instance.
     ///
-    /// * `callback` - Error callback function, see [`OH_AVScreenCapture_OnError`](crate::avscreen_capture_base::OH_AVScreenCapture_OnError)
+    /// * `callback` - Error processing callback.
     ///
-    /// * `userData` - Pointer to user specific data
+    /// * `userData` - Pointer to the user-defined data. The data is returned as an input parameter when the error
+    /// processing callback is triggered.
     ///
     /// # Returns
     ///
-    /// * Function result code.
-    /// [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK) if the execution is successful.
-    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL) input capture is nullptr or input callback is nullptr.
-    /// [`AV_SCREEN_CAPTURE_ERR_NO_MEMORY`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_NO_MEMORY) no memory, mem allocate failed.
-    /// [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT) opertation not be permitted, set ErrorCallback failed.
+    /// * [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK): The operation is successful.
+    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **capture** or **callback** is nullptr.
+    /// [`AV_SCREEN_CAPTURE_ERR_NO_MEMORY`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_NO_MEMORY): The memory fails to be allocated due to insufficient memory.
+    /// [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT): The operation is not allowed. The error callback fails to be set.
     ///
     /// Available since API-level: 12
-    ///
-    /// Version: 1.0
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_AVScreenCapture_SetErrorCallback(
@@ -405,382 +420,24 @@ extern "C" {
         callback: OH_AVScreenCapture_OnError,
         userData: *mut ::core::ffi::c_void,
     ) -> OH_AVSCREEN_CAPTURE_ErrCode;
-    /// Start the av screen capture, video data provided by OHNativeWindow.
+    /// Sets the callback for screen capture content changes. This function must be called before screen capture
+    /// starts.
+    ///
     /// # Arguments
     ///
-    /// {struct OH_AVScreenCapture*} capture Pointer to an OH_AVScreenCapture instance.
+    /// * `capture` - Pointer to the OH_AVScreenCapture instance.
     ///
-    /// {OHNativeWindow*} window Pointer to an OHNativeWindow instance.
+    /// * `callback` - Pointer to the callback method instance for the screen capture content change event.
     ///
-    /// # Returns
-    ///
-    /// * Function result code.
-    /// [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK) if the execution is successful.
-    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL) input capture is nullptr or input window is nullptr or
-    /// input windowSurface is nullptr.
-    /// [`AV_SCREEN_CAPTURE_ERR_UNSUPPORT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_UNSUPPORT) device doesn't support certain configurations. add since api20.
-    /// [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT) opertation not be permitted, set privacy authority enabled
-    /// failed or start ScreenCaptureWithSurface failed.
-    ///
-    /// Available since API-level: 12
-    #[cfg(feature = "api-12")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_AVScreenCapture_StartScreenCaptureWithSurface(
-        capture: *mut OH_AVScreenCapture,
-        window: *mut OHNativeWindow,
-    ) -> OH_AVSCREEN_CAPTURE_ErrCode;
-    /// Set canvas rotation when capturing screen
-    /// # Arguments
-    ///
-    /// {struct OH_AVScreenCapture*} capture Pointer to an OH_AVScreenCapture instance
-    ///
-    /// {bool} canvasRotation whether to rotate the canvas
+    /// * `userData` - Pointer to the user-defined data. The data is returned as an input parameter when the error
+    /// processing callback is triggered.
     ///
     /// # Returns
     ///
-    /// * Function result code.
-    /// [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK) if the execution is successful.
-    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL) input capture is nullptr.
-    /// [`AV_SCREEN_CAPTURE_ERR_UNSUPPORT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_UNSUPPORT) device doesn't support current interface. add since api20.
-    /// [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT) opertation not be permitted, set CanvasRotation failed.
-    ///
-    /// Available since API-level: 12
-    #[cfg(feature = "api-12")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_AVScreenCapture_SetCanvasRotation(
-        capture: *mut OH_AVScreenCapture,
-        canvasRotation: bool,
-    ) -> OH_AVSCREEN_CAPTURE_ErrCode;
-    /// Create a screen capture content filter
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.AVScreenCapture
-    ///
-    /// # Returns
-    ///
-    /// * Returns a pointer to an OH_AVScreenCapture_ContentFilter instance
-    ///
-    /// Available since API-level: 12
-    ///
-    /// Version: 1.0
-    #[cfg(feature = "api-12")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_AVScreenCapture_CreateContentFilter() -> *mut OH_AVScreenCapture_ContentFilter;
-    /// Release the screen capture content filter
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.AVScreenCapture
-    /// # Arguments
-    ///
-    /// * `filter` - Pointer to an OH_AVScreenCapture_ContentFilter instance
-    ///
-    /// # Returns
-    ///
-    /// * Function result code.
-    /// [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK) if the execution is successful.
-    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL) input filter is nullptr.
-    ///
-    /// Available since API-level: 12
-    ///
-    /// Version: 1.0
-    #[cfg(feature = "api-12")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_AVScreenCapture_ReleaseContentFilter(
-        filter: *mut OH_AVScreenCapture_ContentFilter,
-    ) -> OH_AVSCREEN_CAPTURE_ErrCode;
-    /// Add content to the screen capture content filter
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.AVScreenCapture
-    /// # Arguments
-    ///
-    /// * `filter` - Pointer to an OH_AVScreenCapture_ContentFilter instance
-    ///
-    /// * `content` - content to be added
-    ///
-    /// # Returns
-    ///
-    /// * Function result code.
-    /// [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK) if the execution is successful.
-    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL) input filter is nullptr or input content invalid.
-    ///
-    /// Available since API-level: 12
-    ///
-    /// Version: 1.0
-    #[cfg(feature = "api-12")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_AVScreenCapture_ContentFilter_AddAudioContent(
-        filter: *mut OH_AVScreenCapture_ContentFilter,
-        content: OH_AVScreenCaptureFilterableAudioContent,
-    ) -> OH_AVSCREEN_CAPTURE_ErrCode;
-    /// Set content filter to screen capture
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.AVScreenCapture
-    /// # Arguments
-    ///
-    /// * `capture` - Pointer to an OH_AVScreenCapture instance
-    ///
-    /// * `filter` - Pointer to an OH_AVScreenCapture_ContentFilter instance
-    ///
-    /// # Returns
-    ///
-    /// * Function result code.
-    /// [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK) if the execution is successful.
-    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL) input capture is nullptr or input filter is nullptr.
-    /// [`AV_SCREEN_CAPTURE_ERR_UNSUPPORT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_UNSUPPORT) not support, for STREAM, should call AudioCapturer interface to make
-    /// effect when start, for CAPTURE FILE, should call Recorder interface to make effect when start.
-    ///
-    /// Available since API-level: 12
-    ///
-    /// Version: 1.0
-    #[cfg(feature = "api-12")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_AVScreenCapture_ExcludeContent(
-        capture: *mut OH_AVScreenCapture,
-        filter: *mut OH_AVScreenCapture_ContentFilter,
-    ) -> OH_AVSCREEN_CAPTURE_ErrCode;
-    /// Add Window content to the screen capture content filter
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.AVScreenCapture
-    /// # Arguments
-    ///
-    /// * `filter` - Pointer to an OH_AVScreenCapture_ContentFilter instance
-    ///
-    /// * `windowIDs` - Pointer to windowIDs to be added
-    ///
-    /// * `windowCount` - length of windowID list
-    ///
-    /// # Returns
-    ///
-    /// * Returns AV_SCREEN_CAPTURE_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVSCREEN_CAPTURE_ErrCode`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode)
-    ///
-    /// Available since API-level: 12
-    ///
-    /// Version: 1.0
-    #[cfg(feature = "api-12")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_AVScreenCapture_ContentFilter_AddWindowContent(
-        filter: *mut OH_AVScreenCapture_ContentFilter,
-        windowIDs: *mut i32,
-        windowCount: i32,
-    ) -> OH_AVSCREEN_CAPTURE_ErrCode;
-    /// Resize the Resolution of the Screen
-    /// # Arguments
-    ///
-    /// {struct OH_AVScreenCapture*} capture Pointer to an OH_AVScreenCapture instance
-    ///
-    /// {int32_t} width Video frame width of avscreeencapture
-    ///
-    /// {int32_t} height Video frame height of avscreeencapture
-    ///
-    /// # Returns
-    ///
-    /// * Function result code.
-    /// [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK) if the execution is successful.
-    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL) input capture is nullptr.
-    /// [`AV_SCREEN_CAPTURE_ERR_UNSUPPORT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_UNSUPPORT) device doesn't support current interface. add since api20.
-    /// [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT) opertation not be permitted.
-    ///
-    /// Available since API-level: 12
-    #[cfg(feature = "api-12")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_AVScreenCapture_ResizeCanvas(
-        capture: *mut OH_AVScreenCapture,
-        width: i32,
-        height: i32,
-    ) -> OH_AVSCREEN_CAPTURE_ErrCode;
-    /// skip some windows' privacy mode of current app during the screen recording
-    /// # Arguments
-    ///
-    /// {struct OH_AVScreenCapture*} capture Pointer to an OH_AVScreenCapture instance
-    ///
-    /// {int32_t*} windowIDs Pointer of windowID list
-    ///
-    /// {int32_t} windowCount length of windowID list
-    ///
-    /// # Returns
-    ///
-    /// * Function result code.
-    /// [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK) if the execution is successful.
-    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL) input capture is nullptr or input windowIDs are not belong current
-    /// app.
-    /// [`AV_SCREEN_CAPTURE_ERR_UNSUPPORT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_UNSUPPORT) device doesn't support current interface. add since api20.
-    /// [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT) opertation not be permitted.
-    ///
-    /// Available since API-level: 12
-    #[cfg(feature = "api-12")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_AVScreenCapture_SkipPrivacyMode(
-        capture: *mut OH_AVScreenCapture,
-        windowIDs: *mut i32,
-        windowCount: i32,
-    ) -> OH_AVSCREEN_CAPTURE_ErrCode;
-    /// set up the max number of video frame per second
-    /// # Arguments
-    ///
-    /// {struct OH_AVScreenCapture*} capture Pointer to an OH_AVScreenCapture instance
-    ///
-    /// {int32_t} frameRate max frame rate of video
-    ///
-    /// # Returns
-    ///
-    /// * Function result code.
-    /// [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK) if the execution is successful.
-    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL) input capture is nullptr or frameRate is not support.
-    /// [`AV_SCREEN_CAPTURE_ERR_UNSUPPORT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_UNSUPPORT) device doesn't support current interface. add since api20.
-    /// [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT) opertation not be permitted.
-    ///
-    /// Available since API-level: 14
-    #[cfg(feature = "api-14")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
-    pub fn OH_AVScreenCapture_SetMaxVideoFrameRate(
-        capture: *mut OH_AVScreenCapture,
-        frameRate: i32,
-    ) -> OH_AVSCREEN_CAPTURE_ErrCode;
-    /// determines whether the cursor is visible in the session
-    /// # Arguments
-    ///
-    /// {struct OH_AVScreenCapture* } capture Pointer to an OH_AVScreenCapture instance
-    ///
-    /// {bool} showCursor The switch of the cursor
-    ///
-    /// # Returns
-    ///
-    /// * Function result code.
-    /// [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK) if the execution is successful.
-    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL) input capture is nullptr.
-    /// [`AV_SCREEN_CAPTURE_ERR_UNSUPPORT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_UNSUPPORT) device doesn't support current interface. add since api20.
-    /// [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT) opertation not be permitted, show cursor failed.
-    ///
-    /// Available since API-level: 15
-    #[cfg(feature = "api-15")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
-    pub fn OH_AVScreenCapture_ShowCursor(
-        capture: *mut OH_AVScreenCapture,
-        showCursor: bool,
-    ) -> OH_AVSCREEN_CAPTURE_ErrCode;
-    /// Set the display device selection callback function so that your application can respond to the
-    /// display device selected event generated by the av screen capture.
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.AVScreenCapture
-    /// # Arguments
-    ///
-    /// * `capture` - Pointer to an OH_AVScreenCapture instance
-    ///
-    /// * `callback` - display device selection callback function, see [`OH_AVScreenCapture_OnDisplaySelected`](crate::avscreen_capture_base::OH_AVScreenCapture_OnDisplaySelected)
-    ///
-    /// * `userData` - Pointer to user specific data
-    ///
-    /// # Returns
-    ///
-    /// * Function result code.
-    /// [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK) if the execution is successful.
-    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL) input capture is nullptr or input callback is nullptr.
-    /// [`AV_SCREEN_CAPTURE_ERR_NO_MEMORY`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_NO_MEMORY) no memory, mem allocate failed.
-    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_STATE`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_STATE) This interface should be called before Start is called.
-    ///
-    /// Available since API-level: 15
-    #[cfg(feature = "api-15")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
-    pub fn OH_AVScreenCapture_SetDisplayCallback(
-        capture: *mut OH_AVScreenCapture,
-        callback: OH_AVScreenCapture_OnDisplaySelected,
-        userData: *mut ::core::ffi::c_void,
-    ) -> OH_AVSCREEN_CAPTURE_ErrCode;
-    /// Create a screen capture Strategy object
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.AVScreenCapture
-    ///
-    /// # Returns
-    ///
-    /// * Returns a pointer to the screen capture strategy object, or null if failure
-    ///
-    /// Available since API-level: 20
-    #[cfg(feature = "api-20")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
-    pub fn OH_AVScreenCapture_CreateCaptureStrategy() -> *mut OH_AVScreenCapture_CaptureStrategy;
-    /// Release the screen capture Strategy object
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.AVScreenCapture
-    /// # Arguments
-    ///
-    /// {OH_AVScreenCapture_CaptureStrategy*} strategy Pointer to an OH_AVScreenCapture_CaptureStrategy instance
-    ///
-    /// # Returns
-    ///
-    /// * Function result code.
-    /// [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK) if the execution is successful.
-    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL) input strategy is nullptr.
-    ///
-    /// Available since API-level: 20
-    #[cfg(feature = "api-20")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
-    pub fn OH_AVScreenCapture_ReleaseCaptureStrategy(
-        strategy: *mut OH_AVScreenCapture_CaptureStrategy,
-    ) -> OH_AVSCREEN_CAPTURE_ErrCode;
-    /// set the screen capture strategy for the specified screen capture
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.AVScreenCapture
-    /// # Arguments
-    ///
-    /// {OH_AVScreenCapture*} capture Pointer to an OH_AVScreenCapture which need to be setted.
-    ///
-    /// {OH_AVScreenCapture_CaptureStrategy*} strategy Pointer to an OH_AVScreenCapture_CaptureStrategy which want to
+    /// * [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK): The operation is successful.
+    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **capture** or **callback** is nullptr.
+    /// [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT): The operation is not allowed. The screen capture callback fails to be
     /// set.
-    ///
-    /// # Returns
-    ///
-    /// * Function result code.
-    /// [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK) if the execution is successful.
-    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL) capture or strategyvalue is nullptr.
-    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_STATE`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_STATE) This interface should be called before Start is called.
-    ///
-    /// Available since API-level: 20
-    #[cfg(feature = "api-20")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
-    pub fn OH_AVScreenCapture_SetCaptureStrategy(
-        capture: *mut OH_AVScreenCapture,
-        strategy: *mut OH_AVScreenCapture_CaptureStrategy,
-    ) -> OH_AVSCREEN_CAPTURE_ErrCode;
-    /// Call Settings Policy value for whether to allow screen capture during cellular calls
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.AVScreenCapture
-    /// # Arguments
-    ///
-    /// {OH_AVScreenCapture_CaptureStrategy*} strategy Pointer to an OH_AVScreenCapture_CaptureStrategy instance
-    ///
-    /// {bool} value The default value is false, which means that screen recording is not allowed during cellular
-    /// calls.
-    ///
-    /// # Returns
-    ///
-    /// * Function result code.
-    /// [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK) if the execution is successful.
-    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL) strategy value is nullptr.
-    ///
-    /// Available since API-level: 20
-    #[cfg(feature = "api-20")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
-    pub fn OH_AVScreenCapture_StrategyForKeepCaptureDuringCall(
-        strategy: *mut OH_AVScreenCapture_CaptureStrategy,
-        value: bool,
-    ) -> OH_AVSCREEN_CAPTURE_ErrCode;
-    /// Set the Capture Content Changed callback function so that your application can
-    /// customize event handler generated by the screen capture. This interface must be called before Start is called.
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.AVScreenCapture
-    /// # Arguments
-    ///
-    /// * `capture` - Pointer to an OH_AVScreenCapture instance
-    ///
-    /// * `callback` - contentchanged callback function, see [`OH_AVScreenCapture_OnCaptureContentChanged`](crate::avscreen_capture_base::OH_AVScreenCapture_OnCaptureContentChanged)
-    ///
-    /// * `userData` - Pointer to user specific data
-    ///
-    /// # Returns
-    ///
-    /// * Function result code.
-    /// [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK) if the execution is successful.
-    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL) input capture is nullptr or input callback is nullptr.
-    /// [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT) opertation not be permitted, set ErrorCallback failed.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -790,21 +447,275 @@ extern "C" {
         callback: OH_AVScreenCapture_OnCaptureContentChanged,
         userData: *mut ::core::ffi::c_void,
     ) -> OH_AVSCREEN_CAPTURE_ErrCode;
-    /// Set or update the captureArea
+    /// Starts screen capture in surface mode.
+    ///
     /// # Arguments
     ///
-    /// {struct OH_AVScreenCapture*} capture capture Pointer to an OH_AVScreenCapture instance
+    /// * `capture` - Pointer to an OH_AVScreenCapture instance.
     ///
-    /// {uint64_t} displayId Indicates the screen index for setting area recording
-    ///
-    /// {OH_Rect*} area Pointer to an object describing the location and size of the region
+    /// * `window` - Pointer to an OHNativeWindow instance.
     ///
     /// # Returns
     ///
-    /// * Function result code.
-    /// [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK) if the execution is successful.
-    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL) input capture is nullptr or displayid not exist or area is
-    /// invalid.
+    /// * [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK): The operation is successful.
+    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **capture**, input parameter **window**, or **
+    /// windowSurface** pointed to by **window** is nullptr.
+    /// **AV_SCREEN_CAPTURE_ERR_UNSUPPORT** (available since API version 20): The device does not support the operation.
+    /// [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT): The operation is not allowed. The privacy permission fails to be
+    /// enabled or screen capture with a surface fails to start.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
+    pub fn OH_AVScreenCapture_StartScreenCaptureWithSurface(
+        capture: *mut OH_AVScreenCapture,
+        window: *mut OHNativeWindow,
+    ) -> OH_AVSCREEN_CAPTURE_ErrCode;
+    /// Sets whether the captured screen data should rotate.
+    /// When **canvasRotation** is set to **true**, rotation is enabled and the captured screen data remains upright.
+    /// The default value is **false**.
+    ///
+    /// # Arguments
+    ///
+    /// * `capture` - Pointer to an OH_AVScreenCapture instance
+    ///
+    /// * `canvasRotation` - whether to rotate the canvas
+    ///
+    /// # Returns
+    ///
+    /// * [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK): The operation is successful.
+    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **capture** is nullptr.
+    /// **AV_SCREEN_CAPTURE_ERR_UNSUPPORT** (available since API version 20): The device does not support the operation.
+    /// [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT): The operation is not allowed. Canvas rotation fails to be set for
+    /// screen capture.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
+    pub fn OH_AVScreenCapture_SetCanvasRotation(
+        capture: *mut OH_AVScreenCapture,
+        canvasRotation: bool,
+    ) -> OH_AVSCREEN_CAPTURE_ErrCode;
+    /// Creates a content filter.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * OH_AVScreenCapture_ContentFilter instance if the operation is successful; nullptr otherwise.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
+    pub fn OH_AVScreenCapture_CreateContentFilter() -> *mut OH_AVScreenCapture_ContentFilter;
+    /// Releases a content filter.
+    ///
+    /// # Arguments
+    ///
+    /// * `filter` - Pointer to the OH_AVScreenCapture_ContentFilter instance.
+    ///
+    /// # Returns
+    ///
+    /// * [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK): The operation is successful.
+    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **filter** is nullptr.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
+    pub fn OH_AVScreenCapture_ReleaseContentFilter(
+        filter: *mut OH_AVScreenCapture_ContentFilter,
+    ) -> OH_AVSCREEN_CAPTURE_ErrCode;
+    /// Adds audio content to a content filter.
+    ///
+    /// # Arguments
+    ///
+    /// * `filter` - Pointer to the OH_AVScreenCapture_ContentFilter instance.
+    ///
+    /// * `content` - Pointer to the OH_AVScreenCaptureFilterableAudioContent instance.
+    ///
+    /// # Returns
+    ///
+    /// * [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK): The operation is successful.
+    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **filter** is nullptr or the input parameter **content**
+    /// is invalid.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
+    pub fn OH_AVScreenCapture_ContentFilter_AddAudioContent(
+        filter: *mut OH_AVScreenCapture_ContentFilter,
+        content: OH_AVScreenCaptureFilterableAudioContent,
+    ) -> OH_AVSCREEN_CAPTURE_ErrCode;
+    /// Sets a content filter for an OH_AVScreenCapture instance.
+    ///
+    /// # Arguments
+    ///
+    /// * `capture` - Pointer to the OH_AVScreenCapture instance.
+    ///
+    /// * `filter` - Pointer to the OH_AVScreenCapture_ContentFilter instance.
+    ///
+    /// # Returns
+    ///
+    /// * [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK): The operation is successful.
+    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **capture** or **filter** is nullptr.
+    /// [`AV_SCREEN_CAPTURE_ERR_UNSUPPORT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_UNSUPPORT): The operation is not supported. For streams, the AudioCapturer API must be
+    /// called for the operation to take effect during the start.
+    /// For captured files, the Recorder API must be called for the operation to take effect during the start.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
+    pub fn OH_AVScreenCapture_ExcludeContent(
+        capture: *mut OH_AVScreenCapture,
+        filter: *mut OH_AVScreenCapture_ContentFilter,
+    ) -> OH_AVSCREEN_CAPTURE_ErrCode;
+    /// Adds a list of window IDs to a ContentFilter instance.
+    ///
+    /// # Arguments
+    ///
+    /// * `filter` - Pointer to the OH_AVScreenCapture_ContentFilter instance.
+    ///
+    /// * `windowIDs` - Pointer to the window IDs.
+    ///
+    /// * `windowCount` - Length of the window ID list.
+    ///
+    /// # Returns
+    ///
+    /// * **AV_SCREEN_CAPTURE_ERR_OK** if the operation is successful; a specific error code if the operation fails.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
+    pub fn OH_AVScreenCapture_ContentFilter_AddWindowContent(
+        filter: *mut OH_AVScreenCapture_ContentFilter,
+        windowIDs: *mut i32,
+        windowCount: i32,
+    ) -> OH_AVSCREEN_CAPTURE_ErrCode;
+    /// Adjusts the screen resolution.
+    /// This function is used to set the resolution of screen capture data. **width** indicates the screen width and **
+    /// height** indicates the screen height.
+    /// Currently, this function supports only the scenario of capturing streams, but not the scenario of storing captured
+    /// files. In addition, the caller of this function and the video data consumer must ensure that they support resolution
+    /// changes of the received video data.
+    ///
+    /// # Arguments
+    ///
+    /// * `capture` - Pointer to an OH_AVScreenCapture instance
+    ///
+    /// * `width` - Video frame width of avscreeencapture, in px.
+    ///
+    /// * `height` - Video frame height of avscreeencapture, in px.
+    ///
+    /// # Returns
+    ///
+    /// * [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK): The operation is successful.
+    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **capture** is nullptr.
+    /// **AV_SCREEN_CAPTURE_ERR_UNSUPPORT** (available since API version 20): The device does not support the operation.
+    /// [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
+    pub fn OH_AVScreenCapture_ResizeCanvas(
+        capture: *mut OH_AVScreenCapture,
+        width: i32,
+        height: i32,
+    ) -> OH_AVSCREEN_CAPTURE_ErrCode;
+    /// Exempts privacy windows during screen capture.
+    /// Currently, all the IDs of the subwindows and main windows to skip must be passed in.
+    ///
+    /// # Arguments
+    ///
+    /// * `capture` - Pointer to an OH_AVScreenCapture instance
+    ///
+    /// * `windowIDs` - Pointer of windowID list
+    ///
+    /// * `windowCount` - length of windowID list
+    ///
+    /// # Returns
+    ///
+    /// * [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK): The operation is successful.
+    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **capture** is nullptr.
+    /// **AV_SCREEN_CAPTURE_ERR_UNSUPPORT** (available since API version 20): The device does not support the operation.
+    /// [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
+    pub fn OH_AVScreenCapture_SkipPrivacyMode(
+        capture: *mut OH_AVScreenCapture,
+        windowIDs: *mut i32,
+        windowCount: i32,
+    ) -> OH_AVSCREEN_CAPTURE_ErrCode;
+    /// Sets the maximum frame rate for screen capture.
+    /// This function must be called after screen capture starts.
+    ///
+    /// The maximum frame rate that can be configured is subject to the device's limitations and is ultimately governed by
+    /// the capabilities of the underlying system.
+    /// Although there is no limit on the maximum value of the input parameter, the maximum frame rate supported is 60 FPS.
+    /// If the input parameter value exceeds 60 FPS, 60 FPS is used. If the value does not exceed the upper limit, the
+    /// passed value is used.
+    ///
+    /// # Arguments
+    ///
+    /// * `capture` - Pointer to an OH_AVScreenCapture instance
+    ///
+    /// * `frameRate` - max frame rate of video, in fps.
+    ///
+    /// # Returns
+    ///
+    /// * [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK): The operation is successful.
+    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **capture** is nullptr, or the input parameter **
+    /// frameRate** is not supported.
+    /// **AV_SCREEN_CAPTURE_ERR_UNSUPPORT** (available since API version 20): The device does not support the operation.
+    /// [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
+    ///
+    /// Available since API-level: 14
+    #[cfg(feature = "api-14")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
+    pub fn OH_AVScreenCapture_SetMaxVideoFrameRate(
+        capture: *mut OH_AVScreenCapture,
+        frameRate: i32,
+    ) -> OH_AVSCREEN_CAPTURE_ErrCode;
+    /// Sets whether to show the cursor.
+    ///
+    /// # Arguments
+    ///
+    /// * `capture` - Pointer to an OH_AVScreenCapture instance
+    ///
+    /// * `showCursor` - The switch of the cursor
+    ///
+    /// # Returns
+    ///
+    /// * [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK): The operation is successful.
+    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **capture** is nullptr.
+    /// **AV_SCREEN_CAPTURE_ERR_UNSUPPORT** (available since API version 20): The device does not support the operation.
+    /// [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT): The operation is not allowed. The cursor setting fails.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_AVScreenCapture_ShowCursor(
+        capture: *mut OH_AVScreenCapture,
+        showCursor: bool,
+    ) -> OH_AVSCREEN_CAPTURE_ErrCode;
+    /// Sets or updates the capture area.
+    /// This function can be called before or after screen capture starts. The coordinates and dimensions provided must be
+    /// non-negative, and the capture area must not span multiple screens. If setting the area fails, the previously set
+    /// area is used for capturing.
+    ///
+    /// # Arguments
+    ///
+    /// * `capture` - capture Pointer to an OH_AVScreenCapture instance
+    ///
+    /// * `displayId` - Indicates the screen index for setting area recording
+    ///
+    /// * `area` - Pointer to an object describing the location and size of the region
+    ///
+    /// # Returns
+    ///
+    /// * [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK): The operation is successful.
+    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **capture** is a nullptr, the input **displayId** does
+    /// not exist, or the input **area** is abnormal.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -814,17 +725,180 @@ extern "C" {
         displayId: u64,
         area: *mut OH_Rect,
     ) -> OH_AVSCREEN_CAPTURE_ErrCode;
-    /// Set the fill mode for screen capture when a privacy window exists
+    /// Sets the highlight style for the screen capture area.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.AVScreenCapture
     /// # Arguments
     ///
-    /// {OH_AVScreenCapture_CaptureStrategy*} strategy Pointer to an OH_AVScreenCapture_CaptureStrategy instance
+    /// * `capture` - Pointer to OH_AVScreenCapture which want to set highlight style.
     ///
-    /// {int32_t} value
-    /// If set to 0, it means that when there is a privacy window interface, the output screen image is completely black.
-    /// If set to 1, it means that when there is a privacy window interface, only the privacy window area of the output
-    /// screen becomes black, and other values returns an error.
+    /// * `config` - the highlight parameters are to be set for this screen capture.
+    ///
+    /// # Returns
+    ///
+    /// * [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK): The operation is successful.
+    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **capture** is nullptr or **config** is invalid.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_AVScreenCapture_SetCaptureAreaHighlight(
+        capture: *mut OH_AVScreenCapture,
+        config: OH_AVScreenCaptureHighlightConfig,
+    ) -> OH_AVSCREEN_CAPTURE_ErrCode;
+    /// Registers a callback to handle user selection results on the manual confirmation UI. This callback must be
+    /// invoked before screen capture starts.
+    ///
+    /// # Arguments
+    ///
+    /// * `capture` - Pointer to OH_AVScreenCapture which want to handle user selection info
+    ///
+    /// * `callback` - user selection callback function, see [`OH_AVScreenCapture_OnUserSelected`](crate::avscreen_capture_base::OH_AVScreenCapture_OnUserSelected)
+    ///
+    /// * `userData` - The control block pointer passed by the application is carried to the application when it is
+    /// returned
+    ///
+    /// # Returns
+    ///
+    /// * [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK): The operation is successful.
+    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **capture** is nullptr.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_AVScreenCapture_SetSelectionCallback(
+        capture: *mut OH_AVScreenCapture,
+        callback: OH_AVScreenCapture_OnUserSelected,
+        userData: *mut ::core::ffi::c_void,
+    ) -> OH_AVSCREEN_CAPTURE_ErrCode;
+    /// Obtains the screen capture object type selected by the user on the confirmation UI. This function is used in
+    /// the [`OH_AVScreenCapture_OnUserSelected`](crate::avscreen_capture_base::OH_AVScreenCapture_OnUserSelected) callback. The **selection** pointer is destroyed after the callback is
+    /// complete.
+    ///
+    /// # Arguments
+    ///
+    /// * `selection` - Pointer to an OH_AVScreenCapture_UserSelectionInfo instance
+    ///
+    /// * `type` - The capture object type selected by the user,
+    /// 0: represents the screen, 1: represents the window, 2: represents the app.
+    ///
+    /// # Returns
+    ///
+    /// * [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK): The operation is successful.
+    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **selection** is nullptr.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_AVScreenCapture_GetCaptureTypeSelected(
+        selection: *mut OH_AVScreenCapture_UserSelectionInfo,
+        type_: *mut i32,
+    ) -> OH_AVSCREEN_CAPTURE_ErrCode;
+    /// Obtains the display ID of the screen selected by the user for capture. This function is used in the [`OH_AVScreenCapture_OnUserSelected`](crate::avscreen_capture_base::OH_AVScreenCapture_OnUserSelected)
+    /// callback. The **selection** pointer is destroyed after the callback is complete.
+    ///
+    /// # Arguments
+    ///
+    /// * `selection` - Pointer to an OH_AVScreenCapture_UserSelectionInfo instance
+    ///
+    /// * `displayId` - Returns the screen ID value selected by the user
+    ///
+    /// # Returns
+    ///
+    /// * [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK): The operation is successful.
+    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **selection** is nullptr.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_AVScreenCapture_GetDisplayIdSelected(
+        selection: *mut OH_AVScreenCapture_UserSelectionInfo,
+        displayId: *mut u64,
+    ) -> OH_AVSCREEN_CAPTURE_ErrCode;
+    /// Creates a screen capture strategy.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * OH_AVScreenCapture_CaptureStrategy instance if the operation is successful; nullptr otherwise.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_AVScreenCapture_CreateCaptureStrategy() -> *mut OH_AVScreenCapture_CaptureStrategy;
+    /// Releases a screen capture strategy.
+    ///
+    /// # Arguments
+    ///
+    /// * `strategy` - Pointer to an OH_AVScreenCapture_CaptureStrategy instance
+    ///
+    /// # Returns
+    ///
+    /// * [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK): The operation is successful.
+    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **strategy** is nullptr.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_AVScreenCapture_ReleaseCaptureStrategy(
+        strategy: *mut OH_AVScreenCapture_CaptureStrategy,
+    ) -> OH_AVSCREEN_CAPTURE_ErrCode;
+    /// Sets a screen capture strategy for an OH_AVScreenCapture instance.
+    /// This function must be called before screen capture starts.
+    ///
+    /// # Arguments
+    ///
+    /// * `capture` - Pointer to an OH_AVScreenCapture which need to be setted.
+    ///
+    /// * `strategy` - Pointer to an OH_AVScreenCapture_CaptureStrategy which want to
+    /// set.
+    ///
+    /// # Returns
+    ///
+    /// * [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK): The operation is successful.
+    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **capture** or **strategy** is nullptr.
+    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_STATE`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_STATE): This function is called after screen capture starts.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_AVScreenCapture_SetCaptureStrategy(
+        capture: *mut OH_AVScreenCapture,
+        strategy: *mut OH_AVScreenCapture_CaptureStrategy,
+    ) -> OH_AVSCREEN_CAPTURE_ErrCode;
+    /// Sets whether to keep screen capture during a cellular call.
+    /// When **value** is set to **true** and screen capture is active during a cellular call, for privacy reasons, the
+    /// voices of both parties (local microphone and remote speaker) are not captured. Other system sounds are captured
+    /// normally. After the call ends, the screen capture framework resumes microphone recording. If the screen capture
+    /// application is running in the background when the call ends, microphone recording fails to start because the audio
+    /// module does not allow background applications to activate microphone recording.
+    ///
+    /// # Arguments
+    ///
+    /// * `strategy` - Pointer to an OH_AVScreenCapture_CaptureStrategy instance
+    ///
+    /// * `value` - The default value is false, which means that screen recording is not allowed during cellular
+    /// calls.
+    ///
+    /// # Returns
+    ///
+    /// * [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK): The operation is successful.
+    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **strategy** is nullptr.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_AVScreenCapture_StrategyForKeepCaptureDuringCall(
+        strategy: *mut OH_AVScreenCapture_CaptureStrategy,
+        value: bool,
+    ) -> OH_AVSCREEN_CAPTURE_ErrCode;
+    /// Set the fill mode for screen capture when a privacy window exists
+    /// # Arguments
+    ///
+    /// * `strategy` - Pointer to an OH_AVScreenCapture_CaptureStrategy instance
+    ///
+    /// * `value` - If set to 0, it means that when there is a privacy window interface, the output screen image is completely black.
+    /// If set to 1, it means that when there is a privacy window interface, only the privacy window area of the output screen becomes black,
+    /// and other values returns an error.
     ///
     /// # Returns
     ///
@@ -839,114 +913,22 @@ extern "C" {
         strategy: *mut OH_AVScreenCapture_CaptureStrategy,
         value: i32,
     ) -> OH_AVSCREEN_CAPTURE_ErrCode;
-    /// Set the canvas to rotate with the screen when capturing the screen
+    /// Sets whether to enable B-frame encoding for a CaptureStrategy instance to reduce the size of the recorded
+    /// file.
+    /// For details about the restrictions on B-frame video encoding, see Constraints in B-Frame Video Encoding. If
+    /// the current environment does not meet the restrictions, B-frames will be skipped during screen capture, and no error
+    /// will be returned.
+    ///
     /// # Arguments
     ///
-    /// {OH_AVScreenCapture_CaptureStrategy*} strategy Pointer to an OH_AVScreenCapture_CaptureStrategy instance
+    /// * `strategy` - Pointer to an OH_AVScreenCapture_CaptureStrategy instance
     ///
-    /// {bool} value The default value is False, which means that the width and height of the VirtualDisplay
-    /// remain the initial settings. If set to True, it means that the width and height of the VirtualDisplay rotates
-    /// with the rotation of the screen..
+    /// * `value` - The default value is false, which means B frames encoding are disabled.
     ///
     /// # Returns
     ///
-    /// * Function result code.
-    /// [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK) if the execution is successful.
-    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL) strategy value is nullptr.
-    ///
-    /// Available since API-level: 20
-    #[cfg(feature = "api-20")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
-    pub fn OH_AVScreenCapture_StrategyForCanvasFollowRotation(
-        strategy: *mut OH_AVScreenCapture_CaptureStrategy,
-        value: bool,
-    ) -> OH_AVSCREEN_CAPTURE_ErrCode;
-    /// Register user selection notification callback function
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.AVScreenCapture
-    /// # Arguments
-    ///
-    /// {OH_AVScreenCapture*} capture Pointer to OH_AVScreenCapture which want to handle user selection info
-    ///
-    /// {OH_AVScreenCapture_OnUserSelected} callback user selection callback function, see
-    /// [`OH_AVScreenCapture_OnUserSelected`](crate::avscreen_capture_base::OH_AVScreenCapture_OnUserSelected)
-    ///
-    /// {void*} userData The control block pointer passed by the application is carried to the application when it
-    /// is returned
-    ///
-    /// # Returns
-    ///
-    /// * Function result code.
-    /// [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK) if the execution is successful.
-    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL) input capture is nullptr.
-    ///
-    /// Available since API-level: 20
-    #[cfg(feature = "api-20")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
-    pub fn OH_AVScreenCapture_SetSelectionCallback(
-        capture: *mut OH_AVScreenCapture,
-        callback: OH_AVScreenCapture_OnUserSelected,
-        userData: *mut ::core::ffi::c_void,
-    ) -> OH_AVSCREEN_CAPTURE_ErrCode;
-    /// Get the recording content type selected by the user in the confirmation interface
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.AVScreenCapture
-    /// # Arguments
-    ///
-    /// {OH_AVScreenCapture_UserSelectionInfo*} selection Pointer to an OH_AVScreenCapture_UserSelectionInfo instance
-    ///
-    /// {int32_t*} type The capture object type selected by the user, 0: represents the screen, 1: represents the
-    /// window.
-    ///
-    /// # Returns
-    ///
-    /// * Function result code.
-    /// [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK) if the execution is successful.
-    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL) if selections is nullptr.
-    ///
-    /// Available since API-level: 20
-    #[cfg(feature = "api-20")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
-    pub fn OH_AVScreenCapture_GetCaptureTypeSelected(
-        selection: *mut OH_AVScreenCapture_UserSelectionInfo,
-        type_: *mut i32,
-    ) -> OH_AVSCREEN_CAPTURE_ErrCode;
-    /// Get the Display ID of user selections in the confirmation interface
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.AVScreenCapture
-    /// # Arguments
-    ///
-    /// {OH_AVScreenCapture_UserSelectionInfo*} selection Pointer to an OH_AVScreenCapture_UserSelectionInfo instance
-    ///
-    /// {uint64_t*} displayId Returns the screen ID value selected by the user
-    ///
-    /// # Returns
-    ///
-    /// * Function result code.
-    /// [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK) if the execution is successful.
-    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL) if selections is nullptr.
-    ///
-    /// Available since API-level: 20
-    #[cfg(feature = "api-20")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
-    pub fn OH_AVScreenCapture_GetDisplayIdSelected(
-        selection: *mut OH_AVScreenCapture_UserSelectionInfo,
-        displayId: *mut u64,
-    ) -> OH_AVSCREEN_CAPTURE_ErrCode;
-    /// Indicates whether to enable B-frame encoding, which is used to reduce the size of the recorded file.
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.AVScreenCapture
-    /// # Arguments
-    ///
-    /// {OH_AVScreenCapture_CaptureStrategy*} strategy Pointer to an OH_AVScreenCapture_CaptureStrategy instance
-    ///
-    /// {bool} value The default value is false, which means B frames encoding are disabled.
-    ///
-    /// # Returns
-    ///
-    /// * Function result code.
-    /// [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK) if the execution is successful.
-    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL) strategy is nullptr.
+    /// * [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK): The operation is successful.
+    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **strategy** is nullptr.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -955,21 +937,46 @@ extern "C" {
         strategy: *mut OH_AVScreenCapture_CaptureStrategy,
         value: bool,
     ) -> OH_AVSCREEN_CAPTURE_ErrCode;
-    /// set whether to pop up the screen capture Picker
+    /// Sets the automatic rotation following configuration for screen capture. If the value is set to **true**, the
+    /// screen capture follows the rotation, and the virtual screen size is automatically adjusted after a rotation to
+    /// ensure the output image matches the new orientation.
+    /// After this setting, there is no need to manually call [`OH_AVScreenCapture_ResizeCanvas`](crate::avscreen_capture::OH_AVScreenCapture_ResizeCanvas) after rotation
+    /// notifications.
+    ///
     /// # Arguments
     ///
-    /// {OH_AVScreenCapture_CaptureStrategy*} strategy Pointer to an OH_AVScreenCapture_CaptureStrategy instance
+    /// * `strategy` - Pointer to an OH_AVScreenCapture_CaptureStrategy instance
     ///
-    /// {bool} value
-    /// If set to false, it means that the APP don’t need to pop up the Picker after screen capture starts;
-    /// if set to True, the Picker will pop up uniformly after screen capture starts;
+    /// * `value` - The default value is False, which means that the width and height of the VirtualDisplay
+    /// remain the initial settings. If set to True, it means that the width and height of the VirtualDisplay rotates
+    /// with the rotation of the screen..
+    ///
+    /// # Returns
+    ///
+    /// * [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK): The operation is successful.
+    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **strategy** is nullptr.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_AVScreenCapture_StrategyForCanvasFollowRotation(
+        strategy: *mut OH_AVScreenCapture_CaptureStrategy,
+        value: bool,
+    ) -> OH_AVSCREEN_CAPTURE_ErrCode;
+    /// Sets whether to display the screen capture picker.
+    ///
+    /// # Arguments
+    ///
+    /// * `strategy` - Pointer to an OH_AVScreenCapture_CaptureStrategy instance
+    ///
+    /// * `value` - If set to false, it means that the APP don't need to pop up the Picker after screen capture starts;
+    /// If set to True, the Picker will pop up uniformly after screen capture starts;
     /// If not set, it means using the system recommended behavior.
     ///
     /// # Returns
     ///
-    /// * Function result code.
-    /// [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK) if the execution is successful.
-    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL) strategy value is nullptr.
+    /// * [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK): The operation is successful.
+    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **strategy** is nullptr or **value** is invalid.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -978,18 +985,18 @@ extern "C" {
         strategy: *mut OH_AVScreenCapture_CaptureStrategy,
         value: bool,
     ) -> OH_AVSCREEN_CAPTURE_ErrCode;
-    /// Set the fill mode of the captured image in the target area
+    /// Sets the fill mode of the captured image in the target region.
+    ///
     /// # Arguments
     ///
-    /// {OH_AVScreenCapture_CaptureStrategy*} strategy Pointer to an OH_AVScreenCapture_CaptureStrategy instance
+    /// * `strategy` - Pointer to an OH_AVScreenCapture_CaptureStrategy instance
     ///
-    /// {OH_AVScreenCapture_FillMode} mode Value of the captured image fill mode
+    /// * `mode` - Value of the captured image fill mode
     ///
     /// # Returns
     ///
-    /// * Function result code.
-    /// [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK) if the execution is successful.
-    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL) strategy value is nullptr.
+    /// * [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK): The operation is successful.
+    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **strategy** is nullptr.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -998,47 +1005,53 @@ extern "C" {
         strategy: *mut OH_AVScreenCapture_CaptureStrategy,
         mode: OH_AVScreenCapture_FillMode,
     ) -> OH_AVSCREEN_CAPTURE_ErrCode;
-    /// set the highlight style of recording area.
+    /// Sets a callback function for obtaining the display ID.
+    ///
     /// # Arguments
     ///
-    /// {OH_AVScreenCapture*} capture Pointer to OH_AVScreenCapture which want to set highlight style.
+    /// * `capture` - Pointer to the OH_AVScreenCapture instance.
     ///
-    /// {OH_AVScreenCaptureHighlightConfig} config the highlight parameters are to be set for this screen capture.
+    /// * `callback` - Callback function for returning the display ID.
+    ///
+    /// * `userData` - Pointer to the user-defined data. The data is returned as an input parameter when the state change
+    /// callback is triggered.
     ///
     /// # Returns
     ///
-    /// * Function result code.
-    /// [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK) if the execution is successful.
-    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL) input capture is nullptr or config is invalid.
+    /// * [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK): The operation is successful.
+    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **capture** or **callback** is nullptr.
+    /// [`AV_SCREEN_CAPTURE_ERR_NO_MEMORY`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_NO_MEMORY): The memory fails to be allocated due to insufficient memory.
+    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_STATE`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_STATE): The callback must be called before the **start** function.
     ///
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    pub fn OH_AVScreenCapture_SetCaptureAreaHighlight(
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_AVScreenCapture_SetDisplayCallback(
         capture: *mut OH_AVScreenCapture,
-        config: OH_AVScreenCaptureHighlightConfig,
+        callback: OH_AVScreenCapture_OnDisplaySelected,
+        userData: *mut ::core::ffi::c_void,
     ) -> OH_AVSCREEN_CAPTURE_ErrCode;
-    /// Configures exclusion list for system-level picker window
+    /// Hides the specified window in the picker. This function is called before the picker is displayed. It is to
+    /// filter and hide a window.
+    ///
     ///
     ///
     /// Filters specified windows before displaying the system-level picker.
     /// Excluded windows will not appear in the selection list.
     /// # Arguments
     ///
-    /// * `capture` - \[in\] Screen capture handle created via OH_AVScreenCapture_Create
+    /// * `capture` - Pointer to the OH_AVScreenCapture instance.
     ///
-    /// * `excludedWindowIDs` - \[in\] Array of window IDs to exclude (process-local)
+    /// * `excludedWindowIDs` - Array of IDs of the windows to be hidden (existing windows).
     ///
-    /// * `windowCount` - \[in\] Number of excluded windows
+    /// * `windowCount` - Size of the array.
     ///
     /// # Returns
     ///
-    /// * Function result code.
-    /// [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK) if the execution is successful.
-    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL) invalid parameters.
-    /// (null pointer/cross-process window IDs)
-    /// [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT) operation not be permitted.
+    /// * [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK): The operation is successful.
+    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **capture** is nullptr or **excludedWindowIDs** is
+    /// invalid.
+    /// [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -1048,23 +1061,24 @@ extern "C" {
         excludedWindowIDs: *const i32,
         windowCount: u32,
     ) -> OH_AVSCREEN_CAPTURE_ErrCode;
-    /// Sets the mode for the system-level screen capture picker
+    /// Sets the display mode of the picker. You can define the content type displayed in the picker. The mode change
+    /// takes effect when [`OH_AVScreenCapture_PresentPicker`](crate::avscreen_capture::OH_AVScreenCapture_PresentPicker) is called next time.
+    ///
     ///
     ///
     /// Defines the content type displayed in the system-level picker.
     /// Mode changes take effect upon the next call to function PresentPicker.
     /// # Arguments
     ///
-    /// * `capture` - \[in\] Pointer to the screen capture instance created via OH_AVScreenCapture_Create
+    /// * `capture` - Pointer to the OH_AVScreenCapture instance.
     ///
-    /// * `pickerMode` - \[in\] Picker display mode (see OH_CapturePickerMode enum)
+    /// * `pickerMode` - Display mode of the picker. For details, see **OH_CapturePickerMode**.
     ///
     /// # Returns
     ///
-    /// * Function result code.
-    /// [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK) mode configuration succeeded.
-    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL) invalid mode value or null pointer.
-    /// [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT) operation not be permitted.
+    /// * [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK): The operation is successful.
+    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **capture** is nullptr or **pickerMode** is invalid.
+    /// [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -1073,7 +1087,12 @@ extern "C" {
         capture: *mut OH_AVScreenCapture,
         pickerMode: OH_CapturePickerMode,
     ) -> OH_AVSCREEN_CAPTURE_ErrCode;
-    /// Displays system-level picker for screen capture source selection
+    /// Displays the picker once more after the screen capture starts, allowing for dynamic updates to the recording
+    /// source, such as changing the window or screen being captured. The ongoing capture process remains uninterrupted
+    /// while updating the recording source.
+    /// Following the dynamic update of the recording source through the picker, the capture can proceed with the newly
+    /// selected source.
+    ///
     ///
     ///
     /// Activates system visual picker with two usage scenarios:
@@ -1081,19 +1100,153 @@ extern "C" {
     /// 2. Dynamic source switching: Change capture target during active capture
     /// # Arguments
     ///
-    /// * `capture` - \[in\] Initialized screen capture instance
+    /// * `capture` - Pointer to the OH_AVScreenCapture instance.
     ///
     /// # Returns
     ///
-    /// * Function result code.
-    /// [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK) picker activated successfully.
-    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL) null pointer or uninitialized instance.
-    /// [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT) operation not be permitted.
+    /// * [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK): The operation is successful.
+    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **capture** is nullptr.
+    /// [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub fn OH_AVScreenCapture_PresentPicker(
+        capture: *mut OH_AVScreenCapture,
+    ) -> OH_AVSCREEN_CAPTURE_ErrCode;
+    /// Obtains the multi-screen recording capability information and determines whether the selected screens support
+    /// joint recording.
+    ///
+    /// # Arguments
+    ///
+    /// * `capture` - Pointer to the OH_AVScreenCapture instance.
+    ///
+    /// * `displayIds` - Pointer to the array of display IDs selected by the user.
+    ///
+    /// * `count` - Number of display IDs selected by the user.
+    ///
+    /// * `capability` - Pointer to the **OH_MultiDisplayCapability** instance.
+    ///
+    /// # Returns
+    ///
+    /// * [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK): The operation is successful.
+    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **capture** is a null pointer.
+    /// [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT): The operation is not allowed, and data fails to be obtained.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_AVScreenCapture_GetMultiDisplayCaptureCapability(
+        capture: *mut OH_AVScreenCapture,
+        displayIds: *mut u64,
+        count: usize,
+        capability: *mut OH_MultiDisplayCapability,
+    ) -> OH_AVSCREEN_CAPTURE_ErrCode;
+    /// Obtains the list of display IDs selected by the user for recording on the picker page. This function is used
+    /// in the [`OH_AVScreenCapture_OnUserSelected`](crate::avscreen_capture_base::OH_AVScreenCapture_OnUserSelected) callback. The **selection** pointer is destroyed after the callback
+    /// is complete.
+    ///
+    /// # Arguments
+    ///
+    /// * `selection` - Pointer to the OH_AVScreenCapture_UserSelectionInfo instance.
+    ///
+    /// * `displayIds` - Double pointer to the array of display IDs selected by the user. The memory of the **displayIds**
+    /// parameter is managed by **OH_AVScreenCapture_UserSelectionInfo** and does not need to be manually released.
+    ///
+    /// * `count` - Pointer to the number of display IDs selected by the user.
+    ///
+    /// # Returns
+    ///
+    /// * [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK): The operation is successful.
+    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **selection** is a null pointer.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_AVScreenCapture_GetMultiDisplayIdsSelected(
+        selection: *mut OH_AVScreenCapture_UserSelectionInfo,
+        displayIds: *mut *mut u64,
+        count: *mut usize,
+    ) -> OH_AVSCREEN_CAPTURE_ErrCode;
+    /// Sets a privacy protection callback so that the application can respond to privacy protection events generated
+    /// during screen capture. This API must be called before screen capture starts.
+    ///
+    /// # Arguments
+    ///
+    /// * `capture` - Pointer to the OH_AVScreenCapture instance.
+    ///
+    /// * `callback` - Privacy protection callback function.
+    ///
+    /// * `userData` - Pointer to the user-defined data. The data is returned as an input parameter when the state change
+    /// callback is triggered.
+    ///
+    /// # Returns
+    ///
+    /// * [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK): The operation is successful.
+    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input screen capture instance or callback is a null pointer.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_AVScreenCapture_SetPrivacyProtectCallback(
+        capture: *mut OH_AVScreenCapture,
+        callback: OH_AVScreenCapture_OnPrivacyProtect,
+        userData: *mut ::core::ffi::c_void,
+    ) -> OH_AVSCREEN_CAPTURE_ErrCode;
+    /// Allow to pause screen capture
+    /// # Arguments
+    ///
+    /// * `strategy` - Pointer to an OH_AVScreenCapture_CaptureStrategy instance.
+    ///
+    /// * `value` - The default value is false, which means that screen recording is not allowed to pause
+    ///
+    /// # Returns
+    ///
+    /// * Function result code.
+    /// [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK): the execution is successful.
+    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): strategy value is nullptr.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_AVScreenCapture_StrategyForPause(
+        strategy: *mut OH_AVScreenCapture_CaptureStrategy,
+        value: bool,
+    ) -> OH_AVSCREEN_CAPTURE_ErrCode;
+    /// Pause screen capture
+    /// # Arguments
+    ///
+    /// * `capture` - Initialized screen capture instance.
+    ///
+    /// # Returns
+    ///
+    /// * Function result code.
+    /// [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK): the execution is successful.
+    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): capture value is nullptr.
+    /// [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT): operation not permitted.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_AVScreenCapture_PauseScreenCapture(
+        capture: *mut OH_AVScreenCapture,
+    ) -> OH_AVSCREEN_CAPTURE_ErrCode;
+    /// Resume screen capture
+    /// # Arguments
+    ///
+    /// * `capture` - Initialized screen capture instance.
+    ///
+    /// # Returns
+    ///
+    /// * Function result code.
+    /// [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK): the execution is successful.
+    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): capture value is nullptr.
+    /// [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT): operation not permitted.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_AVScreenCapture_ResumeScreenCapture(
         capture: *mut OH_AVScreenCapture,
     ) -> OH_AVSCREEN_CAPTURE_ErrCode;
 }

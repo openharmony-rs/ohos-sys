@@ -8,32 +8,29 @@ use crate::types::*;
 use ohos_sys_opaque_types::OH_NativeColorSpaceManager;
 
 extern "C" {
-    /// Creates an <b>OH_Drawing_Brush</b> object.
+    /// Creates an **OH_Drawing_Brush** object.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the <b>OH_Drawing_Brush</b> object created.
+    /// * Returns the pointer to the **OH_Drawing_Brush** object created.
     ///
     /// Available since API-level: 8
     ///
     /// Version: 1.0
     pub fn OH_Drawing_BrushCreate() -> *mut OH_Drawing_Brush;
-    /// Creates an <b>OH_Drawing_Brush</b> copy object.
+    /// Copies an existing [`OH_Drawing_Brush`](crate::types::OH_Drawing_Brush) object to create a new one.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **brush** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `brush` - Indicates the pointer to an <b>OH_Drawing_Brush</b> object.
+    /// * `brush` - Pointer to an **OH_Drawing_Brush** object.
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the <b>OH_Drawing_Brush</b> object created.
-    /// If nullptr is returned, the creation fails.
-    /// The possible cause of the failure is that the available memory is empty or a nullptr is passed.
+    /// * Returns a pointer to the [`OH_Drawing_Brush`](crate::types::OH_Drawing_Brush) object created. If NULL is returned, the creation fails.
+    /// The possible failure cause is that no memory is available or **brush** is NULL.
     ///
     /// Available since API-level: 12
     ///
@@ -41,58 +38,56 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_BrushCopy(brush: *mut OH_Drawing_Brush) -> *mut OH_Drawing_Brush;
-    /// Destroys an <b>OH_Drawing_Brush</b> object and reclaims the memory occupied by the object.
+    /// Destroys an **OH_Drawing_Brush** object and reclaims the memory occupied by the object.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `brush` - Indicates the pointer to an <b>OH_Drawing_Brush</b> object.
+    /// * `brush` - Pointer to an **OH_Drawing_Brush** object.
     ///
     /// Available since API-level: 8
     ///
     /// Version: 1.0
     pub fn OH_Drawing_BrushDestroy(brush: *mut OH_Drawing_Brush);
-    /// Checks whether anti-aliasing is enabled for a brush. If anti-aliasing is enabled,
-    /// edges will be drawn with partial transparency.
+    /// Checks whether anti-aliasing is enabled for a brush. Anti-aliasing makes the pixels around the shape edges
+    /// semi-transparent.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **brush** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `brush` - Indicates the pointer to an <b>OH_Drawing_Brush</b> object.
+    /// * `brush` - Pointer to an **OH_Drawing_Brush** object.
     ///
     /// # Returns
     ///
-    /// * Returns <b>true</b> if anti-aliasing is enabled; returns <b>false</b> otherwise.
+    /// * Returns **true** if anti-aliasing is enabled; returns **false** otherwise.
     ///
     /// Available since API-level: 8
     ///
     /// Version: 1.0
     pub fn OH_Drawing_BrushIsAntiAlias(brush: *const OH_Drawing_Brush) -> bool;
-    /// Enables or disables anti-aliasing for a brush. If anti-aliasing is enabled,
-    /// edges will be drawn with partial transparency.
+    /// Enables or disables anti-aliasing for a brush. Anti-aliasing makes the pixels around the shape edges semi-
+    /// transparent.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **brush** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `brush` - Indicates the pointer to an <b>OH_Drawing_Brush</b> object.
+    /// * `brush` - Pointer to an **OH_Drawing_Brush** object.
     ///
-    /// * `antiAlias` - Specifies whether to enable anti-aliasing. The value <b>true</b> means
-    /// to enable anti-aliasing, and <b>false</b> means the opposite.
+    /// * `antiAlias` - Whether to enable anti-aliasing. The value **true** means to enable anti-aliasing, and **false**
+    /// means the opposite.
     ///
     /// Available since API-level: 8
     ///
     /// Version: 1.0
     pub fn OH_Drawing_BrushSetAntiAlias(brush: *mut OH_Drawing_Brush, antiAlias: bool);
     /// Obtains the color of a brush. The color is used by the brush to fill in a shape.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **brush** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `brush` - Indicates the pointer to an <b>OH_Drawing_Brush</b> object.
+    /// * `brush` - Pointer to an **OH_Drawing_Brush** object.
     ///
     /// # Returns
     ///
@@ -102,31 +97,31 @@ extern "C" {
     ///
     /// Version: 1.0
     pub fn OH_Drawing_BrushGetColor(brush: *const OH_Drawing_Brush) -> u32;
-    /// Sets the color for a brush. The color will be used by the brush to fill in a shape.
+    /// Sets the color for a brush. The color is used by the brush to fill in a shape.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **brush** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `brush` - Indicates the pointer to an <b>OH_Drawing_Brush</b> object.
+    /// * `brush` - Pointer to an **OH_Drawing_Brush** object.
     ///
-    /// * `color` - Indicates the color to set, which is a 32-bit (ARGB) variable.
+    /// * `color` - Color, which is a 32-bit (ARGB) variable.
     ///
     /// Available since API-level: 8
     ///
     /// Version: 1.0
     pub fn OH_Drawing_BrushSetColor(brush: *mut OH_Drawing_Brush, color: u32);
-    /// Obtains the alpha of a brush. The alpha is used by the brush to fill in a shape.
+    /// Obtains the alpha value of a brush. This value is used by the alpha channel when the brush fills in a shape.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **brush** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `brush` - Indicates the pointer to an <b>OH_Drawing_Brush</b> object.
+    /// * `brush` - Pointer to an **OH_Drawing_Brush** object.
     ///
     /// # Returns
     ///
-    /// * Returns a 8-bit variable that describes the alpha.
+    /// * Returns an 8-bit variable that describes the alpha value.
     ///
     /// Available since API-level: 11
     ///
@@ -134,15 +129,15 @@ extern "C" {
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn OH_Drawing_BrushGetAlpha(brush: *const OH_Drawing_Brush) -> u8;
-    /// Sets the alpha for a brush. The alpha will be used by the brush to fill in a shape.
+    /// Sets the alpha value for a brush. This value is used by the alpha channel when the brush fills in a shape.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **brush** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `brush` - Indicates the pointer to an <b>OH_Drawing_Brush</b> object.
+    /// * `brush` - Pointer to an **OH_Drawing_Brush** object.
     ///
-    /// * `alpha` - Indicates the alpha to set, which is a 8-bit variable.
+    /// * `alpha` - Alpha value, which is an 8-bit variable.
     ///
     /// Available since API-level: 11
     ///
@@ -150,31 +145,35 @@ extern "C" {
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn OH_Drawing_BrushSetAlpha(brush: *mut OH_Drawing_Brush, alpha: u8);
-    /// Sets the color for a brush. The color will be used by the brush to fill in a shape.
-    /// The color is an ARGB structure described by floating point numbers and interpreted as being in the colorSpaceManager.
-    /// If colorSpaceManager is nullptr, then color is assumed to be in the sRGB color space.
+    /// Sets a color for this brush. The color will be used by the brush to fill in a shape.
+    /// The color is in ARGB format represented by floating-point numbers. The color space is specified by
+    /// [`OH_NativeColorSpaceManager`](ohos_sys_opaque_types::OH_NativeColorSpaceManager).
+    /// If **colorSpaceManager** is a null pointer, the SRGB (standard red, green, and blue color space based on IEC 61966-2.
+    /// 1:1999) color space is used as the default value.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `brush` - Indicates the pointer to an <b>OH_Drawing_Brush</b> object.
+    /// * `brush` - Pointer to an [`OH_Drawing_Brush`](crate::types::OH_Drawing_Brush) object.
     ///
-    /// * `a` - Indicates the alpha component of color, represented as a floating point number between 0 and 1.
+    /// * `a` - Alpha value of the color, which is a floating-point number ranging from 0.0 to 1.0. Values above 1.0
+    /// default to 1.0, while values below 0.0 default to 0.0.
     ///
-    /// * `r` - Indicates the red component of color, represented as a floating point number between 0 and 1.
+    /// * `r` - Red component of the color, which is a floating-point number ranging from 0.0 to 1.0. Values above 1.0
+    /// default to 1.0, while values below 0.0 default to 0.0.
     ///
-    /// * `g` - Indicates the green component of color, represented as a floating point number between 0 and 1.
+    /// * `g` - Green component of the color, which is a floating-point number ranging from 0.0 to 1.0. Values above 1.0
+    /// default to 1.0, while values below 0.0 default to 0.0.
     ///
-    /// * `b` - Indicates the blue component of color, represented as a floating point number between 0 and 1.
+    /// * `b` - Blue component of the color, which is a floating-point number ranging from 0.0 to 1.0. Values above 1.0
+    /// default to 1.0, while values below 0.0 default to 0.0.
     ///
-    /// * `colorSpaceManager` - Indicates the pointer to an <b>OH_NativeColorSpaceManager</b> object.
+    /// * `colorSpaceManager` - Pointer to an [`OH_NativeColorSpaceManager`](ohos_sys_opaque_types::OH_NativeColorSpaceManager) object.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`](crate::error_code::DrawingErrorCode::INVALID_PARAMETER) if brush is nullptr.
+    /// * Execution result.
+    /// **OH_DRAWING_SUCCESS** if the operation is successful.
+    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if **brush** is NULL.
     ///
     /// Available since API-level: 20
     ///
@@ -189,21 +188,19 @@ extern "C" {
         b: f32,
         colorSpaceManager: *mut OH_NativeColorSpaceManager,
     ) -> crate::error_code::DrawingResult;
-    /// Obtains the alpha component of a brush.
+    /// Obtains the alpha value of the brush color.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `brush` - Indicates the pointer to an <b>OH_Drawing_Brush</b> object.
+    /// * `brush` - Pointer to an [`OH_Drawing_Brush`](crate::types::OH_Drawing_Brush) object.
     ///
-    /// * `a` - Indicates the alpha component of color.
+    /// * `a` - Alpha value of the color. The value is a floating-point number ranging from 0.0 to 1.0.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`](crate::error_code::DrawingErrorCode::INVALID_PARAMETER) if brush or a is nullptr.
+    /// * Execution result.
+    /// **OH_DRAWING_SUCCESS** if the operation is successful.
+    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if **brush** or **a** is NULL.
     ///
     /// Available since API-level: 20
     ///
@@ -214,21 +211,19 @@ extern "C" {
         brush: *const OH_Drawing_Brush,
         a: *mut f32,
     ) -> crate::error_code::DrawingResult;
-    /// Obtains the red component of a brush.
+    /// Obtains the red component of the brush color.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `brush` - Indicates the pointer to an <b>OH_Drawing_Brush</b> object.
+    /// * `brush` - Pointer to an [`OH_Drawing_Brush`](crate::types::OH_Drawing_Brush) object.
     ///
-    /// * `r` - Indicates the red component of color.
+    /// * `r` - Red component of the pen color. The value is a floating-point number ranging from 0.0 to 1.0.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`](crate::error_code::DrawingErrorCode::INVALID_PARAMETER) if brush or r is nullptr.
+    /// * Execution result.
+    /// **OH_DRAWING_SUCCESS** if the operation is successful.
+    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if **brush** or **r** is NULL.
     ///
     /// Available since API-level: 20
     ///
@@ -239,21 +234,19 @@ extern "C" {
         brush: *const OH_Drawing_Brush,
         r: *mut f32,
     ) -> crate::error_code::DrawingResult;
-    /// Obtains the green component of a brush.
+    /// Obtains the green component of the brush color.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `brush` - Indicates the pointer to an <b>OH_Drawing_Brush</b> object.
+    /// * `brush` - Pointer to an [`OH_Drawing_Brush`](crate::types::OH_Drawing_Brush) object.
     ///
-    /// * `g` - Indicates the green component of color.
+    /// * `g` - Green component of the pen color. The value is a floating-point number ranging from 0.0 to 1.0.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`](crate::error_code::DrawingErrorCode::INVALID_PARAMETER) if brush or g is nullptr.
+    /// * Execution result.
+    /// **OH_DRAWING_SUCCESS** if the operation is successful.
+    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if **brush** or **g** is NULL.
     ///
     /// Available since API-level: 20
     ///
@@ -264,21 +257,19 @@ extern "C" {
         brush: *const OH_Drawing_Brush,
         g: *mut f32,
     ) -> crate::error_code::DrawingResult;
-    /// Obtains the blue component of a brush.
+    /// Obtains the blue component of the brush color.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `brush` - Indicates the pointer to an <b>OH_Drawing_Brush</b> object.
+    /// * `brush` - Pointer to an [`OH_Drawing_Brush`](crate::types::OH_Drawing_Brush) object.
     ///
-    /// * `b` - Indicates the blue component of color.
+    /// * `b` - Blue component of the pen color. The value is a floating-point number ranging from 0.0 to 1.0.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`](crate::error_code::DrawingErrorCode::INVALID_PARAMETER) if brush or b is nullptr.
+    /// * Execution result.
+    /// **OH_DRAWING_SUCCESS** if the operation is successful.
+    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if **brush** or **b** is NULL.
     ///
     /// Available since API-level: 20
     ///
@@ -289,15 +280,16 @@ extern "C" {
         brush: *const OH_Drawing_Brush,
         b: *mut f32,
     ) -> crate::error_code::DrawingResult;
-    /// Sets the shaderEffect for a brush.
+    /// Sets the shader effect for a brush.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **brush** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `brush` - Indicates the pointer to an <b>OH_Drawing_Brush</b> object.
+    /// * `brush` - Pointer to an **OH_Drawing_Brush** object.
     ///
-    /// * `shaderEffect` - Indicates the pointer to an <b>OH_Drawing_ShaderEffect</b> object.
+    /// * `shaderEffect` - Pointer to an **OH_Drawing_ShaderEffect** object. If NULL is passed in, the shader effect of the
+    /// brush will be cleared.
     ///
     /// Available since API-level: 11
     ///
@@ -308,15 +300,16 @@ extern "C" {
         brush: *mut OH_Drawing_Brush,
         shaderEffect: *mut OH_Drawing_ShaderEffect,
     );
-    /// Sets the shadowLayer for a brush.
+    /// Sets the shadow layer for a brush. The shadow layer effect takes effect only when text is drawn.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **brush** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `brush` - Indicates the pointer to an <b>OH_Drawing_Brush</b> object.
+    /// * `brush` - Pointer to an **OH_Drawing_Brush** object.
     ///
-    /// * `shadowLayer` - Indicates the pointer to an <b>OH_Drawing_ShadowLayer</b> object.
+    /// * `shadowLayer` - Pointer to an **OH_Drawing_ShadowLayer** object. If NULL is passed in, the shadow layer effect of
+    /// the brush will be cleared.
     ///
     /// Available since API-level: 12
     ///
@@ -327,15 +320,16 @@ extern "C" {
         brush: *mut OH_Drawing_Brush,
         shadowLayer: *mut OH_Drawing_ShadowLayer,
     );
-    /// Sets the filter for a brush.
+    /// Sets the filter [`OH_Drawing_Filter`](crate::types::OH_Drawing_Filter) for a brush. The filter is a container that holds a mask filter and
+    /// color filter.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **brush** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `brush` - Indicates the pointer to an <b>OH_Drawing_Brush</b> object.
+    /// * `brush` - Pointer to an **OH_Drawing_Brush** object.
     ///
-    /// * `filter` - Indicates the pointer to an <b>OH_Drawing_Filter</b> object.
+    /// * `filter` - Pointer to an **OH_Drawing_Filter** object. If null is passed in, the filter will be cleared.
     ///
     /// Available since API-level: 11
     ///
@@ -343,15 +337,16 @@ extern "C" {
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn OH_Drawing_BrushSetFilter(brush: *mut OH_Drawing_Brush, filter: *mut OH_Drawing_Filter);
-    /// Gets the filter from a brush.
+    /// Obtains the [`OH_Drawing_Filter`](crate::types::OH_Drawing_Filter) object from the brush. The filter is a container that holds a mask
+    /// filter and color filter.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If either **brush** or **filter** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `brush` - Indicates the pointer to an <b>OH_Drawing_Brush</b> object.
+    /// * `brush` - Pointer to the [`OH_Drawing_Brush`](crate::types::OH_Drawing_Brush) object.
     ///
-    /// * `filter` - Indicates the pointer to an <b>OH_Drawing_Filter</b> object.
+    /// * `filter` - Pointer to an [`OH_Drawing_Filter`](crate::types::OH_Drawing_Filter) object.
     ///
     /// Available since API-level: 12
     ///
@@ -359,15 +354,16 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_BrushGetFilter(brush: *mut OH_Drawing_Brush, filter: *mut OH_Drawing_Filter);
-    /// Sets a blender that implements the specified blendmode enum for a brush.
+    /// Sets a blender for a brush. The blender implements the specified blend mode.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **brush** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
+    /// If **blendMode** is not set to one of the enumerated values, **OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `brush` - Indicates the pointer to an <b>OH_Drawing_Brush</b> object.
+    /// * `brush` - Pointer to the [`OH_Drawing_Brush`](crate::types::OH_Drawing_Brush) object.
     ///
-    /// * `blendMode` - Indicates the blend mode.
+    /// * `blendMode` - Enumeration of blend modes.
     ///
     /// Available since API-level: 12
     ///
@@ -378,13 +374,13 @@ extern "C" {
         brush: *mut OH_Drawing_Brush,
         blendMode: OH_Drawing_BlendMode,
     );
-    /// Resets all brush contents to their initial values.
+    /// Resets a brush to the initial state. All configured attributes are cleared.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **brush** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `brush` - Indicates the pointer to an <b>OH_Drawing_Brush</b> object.
+    /// * `brush` - Pointer to the [`OH_Drawing_Brush`](crate::types::OH_Drawing_Brush) object.
     ///
     /// Available since API-level: 12
     ///

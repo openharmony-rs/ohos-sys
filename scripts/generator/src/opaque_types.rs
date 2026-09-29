@@ -1,4 +1,4 @@
-pub(crate) static OPAQUE_TYPES: [&str; 52] = [
+pub(crate) static OPAQUE_TYPES: [&str; 53] = [
     "ArkUI_AccessibilityProvider",
     "ArkUI_Context",
     "ArkUI_ContextHandle",
@@ -51,4 +51,5 @@ pub(crate) static OPAQUE_TYPES: [&str; 52] = [
     "OH_Utd",
     "OHIPCParcel",
     "OHIPCRemoteProxy",
+    "OHIPCRemoteStub",
 ];

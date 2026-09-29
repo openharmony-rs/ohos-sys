@@ -112,6 +112,7 @@ extern "C" {
     /// * `asset` - Represents a pointer to an [`Data_Asset`](ohos_sys_opaque_types::Data_Asset) instance.
     ///
     /// * `createTime` - Indicates the create time to set.
+    /// There is no specific unit. Developers can specify it themselves.
     ///
     /// # Returns
     ///
@@ -136,6 +137,7 @@ extern "C" {
     /// * `asset` - Represents a pointer to an [`Data_Asset`](ohos_sys_opaque_types::Data_Asset) instance.
     ///
     /// * `modifyTime` - Indicates the create time to set.
+    /// There is no specific unit. Developers can specify it themselves.
     ///
     /// # Returns
     ///
@@ -293,6 +295,7 @@ extern "C" {
     ///
     /// * `createTime` - This parameter is the output parameter,
     /// and the create time of the asset as a int64_t is written to this variable.
+    /// There is no specific unit. Developers can specify it themselves.
     ///
     /// # Returns
     ///
@@ -319,6 +322,7 @@ extern "C" {
     ///
     /// * `modifyTime` - This parameter is the output parameter,
     /// and the create time of the asset as a int64_t is written to this variable.
+    /// There is no specific unit. Developers can specify it themselves.
     ///
     /// # Returns
     ///
@@ -408,9 +412,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution. Successful execution returns RDB_OK,
-    /// while failure returns a specific error code.
-    /// [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) - success.
-    /// Specific error codes can be referenced [`OH_Rdb_ErrCode`](crate::relational_store_error_code::OH_Rdb_ErrCode).
+    /// <br>while failure returns a specific error code.
+    /// <br>[`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) - success.
+    /// <br>Specific error codes can be referenced [`OH_Rdb_ErrCode`](crate::relational_store_error_code::OH_Rdb_ErrCode).
     ///
     /// **See also:** [`Data_Asset`](ohos_sys_opaque_types::Data_Asset), [`OH_Rdb_ErrCode`](crate::relational_store_error_code::OH_Rdb_ErrCode).
     ///
@@ -446,9 +450,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution. Successful execution returns RDB_OK,
-    /// while failure returns a specific error code.
-    /// [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) - success.
-    /// Specific error codes can be referenced [`OH_Rdb_ErrCode`](crate::relational_store_error_code::OH_Rdb_ErrCode).
+    /// <br>while failure returns a specific error code.
+    /// <br>[`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) - success.
+    /// <br>Specific error codes can be referenced [`OH_Rdb_ErrCode`](crate::relational_store_error_code::OH_Rdb_ErrCode).
     ///
     /// **See also:** [`Data_Asset`](ohos_sys_opaque_types::Data_Asset), [`OH_Rdb_ErrCode`](crate::relational_store_error_code::OH_Rdb_ErrCode).
     ///

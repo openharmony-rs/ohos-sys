@@ -4,6 +4,8 @@
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
 #![allow(deprecated)]
+#[cfg(feature = "api-26")]
+use crate::avbuffer::OH_AVBuffer;
 #[allow(unused_imports)]
 use crate::averrors::OH_AVErrCode;
 #[cfg(feature = "api-12")]
@@ -13,7 +15,8 @@ use crate::avformat::OH_AVFormat;
 pub struct OH_AVPlayer {
     _unused: [u8; 0],
 }
-/// OH_AVSeiMessageArray field.
+/// Defines a struct for the SEI message array.
+///
 ///
 /// Available since API-level: 23
 #[cfg(feature = "api-23")]
@@ -22,7 +25,8 @@ pub struct OH_AVPlayer {
 pub struct OH_AVSeiMessageArray {
     _unused: [u8; 0],
 }
-/// OH_AVPlaybackStrategy field.
+/// Defines a struct for the audio and video playback strategy.
+///
 ///
 /// Available since API-level: 23
 #[cfg(feature = "api-23")]
@@ -45,13 +49,10 @@ impl AVPlayerState {
     pub const AV_ERROR: AVPlayerState = AVPlayerState(8);
 }
 #[repr(transparent)]
-/// Player States
+/// Enumerates the AVPlayer states.
 ///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.AVPlayer
 ///
 /// Available since API-level: 11
-///
-/// Version: 1.0
 #[cfg(feature = "api-11")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
@@ -61,17 +62,17 @@ pub struct AVPlayerState(pub ::core::ffi::c_uint);
 impl AVPlayerSeekMode {
     pub const AV_SEEK_NEXT_SYNC: AVPlayerSeekMode = AVPlayerSeekMode(0);
     pub const AV_SEEK_PREVIOUS_SYNC: AVPlayerSeekMode = AVPlayerSeekMode(1);
-    /// Sync to frames closest to the time point.
+    /// Seeks to the frame closest to the specified position.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.AVPlayer
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const AV_SEEK_CLOSEST: AVPlayerSeekMode = AVPlayerSeekMode(2);
-    /// Seek in continuous mode, which can provide a smoother dragging experience, but the device needs to support
-    /// the current stream to execute seek continuous. Before calling seek continuous,
-    /// check whether it is supported, see [`OH_AVPlayer_IsSeekContinuousSupported`](crate::avplayer::OH_AVPlayer_IsSeekContinuousSupported).
+    /// Seeks in continuous drag mode. This mode provides a smoother drag experience, but the device must support
+    /// continuous seeking for the current stream. Before using this mode, check whether continuous seeking is supported.
+    /// For details, see [`OH_AVPlayer_IsSeekContinuousSupported`](crate::avplayer::OH_AVPlayer_IsSeekContinuousSupported).
+    ///
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -79,13 +80,10 @@ impl AVPlayerSeekMode {
     pub const AV_SEEK_CONTINUOUS: AVPlayerSeekMode = AVPlayerSeekMode(3);
 }
 #[repr(transparent)]
-/// Player Seek Mode
+/// Enumerates the seek modes.
 ///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.AVPlayer
 ///
 /// Available since API-level: 11
-///
-/// Version: 1.0
 #[cfg(feature = "api-11")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
@@ -98,41 +96,36 @@ impl AVPlaybackSpeed {
     pub const AV_SPEED_FORWARD_1_25_X: AVPlaybackSpeed = AVPlaybackSpeed(2);
     pub const AV_SPEED_FORWARD_1_75_X: AVPlaybackSpeed = AVPlaybackSpeed(3);
     pub const AV_SPEED_FORWARD_2_00_X: AVPlaybackSpeed = AVPlaybackSpeed(4);
-    /// Video playback at 0.5x normal speed.
+    /// Plays the video at 0.5 times the normal speed.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.AVPlayer
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const AV_SPEED_FORWARD_0_50_X: AVPlaybackSpeed = AVPlaybackSpeed(5);
-    /// Video playback at 1.5x normal speed.
+    /// Plays the video at 1.5 times the normal speed.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.AVPlayer
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const AV_SPEED_FORWARD_1_50_X: AVPlaybackSpeed = AVPlaybackSpeed(6);
-    /// Video playback at 3.0x normal speed.
+    /// Plays the video at 3.0 times the normal speed.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.AVPlayer
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub const AV_SPEED_FORWARD_3_00_X: AVPlaybackSpeed = AVPlaybackSpeed(7);
-    /// Video playback at 0.25x normal speed.
+    /// Plays the video at 0.25 times the normal speed.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.AVPlayer
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub const AV_SPEED_FORWARD_0_25_X: AVPlaybackSpeed = AVPlaybackSpeed(8);
-    /// Video playback at 0.125x normal speed.
+    /// Plays the video at 0.125 times the normal speed.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.AVPlayer
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -140,13 +133,10 @@ impl AVPlaybackSpeed {
     pub const AV_SPEED_FORWARD_0_125_X: AVPlaybackSpeed = AVPlaybackSpeed(9);
 }
 #[repr(transparent)]
-/// Playback Speed
+/// Enumerates the playback speeds of the AVPlayer.
 ///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.AVPlayer
 ///
 /// Available since API-level: 11
-///
-/// Version: 1.0
 #[cfg(feature = "api-11")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
@@ -171,20 +161,19 @@ impl AVPlayerOnInfoType {
     pub const AV_INFO_TYPE_TRACKCHANGE: AVPlayerOnInfoType = AVPlayerOnInfoType(14);
     pub const AV_INFO_TYPE_TRACK_INFO_UPDATE: AVPlayerOnInfoType = AVPlayerOnInfoType(15);
     pub const AV_INFO_TYPE_SUBTITLE_UPDATE: AVPlayerOnInfoType = AVPlayerOnInfoType(16);
-    /// Return the reason when the audio output device changes. When this info is reported, the extra param of
-    /// [`OH_AVPlayerOnInfo`](crate::avplayer_base::OH_AVPlayerOnInfo) is the same as `OH_AudioStream_DeviceChangeReason` in audio framework.
+    /// Message returned when the audio output device changes.<br> If **key** is set to **
+    /// OH_PLAYER_AUDIO_DEVICE_CHANGE_REASON**, the value type is int32_t. The system uses int32_t to transfer the value,
+    /// and the application uses int32_t to obtain the value.
     pub const AV_INFO_TYPE_AUDIO_OUTPUT_DEVICE_CHANGE: AVPlayerOnInfoType = AVPlayerOnInfoType(17);
-    /// Event type indicating playback rate configuration completed.
+    /// Message returned when the playback rate is applied.
+    /// If **key** is set to **OH_PLAYER_PLAYBACK_RATE**, the value type is float. The system uses float to transfer the value, and the application uses float to obtain the value.
     ///
-    /// Triggered when playback rate are successfully applied,
-    /// notifying the application of the actual effective value.
-    /// Use defined key [`OH_PLAYER_PLAYBACK_RATE`](crate::avplayer_base::OH_PLAYER_PLAYBACK_RATE) to retrieve value from the event data.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const AV_INFO_TYPE_PLAYBACK_RATE_DONE: AVPlayerOnInfoType = AVPlayerOnInfoType(18);
-    /// Super-resolution changed info type.
+    /// Message returned when the super resolution changes.
     ///
     ///
     /// Available since API-level: 23
@@ -193,13 +182,17 @@ impl AVPlayerOnInfoType {
     pub const AV_INFO_TYPE_SUPER_RESOLUTION_CHANGED: AVPlayerOnInfoType = AVPlayerOnInfoType(19);
 }
 #[repr(transparent)]
-/// Player OnInfo Type
+/// Enumerates the types of messages received by the AVPlayer.
+/// The enum can be used in **OH_AVPlayerOnInfoCallback** and **OH_AVPlayerOnInfo** (deprecated) to indicate the type of
+/// information received by the AVPlayer.
+/// Starting from API version 12, you are advised to use [`OH_AVPlayerOnInfoCallback`](crate::avplayer_base::OH_AVPlayerOnInfoCallback) instead. Different
+/// information (**infoBody**) can be obtained for different **OnInfo** types. **infoBody** contains the key-value pairs.
+/// For details, see the following enumerated value table.
+/// If you are using API version 11 for development, use **OH_AVPlayerOnInfo (deprecated)**. For details about the
+/// mappings used in this deprecated API, see [`OH_AVPlayerOnInfo`](crate::avplayer_base::OH_AVPlayerOnInfo).
 ///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.AVPlayer
 ///
 /// Available since API-level: 11
-///
-/// Version: 1.0
 #[cfg(feature = "api-11")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
@@ -207,23 +200,20 @@ pub struct AVPlayerOnInfoType(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl AVPlayerBufferingType {
-    /// Indicates the buffer to start buffering.
+    /// Buffering start message.
     pub const AVPLAYER_BUFFERING_START: AVPlayerBufferingType = AVPlayerBufferingType(1);
-    /// Indicates the buffer to end buffering and start playback.
+    /// Buffering end message.
     pub const AVPLAYER_BUFFERING_END: AVPlayerBufferingType = AVPlayerBufferingType(2);
-    /// Indicates the current buffering percentage of the buffer.
+    /// Buffer execution progress, in percentage. The value is an integer in the range \[0, 100\].
     pub const AVPLAYER_BUFFERING_PERCENT: AVPlayerBufferingType = AVPlayerBufferingType(3);
-    /// Indicates how long the buffer cache data can be played.
+    /// Duration that cached data can be played, in milliseconds.
     pub const AVPLAYER_BUFFERING_CACHED_DURATION: AVPlayerBufferingType = AVPlayerBufferingType(4);
 }
 #[repr(transparent)]
-/// Player Buffering Type
+/// Enumerates the types of buffer messages of the AVPlayer.
 ///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.AVPlayer
 ///
 /// Available since API-level: 12
-///
-/// Version: 1.0
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
@@ -231,57 +221,80 @@ pub struct AVPlayerBufferingType(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-23")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
 impl AVPlayerTrackSwitchMode {
-    /// Switch track smoothly
+    /// Switch tracks smoothly.
     pub const AV_TRACK_SWITCH_MODE_SMOOTH: AVPlayerTrackSwitchMode = AVPlayerTrackSwitchMode(0);
-    /// Switch track segment
+    /// Switch tracks by segment.
     pub const AV_TRACK_SWITCH_MODE_SEGMENT: AVPlayerTrackSwitchMode = AVPlayerTrackSwitchMode(1);
-    /// Switch track closest
+    /// Switch to the closest track.
     pub const AV_TRACK_SWITCH_MODE_CLOSEST: AVPlayerTrackSwitchMode = AVPlayerTrackSwitchMode(2);
 }
 #[repr(transparent)]
-/// Enumerates the track switch mode
+/// Enumerates the track switching modes.
+///
 ///
 /// Available since API-level: 23
 #[cfg(feature = "api-23")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct AVPlayerTrackSwitchMode(pub ::core::ffi::c_uint);
-/// Called when a player message or alarm is received.
+#[cfg(feature = "api-26")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+impl OH_VideoOutputResult {
+    /// Output one decoded video frame.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub const OH_VIDEO_OUTPUT_OK: OH_VideoOutputResult = OH_VideoOutputResult(0);
+    /// No frame ready to render.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub const OH_VIDEO_OUTPUT_NO_IMAGE: OH_VideoOutputResult = OH_VideoOutputResult(1);
+}
+#[repr(transparent)]
+/// Result of Video output.
 ///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.AVPlayer
+/// Available since API-level: 26
+#[cfg(feature = "api-26")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct OH_VideoOutputResult(pub ::core::ffi::c_uint);
+/// Called when the AVPlayer receives a message.
+///
 /// # Arguments
 ///
-/// * `player` - The pointer to an OH_AVPlayer instance.
+/// * `player` - Pointer to an OH_AVPlayer instance.
 ///
-/// * `type` - Indicates the information type. For details, see [`AVPlayerOnInfoType`](crate::avplayer_base::AVPlayerOnInfoType).
+/// * `type` - Message type. For details about the available options, see [`AVPlayerOnInfoType`](crate::avplayer_base::AVPlayerOnInfoType). For details about
+/// the mappings between **type** and **extra** values, see the function description.
 ///
-/// * `extra` - Indicates other information, for example, the start time position of a playing file.
+/// * `extra` - Other information, such as the start time and position of the media file to play.
 ///
 /// Available since API-level: 11
 ///
 /// **Deprecated** since 12
 ///
 /// **Use instead:** [`OH_AVPlayerOnInfoCallback`](crate::avplayer_base::OH_AVPlayerOnInfoCallback)
-///
-/// Version: 1.0
 #[cfg(feature = "api-11")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
 #[deprecated(since = "12", note = "Use instead: OH_AVPlayerOnInfoCallback")]
 pub type OH_AVPlayerOnInfo = ::core::option::Option<
     unsafe extern "C" fn(player: *mut OH_AVPlayer, type_: AVPlayerOnInfoType, extra: i32),
 >;
-/// Called when a player info event is received.
+/// Called when the AVPlayer receives a message. If this callback is successfully set, the **OH_AVPlayerOnInfo**
+/// function will not be invoked.
 ///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.AVPlayer
 /// # Arguments
 ///
-/// * `player` - The pointer to an OH_AVPlayer instance.
+/// * `player` - Pointer to an OH_AVPlayer instance.
 ///
-/// * `type` - Indicates the information type. For details, see [`AVPlayerOnInfoType`](crate::avplayer_base::AVPlayerOnInfoType).
+/// * `type` - Message type. For details about the available options, see [`AVPlayerOnInfoType`](crate::avplayer_base::AVPlayerOnInfoType).
 ///
-/// * `infoBody` - Indicates the information parameters, only valid in callback function.
+/// * `infoBody` - Pointer to the message. The pointer is valid only in this callback.
 ///
-/// * `userData` - Pointer to user specific data.
+/// * `userData` - Pointer to the instance provided by the caller when setting the callback function.
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
@@ -294,14 +307,23 @@ pub type OH_AVPlayerOnInfoCallback = ::core::option::Option<
         userData: *mut ::core::ffi::c_void,
     ),
 >;
-/// Called when an error occurred for versions above api9
+/// Called when an error occurs in the AVPlayer. This callback is available in API version 9 or later.
 ///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.AVPlayer
 /// # Arguments
 ///
-/// * `player` - The pointer to an OH_AVPlayer instance.
+/// * `player` - Pointer to an OH_AVPlayer instance.
 ///
 /// * `errorCode` - Error code.
+/// **AV_ERR_NO_MEMORY**: No memory. The value is **1**.
+/// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed. The value is **2**.
+/// `AV_ERR_INVALID_VA`: Invalid value. The value is **3**.
+/// **AV_ERR_IO**: I/O error. The value is **4**.
+/// **AV_ERR_TIMEOUT**: Timeout. The value is **5**.
+/// **AV_ERR_UNKNOWN**: Unknown error. The value is **6**.
+/// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED): The service is dead. The value is **7**.
+/// **AV_ERR_INVALID_STATE**: The operation is not supported in the current state. The value is **8**.
+/// [`AV_ERR_UNSUPPORT`](crate::averrors::OH_AVErrCode::AV_ERR_UNSUPPORT): The function is not supported. The value is **9**.
+/// **AV_ERR_EXTEND_START**: Initial value for extended error codes. The value is **100**.
 ///
 /// * `errorMsg` - Error message.
 ///
@@ -309,15 +331,10 @@ pub type OH_AVPlayerOnInfoCallback = ::core::option::Option<
 ///
 /// **Deprecated** since 12
 ///
-/// **Use instead:** [`OH_AVPlayerOnInfoCallback`](crate::avplayer_base::OH_AVPlayerOnInfoCallback) [`OH_AVPlayerOnError`](crate::avplayer_base::OH_AVPlayerOnError)
-///
-/// Version: 1.0
+/// **Use instead:** [`OH_AVPlayerOnErrorCallback`](crate::avplayer_base::OH_AVPlayerOnErrorCallback)
 #[cfg(feature = "api-11")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-#[deprecated(
-    since = "12",
-    note = "Use instead: OH_AVPlayerOnInfoCallback OH_AVPlayerOnError"
-)]
+#[deprecated(since = "12", note = "Use instead: OH_AVPlayerOnErrorCallback")]
 pub type OH_AVPlayerOnError = ::core::option::Option<
     unsafe extern "C" fn(
         player: *mut OH_AVPlayer,
@@ -325,14 +342,25 @@ pub type OH_AVPlayerOnError = ::core::option::Option<
         errorMsg: *const ::core::ffi::c_char,
     ),
 >;
-/// Called when an error occurred.
+/// Called when an error occurs in the AVPlayer. If this callback is successfully set, the **OH_AVPlayerOnError**
+/// function will not be invoked.
 ///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.AVPlayer
 /// # Arguments
 ///
-/// * `player` - The pointer to an OH_AVPlayer instance.
+/// * `player` - Pointer to an OH_AVPlayer instance.
 ///
 /// * `errorCode` - Error code.
+/// **AV_ERR_NO_MEMORY**: No memory. The value is **1**.
+/// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed. The value is **2**.
+/// `AV_ERR_INVALID_VA`: Invalid value. The value is **3**.
+/// **AV_ERR_IO**: I/O error. For API versions 12 and 13, the value is **4**. Starting from API version 14, it
+/// corresponds to more specific error codes ranging from 5411001 to 5411011.
+/// **AV_ERR_TIMEOUT**: Timeout. The value is **5**.
+/// **AV_ERR_UNKNOWN**: Unknown error. The value is **6**.
+/// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED): The service is dead. The value is **7**.
+/// **AV_ERR_INVALID_STATE**: The operation is not supported in the current state. The value is **8**.
+/// [`AV_ERR_UNSUPPORT`](crate::averrors::OH_AVErrCode::AV_ERR_UNSUPPORT): The function is not supported. The value is **9**.
+/// **AV_ERR_EXTEND_START**: Initial value for extended error codes. The value is **100**.
 ///
 /// * `errorMsg` - Error message, only valid in callback function.
 ///
@@ -349,7 +377,35 @@ pub type OH_AVPlayerOnErrorCallback = ::core::option::Option<
         userData: *mut ::core::ffi::c_void,
     ),
 >;
-/// Called when the maximum audio level values are calculated.
+/// The struct contains the set of the **OH_AVPlayerOnInfo** and **OH_AVPlayerOnError** callback function
+/// pointers. To ensure the normal running of OH_AVPlayer, you must register the instance of this struct with the
+/// OH_AVPlayer instance and process the information reported by the callback functions.
+///
+/// # Arguments
+///
+/// * `onInfo` - Monitor OH_AVPlayer operation information, refer to [`OH_AVPlayerOnInfo`](crate::avplayer_base::OH_AVPlayerOnInfo)
+///
+/// * `onError` - Monitor OH_AVPlayer operation errors, refer to [`OH_AVPlayerOnError`](crate::avplayer_base::OH_AVPlayerOnError)
+///
+/// Available since API-level: 11
+///
+/// **Deprecated** since 12
+///
+/// **Use instead:** [`OH_AVPlayerOnInfoCallback`](crate::avplayer_base::OH_AVPlayerOnInfoCallback) [`OH_AVPlayerOnErrorCallback`](crate::avplayer_base::OH_AVPlayerOnErrorCallback)
+#[cfg(feature = "api-11")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
+#[deprecated(
+    since = "12",
+    note = "Use instead: OH_AVPlayerOnInfoCallback OH_AVPlayerOnErrorCallback"
+)]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct AVPlayerCallback {
+    pub onInfo: OH_AVPlayerOnInfo,
+    pub onError: OH_AVPlayerOnError,
+}
+/// Called when the maximum audio amplitude is calculated.
+///
 /// # Arguments
 ///
 /// * `player` - Pointer to an OH_AVPlayer instance.
@@ -358,7 +414,7 @@ pub type OH_AVPlayerOnErrorCallback = ::core::option::Option<
 /// Note: the amplitudes array will be released after callback automatically.
 /// If necessary, user need copy the data for the further use.
 ///
-/// * `size` - The size of the maximum audio level values array.
+/// * `size` - Size of the maximum audio amplitude array.
 ///
 /// * `userData` - Pointer to user specific data.
 ///
@@ -373,8 +429,9 @@ pub type OH_AVPlayerOnAmplitudeUpdateCallback = ::core::option::Option<
         userData: *mut ::core::ffi::c_void,
     ),
 >;
-/// Describes the handle used to obtain SEI messages. This is used when in subscriptions to SEI message events.
-/// and the callback returns detailed SEI information.
+/// Called for obtaining SEI messages. This function is used to subscribe to SEI message events and returns
+/// detailed SEI information.
+///
 /// # Arguments
 ///
 /// * `player` - Pointer to an OH_AVPlayer instance
@@ -383,7 +440,7 @@ pub type OH_AVPlayerOnAmplitudeUpdateCallback = ::core::option::Option<
 /// Note: the message array will be released after callback automatically.
 /// If necessary, user need copy the data for the further use.
 ///
-/// * `playbackPosition` - playback position
+/// * `playbackPosition` - Playback position.
 ///
 /// * `userData` - Pointer to user specific data
 ///
@@ -398,248 +455,206 @@ pub type OH_AVPlayerOnSeiMessageReceivedCallback = ::core::option::Option<
         userData: *mut ::core::ffi::c_void,
     ),
 >;
-/// A collection of all callback function pointers in OH_AVPlayer. Register an instance of this
-/// structure to the OH_AVPlayer instance, and process the information reported through the callback to ensure the
-/// normal operation of OH_AVPlayer.
-///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.AVPlayer
+/// Describes the handle used to obtain the decoded audio PCM data.
 /// # Arguments
 ///
-/// * `onInfo` - Monitor OH_AVPlayer operation information, refer to [`OH_AVPlayerOnInfo`](crate::avplayer_base::OH_AVPlayerOnInfo)
+/// * `player` - Pointer to an OH_AVPlayer instance
 ///
-/// * `onError` - Monitor OH_AVPlayer operation errors, refer to [`OH_AVPlayerOnError`](crate::avplayer_base::OH_AVPlayerOnError)
+/// * `pcmBuffer` - Decoded PCM audio data. The pcmBuffer is valid only within this callback,
+/// and released by the player after the callback returns.
 ///
-/// Available since API-level: 11
+/// * `userData` - Pointer to user specific data
 ///
-/// **Deprecated** since 12
+/// Available since API-level: 26
+#[cfg(feature = "api-26")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+pub type OH_AVPlayerPCMOutputCallback = ::core::option::Option<
+    unsafe extern "C" fn(
+        player: *mut OH_AVPlayer,
+        pcmBuffer: *mut OH_AVBuffer,
+        userData: *mut ::core::ffi::c_void,
+    ),
+>;
+/// This callback provides a PCM buffer for processing. AVPlayer needs to use the processed data
+/// for audio playback, and processing must be completed in a timely manner, otherwise it will block playback.
+/// Do not change sampling rate, channels, or sampling format.
 ///
-/// **Use instead:** [`OH_AVPlayerOnInfoCallback`](crate::avplayer_base::OH_AVPlayerOnInfoCallback) [`OH_AVPlayerOnErrorCallback`](crate::avplayer_base::OH_AVPlayerOnErrorCallback)
+/// # Arguments
 ///
-/// Version: 1.0
-#[cfg(feature = "api-11")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-#[deprecated(
-    since = "12",
-    note = "Use instead: OH_AVPlayerOnInfoCallback OH_AVPlayerOnErrorCallback"
-)]
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct AVPlayerCallback {
-    pub onInfo: OH_AVPlayerOnInfo,
-    pub onError: OH_AVPlayerOnError,
-}
+/// * `player` - Pointer to an OH_AVPlayer instance
+///
+/// * `pcmBuffer` - Decoded PCM audio data. The pcmBuffer is valid only within this callback,
+/// and released by the player after the callback returns.
+///
+/// * `userData` - Pointer to user specific data
+///
+/// Available since API-level: 26
+#[cfg(feature = "api-26")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+pub type OH_AVPlayerPCMProcessorCallback = ::core::option::Option<
+    unsafe extern "C" fn(
+        player: *mut OH_AVPlayer,
+        pcmBuffer: *mut OH_AVBuffer,
+        userData: *mut ::core::ffi::c_void,
+    ),
+>;
 extern "C" {
-    /// Key to get state, value type is int32_t.
+    /// Pointer to the key for obtaining the AVPlayer state. The value is of the int32_t type.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.AVPlayer
     ///
     /// Available since API-level: 12
-    ///
-    /// Version: 1.0
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub static mut OH_PLAYER_STATE: *const ::core::ffi::c_char;
-    /// Key to get state change reason, value type is int32_t.
+    /// Pointer to the key for obtaining the AVPlayer state change reason. The value is of the int32_t type.
+    /// The value **1** means that the change is triggered by user operations, and **2** means that the change is triggered
+    /// by the system.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.AVPlayer
     ///
     /// Available since API-level: 12
-    ///
-    /// Version: 1.0
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub static mut OH_PLAYER_STATE_CHANGE_REASON: *const ::core::ffi::c_char;
-    /// Key to get volume, value type is float.
+    /// Pointer to the key for obtaining the volume. The value type is float.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.AVPlayer
     ///
     /// Available since API-level: 12
-    ///
-    /// Version: 1.0
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub static mut OH_PLAYER_VOLUME: *const ::core::ffi::c_char;
-    /// Key to get bitrate count, value type is uint32_t array.
+    /// Pointer to the key for obtaining the bit rate array. The value is of the uint8_t byte array type. When this
+    /// key is used to obtain information, you need to:
+    /// Use a pointer variable of the uint8_t type to store the bit rate list and use a variable of the size_t type to store
+    /// the byte array length.
+    /// Then it allocates several storage spaces of the uint32_t type to receive the bit rate integer of the uint32_t type,
+    /// which is converted from the uint8_t byte array.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.AVPlayer
     ///
     /// Available since API-level: 12
-    ///
-    /// Version: 1.0
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub static mut OH_PLAYER_BITRATE_ARRAY: *const ::core::ffi::c_char;
-    /// Key to get audio interrupt type, value type is int32_t.
+    /// Pointer to the key for obtaining the audio interruption type. The value is of the int32_t type.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.AVPlayer
     ///
     /// Available since API-level: 12
-    ///
-    /// Version: 1.0
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub static mut OH_PLAYER_AUDIO_INTERRUPT_TYPE: *const ::core::ffi::c_char;
-    /// Key to get audio interrupt force, value type is int32_t.
+    /// Pointer to the key for obtaining the FORCE type of audio interruption. The value is of the int32_t type.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.AVPlayer
     ///
     /// Available since API-level: 12
-    ///
-    /// Version: 1.0
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub static mut OH_PLAYER_AUDIO_INTERRUPT_FORCE: *const ::core::ffi::c_char;
-    /// Key to get audio interrupt hint, value type is int32_t.
+    /// Pointer to the key for obtaining the HINT type of audio interruption. The value is of the int32_t type.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.AVPlayer
     ///
     /// Available since API-level: 12
-    ///
-    /// Version: 1.0
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub static mut OH_PLAYER_AUDIO_INTERRUPT_HINT: *const ::core::ffi::c_char;
-    /// Key to get audio device change reason, value type is int32_t.
+    /// Pointer to the key for obtaining the audio device change reason. The value is of the int32_t type.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.AVPlayer
     ///
     /// Available since API-level: 12
-    ///
-    /// Version: 1.0
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub static mut OH_PLAYER_AUDIO_DEVICE_CHANGE_REASON: *const ::core::ffi::c_char;
-    /// Key to get buffering type, value type is AVPlayerBufferingType.
+    /// Pointer to the key for obtaining the type of the buffer update message. The value type is [`AVPlayerBufferingType`](crate::avplayer_base::AVPlayerBufferingType).
+    /// When this key is used to obtain information, you must use a variable of the int32_t type to save the result and then
+    /// convert the result to a value of AVPlayerBufferingType.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.AVPlayer
     ///
     /// Available since API-level: 12
-    ///
-    /// Version: 1.0
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub static mut OH_PLAYER_BUFFERING_TYPE: *const ::core::ffi::c_char;
-    /// Key to get buffering value, value type is int32_t.
+    /// Pointer to the key for obtaining the value of the buffer update message. The value is of the int32_t type.
+    /// For details, see [`AVPlayerBufferingType`](crate::avplayer_base::AVPlayerBufferingType).
+    /// This parameter is valid only when the buffer update message type is **AVPLAYER_BUFFERING_PERCENT** or **
+    /// AVPLAYER_BUFFERING_CACHED_DURATION**.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.AVPlayer
     ///
     /// Available since API-level: 12
-    ///
-    /// Version: 1.0
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub static mut OH_PLAYER_BUFFERING_VALUE: *const ::core::ffi::c_char;
-    /// Key to get seek position, value type is int32_t.
+    /// Pointer to the key for obtaining the playback progress after the seek operation. The value is of the int32_t
+    /// type.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.AVPlayer
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub static mut OH_PLAYER_SEEK_POSITION: *const ::core::ffi::c_char;
-    /// Key to get playback speed, value type is AVPlaybackSpeed.
+    /// Pointer to the key for obtaining the playback speed. The value type is [`AVPlaybackSpeed`](crate::avplayer_base::AVPlaybackSpeed).
+    /// When this key is used to obtain information, you must use a variable of the int32_t type to save the result and then
+    /// convert the result to a value of AVPlaybackSpeed.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.AVPlayer
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub static mut OH_PLAYER_PLAYBACK_SPEED: *const ::core::ffi::c_char;
-    /// Key for retrieving effective playback rate, the value type is float.
+    /// Pointer to the key for obtaining the bit rate array. The value is of the uint8_t byte array type. When this
+    /// key is used to obtain information, you need to:
+    /// Use a pointer variable of the uint8_t type to store the bit rate list and use a variable of the size_t type to store
+    /// the byte array length.
+    /// Then it allocates several storage spaces of the uint32_t type to receive the bit rate integer of the uint32_t type,
+    /// which is converted from the uint8_t byte array.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.AVPlayer
-    ///
-    /// Available since API-level: 20
-    #[cfg(feature = "api-20")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
-    pub static mut OH_PLAYER_PLAYBACK_RATE: *const ::core::ffi::c_char;
-    /// Key to get bitrate, value type is uint32_t.
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.AVPlayer
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub static mut OH_PLAYER_BITRATE: *const ::core::ffi::c_char;
-    /// Key to get current position, value type is int32_t.
+    /// Pointer to the key for obtaining the playback progress information. The value is of the int32_t type.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.AVPlayer
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub static mut OH_PLAYER_CURRENT_POSITION: *const ::core::ffi::c_char;
-    /// Key to get duration, value type is int64_t.
+    /// Pointer to the key for obtaining the media asset duration. The value type is int64_t.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.AVPlayer
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub static mut OH_PLAYER_DURATION: *const ::core::ffi::c_char;
-    /// Key to get video width, value type is int32_t.
+    /// Pointer to the key for obtaining the video width. The value is of the int32_t type.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.AVPlayer
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub static mut OH_PLAYER_VIDEO_WIDTH: *const ::core::ffi::c_char;
-    /// Key to get video height, value type is int32_t.
+    /// Pointer to the key for obtaining the video height. The value is of the int32_t type.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.AVPlayer
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub static mut OH_PLAYER_VIDEO_HEIGHT: *const ::core::ffi::c_char;
-    /// Key to get message type, value type is int32_t.
+    /// Pointer to the key for obtaining the type of message received by the AVPlayer. The value is of the int32_t
+    /// type.
+    /// The value **1** means that the video frame starts to be rendered.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.AVPlayer
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub static mut OH_PLAYER_MESSAGE_TYPE: *const ::core::ffi::c_char;
-    /// Key to get is live stream, value type is int32_t.
+    /// Pointer to the key for checking whether a media asset is live streaming. The value is of the int32_t type.
+    /// The value **1** means live streaming.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.AVPlayer
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub static mut OH_PLAYER_IS_LIVE_STREAM: *const ::core::ffi::c_char;
-    /// Key to get the value whether the media resource contains video content,
-    /// value type is int32_t. 1 means true and 0 means false.
-    /// Media description key, see [`OH_AVPlayer_GetMediaDescription`](crate::avplayer::OH_AVPlayer_GetMediaDescription)
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    pub static mut OH_PLAYER_MD_KEY_HAS_VIDEO: *const ::core::ffi::c_char;
-    /// Key to get the value whether the media resource contains audio content,
-    /// value type is int32_t. 1 means true and 0 means false.
-    /// Media description key, see [`OH_AVPlayer_GetMediaDescription`](crate::avplayer::OH_AVPlayer_GetMediaDescription)
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    pub static mut OH_PLAYER_MD_KEY_HAS_AUDIO: *const ::core::ffi::c_char;
-    /// Key to get the value whether the media resource contains subtitle content,
-    /// value type is int32_t. 1 means true and 0 means false.
-    /// Media description key, see [`OH_AVPlayer_GetMediaDescription`](crate::avplayer::OH_AVPlayer_GetMediaDescription)
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    pub static mut OH_PLAYER_MD_KEY_HAS_SUBTITLE: *const ::core::ffi::c_char;
-    /// Key to get is track index, value type is int32_t.
-    /// Track description key, see [`OH_AVPlayer_GetTrackDescription`](crate::avplayer::OH_AVPlayer_GetTrackDescription)
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    pub static mut OH_PLAYER_MD_KEY_TRACK_INDEX: *const ::core::ffi::c_char;
     /// Sei message key for payload type.
     ///
     /// Available since API-level: 23
@@ -652,44 +667,168 @@ extern "C" {
     #[cfg(feature = "api-23")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub static mut OH_PLAYER_SEI_PAYLOAD_CONTENT: *const ::core::ffi::c_char;
-    /// Key to get whether the super resolution feature is enabled,
-    /// value type is int32_t. The value is 1 when enabled, otherwise 0.
-    /// Used in the info callback when super resolution state changes.
+    /// Pointer to the key for indicating the enable state of the super resolution feature. The value type is int32_t.
+    /// The value **1** indicates that the feature is enabled, and **0** indicates the opposite. It is used for information
+    /// callback when the super resolution state changes.
+    ///
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub static mut OH_PLAYER_SUPER_RESOLUTION_ENABLE_STATE: *const ::core::ffi::c_char;
-    /// Track change info key for track info, its value is int32_t type.
+    /// Pointer to the key for indicating the track index in the track change information. The value type is int32_t.
+    ///
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub static mut OH_PLAYER_TRACH_CHANGE_INFO_TRACK_INDEX: *const ::core::ffi::c_char;
-    /// Track change info key for track selected flag, its value is int32_t type.
+    /// Pointer to the key for indicating whether the track is selected in the track change information. The value
+    /// type is int32_t.
+    ///
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub static mut OH_PLAYER_TRACH_CHANGE_INFO_TRACK_SELECTED: *const ::core::ffi::c_char;
-    /// Subtitle update info key for duration, its value is int32_t type.
+    /// Pointer to the key for indicating the duration in the subtitle update information. The value type is int32_t.
+    ///
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub static mut OH_PLAYER_SUBTITLE_UPDATE_INFO_DURATION: *const ::core::ffi::c_char;
-    /// Subtitle update info key for start time, its value is int32_t type.
+    /// Pointer to the key for indicating the start time in the subtitle update information. The value type is
+    /// int32_t.
+    ///
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub static mut OH_PLAYER_SUBTITLE_UPDATE_INFO_START_TIME: *const ::core::ffi::c_char;
-    /// Subtitle update info key for subtitle text, its value is string type.
+    /// Pointer to the key for indicating the subtitle text content in the subtitle update information. The value
+    /// type is string.
+    ///
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub static mut OH_PLAYER_SUBTITLE_UPDATE_INFO_TEXT: *const ::core::ffi::c_char;
+    /// Pointer to the key for obtaining the playback rate. The value is a floating-point number.
+    ///
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub static mut OH_PLAYER_PLAYBACK_RATE: *const ::core::ffi::c_char;
+    /// Pointer to the key for obtaining whether the media resource contains video tracks. The value is of the
+    /// int32_t type.
+    /// The value **1** means that the media resource contains video tracks, and the value **0** means the opposite.
+    ///
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub static mut OH_PLAYER_MD_KEY_HAS_VIDEO: *const ::core::ffi::c_char;
+    /// Pointer to the key for obtaining whether the media resource contains audio tracks. The value is of the
+    /// int32_t type.
+    /// The value **1** means that the media resource contains audio tracks, and the value **0** means the opposite.
+    ///
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub static mut OH_PLAYER_MD_KEY_HAS_AUDIO: *const ::core::ffi::c_char;
+    /// Pointer to the key for obtaining whether the media resource contains subtitle tracks. The value is of the
+    /// int32_t type.
+    /// The value **1** means that the media resource contains subtitle tracks, and the value **0** means the opposite.
+    ///
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub static mut OH_PLAYER_MD_KEY_HAS_SUBTITLE: *const ::core::ffi::c_char;
+    /// Pointer to the key for obtaining the track index information of a media resource. The value is of the int32_t
+    /// type.
+    ///
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub static mut OH_PLAYER_MD_KEY_TRACK_INDEX: *const ::core::ffi::c_char;
+    /// Pointer to the key for obtaining the preparation duration in the statistic metric information. The value type
+    /// is uint32_t, and the unit is millisecond.
+    ///
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub static mut OH_MEDIA_EVENT_INFO_PREPARE_DURATION: *const ::core::ffi::c_char;
+    /// Pointer to the key for obtaining the resource connection duration in the statistic metric information. The
+    /// value type is uint32_t, and the unit is millisecond.
+    ///
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub static mut OH_MEDIA_EVENT_INFO_RESOURCE_CONNECTION_DURATION: *const ::core::ffi::c_char;
+    /// Pointer to the key for obtaining the first-frame decapsulation duration in the statistic metric information.
+    /// The value type is uint32_t, and the unit is millisecond.
+    ///
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub static mut OH_MEDIA_EVENT_INFO_FIRST_FRAME_DECAPSULATION_DURATION:
+        *const ::core::ffi::c_char;
+    /// Pointer to the key for obtaining the total playback duration in the statistic metric information. The value
+    /// type is uint32_t, and the unit is millisecond.
+    ///
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub static mut OH_MEDIA_EVENT_INFO_TOTAL_PLAYING_TIME: *const ::core::ffi::c_char;
+    /// Pointer to the key for obtaining the total number of media resource loading requests in the statistic metric
+    /// information. The value type is uint32_t.
+    ///
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub static mut OH_MEDIA_EVENT_INFO_DOWNLOAD_REQUEST_COUNT: *const ::core::ffi::c_char;
+    /// Pointer to the key for obtaining the total media resource loading duration in the statistic metric
+    /// information. The value type is uint32_t, and the unit is millisecond.
+    ///
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub static mut OH_MEDIA_EVENT_INFO_DOWNLOAD_TOTAL_TIME: *const ::core::ffi::c_char;
+    /// Pointer to the key for obtaining the total size of loaded media resources in the statistic metric information.
+    /// The value type is int64_t.
+    ///
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub static mut OH_MEDIA_EVENT_INFO_DOWNLOAD_TOTAL_SIZE: *const ::core::ffi::c_char;
+    /// Pointer to the key for obtaining the total number of stalling times in the statistic metric information. The
+    /// value type is uint32_t.
+    ///
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub static mut OH_MEDIA_EVENT_INFO_STALLING_COUNT: *const ::core::ffi::c_char;
+    /// Pointer to the key for obtaining the total stalling duration in the statistic metric information. The value
+    /// type is uint32_t, and the unit is millisecond.
+    ///
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub static mut OH_MEDIA_EVENT_INFO_TOTAL_STALLING_TIME: *const ::core::ffi::c_char;
     /// Playback info key for server ip address.
     ///
     /// Available since API-level: 23
@@ -720,68 +859,4 @@ extern "C" {
     #[cfg(feature = "api-23")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub static mut OH_PLAYER_AVG_DOWNLOAD_RATE: *const ::core::ffi::c_char;
-    /// Key to get prepare duration value in statistic metrics info,
-    /// value type is uint32_t, in milliseconds.
-    ///
-    /// Available since API-level: 23
-    #[cfg(feature = "api-23")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
-    pub static mut OH_MEDIA_EVENT_INFO_PREPARE_DURATION: *const ::core::ffi::c_char;
-    /// Key to get resource link establishment time in statistic metrics info,
-    /// value type is uint32_t, in milliseconds.
-    ///
-    /// Available since API-level: 23
-    #[cfg(feature = "api-23")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
-    pub static mut OH_MEDIA_EVENT_INFO_RESOURCE_CONNECTION_DURATION: *const ::core::ffi::c_char;
-    /// Key to get decapsulation time of the first sample in statistic metrics info,
-    /// value type is uint32_t, in milliseconds.
-    ///
-    /// Available since API-level: 23
-    #[cfg(feature = "api-23")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
-    pub static mut OH_MEDIA_EVENT_INFO_FIRST_FRAME_DECAPSULATION_DURATION:
-        *const ::core::ffi::c_char;
-    /// Key to get cumulative playback time in statistic metrics info,
-    /// value type is uint32_t, in milliseconds.
-    ///
-    /// Available since API-level: 23
-    #[cfg(feature = "api-23")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
-    pub static mut OH_MEDIA_EVENT_INFO_TOTAL_PLAYING_TIME: *const ::core::ffi::c_char;
-    /// Key to get cumulative times of media resource loading request in statistic metrics info,
-    /// value type is uint32_t.
-    ///
-    /// Available since API-level: 23
-    #[cfg(feature = "api-23")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
-    pub static mut OH_MEDIA_EVENT_INFO_DOWNLOAD_REQUEST_COUNT: *const ::core::ffi::c_char;
-    /// Key to get the total time spent loading the media resource in statistic metrics info,
-    /// value type is uint32_t, in milliseconds.
-    ///
-    /// Available since API-level: 23
-    #[cfg(feature = "api-23")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
-    pub static mut OH_MEDIA_EVENT_INFO_DOWNLOAD_TOTAL_TIME: *const ::core::ffi::c_char;
-    /// Key to get size of loaded media resources in statistic metrics info,
-    /// value type is int64_t.
-    ///
-    /// Available since API-level: 23
-    #[cfg(feature = "api-23")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
-    pub static mut OH_MEDIA_EVENT_INFO_DOWNLOAD_TOTAL_SIZE: *const ::core::ffi::c_char;
-    /// Key to get cumulative stalling count in statistic metrics info,
-    /// value type is uint32_t.
-    ///
-    /// Available since API-level: 23
-    #[cfg(feature = "api-23")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
-    pub static mut OH_MEDIA_EVENT_INFO_STALLING_COUNT: *const ::core::ffi::c_char;
-    /// Key to get the cumulative stalling time in statistic metrics info,
-    /// value type is uint32_t,in milliseconds.
-    ///
-    /// Available since API-level: 23
-    #[cfg(feature = "api-23")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
-    pub static mut OH_MEDIA_EVENT_INFO_TOTAL_STALLING_TIME: *const ::core::ffi::c_char;
 }

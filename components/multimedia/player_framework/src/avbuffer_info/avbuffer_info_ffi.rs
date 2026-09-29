@@ -34,14 +34,25 @@ impl ::core::ops::BitAndAssign for OH_AVCodecBufferFlags {
     }
 }
 impl OH_AVCodecBufferFlags {
+    /// Common frame.
+    ///
+    /// Available since API-level: 9
     pub const NONE: OH_AVCodecBufferFlags = OH_AVCodecBufferFlags(0);
-    /// Indicates that the Buffer is an End-of-Stream frame.
+    /// The buffer is an end-of-stream frame.
+    ///
+    /// Available since API-level: 9
     pub const EOS: OH_AVCodecBufferFlags = OH_AVCodecBufferFlags(1);
-    /// Indicates that the Buffer contains keyframes.
+    /// The buffer contains key frames.
+    ///
+    /// Available since API-level: 9
     pub const SYNC_FRAME: OH_AVCodecBufferFlags = OH_AVCodecBufferFlags(2);
-    /// Indicates that the data contained in the Buffer is only part of a frame.
+    /// The data in the buffer is only part of the frame.
+    ///
+    /// Available since API-level: 9
     pub const INCOMPLETE_FRAME: OH_AVCodecBufferFlags = OH_AVCodecBufferFlags(4);
-    /// Indicates that the Buffer contains Codec-Specific-Data.
+    /// The buffer contains codec-specific data.
+    ///
+    /// Available since API-level: 9
     pub const CODEC_DATA: OH_AVCodecBufferFlags = OH_AVCodecBufferFlags(8);
     /// Flag is used to discard packets which are required to maintain valid decoder state but are not required
     /// for output and should be dropped after decoding.
@@ -59,23 +70,33 @@ impl OH_AVCodecBufferFlags {
     pub const DISPOSABLE: OH_AVCodecBufferFlags = OH_AVCodecBufferFlags(32);
 }
 #[repr(transparent)]
-/// Enumerate the categories of OH_AVCodec's Buffer tags.
+/// Enumerates the flags for the buffer of an OH_AVCodec instance.
 ///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.Core
 ///
 /// Available since API-level: 9
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OH_AVCodecBufferFlags(pub ::core::ffi::c_uint);
-/// Define the Buffer description information of OH_AVCodec
+/// The struct describes the description information about the buffer of an OH_AVCodec instance.
 ///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.Core
 ///
 /// Available since API-level: 9
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct OH_AVCodecBufferAttr {
+    /// Display timestamp of the buffer, in microseconds.
+    ///
+    /// Available since API-level: 9
     pub pts: i64,
+    /// Size of data contained in the buffer, in bytes.
+    ///
+    /// Available since API-level: 9
     pub size: i32,
+    /// Offset of valid data in the buffer.
+    ///
+    /// Available since API-level: 9
     pub offset: i32,
+    /// Flags of the buffer. For details, see [`OH_AVCodecBufferFlags`](crate::avbuffer_info::OH_AVCodecBufferFlags).
+    ///
+    /// Available since API-level: 9
     pub flags: u32,
 }

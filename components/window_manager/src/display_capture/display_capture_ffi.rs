@@ -9,23 +9,26 @@ use crate::display_info::NativeDisplayManagerResult;
 use ohos_sys_opaque_types::OH_PixelmapNative;
 
 extern "C" {
-    /// Capture a screen pixelmap of the specified display.
+    /// Takes a screenshot of the entire screen. This function can be used to capture a full-screen screenshot on the
+    /// specified display.
     ///
     ///
-    /// Required Permissions: ohos.permission.CUSTOM_SCREEN_CAPTURE
+    /// Required Permissions: ohos.permission.CUSTOM_SCREEN_CAPTURE or ohos.permission.CUSTOM_SCREEN_RECORDING \[since 22\]
+    ///
+    /// Required Permissions: ohos.permission.CUSTOM_SCREEN_CAPTURE \[since 14\]
     /// # Arguments
     ///
-    /// * `displayId` - The ID of the display to be captured.
+    /// * `displayId` - ID of the display. The value must be a non-negative integer.
     ///
-    /// * `pixelMap` - The output pixel map of the captured display.
+    /// * `pixelMap` - Double pointer to an OH_PixelmapNative object, which is the screenshot taken.
     ///
     /// # Returns
     ///
-    /// * { DISPLAY_MANAGER_OK } If the operation is successful.
-    /// { DISPLAY_MANAGER_ERROR_NO_PERMISSION } If no permission.
-    /// { DISPLAY_MANAGER_ERROR_INVALID_PARAM } If Parameter error.
-    /// { DISPLAY_MANAGER_ERROR_DEVICE_NOT_SUPPORTED } If device not support.
-    /// { DISPLAY_MANAGER_ERROR_SYSTEM_ABNORMAL } If display manager service works abnormally.
+    /// - [`DISPLAY_MANAGER_OK`](crate::display_info::NativeDisplayManagerResult) If the operation is successful.
+    /// - [`DISPLAY_MANAGER_ERROR_NO_PERMISSION`](crate::display_info::NativeDisplayManagerErrorCode::NO_PERMISSION) If no permission.
+    /// - [`DISPLAY_MANAGER_ERROR_INVALID_PARAM`](crate::display_info::NativeDisplayManagerErrorCode::INVALID_PARAM) If parameter error.
+    /// - [`DISPLAY_MANAGER_ERROR_DEVICE_NOT_SUPPORTED`](crate::display_info::NativeDisplayManagerErrorCode::DEVICE_NOT_SUPPORTED) If device not support.
+    /// - [`DISPLAY_MANAGER_ERROR_SYSTEM_ABNORMAL`](crate::display_info::NativeDisplayManagerErrorCode::SYSTEM_ABNORMAL) If display manager service works abnormally.
     ///
     /// Available since API-level: 14
     #[cfg(feature = "api-14")]

@@ -142,4 +142,46 @@ fn link_smoke() {
             ohaudio::audiostream_base::OH_AudioStream_SourceType::AUDIOSTREAM_SOURCE_TYPE_MIC,
         );
     }
+
+    #[cfg(feature = "api-24")]
+    unsafe {
+        let _ = ohaudio::audio_session_manager::OH_AudioSessionManager_SetCaptureMuteHint(
+            ptr::null_mut(),
+            false,
+        );
+        let _ = ohaudio::audiocapturer::OH_AudioCapturer_SetMuteHint(ptr::null_mut(), false);
+        let _ = ohaudio::audiorenderer::OH_AudioRenderer_SetIndependentAudioSessionStrategy(
+            ptr::null_mut(),
+            ptr::null(),
+            0,
+        );
+    }
+
+    #[cfg(feature = "api-26")]
+    unsafe {
+        let _ = ohaudio::audio_accessory_input_stream_manager::OH_AudioAccessoryInputStreamManager_GetWritableSize(ptr::null_mut(), ptr::null_mut());
+        let _ =
+            ohaudio::audio_accessory_manager::OH_AudioManager_GetAccessoryManager(ptr::null_mut());
+        let _ = ohaudio::audio_debugging_manager::OH_AudioManager_GetAudioDebuggingManager(
+            ptr::null_mut(),
+        );
+        let _ = ohaudio::audio_device_enhance_manager::OH_AudioManager_GetAudioDeviceEnhanceManager(
+            ptr::null_mut(),
+        );
+        let _ = ohaudio::audio_routing_manager::OH_AudioRoutingManager_UnregisterPreferredOutputDevicesChangeCallback(ptr::null_mut(), core::mem::zeroed());
+        let _ =
+            ohaudio::audio_stream_manager::OH_AudioStreamManager_IsMultichannelPlaybackSupported(
+                ptr::null_mut(),
+                ptr::null_mut(),
+                core::mem::zeroed(),
+            );
+        let _ = ohaudio::audiocapturer::OH_AudioCapturer_GetNoiseReductionMode(
+            ptr::null_mut(),
+            ptr::null_mut(),
+        );
+        let _ = ohaudio::audiostreambuilder::OH_AudioStreamBuilder_SetCapturerLoopbackEffectEnabled(
+            ptr::null_mut(),
+            false,
+        );
+    }
 }

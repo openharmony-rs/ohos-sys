@@ -3,8 +3,8 @@
 #![allow(non_upper_case_globals)]
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
-#[cfg(feature = "api-19")]
-use crate::native_node::ArkUI_AttributeItem;
+#[cfg(feature = "api-26")]
+use crate::native_material::ArkUI_ImmersiveMaterialHandle;
 use crate::native_type::*;
 
 #[cfg(feature = "api-12")]
@@ -126,6 +126,35 @@ impl ArkUI_ImmersiveMode {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct ArkUI_ImmersiveMode(pub ::core::ffi::c_uint);
+#[cfg(feature = "api-26")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+impl OH_ArkUI_DialogDisplayModeInSubWindow {
+    /// The dialog box is displayed based on the screen.
+    ///
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub const OH_ARKUI_DIALOG_DISPLAY_MODE_SCREEN_BASED: OH_ArkUI_DialogDisplayModeInSubWindow =
+        OH_ArkUI_DialogDisplayModeInSubWindow(0);
+    /// The dialog box is displayed based on the window.
+    ///
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub const OH_ARKUI_DIALOG_DISPLAY_MODE_WINDOW_BASED: OH_ArkUI_DialogDisplayModeInSubWindow =
+        OH_ArkUI_DialogDisplayModeInSubWindow(1);
+}
+#[repr(transparent)]
+/// Enumerates the dialog display mode in subwindow.
+///
+///
+/// Available since API-level: 26
+#[cfg(feature = "api-26")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct OH_ArkUI_DialogDisplayModeInSubWindow(pub ::core::ffi::c_uint);
 /// Invoked when the dialog box is closed.
 ///
 ///
@@ -192,8 +221,8 @@ pub struct ArkUI_NativeDialogAPI_1 {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     pub setContent: ::core::option::Option<
         unsafe extern "C" fn(handle: ArkUI_NativeDialogHandle, content: ArkUI_NodeHandle) -> i32,
     >,
@@ -208,8 +237,8 @@ pub struct ArkUI_NativeDialogAPI_1 {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     pub removeContent:
         ::core::option::Option<unsafe extern "C" fn(handle: ArkUI_NativeDialogHandle) -> i32>,
     /// Sets the alignment mode for a custom dialog box.
@@ -220,7 +249,7 @@ pub struct ArkUI_NativeDialogAPI_1 {
     ///
     /// * `handle` - Indicates the pointer to the custom dialog box controller.
     ///
-    /// * `alignment` - Indicates the alignment mode. The parameter type is [`ArkUI_Alignment`](crate::native_type::ArkUI_Alignment).
+    /// * `alignment` - Indicates the alignment mode. The parameter type is [`ArkUI_Alignment`](crate::node_attributes::layout::ArkUI_Alignment).
     ///
     /// * `offsetX` - Indicates the horizontal offset of the custom dialog box. The value is a floating point number.
     ///
@@ -229,8 +258,8 @@ pub struct ArkUI_NativeDialogAPI_1 {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     pub setContentAlignment: ::core::option::Option<
         unsafe extern "C" fn(
             handle: ArkUI_NativeDialogHandle,
@@ -250,8 +279,8 @@ pub struct ArkUI_NativeDialogAPI_1 {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     pub resetContentAlignment:
         ::core::option::Option<unsafe extern "C" fn(handle: ArkUI_NativeDialogHandle) -> i32>,
     /// Sets the modal mode for a custom dialog box.
@@ -268,8 +297,8 @@ pub struct ArkUI_NativeDialogAPI_1 {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     pub setModalMode: ::core::option::Option<
         unsafe extern "C" fn(handle: ArkUI_NativeDialogHandle, isModal: bool) -> i32,
     >,
@@ -287,8 +316,8 @@ pub struct ArkUI_NativeDialogAPI_1 {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     pub setAutoCancel: ::core::option::Option<
         unsafe extern "C" fn(handle: ArkUI_NativeDialogHandle, autoCancel: bool) -> i32,
     >,
@@ -303,13 +332,13 @@ pub struct ArkUI_NativeDialogAPI_1 {
     /// * `maskColor` - Indicates the mask color, in 0xARGB format.
     ///
     /// * `maskRect` - Indicates the pointer to the mask area. Events outside the mask area are transparently
-    /// transmitted, and events within the mask area are not. The parameter type is [`ArkUI_Rect`](crate::native_type::ArkUI_Rect).
+    /// transmitted, and events within the mask area are not. The parameter type is [`ArkUI_Rect`](crate::common_type::ArkUI_Rect).
     ///
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     pub setMask: ::core::option::Option<
         unsafe extern "C" fn(
             handle: ArkUI_NativeDialogHandle,
@@ -330,8 +359,8 @@ pub struct ArkUI_NativeDialogAPI_1 {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     pub setBackgroundColor: ::core::option::Option<
         unsafe extern "C" fn(handle: ArkUI_NativeDialogHandle, backgroundColor: u32) -> i32,
     >,
@@ -354,8 +383,8 @@ pub struct ArkUI_NativeDialogAPI_1 {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     pub setCornerRadius: ::core::option::Option<
         unsafe extern "C" fn(
             handle: ArkUI_NativeDialogHandle,
@@ -379,8 +408,8 @@ pub struct ArkUI_NativeDialogAPI_1 {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     pub setGridColumnCount: ::core::option::Option<
         unsafe extern "C" fn(handle: ArkUI_NativeDialogHandle, gridCount: i32) -> i32,
     >,
@@ -401,8 +430,8 @@ pub struct ArkUI_NativeDialogAPI_1 {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     pub enableCustomStyle: ::core::option::Option<
         unsafe extern "C" fn(handle: ArkUI_NativeDialogHandle, enableCustomStyle: bool) -> i32,
     >,
@@ -420,8 +449,8 @@ pub struct ArkUI_NativeDialogAPI_1 {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     pub enableCustomAnimation: ::core::option::Option<
         unsafe extern "C" fn(handle: ArkUI_NativeDialogHandle, enableCustomAnimation: bool) -> i32,
     >,
@@ -439,8 +468,8 @@ pub struct ArkUI_NativeDialogAPI_1 {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     pub registerOnWillDismiss: ::core::option::Option<
         unsafe extern "C" fn(
             handle: ArkUI_NativeDialogHandle,
@@ -458,8 +487,8 @@ pub struct ArkUI_NativeDialogAPI_1 {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     pub show: ::core::option::Option<
         unsafe extern "C" fn(handle: ArkUI_NativeDialogHandle, showInSubWindow: bool) -> i32,
     >,
@@ -472,8 +501,8 @@ pub struct ArkUI_NativeDialogAPI_1 {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     pub close:
         ::core::option::Option<unsafe extern "C" fn(handle: ArkUI_NativeDialogHandle) -> i32>,
     /// Registers a listener for the dismiss event of the custom dialog box.
@@ -489,8 +518,8 @@ pub struct ArkUI_NativeDialogAPI_1 {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     pub registerOnWillDismissWithUserData: ::core::option::Option<
         unsafe extern "C" fn(
             handle: ArkUI_NativeDialogHandle,
@@ -531,9 +560,9 @@ pub struct ArkUI_NativeDialogAPI_2 {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::native_type::ArkUiErrorCode::CAPI_INIT_ERROR) if the CAPI init error.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if the CAPI init error.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 15
     pub setKeyboardAvoidDistance: ::core::option::Option<
@@ -556,8 +585,8 @@ pub struct ArkUI_NativeDialogAPI_2 {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 15
     pub setLevelMode: ::core::option::Option<
@@ -571,13 +600,13 @@ pub struct ArkUI_NativeDialogAPI_2 {
     ///
     /// * `handle` - Indicates the pointer to the custom dialog box controller.
     ///
-    /// * `uniqueId` - Indicates the uniquedId of any nodes in router or navigation pages.
+    /// * `uniqueId` - Indicates the uniqueId of any nodes in router or navigation pages.
     ///
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 15
     pub setLevelUniqueId: ::core::option::Option<
@@ -596,8 +625,8 @@ pub struct ArkUI_NativeDialogAPI_2 {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 15
     pub setImmersiveMode: ::core::option::Option<
@@ -640,8 +669,8 @@ pub struct ArkUI_NativeDialogAPI_3 {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 19
     pub setLevelOrder: ::core::option::Option<
@@ -660,8 +689,8 @@ pub struct ArkUI_NativeDialogAPI_3 {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 19
     pub registerOnWillAppear: ::core::option::Option<
@@ -686,8 +715,8 @@ pub struct ArkUI_NativeDialogAPI_3 {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 19
     pub registerOnDidAppear: ::core::option::Option<
@@ -712,8 +741,8 @@ pub struct ArkUI_NativeDialogAPI_3 {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 19
     pub registerOnWillDisappear: ::core::option::Option<
@@ -738,8 +767,8 @@ pub struct ArkUI_NativeDialogAPI_3 {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 19
     pub registerOnDidDisappear: ::core::option::Option<
@@ -772,8 +801,8 @@ pub struct ArkUI_NativeDialogAPI_3 {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occur..
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occur..
     ///
     /// Available since API-level: 19
     pub setBorderWidth: ::core::option::Option<
@@ -805,8 +834,8 @@ pub struct ArkUI_NativeDialogAPI_3 {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occur..
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occur..
     ///
     /// Available since API-level: 19
     pub setBorderColor: ::core::option::Option<
@@ -837,8 +866,8 @@ pub struct ArkUI_NativeDialogAPI_3 {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occur..
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occur..
     ///
     /// Available since API-level: 19
     pub setBorderStyle: ::core::option::Option<
@@ -865,8 +894,8 @@ pub struct ArkUI_NativeDialogAPI_3 {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occur..
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occur..
     ///
     /// Available since API-level: 19
     pub setWidth: ::core::option::Option<
@@ -891,8 +920,8 @@ pub struct ArkUI_NativeDialogAPI_3 {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occur..
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occur..
     ///
     /// Available since API-level: 19
     pub setHeight: ::core::option::Option<
@@ -915,8 +944,8 @@ pub struct ArkUI_NativeDialogAPI_3 {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occur..
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occur..
     ///
     /// Available since API-level: 19
     pub setShadow: ::core::option::Option<
@@ -935,8 +964,8 @@ pub struct ArkUI_NativeDialogAPI_3 {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occur..
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occur..
     ///
     /// Available since API-level: 19
     pub setCustomShadow: ::core::option::Option<
@@ -958,8 +987,8 @@ pub struct ArkUI_NativeDialogAPI_3 {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occur..
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occur..
     ///
     /// Available since API-level: 19
     pub setBackgroundBlurStyle: ::core::option::Option<
@@ -978,8 +1007,8 @@ pub struct ArkUI_NativeDialogAPI_3 {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occur..
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occur..
     ///
     /// Available since API-level: 19
     pub setKeyboardAvoidMode: ::core::option::Option<
@@ -1001,8 +1030,8 @@ pub struct ArkUI_NativeDialogAPI_3 {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occur..
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occur..
     ///
     /// Available since API-level: 19
     pub enableHoverMode: ::core::option::Option<
@@ -1021,8 +1050,8 @@ pub struct ArkUI_NativeDialogAPI_3 {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occur.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occur.
     ///
     /// Available since API-level: 19
     pub setHoverModeArea: ::core::option::Option<
@@ -1042,8 +1071,8 @@ pub struct ArkUI_NativeDialogAPI_3 {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 19
     pub setFocusable: ::core::option::Option<
@@ -1058,7 +1087,7 @@ pub struct ArkUI_NativeDialogAPI_3 {
     /// * `handle` - Indicates the pointer to the custom dialog box controller.
     ///
     /// * `backgroundBlurStyleOptions` - Background blur effect options.
-    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter:
+    /// Format of the [`ArkUI_AttributeItem`](crate::common_type::ArkUI_AttributeItem) parameter:
     ///
     /// .value\[0\].i32: color mode. The value is an enum of [`ArkUI_ColorMode`](crate::native_type::ArkUI_ColorMode).
     ///
@@ -1070,7 +1099,7 @@ pub struct ArkUI_NativeDialogAPI_3 {
     ///
     /// .value\[4\]?.u32: degree of darkening the white color in the grayscale blur. The value range is \[0, 127\].
     ///
-    /// .value\[5\]?.i32: blur activation policy. The value is an enum of [`ArkUI_BlurStyleActivePolicy`](crate::native_type::ArkUI_BlurStyleActivePolicy).
+    /// .value\[5\]?.i32: blur activation policy. The value is an enum of [`ArkUI_BlurStyleActivePolicy`](crate::native_type_visual::ArkUI_BlurStyleActivePolicy).
     ///
     /// .value\[6\]?.u32: background color, in 0xARGB format, of the components within the window after the window
     /// loses focus (in which case, the blur effect on the components within the window is
@@ -1080,8 +1109,8 @@ pub struct ArkUI_NativeDialogAPI_3 {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 19
     pub setBackgroundBlurStyleOptions: ::core::option::Option<
@@ -1099,7 +1128,7 @@ pub struct ArkUI_NativeDialogAPI_3 {
     /// * `handle` - Indicates the pointer to the custom dialog box controller.
     ///
     /// * `backgroundEffect` - Background effect.
-    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter:
+    /// Format of the [`ArkUI_AttributeItem`](crate::common_type::ArkUI_AttributeItem) parameter:
     ///
     /// .value\[0\].f32: blur radius, in vp.
     ///
@@ -1115,7 +1144,7 @@ pub struct ArkUI_NativeDialogAPI_3 {
     ///
     /// .value\[6\]?.u32: degree of darkening the white color in the grayscale blur. The value range is \[0, 127\].
     ///
-    /// .value\[7\]?.i32: blur activation policy. The value is an enum of [`ArkUI_BlurStyleActivePolicy`](crate::native_type::ArkUI_BlurStyleActivePolicy).
+    /// .value\[7\]?.i32: blur activation policy. The value is an enum of [`ArkUI_BlurStyleActivePolicy`](crate::native_type_visual::ArkUI_BlurStyleActivePolicy).
     ///
     /// .value\[8\]?.u32: background color, in 0xARGB format, of the components within the window after the window
     /// loses focus (in which case, the blur effect on the components within the window is
@@ -1125,8 +1154,8 @@ pub struct ArkUI_NativeDialogAPI_3 {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 19
     pub setBackgroundEffect: ::core::option::Option<
@@ -1170,7 +1199,7 @@ extern "C" {
     pub fn OH_ArkUI_DialogDismissEvent_GetUserData(
         event: *mut ArkUI_DialogDismissEvent,
     ) -> *mut ::core::ffi::c_void;
-    /// Obtains the c from a dialog box dismiss event object.
+    /// Obtains the dismiss reason from a dialog box dismiss event object.
     ///
     /// # Arguments
     ///
@@ -1203,8 +1232,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
@@ -1224,8 +1253,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
@@ -1243,8 +1272,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
@@ -1289,8 +1318,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
@@ -1310,8 +1339,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
@@ -1333,8 +1362,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
@@ -1354,8 +1383,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
@@ -1381,8 +1410,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
@@ -1413,8 +1442,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
@@ -1444,8 +1473,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
@@ -1474,8 +1503,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
@@ -1500,8 +1529,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
@@ -1524,8 +1553,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
@@ -1546,8 +1575,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
@@ -1568,8 +1597,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
@@ -1589,8 +1618,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
@@ -1605,7 +1634,7 @@ extern "C" {
     ///
     /// * `options` - Dialog box parameters.
     ///
-    /// * `alignment` - Alignment mode of the dialog box. The parameter type is [`ArkUI_Alignment`](crate::native_type::ArkUI_Alignment).
+    /// * `alignment` - Alignment mode of the dialog box. The parameter type is [`ArkUI_Alignment`](crate::node_attributes::layout::ArkUI_Alignment).
     ///
     /// * `offsetX` - Indicates the horizontal offset of the custom dialog box. The value is a floating point number.
     ///
@@ -1614,8 +1643,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
@@ -1638,8 +1667,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
@@ -1660,8 +1689,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
@@ -1683,8 +1712,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
@@ -1692,6 +1721,31 @@ extern "C" {
     pub fn OH_ArkUI_CustomDialog_SetSubwindowMode(
         options: *mut ArkUI_CustomDialogOptions,
         showInSubwindow: bool,
+    ) -> i32;
+    /// Sets the display mode of the custom dialog box in a subwindow.
+    ///
+    ///
+    /// **Note:** This method takes effect only when the dialog box is displayed in a subwindow.
+    /// # Arguments
+    ///
+    /// * `options` - Dialog box parameters.
+    ///
+    /// * `displayModeInSubWindow` - Display mode of the dialog box in the subwindow.
+    /// The parameter type is [`OH_ArkUI_DialogDisplayModeInSubWindow`](crate::native_dialog::OH_ArkUI_DialogDisplayModeInSubWindow).
+    /// The default value is <b>OH_ARKUI_DIALOG_DISPLAY_MODE_SCREEN_BASED</b>.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_ArkUI_CustomDialog_SetDisplayModeInSubWindow(
+        options: *mut ArkUI_CustomDialogOptions,
+        displayModeInSubWindow: OH_ArkUI_DialogDisplayModeInSubWindow,
     ) -> i32;
     /// Sets the mask for a custom dialog box.
     ///
@@ -1702,13 +1756,13 @@ extern "C" {
     /// * `maskColor` - Mask color, in 0xargb format.
     ///
     /// * `maskRect` - Pointer to the mask area. Events outside the mask area are transparently transmitted,
-    /// and events within the mask area are not. The parameter type is [`ArkUI_Rect`](crate::native_type::ArkUI_Rect).
+    /// and events within the mask area are not. The parameter type is [`ArkUI_Rect`](crate::common_type::ArkUI_Rect).
     ///
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
@@ -1729,8 +1783,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
@@ -1750,8 +1804,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
@@ -1771,8 +1825,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
@@ -1794,8 +1848,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
@@ -1820,8 +1874,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
@@ -1844,8 +1898,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
@@ -1868,8 +1922,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
@@ -1892,8 +1946,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
@@ -1914,8 +1968,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -1931,7 +1985,7 @@ extern "C" {
     /// * `options` - Dialog box parameters.
     ///
     /// * `backgroundBlurStyleOptions` - Background blur effect options of the dialog box.
-    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter:
+    /// Format of the [`ArkUI_AttributeItem`](crate::common_type::ArkUI_AttributeItem) parameter:
     ///
     /// .value\[0\].i32: color mode. The value is an enum of [`ArkUI_ColorMode`](crate::native_type::ArkUI_ColorMode).
     ///
@@ -1943,7 +1997,7 @@ extern "C" {
     ///
     /// .value\[4\]?.u32: degree of darkening the white color in the grayscale blur. The value range is \[0, 127\].
     ///
-    /// .value\[5\]?.i32: blur activation policy. The value is an enum of [`ArkUI_BlurStyleActivePolicy`](crate::native_type::ArkUI_BlurStyleActivePolicy).
+    /// .value\[5\]?.i32: blur activation policy. The value is an enum of [`ArkUI_BlurStyleActivePolicy`](crate::native_type_visual::ArkUI_BlurStyleActivePolicy).
     ///
     /// .value\[6\]?.u32: background color, in 0xARGB format, of the components within the window after the window loses
     /// focus (in which case, the blur effect on the components within the window is removed).
@@ -1952,8 +2006,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
@@ -1969,7 +2023,7 @@ extern "C" {
     /// * `options` - Dialog box parameters.
     ///
     /// * `backgroundEffect` - Background effect of the dialog box.
-    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter:
+    /// Format of the [`ArkUI_AttributeItem`](crate::common_type::ArkUI_AttributeItem) parameter:
     ///
     /// .value\[0\].f32: blur radius, in vp.
     ///
@@ -1985,7 +2039,7 @@ extern "C" {
     ///
     /// .value\[6\]?.u32: degree of darkening the white color in the grayscale blur. The value range is \[0, 127\].
     ///
-    /// .value\[7\]?.i32: blur activation policy. The value is an enum of [`ArkUI_BlurStyleActivePolicy`](crate::native_type::ArkUI_BlurStyleActivePolicy).
+    /// .value\[7\]?.i32: blur activation policy. The value is an enum of [`ArkUI_BlurStyleActivePolicy`](crate::native_type_visual::ArkUI_BlurStyleActivePolicy).
     ///
     /// .value\[8\]?.u32: background color, in 0xARGB format, of the components within the window after the window loses
     /// focus (in which case, the blur effect on the components within the window is removed).
@@ -1994,8 +2048,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
@@ -2003,5 +2057,45 @@ extern "C" {
     pub fn OH_ArkUI_CustomDialog_SetBackgroundEffect(
         options: *mut ArkUI_CustomDialogOptions,
         backgroundEffect: *const ArkUI_AttributeItem,
+    ) -> i32;
+    /// Sets the system material of the dialog box.
+    ///
+    /// # Arguments
+    ///
+    /// * `options` - Dialog box parameters.
+    ///
+    /// * `material` - Pointer to material object. The type is [`ArkUI_ImmersiveMaterialHandle`](crate::native_material::ArkUI_ImmersiveMaterialHandle).
+    ///
+    /// # Returns
+    ///
+    /// - [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// - [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_ArkUI_NativeModule_CustomDialog_SetSystemMaterialInOptions(
+        options: *mut ArkUI_CustomDialogOptions,
+        material: ArkUI_ImmersiveMaterialHandle,
+    ) -> i32;
+    /// Sets the system material of the dialog box.
+    ///
+    /// # Arguments
+    ///
+    /// * `handle` - Indicates the pointer to the custom dialog box controller.
+    ///
+    /// * `material` - Pointer to material object. The type is [`ArkUI_ImmersiveMaterialHandle`](crate::native_material::ArkUI_ImmersiveMaterialHandle).
+    ///
+    /// # Returns
+    ///
+    /// - [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// - [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_ArkUI_NativeModule_CustomDialog_SetSystemMaterial(
+        handle: ArkUI_NativeDialogHandle,
+        material: ArkUI_ImmersiveMaterialHandle,
     ) -> i32;
 }

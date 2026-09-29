@@ -168,4 +168,76 @@ extern "C" {
         streamManager: *mut OH_AudioStreamManager,
         source: OH_AudioStream_SourceType,
     ) -> bool;
+    /// Returns if multichannel playback is supported for the specific audio stream info and usage type
+    /// in current device situation.
+    ///
+    /// # Arguments
+    ///
+    /// * `streamManager` - [`OH_AudioStreamManager`](crate::audio_stream_manager::OH_AudioStreamManager) handle
+    /// provided by [`OH_AudioManager_GetAudioStreamManager`](crate::audio_stream_manager::OH_AudioManager_GetAudioStreamManager).
+    ///
+    /// * `streamInfo` - reference of stream info structure to describe basic audio format.
+    ///
+    /// * `usage` - stream usage type used to decide the audio device and pipe type selection result.
+    ///
+    /// # Returns
+    ///
+    /// * True if multichannel playback is supported in this situation.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_AudioStreamManager_IsMultichannelPlaybackSupported(
+        streamManager: *mut OH_AudioStreamManager,
+        streamInfo: *mut OH_AudioStreamInfo,
+        usage: OH_AudioStream_Usage,
+    ) -> bool;
+    /// Returns if direct playback is supported for the specific audio stream info and usage type
+    /// in current device situation.
+    ///
+    /// # Arguments
+    ///
+    /// * `streamManager` - [`OH_AudioStreamManager`](crate::audio_stream_manager::OH_AudioStreamManager) handle
+    /// provided by [`OH_AudioManager_GetAudioStreamManager`](crate::audio_stream_manager::OH_AudioManager_GetAudioStreamManager).
+    ///
+    /// * `streamInfo` - reference of stream info structure to describe basic audio format.
+    ///
+    /// * `usage` - stream usage type used to decide the audio device and pipe type selection result.
+    ///
+    /// # Returns
+    ///
+    /// * True if direct playback is supported in this situation.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_AudioStreamManager_IsDirectPlaybackSupported(
+        streamManager: *mut OH_AudioStreamManager,
+        streamInfo: *mut OH_AudioStreamInfo,
+        usage: OH_AudioStream_Usage,
+    ) -> bool;
+    /// Returns if offload playback is supported for the specific audio stream info and usage type
+    /// in current device situation.
+    ///
+    /// # Arguments
+    ///
+    /// * `streamManager` - [`OH_AudioStreamManager`](crate::audio_stream_manager::OH_AudioStreamManager) handle
+    /// provided by [`OH_AudioManager_GetAudioStreamManager`](crate::audio_stream_manager::OH_AudioManager_GetAudioStreamManager).
+    ///
+    /// * `streamInfo` - reference of stream info structure to describe basic audio format.
+    ///
+    /// * `usage` - stream usage type used to decide the audio device and pipe type selection result.
+    ///
+    /// # Returns
+    ///
+    /// * True if offload playback is supported in this situation.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_AudioStreamManager_IsOffloadPlaybackSupported(
+        streamManager: *mut OH_AudioStreamManager,
+        streamInfo: *mut OH_AudioStreamInfo,
+        usage: OH_AudioStream_Usage,
+    ) -> bool;
 }

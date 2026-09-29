@@ -6,22 +6,20 @@
 use crate::os_account_common::*;
 
 extern "C" {
-    /// Gets the name of the OS account to which the caller process belongs.
+    /// Obtains the name of the OS account, to which the caller process belongs.
     ///
     /// # Arguments
     ///
-    /// * `buffer` - The name character array which should have space for the name and the terminating character ('\0').
+    /// * `buffer` - Character array of the OS account name, which must contain the OS account name
+    /// and the null terminator ('\0'). The maximum length is defined by **LOGIN_NAME_MAX**.
     ///
-    /// * `buffer_size` - The size of the name character array.
+    /// * `buffer_size` - Size of the OS account name's character array.
     ///
     /// # Returns
     ///
-    /// * [`OS_ACCOUNT_ERR_OK`](crate::os_account_common::OsAccount_ErrCode::OS_ACCOUNT_ERR_OK) Indicates successful;<br>
-    /// [`OS_ACCOUNT_ERR_INTERNAL_ERROR`](crate::os_account_common::OsAccount_ErrCode::OS_ACCOUNT_ERR_INTERNAL_ERROR) Indicates the internal error.<br>
-    /// [`OS_ACCOUNT_ERR_INVALID_PARAMETER`](crate::os_account_common::OsAccount_ErrCode::OS_ACCOUNT_ERR_INVALID_PARAMETER) Indicates the <i>buffer</i> is NULL pointer or the size of the name,
-    /// including the terminating character ('\0'), is larger than <i>buffer_size</i>;
-    ///
-    /// Required System Capabilities: SystemCapability.Account.OsAccount
+    /// - [`OS_ACCOUNT_ERR_OK`](crate::os_account_common::OsAccount_ErrCode::OS_ACCOUNT_ERR_OK) The operation is successful.
+    /// - [`OS_ACCOUNT_ERR_INTERNAL_ERROR`](crate::os_account_common::OsAccount_ErrCode::OS_ACCOUNT_ERR_INTERNAL_ERROR) An internal error occurs.
+    /// - [`OS_ACCOUNT_ERR_INVALID_PARAMETER`](crate::os_account_common::OsAccount_ErrCode::OS_ACCOUNT_ERR_INVALID_PARAMETER) The buffer is a null pointer or the size of the OS account name's character array (including **\0**) is greater than the value of **buffer_size**.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -29,5 +27,35 @@ extern "C" {
     pub fn OH_OsAccount_GetName(
         buffer: *mut ::core::ffi::c_char,
         buffer_size: usize,
+    ) -> OsAccount_ErrCode;
+    /// Obtains the name of the target OS account based on its local ID.
+    ///
+    ///
+    /// Required Permissions: ohos.permission.GET_LOCAL_ACCOUNT_IDENTIFIERS
+    /// # Arguments
+    ///
+    /// * `localId` - Local ID of the target OS account.
+    ///
+    /// * `name` - Character array of the OS account name, which must contain the OS account name
+    /// and the null terminator ('\0'). The maximum length is defined by **LOGIN_NAME_MAX**.
+    ///
+    /// * `name_size` - Size of the OS account name's character array.
+    ///
+    /// # Returns
+    ///
+    /// - [`OS_ACCOUNT_ERR_OK`](crate::os_account_common::OsAccount_ErrCode::OS_ACCOUNT_ERR_OK) The operation is successful.
+    /// - [`OS_ACCOUNT_ERR_PERMISSION_DENIED`](crate::os_account_common::OsAccount_ErrCode::OS_ACCOUNT_ERR_PERMISSION_DENIED) Permission is denied.
+    /// - [`OS_ACCOUNT_ERR_INTERNAL_ERROR`](crate::os_account_common::OsAccount_ErrCode::OS_ACCOUNT_ERR_INTERNAL_ERROR) An internal error occurs.
+    /// - [`OS_ACCOUNT_ERR_INVALID_PARAMETER`](crate::os_account_common::OsAccount_ErrCode::OS_ACCOUNT_ERR_INVALID_PARAMETER) The name is a null pointer or the size of the OS account name's character array (including **\0**) is greater than the value of **name_size**.
+    /// - [`OS_ACCOUNT_ERR_ACCOUNT_NOT_FOUND`](crate::os_account_common::OsAccount_ErrCode::OS_ACCOUNT_ERR_ACCOUNT_NOT_FOUND) The account is not found.
+    /// - [`OS_ACCOUNT_ERR_RESTRICTED_ACCOUNT`](crate::os_account_common::OsAccount_ErrCode::OS_ACCOUNT_ERR_RESTRICTED_ACCOUNT) The account is restricted and cannot be queried.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_OsAccount_GetNameByLocalId(
+        localId: i32,
+        name: *mut ::core::ffi::c_char,
+        name_size: usize,
     ) -> OsAccount_ErrCode;
 }

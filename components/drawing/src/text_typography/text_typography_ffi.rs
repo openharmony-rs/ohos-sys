@@ -11,13 +11,13 @@ use crate::types::*;
 use ohos_sys_opaque_types::{OH_Drawing_PositionAndAffinity, OH_Drawing_TextBox};
 
 impl OH_Drawing_TextDirection {
-    /// Right to left (RTL)
+    /// Right to left (RTL).
     pub const TEXT_DIRECTION_RTL: OH_Drawing_TextDirection = OH_Drawing_TextDirection(0);
-    /// Left to right (LTR)
+    /// Left to right (LTR).
     pub const TEXT_DIRECTION_LTR: OH_Drawing_TextDirection = OH_Drawing_TextDirection(1);
 }
 #[repr(transparent)]
-/// Enumerates text directions.
+/// Enumerates the text directions.
 ///
 ///
 /// Available since API-level: 8
@@ -26,28 +26,26 @@ impl OH_Drawing_TextDirection {
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OH_Drawing_TextDirection(pub ::core::ffi::c_uint);
 impl OH_Drawing_TextAlign {
-    /// Left-aligned
+    /// Left-aligned.
     pub const TEXT_ALIGN_LEFT: OH_Drawing_TextAlign = OH_Drawing_TextAlign(0);
-    /// Right-aligned
+    /// Right-aligned.
     pub const TEXT_ALIGN_RIGHT: OH_Drawing_TextAlign = OH_Drawing_TextAlign(1);
-    /// Center-aligned
+    /// Center-aligned.
     pub const TEXT_ALIGN_CENTER: OH_Drawing_TextAlign = OH_Drawing_TextAlign(2);
     /// Justified, which means that each line (except the last line) is stretched so that every line has equal width,
     /// and the left and right margins are straight.
     pub const TEXT_ALIGN_JUSTIFY: OH_Drawing_TextAlign = OH_Drawing_TextAlign(3);
-    /// <b>TEXT_ALIGN_START</b> achieves the same effect as <b>TEXT_ALIGN_LEFT</b>
-    /// when <b>OH_Drawing_TextDirection</b> is <b>TEXT_DIRECTION_LTR</b>;
-    /// it achieves the same effect as <b>TEXT_ALIGN_RIGHT</b>
-    /// when <b>OH_Drawing_TextDirection</b> is <b>TEXT_DIRECTION_RTL</b>.
+    /// When **OH_Drawing_TextDirection** is set to **TEXT_DIRECTION_LTR**, **TEXT_ALIGN_START** and **TEXT_ALIGN_LEFT**
+    /// are the same.<br>Similarly, when **OH_Drawing_TextDirection** is set to **TEXT_DIRECTION_RTL**, **
+    /// TEXT_ALIGN_START** and **TEXT_ALIGN_RIGHT** are the same.
     pub const TEXT_ALIGN_START: OH_Drawing_TextAlign = OH_Drawing_TextAlign(4);
-    /// <b>TEXT_ALIGN_END</b> achieves the same effect as <b>TEXT_ALIGN_RIGHT</b>
-    /// when <b>OH_Drawing_TextDirection</b> is <b>TEXT_DIRECTION_LTR</b>;
-    /// it achieves the same effect as <b>TEXT_ALIGN_LEFT</b>
-    /// when <b>OH_Drawing_TextDirection</b> is <b>TEXT_DIRECTION_RTL</b>.
+    /// When **OH_Drawing_TextDirection** is set to **TEXT_DIRECTION_LTR**, **TEXT_ALIGN_END** and **TEXT_ALIGN_RIGHT**
+    /// are the same.<br>Similarly, when **OH_Drawing_TextDirection** is set to **TEXT_DIRECTION_RTL**, **TEXT_ALIGN_END*
+    /// * and **TEXT_ALIGN_LEFT** are the same.
     pub const TEXT_ALIGN_END: OH_Drawing_TextAlign = OH_Drawing_TextAlign(5);
 }
 #[repr(transparent)]
-/// Enumerates text alignment modes.
+/// Enumerates the text alignment modes.
 ///
 ///
 /// Available since API-level: 8
@@ -56,27 +54,27 @@ impl OH_Drawing_TextAlign {
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OH_Drawing_TextAlign(pub ::core::ffi::c_uint);
 impl OH_Drawing_FontWeight {
-    /// Thin
+    /// Thin.
     pub const FONT_WEIGHT_100: OH_Drawing_FontWeight = OH_Drawing_FontWeight(0);
-    /// Extra-light
+    /// Extra-light.
     pub const FONT_WEIGHT_200: OH_Drawing_FontWeight = OH_Drawing_FontWeight(1);
-    /// Light
+    /// Light.
     pub const FONT_WEIGHT_300: OH_Drawing_FontWeight = OH_Drawing_FontWeight(2);
-    /// Normal/Regular
+    /// Normal/Regular.
     pub const FONT_WEIGHT_400: OH_Drawing_FontWeight = OH_Drawing_FontWeight(3);
-    /// Medium
+    /// Medium.
     pub const FONT_WEIGHT_500: OH_Drawing_FontWeight = OH_Drawing_FontWeight(4);
-    /// Semi-bold
+    /// Semi-bold.
     pub const FONT_WEIGHT_600: OH_Drawing_FontWeight = OH_Drawing_FontWeight(5);
-    /// Bold
+    /// Bold.
     pub const FONT_WEIGHT_700: OH_Drawing_FontWeight = OH_Drawing_FontWeight(6);
-    /// Extra-bold
+    /// Extra-bold.
     pub const FONT_WEIGHT_800: OH_Drawing_FontWeight = OH_Drawing_FontWeight(7);
-    /// Black
+    /// Black.
     pub const FONT_WEIGHT_900: OH_Drawing_FontWeight = OH_Drawing_FontWeight(8);
 }
 #[repr(transparent)]
-/// Enumerates font weights.
+/// Enumerates the font weights.
 ///
 ///
 /// Available since API-level: 8
@@ -87,11 +85,11 @@ pub struct OH_Drawing_FontWeight(pub ::core::ffi::c_uint);
 impl OH_Drawing_TextBaseline {
     /// Alphabetic, where the letters in alphabets like English sit on.
     pub const TEXT_BASELINE_ALPHABETIC: OH_Drawing_TextBaseline = OH_Drawing_TextBaseline(0);
-    /// Ideographic. The baseline is at the bottom of the text area.
+    /// Ideographic, where the baseline is at the bottom of the text area.
     pub const TEXT_BASELINE_IDEOGRAPHIC: OH_Drawing_TextBaseline = OH_Drawing_TextBaseline(1);
 }
 #[repr(transparent)]
-/// Enumerates text baselines.
+/// Enumerates the text baselines.
 ///
 ///
 /// Available since API-level: 8
@@ -102,7 +100,7 @@ pub struct OH_Drawing_TextBaseline(pub ::core::ffi::c_uint);
 impl OH_Drawing_TextDecoration {
     /// No decoration.
     pub const TEXT_DECORATION_NONE: OH_Drawing_TextDecoration = OH_Drawing_TextDecoration(0);
-    /// A underline is used for decoration.
+    /// An underline is used for decoration.
     pub const TEXT_DECORATION_UNDERLINE: OH_Drawing_TextDecoration = OH_Drawing_TextDecoration(1);
     /// An overline is used for decoration.
     pub const TEXT_DECORATION_OVERLINE: OH_Drawing_TextDecoration = OH_Drawing_TextDecoration(2);
@@ -111,7 +109,7 @@ impl OH_Drawing_TextDecoration {
         OH_Drawing_TextDecoration(4);
 }
 #[repr(transparent)]
-/// Enumerates text decorations.
+/// Enumerates the text decorations.
 ///
 ///
 /// Available since API-level: 8
@@ -120,15 +118,15 @@ impl OH_Drawing_TextDecoration {
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OH_Drawing_TextDecoration(pub ::core::ffi::c_uint);
 impl OH_Drawing_FontStyle {
-    /// Normal style
+    /// Normal style.
     pub const FONT_STYLE_NORMAL: OH_Drawing_FontStyle = OH_Drawing_FontStyle(0);
-    /// Italic style
+    /// Italic.
     pub const FONT_STYLE_ITALIC: OH_Drawing_FontStyle = OH_Drawing_FontStyle(1);
-    /// Oblique style
+    /// Oblique.
     pub const FONT_STYLE_OBLIQUE: OH_Drawing_FontStyle = OH_Drawing_FontStyle(2);
 }
 #[repr(transparent)]
-/// Enumerates font styles.
+/// Font styles, including non-italic, italic, and oblique.
 ///
 ///
 /// Available since API-level: 8
@@ -139,25 +137,25 @@ pub struct OH_Drawing_FontStyle(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-11")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
 impl OH_Drawing_PlaceholderVerticalAlignment {
-    /// Offset At Baseline
+    /// Aligned to the baseline.
     pub const ALIGNMENT_OFFSET_AT_BASELINE: OH_Drawing_PlaceholderVerticalAlignment =
         OH_Drawing_PlaceholderVerticalAlignment(0);
-    /// Above Baseline
+    /// Aligned above the baseline.
     pub const ALIGNMENT_ABOVE_BASELINE: OH_Drawing_PlaceholderVerticalAlignment =
         OH_Drawing_PlaceholderVerticalAlignment(1);
-    /// Below Baseline
+    /// Aligned below the baseline.
     pub const ALIGNMENT_BELOW_BASELINE: OH_Drawing_PlaceholderVerticalAlignment =
         OH_Drawing_PlaceholderVerticalAlignment(2);
-    /// Top of Row Box
+    /// Aligned to the top of the row box.
     pub const ALIGNMENT_TOP_OF_ROW_BOX: OH_Drawing_PlaceholderVerticalAlignment =
         OH_Drawing_PlaceholderVerticalAlignment(3);
-    /// Bottom of Row Box
+    /// Aligned to the bottom of the row box.
     pub const ALIGNMENT_BOTTOM_OF_ROW_BOX: OH_Drawing_PlaceholderVerticalAlignment =
         OH_Drawing_PlaceholderVerticalAlignment(4);
-    /// Center of Row Box
+    /// Aligned to the center of the row box.
     pub const ALIGNMENT_CENTER_OF_ROW_BOX: OH_Drawing_PlaceholderVerticalAlignment =
         OH_Drawing_PlaceholderVerticalAlignment(5);
-    /// Follow paragraph setting
+    /// Follows the text vertical alignment.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -166,7 +164,7 @@ impl OH_Drawing_PlaceholderVerticalAlignment {
         OH_Drawing_PlaceholderVerticalAlignment(6);
 }
 #[repr(transparent)]
-/// Enumerates placeholder vertical alignment.
+/// Enumerates the vertical alignment modes of placeholders.
 ///
 ///
 /// Available since API-level: 11
@@ -176,7 +174,7 @@ impl OH_Drawing_PlaceholderVerticalAlignment {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OH_Drawing_PlaceholderVerticalAlignment(pub ::core::ffi::c_uint);
-/// Defines the placeholder span.
+/// This struct describes the placeholder that acts as a span.
 ///
 ///
 /// Available since API-level: 11
@@ -187,38 +185,38 @@ pub struct OH_Drawing_PlaceholderVerticalAlignment(pub ::core::ffi::c_uint);
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct OH_Drawing_PlaceholderSpan {
-    /// width of placeholder
+    /// Width of a placeholder.
     pub width: f64,
-    /// height of placeholder
+    /// Height of a placeholder.
     pub height: f64,
-    /// alignment of placeholder
+    /// Alignment mode of a placeholder.
     pub alignment: OH_Drawing_PlaceholderVerticalAlignment,
-    /// baseline of placeholder
+    /// Baseline of a placeholder.
     pub baseline: OH_Drawing_TextBaseline,
-    /// baselineoffset of placeholder
+    /// Baseline offset of a placeholder.
     pub baselineOffset: f64,
 }
 #[cfg(feature = "api-11")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
 impl OH_Drawing_TextDecorationStyle {
-    /// Solid style
+    /// Solid style.
     pub const TEXT_DECORATION_STYLE_SOLID: OH_Drawing_TextDecorationStyle =
         OH_Drawing_TextDecorationStyle(0);
-    /// Double style
+    /// Double style.
     pub const TEXT_DECORATION_STYLE_DOUBLE: OH_Drawing_TextDecorationStyle =
         OH_Drawing_TextDecorationStyle(1);
-    /// Dotted style
+    /// Dotted style.
     pub const TEXT_DECORATION_STYLE_DOTTED: OH_Drawing_TextDecorationStyle =
         OH_Drawing_TextDecorationStyle(2);
-    /// Dashed style
+    /// Dashed style.
     pub const TEXT_DECORATION_STYLE_DASHED: OH_Drawing_TextDecorationStyle =
         OH_Drawing_TextDecorationStyle(3);
-    /// Wavy style
+    /// Wavy style.
     pub const TEXT_DECORATION_STYLE_WAVY: OH_Drawing_TextDecorationStyle =
         OH_Drawing_TextDecorationStyle(4);
 }
 #[repr(transparent)]
-/// Enumerates text decoration style.
+/// Enumerates the text decoration styles.
 ///
 ///
 /// Available since API-level: 11
@@ -231,15 +229,35 @@ pub struct OH_Drawing_TextDecorationStyle(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-11")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
 impl OH_Drawing_EllipsisModal {
-    /// Head modal
+    /// Header ellipsis mode, that is, the ellipsis appears at the beginning of a line. This enumerated value is valid
+    /// only when the maximum number of text lines is set to **1** by calling
+    /// [`OH_Drawing_SetTypographyTextMaxLines`](crate::text_typography::OH_Drawing_SetTypographyTextMaxLines).
     pub const ELLIPSIS_MODAL_HEAD: OH_Drawing_EllipsisModal = OH_Drawing_EllipsisModal(0);
-    /// Middle modal
+    /// Middle ellipsis mode, that is, the ellipsis appears in the middle of a line. This enumerated value is valid only
+    /// when the maximum number of text lines is set to **1** by calling [`OH_Drawing_SetTypographyTextMaxLines`](crate::text_typography::OH_Drawing_SetTypographyTextMaxLines).
     pub const ELLIPSIS_MODAL_MIDDLE: OH_Drawing_EllipsisModal = OH_Drawing_EllipsisModal(1);
-    /// Tail modal
+    /// End ellipsis mode, that is, the ellipsis appears at the end of a line. This enumerated value is valid when the
+    /// maximum number of text lines is set to any value by calling [`OH_Drawing_SetTypographyTextMaxLines`](crate::text_typography::OH_Drawing_SetTypographyTextMaxLines).
     pub const ELLIPSIS_MODAL_TAIL: OH_Drawing_EllipsisModal = OH_Drawing_EllipsisModal(2);
+    /// Header ellipsis mode, that is, the ellipsis appears at the beginning of a line. This enumerated value is valid
+    /// when the maximum number of text lines is set to any value by calling
+    /// [`OH_Drawing_SetTypographyTextMaxLines`](crate::text_typography::OH_Drawing_SetTypographyTextMaxLines).
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub const ELLIPSIS_MODAL_MULTILINE_HEAD: OH_Drawing_EllipsisModal = OH_Drawing_EllipsisModal(3);
+    /// Middle ellipsis mode, that is, the ellipsis appears in the middle of a line. This enumerated value is valid when
+    /// the maximum number of text lines is set to any value by calling [`OH_Drawing_SetTypographyTextMaxLines`](crate::text_typography::OH_Drawing_SetTypographyTextMaxLines).
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub const ELLIPSIS_MODAL_MULTILINE_MIDDLE: OH_Drawing_EllipsisModal =
+        OH_Drawing_EllipsisModal(4);
 }
 #[repr(transparent)]
-/// Enumerates ellipsis modal.
+/// Enumerates the ellipsis styles.
 ///
 ///
 /// Available since API-level: 11
@@ -252,15 +270,15 @@ pub struct OH_Drawing_EllipsisModal(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-11")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
 impl OH_Drawing_BreakStrategy {
-    /// Greedy strategy
+    /// Each line is filled as much as possible during line break.
     pub const BREAK_STRATEGY_GREEDY: OH_Drawing_BreakStrategy = OH_Drawing_BreakStrategy(0);
-    /// Quality strategy
+    /// Text continuity is preferentially considered during line break.
     pub const BREAK_STRATEGY_HIGH_QUALITY: OH_Drawing_BreakStrategy = OH_Drawing_BreakStrategy(1);
-    /// Balanced strategy
+    /// Line breaks are performed at the word boundary.
     pub const BREAK_STRATEGY_BALANCED: OH_Drawing_BreakStrategy = OH_Drawing_BreakStrategy(2);
 }
 #[repr(transparent)]
-/// Enumerates break strategy.
+/// Enumerates the text break strategies.
 ///
 ///
 /// Available since API-level: 11
@@ -273,13 +291,14 @@ pub struct OH_Drawing_BreakStrategy(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-11")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
 impl OH_Drawing_WordBreakType {
-    /// Normal type
+    /// Normal mode.
     pub const WORD_BREAK_TYPE_NORMAL: OH_Drawing_WordBreakType = OH_Drawing_WordBreakType(0);
-    /// Break All type
+    /// Breaks the words at any character to prevent overflow.
     pub const WORD_BREAK_TYPE_BREAK_ALL: OH_Drawing_WordBreakType = OH_Drawing_WordBreakType(1);
-    /// Break Word type
+    /// Breaks the words at arbitrary points to prevent overflow.
     pub const WORD_BREAK_TYPE_BREAK_WORD: OH_Drawing_WordBreakType = OH_Drawing_WordBreakType(2);
-    /// Break word with hyphens
+    /// Attempts to break words at the end of each line by inserting a hyphen ("-"). If a hyphen cannot be added, the
+    /// behavior is the same as `WORD_BREAK_TYPE_BREAK_WORD`.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -287,7 +306,7 @@ impl OH_Drawing_WordBreakType {
     pub const WORD_BREAK_TYPE_BREAK_HYPHEN: OH_Drawing_WordBreakType = OH_Drawing_WordBreakType(3);
 }
 #[repr(transparent)]
-/// Enumerates word break type.
+/// Enumerates the word break types.
 ///
 ///
 /// Available since API-level: 11
@@ -300,24 +319,24 @@ pub struct OH_Drawing_WordBreakType(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-11")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
 impl OH_Drawing_RectHeightStyle {
-    /// Tight style
+    /// Tight style. The text box height closely fits the text content boundary.
     pub const RECT_HEIGHT_STYLE_TIGHT: OH_Drawing_RectHeightStyle = OH_Drawing_RectHeightStyle(0);
-    /// Max style
+    /// Max style. The text box height takes the maximum height among all lines.
     pub const RECT_HEIGHT_STYLE_MAX: OH_Drawing_RectHeightStyle = OH_Drawing_RectHeightStyle(1);
-    /// Includelinespacemiddle style
+    /// Include line spacing middle style. The text box height includes the middle portion of the line spacing.
     pub const RECT_HEIGHT_STYLE_INCLUDELINESPACEMIDDLE: OH_Drawing_RectHeightStyle =
         OH_Drawing_RectHeightStyle(2);
-    /// Includelinespacetop style
+    /// Include line spacing top style. The text box height includes the top portion of the line spacing.
     pub const RECT_HEIGHT_STYLE_INCLUDELINESPACETOP: OH_Drawing_RectHeightStyle =
         OH_Drawing_RectHeightStyle(3);
-    /// Includelinespacebottom style
+    /// Include line spacing bottom style. The text box height includes the bottom portion of the line spacing.
     pub const RECT_HEIGHT_STYLE_INCLUDELINESPACEBOTTOM: OH_Drawing_RectHeightStyle =
         OH_Drawing_RectHeightStyle(4);
-    /// Struct style
+    /// Struct style. The Strut Style determines the text box height.
     pub const RECT_HEIGHT_STYLE_STRUCT: OH_Drawing_RectHeightStyle = OH_Drawing_RectHeightStyle(5);
 }
 #[repr(transparent)]
-/// Enumerates rect height style.
+/// Enumerates the rectangle height styles.
 ///
 ///
 /// Available since API-level: 11
@@ -330,13 +349,13 @@ pub struct OH_Drawing_RectHeightStyle(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-11")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
 impl OH_Drawing_RectWidthStyle {
-    /// Tight style
+    /// Tight style. The text box height closely fits the text content boundary.
     pub const RECT_WIDTH_STYLE_TIGHT: OH_Drawing_RectWidthStyle = OH_Drawing_RectWidthStyle(0);
-    /// Max style
+    /// Max style. The text box height takes the maximum height among all lines.
     pub const RECT_WIDTH_STYLE_MAX: OH_Drawing_RectWidthStyle = OH_Drawing_RectWidthStyle(1);
 }
 #[repr(transparent)]
-/// Enumerates rect Width style.
+/// Enumerates the rectangle width styles.
 ///
 ///
 /// Available since API-level: 11
@@ -349,23 +368,23 @@ pub struct OH_Drawing_RectWidthStyle(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl OH_Drawing_FontConfigInfoErrorCode {
-    /// The list of system font configuration information was successfully obtained
+    /// Operation successful.
     pub const SUCCESS_FONT_CONFIG_INFO: OH_Drawing_FontConfigInfoErrorCode =
         OH_Drawing_FontConfigInfoErrorCode(0);
-    /// Unknown error
+    /// Unknown error.
     pub const UNKNOWN: OH_Drawing_FontConfigInfoErrorCode = OH_Drawing_FontConfigInfoErrorCode(1);
-    /// Parse system config file error
+    /// Failed to parse the system configuration file.
     pub const PARSE_FILE: OH_Drawing_FontConfigInfoErrorCode =
         OH_Drawing_FontConfigInfoErrorCode(2);
-    /// Alloc memory error
+    /// Memory allocation fails.
     pub const ALLOC_MEMORY: OH_Drawing_FontConfigInfoErrorCode =
         OH_Drawing_FontConfigInfoErrorCode(3);
-    /// Copy string data error
+    /// Failed to copy the string data.
     pub const COPY_STRING_DATA: OH_Drawing_FontConfigInfoErrorCode =
         OH_Drawing_FontConfigInfoErrorCode(4);
 }
 #[repr(transparent)]
-/// Gets system font configuration information list result enum.
+/// Enumerates the error codes for the system font configuration information list.
 ///
 ///
 /// Available since API-level: 12
@@ -375,7 +394,7 @@ impl OH_Drawing_FontConfigInfoErrorCode {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OH_Drawing_FontConfigInfoErrorCode(pub ::core::ffi::c_uint);
-/// Fallback font information.
+/// This struct describes the information about a font fallback.
 ///
 ///
 /// Available since API-level: 12
@@ -386,12 +405,12 @@ pub struct OH_Drawing_FontConfigInfoErrorCode(pub ::core::ffi::c_uint);
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct OH_Drawing_FontFallbackInfo {
-    /// The type of language supported by the font set. The language format is bcp47
+    /// Pointer to the language supported by the font fallback. The language format is bcp47.
     pub language: *mut ::core::ffi::c_char,
-    /// Font family name
+    /// Pointer to the name of a font family.
     pub familyName: *mut ::core::ffi::c_char,
 }
-/// Fallback font group.
+/// This struct describes the information about a font fallback group.
 ///
 ///
 /// Available since API-level: 12
@@ -401,15 +420,15 @@ pub struct OH_Drawing_FontFallbackInfo {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[repr(C)]
 pub struct OH_Drawing_FontFallbackGroup {
-    /// The name of the font set corresponding to the fallback font set. If the value is null,
-    /// all fonts can be set using the fallback font set list.
+    /// Name of the font set corresponding to the fallback font group. If the value is empty, all fonts in the fallback
+    /// font set list can be used.
     pub groupName: *mut ::core::ffi::c_char,
-    /// Fallback font Info Size
+    /// Number of font fallbacks.
     pub fallbackInfoSize: usize,
-    /// A list of font sets for fallback fonts
+    /// List of fallback font sets.
     pub fallbackInfoSet: *mut OH_Drawing_FontFallbackInfo,
 }
-/// Font weight mapping information.
+/// This struct describes the information about a font weight mapping.
 ///
 ///
 /// Available since API-level: 12
@@ -420,12 +439,12 @@ pub struct OH_Drawing_FontFallbackGroup {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct OH_Drawing_FontAdjustInfo {
-    /// The font's original weight value
+    /// Original font weight.
     pub weight: ::core::ffi::c_int,
-    /// The font weight displayed in the application
+    /// Font weight displayed in the application.
     pub to: ::core::ffi::c_int,
 }
-/// Alias font information.
+/// This struct describes the information about a font alias.
 ///
 ///
 /// Available since API-level: 12
@@ -436,14 +455,13 @@ pub struct OH_Drawing_FontAdjustInfo {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct OH_Drawing_FontAliasInfo {
-    /// Font family name
+    /// Pointer to the name of a font family.
     pub familyName: *mut ::core::ffi::c_char,
-    /// Font weight value. When the weight value is greater than 0,
-    /// the font set contains only fonts with the specified weight.
-    /// When the weight value is equal to 0, the font set contains all fonts.
+    /// Font weight value. If the value is greater than 0, the font family contains only the font with the specified
+    /// weight. If the value is 0, the font family contains all fonts.
     pub weight: ::core::ffi::c_int,
 }
-/// General font set information supported by the system.
+/// This struct describes the information about generic fonts supported by the system.
 ///
 ///
 /// Available since API-level: 12
@@ -453,18 +471,18 @@ pub struct OH_Drawing_FontAliasInfo {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[repr(C)]
 pub struct OH_Drawing_FontGenericInfo {
-    /// Font family name
+    /// Pointer to the name of a font family.
     pub familyName: *mut ::core::ffi::c_char,
-    /// The size of alias font lists
+    /// Number of font aliases.
     pub aliasInfoSize: usize,
-    /// The size of font weight mapping information lists
+    /// Number of font weight mappings.
     pub adjustInfoSize: usize,
-    /// List of alias fonts
+    /// Pointer to a set of font aliases.
     pub aliasInfoSet: *mut OH_Drawing_FontAliasInfo,
-    /// Font weight mapping information lists
+    /// Pointer to a set of font weight mappings.
     pub adjustInfoSet: *mut OH_Drawing_FontAdjustInfo,
 }
-/// System font configuration information.
+/// This struct describes the information about a system font configuration.
 ///
 ///
 /// Available since API-level: 12
@@ -474,20 +492,20 @@ pub struct OH_Drawing_FontGenericInfo {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[repr(C)]
 pub struct OH_Drawing_FontConfigInfo {
-    /// Count of system font file paths
+    /// Number of system font file paths.
     pub fontDirSize: usize,
-    /// List size of generic font sets
+    /// Number of generic fonts.
     pub fontGenericInfoSize: usize,
-    /// Count of fallback font set lists
+    /// Number of font fallbacks.
     pub fallbackGroupSize: usize,
-    /// List of system font file paths
+    /// Double pointer to the system font file paths.
     pub fontDirSet: *mut *mut ::core::ffi::c_char,
-    /// List of generic font sets
+    /// Pointer to a set of generic fonts.
     pub fontGenericInfoSet: *mut OH_Drawing_FontGenericInfo,
-    /// List of fallback font sets
+    /// Pointer to a set of font fallbacks.
     pub fallbackGroupSet: *mut OH_Drawing_FontFallbackGroup,
 }
-/// Describes the font information.
+/// This struct describes the detailed information about a system font.
 ///
 ///
 /// Available since API-level: 12
@@ -498,28 +516,28 @@ pub struct OH_Drawing_FontConfigInfo {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct OH_Drawing_FontDescriptor {
-    /// The file path of System font
+    /// File path of the system font.
     pub path: *mut ::core::ffi::c_char,
-    /// A name that uniquely identifies the font
+    /// PostScript name that uniquely identifies the system font.
     pub postScriptName: *mut ::core::ffi::c_char,
-    /// The name of System font
+    /// Full name of the system font.
     pub fullName: *mut ::core::ffi::c_char,
-    /// The family of System font
+    /// Family of the system font.
     pub fontFamily: *mut ::core::ffi::c_char,
-    /// The subfont family of the system font
+    /// Subfamily of the system font.
     pub fontSubfamily: *mut ::core::ffi::c_char,
-    /// The weight of System font
+    /// Weight of the system font.
     pub weight: ::core::ffi::c_int,
-    /// The width of System font
+    /// Width of the system font.
     pub width: ::core::ffi::c_int,
-    /// Whether the system font is tilted
+    /// Slope of the system font.
     pub italic: ::core::ffi::c_int,
-    /// Whether the system font is compact
+    /// Whether the system font is monospace. The value true means the font is monospace, and false means the opposite.
     pub monoSpace: bool,
-    /// whether symbolic fonts are supported
+    /// Whether the system font supports symbols. **true** means yes; **false** otherwise.
     pub symbolic: bool,
 }
-/// The metrics of line.
+/// This struct describes the measurement information about a line of text.
 ///
 ///
 /// Available since API-level: 12
@@ -529,48 +547,52 @@ pub struct OH_Drawing_FontDescriptor {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[repr(C)]
 pub struct OH_Drawing_LineMetrics {
-    /// Text ascender height
+    /// Height of a character above the baseline, after taking the absolute value.
     pub ascender: f64,
-    /// Tex descender height
+    /// Height of a character below the baseline, after taking the absolute value.
     pub descender: f64,
-    /// The height of a capital letter
+    /// Height of an uppercase letter above the baseline.
     pub capHeight: f64,
-    /// The height of a lowercase letter
+    /// Height of a lowercase letter, specifically the lowercase x, not including ascenders and descenders.
     pub xHeight: f64,
-    /// Text width
+    /// Horizontal space taken up by a character.
     pub width: f64,
-    /// Line height
+    /// Line height.
     pub height: f64,
-    /// The distance from the left end of the text to the left end of the container,
-    /// aligned to 0, is the width of the container minus the width of the line of text
+    /// Distance from the left edge of the leftmost character to the left edge of the container. For left alignment, the
+    /// value is 0. For right alignment, the value is the container width minus the text width.
     pub x: f64,
-    /// The height from the top of the text to the top of the container, the first line is 0,
-    /// and the second line is the height of the first line
+    /// Height from the top edge of the character to the top of the container. The first line is 0, and the second line
+    /// is the height of the first line.
     pub y: f64,
-    /// Start Index
+    /// Index of the first character in the line.
     pub startIndex: usize,
-    /// End Index
+    /// Index of the last character in the line.
     pub endIndex: usize,
-    /// The metrics information of the first character
+    /// Measurement information of the first character.
     pub firstCharMetrics: OH_Drawing_Font_Metrics,
 }
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl OH_Drawing_TextHeightBehavior {
-    /// both ascend of first row and last row style
+    /// Enables the height set by calling [`OH_Drawing_SetTextStyleFontHeight`](crate::text_typography::OH_Drawing_SetTextStyleFontHeight) for the top of the first line and
+    /// the bottom of the last line in a paragraph.
     pub const TEXT_HEIGHT_ALL: OH_Drawing_TextHeightBehavior = OH_Drawing_TextHeightBehavior(0);
-    /// forbidding ascend of first row style
+    /// Disables the height set by calling [`OH_Drawing_SetTextStyleFontHeight`](crate::text_typography::OH_Drawing_SetTextStyleFontHeight) for the top of the first line in a
+    /// paragraph.
     pub const TEXT_HEIGHT_DISABLE_FIRST_ASCENT: OH_Drawing_TextHeightBehavior =
         OH_Drawing_TextHeightBehavior(1);
-    /// forbidding ascend of last row style
+    /// Disables the height set by calling [`OH_Drawing_SetTextStyleFontHeight`](crate::text_typography::OH_Drawing_SetTextStyleFontHeight) for the bottom of the last line in
+    /// a paragraph.
     pub const TEXT_HEIGHT_DISABLE_LAST_ASCENT: OH_Drawing_TextHeightBehavior =
         OH_Drawing_TextHeightBehavior(2);
-    /// neither ascend of first row nor last row style
+    /// Disables the height set by calling [`OH_Drawing_SetTextStyleFontHeight`](crate::text_typography::OH_Drawing_SetTextStyleFontHeight) for both the top of the first line
+    /// and the bottom of the last line in a paragraph.
     pub const TEXT_HEIGHT_DISABLE_ALL: OH_Drawing_TextHeightBehavior =
         OH_Drawing_TextHeightBehavior(3);
 }
 #[repr(transparent)]
-/// Enumerates of heightmode of text.
+/// Enumerates the text height modifier patterns.
 ///
 ///
 /// Available since API-level: 12
@@ -583,27 +605,27 @@ pub struct OH_Drawing_TextHeightBehavior(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl OH_Drawing_TextStyleType {
-    /// None style
+    /// No text style.
     pub const TEXT_STYLE_NONE: OH_Drawing_TextStyleType = OH_Drawing_TextStyleType(0);
-    /// All attributes style
+    /// All text styles.
     pub const TEXT_STYLE_ALL_ATTRIBUTES: OH_Drawing_TextStyleType = OH_Drawing_TextStyleType(1);
-    /// Font style
+    /// Font style.
     pub const TEXT_STYLE_FONT: OH_Drawing_TextStyleType = OH_Drawing_TextStyleType(2);
-    /// Foreground style
+    /// Text foreground style.
     pub const TEXT_STYLE_FOREGROUND: OH_Drawing_TextStyleType = OH_Drawing_TextStyleType(3);
-    /// Background style
+    /// Text background style.
     pub const TEXT_STYLE_BACKGROUND: OH_Drawing_TextStyleType = OH_Drawing_TextStyleType(4);
-    /// Shadow style
+    /// Text shadow style.
     pub const TEXT_STYLE_SHADOW: OH_Drawing_TextStyleType = OH_Drawing_TextStyleType(5);
-    /// Decorations style
+    /// Text decoration style.
     pub const TEXT_STYLE_DECORATIONS: OH_Drawing_TextStyleType = OH_Drawing_TextStyleType(6);
-    /// Letter spacing style
+    /// Text letter spacing style.
     pub const TEXT_STYLE_LETTER_SPACING: OH_Drawing_TextStyleType = OH_Drawing_TextStyleType(7);
-    /// Word spacing style
+    /// Text word spacing style.
     pub const TEXT_STYLE_WORD_SPACING: OH_Drawing_TextStyleType = OH_Drawing_TextStyleType(8);
 }
 #[repr(transparent)]
-/// Enumerates text style type.
+/// Enumerates the text style types.
 ///
 ///
 /// Available since API-level: 12
@@ -616,18 +638,27 @@ pub struct OH_Drawing_TextStyleType(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl OH_Drawing_FontWidth {
+    /// Ultra condensed font.
     pub const FONT_WIDTH_ULTRA_CONDENSED: OH_Drawing_FontWidth = OH_Drawing_FontWidth(1);
+    /// Extra condensed font.
     pub const FONT_WIDTH_EXTRA_CONDENSED: OH_Drawing_FontWidth = OH_Drawing_FontWidth(2);
+    /// Condensed font.
     pub const FONT_WIDTH_CONDENSED: OH_Drawing_FontWidth = OH_Drawing_FontWidth(3);
+    /// Semi-condensed font.
     pub const FONT_WIDTH_SEMI_CONDENSED: OH_Drawing_FontWidth = OH_Drawing_FontWidth(4);
+    /// Normal font.
     pub const FONT_WIDTH_NORMAL: OH_Drawing_FontWidth = OH_Drawing_FontWidth(5);
+    /// Semi-expanded font.
     pub const FONT_WIDTH_SEMI_EXPANDED: OH_Drawing_FontWidth = OH_Drawing_FontWidth(6);
+    /// Expanded font.
     pub const FONT_WIDTH_EXPANDED: OH_Drawing_FontWidth = OH_Drawing_FontWidth(7);
+    /// Extra expanded font.
     pub const FONT_WIDTH_EXTRA_EXPANDED: OH_Drawing_FontWidth = OH_Drawing_FontWidth(8);
+    /// Ultra expanded font.
     pub const FONT_WIDTH_ULTRA_EXPANDED: OH_Drawing_FontWidth = OH_Drawing_FontWidth(9);
 }
 #[repr(transparent)]
-/// Enumerates font width.
+/// Enumerates the font widths.
 ///
 ///
 /// Available since API-level: 12
@@ -640,21 +671,33 @@ pub struct OH_Drawing_FontWidth(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-21")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
 impl OH_Drawing_TextStyleAttributeId {
-    /// Line height maximum
+    /// Maximum line height.<br>If line height scaling is enabled, the maximum line height takes effect only when **
+    /// FontHeight** (which can be obtained from [`OH_Drawing_TextStyleGetFontHeight`](crate::text_typography::OH_Drawing_TextStyleGetFontHeight)) is greater than 0.<br>The
+    /// value is the positive part of a single-precision floating point number.
     pub const TEXT_STYLE_ATTR_D_LINE_HEIGHT_MAXIMUM: OH_Drawing_TextStyleAttributeId =
         OH_Drawing_TextStyleAttributeId(0);
-    /// Line height minimum
+    /// Minimum line height.<br>If line height scaling is enabled, the minimum line height takes effect only when **
+    /// FontHeight** (which can be obtained from [`OH_Drawing_TextStyleGetFontHeight`](crate::text_typography::OH_Drawing_TextStyleGetFontHeight)) is greater than 0.<br>The
+    /// value is the non-negative part of a single-precision floating point number. The default value is **0**.
     pub const TEXT_STYLE_ATTR_D_LINE_HEIGHT_MINIMUM: OH_Drawing_TextStyleAttributeId =
         OH_Drawing_TextStyleAttributeId(1);
-    /// Line height style
+    /// Scaling base style of the line height. For details, see [`OH_Drawing_LineHeightStyle`](crate::text_typography::OH_Drawing_LineHeightStyle).
     pub const TEXT_STYLE_ATTR_I_LINE_HEIGHT_STYLE: OH_Drawing_TextStyleAttributeId =
         OH_Drawing_TextStyleAttributeId(2);
-    /// Font width
+    /// Font width.
     pub const TEXT_STYLE_ATTR_I_FONT_WIDTH: OH_Drawing_TextStyleAttributeId =
         OH_Drawing_TextStyleAttributeId(3);
+    /// Font edge processing mode. Anti-aliasing is used by default. For details about how to process font edges, see
+    /// [`OH_Drawing_FontEdging`](crate::font::OH_Drawing_FontEdging).
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub const TEXT_STYLE_ATTR_I_FONT_EDGING: OH_Drawing_TextStyleAttributeId =
+        OH_Drawing_TextStyleAttributeId(4);
 }
 #[repr(transparent)]
-/// Enumerates text style attribute.
+/// Enumerates the text style attributes.
 ///
 ///
 /// Available since API-level: 21
@@ -665,15 +708,19 @@ pub struct OH_Drawing_TextStyleAttributeId(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-21")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
 impl OH_Drawing_LineHeightStyle {
-    /// Use the font size as the scale factor for line height scaling
+    /// Uses the font size as the scaling base.<br>Formula for calculating the line height: **FontSize** x **FontHeight**
+    /// .<br>**FontSize** can be obtained from the [`OH_Drawing_TextStyleGetFontSize`](crate::text_typography::OH_Drawing_TextStyleGetFontSize) API.<br>**FontHeight** can be
+    /// obtained from the [`OH_Drawing_TextStyleGetFontHeight`](crate::text_typography::OH_Drawing_TextStyleGetFontHeight) API.
     pub const TEXT_LINE_HEIGHT_BY_FONT_SIZE: OH_Drawing_LineHeightStyle =
         OH_Drawing_LineHeightStyle(0);
-    /// Use the text height after shaping as the scale factor for line height scaling
+    /// Uses the font height as the scaling base.<br>Formula for calculating the line height: font height x **FontHeight*
+    /// *.<br>The font height is obtained after the text is shaped using the font file.<br>**FontHeight** can be
+    /// obtained from the [`OH_Drawing_TextStyleGetFontHeight`](crate::text_typography::OH_Drawing_TextStyleGetFontHeight) API.
     pub const TEXT_LINE_HEIGHT_BY_FONT_HEIGHT: OH_Drawing_LineHeightStyle =
         OH_Drawing_LineHeightStyle(1);
 }
 #[repr(transparent)]
-/// Enumerates line height's scaling type.
+/// Enumerates the scaling base styles of the line height. The default style is **TEXT_LINE_HEIGHT_BY_FONT_SIZE**.
 ///
 ///
 /// Available since API-level: 21
@@ -684,45 +731,88 @@ pub struct OH_Drawing_LineHeightStyle(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-21")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
 impl OH_Drawing_TypographyStyleAttributeId {
-    /// Line height maximum
+    /// Maximum line height.<br>If line height scaling is enabled, the maximum line height takes effect only when **
+    /// FontHeight** (which can be obtained from [`OH_Drawing_TextStyleGetFontHeight`](crate::text_typography::OH_Drawing_TextStyleGetFontHeight)) is greater than 0.<br>The
+    /// value is the positive part of a single-precision floating point number.
     pub const TYPOGRAPHY_STYLE_ATTR_D_LINE_HEIGHT_MAXIMUM: OH_Drawing_TypographyStyleAttributeId =
         OH_Drawing_TypographyStyleAttributeId(0);
-    /// Line height minimum
+    /// Minimum line height.<br>If line height scaling is enabled, the minimum line height takes effect only when **
+    /// FontHeight** (which can be obtained from [`OH_Drawing_TextStyleGetFontHeight`](crate::text_typography::OH_Drawing_TextStyleGetFontHeight)) is greater than 0.<br>The
+    /// value is the non-negative part of a single-precision floating point number. The default value is **0**.
     pub const TYPOGRAPHY_STYLE_ATTR_D_LINE_HEIGHT_MINIMUM: OH_Drawing_TypographyStyleAttributeId =
         OH_Drawing_TypographyStyleAttributeId(1);
-    /// Line spacing
+    /// Interline spacing.<br>**lineSpacing** is not restricted by the maximum and minimum line heights.<br>By default,
+    /// line spacing is added to the last line.<br>You can set **textHeightBehavior** to **DISABLE_LAST_ASCENT** in
+    /// [`OH_Drawing_TypographyTextSetHeightBehavior`](crate::text_typography::OH_Drawing_TypographyTextSetHeightBehavior) to disable the line spacing of the last line.<br>The default
+    /// value is **0**.
     pub const TYPOGRAPHY_STYLE_ATTR_D_LINE_SPACING: OH_Drawing_TypographyStyleAttributeId =
         OH_Drawing_TypographyStyleAttributeId(2);
-    /// Line height style
+    /// Scaling base style of the line height. For details, see [`OH_Drawing_LineHeightStyle`](crate::text_typography::OH_Drawing_LineHeightStyle).
     pub const TYPOGRAPHY_STYLE_ATTR_I_LINE_HEIGHT_STYLE: OH_Drawing_TypographyStyleAttributeId =
         OH_Drawing_TypographyStyleAttributeId(3);
-    /// Font width
+    /// Font width.
     pub const TYPOGRAPHY_STYLE_ATTR_I_FONT_WIDTH: OH_Drawing_TypographyStyleAttributeId =
         OH_Drawing_TypographyStyleAttributeId(4);
-    /// Compress head punctuation
+    /// Whether to enable line-start punctuation compression during text typography.<br>**NOTE**<br>1. The font file
+    /// must support the "ss08" feature in [`OH_Drawing_FontFeature`](crate::text_typography::OH_Drawing_FontFeature); otherwise, compression cannot be applied.<br>
+    /// 2. Only punctuation within the line-start punctuation compression range is affected by this feature.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub const TYPOGRAPHY_STYLE_ATTR_B_COMPRESS_HEAD_PUNCTUATION:
         OH_Drawing_TypographyStyleAttributeId = OH_Drawing_TypographyStyleAttributeId(5);
-    /// Font padding
+    /// Whether to enable the internal padding of the font during text typography.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub const TYPOGRAPHY_STYLE_ATTR_B_INCLUDE_FONT_PADDING: OH_Drawing_TypographyStyleAttributeId =
         OH_Drawing_TypographyStyleAttributeId(6);
-    /// Fallback line spacing
+    /// Whether to enable the line spacing fallback mechanism during text typography.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub const TYPOGRAPHY_STYLE_ATTR_B_FALLBACK_LINE_SPACING: OH_Drawing_TypographyStyleAttributeId =
         OH_Drawing_TypographyStyleAttributeId(7);
+    /// Ellipsis style. For details about the ellipsis style, see [`OH_Drawing_EllipsisModal`](crate::text_typography::OH_Drawing_EllipsisModal).
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub const TYPOGRAPHY_STYLE_ATTR_I_ELLIPSIS_MODAL: OH_Drawing_TypographyStyleAttributeId =
+        OH_Drawing_TypographyStyleAttributeId(8);
+    /// First-line indent array.<br>All values in the indent array must be greater than or equal to 0. Each element in
+    /// the array represents the indentation value of a single line. If the actual number of text lines exceeds the
+    /// length of the indent array, the last value of the array is applied to the extra lines.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub const TYPOGRAPHY_STYLE_ATTR_DA_LINE_HEAD_INDENT: OH_Drawing_TypographyStyleAttributeId =
+        OH_Drawing_TypographyStyleAttributeId(9);
+    /// First-line indent of a paragraph. The indent value must be greater than or equal to 0.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub const TYPOGRAPHY_STYLE_ATTR_D_FIRST_LINE_HEAD_INDENT:
+        OH_Drawing_TypographyStyleAttributeId = OH_Drawing_TypographyStyleAttributeId(10);
+    /// Last-line indent array.<br>All values in the indent array must be greater than or equal to 0. Each element in
+    /// the array represents the indentation value of a single line. If the actual number of text lines exceeds the
+    /// length of the indent array, the last value of the array is applied to the extra lines.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub const TYPOGRAPHY_STYLE_ATTR_DA_LINE_TAIL_INDENT: OH_Drawing_TypographyStyleAttributeId =
+        OH_Drawing_TypographyStyleAttributeId(11);
 }
 #[repr(transparent)]
-/// Enumerates typography style attribute.
+/// Enumerates the typography style attributes.
+/// <br>For the common attributes of the typography styles and text styles, you are advised to use the text style
+/// attributes, which can be obtained from [`OH_Drawing_TextStyleAttributeId`](crate::text_typography::OH_Drawing_TextStyleAttributeId).
 ///
 ///
 /// Available since API-level: 21
@@ -730,18 +820,40 @@ impl OH_Drawing_TypographyStyleAttributeId {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OH_Drawing_TypographyStyleAttributeId(pub ::core::ffi::c_uint);
+#[cfg(feature = "api-26")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+impl OH_Drawing_TypographyAttributeId {
+    /// Whether to force reuse the rasterization result.
+    /// True means to force reuse of the rasterization result. False means to allow updates to the rasterization result.
+    /// The default value is false.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub const TYPOGRAPHY_ATTR_B_FORCE_REUSE_RASTER_RESULT: OH_Drawing_TypographyAttributeId =
+        OH_Drawing_TypographyAttributeId(0);
+}
+#[repr(transparent)]
+/// Enumerates the typography attributes.
+///
+///
+/// Available since API-level: 26
+#[cfg(feature = "api-26")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct OH_Drawing_TypographyAttributeId(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-20")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
 impl OH_Drawing_TextBadgeType {
-    /// No badge
+    /// Disable superscript or subscript.
     pub const TEXT_BADGE_NONE: OH_Drawing_TextBadgeType = OH_Drawing_TextBadgeType(0);
-    /// Superscript
+    /// Enable superscript.
     pub const TEXT_SUPERSCRIPT: OH_Drawing_TextBadgeType = OH_Drawing_TextBadgeType(1);
-    /// Subscript
+    /// Enable subscript.
     pub const TEXT_SUBSCRIPT: OH_Drawing_TextBadgeType = OH_Drawing_TextBadgeType(2);
 }
 #[repr(transparent)]
-/// Type of badge.
+/// Enumerates the text badge styles.
 ///
 ///
 /// Available since API-level: 20
@@ -754,21 +866,21 @@ pub struct OH_Drawing_TextBadgeType(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-20")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
 impl OH_Drawing_TextVerticalAlignment {
-    /// Baseline of text line
+    /// Aligned to the baseline.
     pub const TEXT_VERTICAL_ALIGNMENT_BASELINE: OH_Drawing_TextVerticalAlignment =
         OH_Drawing_TextVerticalAlignment(0);
-    /// Bottom of text line
+    /// Bottom aligned.
     pub const TEXT_VERTICAL_ALIGNMENT_BOTTOM: OH_Drawing_TextVerticalAlignment =
         OH_Drawing_TextVerticalAlignment(1);
-    /// Center of text line
+    /// Center-aligned.
     pub const TEXT_VERTICAL_ALIGNMENT_CENTER: OH_Drawing_TextVerticalAlignment =
         OH_Drawing_TextVerticalAlignment(2);
-    /// Top of text line
+    /// Top aligned.
     pub const TEXT_VERTICAL_ALIGNMENT_TOP: OH_Drawing_TextVerticalAlignment =
         OH_Drawing_TextVerticalAlignment(3);
 }
 #[repr(transparent)]
-/// Type of vertical alignment.
+/// Enumerates the vertical alignment modes.
 ///
 ///
 /// Available since API-level: 20
@@ -778,7 +890,7 @@ impl OH_Drawing_TextVerticalAlignment {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OH_Drawing_TextVerticalAlignment(pub ::core::ffi::c_uint);
-/// Defines the font style struct.
+/// This struct describes a font style.
 ///
 ///
 /// Available since API-level: 12
@@ -789,14 +901,14 @@ pub struct OH_Drawing_TextVerticalAlignment(pub ::core::ffi::c_uint);
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct OH_Drawing_FontStyleStruct {
-    /// Font weight
+    /// Font weight.
     pub weight: OH_Drawing_FontWeight,
-    /// Font width
+    /// Font width.
     pub width: OH_Drawing_FontWidth,
-    /// Font slant
+    /// Font slant.
     pub slant: OH_Drawing_FontStyle,
 }
-/// Defines the fontfeature.
+/// This struct describes a font feature.
 ///
 ///
 /// Available since API-level: 12
@@ -807,12 +919,13 @@ pub struct OH_Drawing_FontStyleStruct {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct OH_Drawing_FontFeature {
-    /// key of fontfeature
+    /// Tag of the font feature.
     pub tag: *mut ::core::ffi::c_char,
-    /// value of fontfeature
+    /// Value of the font feature.
     pub value: ::core::ffi::c_int,
 }
-/// Defines StrutStyle info struct.
+/// This struct describes a strut style. The strut style determines the line spacing, baseline alignment mode,
+/// and other properties related to the line height when drawing text.
 ///
 ///
 /// Available since API-level: 12
@@ -822,46 +935,115 @@ pub struct OH_Drawing_FontFeature {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[repr(C)]
 pub struct OH_Drawing_StrutStyle {
-    /// The font weight to use when calculating the strut
+    /// Font weight used for calculating the strut.
     pub weight: OH_Drawing_FontWeight,
-    /// The font style to use when calculating the strut
+    /// Font style used when calculating the strut.
     pub style: OH_Drawing_FontStyle,
-    /// The size of the ascent plus descent in logical pixels
+    /// Size of the ascent plus descent in the logical pixels.
     pub size: f64,
-    /// The minimum height of the strut, as a multiple of fontSize
+    /// Scale factor of the line height.
     pub heightScale: f64,
-    /// Whether the height is override
+    /// Whether to enable height override. **true**: enabled; **false**: disabled.
     pub heightOverride: bool,
-    /// Whether the halfleading is enable
+    /// Whether to enable half leading. **true**: enabled; **false**: disabled.
     pub halfLeading: bool,
-    /// The additional leading to apply to the strut as a multiple of Size
+    /// Custom leading to be applied to the strut.
     pub leading: f64,
-    /// Whether the strut height should be forced
+    /// Whether to forcibly use the strut height for all rows. **true** means yes; **false** otherwise.
     pub forceStrutHeight: bool,
-    /// The size of font families
+    /// Number of font families.
     pub familiesSize: usize,
-    /// The families of the font to use when calculating the strut
+    /// Double pointer to the font families used for calculating the strut.
     pub families: *mut *mut ::core::ffi::c_char,
 }
+/// Defines a text rectangle structure.
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct OH_Drawing_RectSize {
+    /// Rectangle width.
+    pub width: f64,
+    /// Rectangle height.
+    pub height: f64,
+}
 extern "C" {
-    /// Sets double value to the text style attribute.
+    /// Obtains a bool-type typography attribute.
     ///
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to an <b>OH_Drawing_TextStyle</b> object.
+    /// * `typography` - Pointer to the typography object [`OH_Drawing_Typography`](crate::text_declaration::OH_Drawing_Typography), which is obtained from
+    /// [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
     ///
-    /// * `id` - Indicates the attribute id.
+    /// * `id` - Typography style attribute ID.
     ///
-    /// * `value` - Indicates the value to set.
+    /// * `value` - Pointer to the bool-type attribute. Used as an output parameter.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`](crate::error_code::DrawingErrorCode::INVALID_PARAMETER) if the style is nullptr.
-    /// Returns [`OH_DRAWING_ERROR_ATTRIBUTE_ID_MISMATCH`](crate::error_code::DrawingErrorCode::ATTRIBUTE_ID_MISMATCH) if the attribute id is not recognized or supported.
-    /// Returns [`OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE`](crate::error_code::DrawingErrorCode::PARAMETER_OUT_OF_RANGE) if the value corresponding to the attribute id
-    /// exceeds the allowable range.
+    /// * Result code.
+    /// <br>Returns OH_DRAWING_SUCCESS, indicating that the execution is successful.
+    /// <br>Returns OH_DRAWING_ERROR_INCORRECT_PARAMETER, indicating that the typography or value parameter is a null
+    /// pointer.
+    /// <br>Returns OH_DRAWING_ERROR_ATTRIBUTE_ID_MISMATCH, indicating that the attribute ID passed in does not match
+    /// the called function.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_Drawing_GetTypographyAttributeBool(
+        typography: *const OH_Drawing_Typography,
+        id: OH_Drawing_TypographyAttributeId,
+        value: *mut bool,
+    ) -> crate::error_code::DrawingResult;
+    /// Sets a bool-type typography attribute.
+    ///
+    /// # Arguments
+    ///
+    /// * `typography` - Pointer to the typography object [`OH_Drawing_Typography`](crate::text_declaration::OH_Drawing_Typography), which is obtained from
+    /// [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
+    ///
+    /// * `id` - Typography attribute ID, which specifies the bool-type attribute to set.
+    ///
+    /// * `value` - Bool value to set.
+    ///
+    /// # Returns
+    ///
+    /// * Result code.
+    /// <br>Returns OH_DRAWING_SUCCESS, indicating that the execution is successful.
+    /// <br>Returns OH_DRAWING_ERROR_INCORRECT_PARAMETER, indicating that the typography parameter is a null pointer.
+    /// <br>Returns OH_DRAWING_ERROR_ATTRIBUTE_ID_MISMATCH, indicating that the attribute ID passed in does not match
+    /// the called function.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_Drawing_SetTypographyAttributeBool(
+        typography: *mut OH_Drawing_Typography,
+        id: OH_Drawing_TypographyAttributeId,
+        value: bool,
+    ) -> crate::error_code::DrawingResult;
+    /// Sets the text style attribute of the **double** type.
+    ///
+    /// # Arguments
+    ///
+    /// * `style` - Pointer to an [`OH_Drawing_TextStyle`](crate::text_declaration::OH_Drawing_TextStyle) object.
+    ///
+    /// * `id` - Text style attribute ID.
+    ///
+    /// * `value` - Text style attribute value.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the execution result.
+    /// <br>**OH_DRAWING_SUCCESS** if the operation is successful.
+    /// <br>**OH_DRAWING_ERROR_INVALID_PARAMETER** if **style** is NULL.
+    /// <br>**OH_DRAWING_ERROR_ATTRIBUTE_ID_MISMATCH** if the input attribute ID does not match the called function.
+    /// <br>**OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE** if the value corresponding to the attribute id exceeds the
+    /// allowable range.
     ///
     /// Available since API-level: 21
     #[cfg(feature = "api-21")]
@@ -871,22 +1053,22 @@ extern "C" {
         id: OH_Drawing_TextStyleAttributeId,
         value: f64,
     ) -> crate::error_code::DrawingResult;
-    /// Gets the double type property's value from the text style.
+    /// Obtains the text style attribute of the **double** type.
     ///
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to an <b>OH_Drawing_TextStyle</b> object.
+    /// * `style` - Pointer to an [`OH_Drawing_TextStyle`](crate::text_declaration::OH_Drawing_TextStyle) object.
     ///
-    /// * `id` - Indicates the attribute id.
+    /// * `id` - Text style attribute ID.
     ///
-    /// * `value` - Indicates the return value of the interface.
+    /// * `value` - Pointer to the attribute of the **double** type. It is used as an output parameter.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`](crate::error_code::DrawingErrorCode::INVALID_PARAMETER) if the style is nullptr.
-    /// Returns [`OH_DRAWING_ERROR_ATTRIBUTE_ID_MISMATCH`](crate::error_code::DrawingErrorCode::ATTRIBUTE_ID_MISMATCH) if the attribute id is not recognized or supported.
+    /// * Returns the execution result.
+    /// <br>**OH_DRAWING_SUCCESS** if the operation is successful.
+    /// <br>**OH_DRAWING_ERROR_INVALID_PARAMETER** if **style** is NULL.
+    /// <br>**OH_DRAWING_ERROR_ATTRIBUTE_ID_MISMATCH** if the input attribute ID does not match the called function.
     ///
     /// Available since API-level: 21
     #[cfg(feature = "api-21")]
@@ -896,24 +1078,24 @@ extern "C" {
         id: OH_Drawing_TextStyleAttributeId,
         value: *mut f64,
     ) -> crate::error_code::DrawingResult;
-    /// Sets int value to the text style attribute.
+    /// Sets the text style attribute of the **int** type.
     ///
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to an <b>OH_Drawing_TextStyle</b> object.
+    /// * `style` - Pointer to an [`OH_Drawing_TextStyle`](crate::text_declaration::OH_Drawing_TextStyle) object.
     ///
-    /// * `id` - Indicates the attribute id.
+    /// * `id` - Text style attribute ID.
     ///
-    /// * `value` - Indicates the value to set.
+    /// * `value` - Attribute value to set.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`](crate::error_code::DrawingErrorCode::INVALID_PARAMETER) if the style is nullptr.
-    /// Returns [`OH_DRAWING_ERROR_ATTRIBUTE_ID_MISMATCH`](crate::error_code::DrawingErrorCode::ATTRIBUTE_ID_MISMATCH) if the attribute id is not recognized or supported.
-    /// Returns [`OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE`](crate::error_code::DrawingErrorCode::PARAMETER_OUT_OF_RANGE) if the value corresponding to the attribute id
-    /// exceeds the allowable range.
+    /// * Returns the execution result.
+    /// <br>**OH_DRAWING_SUCCESS** if the operation is successful.
+    /// <br>**OH_DRAWING_ERROR_INVALID_PARAMETER** if **style** is NULL.
+    /// <br>**OH_DRAWING_ERROR_ATTRIBUTE_ID_MISMATCH** if the input attribute ID does not match the called function.
+    /// <br>**OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE** if the input value exceeds the value range of the attribute to
+    /// be set.
     ///
     /// Available since API-level: 21
     #[cfg(feature = "api-21")]
@@ -923,22 +1105,22 @@ extern "C" {
         id: OH_Drawing_TextStyleAttributeId,
         value: ::core::ffi::c_int,
     ) -> crate::error_code::DrawingResult;
-    /// Gets the int type property's value from the text style.
+    /// Obtains the text style attribute of the **int** type.
     ///
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to an <b>OH_Drawing_TextStyle</b> object.
+    /// * `style` - Pointer to an [`OH_Drawing_TextStyle`](crate::text_declaration::OH_Drawing_TextStyle) object.
     ///
-    /// * `id` - Indicates the attribute id.
+    /// * `id` - Text style attribute ID.
     ///
-    /// * `value` - Indicates the return value of the interface.
+    /// * `value` - Pointer to the attribute of the **int** type. It is used as an output parameter.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`](crate::error_code::DrawingErrorCode::INVALID_PARAMETER) if the style is nullptr.
-    /// Returns [`OH_DRAWING_ERROR_ATTRIBUTE_ID_MISMATCH`](crate::error_code::DrawingErrorCode::ATTRIBUTE_ID_MISMATCH) if the attribute id is not recognized or supported.
+    /// * Returns the execution result.
+    /// <br>**OH_DRAWING_SUCCESS** if the operation is successful.
+    /// <br>**OH_DRAWING_ERROR_INVALID_PARAMETER** if **style** is NULL.
+    /// <br>**OH_DRAWING_ERROR_ATTRIBUTE_ID_MISMATCH** if the input attribute ID does not match the called function.
     ///
     /// Available since API-level: 21
     #[cfg(feature = "api-21")]
@@ -948,23 +1130,23 @@ extern "C" {
         id: OH_Drawing_TextStyleAttributeId,
         value: *mut ::core::ffi::c_int,
     ) -> crate::error_code::DrawingResult;
-    /// Sets double value to the typography style attribute.
+    /// Sets the typography style attribute of the **double** type.
     ///
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to an <b>OH_Drawing_TypographyStyle</b> object.
+    /// * `style` - Pointer to an [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle) object.
     ///
-    /// * `id` - Indicates the attribute id.
+    /// * `id` - Attribute ID of the text style.
     ///
-    /// * `value` - Indicates the value to set.
+    /// * `value` - Attribute value to set.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`](crate::error_code::DrawingErrorCode::INVALID_PARAMETER) if the style is nullptr.
-    /// Returns [`OH_DRAWING_ERROR_ATTRIBUTE_ID_MISMATCH`](crate::error_code::DrawingErrorCode::ATTRIBUTE_ID_MISMATCH) if the attribute id is not recognized or supported.
-    /// Returns [`OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE`](crate::error_code::DrawingErrorCode::PARAMETER_OUT_OF_RANGE) if the value corresponding to the attribute id
+    /// * Returns the execution result.
+    /// <br>**OH_DRAWING_SUCCESS** if the operation is successful.
+    /// <br>**OH_DRAWING_ERROR_INVALID_PARAMETER** if **style** is NULL.
+    /// <br>**OH_DRAWING_ERROR_ATTRIBUTE_ID_MISMATCH** if the input attribute ID does not match the called function.
+    /// <br>**OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE** if the value corresponding to the attribute id
     /// exceeds the allowable range.
     ///
     /// Available since API-level: 21
@@ -975,22 +1157,22 @@ extern "C" {
         id: OH_Drawing_TypographyStyleAttributeId,
         value: f64,
     ) -> crate::error_code::DrawingResult;
-    /// Gets the double type property's value from the typography style.
+    /// Obtains the typography style attribute of the **double** type.
     ///
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to an <b>OH_Drawing_TypographyStyle</b> object.
+    /// * `style` - Pointer to an [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle) object.
     ///
-    /// * `id` - Indicates the attribute id.
+    /// * `id` - Attribute ID of the text style.
     ///
-    /// * `value` - Indicates the return value of the interface.
+    /// * `value` - Pointer to the attribute of the **double** type. It is used as an output parameter.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`](crate::error_code::DrawingErrorCode::INVALID_PARAMETER) if the style is nullptr.
-    /// Returns [`OH_DRAWING_ERROR_ATTRIBUTE_ID_MISMATCH`](crate::error_code::DrawingErrorCode::ATTRIBUTE_ID_MISMATCH) if the attribute id is not recognized or supported.
+    /// * Returns the execution result.
+    /// <br>**OH_DRAWING_SUCCESS** if the operation is successful.
+    /// <br>**OH_DRAWING_ERROR_INVALID_PARAMETER** if **style** is NULL.
+    /// <br>**OH_DRAWING_ERROR_ATTRIBUTE_ID_MISMATCH** if the input attribute ID does not match the called function.
     ///
     /// Available since API-level: 21
     #[cfg(feature = "api-21")]
@@ -1000,24 +1182,24 @@ extern "C" {
         id: OH_Drawing_TypographyStyleAttributeId,
         value: *mut f64,
     ) -> crate::error_code::DrawingResult;
-    /// Sets int value to the typography style attribute.
+    /// Sets the typography style attribute of the **int** type.
     ///
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to an <b>OH_Drawing_TypographyStyle</b> object.
+    /// * `style` - Pointer to an [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle) object.
     ///
-    /// * `id` - Indicates the attribute id.
+    /// * `id` - Attribute ID of the text style.
     ///
-    /// * `value` - Indicates the value to set.
+    /// * `value` - Attribute value to set.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`](crate::error_code::DrawingErrorCode::INVALID_PARAMETER) if the style is nullptr.
-    /// Returns [`OH_DRAWING_ERROR_ATTRIBUTE_ID_MISMATCH`](crate::error_code::DrawingErrorCode::ATTRIBUTE_ID_MISMATCH) if the attribute id is not recognized or supported.
-    /// Returns [`OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE`](crate::error_code::DrawingErrorCode::PARAMETER_OUT_OF_RANGE) if the value corresponding to the attribute id
-    /// exceeds the allowable range.
+    /// * Returns the execution result.
+    /// <br>**OH_DRAWING_SUCCESS** if the operation is successful.
+    /// <br>**OH_DRAWING_ERROR_INVALID_PARAMETER** if **style** is NULL.
+    /// <br>**OH_DRAWING_ERROR_ATTRIBUTE_ID_MISMATCH** if the input attribute ID does not match the called function.
+    /// <br>**OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE** if the input value exceeds the value range of the attribute to
+    /// be set.
     ///
     /// Available since API-level: 21
     #[cfg(feature = "api-21")]
@@ -1027,22 +1209,22 @@ extern "C" {
         id: OH_Drawing_TypographyStyleAttributeId,
         value: ::core::ffi::c_int,
     ) -> crate::error_code::DrawingResult;
-    /// Gets the int type property's value from the typography style.
+    /// Obtains the typography style attribute of the **int** type.
     ///
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to an <b>OH_Drawing_TypographyStyle</b> object.
+    /// * `style` - Pointer to an [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle) object.
     ///
-    /// * `id` - Indicates the attribute id.
+    /// * `id` - Attribute ID of the text style.
     ///
-    /// * `value` - Indicates the return value of the interface.
+    /// * `value` - Pointer to the attribute of the **int** type. It is used as an output parameter.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`](crate::error_code::DrawingErrorCode::INVALID_PARAMETER) if the style is nullptr.
-    /// Returns [`OH_DRAWING_ERROR_ATTRIBUTE_ID_MISMATCH`](crate::error_code::DrawingErrorCode::ATTRIBUTE_ID_MISMATCH) if the attribute id is not recognized or supported.
+    /// * Returns the execution result.
+    /// <br>**OH_DRAWING_SUCCESS** if the operation is successful.
+    /// <br>**OH_DRAWING_ERROR_INVALID_PARAMETER** if **style** is NULL.
+    /// <br>**OH_DRAWING_ERROR_ATTRIBUTE_ID_MISMATCH** if the input attribute ID does not match the called function.
     ///
     /// Available since API-level: 21
     #[cfg(feature = "api-21")]
@@ -1052,22 +1234,22 @@ extern "C" {
         id: OH_Drawing_TypographyStyleAttributeId,
         value: *mut ::core::ffi::c_int,
     ) -> crate::error_code::DrawingResult;
-    /// Sets bool value to the typography style attribute.
+    /// Sets the typography style attribute of the **bool** type.
     ///
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to an <b>OH_Drawing_TypographyStyle</b> object.
+    /// * `style` - Pointer to an [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle) object.
     ///
-    /// * `id` - Indicates the attribute id.
+    /// * `id` - Attribute ID of the text style.
     ///
-    /// * `value` - Indicates the value to set.
+    /// * `value` - Attribute value to set.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`](crate::error_code::DrawingErrorCode::INCORRECT_PARAMETER) if the style is nullptr.
-    /// Returns [`OH_DRAWING_ERROR_ATTRIBUTE_ID_MISMATCH`](crate::error_code::DrawingErrorCode::ATTRIBUTE_ID_MISMATCH) if the attribute id is not recognized or supported.
+    /// * Returns the execution result.
+    /// <br>**OH_DRAWING_SUCCESS** if the operation is successful.
+    /// <br>**OH_DRAWING_ERROR_INCORRECT_PARAMETER** if **style** is NULL.
+    /// <br>**OH_DRAWING_ERROR_ATTRIBUTE_ID_MISMATCH** if the input attribute ID does not match the called function.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -1077,22 +1259,22 @@ extern "C" {
         id: OH_Drawing_TypographyStyleAttributeId,
         value: bool,
     ) -> crate::error_code::DrawingResult;
-    /// Gets the bool type property's value from the typography style.
+    /// Obtains the typography style attribute of the **bool** type.
     ///
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to an <b>OH_Drawing_TypographyStyle</b> object.
+    /// * `style` - Pointer to an [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle) object.
     ///
-    /// * `id` - Indicates the attribute id.
+    /// * `id` - Attribute ID of the text style.
     ///
-    /// * `value` - Indicates the return value of the interface.
+    /// * `value` - Pointer to the bool attribute. It is used as an output parameter.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`](crate::error_code::DrawingErrorCode::INCORRECT_PARAMETER) if the style or value is nullptr.
-    /// Returns [`OH_DRAWING_ERROR_ATTRIBUTE_ID_MISMATCH`](crate::error_code::DrawingErrorCode::ATTRIBUTE_ID_MISMATCH) if the attribute id is not recognized or supported.
+    /// * Returns the execution result.
+    /// <br>**OH_DRAWING_SUCCESS** if the operation is successful.
+    /// <br>**OH_DRAWING_ERROR_INCORRECT_PARAMETER** if **style** or **value** is NULL.
+    /// <br>**OH_DRAWING_ERROR_ATTRIBUTE_ID_MISMATCH** if the input attribute ID does not match the called function.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -1102,40 +1284,101 @@ extern "C" {
         id: OH_Drawing_TypographyStyleAttributeId,
         value: *mut bool,
     ) -> crate::error_code::DrawingResult;
-    /// Creates an <b>OH_Drawing_TypographyStyle</b> object.
+    /// Sets the typography style attribute of the floating-point array type.
+    ///
+    /// # Arguments
+    ///
+    /// * `style` - Pointer to an [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle) object.
+    ///
+    /// * `id` - Attribute ID of the text style.
+    ///
+    /// * `arrayValue` - Pointer to the floating-point array.
+    ///
+    /// * `arrayLength` - Length of the floating-point array.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the execution result.
+    /// <br>**OH_DRAWING_SUCCESS** if the operation is successful.
+    /// <br>**OH_DRAWING_ERROR_INCORRECT_PARAMETER** if the parameter **style** or **arrayValue** is a null pointer or
+    /// **arrayLength** is 0.
+    /// <br>**OH_DRAWING_ERROR_ATTRIBUTE_ID_MISMATCH** if the input attribute ID does not match the called function.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_Drawing_SetTypographyStyleAttributeDoubleArray(
+        style: *mut OH_Drawing_TypographyStyle,
+        id: OH_Drawing_TypographyStyleAttributeId,
+        arrayValue: *mut f64,
+        arrayLength: usize,
+    ) -> crate::error_code::DrawingResult;
+    /// Obtains the typography style attribute of the floating-point array type.
+    ///
+    /// # Arguments
+    ///
+    /// * `style` - Pointer to an [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle) object.
+    ///
+    /// * `id` - Attribute ID of the text style.
+    ///
+    /// * `arrayValue` - Pointer to the floating-point array. It is used as an output parameter.
+    ///
+    /// * `arrayLength` - Length of the floating-point array. It is used as an output parameter.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the execution result.
+    /// <br>**OH_DRAWING_SUCCESS** if the operation is successful.
+    /// <br>**OH_DRAWING_ERROR_INCORRECT_PARAMETER** if the parameter **style** or **arrayValue** is a null pointer or **
+    /// arrayLength** is 0.
+    /// <br>**OH_DRAWING_ERROR_ATTRIBUTE_ID_MISMATCH** if the input attribute ID does not match the called function.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_Drawing_GetTypographyStyleAttributeDoubleArray(
+        style: *const OH_Drawing_TypographyStyle,
+        id: OH_Drawing_TypographyStyleAttributeId,
+        arrayValue: *mut *mut f64,
+        arrayLength: *mut usize,
+    ) -> crate::error_code::DrawingResult;
+    /// Creates an **OH_Drawing_TypographyStyle** object. Release this pointer by calling
+    /// [`OH_Drawing_DestroyTypographyStyle`](crate::text_typography::OH_Drawing_DestroyTypographyStyle) when this object is no longer needed.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the <b>OH_Drawing_TypographyStyle</b> object created.
+    /// * Pointer to the created [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle) object.
     ///
     /// Available since API-level: 8
     ///
     /// Version: 1.0
     pub fn OH_Drawing_CreateTypographyStyle() -> *mut OH_Drawing_TypographyStyle;
-    /// Releases the memory occupied by an <b>OH_Drawing_TypographyStyle</b> object.
+    /// Destroys an **OH_Drawing_TypographyStyle** object and reclaims the memory occupied by the object.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to an <b>OH_Drawing_TypographyStyle</b> object.
+    /// * `style` - Pointer to the [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle) object, which is obtained from
+    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
     /// Available since API-level: 8
     ///
     /// Version: 1.0
     pub fn OH_Drawing_DestroyTypographyStyle(style: *mut OH_Drawing_TypographyStyle);
-    /// Sets the text direction.
+    /// Sets the text direction in a typography style.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to an <b>OH_Drawing_TypographyStyle</b> object.
+    /// * `style` - Pointer to the [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle) object, which is obtained from
+    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
-    /// * `direction` - Indicates the text direction to set. For details, see the enum <b>OH_Drawing_TextDirection</b>.
+    /// * `direction` - Text direction. For details about the available options, see [`OH_Drawing_TextDirection`](crate::text_typography::OH_Drawing_TextDirection).
     ///
     /// Available since API-level: 8
     ///
@@ -1144,15 +1387,16 @@ extern "C" {
         style: *mut OH_Drawing_TypographyStyle,
         direction: ::core::ffi::c_int,
     );
-    /// Sets the text alignment mode.
+    /// Text alignment mode.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to an <b>OH_Drawing_TypographyStyle</b> object.
+    /// * `style` - Pointer to the [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle) object, which is obtained from
+    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
-    /// * `align` - Indicates the text alignment mode to set. For details, see the enum <b>OH_Drawing_TextAlign</b>.
+    /// * `align` - Text alignment mode. For details about the available options, see [`OH_Drawing_TextAlign`](crate::text_typography::OH_Drawing_TextAlign).
     ///
     /// Available since API-level: 8
     ///
@@ -1161,15 +1405,16 @@ extern "C" {
         style: *mut OH_Drawing_TypographyStyle,
         align: ::core::ffi::c_int,
     );
-    /// Sets the maximum number of lines in a text file.
+    /// Sets the maximum number of lines in the text.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to an <b>OH_Drawing_TypographyStyle</b> object.
+    /// * `style` - Pointer to the [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle) object, which is obtained from
+    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
-    /// * `lineNumber` - Indicates the maximum number of lines to set.
+    /// * `lineNumber` - Max lines, which is an integer. If 0 or a negative number is passed, no text is displayed.
     ///
     /// Available since API-level: 8
     ///
@@ -1178,68 +1423,78 @@ extern "C" {
         style: *mut OH_Drawing_TypographyStyle,
         lineNumber: ::core::ffi::c_int,
     );
-    /// Creates an <b>OH_Drawing_TextStyle</b> object.
+    /// Creates a pointer to an **OH_Drawing_TextStyle** object. When the [`OH_Drawing_TextStyle`](crate::text_declaration::OH_Drawing_TextStyle) is no longer
+    /// needed, use [`OH_Drawing_DestroyTextStyle`](crate::text_typography::OH_Drawing_DestroyTextStyle) to release the pointer to the object.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the <b>OH_Drawing_TextStyle</b> object created.
+    /// * Pointer to the created [`OH_Drawing_TextStyle`](crate::text_declaration::OH_Drawing_TextStyle) object.
     ///
     /// Available since API-level: 8
     ///
     /// Version: 1.0
     pub fn OH_Drawing_CreateTextStyle() -> *mut OH_Drawing_TextStyle;
-    /// Releases the memory occupied by an <b>OH_Drawing_TextStyle</b> object.
+    /// Destroys an **OH_Drawing_TextStyle** object and reclaims the memory occupied by the object.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to an <b>OH_Drawing_TextStyle</b> object.
+    /// * `style` - Pointer to the **OH_Drawing_TextStyle** object, which is obtained from
+    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
     /// Available since API-level: 8
     ///
     /// Version: 1.0
     pub fn OH_Drawing_DestroyTextStyle(style: *mut OH_Drawing_TextStyle);
-    /// Sets the text color.
+    /// Sets the color for a text style.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to an <b>OH_Drawing_TextStyle</b> object.
+    /// * `style` - Pointer to the [`OH_Drawing_TextStyle`](crate::text_declaration::OH_Drawing_TextStyle) object, which is obtained from
+    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
-    /// * `color` - Indicates the color to set.
+    /// * `color` - Text color in ARGB format. For example, an input parameter of 0xFFFF0000 indicates opaque red.
     ///
     /// Available since API-level: 8
     ///
     /// Version: 1.0
     pub fn OH_Drawing_SetTextStyleColor(style: *mut OH_Drawing_TextStyle, color: u32);
-    /// Sets the font size.
+    /// Sets the font size for a text style.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to an <b>OH_Drawing_TextStyle</b> object.
+    /// * `style` - Pointer to the [`OH_Drawing_TextStyle`](crate::text_declaration::OH_Drawing_TextStyle) object, which is obtained from
+    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
-    /// * `fontSize` - Indicates the font size to set.
+    /// * `fontSize` - Font size, in physical pixels (px).
     ///
     /// Available since API-level: 8
     ///
     /// Version: 1.0
     pub fn OH_Drawing_SetTextStyleFontSize(style: *mut OH_Drawing_TextStyle, fontSize: f64);
-    /// Sets the font weight.
+    /// Sets the font weight. Before <!--RP1-->OpenHarmony 6.1<!--RP1End-->, only variable fonts in system fonts
+    /// support font weight adjustment. Starting from <!--RP1-->OpenHarmony 6.1<!--RP1End-->, both system fonts and variable
+    /// fonts in third-party registered fonts support font weight adjustment. For non-variable fonts, the font weight does
+    /// not change when the weight value is set to less than semi-bold, and a pseudo-bold effect may be triggered when the
+    /// weight value is set to semi-bold or greater.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to an <b>OH_Drawing_TextStyle</b> object.
+    /// * `style` - Pointer to the **OH_Drawing_TextStyle** object, which is obtained from
+    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
-    /// * `fontWeight` - Indicates the font weight to set. For details, see the enum <b>OH_Drawing_FontWeight</b>.
+    /// * `fontWeight` - Font weight.
+    /// <br>For details about the available options, see [`OH_Drawing_FontWeight`](crate::text_typography::OH_Drawing_FontWeight).
     ///
     /// Available since API-level: 8
     ///
@@ -1248,15 +1503,16 @@ extern "C" {
         style: *mut OH_Drawing_TextStyle,
         fontWeight: ::core::ffi::c_int,
     );
-    /// Sets the text baseline.
+    /// Sets the baseline for a text style.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to an <b>OH_Drawing_TextStyle</b> object.
+    /// * `style` - Pointer to the **OH_Drawing_TextStyle** object, which is obtained from
+    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
-    /// * `baseline` - Indicates the text baseline to set. For details, see the enum <b>OH_Drawing_TextBaseline</b>.
+    /// * `baseline` - Text baseline. For details about the available options, see [`OH_Drawing_TextBaseline`](crate::text_typography::OH_Drawing_TextBaseline).
     ///
     /// Available since API-level: 8
     ///
@@ -1265,15 +1521,17 @@ extern "C" {
         style: *mut OH_Drawing_TextStyle,
         baseline: ::core::ffi::c_int,
     );
-    /// Sets the text decoration.
+    /// Sets the decoration for a text style. Only one decoration can be set. To add multiple decorations, use
+    /// [`OH_Drawing_AddTextStyleDecoration`](crate::text_typography::OH_Drawing_AddTextStyleDecoration).
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to an <b>OH_Drawing_TextStyle</b> object.
+    /// * `style` - Pointer to the **OH_Drawing_TextStyle** object, which is obtained from
+    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
-    /// * `decoration` - Indicates the text decoration to set. For details, see the enum <b>OH_Drawing_TextDecoration</b>.
+    /// * `decoration` - Text decoration. For details about the available options, see [`OH_Drawing_TextDecoration`](crate::text_typography::OH_Drawing_TextDecoration).
     ///
     /// Available since API-level: 8
     ///
@@ -1282,15 +1540,19 @@ extern "C" {
         style: *mut OH_Drawing_TextStyle,
         decoration: ::core::ffi::c_int,
     );
-    /// Add the text decoration.
+    /// Adds the decoration for a text style. Multiple decoration lines can be displayed.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to an <b>OH_Drawing_TextStyle</b> object.
+    /// * `style` - Pointer to the [`OH_Drawing_TextStyle`](crate::text_declaration::OH_Drawing_TextStyle) object, which is obtained from
+    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
-    /// * `decoration` - Indicates the text decoration to add. For details, see the enum <b>OH_Drawing_TextDecoration</b>.
+    /// * `decoration` - Decoration to add. The value **1** means to add an underline, **2** means to add an overline, and *
+    /// *4** means to add a strikethrough. You can add various decoration lines at a time via bitwise OR operations.
+    /// <br>If a decoration style that is not in the [`OH_Drawing_TextDecoration`](crate::text_typography::OH_Drawing_TextDecoration) enumeration is set, the original
+    /// decoration is retained.
     ///
     /// Available since API-level: 18
     ///
@@ -1301,16 +1563,20 @@ extern "C" {
         style: *mut OH_Drawing_TextStyle,
         decoration: ::core::ffi::c_int,
     );
-    /// Remove the text decoration.
+    /// Removes the decoration for a text style.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to an <b>OH_Drawing_TextStyle</b> object.
+    /// * `style` - Pointer to the [`OH_Drawing_TextStyle`](crate::text_declaration::OH_Drawing_TextStyle) object, which is obtained from
+    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
-    /// * `decoration` - Indicates the text decoration to remove, shoud be match existing text decorations.
-    /// For details, see the enum <b>OH_Drawing_TextDecoration</b>.
+    /// * `decoration` - Decoration to remove. The value **1** means to remove an underline, **2** means to remove an
+    /// overline, and **4** means to remove a strikethrough. You can remove various text decorations at a time via
+    /// bitwise OR operations.
+    /// <br>If a decoration style that is not in the [`OH_Drawing_TextDecoration`](crate::text_typography::OH_Drawing_TextDecoration) enumeration is set, the original
+    /// decoration is retained.
     ///
     /// Available since API-level: 18
     ///
@@ -1321,45 +1587,50 @@ extern "C" {
         style: *mut OH_Drawing_TextStyle,
         decoration: ::core::ffi::c_int,
     );
-    /// Sets the color for the text decoration.
+    /// Sets the decoration color for a text style. If this API is not called or **color** is set to **0**, the
+    /// decoration color follows the text color.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to an <b>OH_Drawing_TextStyle</b> object.
+    /// * `style` - Pointer to the **OH_Drawing_TextStyle** object, which is obtained from
+    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
-    /// * `color` - Indicates the color to set.
+    /// * `color` - Color of the decoration line, in ARGB format. For example, 0xFFFF0000 indicates opaque red. If this API
+    /// is not called or color is set to 0, the decoration line color follows the text color.
     ///
     /// Available since API-level: 8
     ///
     /// Version: 1.0
     pub fn OH_Drawing_SetTextStyleDecorationColor(style: *mut OH_Drawing_TextStyle, color: u32);
-    /// Sets the font height.
+    /// Sets the line height based on the multiple of the font size.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to an <b>OH_Drawing_TextStyle</b> object.
+    /// * `style` - Pointer to the **OH_Drawing_TextStyle** object, which is obtained from
+    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
-    /// * `fontHeight` - Indicates the font height to set.
+    /// * `fontHeight` - Multiple of the font size.
     ///
     /// Available since API-level: 8
     ///
     /// Version: 1.0
     pub fn OH_Drawing_SetTextStyleFontHeight(style: *mut OH_Drawing_TextStyle, fontHeight: f64);
-    /// Sets the font families.
+    /// Sets the font families for a text style.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to an <b>OH_Drawing_TextStyle</b> object.
+    /// * `style` - Pointer to the **OH_Drawing_TextStyle** object, which is obtained from
+    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
-    /// * `fontFamiliesNumber` - Indicates the number of font families to set.
+    /// * `fontFamiliesNumber` - Number of font families. A negative number is not allowed.
     ///
-    /// * `fontFamilies` - Indicates the pointer to the font families to set.
+    /// * `fontFamilies` - Pointer to the font families.
     ///
     /// Available since API-level: 8
     ///
@@ -1369,15 +1640,17 @@ extern "C" {
         fontFamiliesNumber: ::core::ffi::c_int,
         fontFamilies: *mut *const ::core::ffi::c_char,
     );
-    /// Sets the font style.
+    /// Sets the font style for a text style.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to an <b>OH_Drawing_TextStyle</b> object.
+    /// * `style` - Pointer to the **OH_Drawing_TextStyle** object, which is obtained from
+    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
-    /// * `fontStyle` - Indicates the font style to set. For details, see the enum <b>OH_Drawing_FontStyle</b>.
+    /// * `fontStyle` - Font style. The value **1** indicates italic, **2** indicates oblique, and **0** or other values
+    /// indicate non-italic. For details, see the [`OH_Drawing_FontStyle`](crate::text_typography::OH_Drawing_FontStyle) enum.
     ///
     /// Available since API-level: 8
     ///
@@ -1386,15 +1659,18 @@ extern "C" {
         style: *mut OH_Drawing_TextStyle,
         fontStyle: ::core::ffi::c_int,
     );
-    /// Sets the locale.
+    /// Sets the locale for a text style.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to an <b>OH_Drawing_TextStyle</b> object.
+    /// * `style` - Pointer to the **OH_Drawing_TextStyle** object, which is obtained from
+    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
-    /// * `locale` - Indicates the pointer to the locale to set.
+    /// * `locale` - Language type. The data type is a pointer to char. The format follows the BCP 47 language tag standard.
+    /// For example, 'en' represents English, 'zh-Hans' represents Simplified Chinese, and 'zh-Hant' represents
+    /// Traditional Chinese. If not specified, the default locale is 'zh-Hans'.
     ///
     /// Available since API-level: 8
     ///
@@ -1403,15 +1679,17 @@ extern "C" {
         style: *mut OH_Drawing_TextStyle,
         locale: *const ::core::ffi::c_char,
     );
-    /// Sets the foreground brush style.
+    /// Sets the foreground brush for a text style.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to a text style object <b>OH_Drawing_TextStyle</b>.
+    /// * `style` - Pointer to the [`OH_Drawing_TextStyle`](crate::text_declaration::OH_Drawing_TextStyle) object, which is obtained from
+    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
-    /// * `foregroundBrush` - Indicates the pointer to a brush object <b>OH_Drawing_Brush</b>.
+    /// * `foregroundBrush` - Pointer to the [`OH_Drawing_Brush`](crate::types::OH_Drawing_Brush) object, which is obtained from
+    /// [`OH_Drawing_BrushCreate`](crate::brush::OH_Drawing_BrushCreate).
     ///
     /// Available since API-level: 12
     ///
@@ -1422,15 +1700,17 @@ extern "C" {
         style: *mut OH_Drawing_TextStyle,
         foregroundBrush: *mut OH_Drawing_Brush,
     );
-    /// Gets the foreground brush style.
+    /// Obtains the foreground brush of a text style.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to a text style object <b>OH_Drawing_TextStyle</b>.
+    /// * `style` - Pointer to the [`OH_Drawing_TextStyle`](crate::text_declaration::OH_Drawing_TextStyle) object, which is obtained from
+    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
-    /// * `foregroundBrush` - Indicates the pointer to a brush object <b>OH_Drawing_Brush</b>.
+    /// * `foregroundBrush` - Pointer to the [`OH_Drawing_Brush`](crate::types::OH_Drawing_Brush) object, which is obtained from
+    /// [`OH_Drawing_BrushCreate`](crate::brush::OH_Drawing_BrushCreate).
     ///
     /// Available since API-level: 12
     ///
@@ -1441,15 +1721,17 @@ extern "C" {
         style: *mut OH_Drawing_TextStyle,
         foregroundBrush: *mut OH_Drawing_Brush,
     );
-    /// Sets the foreground pen style.
+    /// Sets the foreground pen for a text style.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to a text style object <b>OH_Drawing_TextStyle</b>.
+    /// * `style` - Pointer to the [`OH_Drawing_TextStyle`](crate::text_declaration::OH_Drawing_TextStyle) object, which is obtained from
+    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
-    /// * `foregroundPen` - Indicates the pointer to a pen object <b>OH_Drawing_Pen</b>.
+    /// * `foregroundPen` - Pointer to the [`OH_Drawing_Pen`](crate::types::OH_Drawing_Pen) object, which is obtained from
+    /// [`OH_Drawing_PenCreate`](crate::pen::OH_Drawing_PenCreate).
     ///
     /// Available since API-level: 12
     ///
@@ -1460,15 +1742,17 @@ extern "C" {
         style: *mut OH_Drawing_TextStyle,
         foregroundPen: *mut OH_Drawing_Pen,
     );
-    /// Gets the foreground pen style.
+    /// Obtains the foreground pen of a text style.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to a text style object <b>OH_Drawing_TextStyle</b>.
+    /// * `style` - Pointer to the [`OH_Drawing_TextStyle`](crate::text_declaration::OH_Drawing_TextStyle) object, which is obtained from
+    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
-    /// * `foregroundPen` - Indicates the pointer to a pen object <b>OH_Drawing_Pen</b>.
+    /// * `foregroundPen` - Pointer to the [`OH_Drawing_Pen`](crate::types::OH_Drawing_Pen) object, which is obtained from
+    /// [`OH_Drawing_PenCreate`](crate::pen::OH_Drawing_PenCreate).
     ///
     /// Available since API-level: 12
     ///
@@ -1479,15 +1763,17 @@ extern "C" {
         style: *mut OH_Drawing_TextStyle,
         foregroundPen: *mut OH_Drawing_Pen,
     );
-    /// Sets the background brush style.
+    /// Sets the background brush for a text style.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to a text style object <b>OH_Drawing_TextStyle</b>.
+    /// * `style` - Pointer to the [`OH_Drawing_TextStyle`](crate::text_declaration::OH_Drawing_TextStyle) object, which is obtained from
+    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
-    /// * `foregroundPen` - Indicates the pointer to a brush object <b>OH_Drawing_Brush</b>.
+    /// * `backgroundBrush` - Pointer to the [`OH_Drawing_Brush`](crate::types::OH_Drawing_Brush) object, which is obtained from
+    /// [`OH_Drawing_BrushCreate`](crate::brush::OH_Drawing_BrushCreate).
     ///
     /// Available since API-level: 12
     ///
@@ -1496,17 +1782,19 @@ extern "C" {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_SetTextStyleBackgroundBrush(
         style: *mut OH_Drawing_TextStyle,
-        foregroundPen: *mut OH_Drawing_Brush,
+        backgroundBrush: *mut OH_Drawing_Brush,
     );
-    /// Gets the background brush style.
+    /// Obtains the background brush of a text style.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to a text style object <b>OH_Drawing_TextStyle</b>.
+    /// * `style` - Pointer to the [`OH_Drawing_TextStyle`](crate::text_declaration::OH_Drawing_TextStyle) object, which is obtained from
+    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
-    /// * `backgroundBrush` - Indicates the pointer to a brush object <b>OH_Drawing_Brush</b>.
+    /// * `backgroundBrush` - Pointer to the [`OH_Drawing_Brush`](crate::types::OH_Drawing_Brush) object, which is obtained from
+    /// [`OH_Drawing_BrushCreate`](crate::brush::OH_Drawing_BrushCreate).
     ///
     /// Available since API-level: 12
     ///
@@ -1517,15 +1805,17 @@ extern "C" {
         style: *mut OH_Drawing_TextStyle,
         backgroundBrush: *mut OH_Drawing_Brush,
     );
-    /// Sets the background pen style.
+    /// Sets the background pen for a text style.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to a text style object <b>OH_Drawing_TextStyle</b>.
+    /// * `style` - Pointer to the [`OH_Drawing_TextStyle`](crate::text_declaration::OH_Drawing_TextStyle) object, which is obtained from
+    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
-    /// * `backgroundPen` - Indicates the pointer to a pen object <b>OH_Drawing_Pen</b>.
+    /// * `backgroundPen` - Pointer to the [`OH_Drawing_Pen`](crate::types::OH_Drawing_Pen) object, which is obtained from
+    /// [`OH_Drawing_PenCreate`](crate::pen::OH_Drawing_PenCreate).
     ///
     /// Available since API-level: 12
     ///
@@ -1536,15 +1826,17 @@ extern "C" {
         style: *mut OH_Drawing_TextStyle,
         backgroundPen: *mut OH_Drawing_Pen,
     );
-    /// Gets the background pen style.
+    /// Obtains the background pen of a text style.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to a text style object <b>OH_Drawing_TextStyle</b>.
+    /// * `style` - Pointer to the [`OH_Drawing_TextStyle`](crate::text_declaration::OH_Drawing_TextStyle) object, which is obtained from
+    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
-    /// * `backgroundPen` - Indicates the pointer to a pen object <b>OH_Drawing_Pen</b>.
+    /// * `backgroundPen` - Pointer to the [`OH_Drawing_Pen`](crate::types::OH_Drawing_Pen) object, which is obtained from
+    /// [`OH_Drawing_PenCreate`](crate::pen::OH_Drawing_PenCreate).
     ///
     /// Available since API-level: 12
     ///
@@ -1555,19 +1847,23 @@ extern "C" {
         style: *mut OH_Drawing_TextStyle,
         backgroundPen: *mut OH_Drawing_Pen,
     );
-    /// Creates a pointer to an <b>OH_Drawing_TypographyCreate</b> object.
+    /// Creates an **OH_Drawing_TypographyCreate** object. Release this pointer by calling
+    /// [`OH_Drawing_DestroyTypographyHandler`](crate::text_typography::OH_Drawing_DestroyTypographyHandler) when this object is no longer needed. You are advised to use the
+    /// [`OH_Drawing_CreateSharedFontCollection`](crate::font_collection::OH_Drawing_CreateSharedFontCollection) function to create an [`OH_Drawing_FontCollection`](crate::text_declaration::OH_Drawing_FontCollection) object.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to an <b>OH_Drawing_TypographyStyle</b> object.
+    /// * `style` - Pointer to the [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle) object, which is obtained from
+    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
-    /// * `fontCollection` - Indicates the pointer to an <b>OH_Drawing_FontCollection</b> object.
+    /// * `fontCollection` - Pointer to the [`OH_Drawing_FontCollection`](crate::text_declaration::OH_Drawing_FontCollection) object, which is obtained from
+    /// [`OH_Drawing_CreateFontCollection`](crate::font_collection::OH_Drawing_CreateFontCollection).
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the <b>OH_Drawing_TypographyCreate</b> object created.
+    /// * Pointer to the **OH_Drawing_TypographyCreate** object created.
     ///
     /// Available since API-level: 8
     ///
@@ -1576,27 +1872,31 @@ extern "C" {
         style: *mut OH_Drawing_TypographyStyle,
         fontCollection: *mut OH_Drawing_FontCollection,
     ) -> *mut OH_Drawing_TypographyCreate;
-    /// Releases the memory occupied by an <b>OH_Drawing_TypographyCreate</b> object.
+    /// Destroys an **OH_Drawing_TypographyCreate** object and reclaims the memory occupied by the object.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `handler` - Indicates the pointer to an <b>OH_Drawing_TypographyCreate</b> object.
+    /// * `handler` - Pointer to the [`OH_Drawing_TypographyCreate`](crate::text_declaration::OH_Drawing_TypographyCreate) object, which is obtained from
+    /// [`OH_Drawing_CreateTypographyHandler`](crate::text_typography::OH_Drawing_CreateTypographyHandler).
     ///
     /// Available since API-level: 8
     ///
     /// Version: 1.0
     pub fn OH_Drawing_DestroyTypographyHandler(handler: *mut OH_Drawing_TypographyCreate);
-    /// Sets the text style.
+    /// Pushes a text style into the text style stack. Any text added afterward will use the style currently on top
+    /// of the stack.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `handler` - Indicates the pointer to an <b>OH_Drawing_TypographyCreate</b> object.
+    /// * `handler` - Pointer to the [`OH_Drawing_TypographyCreate`](crate::text_declaration::OH_Drawing_TypographyCreate) object, which is obtained from
+    /// [`OH_Drawing_CreateTypographyHandler`](crate::text_typography::OH_Drawing_CreateTypographyHandler).
     ///
-    /// * `style` - Indicates the pointer to an <b>OH_Drawing_TextStyle</b> object.
+    /// * `style` - Pointer to the [`OH_Drawing_TextStyle`](crate::text_declaration::OH_Drawing_TextStyle) object, which is obtained from
+    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
     /// Available since API-level: 8
     ///
@@ -1605,15 +1905,16 @@ extern "C" {
         handler: *mut OH_Drawing_TypographyCreate,
         style: *mut OH_Drawing_TextStyle,
     );
-    /// Sets the text content.
+    /// Adds text.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `handler` - Indicates the pointer to an <b>OH_Drawing_TypographyCreate</b> object.
+    /// * `handler` - Pointer to the [`OH_Drawing_TypographyCreate`](crate::text_declaration::OH_Drawing_TypographyCreate) object, which is obtained from
+    /// [`OH_Drawing_CreateTypographyHandler`](crate::text_typography::OH_Drawing_CreateTypographyHandler).
     ///
-    /// * `text` - Indicates the pointer to the text content to set.
+    /// * `text` - Pointer to the text content.
     ///
     /// Available since API-level: 8
     ///
@@ -1622,29 +1923,32 @@ extern "C" {
         handler: *mut OH_Drawing_TypographyCreate,
         text: *const ::core::ffi::c_char,
     );
-    /// Removes the topmost style in the stack, leaving the remaining styles in effect.
+    /// Pops the top text style out of the text style stack.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `handler` - Indicates the pointer to an <b>OH_Drawing_TypographyCreate</b> object.
+    /// * `handler` - Pointer to the [`OH_Drawing_TypographyCreate`](crate::text_declaration::OH_Drawing_TypographyCreate) object, which is obtained from
+    /// [`OH_Drawing_CreateTypographyHandler`](crate::text_typography::OH_Drawing_CreateTypographyHandler).
     ///
     /// Available since API-level: 8
     ///
     /// Version: 1.0
     pub fn OH_Drawing_TypographyHandlerPopTextStyle(handler: *mut OH_Drawing_TypographyCreate);
-    /// Creates an <b>OH_Drawing_Typography</b> object.
+    /// Creates an **OH_Drawing_Typography** object. Release this pointer by calling
+    /// [`OH_Drawing_DestroyTypography`](crate::text_typography::OH_Drawing_DestroyTypography) when this object is no longer needed.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `handler` - Indicates the pointer to an <b>OH_Drawing_TypographyCreate</b> object.
+    /// * `handler` - Pointer to the [`OH_Drawing_TypographyCreate`](crate::text_declaration::OH_Drawing_TypographyCreate) object, which is obtained from
+    /// [`OH_Drawing_CreateTypographyHandler`](crate::text_typography::OH_Drawing_CreateTypographyHandler).
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the <b>OH_Drawing_Typography</b> object created.
+    /// * Pointer to the **OH_Drawing_Typography** object created.
     ///
     /// Available since API-level: 8
     ///
@@ -1652,45 +1956,55 @@ extern "C" {
     pub fn OH_Drawing_CreateTypography(
         handler: *mut OH_Drawing_TypographyCreate,
     ) -> *mut OH_Drawing_Typography;
-    /// Releases the memory occupied by an <b>OH_Drawing_Typography</b> object.
+    /// Destroys an **OH_Drawing_Typography** object and reclaims the memory occupied by the object.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `typography` - Indicates the pointer to an <b>OH_Drawing_Typography</b> object.
+    /// * `typography` - Pointer to the [`OH_Drawing_Typography`](crate::text_declaration::OH_Drawing_Typography) object, which is obtained from
+    /// [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
     ///
     /// Available since API-level: 8
     ///
     /// Version: 1.0
     pub fn OH_Drawing_DestroyTypography(typography: *mut OH_Drawing_Typography);
-    /// Lays out the typography.
+    /// Performs layout calculation on the typography object and wraps text based on the specified maximum width.
+    /// After this API is called, the properties of the typography object can be correctly obtained.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `typography` - Indicates the pointer to an <b>OH_Drawing_Typography</b> object.
+    /// * `typography` - Pointer to the [`OH_Drawing_Typography`](crate::text_declaration::OH_Drawing_Typography) object, which is obtained from
+    /// [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
     ///
-    /// * `maxWidth` - Indicates the maximum text width to set.
+    /// * `maxWidth` - Maximum width of a single line in text typography, in physical pixels (px). The value must be
+    /// greater than 0.
     ///
     /// Available since API-level: 8
     ///
     /// Version: 1.0
     pub fn OH_Drawing_TypographyLayout(typography: *mut OH_Drawing_Typography, maxWidth: f64);
-    /// Paints text on the canvas.
+    /// Draws text from the upper left corner at a specified position. This function must be called after
+    /// [`OH_Drawing_TypographyLayout`](crate::text_typography::OH_Drawing_TypographyLayout) is called and applied.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `typography` - Indicates the pointer to an <b>OH_Drawing_Typography</b> object.
+    /// * `typography` - Pointer to the **OH_Drawing_Typography** object, which is obtained from
+    /// [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
     ///
-    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Pointer to the **OH_Drawing_Canvas** object, which is obtained from [`OH_Drawing_CanvasCreate`](crate::canvas::OH_Drawing_CanvasCreate).
     ///
-    /// * `potisionX` - Indicates the x coordinate.
+    /// * `positionX` - Horizontal coordinate of the starting position for text drawing (that is, the x-coordinate of the
+    /// upper left corner of the text area), in physical pixels (px). The upper left corner of the canvas serves as the
+    /// coordinate origin, with the positive direction to the right.
     ///
-    /// * `potisionY` - Indicates the y coordinate.
+    /// * `positionY` - Vertical coordinate of the starting position for text drawing (that is, the y-coordinate of the
+    /// upper left corner of the text area), in physical pixels (px). The upper left corner of the canvas serves as the
+    /// coordinate origin, with the positive direction downward.
     ///
     /// Available since API-level: 8
     ///
@@ -1698,24 +2012,29 @@ extern "C" {
     pub fn OH_Drawing_TypographyPaint(
         typography: *mut OH_Drawing_Typography,
         canvas: *mut OH_Drawing_Canvas,
-        potisionX: f64,
-        potisionY: f64,
+        positionX: f64,
+        positionY: f64,
     );
-    /// Paints path text on the canvas.
+    /// Draws text along a specified path. This API must be called after [`OH_Drawing_TypographyLayout`](crate::text_typography::OH_Drawing_TypographyLayout) is
+    /// called and takes effect. It is recommended to use [`OH_Drawing_SetTypographyTextMaxLines`](crate::text_typography::OH_Drawing_SetTypographyTextMaxLines) to set the maximum
+    /// number of lines to 1 to avoid overlapping issues caused by text width exceeding the typography width.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `typography` - Indicates the pointer to an <b>OH_Drawing_Typography</b> object.
+    /// * `typography` - Pointer to the **OH_Drawing_Typography** object, which is obtained from
+    /// [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
     ///
-    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Pointer to the **OH_Drawing_Canvas** object, which is obtained from [`OH_Drawing_CanvasCreate`](crate::canvas::OH_Drawing_CanvasCreate).
     ///
-    /// * `path` - Indicates path information.
+    /// * `path` - Pointer to the **OH_Drawing_Path** object, which is obtained from [`OH_Drawing_PathCreate`](crate::path::OH_Drawing_PathCreate).
     ///
-    /// * `hOffset` - Indicates the distance along the path to add to the text's starting position.
+    /// * `hOffset` - Horizontal offset, in physical pixels (px). The horizontal offset of the text along the path (X-axis),
+    /// positive to the right and negative to the left.
     ///
-    /// * `vOffset` - Indicates the distance above(-) or below(+) the path to position the text.
+    /// * `vOffset` - Vertical offset, in physical pixels (px). The vertical offset of the text along the path (Y-axis),
+    /// positive downward and negative upward.
     ///
     /// Available since API-level: 12
     ///
@@ -1729,71 +2048,150 @@ extern "C" {
         hOffset: f64,
         vOffset: f64,
     );
-    /// Gets the max width.
+    /// Arranges the text in the constraint rectangle.
+    ///
+    /// # Arguments
+    ///
+    /// * `typography` - Pointer to the [`OH_Drawing_Typography`](crate::text_declaration::OH_Drawing_Typography) object, which is obtained from
+    /// [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
+    ///
+    /// * `constraintsRect` - Height and width of the constrained layout.
+    ///
+    /// * `fitStrRangeArr` - As an output parameter, it contains the character range of the paragraph text that is actually
+    /// contained. Pointer to array object [`OH_Drawing_Array`](crate::types::OH_Drawing_Array).
+    /// <br>Releases the memory through [`OH_Drawing_ReleaseArrayBuffer`](crate::text_typography::OH_Drawing_ReleaseArrayBuffer).
+    ///
+    /// * `fitStrRangeArrayLen` - As an output parameter, it indicates the size of the contained string array.
+    ///
+    /// # Returns
+    ///
+    /// * Actual text size after layout, including width and height information.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_Drawing_TypographyLayoutWithConstraintsWithBuffer(
+        typography: *mut OH_Drawing_Typography,
+        constraintsRect: OH_Drawing_RectSize,
+        fitStrRangeArr: *mut *mut OH_Drawing_Array,
+        fitStrRangeArrayLen: *mut usize,
+    ) -> OH_Drawing_RectSize;
+    /// Obtains the pointer to the OH_Drawing_Range object based on the array index.
+    ///
+    /// # Arguments
+    ///
+    /// * `array` - Pointer to array object [`OH_Drawing_Array`](crate::types::OH_Drawing_Array).
+    ///
+    /// * `index` - Index of the target [`OH_Drawing_Range`](crate::text_declaration::OH_Drawing_Range) object in the array.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the pointer to the OH_Drawing_Range object.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_Drawing_GetRangeByArrayIndex(
+        array: *mut OH_Drawing_Array,
+        index: usize,
+    ) -> *mut OH_Drawing_Range;
+    /// Releases the memory occupied by the [`OH_Drawing_Array`](crate::types::OH_Drawing_Array) object.
+    ///
+    /// # Arguments
+    ///
+    /// * `array` - Pointer to array object [`OH_Drawing_Array`](crate::types::OH_Drawing_Array).
+    /// <br>Supported array types:
+    /// <br>Array of full font names, which is obtained through [`OH_Drawing_GetSystemFontFullNamesByType`](crate::text_font_descriptor::OH_Drawing_GetSystemFontFullNamesByType).
+    /// <br>Array of text lines, which is obtained through [`OH_Drawing_TypographyGetTextLines`](crate::text_line::OH_Drawing_TypographyGetTextLines).
+    /// <br>Array of string indexes, which is obtained through [`OH_Drawing_GetRunStringIndices`](crate::text_run::OH_Drawing_GetRunStringIndices).
+    /// <br>Array of rectangles, which is obtained through [`OH_Drawing_RectCreateArray`](crate::rect::OH_Drawing_RectCreateArray).
+    /// <br>Array of font descriptors, which is obtained through [`OH_Drawing_GetFontFullDescriptorsFromStream`](crate::text_font_descriptor::OH_Drawing_GetFontFullDescriptorsFromStream) or
+    /// [`OH_Drawing_GetFontFullDescriptorsFromPath`](crate::text_font_descriptor::OH_Drawing_GetFontFullDescriptorsFromPath).
+    /// <br>Array of text ranges, which is obtained through [`OH_Drawing_TypographyLayoutWithConstraintsWithBuffer`](crate::text_typography::OH_Drawing_TypographyLayoutWithConstraintsWithBuffer).
+    /// OH_Drawing_GetFontFullDescriptorsFromPath}.
+    /// <br>Array of text ranges, which is obtained through [`OH_Drawing_TypographyLayoutWithConstraintsWithBuffer`](crate::text_typography::OH_Drawing_TypographyLayoutWithConstraintsWithBuffer).
+    ///
+    /// # Returns
+    ///
+    /// * Returns the execution result.
+    /// <br>**OH_DRAWING_SUCCESS** if the operation is successful.
+    /// <br>**OH_DRAWING_ERROR_INCORRECT_PARAMETER** if array is a null pointer or the type is not supported.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_Drawing_ReleaseArrayBuffer(
+        array: *mut OH_Drawing_Array,
+    ) -> crate::error_code::DrawingResult;
+    /// Obtains the typography width set by the user. This function must be called after
+    /// [`OH_Drawing_TypographyLayout`](crate::text_typography::OH_Drawing_TypographyLayout) is called.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `typography` - Indicates the pointer to an <b>OH_Drawing_Typography</b> object.
+    /// * `typography` - Pointer to the **OH_Drawing_Typography** object, which is obtained from
+    /// [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
     ///
     /// # Returns
     ///
-    /// * Returns the max width.
+    /// * Maximum width, in physical pixels (px).
     ///
     /// Available since API-level: 9
     ///
     /// Version: 1.1
     pub fn OH_Drawing_TypographyGetMaxWidth(typography: *mut OH_Drawing_Typography) -> f64;
-    /// Gets the height.
+    /// Obtains the overall height of a typography object. This function must be called after
+    /// [`OH_Drawing_TypographyLayout`](crate::text_typography::OH_Drawing_TypographyLayout) is called.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `typography` - Indicates the pointer to an <b>OH_Drawing_Typography</b> object.
+    /// * `typography` - Pointer to the **OH_Drawing_Typography** object, which is obtained from
+    /// [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
     ///
     /// # Returns
     ///
-    /// * Returns the height.
+    /// * Returns the height, in physical pixels (px).
     ///
     /// Available since API-level: 9
     ///
     /// Version: 1.1
     pub fn OH_Drawing_TypographyGetHeight(typography: *mut OH_Drawing_Typography) -> f64;
-    /// Obtains the width of the longest line. You are advised to round up the return value in actual use.
-    /// When the text content is empty, the minimum float value,
-    /// that is, -340282346638528859811704183484516925440.000000, is returned.
+    /// Obtains the width of the longest line in a typography object. This function must be called after
+    /// [`OH_Drawing_TypographyLayout`](crate::text_typography::OH_Drawing_TypographyLayout) is called. You are advised to round up the return value. If the text content is
+    /// empty, **0.0** is returned.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `typography` - Pointer to an <b>OH_Drawing_Typography</b> object, which is obtained by
+    /// * `typography` - Pointer to the **OH_Drawing_Typography** object, which is obtained from
     /// [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
     ///
     /// # Returns
     ///
-    /// * Returns the width of the longest line.
+    /// * Longest line width, in physical pixels (px).
     ///
     /// Available since API-level: 9
     ///
     /// Version: 1.1
     pub fn OH_Drawing_TypographyGetLongestLine(typography: *mut OH_Drawing_Typography) -> f64;
-    /// Obtains the width of the longest line with indent. You are advised to
-    /// round up the return value in actual use. When the text content is empty, the
-    /// minimum float value, that is, 0.0, is returned.
+    /// Obtains the width of the longest line of a typography object, including its indentation. This function must
+    /// be called after [`OH_Drawing_TypographyLayout`](crate::text_typography::OH_Drawing_TypographyLayout) is called. You are advised to round up the return value. If the
+    /// text content is empty, **0.0** is returned.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `typography` - Pointer to an <b>OH_Drawing_Typography</b> object, which is obtained by
+    /// * `typography` - Pointer to the [`OH_Drawing_Typography`](crate::text_declaration::OH_Drawing_Typography) object, which is obtained from
     /// [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
     ///
     /// # Returns
     ///
-    /// * Returns the width of the longest line with indent.
+    /// * Returns the width of the longest line (including the current line indent), in physical pixels (px).
     ///
     /// Available since API-level: 13
     ///
@@ -1803,51 +2201,57 @@ extern "C" {
     pub fn OH_Drawing_TypographyGetLongestLineWithIndent(
         typography: *mut OH_Drawing_Typography,
     ) -> f64;
-    /// Gets the min intrinsic width.
+    /// Obtains the minimum intrinsic width in a typography object. This function must be called after
+    /// [`OH_Drawing_TypographyLayout`](crate::text_typography::OH_Drawing_TypographyLayout) is called.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `typography` - the pointer to an <b>OH_Drawing_Typography</b> object.
+    /// * `typography` - Pointer to the **OH_Drawing_Typography** object, which is obtained from
+    /// [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
     ///
     /// # Returns
     ///
-    /// * Returns the min intrinsic width.
+    /// * Minimum intrinsic width, in physical pixels (px).
     ///
     /// Available since API-level: 9
     ///
     /// Version: 1.1
     pub fn OH_Drawing_TypographyGetMinIntrinsicWidth(typography: *mut OH_Drawing_Typography)
         -> f64;
-    /// Gets the max intrinsic width.
+    /// Obtains the maximum intrinsic width in a typography object. This function must be called after
+    /// [`OH_Drawing_TypographyLayout`](crate::text_typography::OH_Drawing_TypographyLayout) is called.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `typography` - Indicates the pointer to an <b>OH_Drawing_Typography</b> object.
+    /// * `typography` - Pointer to the **OH_Drawing_Typography** object, which is obtained from
+    /// [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
     ///
     /// # Returns
     ///
-    /// * Returns the max intrinsic width.
+    /// * Maximum intrinsic width, in physical pixels (px).
     ///
     /// Available since API-level: 9
     ///
     /// Version: 1.1
     pub fn OH_Drawing_TypographyGetMaxIntrinsicWidth(typography: *mut OH_Drawing_Typography)
         -> f64;
-    /// Gets the alphabetic baseline.
+    /// Obtains the alphabetic baseline position of the typography object. This API must be called after
+    /// [`OH_Drawing_TypographyLayout`](crate::text_typography::OH_Drawing_TypographyLayout) is called.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `typography` - Indicates the pointer to an <b>OH_Drawing_Typography</b> object.
+    /// * `typography` - Pointer to the **OH_Drawing_Typography** object, which is obtained from
+    /// [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
     ///
     /// # Returns
     ///
-    /// * Returns the alphabetic baseline.
+    /// * Alphabetic baseline, in physical pixels (px).
     ///
     /// Available since API-level: 9
     ///
@@ -1855,17 +2259,19 @@ extern "C" {
     pub fn OH_Drawing_TypographyGetAlphabeticBaseline(
         typography: *mut OH_Drawing_Typography,
     ) -> f64;
-    /// Gets the ideographic baseline.
+    /// Obtains the ideographic baseline position of the typography object. This API must be called after
+    /// [`OH_Drawing_TypographyLayout`](crate::text_typography::OH_Drawing_TypographyLayout) is called.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `typography` - Indicates the pointer to an <b>OH_Drawing_Typography</b> object.
+    /// * `typography` - Pointer to the **OH_Drawing_Typography** object, which is obtained from
+    /// [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
     ///
     /// # Returns
     ///
-    /// * Returns the ideographic baseline.
+    /// * Returns the ideographic baseline, in physical pixel px.
     ///
     /// Available since API-level: 9
     ///
@@ -1873,15 +2279,16 @@ extern "C" {
     pub fn OH_Drawing_TypographyGetIdeographicBaseline(
         typography: *mut OH_Drawing_Typography,
     ) -> f64;
-    /// Sets the placeholder.
+    /// Adds a placeholder.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `handler` - Indicates the pointer to an <b>OH_Drawing_TypographyCreate</b> object.
+    /// * `handler` - Pointer to the [`OH_Drawing_TypographyCreate`](crate::text_declaration::OH_Drawing_TypographyCreate) object, which is obtained from
+    /// [`OH_Drawing_CreateTypographyHandler`](crate::text_typography::OH_Drawing_CreateTypographyHandler).
     ///
-    /// * `span` - Indicates the pointer to an <b>OH_Drawing_PlaceholderSpan</b> object.
+    /// * `span` - Pointer to the [`OH_Drawing_PlaceholderSpan`](crate::text_typography::OH_Drawing_PlaceholderSpan) object.
     ///
     /// Available since API-level: 11
     ///
@@ -1892,17 +2299,20 @@ extern "C" {
         handler: *mut OH_Drawing_TypographyCreate,
         span: *mut OH_Drawing_PlaceholderSpan,
     );
-    /// Gets the exceed maxLines.
+    /// Checks whether the text in the typography object exceeds the line limit. This function must be called after
+    /// [`OH_Drawing_TypographyLayout`](crate::text_typography::OH_Drawing_TypographyLayout) is called. It returns **false** if the line limit is not set using
+    /// [`OH_Drawing_SetTypographyTextMaxLines`](crate::text_typography::OH_Drawing_SetTypographyTextMaxLines).
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `typography` - Indicates the pointer to an <b>OH_Drawing_Typography</b> object.
+    /// * `typography` - Pointer to the **OH_Drawing_Typography** object, which is obtained from
+    /// [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
     ///
     /// # Returns
     ///
-    /// * Returns the exceed maxLines.
+    /// * Returns **true** if the maximum number of lines is exceeded; returns **false** otherwise.
     ///
     /// Available since API-level: 11
     ///
@@ -1910,27 +2320,30 @@ extern "C" {
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn OH_Drawing_TypographyDidExceedMaxLines(typography: *mut OH_Drawing_Typography) -> bool;
-    /// Gets the rects for range.
+    /// Obtains text boxes in a given range of a typography object. This function must be called after
+    /// [`OH_Drawing_TypographyLayout`](crate::text_typography::OH_Drawing_TypographyLayout) is called. Release this pointer by calling
+    /// [`OH_Drawing_TypographyDestroyTextBox`](crate::text_typography::OH_Drawing_TypographyDestroyTextBox) when this object is no longer needed.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `typography` - Indicates the pointer to an <b>OH_Drawing_Typography</b> object.
+    /// * `typography` - Pointer to the **OH_Drawing_Typography** object, which is obtained from
+    /// [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
     ///
-    /// * `start` - Indicates the start of range to set.
+    /// * `start` - Start position. The value ranges from 0 to the text length, counted in UTF-16 code units. Must be less
+    /// than end; otherwise, an empty result is returned.
     ///
-    /// * `end` - Indicates the end of range to set.
+    /// * `end` - End position. The value ranges from 0 to the text length, counted in UTF-16 code units. If the value
+    /// exceeds the text length, the text length is used. If the value is 0, an empty result is returned.
     ///
-    /// * `heightStyle` - Indicates the height style to set.
-    /// For details, see the enum <b>OH_Drawing_RectHeightStyle</b>.
+    /// * `heightStyle` - Height style. For details about the available options, see [`OH_Drawing_RectHeightStyle`](crate::text_typography::OH_Drawing_RectHeightStyle).
     ///
-    /// * `widthStyle` - Indicates the width style to set.
-    /// For details, see the enum <b>OH_Drawing_RectWidthStyle</b>.
+    /// * `widthStyle` - Width style. For details about the available options, see [`OH_Drawing_RectWidthStyle`](crate::text_typography::OH_Drawing_RectWidthStyle).
     ///
     /// # Returns
     ///
-    /// * Returns the rects for range.
+    /// * Text box in the specified range. For details, see [`OH_Drawing_TextBox`](ohos_sys_opaque_types::OH_Drawing_TextBox).
     ///
     /// Available since API-level: 11
     ///
@@ -1944,17 +2357,20 @@ extern "C" {
         heightStyle: OH_Drawing_RectHeightStyle,
         widthStyle: OH_Drawing_RectWidthStyle,
     ) -> *mut OH_Drawing_TextBox;
-    /// Gets the rects for placeholders.
+    /// Obtains text boxes for placeholders in a typography object. This function must be called after
+    /// [`OH_Drawing_TypographyLayout`](crate::text_typography::OH_Drawing_TypographyLayout) is called. Release this pointer by calling
+    /// [`OH_Drawing_TypographyDestroyTextBox`](crate::text_typography::OH_Drawing_TypographyDestroyTextBox) when this object is no longer needed.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `typography` - Indicates the pointer to an <b>OH_Drawing_Typography</b> object.
+    /// * `typography` - Pointer to the **OH_Drawing_Typography** object, which is obtained from
+    /// [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
     ///
     /// # Returns
     ///
-    /// * Returns the rects for placeholders.
+    /// * Placeholder text box. The return type is [`OH_Drawing_TextBox`](ohos_sys_opaque_types::OH_Drawing_TextBox).
     ///
     /// Available since API-level: 11
     ///
@@ -1964,19 +2380,22 @@ extern "C" {
     pub fn OH_Drawing_TypographyGetRectsForPlaceholders(
         typography: *mut OH_Drawing_Typography,
     ) -> *mut OH_Drawing_TextBox;
-    /// Gets left from textbox.
+    /// Obtains the left position of a text box.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `textbox` - Indicates the pointer to an <b>OH_Drawing_TextBox</b> object.
+    /// * `textbox` - Pointer to the **OH_Drawing_TextBox** object, which is obtained from
+    /// [`OH_Drawing_TypographyGetRectsForRange`](crate::text_typography::OH_Drawing_TypographyGetRectsForRange) or [`OH_Drawing_TypographyGetRectsForPlaceholders`](crate::text_typography::OH_Drawing_TypographyGetRectsForPlaceholders).
     ///
-    /// * `index` - Indicates the index of textbox.
+    /// * `index` - Index of the text box. The value ranges from 0 to the number of text boxes minus 1. The number of text
+    /// boxes can be obtained through [`OH_Drawing_GetSizeOfTextBox`](crate::text_typography::OH_Drawing_GetSizeOfTextBox). 0.0 is returned when the index is out of
+    /// range.
     ///
     /// # Returns
     ///
-    /// * Returns left from textbox.
+    /// * Left position.
     ///
     /// Available since API-level: 11
     ///
@@ -1987,19 +2406,22 @@ extern "C" {
         textbox: *mut OH_Drawing_TextBox,
         index: ::core::ffi::c_int,
     ) -> f32;
-    /// Gets right from textbox.
+    /// Obtains the right position of a text box.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `textbox` - Indicates the pointer to an <b>OH_Drawing_TextBox</b> object.
+    /// * `textbox` - Pointer to the **OH_Drawing_TextBox** object, which is obtained from
+    /// [`OH_Drawing_TypographyGetRectsForRange`](crate::text_typography::OH_Drawing_TypographyGetRectsForRange) or [`OH_Drawing_TypographyGetRectsForPlaceholders`](crate::text_typography::OH_Drawing_TypographyGetRectsForPlaceholders).
     ///
-    /// * `index` - Indicates the index of textbox.
+    /// * `index` - Index of the text box. The value ranges from 0 to the number of text boxes minus 1. The number of text
+    /// boxes can be obtained through [`OH_Drawing_GetSizeOfTextBox`](crate::text_typography::OH_Drawing_GetSizeOfTextBox). 0.0 is returned when the value is out of
+    /// range.
     ///
     /// # Returns
     ///
-    /// * Returns right from textbox.
+    /// * Right position.
     ///
     /// Available since API-level: 11
     ///
@@ -2010,19 +2432,22 @@ extern "C" {
         textbox: *mut OH_Drawing_TextBox,
         index: ::core::ffi::c_int,
     ) -> f32;
-    /// Gets top from textbox.
+    /// Obtains the top position of a text box.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `textbox` - Indicates the pointer to an <b>OH_Drawing_TextBox</b> object.
+    /// * `textbox` - Pointer to the **OH_Drawing_TextBox** object, which is obtained from
+    /// [`OH_Drawing_TypographyGetRectsForRange`](crate::text_typography::OH_Drawing_TypographyGetRectsForRange) or [`OH_Drawing_TypographyGetRectsForPlaceholders`](crate::text_typography::OH_Drawing_TypographyGetRectsForPlaceholders).
     ///
-    /// * `index` - Indicates the index of textbox.
+    /// * `index` - Index of the text box. The value ranges from 0 to the number of text boxes minus 1. The number of text
+    /// boxes can be obtained through [`OH_Drawing_GetSizeOfTextBox`](crate::text_typography::OH_Drawing_GetSizeOfTextBox). 0.0 is returned when the value is out of
+    /// range.
     ///
     /// # Returns
     ///
-    /// * Returns top from textbox.
+    /// * Top position.
     ///
     /// Available since API-level: 11
     ///
@@ -2033,19 +2458,22 @@ extern "C" {
         textbox: *mut OH_Drawing_TextBox,
         index: ::core::ffi::c_int,
     ) -> f32;
-    /// Gets bottom from textbox.
+    /// Obtains the bottom position of a text box.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `textbox` - Indicates the pointer to an <b>OH_Drawing_TextBox</b> object.
+    /// * `textbox` - Pointer to the **OH_Drawing_TextBox** object, which is obtained from
+    /// [`OH_Drawing_TypographyGetRectsForRange`](crate::text_typography::OH_Drawing_TypographyGetRectsForRange) or [`OH_Drawing_TypographyGetRectsForPlaceholders`](crate::text_typography::OH_Drawing_TypographyGetRectsForPlaceholders).
     ///
-    /// * `index` - Indicates the index of textbox.
+    /// * `index` - Index of the text box. The value ranges from 0 to the number of text boxes minus 1. The number of text
+    /// boxes can be obtained through [`OH_Drawing_GetSizeOfTextBox`](crate::text_typography::OH_Drawing_GetSizeOfTextBox). 0.0 is returned when the value is out of
+    /// range.
     ///
     /// # Returns
     ///
-    /// * Returns bottom from textbox.
+    /// * Bottom position.
     ///
     /// Available since API-level: 11
     ///
@@ -2056,19 +2484,21 @@ extern "C" {
         textbox: *mut OH_Drawing_TextBox,
         index: ::core::ffi::c_int,
     ) -> f32;
-    /// Gets direction from textbox.
+    /// Obtains the text direction of a text box.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `textbox` - Indicates the pointer to an <b>OH_Drawing_TextBox</b> object.
+    /// * `textbox` - Pointer to the [`OH_Drawing_TextBox`](ohos_sys_opaque_types::OH_Drawing_TextBox) object, which is obtained from
+    /// [`OH_Drawing_TypographyGetRectsForRange`](crate::text_typography::OH_Drawing_TypographyGetRectsForRange) or [`OH_Drawing_TypographyGetRectsForPlaceholders`](crate::text_typography::OH_Drawing_TypographyGetRectsForPlaceholders).
     ///
-    /// * `index` - Indicates the index of textbox.
+    /// * `index` - Index of the text box. The value ranges from 0 to the number of text boxes minus 1. The number of text
+    /// boxes can be obtained through [`OH_Drawing_GetSizeOfTextBox`](crate::text_typography::OH_Drawing_GetSizeOfTextBox). If the index is out of range, 0 is returned.
     ///
     /// # Returns
     ///
-    /// * Returns direction from textbox.
+    /// * Text direction.
     ///
     /// Available since API-level: 11
     ///
@@ -2079,17 +2509,18 @@ extern "C" {
         textbox: *mut OH_Drawing_TextBox,
         index: ::core::ffi::c_int,
     ) -> ::core::ffi::c_int;
-    /// Gets size of textBox.
+    /// Obtains the number of text boxes.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `textBox` - Indicates the pointer to an <b>OH_Drawing_TextBox</b> object.
+    /// * `textBox` - Pointer to the **OH_Drawing_TextBox** object, which is obtained from
+    /// [`OH_Drawing_TypographyGetRectsForRange`](crate::text_typography::OH_Drawing_TypographyGetRectsForRange) or [`OH_Drawing_TypographyGetRectsForPlaceholders`](crate::text_typography::OH_Drawing_TypographyGetRectsForPlaceholders).
     ///
     /// # Returns
     ///
-    /// * Returns size of textBox.
+    /// * Number of text boxes.
     ///
     /// Available since API-level: 11
     ///
@@ -2097,21 +2528,22 @@ extern "C" {
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn OH_Drawing_GetSizeOfTextBox(textBox: *mut OH_Drawing_TextBox) -> usize;
-    /// Gets the glyphposition at coordinate.
+    /// Obtains the position and affinity of the glyph at the given coordinates.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `typography` - Indicates the pointer to an <b>OH_Drawing_Typography</b> object.
+    /// * `typography` - Pointer to the **OH_Drawing_Typography** object, which is obtained from
+    /// [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
     ///
-    /// * `dx` - Indicates the positionX of typography to set.
+    /// * `dx` - X coordinate.
     ///
-    /// * `dy` - Indicates the positionY of typography to set.
+    /// * `dy` - Y coordinate.
     ///
     /// # Returns
     ///
-    /// * Returns the glyphposition at coordinate.
+    /// * [`OH_Drawing_PositionAndAffinity`](ohos_sys_opaque_types::OH_Drawing_PositionAndAffinity) struct that holds the position and affinity of the glyph cluster.
     ///
     /// Available since API-level: 11
     ///
@@ -2131,21 +2563,24 @@ extern "C" {
         dx: f64,
         dy: f64,
     ) -> *mut OH_Drawing_PositionAndAffinity;
-    /// Gets the glyphposition at coordinate with cluster.
+    /// Obtains the index position and affinity of the character cluster to which the text at the coordinate belongs.
+    /// A character cluster refers to a group of one or more characters. When the [`OH_Drawing_PositionAndAffinity`](ohos_sys_opaque_types::OH_Drawing_PositionAndAffinity) is
+    /// no longer needed, use [`OH_Drawing_DestroyPositionAndAffinity`](crate::text_typography::OH_Drawing_DestroyPositionAndAffinity) to release the pointer to the object.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `typography` - Indicates the pointer to an <b>OH_Drawing_Typography</b> object.
+    /// * `typography` - Pointer to the **OH_Drawing_Typography** object, which is obtained from
+    /// [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
     ///
-    /// * `dx` - Indicates the positionX of typography to set.
+    /// * `dx` - X coordinate of the cursor, in px.
     ///
-    /// * `dy` - Indicates the positionY of typography to set.
+    /// * `dy` - Y coordinate of the cursor, in px.
     ///
     /// # Returns
     ///
-    /// * Returns the glyphposition at coordinate with cluster.
+    /// * [`OH_Drawing_PositionAndAffinity`](ohos_sys_opaque_types::OH_Drawing_PositionAndAffinity) struct that holds the position and affinity of the glyph cluster.
     ///
     /// Available since API-level: 11
     ///
@@ -2157,17 +2592,18 @@ extern "C" {
         dx: f64,
         dy: f64,
     ) -> *mut OH_Drawing_PositionAndAffinity;
-    /// Gets position from position and affinity.
+    /// Obtains the position attribute of an **OH_Drawing_PositionAndAffinity** object.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `positionAndAffinity` - Indicates the pointer to an <b>OH_Drawing_PositionAndAffinity</b> object.
+    /// * `positionAndAffinity` - Pointer to the OH_Drawing_PositionAndAffinity object, obtained by
+    /// [`OH_Drawing_TypographyGetGlyphPositionAtCoordinateWithCluster`](crate::text_typography::OH_Drawing_TypographyGetGlyphPositionAtCoordinateWithCluster).
     ///
     /// # Returns
     ///
-    /// * Returns position from position and affinity.
+    /// * Position attribute.
     ///
     /// Available since API-level: 11
     ///
@@ -2177,17 +2613,19 @@ extern "C" {
     pub fn OH_Drawing_GetPositionFromPositionAndAffinity(
         positionAndAffinity: *mut OH_Drawing_PositionAndAffinity,
     ) -> usize;
-    /// Gets affinity from position and affinity.
+    /// Obtains the affinity attribute of an **OH_Drawing_PositionAndAffinity** object. The affinity determines
+    /// whether the font is close to the front text or rear text.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `positionandaffinity` - Indicates the pointer to an <b>OH_Drawing_PositionAndAffinity</b> object.
+    /// * `positionAndAffinity` - Pointer to the OH_Drawing_PositionAndAffinity object, obtained by
+    /// [`OH_Drawing_TypographyGetGlyphPositionAtCoordinateWithCluster`](crate::text_typography::OH_Drawing_TypographyGetGlyphPositionAtCoordinateWithCluster).
     ///
     /// # Returns
     ///
-    /// * Returns affinity from position and affinity.
+    /// * Affinity attribute.
     ///
     /// Available since API-level: 11
     ///
@@ -2195,21 +2633,24 @@ extern "C" {
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn OH_Drawing_GetAffinityFromPositionAndAffinity(
-        positionandaffinity: *mut OH_Drawing_PositionAndAffinity,
+        positionAndAffinity: *mut OH_Drawing_PositionAndAffinity,
     ) -> ::core::ffi::c_int;
-    /// Gets the word boundary.
+    /// Obtains the word boundary in the typography object. When the [`OH_Drawing_Range`](crate::text_declaration::OH_Drawing_Range) is no longer needed,
+    /// use [`OH_Drawing_ReleaseRangeBuffer`](crate::text_typography::OH_Drawing_ReleaseRangeBuffer) to release the pointer to the object.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `typography` - Indicates the pointer to an <b>OH_Drawing_Typography</b> object.
+    /// * `typography` - Pointer to the **OH_Drawing_Typography** object, which is obtained from
+    /// [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
     ///
-    /// * `offset` - Indicates the size of text to set.
+    /// * `offset` - Word index. The value ranges from 0 to n-1, where n is the text length. If the value is out of range,
+    /// the default value is returned or an exception is thrown.
     ///
     /// # Returns
     ///
-    /// * Returns the word boundary.
+    /// * [`OH_Drawing_Range`](crate::text_declaration::OH_Drawing_Range) struct that holds the word boundary.
     ///
     /// Available since API-level: 11
     ///
@@ -2220,17 +2661,18 @@ extern "C" {
         typography: *mut OH_Drawing_Typography,
         offset: usize,
     ) -> *mut OH_Drawing_Range;
-    /// Gets start from range.
+    /// Obtains the start position of an **OH_Drawing_Range** object.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `range` - Indicates the pointer to an <b>OH_Drawing_Range</b> object.
+    /// * `range` - Pointer to the **OH_Drawing_Range** object, which is obtained from
+    /// [`OH_Drawing_TypographyGetWordBoundary`](crate::text_typography::OH_Drawing_TypographyGetWordBoundary).
     ///
     /// # Returns
     ///
-    /// * Returns start from range.
+    /// * Start position.
     ///
     /// Available since API-level: 11
     ///
@@ -2238,17 +2680,18 @@ extern "C" {
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn OH_Drawing_GetStartFromRange(range: *mut OH_Drawing_Range) -> usize;
-    /// Gets end from range.
+    /// Obtains the end position of an **OH_Drawing_Range** object.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `range` - Indicates the pointer to an <b>OH_Drawing_Range</b> object.
+    /// * `range` - Pointer to the **OH_Drawing_Range** object, which is obtained from
+    /// [`OH_Drawing_TypographyGetWordBoundary`](crate::text_typography::OH_Drawing_TypographyGetWordBoundary).
     ///
     /// # Returns
     ///
-    /// * Returns end from range.
+    /// * End position.
     ///
     /// Available since API-level: 11
     ///
@@ -2256,17 +2699,19 @@ extern "C" {
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn OH_Drawing_GetEndFromRange(range: *mut OH_Drawing_Range) -> usize;
-    /// Gets the line count.
+    /// Obtains the number of lines in a typography object. This function must be called after
+    /// [`OH_Drawing_TypographyLayout`](crate::text_typography::OH_Drawing_TypographyLayout) is called.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `typography` - Indicates the pointer to an <b>OH_Drawing_Typography</b> object.
+    /// * `typography` - Pointer to the **OH_Drawing_Typography** object, which is obtained from
+    /// [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
     ///
     /// # Returns
     ///
-    /// * Returns the line count.
+    /// * Number of rows obtained.
     ///
     /// Available since API-level: 11
     ///
@@ -2274,16 +2719,17 @@ extern "C" {
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn OH_Drawing_TypographyGetLineCount(typography: *mut OH_Drawing_Typography) -> usize;
-    /// Sets the decoration style.
+    /// Sets the decoration style for a text style.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to an <b>OH_Drawing_TextStyle</b> object.
+    /// * `style` - Pointer to the **OH_Drawing_TextStyle** object, which is obtained from
+    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
-    /// * `decorationStyle` - Indicates the text decoration style to set.
-    /// For details, see the enum <b>OH_Drawing_TextDecorationStyle</b>.
+    /// * `decorationStyle` - Text decoration style. For details about the available options, see
+    /// [`OH_Drawing_TextDecorationStyle`](crate::text_typography::OH_Drawing_TextDecorationStyle).
     ///
     /// Available since API-level: 11
     ///
@@ -2294,15 +2740,17 @@ extern "C" {
         style: *mut OH_Drawing_TextStyle,
         decorationStyle: ::core::ffi::c_int,
     );
-    /// Sets the decoration thickness scale.
+    /// Sets the thickness scale factor for the decoration style of a text style.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to an <b>OH_Drawing_TextStyle</b> object.
+    /// * `style` - Pointer to the **OH_Drawing_TextStyle** object, which is obtained from
+    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
-    /// * `decorationThicknessScale` - Indicates the thickness scale of text decoration to set.
+    /// * `decorationThicknessScale` - Thickness scaling ratio. The default value is **1**. If the value is less than or
+    /// equal to 0, no decoration line is drawn.
     ///
     /// Available since API-level: 11
     ///
@@ -2313,15 +2761,17 @@ extern "C" {
         style: *mut OH_Drawing_TextStyle,
         decorationThicknessScale: f64,
     );
-    /// Sets the letter spacing.
+    /// Sets the letter spacing for a text style.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to an <b>OH_Drawing_TextStyle</b> object.
+    /// * `style` - Pointer to the **OH_Drawing_TextStyle** object, which is obtained from
+    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
-    /// * `letterSpacing` - Indicates the letter space to set.
+    /// * `letterSpacing` - Letter spacing value. A positive value increases the spacing, a negative value decreases it.
+    /// The default value is **0**, in px.
     ///
     /// Available since API-level: 11
     ///
@@ -2332,15 +2782,17 @@ extern "C" {
         style: *mut OH_Drawing_TextStyle,
         letterSpacing: f64,
     );
-    /// Sets the word spacing.
+    /// Sets the word spacing for a text style.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to an <b>OH_Drawing_TextStyle</b> object.
+    /// * `style` - Pointer to the **OH_Drawing_TextStyle** object, which is obtained from
+    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
-    /// * `wordSpacing` - Indicates the word space to set.
+    /// * `wordSpacing` - Spacing size. A positive value increases the spacing, and a negative value decreases the spacing.
+    /// The default value is **0**, in px.
     ///
     /// Available since API-level: 11
     ///
@@ -2348,15 +2800,16 @@ extern "C" {
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn OH_Drawing_SetTextStyleWordSpacing(style: *mut OH_Drawing_TextStyle, wordSpacing: f64);
-    /// Sets the half leading.
+    /// Sets whether to enable half leading for a text style.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to an <b>OH_Drawing_TextStyle</b> object.
+    /// * `style` - Pointer to the **OH_Drawing_TextStyle** object, which is obtained from
+    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
-    /// * `halfLeading` - Indicates the half leading to set.
+    /// * `halfLeading` - Whether the half leading takes effect. **true** means yes; **false** otherwise.
     ///
     /// Available since API-level: 11
     ///
@@ -2364,15 +2817,16 @@ extern "C" {
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn OH_Drawing_SetTextStyleHalfLeading(style: *mut OH_Drawing_TextStyle, halfLeading: bool);
-    /// Sets the ellipsis.
+    /// Sets the ellipsis content for a text style.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to an <b>OH_Drawing_TextStyle</b> object.
+    /// * `style` - Pointer to the **OH_Drawing_TextStyle** object, which is obtained from
+    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
-    /// * `ellipsis` - Indicates the pointer to ellipsis style.
+    /// * `ellipsis` - Pointer to the ellipsis content. The data type is a pointer pointing to char.
     ///
     /// Available since API-level: 11
     ///
@@ -2391,15 +2845,16 @@ extern "C" {
         style: *mut OH_Drawing_TextStyle,
         ellipsis: *const ::core::ffi::c_char,
     );
-    /// Sets the ellipsis modal.
+    /// Sets the ellipsis style for a text style.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to an <b>OH_Drawing_TextStyle</b> object.
+    /// * `style` - Pointer to the **OH_Drawing_TextStyle** object, which is obtained from
+    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
-    /// * `ellipsisModal` - Indicates the ellipsis model to set. For details, see the enum <b>OH_Drawing_EllipsisModal</b>.
+    /// * `ellipsisModal` - Ellipsis style. For details about the available options, see [`OH_Drawing_EllipsisModal`](crate::text_typography::OH_Drawing_EllipsisModal).
     ///
     /// Available since API-level: 11
     ///
@@ -2418,15 +2873,16 @@ extern "C" {
         style: *mut OH_Drawing_TextStyle,
         ellipsisModal: ::core::ffi::c_int,
     );
-    /// Sets the break strategy.
+    /// Sets the text break strategy.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to an <b>OH_Drawing_TypographyStyle</b> object.
+    /// * `style` - Pointer to the [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle) object, which is obtained from
+    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
-    /// * `breakStrategy` - Indicates the break strategy to set. For details, see the enum <b>OH_Drawing_BreakStrategy</b>.
+    /// * `breakStrategy` - Break strategy. For details about the available options, see [`OH_Drawing_BreakStrategy`](crate::text_typography::OH_Drawing_BreakStrategy).
     ///
     /// Available since API-level: 11
     ///
@@ -2443,9 +2899,10 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to an <b>OH_Drawing_TypographyStyle</b> object.
+    /// * `style` - Pointer to the [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle) object, which is obtained from
+    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
-    /// * `wordBreakType` - Indicates the word break type to set. For details, see the enum <b>OH_Drawing_WordBreakType</b>.
+    /// * `wordBreakType` - Word break type. For details about the available options, see [`OH_Drawing_WordBreakType`](crate::text_typography::OH_Drawing_WordBreakType).
     ///
     /// Available since API-level: 11
     ///
@@ -2456,15 +2913,16 @@ extern "C" {
         style: *mut OH_Drawing_TypographyStyle,
         wordBreakType: ::core::ffi::c_int,
     );
-    /// Sets the ellipsis modal.
+    /// Sets the ellipsis style for a text style.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to an <b>OH_Drawing_TypographyStyle</b> object.
+    /// * `style` - Pointer to the **OH_Drawing_TypographyStyle** object, which is obtained from
+    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
-    /// * `ellipsisModal` - Indicates the ellipsis modal to set. For details, see the enum <b>OH_Drawing_EllipsisModal</b>.
+    /// * `ellipsisModal` - Ellipsis style. For details about the available options, see [`OH_Drawing_EllipsisModal`](crate::text_typography::OH_Drawing_EllipsisModal).
     ///
     /// Available since API-level: 11
     ///
@@ -2475,19 +2933,22 @@ extern "C" {
         style: *mut OH_Drawing_TypographyStyle,
         ellipsisModal: ::core::ffi::c_int,
     );
-    /// get line height.
+    /// Obtains the line height in a typography object. This function must be called after
+    /// [`OH_Drawing_TypographyLayout`](crate::text_typography::OH_Drawing_TypographyLayout) is called.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `typography` - Indicates the pointer to an <b>OH_Drawing_Typography</b> object.
+    /// * `typography` - Pointer to the **OH_Drawing_Typography** object, which is obtained from
+    /// [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
     ///
-    /// * `lineNumber` - Indicates the line number.
+    /// * `lineNumber` - Index of the line number to obtain, starting from 0, with a maximum value of
+    /// [`OH_Drawing_TypographyGetLineCount`](crate::text_typography::OH_Drawing_TypographyGetLineCount) - 1. 0.0 is returned when the index is out of range.
     ///
     /// # Returns
     ///
-    /// * Returns line height.
+    /// * Line height of the specified line, in physical pixels (px).
     ///
     /// Available since API-level: 11
     ///
@@ -2498,19 +2959,22 @@ extern "C" {
         typography: *mut OH_Drawing_Typography,
         lineNumber: ::core::ffi::c_int,
     ) -> f64;
-    /// get line width.
+    /// Obtains the line width of a specified line. This function must be called after
+    /// [`OH_Drawing_TypographyLayout`](crate::text_typography::OH_Drawing_TypographyLayout) is called.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `typography` - Indicates the pointer to an <b>OH_Drawing_Typography</b> object.
+    /// * `typography` - Pointer to the **OH_Drawing_Typography** object, which is obtained from
+    /// [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
     ///
-    /// * `lineNumber` - Indicates the line number.
+    /// * `lineNumber` - Index of the line to obtain, starting from 0. The maximum value is
+    /// [`OH_Drawing_TypographyGetLineCount`](crate::text_typography::OH_Drawing_TypographyGetLineCount) - 1. Returns 0.0 when the index is out of range.
     ///
     /// # Returns
     ///
-    /// * Returns line width.
+    /// * Width of the specified line, in physical pixels (px).
     ///
     /// Available since API-level: 11
     ///
@@ -2521,21 +2985,26 @@ extern "C" {
         typography: *mut OH_Drawing_Typography,
         lineNumber: ::core::ffi::c_int,
     ) -> f64;
-    /// get line text range.
+    /// Obtains the line bounds in a typography object. This function must be called after
+    /// [`OH_Drawing_TypographyLayout`](crate::text_typography::OH_Drawing_TypographyLayout) is called. This function can only be used to obtain the bounds of existing lines.
+    /// That is, the line index must start from 0, and the maximum index is [`OH_Drawing_TypographyGetLineCount`](crate::text_typography::OH_Drawing_TypographyGetLineCount) – 1.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `typography` - Indicates the pointer to an <b>OH_Drawing_Typography</b> object.
+    /// * `typography` - Pointer to the [`OH_Drawing_Typography`](crate::text_declaration::OH_Drawing_Typography) object, which is obtained from
+    /// [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
     ///
-    /// * `lineNumber` - Indicates the line number.
+    /// * `lineNumber` - Row index.
     ///
-    /// * `includeSpaces` - Indicates whether spaces are contained.
+    /// * `includeSpaces` - Whether the returned bounds contain spaces. The value **true** means that the bounds contain
+    /// spaces, and **false** means the opposite.
     ///
     /// # Returns
     ///
-    /// * Returns line text range.
+    /// * Pointer to the [`OH_Drawing_Range`](crate::text_declaration::OH_Drawing_Range) object. If the line index is invalid, **start** and **end** in the
+    /// result value are both **0**.
     ///
     /// Available since API-level: 12
     ///
@@ -2547,14 +3016,16 @@ extern "C" {
         lineNumber: ::core::ffi::c_int,
         includeSpaces: bool,
     ) -> *mut OH_Drawing_Range;
-    /// Creates an <b>OH_Drawing_FontDescriptor</b> object.
+    /// Constructs a font descriptor object for describing detailed information about a system font. When the
+    /// [`OH_Drawing_FontDescriptor`](crate::text_typography::OH_Drawing_FontDescriptor) is no longer needed, use [`OH_Drawing_DestroyFontDescriptor`](crate::text_typography::OH_Drawing_DestroyFontDescriptor) to release the
+    /// pointer to the object.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the font descriptor object <b>OH_Drawing_FontDescriptor</b> created.
+    /// * Pointer to the created [`OH_Drawing_FontDescriptor`](crate::text_typography::OH_Drawing_FontDescriptor) object.
     ///
     /// Available since API-level: 12
     ///
@@ -2562,13 +3033,14 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_CreateFontDescriptor() -> *mut OH_Drawing_FontDescriptor;
-    /// Releases the memory occupied by an <b>OH_Drawing_FontDescriptor</b> object.
+    /// Destroys an **OH_Drawing_FontDescriptor** object and reclaims the memory occupied by the object.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `descriptor` - the pointer to the font descriptor object <b>OH_Drawing_FontDescriptor</b>.
+    /// * `descriptor` - Pointer to the [`OH_Drawing_FontDescriptor`](crate::text_typography::OH_Drawing_FontDescriptor) object, which is obtained from
+    /// [`OH_Drawing_CreateFontDescriptor`](crate::text_typography::OH_Drawing_CreateFontDescriptor).
     ///
     /// Available since API-level: 12
     ///
@@ -2576,14 +3048,15 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_DestroyFontDescriptor(descriptor: *mut OH_Drawing_FontDescriptor);
-    /// Creates an <b>OH_Drawing_FontParser</b> object.
+    /// Constructs a font parser object for parsing system fonts. When the [`OH_Drawing_FontParser`](crate::text_declaration::OH_Drawing_FontParser) is no longer
+    /// needed, use [`OH_Drawing_DestroyFontParser`](crate::text_typography::OH_Drawing_DestroyFontParser) to release the pointer to the object.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the font parser object <b>OH_Drawing_FontParser</b>.
+    /// * Pointer to the created [`OH_Drawing_FontParser`](crate::text_declaration::OH_Drawing_FontParser) object.
     ///
     /// Available since API-level: 12
     ///
@@ -2591,13 +3064,14 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_CreateFontParser() -> *mut OH_Drawing_FontParser;
-    /// Releases the memory occupied by an <b>OH_Drawing_FontParser</b> object.
+    /// Destroys an **OH_Drawing_FontParser** object and reclaims the memory occupied by the object.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `parser` - Indicates the pointer to the font parser object <b>OH_Drawing_FontParser</b>.
+    /// * `parser` - Pointer to the [`OH_Drawing_FontParser`](crate::text_declaration::OH_Drawing_FontParser) object, which is obtained from
+    /// [`OH_Drawing_CreateFontParser`](crate::text_typography::OH_Drawing_CreateFontParser).
     ///
     /// Available since API-level: 12
     ///
@@ -2605,19 +3079,22 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_DestroyFontParser(parser: *mut OH_Drawing_FontParser);
-    /// Gets a list of system font names.
+    /// Obtains the list of system font names. When the list is no longer needed, use
+    /// [`OH_Drawing_DestroySystemFontList`](crate::text_typography::OH_Drawing_DestroySystemFontList) to release the memory. This API is supported only on phones and PC/2-in-1
+    /// devices.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `fontParser` - Indicates the pointer to the font parser object <b>OH_Drawing_FontParser</b>.
+    /// * `fontParser` - Pointer to the [`OH_Drawing_FontParser`](crate::text_declaration::OH_Drawing_FontParser) object, which is obtained from
+    /// [`OH_Drawing_CreateFontParser`](crate::text_typography::OH_Drawing_CreateFontParser).
     ///
-    /// * `num` - Returns the number of obtained system font names.
+    /// * `num` - Pointer to the number of system font names.
     ///
     /// # Returns
     ///
-    /// * Returns a list of obtained system fonts.
+    /// * System font list.
     ///
     /// Available since API-level: 12
     ///
@@ -2628,15 +3105,15 @@ extern "C" {
         fontParser: *mut OH_Drawing_FontParser,
         num: *mut usize,
     ) -> *mut *mut ::core::ffi::c_char;
-    /// Releases the memory occupied by a list of system font names.
+    /// Reclaims the memory occupied by the system font list.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `fontList` - Indicates the pointer to a list of system font names.
+    /// * `fontList` - Double pointer to the list of system font names.
     ///
-    /// * `num` - The number of obtained system font names.
+    /// * `num` - Number of system font names.
     ///
     /// Available since API-level: 12
     ///
@@ -2644,19 +3121,23 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_DestroySystemFontList(fontList: *mut *mut ::core::ffi::c_char, num: usize);
-    /// Gets information about the system font by font name.
+    /// Obtains the information about a system font based on the given system font name. This API is supported only
+    /// on phones and PC/2-in-1 devices.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `fontParser` - Indicates the pointer to the font parser object <b>OH_Drawing_FontParser</b>.
+    /// * `fontParser` - Pointer to the [`OH_Drawing_FontParser`](crate::text_declaration::OH_Drawing_FontParser) object, which is obtained from
+    /// [`OH_Drawing_CreateFontParser`](crate::text_typography::OH_Drawing_CreateFontParser).
     ///
-    /// * `name` - font name.
+    /// * `name` - Name of the system font. For details about valid system font names, see
+    /// [`OH_Drawing_FontParserGetSystemFontList`](crate::text_typography::OH_Drawing_FontParserGetSystemFontList).
     ///
     /// # Returns
     ///
-    /// * Returns system fonts information.
+    /// * Pointer to the system font descriptor object. When no longer needed, use
+    /// [`OH_Drawing_DestroyFontDescriptor`](crate::text_typography::OH_Drawing_DestroyFontDescriptor) to release the pointer.
     ///
     /// Available since API-level: 12
     ///
@@ -2667,17 +3148,20 @@ extern "C" {
         fontParser: *mut OH_Drawing_FontParser,
         name: *const ::core::ffi::c_char,
     ) -> *mut OH_Drawing_FontDescriptor;
-    /// Get line metrics information.
+    /// Obtains the line metrics in a typography object. This function must be called after
+    /// [`OH_Drawing_TypographyLayout`](crate::text_typography::OH_Drawing_TypographyLayout) is called. Release this pointer by calling [`OH_Drawing_DestroyLineMetrics`](crate::text_typography::OH_Drawing_DestroyLineMetrics)
+    /// when this object is no longer needed.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `typography` - Indicates the pointer to a typography object <b>OH_Drawing_Typography</b>.
+    /// * `typography` - Pointer to the [`OH_Drawing_Typography`](crate::text_declaration::OH_Drawing_Typography) object, which is obtained from
+    /// [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
     ///
     /// # Returns
     ///
-    /// * Indicates the pointer to a line metrics object <b>OH_Drawing_LineMetrics</b>.
+    /// * Pointer to the [`OH_Drawing_LineMetrics`](crate::text_typography::OH_Drawing_LineMetrics) object.
     ///
     /// Available since API-level: 12
     ///
@@ -2687,17 +3171,18 @@ extern "C" {
     pub fn OH_Drawing_TypographyGetLineMetrics(
         typography: *mut OH_Drawing_Typography,
     ) -> *mut OH_Drawing_LineMetrics;
-    /// Get the number of lines.
+    /// Obtains the number of lines.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `lineMetrics` - Indicates the pointer to a line metrics object <b>OH_Drawing_LineMetrics</b>.
+    /// * `lineMetrics` - Pointer to the [`OH_Drawing_LineMetrics`](crate::text_typography::OH_Drawing_LineMetrics) object, which is obtained from
+    /// [`OH_Drawing_LineMetrics`](crate::text_typography::OH_Drawing_LineMetrics).
     ///
     /// # Returns
     ///
-    /// * Returns the number of lines.
+    /// * Number of lines.
     ///
     /// Available since API-level: 12
     ///
@@ -2705,13 +3190,14 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_LineMetricsGetSize(lineMetrics: *mut OH_Drawing_LineMetrics) -> usize;
-    /// Releases the memory occupied by line metrics.
+    /// Destroys an **OH_Drawing_LineMetrics** object and reclaims the memory occupied by the object.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `lineMetrics` - Indicates the pointer to a line metrics object <b>OH_Drawing_LineMetrics</b>.
+    /// * `lineMetrics` - Pointer to the [`OH_Drawing_LineMetrics`](crate::text_typography::OH_Drawing_LineMetrics) object, which is obtained from
+    /// [`OH_Drawing_LineMetrics`](crate::text_typography::OH_Drawing_LineMetrics).
     ///
     /// Available since API-level: 12
     ///
@@ -2719,21 +3205,24 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_DestroyLineMetrics(lineMetrics: *mut OH_Drawing_LineMetrics);
-    /// Gets the specified line by line number.
+    /// Obtains the position information of a specified line in the typography object. For details, see the
+    /// [`OH_Drawing_LineMetrics`](crate::text_typography::OH_Drawing_LineMetrics) struct. This API must be called after [`OH_Drawing_TypographyLayout`](crate::text_typography::OH_Drawing_TypographyLayout) is called.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `typography` - Indicates the pointer to a typography object <b>OH_Drawing_Typography</b>.
+    /// * `typography` - Pointer to the [`OH_Drawing_Typography`](crate::text_declaration::OH_Drawing_Typography) object, which is obtained from
+    /// [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
     ///
-    /// * `lineNumber` - Line number.
+    /// * `lineNumber` - Index of the line to obtain, starting from 0 and up to [`OH_Drawing_TypographyGetLineCount`](crate::text_typography::OH_Drawing_TypographyGetLineCount) -
+    /// 1. Returns false when the index is out of range.
     ///
-    /// * `lineMetric` - Indicates the pointer to a line metrics object <b>OH_Drawing_LineMetrics</b>.
+    /// * `lineMetric` - Pointer to the line metrics object [`OH_Drawing_LineMetrics`](crate::text_typography::OH_Drawing_LineMetrics), used as an output parameter.
     ///
     /// # Returns
     ///
-    /// * Whether the line metrics was obtained.
+    /// * Whether the metrics of the given line is obtained. **true** means yes; **false** otherwise.
     ///
     /// Available since API-level: 12
     ///
@@ -2745,15 +3234,16 @@ extern "C" {
         lineNumber: ::core::ffi::c_int,
         lineMetric: *mut OH_Drawing_LineMetrics,
     ) -> bool;
-    ///  Sets the ellipsis of lines in a text file.
+    /// Sets the ellipsis text for a typography style.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to a typography object <b>OH_Drawing_Typography</b>.
+    /// * `style` - Pointer to the [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle) object, which is obtained from
+    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
-    /// * `ellipsis` - Indicates the line textellipsis.
+    /// * `ellipsis` - Ellipsis text.
     ///
     /// Available since API-level: 12
     ///
@@ -2764,16 +3254,18 @@ extern "C" {
         style: *mut OH_Drawing_TypographyStyle,
         ellipsis: *const ::core::ffi::c_char,
     );
-    /// Sets the locale of lines in a text file.
+    /// Sets the locale for a typography style.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to a typography style object
-    /// <b>OH_Drawing_TypographyStyle</b>.
+    /// * `style` - Pointer to the [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle) object, which is obtained from
+    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
-    /// * `locale` - Indicates the pointer to the locale to set.
+    /// * `locale` - Locale. The data type is a pointer to char. The format follows the BCP 47 language tag standard, for
+    /// example, 'en' for English, 'zh-Hans' for Simplified Chinese, and 'zh-Hant' for Traditional Chinese. If not
+    /// specified, the default locale is 'zh-Hans'.
     ///
     /// Available since API-level: 12
     ///
@@ -2784,16 +3276,20 @@ extern "C" {
         style: *mut OH_Drawing_TypographyStyle,
         locale: *const ::core::ffi::c_char,
     );
-    /// Sets the textSplitRatio of lines in a text file.
+    /// Sets the text division ratio, which is used to determine the cursor position within a glyph when tapping to
+    /// locate a character.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to a typography style object
-    /// <b>OH_Drawing_TypographyStyle</b>.
+    /// * `style` - Pointer to the [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle) object, which is obtained from
+    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
-    /// * `textSplitRatio` - Indicates the textSplitRatio of lines to set.
+    /// * `textSplitRatio` - Text split ratio. The value range is \[0, 1\], and the default value is 0.5. When mapping click
+    /// coordinates to character positions, this is the threshold within a glyph for determining whether the position
+    /// belongs to the current character or the next character. A larger value favors the current character, and a
+    /// smaller value favors the next character.
     ///
     /// Available since API-level: 12
     ///
@@ -2804,18 +3300,19 @@ extern "C" {
         style: *mut OH_Drawing_TypographyStyle,
         textSplitRatio: f32,
     );
-    /// Gets the TextStyle of lines in a text file.
+    /// Obtains the default text style of a typography style.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to a typography style object
-    /// <b>OH_Drawing_TypographyStyle</b>.
+    /// * `style` - Pointer to the [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle) object, which is obtained from
+    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
     /// # Returns
     ///
-    /// * Returns line text textstyle.
+    /// * Pointer to the [`OH_Drawing_TextStyle`](crate::text_declaration::OH_Drawing_TextStyle) object. Release this pointer by calling
+    /// [`OH_Drawing_DestroyTextStyle`](crate::text_typography::OH_Drawing_DestroyTextStyle) when this object is no longer needed.
     ///
     /// Available since API-level: 12
     ///
@@ -2825,18 +3322,18 @@ extern "C" {
     pub fn OH_Drawing_TypographyGetTextStyle(
         style: *mut OH_Drawing_TypographyStyle,
     ) -> *mut OH_Drawing_TextStyle;
-    /// Gets the EffectiveAlign of lines in a text file.
+    /// Obtains the text alignment mode.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to a typography style object
-    /// <b>OH_Drawing_TypographyStyle</b>.
+    /// * `style` - Pointer to the [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle) object, which is obtained from
+    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
     /// # Returns
     ///
-    /// * Returns line text align.
+    /// * Text alignment mode.
     ///
     /// Available since API-level: 12
     ///
@@ -2854,19 +3351,19 @@ extern "C" {
     pub fn OH_Drawing_TypographyGetEffectiveAlignment(
         style: *mut OH_Drawing_TypographyStyle,
     ) -> ::core::ffi::c_int;
-    /// Gets the UnlimitedLines of lines in a text file.
+    /// Checks whether the maximum number of lines is limited for text.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to a typography style object
-    /// <b>OH_Drawing_TypographyStyle</b>.
+    /// * `style` - Pointer to the [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle) object, which is obtained from
+    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
     /// # Returns
     ///
-    /// * Returns whether the text has a maximum line limit,
-    /// with true indicating a maximum line limit and false indicating no maximum line limit.
+    /// * Whether the text has a maximum line limit. The value **true** means there is no maximum line limit, and **
+    /// false** means there is a maximum line limit.
     ///
     /// Available since API-level: 12
     ///
@@ -2874,19 +3371,18 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_TypographyIsLineUnlimited(style: *mut OH_Drawing_TypographyStyle) -> bool;
-    /// Gets the IsEllipsized of lines in a text file.
+    /// Checks whether an ellipsis is configured for a typography style.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to a typography style object
-    /// <b>OH_Drawing_TypographyStyle</b>.
+    /// * `style` - Pointer to the [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle) object, which is obtained from
+    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
     /// # Returns
     ///
-    /// * Returns whether the text has ellipsis,
-    /// true meaning there is an ellipsis and false meaning there is no ellipsis.
+    /// * Whether ellipsis is configured for the specified typography style. **true** means yes; **false** otherwise.
     ///
     /// Available since API-level: 12
     ///
@@ -2894,16 +3390,17 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_TypographyIsEllipsized(style: *mut OH_Drawing_TypographyStyle) -> bool;
-    /// set line textstyle.
+    /// Sets a text style.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `handler` - Indicates the pointer to a typography style object
-    /// <b>OH_Drawing_TypographyStyle</b>.
+    /// * `handler` - Pointer to the [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle) object, which is obtained from
+    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
-    /// * `style` - Indicates the pointer to a text style object <b>OH_Drawing_TextStyle</b>.
+    /// * `style` - Pointer to the [`OH_Drawing_TextStyle`](crate::text_declaration::OH_Drawing_TextStyle) object, which is obtained from
+    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
     /// Available since API-level: 12
     ///
@@ -2914,21 +3411,24 @@ extern "C" {
         handler: *mut OH_Drawing_TypographyStyle,
         style: *mut OH_Drawing_TextStyle,
     );
-    /// get line fontmetrics.
+    /// Obtains the font metrics of a text style.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `typography` - Indicates the pointer to a typography object <b>OH_Drawing_Typography</b>.
+    /// * `typography` - Pointer to the [`OH_Drawing_Typography`](crate::text_declaration::OH_Drawing_Typography) object, which is obtained from
+    /// [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
     ///
-    /// * `style` - Indicates the pointer to a text style object <b>OH_Drawing_TextStyle</b>.
+    /// * `style` - Pointer to the [`OH_Drawing_TextStyle`](crate::text_declaration::OH_Drawing_TextStyle) object, which is obtained from
+    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
-    /// * `fontmetrics` - Indicates the pointer to a font metrics object <b>OH_Drawing_Font_Metrics</b>.
+    /// * `fontmetrics` - Pointer to the [`OH_Drawing_Font_Metrics`](crate::font::OH_Drawing_Font_Metrics) object, which is obtained from
+    /// [`OH_Drawing_Font_Metrics`](crate::font::OH_Drawing_Font_Metrics).
     ///
     /// # Returns
     ///
-    /// * Whether the font metrics was obtained.
+    /// * Whether the font attributes are obtained. **true** means yes; **false** otherwise.
     ///
     /// Available since API-level: 12
     ///
@@ -2940,25 +3440,32 @@ extern "C" {
         style: *mut OH_Drawing_TextStyle,
         fontmetrics: *mut OH_Drawing_Font_Metrics,
     ) -> bool;
-    /// Gets the position of the specified line or the first text of the specified line.
+    /// Obtains the metrics of a given line or the metrics of the first character in a given line in a typography
+    /// object. This function must be called after [`OH_Drawing_TypographyLayout`](crate::text_typography::OH_Drawing_TypographyLayout) is called.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `typography` - Indicates the pointer to a typography object <b>OH_Drawing_Typography</b>.
+    /// * `typography` - Pointer to the [`OH_Drawing_Typography`](crate::text_declaration::OH_Drawing_Typography) object, which is obtained from
+    /// [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
     ///
-    /// * `lineNumber` - Line number.
+    /// * `lineNumber` - Index of the line number to obtain, starting from 0 and up to
+    /// [`OH_Drawing_TypographyGetLineCount`](crate::text_typography::OH_Drawing_TypographyGetLineCount) - 1. Returns false when out of range.
     ///
-    /// * `oneLine` - True is the information for the whole line, and false is the information to get the first character
+    /// * `oneLine` - Whether to obtain the metrics of the entire line. The value **true** means to obtain the metrics of
+    /// the entire line, and **false** means to obtain the metrics of the first character in the line.
     ///
-    /// * `includeWhitespace` - Whether the text width contains whitespace.
+    /// * `includeWhitespace` - Whether the text width includes whitespace. The value true means whitespace is included,
+    /// and false means whitespace is not included.
     ///
-    /// * `drawingLineMetrics` - Indicates the pointer to a line metrics object <b>OH_Drawing_LineMetrics</b>.
+    /// * `drawingLineMetrics` - Pointer to the [`OH_Drawing_LineMetrics`](crate::text_typography::OH_Drawing_LineMetrics) object, which is obtained from
+    /// [`OH_Drawing_LineMetrics`](crate::text_typography::OH_Drawing_LineMetrics).
     ///
     /// # Returns
     ///
-    /// * return whether the information was successfully fetched.
+    /// * Returns **true** if the metrics of the given line or the metrics of the first character in the given line is
+    /// obtained; returns **false** otherwise.
     ///
     /// Available since API-level: 12
     ///
@@ -2972,17 +3479,21 @@ extern "C" {
         includeWhitespace: bool,
         drawingLineMetrics: *mut OH_Drawing_LineMetrics,
     ) -> bool;
-    /// Sets the font weight of text typography.
+    /// Sets the default font weight of the typography style. Before <!--RP1-->OpenHarmony 6.1<!--RP1End-->, only
+    /// variable fonts in system fonts support font weight adjustment. Starting from <!--RP1-->OpenHarmony 6.1<!--RP1End-->,
+    /// both system fonts and variable fonts in third-party registered fonts support font weight adjustment. For non-
+    /// variable fonts, the font weight does not change when the weight value is set to less than semi-bold, and a pseudo-
+    /// bold effect may be triggered when the weight value is set to semi-bold or greater.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to a typography style object
-    /// <b>OH_Drawing_TypographyStyle</b>.
+    /// * `style` - Pointer to the [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle) object, which is obtained from
+    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
-    /// * `weight` - Indicates the font weight of text typography to set. For details,
-    /// see the enum <b>OH_Drawing_FontWeight</b>.
+    /// * `weight` - Font weight.
+    /// <br>For details about the available options, see [`OH_Drawing_FontWeight`](crate::text_typography::OH_Drawing_FontWeight).
     ///
     /// Available since API-level: 12
     ///
@@ -2993,17 +3504,17 @@ extern "C" {
         style: *mut OH_Drawing_TypographyStyle,
         weight: ::core::ffi::c_int,
     );
-    /// Sets the font style of text typography.
+    /// Sets the default font style for a typography style.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to a typography style object
-    /// <b>OH_Drawing_TypographyStyle</b>.
+    /// * `style` - Pointer to the typography style object [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle), obtained by
+    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
-    /// * `fontStyle` - Indicates the font style of text typography to set. For details,
-    /// see the enum <b>OH_Drawing_FontStyle</b>.
+    /// * `fontStyle` - Font style. The value **1** indicates italic, and **0** or other values indicate non-italic. For
+    /// details about the available options, see [`OH_Drawing_FontStyle`](crate::text_typography::OH_Drawing_FontStyle).
     ///
     /// Available since API-level: 12
     ///
@@ -3014,16 +3525,16 @@ extern "C" {
         style: *mut OH_Drawing_TypographyStyle,
         fontStyle: ::core::ffi::c_int,
     );
-    /// Sets the font family of text typography.
+    /// Sets the font family name for text.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to a typography style object
-    /// <b>OH_Drawing_TypographyStyle</b>.
+    /// * `style` - Pointer to the [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle) object, which is obtained from
+    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
-    /// * `fontFamily` - Indicates the pointer to the font family of text typography to set.
+    /// * `fontFamily` - Pointer to the name of the font family.
     ///
     /// Available since API-level: 12
     ///
@@ -3034,16 +3545,16 @@ extern "C" {
         style: *mut OH_Drawing_TypographyStyle,
         fontFamily: *const ::core::ffi::c_char,
     );
-    /// Sets the font size of text typography.
+    /// Sets the font size for text.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to a typography style object
-    /// <b>OH_Drawing_TypographyStyle</b>.
+    /// * `style` - Pointer to the typography style [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle), which is obtained from
+    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
-    /// * `fontSize` - Indicates the font size of text typography to set.
+    /// * `fontSize` - Font size (greater than 0), in px.
     ///
     /// Available since API-level: 12
     ///
@@ -3054,16 +3565,17 @@ extern "C" {
         style: *mut OH_Drawing_TypographyStyle,
         fontSize: f64,
     );
-    /// Sets the font height of text typography.
+    /// Sets the font height for text typography as a multiple of the current font size.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to a typography style object
-    /// <b>OH_Drawing_TypographyStyle</b>.
+    /// * `style` - Pointer to the [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle) object, which is obtained from
+    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
-    /// * `fontHeight` - Indicates the font height of text typography to set.
+    /// * `fontHeight` - Font height, which is a multiple of the current font size. If the value is less than 0, it is
+    /// treated as 0.
     ///
     /// Available since API-level: 12
     ///
@@ -3074,16 +3586,17 @@ extern "C" {
         style: *mut OH_Drawing_TypographyStyle,
         fontHeight: f64,
     );
-    /// Sets the half leading of text typography.
+    /// Sets whether to enable half leading for text.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to a typography style object
-    /// <b>OH_Drawing_TypographyStyle</b>.
+    /// * `style` - Pointer to the [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle) object, which is obtained from
+    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
-    /// * `halfLeading` - Indicates the half leading of text typography to set.
+    /// * `halfLeading` - Whether to enable half leading. The value **true** means to enable half leading, and **false**
+    /// means the opposite.
     ///
     /// Available since API-level: 12
     ///
@@ -3094,16 +3607,17 @@ extern "C" {
         style: *mut OH_Drawing_TypographyStyle,
         halfLeading: bool,
     );
-    /// Sets whether to enable line style for text typography.
+    /// Sets whether to enable the text line style.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to a typography style object
-    /// <b>OH_Drawing_TypographyStyle</b>.
+    /// * `style` - Pointer to the typography style object [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle), obtained by
+    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
-    /// * `useLineStyle` - Indicates whether the line style for text typography is used.
+    /// * `useLineStyle` - Whether to enable the line style. The value **true** means to enable the line style, and **false*
+    /// * means the opposite.
     ///
     /// Available since API-level: 12
     ///
@@ -3114,17 +3628,20 @@ extern "C" {
         style: *mut OH_Drawing_TypographyStyle,
         useLineStyle: bool,
     );
-    /// Sets the font weight of line style for text typography.
+    /// Sets the font weight of the text style in the strut style of the typography style. Before <!--RP1-->
+    /// OpenHarmony 6.1<!--RP1End-->, only variable fonts in system fonts support font weight adjustment. Starting from <!--
+    /// RP1-->OpenHarmony 6.1<!--RP1End-->, both system fonts and variable fonts in third-party registered fonts support
+    /// font weight adjustment. For non-variable fonts, the font weight does not change when the weight value is set to less
+    /// than semi-bold, and a pseudo-bold effect may be triggered when the weight value is set to semi-bold or greater.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to a typography style object
-    /// <b>OH_Drawing_TypographyStyle</b>.
+    /// * `style` - Pointer to the [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle) object, which is obtained from
+    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
-    /// * `weight` - Indicates the font weight of line style for text typography to set.
-    /// For details, see the enum <b>OH_Drawing_FontWeight</b>.
+    /// * `weight` - Font weight. For details about the available options, see [`OH_Drawing_FontWeight`](crate::text_typography::OH_Drawing_FontWeight).
     ///
     /// Available since API-level: 12
     ///
@@ -3135,17 +3652,16 @@ extern "C" {
         style: *mut OH_Drawing_TypographyStyle,
         weight: ::core::ffi::c_int,
     );
-    /// Sets the font style of line style for text typography.
+    /// Sets the font style of the strut style in a typography style.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to a typography style object
-    /// <b>OH_Drawing_TypographyStyle</b>.
+    /// * `style` - Pointer to the typography style object [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle), obtained by
+    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
-    /// * `fontStyle` - Indicates the font style of line style for text typography to set. For details,
-    /// see the enum <b>OH_Drawing_FontStyle</b>.
+    /// * `fontStyle` - Font style. For details about the available options, see [`OH_Drawing_FontStyle`](crate::text_typography::OH_Drawing_FontStyle).
     ///
     /// Available since API-level: 12
     ///
@@ -3156,18 +3672,18 @@ extern "C" {
         style: *mut OH_Drawing_TypographyStyle,
         fontStyle: ::core::ffi::c_int,
     );
-    /// Sets the font families of line style for text typography.
+    /// Sets the font family of the line style for text typography.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to a typography style object
-    /// <b>OH_Drawing_TypographyStyle</b>.
+    /// * `style` - Pointer to a typography style object [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle), obtained by
+    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
-    /// * `fontFamiliesNumber` - Indicates the number of font families to set.
+    /// * `fontFamiliesNumber` - Number of font family names. Negative values are not allowed.
     ///
-    /// * `fontFamilies` - Indicates the pointer to the font families of line style for text typography to set.
+    /// * `fontFamilies` - Pointer to an array of font family types.
     ///
     /// Available since API-level: 12
     ///
@@ -3179,16 +3695,16 @@ extern "C" {
         fontFamiliesNumber: ::core::ffi::c_int,
         fontFamilies: *mut *const ::core::ffi::c_char,
     );
-    /// Sets the font size of line style for text typography.
+    /// Sets the font size for a text line style.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to a typography style object
-    /// <b>OH_Drawing_TypographyStyle</b>.
+    /// * `style` - Pointer to the typography style object [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle), obtained by
+    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
-    /// * `lineStyleFontSize` - Indicates the font size of line style for text typography to set.
+    /// * `lineStyleFontSize` - Font size (greater than 0), in physical pixels (px).
     ///
     /// Available since API-level: 12
     ///
@@ -3199,16 +3715,16 @@ extern "C" {
         style: *mut OH_Drawing_TypographyStyle,
         lineStyleFontSize: f64,
     );
-    /// Sets the font height of line style for text typography.
+    /// Sets the font height of the line style for text typography as a multiple of the current font size.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to a typography style object
-    /// <b>OH_Drawing_TypographyStyle</b>.
+    /// * `style` - Pointer to the typography style object [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle), obtained by
+    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
-    /// * `lineStyleFontHeight` - Indicates the font height of line style for text typography to set.
+    /// * `lineStyleFontHeight` - Font height. The value must be greater than 0.
     ///
     /// Available since API-level: 12
     ///
@@ -3219,16 +3735,16 @@ extern "C" {
         style: *mut OH_Drawing_TypographyStyle,
         lineStyleFontHeight: f64,
     );
-    /// Sets the half leading of line style for text typography.
+    /// Sets whether to enable half leading for a text line style.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to a typography style object
-    /// <b>OH_Drawing_TypographyStyle</b>.
+    /// * `style` - Pointer to the typography style object [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle), obtained by
+    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
-    /// * `lineStyleHalfLeading` - Indicates the half leading of line for text typography to set.
+    /// * `lineStyleHalfLeading` - Whether the half leading takes effect. **true** means yes; **false** otherwise.
     ///
     /// Available since API-level: 12
     ///
@@ -3239,16 +3755,17 @@ extern "C" {
         style: *mut OH_Drawing_TypographyStyle,
         lineStyleHalfLeading: bool,
     );
-    /// Sets the spacing scale of line style for text typography.
+    /// Sets the spacing scale factor for a text line style.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to a typography style object
-    /// <b>OH_Drawing_TypographyStyle</b>.
+    /// * `style` - Pointer to the typography style object [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle), obtained by
+    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
-    /// * `spacingScale` - Indicates the space scale of line for text typography to set.
+    /// * `spacingScale` - Line style spacing scale for scaling line spacing. A value greater than 1.0 increases the line
+    /// spacing, a value less than 1.0 decreases it, and 1.0 indicates the original spacing.
     ///
     /// Available since API-level: 12
     ///
@@ -3259,16 +3776,16 @@ extern "C" {
         style: *mut OH_Drawing_TypographyStyle,
         spacingScale: f64,
     );
-    /// Sets whether only line style is enabled for text typography.
+    /// Sets whether to enable the text line style only.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to a typography style object
-    /// <b>OH_Drawing_TypographyStyle</b>.
+    /// * `style` - Pointer to the typography style object [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle), obtained by
+    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
-    /// * `lineStyleOnly` - Indicates the line style for text typography to set only.
+    /// * `lineStyleOnly` - Whether to enable the line style only. **true** means yes; **false** otherwise.
     ///
     /// Available since API-level: 12
     ///
@@ -3279,14 +3796,15 @@ extern "C" {
         style: *mut OH_Drawing_TypographyStyle,
         lineStyleOnly: bool,
     );
-    /// Creates an <b>OH_Drawing_TextShadow</b> object.
+    /// Creates a pointer to a text shadow object. When the [`OH_Drawing_TextShadow`](crate::text_declaration::OH_Drawing_TextShadow) is no longer needed, use
+    /// [`OH_Drawing_DestroyTextShadow`](crate::text_typography::OH_Drawing_DestroyTextShadow) to release the pointer to the object.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the text shadow object created <b>OH_Drawing_TextShadow</b>.
+    /// * Pointer to the created text shadow object.
     ///
     /// Available since API-level: 12
     ///
@@ -3294,13 +3812,14 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_CreateTextShadow() -> *mut OH_Drawing_TextShadow;
-    /// Releases the memory occupied by the text shadow object <b>OH_Drawing_TextShadow</b>.
+    /// Releases the memory occupied by the text shadow object.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `shadow` - Indicates the pointer to the text shadow object <b>OH_Drawing_TextShadow</b>.
+    /// * `shadow` - Pointer to the text shadow object [`OH_Drawing_TextShadow`](crate::text_declaration::OH_Drawing_TextShadow), obtained by
+    /// [`OH_Drawing_CreateTextShadow`](crate::text_typography::OH_Drawing_CreateTextShadow).
     ///
     /// Available since API-level: 12
     ///
@@ -3308,21 +3827,19 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_DestroyTextShadow(shadow: *mut OH_Drawing_TextShadow);
-    /// Gets the vector of TextShadow in TextStyle.
+    /// Obtains the text shadow container. When the [`OH_Drawing_TextShadow`](crate::text_declaration::OH_Drawing_TextShadow) is no longer needed, use
+    /// [`OH_Drawing_DestroyTextShadows`](crate::text_typography::OH_Drawing_DestroyTextShadows) to release the pointer to the object.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to a text style object <b>OH_Drawing_TextStyle</b>.
-    ///
-    /// * `int` - Indicates the number in vector to set.
-    ///
-    /// * `style` - Indicates the pointer to the text shadow object <b>OH_Drawing_TextShadow</b>.
+    /// * `style` - Pointer to the [`OH_Drawing_TextStyle`](crate::text_declaration::OH_Drawing_TextStyle) object, which is obtained from
+    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
     /// # Returns
     ///
-    /// * Returns the vector of TextShadow.
+    /// * Pointer to the text shadow container [`OH_Drawing_TextShadow`](crate::text_declaration::OH_Drawing_TextShadow).
     ///
     /// Available since API-level: 12
     ///
@@ -3332,17 +3849,18 @@ extern "C" {
     pub fn OH_Drawing_TextStyleGetShadows(
         style: *mut OH_Drawing_TextStyle,
     ) -> *mut OH_Drawing_TextShadow;
-    /// Gets the size of vector of TextShadow in TextStyle.
+    /// Obtains the size of the text shadow container.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to a text style object <b>OH_Drawing_TextStyle</b>.
+    /// * `style` - Pointer to the [`OH_Drawing_TextStyle`](crate::text_declaration::OH_Drawing_TextStyle) object, which is obtained from
+    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
     /// # Returns
     ///
-    /// * Returns the size of vector.
+    /// * Size of the text shadow container.
     ///
     /// Available since API-level: 12
     ///
@@ -3352,15 +3870,17 @@ extern "C" {
     pub fn OH_Drawing_TextStyleGetShadowCount(
         style: *mut OH_Drawing_TextStyle,
     ) -> ::core::ffi::c_int;
-    /// Adds element in vector of TextShadow in TextStyle.
+    /// Adds a text shadow element to the text shadow container.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to a text style object <b>OH_Drawing_TextStyle</b>.
+    /// * `style` - Pointer to the [`OH_Drawing_TextStyle`](crate::text_declaration::OH_Drawing_TextStyle) object, which is obtained from
+    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
-    /// * `shadow` - Indicates the pointer to the text shadow object <b>OH_Drawing_TextShadow</b>.
+    /// * `shadow` - Pointer to the text shadow object [`OH_Drawing_TextShadow`](crate::text_declaration::OH_Drawing_TextShadow), created by
+    /// [`OH_Drawing_CreateTextShadow`](crate::text_typography::OH_Drawing_CreateTextShadow).
     ///
     /// Available since API-level: 12
     ///
@@ -3371,13 +3891,14 @@ extern "C" {
         style: *mut OH_Drawing_TextStyle,
         shadow: *const OH_Drawing_TextShadow,
     );
-    /// clear elements in vector of TextShadow in TextStyle.
+    /// Clears all elements in the text shadow container.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to a text style object <b>OH_Drawing_TextStyle</b>.
+    /// * `style` - Pointer to the [`OH_Drawing_TextStyle`](crate::text_declaration::OH_Drawing_TextStyle) object, which is obtained from
+    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
     /// Available since API-level: 12
     ///
@@ -3385,20 +3906,21 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_TextStyleClearShadows(style: *mut OH_Drawing_TextStyle);
-    /// Gets element in vector of TextShadow with index.
+    /// Obtains the element at the specified index in the text shadow container.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to a text style object <b>OH_Drawing_TextStyle</b>.
+    /// * `style` - Pointer to the [`OH_Drawing_TextStyle`](crate::text_declaration::OH_Drawing_TextStyle) object, which is obtained from
+    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
-    /// * `index` - Indicates the index to set.
+    /// * `index` - Subscript index, ranging from 0 to the number of shadows minus 1. The number of shadows can be obtained
+    /// via [`OH_Drawing_TextStyleGetShadowCount`](crate::text_typography::OH_Drawing_TextStyleGetShadowCount).
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to element with the index in vector of the text style object
-    /// <b>OH_Drawing_TextStyle</b>.
+    /// * Pointer to the text shadow object [`OH_Drawing_TextShadow`](crate::text_declaration::OH_Drawing_TextShadow).
     ///
     /// Available since API-level: 12
     ///
@@ -3409,17 +3931,20 @@ extern "C" {
         style: *mut OH_Drawing_TextStyle,
         index: ::core::ffi::c_int,
     ) -> *mut OH_Drawing_TextShadow;
-    /// Set indents of the typography.
+    /// Sets indents for typography. If this function is not called, texts will have no indentation applied.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `typography` - Indicates the pointer to a typography object <b>OH_Drawing_Typography</b>.
+    /// * `typography` - Pointer to the [`OH_Drawing_Typography`](crate::text_declaration::OH_Drawing_Typography) object, which is obtained from
+    /// [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
     ///
-    /// * `indentsNumber` - Indicates the pointer to the indents to set.
+    /// * `indentsNumber` - Number of indents. The value must be less than or equal to the length of the indents array to
+    /// avoid display exceptions caused by access to the out-of-bounds array.
     ///
-    /// * `indents` - Indicates the pointer to the indents to set.
+    /// * `indents` - Pointer to a floating-point array, in which each element indicates an indentation width, in px.
+    /// Before calling [`OH_Drawing_Typography`](crate::text_declaration::OH_Drawing_Typography) API, you need to declare and initialize the floating-point array.
     ///
     /// Available since API-level: 12
     ///
@@ -3431,19 +3956,21 @@ extern "C" {
         indentsNumber: ::core::ffi::c_int,
         indents: *const f32,
     );
-    /// Gets element with index in vector of Indents.
+    /// Obtains indents with a given index in a typography object. The line index starts from 0.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `typography` - Indicates the pointer to a typography object <b>OH_Drawing_Typography</b>.
+    /// * `typography` - Pointer to the [`OH_Drawing_Typography`](crate::text_declaration::OH_Drawing_Typography) object, which is obtained from
+    /// [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
     ///
-    /// * `index` - Indicates the index to set.
+    /// * `index` - Subscript index of the indentation value. Returns 0.0 if index is less than 0. Returns the last
+    /// indentation value if index is greater than or equal to the number of indentation values.
     ///
     /// # Returns
     ///
-    /// * float Indicates the element with the index in vector of Indents.
+    /// * Value of the element corresponding to the index.
     ///
     /// Available since API-level: 12
     ///
@@ -3454,13 +3981,14 @@ extern "C" {
         typography: *mut OH_Drawing_Typography,
         index: ::core::ffi::c_int,
     ) -> f32;
-    /// Releases the memory occupied by vector with the text shadow object <b>OH_Drawing_TextShadow</b>.
+    /// Releases the memory occupied by the vector composed of **OH_Drawing_TextShadow** objects.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `shadow` - the pointer to the text shadow object <b>OH_Drawing_TextShadow</b>.
+    /// * `shadow` - Pointer to the text shadow object [`OH_Drawing_TextShadow`](crate::text_declaration::OH_Drawing_TextShadow), obtained by
+    /// [`OH_Drawing_CreateTextShadow`](crate::text_typography::OH_Drawing_CreateTextShadow).
     ///
     /// Available since API-level: 12
     ///
@@ -3468,15 +3996,17 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_DestroyTextShadows(shadow: *mut OH_Drawing_TextShadow);
-    /// Set mode of applying the leading over and under text.
+    /// Sets a text height modifier pattern.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to an <b>OH_Drawing_TypographyStyle</b> object.
+    /// * `style` - Pointer to the [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle) object, which is obtained from
+    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
-    /// * `heightMode` - Indicates the mode to set.
+    /// * `heightMode` - Text height modifier mode. The value is an enumerated value of the
+    /// [`OH_Drawing_TextHeightBehavior`](crate::text_typography::OH_Drawing_TextHeightBehavior) type.
     ///
     /// Available since API-level: 12
     ///
@@ -3487,17 +4017,18 @@ extern "C" {
         style: *mut OH_Drawing_TypographyStyle,
         heightMode: OH_Drawing_TextHeightBehavior,
     );
-    /// Get mode of applying the leading over and under text.
+    /// Obtains the text height modifier pattern.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to an <b>OH_Drawing_TypographyStyle</b> object.
+    /// * `style` - Pointer to the [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle) object, which is obtained from
+    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
     /// # Returns
     ///
-    /// * Returns the mode.
+    /// * Text height modifier mode, which is an enumerated value of the [`OH_Drawing_TextHeightBehavior`](crate::text_typography::OH_Drawing_TextHeightBehavior) type.
     ///
     /// Available since API-level: 12
     ///
@@ -3507,17 +4038,24 @@ extern "C" {
     pub fn OH_Drawing_TypographyTextGetHeightBehavior(
         style: *mut OH_Drawing_TypographyStyle,
     ) -> OH_Drawing_TextHeightBehavior;
-    /// Set struct of background rect and styleId of text.
+    /// Sets a background rectangle and style ID for a text style. The style ID is valid only when the background box
+    /// is a rounded rectangle.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to an <b>OH_Drawing_TextStyle</b> object.
+    /// * `style` - Pointer to the **OH_Drawing_TextStyle** object, which is obtained from
+    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
-    /// * `rectStyleInfo` - Indicates the pointer to an <b>OH_Drawing_RectStyle_Info</b> object.
+    /// * `rectStyleInfo` - Pointer to the [`OH_Drawing_RectStyle_Info`](crate::types::OH_Drawing_RectStyle_Info) object.
     ///
-    /// * `styleId` - Indicates the styleId of text to set.
+    /// * `styleId` - Style ID. The style ID is valid only when the background box is a rounded rectangle. Text processing
+    /// is divided into multiple segments. Each segment has its own text style. **id** indicates the sequence number of
+    /// the background box in which the segment is drawn.
+    /// <br>If the ID of each segment in a row is **0**, all segments are drawn in the same background box. If a row
+    /// contains segments with IDs **0** and **1**, the segment with ID **0** is drawn in a background box, and the
+    /// segment with ID **1** is drawn in another background box. Other cases can be deduced in the same way.
     ///
     /// Available since API-level: 12
     ///
@@ -3529,15 +4067,16 @@ extern "C" {
         rectStyleInfo: *const OH_Drawing_RectStyle_Info,
         styleId: ::core::ffi::c_int,
     );
-    /// Add symbols in creating typography.
+    /// Adds the symbol to use in the typography creation process.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `handler` - Indicates the pointer to an <b>OH_Drawing_TypographyCreate</b> object.
+    /// * `handler` - Pointer to the [`OH_Drawing_TypographyCreate`](crate::text_declaration::OH_Drawing_TypographyCreate) object, which is obtained from
+    /// [`OH_Drawing_CreateTypographyHandler`](crate::text_typography::OH_Drawing_CreateTypographyHandler).
     ///
-    /// * `symbol` - Indicates the symbol to set.
+    /// * `symbol` - Symbol value. For details, see the Unicode value in the HarmonyOS Symbol library.
     ///
     /// Available since API-level: 12
     ///
@@ -3548,17 +4087,18 @@ extern "C" {
         handler: *mut OH_Drawing_TypographyCreate,
         symbol: u32,
     );
-    /// Add font feature.
+    /// Adds a font feature for a text style.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to an <b>OH_Drawing_TextStyle</b> object.
+    /// * `style` - Pointer to the **OH_Drawing_TextStyle** object, which is obtained from
+    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
-    /// * `tag` - Indicates the pointer to the tag to set.
+    /// * `tag` - Pointer to the string identified by the keyword in the font feature key-value pair.
     ///
-    /// * `value` - Indicates the value to set.
+    /// * `value` - Value of the font feature key-value pair.
     ///
     /// Available since API-level: 12
     ///
@@ -3570,17 +4110,21 @@ extern "C" {
         tag: *const ::core::ffi::c_char,
         value: ::core::ffi::c_int,
     );
-    /// Add font variation.
+    /// Adds a font variation. This function takes effect only when the corresponding font file (.ttf file) supports
+    /// variable adjustment. Otherwise, calling this function does not take effect.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to an <b>OH_Drawing_TextStyle</b> object.
+    /// * `style` - Pointer to the **OH_Drawing_TextStyle** object, which is obtained from
+    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
-    /// * `axis` - Indicates the pointer to font variation axis.
+    /// * `axis` - Pointer to the key in the font variation key-value pair. Currently, only **'wght'** is supported,
+    /// indicating the font weight.
     ///
-    /// * `value` - Indicates the font variation value to set.
+    /// * `value` - Value of the font variation key-value pair. Currently, the value range of **'wght'** for the default
+    /// font is \[0,900\].
     ///
     /// Available since API-level: 12
     ///
@@ -3592,18 +4136,40 @@ extern "C" {
         axis: *const ::core::ffi::c_char,
         value: f32,
     );
-    /// Get all font features.
+    /// Adds the normalized variable font attributes. This function takes effect only when the corresponding font
+    /// file (.ttf file) supports variable adjustment.
+    ///
+    /// # Arguments
+    ///
+    /// * `style` - Pointer to the **OH_Drawing_TextStyle** object, which is obtained from
+    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
+    ///
+    /// * `axis` - Pointer to the key in the font variation key-value pair.
+    ///
+    /// * `normalizedValue` - Value of the font variation key-value pair. The normalized value range is \[-1,1\], mapping the
+    /// range from the minimum value to the maximum value configured in the font file. **0** indicates the default value
+    /// configured in the font file.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_Drawing_TextStyleAddFontVariationWithNormalization(
+        style: *mut OH_Drawing_TextStyle,
+        axis: *const ::core::ffi::c_char,
+        normalizedValue: f32,
+    );
+    /// Obtains all the contents in a font feature map container of a text style.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to an <b>OH_Drawing_TextStyle</b> object.
+    /// * `style` - Pointer to the **OH_Drawing_TextStyle** object, which is obtained from
+    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
     /// # Returns
     ///
-    /// * OH_Drawing_FontFeature Indicates the pointer to an array of structures of OH_Drawing_FontFeature.
-    /// Get size of font feature by OH_Drawing_TextStyleGetFontFeatureSize.
+    /// * Pointer to the font feature struct, which stores all the contents obtained.
     ///
     /// Available since API-level: 12
     ///
@@ -3613,15 +4179,16 @@ extern "C" {
     pub fn OH_Drawing_TextStyleGetFontFeatures(
         style: *mut OH_Drawing_TextStyle,
     ) -> *mut OH_Drawing_FontFeature;
-    /// Release the memory occupied by array of structures of font features.
+    /// Reclaims the memory occupied by the struct array that holds all the font features.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `fontFeature` - Indicates the pointer to an array of structures of OH_Drawing_FontFeature.
+    /// * `fontFeature` - Pointer to the struct array that holds all the font features, which is obtained from
+    /// [`OH_Drawing_TextStyleGetFontFeatures`](crate::text_typography::OH_Drawing_TextStyleGetFontFeatures).
     ///
-    /// * `fontFeatureSize` - Indicates the size of array of structures of OH_Drawing_FontFeature.
+    /// * `fontFeatureSize` - Size of the struct array that holds all the font features.
     ///
     /// Available since API-level: 12
     ///
@@ -3632,17 +4199,18 @@ extern "C" {
         fontFeature: *mut OH_Drawing_FontFeature,
         fontFeatureSize: usize,
     );
-    /// Get size of font features.
+    /// Obtains the size of a font feature map container in a text style.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to an <b>OH_Drawing_TextStyle</b> object.
+    /// * `style` - Pointer to the **OH_Drawing_TextStyle** object, which is obtained from
+    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
     /// # Returns
     ///
-    /// * Returns the size of fontfeatures map.
+    /// * Size of a font feature map container.
     ///
     /// Available since API-level: 12
     ///
@@ -3650,13 +4218,14 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_TextStyleGetFontFeatureSize(style: *mut OH_Drawing_TextStyle) -> usize;
-    /// Clear font features.
+    /// Clears all the contents in a font feature map container of a text style.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to an <b>OH_Drawing_TextStyle</b> object.
+    /// * `style` - Pointer to the **OH_Drawing_TextStyle** object, which is obtained from
+    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
     /// Available since API-level: 12
     ///
@@ -3664,15 +4233,17 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_TextStyleClearFontFeature(style: *mut OH_Drawing_TextStyle);
-    /// Set baseline shift of text.
+    /// Sets a baseline drift for a text style.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to an <b>OH_Drawing_TextStyle</b> object.
+    /// * `style` - Pointer to the **OH_Drawing_TextStyle** object, which is obtained from
+    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
-    /// * `lineShift` - Indicates the baseline shift to set.
+    /// * `lineShift` - Baseline offset of the text. A positive value shifts upward, and a negative value shifts downward,
+    /// in px.
     ///
     /// Available since API-level: 12
     ///
@@ -3680,17 +4251,18 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_TextStyleSetBaselineShift(style: *mut OH_Drawing_TextStyle, lineShift: f64);
-    /// Get baseline shift of text.
+    /// Obtains the baseline drift of a text style.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to an <b>OH_Drawing_TextStyle</b> object.
+    /// * `style` - Pointer to the **OH_Drawing_TextStyle** object, which is obtained from
+    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
     /// # Returns
     ///
-    /// * Returns the baseline shift.
+    /// * Baseline shift.
     ///
     /// Available since API-level: 12
     ///
@@ -3698,17 +4270,18 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_TextStyleGetBaselineShift(style: *mut OH_Drawing_TextStyle) -> f64;
-    /// Gets the text color.
+    /// Obtains the color of a text style.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to an <b>OH_Drawing_TextStyle</b> object.
+    /// * `style` - Pointer to the [`OH_Drawing_TextStyle`](crate::text_declaration::OH_Drawing_TextStyle) object, which is obtained from
+    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
     /// # Returns
     ///
-    /// * Returns the text color.
+    /// * Text color.
     ///
     /// Available since API-level: 12
     ///
@@ -3716,17 +4289,18 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_TextStyleGetColor(style: *mut OH_Drawing_TextStyle) -> u32;
-    /// Gets text decoration style.
+    /// Obtains the decoration style of a text style.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to an <b>OH_Drawing_TextStyle</b> object.
+    /// * `style` - Pointer to the [`OH_Drawing_TextStyle`](crate::text_declaration::OH_Drawing_TextStyle) object, which is obtained from
+    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
     /// # Returns
     ///
-    /// * Returns text decoration style.
+    /// * Text decoration style. For details, see [`OH_Drawing_TextDecorationStyle`](crate::text_typography::OH_Drawing_TextDecorationStyle).
     ///
     /// Available since API-level: 12
     ///
@@ -3736,17 +4310,18 @@ extern "C" {
     pub fn OH_Drawing_TextStyleGetDecorationStyle(
         style: *mut OH_Drawing_TextStyle,
     ) -> OH_Drawing_TextDecorationStyle;
-    /// Gets font weight.
+    /// Obtains the font weight of a text style.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to an <b>OH_Drawing_TextStyle</b> object.
+    /// * `style` - Pointer to the [`OH_Drawing_TextStyle`](crate::text_declaration::OH_Drawing_TextStyle) object, which is obtained from
+    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
     /// # Returns
     ///
-    /// * Returns font Weight.
+    /// * Font weight. For details, see [`OH_Drawing_FontWeight`](crate::text_typography::OH_Drawing_FontWeight).
     ///
     /// Available since API-level: 12
     ///
@@ -3756,17 +4331,18 @@ extern "C" {
     pub fn OH_Drawing_TextStyleGetFontWeight(
         style: *mut OH_Drawing_TextStyle,
     ) -> OH_Drawing_FontWeight;
-    /// Gets font style.
+    /// Obtains the font style of a text style.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to an <b>OH_Drawing_TextStyle</b> object.
+    /// * `style` - Pointer to the [`OH_Drawing_TextStyle`](crate::text_declaration::OH_Drawing_TextStyle) object, which is obtained from
+    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
     /// # Returns
     ///
-    /// * Returns font style.
+    /// * Font style. For details, see [`OH_Drawing_FontStyle`](crate::text_typography::OH_Drawing_FontStyle).
     ///
     /// Available since API-level: 12
     ///
@@ -3776,17 +4352,18 @@ extern "C" {
     pub fn OH_Drawing_TextStyleGetFontStyle(
         style: *mut OH_Drawing_TextStyle,
     ) -> OH_Drawing_FontStyle;
-    /// Gets the font baseline.
+    /// Obtains the baseline of a text style.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to an <b>OH_Drawing_TextStyle</b> object.
+    /// * `style` - Pointer to the [`OH_Drawing_TextStyle`](crate::text_declaration::OH_Drawing_TextStyle) object, which is obtained from
+    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
     /// # Returns
     ///
-    /// * Returns the font baseline.
+    /// * Font baseline position. For details, see [`OH_Drawing_TextBaseline`](crate::text_typography::OH_Drawing_TextBaseline).
     ///
     /// Available since API-level: 12
     ///
@@ -3796,19 +4373,20 @@ extern "C" {
     pub fn OH_Drawing_TextStyleGetBaseline(
         style: *mut OH_Drawing_TextStyle,
     ) -> OH_Drawing_TextBaseline;
-    /// Gets a list of font families.
+    /// Obtains the font family name list.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to an <b>OH_Drawing_TextStyle</b> object.
+    /// * `style` - Pointer to the [`OH_Drawing_TextStyle`](crate::text_declaration::OH_Drawing_TextStyle) object, which is obtained from
+    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
-    /// * `num` - Indicates count of font families result.
+    /// * `num` - Pointer to the number of font families.
     ///
     /// # Returns
     ///
-    /// * Returns a list of font families.
+    /// * Pointer to the obtained font family name list.
     ///
     /// Available since API-level: 12
     ///
@@ -3819,15 +4397,15 @@ extern "C" {
         style: *mut OH_Drawing_TextStyle,
         num: *mut usize,
     ) -> *mut *mut ::core::ffi::c_char;
-    /// Releases the memory occupied by a list of font families.
+    /// Reclaims the memory occupied by the font families, where **num** specifies the number of font families.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `fontFamilies` - Indicates the pointer to a list of font families.
+    /// * `fontFamilies` - Double pointer to the font families.
     ///
-    /// * `num` - Indicates the count of obtained font families.
+    /// * `num` - Number of font families.
     ///
     /// Available since API-level: 12
     ///
@@ -3838,17 +4416,18 @@ extern "C" {
         fontFamilies: *mut *mut ::core::ffi::c_char,
         num: usize,
     );
-    /// Gets font size.
+    /// Obtains the font size of a text style.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to an <b>OH_Drawing_TextStyle</b> object.
+    /// * `style` - Pointer to the [`OH_Drawing_TextStyle`](crate::text_declaration::OH_Drawing_TextStyle) object, which is obtained from
+    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
     /// # Returns
     ///
-    /// * Returns font size.
+    /// * Font size.
     ///
     /// Available since API-level: 12
     ///
@@ -3856,17 +4435,18 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_TextStyleGetFontSize(style: *mut OH_Drawing_TextStyle) -> f64;
-    /// Gets the letter spacing of the text.
+    /// Obtains the letter spacing of a text style.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to an <b>OH_Drawing_TextStyle</b> object.
+    /// * `style` - Pointer to the [`OH_Drawing_TextStyle`](crate::text_declaration::OH_Drawing_TextStyle) object, which is obtained from
+    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
     /// # Returns
     ///
-    /// * Returns the size of the letter spacing.
+    /// * Letter spacing.
     ///
     /// Available since API-level: 12
     ///
@@ -3874,17 +4454,18 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_TextStyleGetLetterSpacing(style: *mut OH_Drawing_TextStyle) -> f64;
-    /// Gets the word spacing of the text.
+    /// Obtains the word spacing of a text style.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to an <b>OH_Drawing_TextStyle</b> object.
+    /// * `style` - Pointer to the [`OH_Drawing_TextStyle`](crate::text_declaration::OH_Drawing_TextStyle) object, which is obtained from
+    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
     /// # Returns
     ///
-    /// * Returns word spacing size.
+    /// * Word spacing.
     ///
     /// Available since API-level: 12
     ///
@@ -3892,17 +4473,18 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_TextStyleGetWordSpacing(style: *mut OH_Drawing_TextStyle) -> f64;
-    /// Gets font height.
+    /// Obtains the font height of a text style.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to an <b>OH_Drawing_TextStyle</b> object.
+    /// * `style` - Pointer to the [`OH_Drawing_TextStyle`](crate::text_declaration::OH_Drawing_TextStyle) object, which is obtained from
+    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
     /// # Returns
     ///
-    /// * Returns font height.
+    /// * Font height of a text style.
     ///
     /// Available since API-level: 12
     ///
@@ -3910,18 +4492,18 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_TextStyleGetFontHeight(style: *mut OH_Drawing_TextStyle) -> f64;
-    /// Gets whether to set the text to half line spacing.
+    /// Checks whether half leading is enabled for a text style.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to an <b>OH_Drawing_TextStyle</b> object.
+    /// * `style` - Pointer to the [`OH_Drawing_TextStyle`](crate::text_declaration::OH_Drawing_TextStyle) object, which is obtained from
+    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
     /// # Returns
     ///
-    /// * Returns true indicates that the spacing takes effect,
-    /// false indicates that the spacing does not take effect.
+    /// * Whether half leading is enabled for a text style. **true** means enabled; **false** otherwise.
     ///
     /// Available since API-level: 12
     ///
@@ -3929,16 +4511,17 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_TextStyleGetHalfLeading(style: *mut OH_Drawing_TextStyle) -> bool;
-    /// Sets the typography vertical alignment mode.
+    /// Vertical alignment mode of the text.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to an <b>OH_Drawing_TypographyStyle</b> object.
+    /// * `style` - Pointer to the [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle) object, which is obtained from
+    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
-    /// * `align` - Indicates the typography vertical alignment mode. For details,
-    /// see the enum <b>OH_Drawing_TextVerticalAlignment</b>.
+    /// * `align` - Vertical alignment mode of the text. The default mode is baseline alignment. For details about other
+    /// options, see [`OH_Drawing_TextVerticalAlignment`](crate::text_typography::OH_Drawing_TextVerticalAlignment).
     ///
     /// Available since API-level: 20
     ///
@@ -3949,18 +4532,19 @@ extern "C" {
         style: *mut OH_Drawing_TypographyStyle,
         align: OH_Drawing_TextVerticalAlignment,
     );
-    /// Gets the locale.
+    /// Obtains the locale of a text style.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to an <b>OH_Drawing_TextStyle</b> object.
+    /// * `style` - Pointer to the [`OH_Drawing_TextStyle`](crate::text_declaration::OH_Drawing_TextStyle) object, which is obtained from
+    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
     /// # Returns
     ///
-    /// * Returns a locale of data type as a pointer to a char. As with the TextStyle lifecycle.
-    /// No release is required and the return value is invalidated after the set method is called.
+    /// * Pointer to the locale in the format of language-country. For example, zh-CN indicates Chinese (China), and
+    /// en-US indicates English (United States). For details, see BCP 47.
     ///
     /// Available since API-level: 12
     ///
@@ -3970,15 +4554,18 @@ extern "C" {
     pub fn OH_Drawing_TextStyleGetLocale(
         style: *mut OH_Drawing_TextStyle,
     ) -> *const ::core::ffi::c_char;
-    /// Sets whether to use superscript or subscript in text layout.
+    /// Sets whether to enable superscript or subscript for text typography. If this API is not called, superscript
+    /// and subscript are disabled by default.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Pointer to an OH_Drawing_TextStyle object.
+    /// * `style` - Pointer to the [`OH_Drawing_TextStyle`](crate::text_declaration::OH_Drawing_TextStyle) object, which is obtained from
+    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
-    /// * `textBadgeType` - Superscript or subscript to use.
+    /// * `textBadgeType` - Whether to enable superscript or subscript in text typography. TEXT_SUPERSCRIPT enables
+    /// superscript, TEXT_SUBSCRIPT enables subscript, and the default value TEXT_BADGE_NONE disables both.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -3987,15 +4574,16 @@ extern "C" {
         style: *mut OH_Drawing_TextStyle,
         textBadgeType: OH_Drawing_TextBadgeType,
     );
-    /// Sets the text style, including font weight, font width and font slant.
+    /// Sets the font style, including the font weight, width, and slant, for a text style.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `drawingTextStyle` - Indicates the pointer to an <b>OH_Drawing_TextStyle</b> object.
+    /// * `drawingTextStyle` - Pointer to the [`OH_Drawing_TextStyle`](crate::text_declaration::OH_Drawing_TextStyle) object, which is obtained from
+    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
-    /// * `fontStyle` - Indicates an <b>OH_Drawing_FontStyleStruct</b> object.
+    /// * `fontStyle` - Font style, including the font weight, width, and slant.
     ///
     /// Available since API-level: 12
     ///
@@ -4006,17 +4594,18 @@ extern "C" {
         drawingTextStyle: *mut OH_Drawing_TextStyle,
         fontStyle: OH_Drawing_FontStyleStruct,
     );
-    /// Gets the text style, including font weight, font width and font slant.
+    /// Obtains the font style, including the font weight, width, and slant, of a text style.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `drawingTextStyle` - Indicates the pointer to an <b>OH_Drawing_TextStyle</b> object.
+    /// * `drawingTextStyle` - Pointer to the [`OH_Drawing_TextStyle`](crate::text_declaration::OH_Drawing_TextStyle) object, which is obtained from
+    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
     /// # Returns
     ///
-    /// * Returns the <b>OH_Drawing_FontStyleStruct</b> object getted.
+    /// * Returns the obtained font style object.
     ///
     /// Available since API-level: 12
     ///
@@ -4026,15 +4615,17 @@ extern "C" {
     pub fn OH_Drawing_TextStyleGetFontStyleStruct(
         drawingTextStyle: *mut OH_Drawing_TextStyle,
     ) -> OH_Drawing_FontStyleStruct;
-    /// Sets the typography style, including font weight, font width and font slant.
+    /// Sets the font style, including the font weight, width, and slant, for the default text style of a typography
+    /// style.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `drawingStyle` - Indicates the pointer to an <b>OH_Drawing_TypographyStyle</b> object.
+    /// * `drawingStyle` - Pointer to the [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle) object, which is obtained from
+    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
-    /// * `fontStyle` - Indicates an <b>OH_Drawing_FontStyleStruct</b> object.
+    /// * `fontStyle` - Font style, including the font weight, width, and slant.
     ///
     /// Available since API-level: 12
     ///
@@ -4045,17 +4636,19 @@ extern "C" {
         drawingStyle: *mut OH_Drawing_TypographyStyle,
         fontStyle: OH_Drawing_FontStyleStruct,
     );
-    /// Gets the typography style, including font weight, font width and font slant.
+    /// Obtains the font style, including the font weight, width, and slant, of the default text style of a
+    /// typography style.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `drawingStyle` - Indicates the pointer to an <b>OH_Drawing_TypographyStyle</b> object.
+    /// * `drawingStyle` - Pointer to the typography style object [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle), obtained by
+    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
     /// # Returns
     ///
-    /// * Returns the <b>OH_Drawing_FontStyleStruct</b> object getted.
+    /// * Font style, including the font weight, width, and slant.
     ///
     /// Available since API-level: 12
     ///
@@ -4065,19 +4658,20 @@ extern "C" {
     pub fn OH_Drawing_TypographyStyleGetFontStyleStruct(
         drawingStyle: *mut OH_Drawing_TypographyStyle,
     ) -> OH_Drawing_FontStyleStruct;
-    /// Gets whether the two TextStyle objects are equal.
+    /// Checks whether two text styles are equal. The word width property is not involved in the comparison.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates source of comparison <b>OH_Drawing_TextStyle</b> object.
+    /// * `style` - Pointer to the first text style.
     ///
-    /// * `comparedStyle` - Indicates comparison <b>OH_Drawing_TextStyle</b> object.
+    /// * `comparedStyle` - Pointer to the first text style.
     ///
     /// # Returns
     ///
-    /// * Compare result.
+    /// * Whether two text style objects are equal. **true** if the source rectangle is equal to the destination
+    /// rectangle; **false** otherwise.
     ///
     /// Available since API-level: 12
     ///
@@ -4088,19 +4682,19 @@ extern "C" {
         style: *const OH_Drawing_TextStyle,
         comparedStyle: *const OH_Drawing_TextStyle,
     ) -> bool;
-    /// Gets whether the font properties of two TextStyle objects are equal.
+    /// Checks whether the font style properties of two text styles are equal.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates source of <b>comparison OH_Drawing_TextStyle</b> object.
+    /// * `style` - Pointer to the first text style.
     ///
-    /// * `comparedStyle` - Indicates comparison <b>OH_Drawing_TextStyle</b> object.
+    /// * `comparedStyle` - Pointer to the first text style.
     ///
     /// # Returns
     ///
-    /// * Compare result.
+    /// * true if the font style attributes of the two text style objects are equal; false otherwise.
     ///
     /// Available since API-level: 12
     ///
@@ -4111,21 +4705,21 @@ extern "C" {
         style: *const OH_Drawing_TextStyle,
         comparedStyle: *const OH_Drawing_TextStyle,
     ) -> bool;
-    /// Gets whether two TextStyle objects match attributes
+    /// Checks whether two text styles have the same font style type.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates enumerates of text style type.
+    /// * `style` - Pointer to the first text style.
     ///
-    /// * `comparedStyle` - Indicates source of comparison <b>OH_Drawing_TextStyle</b> object.
+    /// * `comparedStyle` - Pointer to the first text style.
     ///
-    /// * `textStyleType` - Indicates comparison <b>OH_Drawing_TextStyle</b> object.
+    /// * `textStyleType` - Text style types as in [`OH_Drawing_TextStyleType`](crate::text_typography::OH_Drawing_TextStyleType).
     ///
     /// # Returns
     ///
-    /// * Match attributes result.
+    /// * Whether two text styles have the same font style type. **true** means yes; **false** otherwise.
     ///
     /// Available since API-level: 12
     ///
@@ -4137,13 +4731,14 @@ extern "C" {
         comparedStyle: *const OH_Drawing_TextStyle,
         textStyleType: OH_Drawing_TextStyleType,
     ) -> bool;
-    /// Set placeholder of TextStyle.
+    /// Adds a placeholder.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to an <b>OH_Drawing_TextStyle</b> object.
+    /// * `style` - Pointer to the [`OH_Drawing_TextStyle`](crate::text_declaration::OH_Drawing_TextStyle) object, which is obtained from
+    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
     /// Available since API-level: 12
     ///
@@ -4151,17 +4746,18 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_TextStyleSetPlaceholder(style: *mut OH_Drawing_TextStyle);
-    /// Gets whether placeholder is enable.
+    /// Checks whether a placeholder is set for a text style.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to an <b>OH_Drawing_TextStyle</b> object.
+    /// * `style` - Pointer to the [`OH_Drawing_TextStyle`](crate::text_declaration::OH_Drawing_TextStyle) object, which is obtained from
+    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
     /// # Returns
     ///
-    /// * Whether placeholder is enable.
+    /// * Checks whether a placeholder is set for a text style. **true** means yes; **false** otherwise.
     ///
     /// Available since API-level: 12
     ///
@@ -4169,17 +4765,18 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_TextStyleIsPlaceholder(style: *mut OH_Drawing_TextStyle) -> bool;
-    /// Gets text alignment mode.
+    /// Obtains the text alignment mode.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to an <b>OH_Drawing_TypographyStyle</b> object.
+    /// * `style` - Pointer to the [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle) object, which is obtained from
+    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
     /// # Returns
     ///
-    /// * Returns text alignment mode.
+    /// * Text alignment modes as in [`OH_Drawing_TextAlign`](crate::text_typography::OH_Drawing_TextAlign).
     ///
     /// Available since API-level: 12
     ///
@@ -4189,17 +4786,19 @@ extern "C" {
     pub fn OH_Drawing_TypographyStyleGetEffectiveAlignment(
         style: *mut OH_Drawing_TypographyStyle,
     ) -> OH_Drawing_TextAlign;
-    /// Gets whether the hinting is enabled.
+    /// Checks whether font hinting is enabled for a typography style. Font hinting is used to improve the
+    /// readability and appearance of small-sized text when rendering it.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to an <b>OH_Drawing_TypographyStyle</b> object.
+    /// * `style` - Pointer to the typography style object [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle), obtained by
+    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
     /// # Returns
     ///
-    /// * True, if the hinting takes effect; False, if the hinting does not take effect.
+    /// * Whether to enable font hinting for a typography style. **true**: enabled; **false**: disabled.
     ///
     /// Available since API-level: 12
     ///
@@ -4207,20 +4806,18 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_TypographyStyleIsHintEnabled(style: *mut OH_Drawing_TypographyStyle) -> bool;
-    /// Gets system font configuration information.
+    /// Obtains the system font configuration.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `errorCode` - Indicates error code returned, based on the error code to
-    /// release the memory of system font configuration information.
-    /// For details, see the enum <b>OH_Drawing_FontConfigInfoErrorCode</b>.
+    /// * `errorCode` - Error code. For details, see [`OH_Drawing_FontConfigInfoErrorCode`](crate::text_typography::OH_Drawing_FontConfigInfoErrorCode).
     ///
     /// # Returns
     ///
-    /// * Returns a pointer to system font configuration information.
-    /// Indicates the pointer to an <b>OH_Drawing_FontConfigInfo</b> object.
+    /// * Pointer to the system font configuration. When it is no longer required, call
+    /// [`OH_Drawing_DestroySystemFontConfigInfo`](crate::text_typography::OH_Drawing_DestroySystemFontConfigInfo) to release the pointer to the object.
     ///
     /// Available since API-level: 12
     ///
@@ -4230,13 +4827,14 @@ extern "C" {
     pub fn OH_Drawing_GetSystemFontConfigInfo(
         errorCode: *mut OH_Drawing_FontConfigInfoErrorCode,
     ) -> *mut OH_Drawing_FontConfigInfo;
-    /// Releases the memory occupied by system font configuration information.
+    /// Reclaims the memory occupied by the system font configuration.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `drawFontCfgInfo` - Indicates the pointer to an <b>OH_Drawing_FontConfigInfo</b> object.
+    /// * `drawFontCfgInfo` - Pointer to the [`OH_Drawing_FontConfigInfo`](crate::text_typography::OH_Drawing_FontConfigInfo) object, which is obtained from
+    /// [`OH_Drawing_GetSystemFontConfigInfo`](crate::text_typography::OH_Drawing_GetSystemFontConfigInfo).
     ///
     /// Available since API-level: 12
     ///
@@ -4244,15 +4842,17 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_DestroySystemFontConfigInfo(drawFontCfgInfo: *mut OH_Drawing_FontConfigInfo);
-    /// Sets the strut style for text typography.
+    /// Sets the strut style for a typography style.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to an <b>OH_Drawing_TypographyStyle</b> object.
+    /// * `style` - Pointer to the typography style object [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle), obtained by
+    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
-    /// * `strutstyle` - Indicates the pointer of <b>OH_Drawing_StrutStyle</b> object.
+    /// * `strutstyle` - Pointer to the [`OH_Drawing_StrutStyle`](crate::text_typography::OH_Drawing_StrutStyle) object, which is obtained from
+    /// [`OH_Drawing_TypographyStyleGetStrutStyle`](crate::text_typography::OH_Drawing_TypographyStyleGetStrutStyle).
     ///
     /// Available since API-level: 12
     ///
@@ -4263,13 +4863,14 @@ extern "C" {
         style: *mut OH_Drawing_TypographyStyle,
         strutstyle: *mut OH_Drawing_StrutStyle,
     );
-    /// Releases the memory occupied by an <b>OH_Drawing_StrutStyle</b> object.
+    /// Reclaims the memory occupied by a strut style.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `strutstyle` - Indicates the pointer of <b>OH_Drawing_StrutStyle</b> object.
+    /// * `strutstyle` - Pointer to the [`OH_Drawing_StrutStyle`](crate::text_typography::OH_Drawing_StrutStyle) object, which is obtained from
+    /// [`OH_Drawing_TypographyStyleGetStrutStyle`](crate::text_typography::OH_Drawing_TypographyStyleGetStrutStyle).
     ///
     /// Available since API-level: 12
     ///
@@ -4277,17 +4878,18 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_TypographyStyleDestroyStrutStyle(strutstyle: *mut OH_Drawing_StrutStyle);
-    /// Gets the strut style for text typography.
+    /// Obtains the strut style of a typography style.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to an <b>OH_Drawing_TypographyStyle</b> object.
+    /// * `style` - Pointer to the typography style object [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle), obtained by
+    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
     /// # Returns
     ///
-    /// * Returns the pointer of <b>OH_Drawing_StrutStyle</b> object.
+    /// * Pointer to the [`OH_Drawing_StrutStyle`](crate::text_typography::OH_Drawing_StrutStyle) object.
     ///
     /// Available since API-level: 12
     ///
@@ -4297,15 +4899,15 @@ extern "C" {
     pub fn OH_Drawing_TypographyStyleGetStrutStyle(
         style: *mut OH_Drawing_TypographyStyle,
     ) -> *mut OH_Drawing_StrutStyle;
-    /// Overriding the struct StrutStyle equals operator.
+    /// Checks whether two strut styles are equal.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `from` - Indicates source of comparison object.
+    /// * `from` - Pointer to the first strut style.
     ///
-    /// * `to` - Indicates comparison object.
+    /// * `to` - Pointer to the second strut style.
     ///
     /// Available since API-level: 12
     ///
@@ -4316,15 +4918,17 @@ extern "C" {
         from: *mut OH_Drawing_StrutStyle,
         to: *mut OH_Drawing_StrutStyle,
     ) -> bool;
-    /// Sets the hinting of text typography.
+    /// Sets whether to enable font hinting for a typography style. Font hinting is used to improve the readability
+    /// and appearance of small-sized text when rendering it.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to an <b>OH_Drawing_TypographyStyle</b> object.
+    /// * `style` - Pointer to the typography style object [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle), obtained by
+    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
-    /// * `hintsEnabled` - Indicates the hinting of text typography..
+    /// * `hintsEnabled` - Whether to enable font hinting. **true**: enabled; **false**: disabled.
     ///
     /// Available since API-level: 12
     ///
@@ -4335,21 +4939,26 @@ extern "C" {
         style: *mut OH_Drawing_TypographyStyle,
         hintsEnabled: bool,
     );
-    /// Getting all font metrics from target row.
+    /// Obtains all font metrics from a given line in a typography object. This function must be called after
+    /// [`OH_Drawing_TypographyLayout`](crate::text_typography::OH_Drawing_TypographyLayout) is called. Otherwise, a null pointer is returned. Release this pointer by
+    /// calling [`OH_Drawing_TypographyDestroyLineFontMetrics`](crate::text_typography::OH_Drawing_TypographyDestroyLineFontMetrics) when this object is no longer needed.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `typography` - Indicates a pointer to a typesetting object.
+    /// * `typography` - Pointer to the [`OH_Drawing_Typography`](crate::text_declaration::OH_Drawing_Typography) object, which is obtained from
+    /// [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
     ///
-    /// * `lineNumber` - Indicates specifies the number of rows.
+    /// * `lineNumber` - Line number, which is an integer. The minimum value is 1, and the maximum value depends on the
+    /// number of lines parsed by the font engine after text input. If a value greater than the maximum number is passed
+    /// in, an error value is returned and an error message is printed.
     ///
-    /// * `fontMetricsSize` - Indicates the return size of font metrics struct from current line.
+    /// * `fontMetricsSize` - Pointer to the size of the struct.
     ///
     /// # Returns
     ///
-    /// * Returns all character measures for the current row.
+    /// * Returns all the font metrics.
     ///
     /// Available since API-level: 12
     ///
@@ -4361,13 +4970,13 @@ extern "C" {
         lineNumber: usize,
         fontMetricsSize: *mut usize,
     ) -> *mut OH_Drawing_Font_Metrics;
-    /// Free up all the space taken up by the lineFontMetric.
+    /// Reclaims the memory occupied by the struct array that holds all the font metrics of a given line.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `lineFontMetric` - Indicates the first address of the lineFontMetric gather to be destroyed.
+    /// * `lineFontMetric` - Pointer to the first address of the struct array.
     ///
     /// Available since API-level: 12
     ///
@@ -4377,13 +4986,14 @@ extern "C" {
     pub fn OH_Drawing_TypographyDestroyLineFontMetrics(
         lineFontMetric: *mut OH_Drawing_Font_Metrics,
     );
-    /// Mark the Typography as dirty, and initially state the Typography.
+    /// Marks a typography object as dirty data. This function is used to initialize the typography state.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `typography` - Indicates the pointer to the text <b>OH_Drawing_Typography</b> object.
+    /// * `typography` - Pointer to the [`OH_Drawing_Typography`](crate::text_declaration::OH_Drawing_Typography) object, which is obtained from
+    /// [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
     ///
     /// Available since API-level: 12
     ///
@@ -4391,17 +5001,19 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_TypographyMarkDirty(typography: *mut OH_Drawing_Typography);
-    /// Get the unresolved Glyphs count of lines in a text.
+    /// Obtains the number of unresolved glyphs in a typography object. This function can be called only after
+    /// [`OH_Drawing_TypographyLayout`](crate::text_typography::OH_Drawing_TypographyLayout) is called and applied.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `typography` - Indicates the pointer to the text <b>OH_Drawing_Typography</b> object.
+    /// * `typography` - Pointer to the [`OH_Drawing_Typography`](crate::text_declaration::OH_Drawing_Typography) object, which is obtained from
+    /// [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
     ///
     /// # Returns
     ///
-    /// * Returns unresolved Glyphs count.
+    /// * Number of unresolved glyphs.
     ///
     /// Available since API-level: 12
     ///
@@ -4411,19 +5023,20 @@ extern "C" {
     pub fn OH_Drawing_TypographyGetUnresolvedGlyphsCount(
         typography: *mut OH_Drawing_Typography,
     ) -> i32;
-    /// Update the font size of lines in a text.
+    /// Updates the font size in a typography object.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `typography` - Indicates the pointer to the text <b>OH_Drawing_Typography</b> object.
+    /// * `typography` - Pointer to the [`OH_Drawing_Typography`](crate::text_declaration::OH_Drawing_Typography) object, which is obtained from
+    /// [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
     ///
-    /// * `from` - Indicates the source of the original font size.
+    /// * `from` - Reserved field, which is not used.
     ///
-    /// * `to` - Indicates the destination of the updated font size.
+    /// * `to` - Reserved field, which is not used.
     ///
-    /// * `fontSize` - Indicates the size of the font.
+    /// * `fontSize` - Updated font size. The value must be greater than 0, in px.
     ///
     /// Available since API-level: 12
     ///
@@ -4436,15 +5049,17 @@ extern "C" {
         to: usize,
         fontSize: f32,
     );
-    /// Update the font color of the typography.
+    /// Updates the font color in a typography object. This API call also updates the decoration color if it hasn't
+    /// been set yet. The updated font color takes effect after you call [`OH_Drawing_TypographyPaint`](crate::text_typography::OH_Drawing_TypographyPaint) to draw the text.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `typography` - Indicates the pointer to the text <b>OH_Drawing_Typography</b> object.
+    /// * `typography` - Pointer to the [`OH_Drawing_Typography`](crate::text_declaration::OH_Drawing_Typography) object, which is obtained from
+    /// [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
     ///
-    /// * `color` - Indicates the color to update.
+    /// * `color` - New font color.
     ///
     /// Available since API-level: 20
     ///
@@ -4452,16 +5067,19 @@ extern "C" {
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_Drawing_TypographyUpdateFontColor(typography: *mut OH_Drawing_Typography, color: u32);
-    /// Update the decoration of the typography.
+    /// Updates the decoration type of a typography object. The updated decoration type takes effect after you call
+    /// [`OH_Drawing_TypographyPaint`](crate::text_typography::OH_Drawing_TypographyPaint) to draw the text.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `typography` - Indicates the pointer to the text <b>OH_Drawing_Typography</b> object.
+    /// * `typography` - Pointer to the [`OH_Drawing_Typography`](crate::text_declaration::OH_Drawing_Typography) object, which is obtained from
+    /// [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
     ///
-    /// * `decoration` - Indicates the text decoration to update. For details, see the enum
-    /// <b>OH_Drawing_TextDecoration</b>.
+    /// * `decoration` - Updated decoration type. For details, see [`OH_Drawing_TextDecoration`](crate::text_typography::OH_Drawing_TextDecoration). You can set multiple
+    /// text decoration types at a time via bitwise OR operations. If a decoration type that is not in the
+    /// [`OH_Drawing_TextDecoration`](crate::text_typography::OH_Drawing_TextDecoration) enumeration is set, the original decoration is retained.
     ///
     /// Available since API-level: 20
     ///
@@ -4472,15 +5090,19 @@ extern "C" {
         typography: *mut OH_Drawing_Typography,
         decoration: OH_Drawing_TextDecoration,
     );
-    /// Update the decoration thickness scale of the typography.
+    /// Updates the decoration thickness scale of a typography object. The updated decoration thickness scale takes
+    /// effect after you call [`OH_Drawing_TypographyPaint`](crate::text_typography::OH_Drawing_TypographyPaint) to draw the text.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `typography` - Indicates the pointer to the text <b>OH_Drawing_Typography</b> object.
+    /// * `typography` - Pointer to the [`OH_Drawing_Typography`](crate::text_declaration::OH_Drawing_Typography) object, which is obtained from
+    /// [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
     ///
-    /// * `decorationThicknessScale` - Indicates the thickness scale of the text decoration to update.
+    /// * `decorationThicknessScale` - Thickness scaling ratio of the updated text decoration line. The thickness of the
+    /// decoration line increases as the ratio increases. If the value is less than or equal to 0, the decoration line
+    /// will not be drawn.
     ///
     /// Available since API-level: 20
     ///
@@ -4491,16 +5113,18 @@ extern "C" {
         typography: *mut OH_Drawing_Typography,
         decorationThicknessScale: f64,
     );
-    /// Update the decoration style of the typography.
+    /// Updates the decoration style of a typography object. The updated decoration style takes effect after you call
+    /// [`OH_Drawing_TypographyPaint`](crate::text_typography::OH_Drawing_TypographyPaint) to draw the text.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `typography` - Indicates the pointer to the text <b>OH_Drawing_Typography</b> object.
+    /// * `typography` - Pointer to the [`OH_Drawing_Typography`](crate::text_declaration::OH_Drawing_Typography) object, which is obtained from
+    /// [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
     ///
-    /// * `decorationStyle` - Indicates the text decoration style to update.
-    /// For details, see the enum <b>OH_Drawing_TextDecorationStyle</b>.
+    /// * `decorationStyle` - Updated text decoration style. For details about the available options, see
+    /// [`OH_Drawing_TextDecorationStyle`](crate::text_typography::OH_Drawing_TextDecorationStyle).
     ///
     /// Available since API-level: 20
     ///
@@ -4511,15 +5135,17 @@ extern "C" {
         typography: *mut OH_Drawing_Typography,
         decorationStyle: OH_Drawing_TextDecorationStyle,
     );
-    /// Updates the decoration color of the paragraph.
+    /// Updates the decoration color of a typography object.
+    /// <br> The updated decoration color takes effect after you call [`OH_Drawing_TypographyPaint`](crate::text_typography::OH_Drawing_TypographyPaint) to draw the text.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `typography` - Indicates the pointer to the text <b>OH_Drawing_Typography</b> object.
+    /// * `typography` - Pointer to the [`OH_Drawing_Typography`](crate::text_declaration::OH_Drawing_Typography) object, which is obtained from
+    /// [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
     ///
-    /// * `color` - Indicates the text decoration color to update.
+    /// * `color` - Updated text decoration color.
     ///
     /// Available since API-level: 20
     ///
@@ -4530,17 +5156,18 @@ extern "C" {
         typography: *mut OH_Drawing_Typography,
         color: u32,
     );
-    /// Get whether the text layout enables line styles.
+    /// Checks whether the text line style is enabled for a typography style.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to the text <b>OH_Drawing_TypographyStyle</b> object.
+    /// * `style` - Pointer to the [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle) object, which is obtained from
+    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
     /// # Returns
     ///
-    /// * Whether or not to enable line styles in text layout only, true means enable, false means disable.
+    /// * Whether the line style is enabled. **true**: enabled; **false**: disabled.
     ///
     /// Available since API-level: 12
     ///
@@ -4548,19 +5175,19 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_TypographyTextGetLineStyle(style: *mut OH_Drawing_TypographyStyle) -> bool;
-    /// Get the font weight of line style for text typography.
+    /// Obtains the font weight of a text line style.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to a typography style object
-    /// <b>OH_Drawing_TypographyStyle</b>.
+    /// * `style` - Pointer to the [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle) object, which is obtained from
+    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
     /// # Returns
     ///
-    /// * Return the font weight of line style for text typography.
-    /// For details, see the enum <b>OH_Drawing_FontWeight</b>.
+    /// * Font weight.
+    /// <br> For details about the available options, see [`OH_Drawing_FontWeight`](crate::text_typography::OH_Drawing_FontWeight).
     ///
     /// Available since API-level: 12
     ///
@@ -4570,19 +5197,19 @@ extern "C" {
     pub fn OH_Drawing_TypographyTextlineStyleGetFontWeight(
         style: *mut OH_Drawing_TypographyStyle,
     ) -> OH_Drawing_FontWeight;
-    /// Get the font style of line style for text typography.
+    /// Obtains the font style of the strut style in a typography style.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to a typography style object
-    /// <b>OH_Drawing_TypographyStyle</b>.
+    /// * `style` - Pointer to the [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle) object, which is obtained from
+    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
     /// # Returns
     ///
-    /// * Return the font style of line style for text typography.
-    /// For details, see the enum <b>OH_Drawing_FontStyle</b>.
+    /// * Font style of the strut style in a typography style. **1** indicates italic, and **0** or others indicate
+    /// non-italic. For details, see the [`OH_Drawing_FontStyle`](crate::text_typography::OH_Drawing_FontStyle) enumeration.
     ///
     /// Available since API-level: 12
     ///
@@ -4592,20 +5219,20 @@ extern "C" {
     pub fn OH_Drawing_TypographyTextlineStyleGetFontStyle(
         style: *mut OH_Drawing_TypographyStyle,
     ) -> OH_Drawing_FontStyle;
-    /// Get the font families of line style for text typography.
+    /// Obtains the font families of a text line style.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to a typography style object
-    /// <b>OH_Drawing_TypographyStyle</b>.
+    /// * `style` - Pointer to the [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle) object, which is obtained from
+    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
-    /// * `num` - The number of obtained font names.
+    /// * `num` - Pointer to the number of font families.
     ///
     /// # Returns
     ///
-    /// * Return the font families of line style for text typography.
+    /// * Font families.
     ///
     /// Available since API-level: 12
     ///
@@ -4616,15 +5243,15 @@ extern "C" {
         style: *mut OH_Drawing_TypographyStyle,
         num: *mut usize,
     ) -> *mut *mut ::core::ffi::c_char;
-    /// Releases the memory occupied by a list of font families names.
+    /// Releases the memory occupied by the font family name list.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `fontFamilies` - Indicates the pointer to a list of font families names.
+    /// * `fontFamilies` - Pointer to the font families.
     ///
-    /// * `fontFamiliesNum` - Indicates the number of obtained font names.
+    /// * `fontFamiliesNum` - Number of font families.
     ///
     /// Available since API-level: 12
     ///
@@ -4635,18 +5262,18 @@ extern "C" {
         fontFamilies: *mut *mut ::core::ffi::c_char,
         fontFamiliesNum: usize,
     );
-    /// Get the font size of font size for text typography.
+    /// Obtains the font size of a text line style.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to a typography style object
-    /// <b>OH_Drawing_TypographyStyle</b>.
+    /// * `style` - Pointer to the [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle) object, which is obtained from
+    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
     /// # Returns
     ///
-    /// * Return the font size of font size for text typography.
+    /// * Font size.
     ///
     /// Available since API-level: 12
     ///
@@ -4656,18 +5283,18 @@ extern "C" {
     pub fn OH_Drawing_TypographyTextlineStyleGetFontSize(
         style: *mut OH_Drawing_TypographyStyle,
     ) -> f64;
-    /// Get the font height scale in text layout.
+    /// Obtains the height scale factor of a text line style.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to a typography style object
-    /// <b>OH_Drawing_TypographyStyle</b>.
+    /// * `style` - Pointer to the [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle) object, which is obtained from
+    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
     /// # Returns
     ///
-    /// * Retrun the font height scale in text layout.
+    /// * Height scale factor.
     ///
     /// Available since API-level: 12
     ///
@@ -4677,19 +5304,19 @@ extern "C" {
     pub fn OH_Drawing_TypographyTextlineStyleGetHeightScale(
         style: *mut OH_Drawing_TypographyStyle,
     ) -> f64;
-    /// Get whether to enable font height for line styles in text layout only.
+    /// Checks whether only the font height is used for a text line style.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to a typography style object
-    /// <b>OH_Drawing_TypographyStyle</b>.
+    /// * `style` - Pointer to the [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle) object, which is obtained from
+    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
     /// # Returns
     ///
-    /// * Whether or not to enable the font height for line styles in text layout only,
-    /// true means enable, false means disable.
+    /// * Method for calculating the height of a font block. **true** means that the height is calculated based on the
+    /// font size; **false** means that the height is calculated based on the line spacing.
     ///
     /// Available since API-level: 12
     ///
@@ -4699,18 +5326,18 @@ extern "C" {
     pub fn OH_Drawing_TypographyTextlineStyleGetHeightOnly(
         style: *mut OH_Drawing_TypographyStyle,
     ) -> bool;
-    /// Get the half leading of line style for text typography.
+    /// Checks whether half leading is enabled for a text line style.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to a typography style object
-    /// <b>OH_Drawing_TypographyStyle</b>.
+    /// * `style` - Pointer to the [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle) object, which is obtained from
+    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
     /// # Returns
     ///
-    /// * Whether to enable the text line half leading style, true means enable, false means disable.
+    /// * **true** if half leading is enabled; returns **false** otherwise.
     ///
     /// Available since API-level: 12
     ///
@@ -4720,18 +5347,18 @@ extern "C" {
     pub fn OH_Drawing_TypographyTextlineStyleGetHalfLeading(
         style: *mut OH_Drawing_TypographyStyle,
     ) -> bool;
-    /// Get the spacing scale of line style for text typography.
+    /// Obtains the spacing scale factor of a text line style.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to a typography style object
-    /// <b>OH_Drawing_TypographyStyle</b>.
+    /// * `style` - Pointer to the [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle) object, which is obtained from
+    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
     /// # Returns
     ///
-    /// * Return the spacing scale of line style for text typography.
+    /// * Spacing scale factor.
     ///
     /// Available since API-level: 12
     ///
@@ -4741,19 +5368,18 @@ extern "C" {
     pub fn OH_Drawing_TypographyTextlineStyleGetSpacingScale(
         style: *mut OH_Drawing_TypographyStyle,
     ) -> f64;
-    /// Get whether only line style is enabled for text typography.
+    /// Checks whether only the text line style is enabled for a typography style.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to a typography style object
-    /// <b>OH_Drawing_TypographyStyle</b>.
+    /// * `style` - Pointer to the [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle) object, which is obtained from
+    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
     /// # Returns
     ///
-    /// * Returns whether only line style is enabled for text layout, true means it is enabled,
-    /// false means it is not.
+    /// * Whether only the text line style is enabled for a typography style. **true**: enabled; **false**: disabled.
     ///
     /// Available since API-level: 12
     ///
@@ -4763,18 +5389,18 @@ extern "C" {
     pub fn OH_Drawing_TypographyTextlineGetStyleOnly(
         style: *mut OH_Drawing_TypographyStyle,
     ) -> bool;
-    /// Get the text alignment mode.
+    /// Obtains the text alignment mode.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to a typography style object
-    /// <b>OH_Drawing_TypographyStyle</b>.
+    /// * `style` - Pointer to the [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle) object, which is obtained from
+    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
     /// # Returns
     ///
-    /// * Return the text alignment mode. For details, see the enum <b>OH_Drawing_TextAlign</b>.
+    /// * Alignment mode. For details about the available options, see [`OH_Drawing_TextAlign`](crate::text_typography::OH_Drawing_TextAlign).
     ///
     /// Available since API-level: 12
     ///
@@ -4784,18 +5410,19 @@ extern "C" {
     pub fn OH_Drawing_TypographyGetTextAlign(
         style: *mut OH_Drawing_TypographyStyle,
     ) -> OH_Drawing_TextAlign;
-    /// Get the text direction.
+    /// Obtains the text direction of a typography style.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to a typography style object
-    /// <b>OH_Drawing_TypographyStyle</b>.
+    /// * `style` - Pointer to the [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle) object, which is obtained from
+    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
     /// # Returns
     ///
-    /// * Return the text direction. For details, see the enum <b>OH_Drawing_TextDirection</b>.
+    /// * Text direction. **0** means right-to-left; **1** means left-to-right. For details, see
+    /// [`OH_Drawing_TextDirection`](crate::text_typography::OH_Drawing_TextDirection).
     ///
     /// Available since API-level: 12
     ///
@@ -4805,18 +5432,18 @@ extern "C" {
     pub fn OH_Drawing_TypographyGetTextDirection(
         style: *mut OH_Drawing_TypographyStyle,
     ) -> OH_Drawing_TextDirection;
-    /// Sets the maximum number of lines in a text.
+    /// Obtains the maximum number of lines.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to a typography style object
-    /// <b>OH_Drawing_TypographyStyle</b>.
+    /// * `style` - Pointer to the [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle) object, which is obtained from
+    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
     /// # Returns
     ///
-    /// * Return the maximum number of lines in a text.
+    /// * Maximum number of lines.
     ///
     /// Available since API-level: 12
     ///
@@ -4824,18 +5451,18 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_TypographyGetTextMaxLines(style: *mut OH_Drawing_TypographyStyle) -> usize;
-    /// Get the ellipsis of lines in a text.
+    /// Obtains the text ellipsis content of a typography style.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to a typography style object
-    /// <b>OH_Drawing_TypographyStyle</b>.
+    /// * `style` - Pointer to the [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle) object, which is obtained from
+    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
     /// # Returns
     ///
-    /// * Return the ellipsis of lines in a text.
+    /// * Ellipsis text.
     ///
     /// Available since API-level: 12
     ///
@@ -4845,13 +5472,13 @@ extern "C" {
     pub fn OH_Drawing_TypographyGetTextEllipsis(
         style: *mut OH_Drawing_TypographyStyle,
     ) -> *mut ::core::ffi::c_char;
-    /// Releases the memory occupied by a list of Ellipsis names.
+    /// Releases the memory occupied by the ellipsis text.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `ellipsis` - Indicates the pointer to a list of Ellipsis names.
+    /// * `ellipsis` - Pointer to the ellipsis text.
     ///
     /// Available since API-level: 12
     ///
@@ -4859,19 +5486,20 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_TypographyDestroyEllipsis(ellipsis: *mut ::core::ffi::c_char);
-    /// Overriding the class ParagraphStyle equals operator.
+    /// Checks whether two typography styles are the same. The text height modifier mode
+    /// [`OH_Drawing_TextHeightBehavior`](crate::text_typography::OH_Drawing_TextHeightBehavior) is not involved in the comparison.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `from` - Indicates source of comparison object.
+    /// * `from` - Pointer to the first typography style.
     ///
-    /// * `to` - Indicates comparison object.
+    /// * `to` - Pointer to the second typography style.
     ///
     /// # Returns
     ///
-    /// * Compare result.
+    /// * Returns **true** if the two are the same; returns **false** otherwise.
     ///
     /// Available since API-level: 12
     ///
@@ -4882,13 +5510,13 @@ extern "C" {
         from: *mut OH_Drawing_TypographyStyle,
         to: *mut OH_Drawing_TypographyStyle,
     ) -> bool;
-    /// Releases the memory occupied by text box.
+    /// Releases the memory occupied by a text box.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `textBox` - Indicates the pointer to a text box object <b>OH_Drawing_TextBox</b>.
+    /// * `textBox` - Pointer to the [`OH_Drawing_TextBox`](ohos_sys_opaque_types::OH_Drawing_TextBox) object.
     ///
     /// Available since API-level: 12
     ///
@@ -4896,19 +5524,23 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_TypographyDestroyTextBox(textBox: *mut OH_Drawing_TextBox);
-    /// Sets the parameter of text-shadow.
+    /// Sets the parameters of the text shadow object.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `shadow` - Indicates the pointer to an <b>OH_Drawing_TextShadow</b> object.
+    /// * `shadow` - Pointer to the text shadow object [`OH_Drawing_TextShadow`](crate::text_declaration::OH_Drawing_TextShadow), obtained by
+    /// [`OH_Drawing_CreateTextShadow`](crate::text_typography::OH_Drawing_CreateTextShadow).
     ///
-    /// * `color` - Indicates the color setting of text-shadow.
+    /// * `color` - Color of the text shadow. For example, if the input parameter is 0xAABBCCDD, AA represents the alpha
+    /// value, BB represents the red component, CC represents the green component, and DD represents the blue component.
     ///
-    /// * `offset` - Indicates the pointer to an <b>OH_Drawing_Point</b> object.
+    /// * `offset` - Pointer to the coordinate point object [`OH_Drawing_Point`](crate::types::OH_Drawing_Point), which indicates the offset of the
+    /// text shadow relative to the current text.
     ///
-    /// * `blurRadius` - Indicates the radius of blur for text-shadow.
+    /// * `blurRadius` - Blur radius. The value is a floating point number and has no unit. The value **0.0** means that
+    /// there is no blur effect.
     ///
     /// Available since API-level: 12
     ///
@@ -4921,22 +5553,22 @@ extern "C" {
         offset: *mut OH_Drawing_Point,
         blurRadius: f64,
     );
-    /// Creates an <b>OH_Drawing_TextTab</b> object.
+    /// Creates a text tab object.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `alignment` - Indicates enumerates text tab alignment modes. TAB alignment, Support left alignment
-    /// right alignment center alignment, other enumeration values are left alignment effect.
+    /// * `alignment` - Alignment mode of the text following the tab character. The value **1** means right alignment, **2**
+    /// means center alignment, and **0** or other values mean left alignment.
     ///
-    /// * `location` - Indicates location of text tab.
+    /// * `location` - Alignment position of the text following the tab character. The unit is px. The minimum value is **1.
+    /// 0**.
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the <b>OH_Drawing_TextTab</b> object created. If the object returns NULL,
-    /// the creation failed. The possible cause of the failure is that the application address space is used up.
-    /// As a result, space cannot be allocated.
+    /// * Pointer to the **OH_Drawing_TextTab** object created. If a null pointer is returned, the creation fails. A
+    /// possible cause is that no memory is available.
     ///
     /// Available since API-level: 18
     ///
@@ -4947,13 +5579,13 @@ extern "C" {
         alignment: OH_Drawing_TextAlign,
         location: f32,
     ) -> *mut OH_Drawing_TextTab;
-    /// Releases the memory occupied by an <b>OH_Drawing_TextTab</b> object.
+    /// Releases the memory occupied by a text tab object.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `tab` - Indicates the pointer to an <b>OH_Drawing_TextTab</b> object.
+    /// * `tab` - Pointer to an **OH_Drawing_TextTab** object.
     ///
     /// Available since API-level: 18
     ///
@@ -4961,17 +5593,18 @@ extern "C" {
     #[cfg(feature = "api-18")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
     pub fn OH_Drawing_DestroyTextTab(tab: *mut OH_Drawing_TextTab);
-    /// Get alignment of an <b>OH_Drawing_TextTab</b> object.
+    /// Obtains the alignment mode of a text tab.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `tab` - Indicates the pointer to an <b>OH_Drawing_TextTab</b> object.
+    /// * `tab` - Pointer to an **OH_Drawing_TextTab** object.
     ///
     /// # Returns
     ///
-    /// * Returns align of an <b>OH_Drawing_TextTab</b> object.
+    /// * Alignment mode. The value **1** means right alignment, **2** means center alignment, and **0** or other
+    /// values mean left alignment.
     ///
     /// Available since API-level: 18
     ///
@@ -4979,17 +5612,17 @@ extern "C" {
     #[cfg(feature = "api-18")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
     pub fn OH_Drawing_GetTextTabAlignment(tab: *mut OH_Drawing_TextTab) -> OH_Drawing_TextAlign;
-    /// Get location of an <b>OH_Drawing_TextTab</b> object.
+    /// Obtains the location of a text tab.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `tab` - Indicates the pointer to an <b>OH_Drawing_TextTab</b> object.
+    /// * `tab` - Pointer to an **OH_Drawing_TextTab** object.
     ///
     /// # Returns
     ///
-    /// * Returns location of an <b>OH_Drawing_TextTab</b> object.
+    /// * Position of the text tab.
     ///
     /// Available since API-level: 18
     ///
@@ -4997,18 +5630,16 @@ extern "C" {
     #[cfg(feature = "api-18")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
     pub fn OH_Drawing_GetTextTabLocation(tab: *mut OH_Drawing_TextTab) -> f32;
-    /// Sets the text tab of <b>OH_Drawing_TypographyStyle</b> object.
-    /// Tab alignment does not take effect when text alignment is also set, Or when the ellipsis style is configured.
-    /// When the tab is not set or the tab's location property is less than or equal to 0, it is the default space effect.
-    /// And all tabs in the paragraph after the setting are aligned according to this tab effect.
+    /// Sets the alignment mode and location of a text tab. When the text alignment mode or ellipsis style is set,
+    /// the tab does not take effect. When the tab location is less than 1.0, the tab is replaced with a space.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to an <b>OH_Drawing_TypographyStyle</b> object.
+    /// * `style` - Pointer to the typography style object [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle).
     ///
-    /// * `tab` - Indicates the pointer to an <b>OH_Drawing_TextTab</b> object.
+    /// * `tab` - Pointer to an **OH_Drawing_TextTab** object.
     ///
     /// Available since API-level: 18
     ///
@@ -5019,17 +5650,17 @@ extern "C" {
         style: *mut OH_Drawing_TypographyStyle,
         tab: *mut OH_Drawing_TextTab,
     );
-    /// Get DrawingArray size.
+    /// Obtains the number of objects in the input object array [`OH_Drawing_Array`](crate::types::OH_Drawing_Array).
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `drawingArray` - Indicates the pointer to the array object <b>OH_Drawing_Array</b>.
+    /// * `drawingArray` - Pointer to the [`OH_Drawing_Array`](crate::types::OH_Drawing_Array) object array.
     ///
     /// # Returns
     ///
-    /// * Size of array.
+    /// * Number of objects in the array.
     ///
     /// Available since API-level: 14
     ///
@@ -5037,16 +5668,17 @@ extern "C" {
     #[cfg(feature = "api-14")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
     pub fn OH_Drawing_GetDrawingArraySize(drawingArray: *mut OH_Drawing_Array) -> usize;
-    /// Sets whether to optimize whitespace at the end of each line for text typography.
+    /// Sets whether to include the trailing spaces in alignment calculations during text typography.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to an <b>OH_Drawing_TypographyStyle</b> object.
+    /// * `style` - Pointer to the typography style object [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle).
     ///
-    /// * `trailingSpaceOptimized` - Boolean value indicating whether to optimize whitespace at the end of each line
-    /// for text typography to set.
+    /// * `trailingSpaceOptimized` - Whether trailing spaces participate in alignment calculation during text typography.
+    /// The value true means trailing spaces do not participate in calculation, and false means they do. The default
+    /// value is false. It is recommended to set this parameter to true for center-aligned text.
     ///
     /// Available since API-level: 20
     ///
@@ -5057,19 +5689,21 @@ extern "C" {
         style: *mut OH_Drawing_TypographyStyle,
         trailingSpaceOptimized: bool,
     );
-    /// Sets the text content. The content supports UTF-8, UTF-16, and UTF-32 formats.
+    /// Adds text encoded in a specified format.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `handler` - Indicates the pointer to an <b>OH_Drawing_TypographyCreate</b> object.
+    /// * `handler` - Pointer to the [`OH_Drawing_TypographyCreate`](crate::text_declaration::OH_Drawing_TypographyCreate) object, which is obtained from
+    /// [`OH_Drawing_CreateTypographyHandler`](crate::text_typography::OH_Drawing_CreateTypographyHandler).
     ///
-    /// * `text` - Indicates the pointer to the text content to set.
+    /// * `text` - Pointer to the text content.
     ///
-    /// * `byteLength` - Set the byte length of the text content.
+    /// * `byteLength` - Length of the text, in bytes.
     ///
-    /// * `textEncodingType` - Indicates the text encoding type <b>OH_Drawing_TextEncoding</b>.
+    /// * `textEncodingType` - Text encoding type, which is an enumerated value of [`OH_Drawing_TextEncoding`](crate::types::OH_Drawing_TextEncoding). Only **
+    /// TEXT_ENCODING_UTF8**, **TEXT_ENCODING_UTF16**, and **TEXT_ENCODING_UTF32** are supported.
     ///
     /// Available since API-level: 20
     ///
@@ -5082,15 +5716,20 @@ extern "C" {
         byteLength: usize,
         textEncodingType: OH_Drawing_TextEncoding,
     );
-    /// Set whether to enable automatic spacing between Chinese and English for paragraph.
+    /// Sets whether to enable auto spacing for text typography.
+    /// <br>Auto spacing is disabled by default. Once enabled, the spacing between CJK (Chinese, Japanese, and Korean
+    /// characters) and Western characters (Latin, Cyrillic, and Greek letters), CJK and digits, CJK and copyright symbols,
+    /// copyright symbols and digits, and copyright symbols and Western characters is automatically adjusted.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to an <b>OH_Drawing_TypographyStyle</b> object.
+    /// * `style` - Pointer to an [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle) object, obtained by
+    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
-    /// * `enableAutoSpace` - Indicates Whether to enable automatic spacing between Chinese and English.
+    /// * `enableAutoSpace` - Whether to enable automatic spacing in text typography. The value `true` means to enable
+    /// automatic spacing, and `false` means the opposite. The default value is `false`.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -5099,17 +5738,19 @@ extern "C" {
         style: *mut OH_Drawing_TypographyStyle,
         enableAutoSpace: bool,
     );
-    /// Copy a typography style object.
+    /// Creates a copy of an existing paragraph style object.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to an <b>OH_Drawing_TypographyStyle</b> object.
+    /// * `style` - Pointer to the [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle) object to be copied.
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the copied <b>OH_Drawing_TypographyStyle</b> object.
+    /// * Pointer to the copied [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle) object. If a null pointer is returned, the creation
+    /// fails. The possible cause is that no memory is available or **style** is a null pointer. Release this pointer by
+    /// calling [`OH_Drawing_DestroyTypographyStyle`](crate::text_typography::OH_Drawing_DestroyTypographyStyle) when this object is no longer needed.
     ///
     /// Available since API-level: 20
     ///
@@ -5119,17 +5760,19 @@ extern "C" {
     pub fn OH_Drawing_CopyTypographyStyle(
         style: *mut OH_Drawing_TypographyStyle,
     ) -> *mut OH_Drawing_TypographyStyle;
-    /// Copy a text style object.
+    /// Creates a copy of an existing text style object.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `style` - Indicates the pointer to an <b>OH_Drawing_TextStyle</b> object.
+    /// * `style` - Pointer to the [`OH_Drawing_TextStyle`](crate::text_declaration::OH_Drawing_TextStyle) object to be copied.
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the copied <b>OH_Drawing_TextStyle</b> object.
+    /// * Pointer to the copied [`OH_Drawing_TextStyle`](crate::text_declaration::OH_Drawing_TextStyle) object. If a null pointer is returned, the creation fails.
+    /// The possible cause is that no memory is available or **style** is a null pointer. Release this pointer by
+    /// calling [`OH_Drawing_DestroyTextStyle`](crate::text_typography::OH_Drawing_DestroyTextStyle) when this object is no longer needed.
     ///
     /// Available since API-level: 20
     ///
@@ -5137,17 +5780,19 @@ extern "C" {
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_Drawing_CopyTextStyle(style: *mut OH_Drawing_TextStyle) -> *mut OH_Drawing_TextStyle;
-    /// Copy a text shadow object.
+    /// Creates a copy of an existing text shadow object.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `shadow` - Indicates the pointer to an <b>OH_Drawing_TextShadow</b> object.
+    /// * `shadow` - Pointer to the [`OH_Drawing_TextShadow`](crate::text_declaration::OH_Drawing_TextShadow) object to be copied.
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the copied <b>OH_Drawing_TextShadow</b> object.
+    /// * Pointer to the copied [`OH_Drawing_TextShadow`](crate::text_declaration::OH_Drawing_TextShadow) object. If a null pointer is returned, the creation
+    /// fails. The possible cause is that no memory is available or **shadow** is a null pointer. Release this pointer
+    /// by calling [`OH_Drawing_DestroyTextShadow`](crate::text_typography::OH_Drawing_DestroyTextShadow) when this object is no longer needed.
     ///
     /// Available since API-level: 20
     ///
@@ -5157,11 +5802,11 @@ extern "C" {
     pub fn OH_Drawing_CopyTextShadow(
         shadow: *mut OH_Drawing_TextShadow,
     ) -> *mut OH_Drawing_TextShadow;
-    /// Releases the memory occupied by an <b>OH_Drawing_PositionAndAffinity</b> object.
+    /// Destroys an [`OH_Drawing_PositionAndAffinity`](ohos_sys_opaque_types::OH_Drawing_PositionAndAffinity) object and reclaims the memory occupied by the object.
     ///
     /// # Arguments
     ///
-    /// * `positionAndAffinity` - Indicates the pointer to an <b>OH_Drawing_PositionAndAffinity</b> object.
+    /// * `positionAndAffinity` - Pointer to the [`OH_Drawing_PositionAndAffinity`](ohos_sys_opaque_types::OH_Drawing_PositionAndAffinity) object.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -5169,4 +5814,137 @@ extern "C" {
     pub fn OH_Drawing_DestroyPositionAndAffinity(
         positionAndAffinity: *mut OH_Drawing_PositionAndAffinity,
     );
+    /// Obtains the character range corresponding to the specified glyph range.
+    ///
+    /// # Arguments
+    ///
+    /// * `typography` - Pointer to the **OH_Drawing_Typography** object, which is obtained from
+    /// [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
+    ///
+    /// * `glyphRangeStart` - Start position of the glyph range.
+    ///
+    /// * `glyphRangeEnd` - End position of the glyph range.
+    ///
+    /// * `actualGlyphRange` - Returns the actual font range, indicating the level-2 pointer to [`OH_Drawing_Range`](crate::text_declaration::OH_Drawing_Range).
+    /// It is used as an output parameter.
+    /// <br>When the requested glyph range contains only a part of a complex glyph sequence, this parameter returns the
+    /// corresponding complete glyph range.
+    /// <br>For example, ligatures and combined emojis may consist of multiple atomic glyphs and must be processed as a
+    /// whole.
+    /// <br>If this parameter is NULL, the actual glyph range is not returned, indicating that the caller does not care
+    /// about the actual glyph range information.
+    /// <br>After use, release the object through the [`OH_Drawing_ReleaseRangeBuffer`](crate::text_typography::OH_Drawing_ReleaseRangeBuffer) API.
+    ///
+    /// * `textEncodingType` - Text encoding type [`OH_Drawing_TextEncoding`](crate::types::OH_Drawing_TextEncoding).
+    /// <br>Currently, only UTF-8 and UTF-16 encoding types are supported.
+    /// <br>For UTF-8 encoding, the returned character range indicates the byte range.
+    /// <br>For UTF-16 encoding, the returned character range indicates the UTF-16 code unit range.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the [`OH_Drawing_Range`](crate::text_declaration::OH_Drawing_Range) object pointer that indicates the character range. When the object is
+    /// no longer needed, use the [`OH_Drawing_ReleaseRangeBuffer`](crate::text_typography::OH_Drawing_ReleaseRangeBuffer) API to release it.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_Drawing_TypographyGetCharacterRangeForGlyphRangeWithBuffer(
+        typography: *mut OH_Drawing_Typography,
+        glyphRangeStart: usize,
+        glyphRangeEnd: usize,
+        actualGlyphRange: *mut *mut OH_Drawing_Range,
+        textEncodingType: OH_Drawing_TextEncoding,
+    ) -> *mut OH_Drawing_Range;
+    /// Obtains the character position information closest to the specified coordinates.
+    ///
+    /// # Arguments
+    ///
+    /// * `typography` - Pointer to the **OH_Drawing_Typography** object, which is obtained from
+    /// [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
+    ///
+    /// * `dx` - Horizontal coordinate in the text layout area, in physical pixels (px).
+    /// <br>X offset relative to the top-left corner of the text layout area, with the right direction as positive.
+    /// <br>Supports floating-point values and accepts negative values, which indicate positions to the left of the text
+    /// layout area.
+    /// <br>If the coordinates are beyond the text layout area, the nearest character position is returned. It can be
+    /// obtained through a touch event or click event.
+    ///
+    /// * `dy` - Vertical coordinate in the text layout area, in physical pixels (px).
+    /// <br>Y offset relative to the top-left corner of the text layout area, with the downward direction as positive.
+    /// <br>Supports floating-point values and accepts negative values, which indicate positions above the text layout
+    /// area.
+    /// <br>If the coordinates are beyond the text layout area, the nearest character position is returned. It can be
+    /// obtained through a touch event or click event.
+    ///
+    /// * `textEncodingType` - Text encoding type [`OH_Drawing_TextEncoding`](crate::types::OH_Drawing_TextEncoding).
+    /// <br>Currently, only UTF-8 and UTF-16 encoding types are supported.
+    /// <br>For UTF-8 encoding, the returned position indicates the byte offset. For UTF-16 encoding, the returned
+    /// position indicates the UTF-16 code unit offset.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the character index position and affinity at the coordinate. The return type is the
+    /// [`OH_Drawing_PositionAndAffinity`](ohos_sys_opaque_types::OH_Drawing_PositionAndAffinity) structure.
+    /// <br>When the object is no longer needed, call [`OH_Drawing_DestroyPositionAndAffinity`](crate::text_typography::OH_Drawing_DestroyPositionAndAffinity) to release it.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_Drawing_TypographyGetCharacterPositionAtCoordinateWithBuffer(
+        typography: *mut OH_Drawing_Typography,
+        dx: f64,
+        dy: f64,
+        textEncodingType: OH_Drawing_TextEncoding,
+    ) -> *mut OH_Drawing_PositionAndAffinity;
+    /// Obtains the glyph range corresponding to the specified character range.
+    ///
+    /// # Arguments
+    ///
+    /// * `typography` - Pointer to the **OH_Drawing_Typography** object, which is obtained from
+    /// [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
+    ///
+    /// * `characterRangeStart` - Start position of the character range.
+    ///
+    /// * `characterRangeEnd` - End position of the character range.
+    ///
+    /// * `actualCharacterRange` - Returns the actual character range, indicating the level-2 pointer to
+    /// [`OH_Drawing_Range`](crate::text_declaration::OH_Drawing_Range). It is used as an output parameter.
+    /// <br>When the requested character range contains only a part of the combined character sequence, this parameter
+    /// returns the corresponding complete character range.
+    /// <br>For example, a combined character consisting of a base character and a diacritical mark must be processed as
+    /// a whole.
+    /// <br>If this parameter is NULL, the actual character range is not returned, indicating that the caller does not
+    /// care about the actual character range information.
+    /// <br>After use, release the object through the [`OH_Drawing_ReleaseRangeBuffer`](crate::text_typography::OH_Drawing_ReleaseRangeBuffer) API.
+    ///
+    /// * `textEncodingType` - Text encoding type [`OH_Drawing_TextEncoding`](crate::types::OH_Drawing_TextEncoding).
+    /// <br>Currently, only UTF-8 and UTF-16 encoding types are supported.
+    /// <br>For UTF-8 encoding, the input character range should be interpreted as a byte range. For UTF-16 encoding,
+    /// the input character range should be interpreted as a UTF-16 code unit range.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the [`OH_Drawing_Range`](crate::text_declaration::OH_Drawing_Range) object pointer that indicates the font range. If the object is no
+    /// longer needed, use the [`OH_Drawing_ReleaseRangeBuffer`](crate::text_typography::OH_Drawing_ReleaseRangeBuffer) API to release it.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_Drawing_TypographyGetGlyphRangeForCharacterRangeWithBuffer(
+        typography: *mut OH_Drawing_Typography,
+        characterRangeStart: usize,
+        characterRangeEnd: usize,
+        actualCharacterRange: *mut *mut OH_Drawing_Range,
+        textEncodingType: OH_Drawing_TextEncoding,
+    ) -> *mut OH_Drawing_Range;
+    /// Releases the memory occupied by the [`OH_Drawing_Range`](crate::text_declaration::OH_Drawing_Range) object.
+    ///
+    /// # Arguments
+    ///
+    /// * `range` - Pointer to the [`OH_Drawing_Range`](crate::text_declaration::OH_Drawing_Range) object.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_Drawing_ReleaseRangeBuffer(range: *mut OH_Drawing_Range);
 }

@@ -5,6 +5,7 @@
 AbilityKit
 BasicServicesKit
 ConnectivityKit
+ContentEmbedKit
 CryptoArchitectureKit
 DataProtectionKit
 GameControllerKit
@@ -21,6 +22,7 @@ background_process_manager
 bundle
 database
 ddk
+device_certificate
 distributedhardware
 ffrt
 filemanagement
@@ -31,6 +33,7 @@ hidebug
 hilog
 hitrace
 huks
+i18n
 info
 inputmethod
 mindspore
@@ -49,7 +52,9 @@ native_window
 network
 neural_network_runtime
 ohaudio
+ohaudiosuite
 ohcamera
+ohmidi
 purgeable_memory
 qos
 rawfile

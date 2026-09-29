@@ -15,48 +15,51 @@ use crate::avtranscoder_base::{
 };
 
 extern "C" {
-    /// Create a transcoder config
+    /// Creates an instance of the transcoding configuration parameters.
+    ///
     ///
     /// # Returns
     ///
-    /// * Returns a pointer to an OH_AVTranscoder_Config instance for success, nullptr for failure
+    /// * Pointer to the OH_AVTranscoder_Config instance created. If the operation fails, nullptr is returned.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_AVTranscoderConfig_Create() -> *mut OH_AVTranscoder_Config;
-    /// release a transcoder config instance.
+    /// Releases the resources of the transcoding configuration parameters.
+    /// After a successful call, the instance specified by **config** is released and set to nullptr.
+    ///
     /// # Arguments
     ///
-    /// {OH_AVTranscoder_Config*} config Pointer to an OH_AVTranscoder_Config instance.
+    /// * `config` - Pointer to an OH_AVTranscoder_Config instance.
     ///
     /// # Returns
     ///
-    /// *
-    /// * Function result code.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input config is nullptr.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The release operation is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **config** is nullptr.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_AVTranscoderConfig_Release(config: *mut OH_AVTranscoder_Config) -> OH_AVErrCode;
-    /// Set Source file descriptor for transcoding.
+    /// Sets the file descriptor of the source video for transcoding.
+    /// This function must be called before [`OH_AVTranscoder_Prepare`](crate::avtranscoder::OH_AVTranscoder_Prepare).
+    ///
     /// # Arguments
     ///
-    /// {OH_AVTranscoder_Config*} config Pointer to an OH_AVTranscoder_Config instance.
+    /// * `config` - Pointer to an OH_AVTranscoder_Config instance.
     ///
-    /// {int32_t} srcFd Source file descriptor.
+    /// * `srcFd` - Source file descriptor.
     ///
-    /// {int64_t} srcOffset The offset into the file where the data to be read, in bytes.
+    /// * `srcOffset` - The offset into the file where the data to be read, in bytes.
     ///
-    /// {int64_t} length The length in bytes of the data to be read
+    /// * `length` - The length in bytes of the data to be read
     ///
     /// # Returns
     ///
-    /// * Function result code.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input config is nullptr or file related parameter error.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The setting is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **config** is nullptr, or the parameters related to the source video
+    /// file are incorrect.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -67,18 +70,19 @@ extern "C" {
         srcOffset: i64,
         length: i64,
     ) -> OH_AVErrCode;
-    /// Set destination file descriptor for transcoding.
+    /// Sets the file descriptor of the output video for transcoding.
+    /// This function must be called before [`OH_AVTranscoder_Prepare`](crate::avtranscoder::OH_AVTranscoder_Prepare).
+    ///
     /// # Arguments
     ///
-    /// {OH_AVTranscoder_Config*} config Pointer to an OH_AVTranscoder_Config instance
+    /// * `config` - Pointer to an OH_AVTranscoder_Config instance
     ///
-    /// {int32_t} dstFd Destination file descriptor
+    /// * `dstFd` - Destination file descriptor
     ///
     /// # Returns
     ///
-    /// * Function result code.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input config is nullptr or dstFd is invalid.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The setting is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **config** is nullptr, or the output video file descriptor is invalid.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -87,18 +91,21 @@ extern "C" {
         config: *mut OH_AVTranscoder_Config,
         dstFd: i32,
     ) -> OH_AVErrCode;
-    /// Set destination video mime type.
+    /// Sets the encoding format of the output video for transcoding.
+    /// Currently, only AVC and HEVC are supported. If the source video is in HEVC format, the default value is **HEVC**.
+    /// Otherwise, the default value is **AVC**.
+    /// This function must be called before [`OH_AVTranscoder_Prepare`](crate::avtranscoder::OH_AVTranscoder_Prepare).
+    ///
     /// # Arguments
     ///
-    /// {OH_AVTranscoder_Config*} config Pointer to an OH_AVTranscoder_Config instance
+    /// * `config` - Pointer to an OH_AVTranscoder_Config instance
     ///
-    /// {const char*} mimeType Destination video mime type. See native_avcodec_base.h
+    /// * `mimeType` - Destination video mime type. See native_avcodec_base.h
     ///
     /// # Returns
     ///
-    /// * Function result code.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input config is nullptr or mimeType is unrecognized.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The setting is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **config** is nullptr, or the value of **mimeType** is not allowed.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -107,18 +114,20 @@ extern "C" {
         config: *mut OH_AVTranscoder_Config,
         mimeType: *const ::core::ffi::c_char,
     ) -> OH_AVErrCode;
-    /// Set destination audio mime type.
+    /// Sets the encoding format of the output audio for transcoding.
+    /// Currently, only AAC is supported. If this parameter is not set, AAC is used by default.
+    /// This function must be called before [`OH_AVTranscoder_Prepare`](crate::avtranscoder::OH_AVTranscoder_Prepare).
+    ///
     /// # Arguments
     ///
-    /// {OH_AVTranscoder_Config*} config Pointer to an OH_AVTranscoder_Config instance
+    /// * `config` - Pointer to an OH_AVTranscoder_Config instance
     ///
-    /// {const char*} mimeType Destination audio mime type. See native_avcodec_base.h
+    /// * `mimeType` - Destination audio mime type. See native_avcodec_base.h
     ///
     /// # Returns
     ///
-    /// * Function result code.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input config is nullptr or mimeType is unrecognized.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The setting is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **config** is nullptr, or the value of **mimeType** is not allowed.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -127,18 +136,20 @@ extern "C" {
         config: *mut OH_AVTranscoder_Config,
         mimeType: *const ::core::ffi::c_char,
     ) -> OH_AVErrCode;
-    /// Set destination file type.
+    /// Sets the container format of the output video file for transcoding.
+    /// Currently, only MP4 is supported.
+    /// This function must be called before [`OH_AVTranscoder_Prepare`](crate::avtranscoder::OH_AVTranscoder_Prepare).
+    ///
     /// # Arguments
     ///
-    /// {OH_AVTranscoder_Config*} config Pointer to an OH_AVTranscoder_Config instance
+    /// * `config` - Pointer to an OH_AVTranscoder_Config instance
     ///
-    /// {OH_AVOutputFormat} mimeType Destination file type. See native_avcodec_base.h
+    /// * `mimeType` - Destination file type. See native_avcodec_base.h
     ///
     /// # Returns
     ///
-    /// * Function result code.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input config is nullptr or mimeType is invalid.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The setting is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **config** is nullptr, or the value of **mimeType** is invalid.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -147,18 +158,19 @@ extern "C" {
         config: *mut OH_AVTranscoder_Config,
         mimeType: OH_AVOutputFormat,
     ) -> OH_AVErrCode;
-    /// Set destination audio bitrate.
+    /// Sets the bit rate of the output audio for transcoding.
+    /// This function must be called before [`OH_AVTranscoder_Prepare`](crate::avtranscoder::OH_AVTranscoder_Prepare).
+    ///
     /// # Arguments
     ///
-    /// {OH_AVTranscoder_Config*} config Pointer to an OH_AVTranscoder_Config instance
+    /// * `config` - Pointer to an OH_AVTranscoder_Config instance
     ///
-    /// {int32_t} bitrate Destination audio bitrate.
+    /// * `bitrate` - Destination audio bitrate, in bit/s.
     ///
     /// # Returns
     ///
-    /// * Function result code.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input config is nullptr or bitrate value is invalid.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The setting is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **config** is nullptr, or the value of **bitrate** is invalid.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -167,18 +179,19 @@ extern "C" {
         config: *mut OH_AVTranscoder_Config,
         bitrate: i32,
     ) -> OH_AVErrCode;
-    /// Set destination video bitrate.
+    /// Sets the bit rate of the output video for transcoding.
+    /// This function must be called before [`OH_AVTranscoder_Prepare`](crate::avtranscoder::OH_AVTranscoder_Prepare).
+    ///
     /// # Arguments
     ///
-    /// {OH_AVTranscoder_Config*} config Pointer to an OH_AVTranscoder_Config instance
+    /// * `config` - Pointer to an OH_AVTranscoder_Config instance
     ///
-    /// {int32_t} bitrate Destination video bitrate.
+    /// * `bitrate` - Destination video bitrate, in bit/s.
     ///
     /// # Returns
     ///
-    /// * Function result code.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input config is nullptr or bitrate value is invalid.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The setting is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **config** is nullptr, or the value of **bitrate** is invalid.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -187,20 +200,23 @@ extern "C" {
         config: *mut OH_AVTranscoder_Config,
         bitrate: i32,
     ) -> OH_AVErrCode;
-    /// Set destination video resolution.
+    /// Sets the resolution of the output video for transcoding, in px, where **width** is the width of the output
+    /// video frame and **height** is the height of the output video frame.
+    /// This function must be called before [`OH_AVTranscoder_Prepare`](crate::avtranscoder::OH_AVTranscoder_Prepare).
+    ///
     /// # Arguments
     ///
-    /// {OH_AVTranscoder_Config*} config Pointer to an OH_AVTranscoder_Config instance
+    /// * `config` - Pointer to an OH_AVTranscoder_Config instance
     ///
-    /// {int32_t} width Destination for video width.
+    /// * `width` - Destination for video width, in px.
     ///
-    /// {int32_t} height Destination for video height.
+    /// * `height` - Destination for video height, in px.
     ///
     /// # Returns
     ///
-    /// * Function result code.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input config is nullptr or width/height value is invalid.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The setting is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **config** is nullptr, or the value of **width** or **height** is
+    /// invalid.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -210,33 +226,37 @@ extern "C" {
         width: i32,
         height: i32,
     ) -> OH_AVErrCode;
-    /// Create a transcoder
+    /// Creates an AVTranscoder instance.
+    ///
     ///
     /// # Returns
     ///
-    /// * {OH_AVTranscoder*} Returns a pointer to an OH_AVTranscoder instance for success, nullptr for failure
+    /// * Pointer to the OH_AVTranscoder instance created. If the operation fails, nullptr is returned.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_AVTranscoder_Create() -> *mut OH_AVTranscoder;
-    /// Prepare for transcoding with a config.
+    /// Sets the parameters for video transcoding and prepares for transcoding.
+    /// This function must be called before [`OH_AVTranscoder_Start`](crate::avtranscoder::OH_AVTranscoder_Start). Upon a successful call to this function, the
+    /// AVTranscoder enters the AVTRANSCODER_PREPARED state.
+    ///
     /// # Arguments
     ///
-    /// {OH_AVTranscoder*} transcoder Pointer to an OH_AVTranscoder instance
+    /// * `transcoder` - Pointer to an OH_AVTranscoder instance
     ///
-    /// {OH_AVTranscoder_Config*} config Pointer to an OH_AVTranscoder_Config instance,
+    /// * `config` - Pointer to an OH_AVTranscoder_Config instance,
     /// see [`OH_AVTranscoder_Config`](crate::avtranscoder_base::OH_AVTranscoder_Config)
     ///
     /// # Returns
     ///
-    /// * Function result code.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input transcoder is nullptr or transcoder Prepare failed.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) if the operation of Prepare not allowed.
-    /// [`AV_ERR_IO`](crate::averrors::OH_AVErrCode::AV_ERR_IO) if Errors related to IO access
-    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED) if media service died.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) if unsupported format.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The video transcoding parameters are set successfully, and the AVTranscoder enters the
+    /// AVTRANSCODER_PREPARED state.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **transcoder** is nullptr, or the Prepare operation fails.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The Prepare operation is not allowed in the current state, or the format is not
+    /// supported.
+    /// **AV_ERR_IO**: An I/O access error occurs.
+    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED): The media service is stopped.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -245,111 +265,124 @@ extern "C" {
         transcoder: *mut OH_AVTranscoder,
         config: *mut OH_AVTranscoder_Config,
     ) -> OH_AVErrCode;
-    /// Start AVTranscoder.
+    /// Starts transcoding.
+    /// This function must be called after a successful call to [`OH_AVTranscoder_Prepare`](crate::avtranscoder::OH_AVTranscoder_Prepare). Upon a successful call to
+    /// this function, the AVTranscoder enters the AVTRANSCODER_STARTED state.
+    ///
     /// # Arguments
     ///
-    /// {OH_AVTranscoder*} transcoder Pointer to an OH_AVTranscoder instance
+    /// * `transcoder` - Pointer to an OH_AVTranscoder instance
     ///
     /// # Returns
     ///
-    /// * Function result code.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input transcoder is nullptr or transcoder start failed.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) if the operation of Start not allowed.
-    /// [`AV_ERR_IO`](crate::averrors::OH_AVErrCode::AV_ERR_IO) if errors related to IO access.
-    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED) if media service died.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): Transcoding starts successfully, and the AVTranscoder enters the AVTRANSCODER_STARTED state.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **transcoder** is nullptr, or the Start operation fails.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The Start operation is not allowed in the current state.
+    /// **AV_ERR_IO**: An I/O access error occurs.
+    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED): The media service is stopped.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_AVTranscoder_Start(transcoder: *mut OH_AVTranscoder) -> OH_AVErrCode;
-    /// Pause AVTranscoder.
+    /// Pauses transcoding.
+    /// This function must be called when the AVTranscoder is in the AVTRANSCODER_STARTED state. Upon a successful call to
+    /// this function, the AVTranscoder enters the AVTRANSCODER_PAUSED state.
+    ///
     /// # Arguments
     ///
-    /// {OH_AVTranscoder*} transcoder Pointer to an OH_AVTranscoder instance
+    /// * `transcoder` - Pointer to an OH_AVTranscoder instance
     ///
     /// # Returns
     ///
-    /// * Function result code.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input transcoder is nullptr or transcoder pause failed.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) if the operation of Start not allowed.
-    /// [`AV_ERR_IO`](crate::averrors::OH_AVErrCode::AV_ERR_IO) if errors related to IO access.
-    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED) if media service died.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): Transcoding is paused successfully, and the AVTranscoder enters the AVTRANSCODER_PAUSED state.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **transcoder** is nullptr, or the Pause operation fails.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The Pause operation is not allowed in the current state.
+    /// **AV_ERR_IO**: An I/O access error occurs.
+    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED): The media service is stopped.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_AVTranscoder_Pause(transcoder: *mut OH_AVTranscoder) -> OH_AVErrCode;
-    /// Resume AVTranscoder.
+    /// Resumes transcoding.
+    /// This function must be called when the AVTranscoder is in the AVTRANSCODER_PAUSED state. Upon a successful call to
+    /// this function, the AVTranscoder enters the AVTRANSCODER_STARTED state again.
+    ///
     /// # Arguments
     ///
-    /// {OH_AVTranscoder*} transcoder Pointer to an OH_AVTranscoder instance
+    /// * `transcoder` - Pointer to an OH_AVTranscoder instance
     ///
     /// # Returns
     ///
-    /// * Function result code.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input transcoder is nullptr or transcoder resume failed.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) if the operation of Start not allowed.
-    /// [`AV_ERR_IO`](crate::averrors::OH_AVErrCode::AV_ERR_IO) if errors related to IO access.
-    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED) if media service died.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): Transcoding is resumed successfully, and the AVTranscoder enters the AVTRANSCODER_STARTED
+    /// state.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **transcoder** is nullptr, or the Resume operation fails.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The Resume operation is not allowed in the current state.
+    /// **AV_ERR_IO**: An I/O access error occurs.
+    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED): The media service is stopped.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_AVTranscoder_Resume(transcoder: *mut OH_AVTranscoder) -> OH_AVErrCode;
-    /// Cancel AVTranscoder.
+    /// Cancels transcoding.
+    /// This function must be called when the AVTranscoder is in the AVTRANSCODER_STARTED or AVTRANSCODER_PAUSED state. Upon
+    /// a successful call to this function, the AVTranscoder enters the AVTRANSCODER_CANCELLED state.
+    ///
     /// # Arguments
     ///
-    /// {OH_AVTranscoder*} transcoder Pointer to an OH_AVTranscoder instance
+    /// * `transcoder` - Pointer to an OH_AVTranscoder instance
     ///
     /// # Returns
     ///
-    /// * Function result code.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input transcoder is nullptr or transcoder stop failed.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) if the operation of Start not allowed.
-    /// [`AV_ERR_IO`](crate::averrors::OH_AVErrCode::AV_ERR_IO) if errors related to IO access.
-    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED) if media service died.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): Transcoding is canceled successfully, and the AVTranscoder enters the AVTRANSCODER_CANCELLED
+    /// state.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **transcoder** is nullptr, or the Cancel operation fails.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The Cancel operation is not allowed in the current state.
+    /// **AV_ERR_IO**: An I/O access error occurs.
+    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED): The media service is stopped.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_AVTranscoder_Cancel(transcoder: *mut OH_AVTranscoder) -> OH_AVErrCode;
-    /// Release AVTranscoder.
+    /// Releases an AVTranscoder instance.
+    ///
     /// # Arguments
     ///
-    /// {OH_AVTranscoder*} transcoder Pointer to an OH_AVTranscoder instance
+    /// * `transcoder` - Pointer to an OH_AVTranscoder instance
     ///
     /// # Returns
     ///
-    /// * Function result code.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input transcoder is nullptr or transcoder release failed.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) if the operation of Start not allowed.
-    /// [`AV_ERR_IO`](crate::averrors::OH_AVErrCode::AV_ERR_IO) if errors related to IO access.
-    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED) if media service died.
+    /// * AV_ERR_OK: The AVTranscoder instance is successfully released.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **transcoder** is nullptr, or the Release operation fails.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The Release operation is not allowed in the current state.
+    /// **AV_ERR_IO**: An I/O access error occurs.
+    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED): The media service is stopped.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_AVTranscoder_Release(transcoder: *mut OH_AVTranscoder) -> OH_AVErrCode;
-    /// Set the state callback function so that your application can respond to the
-    /// state change events generated by the avtranscoder. This interface must be called before Start is called.
+    /// Registers a callback for transcoding state change events.
+    /// This callback is invoked when the state of the transcoding process changes.
+    /// An application can subscribe to only one transcoding state change event. When the application initiates multiple
+    /// subscriptions to this event, the last subscription is applied.
+    /// The callback must be registered before [`OH_AVTranscoder_Prepare`](crate::avtranscoder::OH_AVTranscoder_Prepare) is called.
+    ///
     /// # Arguments
     ///
-    /// {OH_AVTranscoder*} transcoder Pointer to an OH_AVTranscoder instance
+    /// * `transcoder` - Pointer to an OH_AVTranscoder instance
     ///
-    /// {OH_AVTranscoder_OnStateChange} callback State callback function, see [`OH_AVTranscoder_OnStateChange`](crate::avtranscoder_base::OH_AVTranscoder_OnStateChange)
+    /// * `callback` - State callback function, see [`OH_AVTranscoder_OnStateChange`](crate::avtranscoder_base::OH_AVTranscoder_OnStateChange)
     ///
-    /// {void*} userData Pointer to user specific data
+    /// * `userData` - Pointer to user specific data
     ///
     /// # Returns
     ///
-    /// * Function result code.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input transcoder is nullptr or input callback is nullptr.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The registration is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **transcoder** or **callback** is nullptr.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -359,21 +392,25 @@ extern "C" {
         callback: OH_AVTranscoder_OnStateChange,
         userData: *mut ::core::ffi::c_void,
     ) -> OH_AVErrCode;
-    /// Set the error callback function so that your application can respond to the
-    /// error events generated by the avtranscoder. This interface must be called before Start is called.
+    /// Registers a callback for transcoding error events.
+    /// This callback is invoked when an error occurs during the transcoding process.
+    /// If this event is reported, call [`OH_AVTranscoder_Release`](crate::avtranscoder::OH_AVTranscoder_Release) to exit the transcoding.
+    /// An application can subscribe to only one transcoding error event. When the application initiates multiple
+    /// subscriptions to this event, the last subscription is applied.
+    /// The callback must be registered before [`OH_AVTranscoder_Prepare`](crate::avtranscoder::OH_AVTranscoder_Prepare) is called.
+    ///
     /// # Arguments
     ///
-    /// {OH_AVTranscoder*} transcoder Pointer to an OH_AVTranscoder instance
+    /// * `transcoder` - Pointer to an OH_AVTranscoder instance
     ///
-    /// {OH_AVTranscoder_OnError} callback Error callback function, see [`OH_AVTranscoder_OnError`](crate::avtranscoder_base::OH_AVTranscoder_OnError)
+    /// * `callback` - Error callback function, see [`OH_AVTranscoder_OnError`](crate::avtranscoder_base::OH_AVTranscoder_OnError)
     ///
-    /// {void*} userData Pointer to user specific data
+    /// * `userData` - Pointer to user specific data
     ///
     /// # Returns
     ///
-    /// * Function result code.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input transcoder is nullptr or input callback is nullptr.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The registration is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **transcoder** or **callback** is nullptr.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -383,22 +420,25 @@ extern "C" {
         callback: OH_AVTranscoder_OnError,
         userData: *mut ::core::ffi::c_void,
     ) -> OH_AVErrCode;
-    /// Set the progress updating callback function so that your application can respond to the
-    /// progress updating events generated by the avtranscoder. This interface must be called before Start is called.
+    /// Registers a callback for transcoding progress update events.
+    /// This callback is invoked when the progress of the transcoding process is updated.
+    /// An application can subscribe to only one transcoding error event. When the application initiates multiple
+    /// subscriptions to this event, the last subscription is applied.
+    /// The callback must be registered before [`OH_AVTranscoder_Prepare`](crate::avtranscoder::OH_AVTranscoder_Prepare) is called.
+    ///
     /// # Arguments
     ///
-    /// {OH_AVTranscoder*} transcoder Pointer to an OH_AVTranscoder instance
+    /// * `transcoder` - Pointer to an OH_AVTranscoder instance
     ///
-    /// {OH_AVTranscoder_OnProgressUpdate} callback Uri callback function,
+    /// * `callback` - Uri callback function,
     /// see [`OH_AVTranscoder_OnProgressUpdate`](crate::avtranscoder_base::OH_AVTranscoder_OnProgressUpdate)
     ///
-    /// {void*} userData Pointer to user specific data
+    /// * `userData` - Pointer to user specific data
     ///
     /// # Returns
     ///
-    /// * Function result code.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input transcoder is nullptr or input callback is nullptr.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The registration is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **transcoder** or **callback** is nullptr.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -408,18 +448,21 @@ extern "C" {
         callback: OH_AVTranscoder_OnProgressUpdate,
         userData: *mut ::core::ffi::c_void,
     ) -> OH_AVErrCode;
-    /// Enable B frame in destination video.
+    /// Enables B-frame encoding for the output video during transcoding.
+    /// For details about the constraints on B-frame video encoding, see Constraints in B-Frame Video Encoding.
+    /// If the current environment does not meet these constraints, B-frames will be skipped, and encoding will proceed as
+    /// if B-frame video encoding were not enabled.
+    ///
     /// # Arguments
     ///
-    /// {OH_AVTranscoder_Config*} config Pointer to an OH_AVTranscoder_Config instance
+    /// * `config` - Pointer to an OH_AVTranscoder_Config instance
     ///
-    /// {bool} enabled Whecher enable B Frame. If this function is not called, B Frame is disabled.
+    /// * `enabled` - Whether enable B Frame. If this function is not called, B Frame is disabled.
     ///
     /// # Returns
     ///
-    /// * Function result code.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input config is nullptr.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The setting is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **config** is nullptr.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]

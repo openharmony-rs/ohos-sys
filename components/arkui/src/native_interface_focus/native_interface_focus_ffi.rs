@@ -10,15 +10,15 @@ use ohos_sys_opaque_types::ArkUI_ContextHandle;
 #[cfg(feature = "api-15")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
 impl ArkUI_KeyProcessingMode {
-    /// Key events are used to move focus.
+    /// Key events are used for focus navigation.
     pub const ARKUI_KEY_PROCESSING_MODE_FOCUS_NAVIGATION: ArkUI_KeyProcessingMode =
         ArkUI_KeyProcessingMode(0);
-    /// Key events bubble up to ancestors.
+    /// Key events are passed up to ancestor components.
     pub const ARKUI_KEY_PROCESSING_MODE_FOCUS_ANCESTOR_EVENT: ArkUI_KeyProcessingMode =
         ArkUI_KeyProcessingMode(1);
 }
 #[repr(transparent)]
-/// Determines the priority of key event processing when component cannot handle the key event.
+/// Enumerates the key event processing priority modes.
 ///
 ///
 /// Available since API-level: 15
@@ -27,45 +27,46 @@ impl ArkUI_KeyProcessingMode {
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct ArkUI_KeyProcessingMode(pub ::core::ffi::c_uint);
 extern "C" {
-    /// Apply focus for a specific node.
+    /// Requests focus for a specific node.
     ///
     /// # Arguments
     ///
-    /// * `node` - The node.
+    /// * `node` - Node.
     ///
     /// # Returns
     ///
-    /// * The error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// [`ARKUI_ERROR_CODE_FOCUS_NON_FOCUSABLE`](crate::native_type::ArkUiErrorCode::FOCUS_NON_FOCUSABLE) if the node is not focusable.
-    /// [`ARKUI_ERROR_CODE_FOCUS_NON_FOCUSABLE_ANCESTOR`](crate::native_type::ArkUiErrorCode::FOCUS_NON_FOCUSABLE_ANCESTOR) if the node has unfocusable ancestor.
-    /// [`ARKUI_ERROR_CODE_FOCUS_NON_EXISTENT`](crate::native_type::ArkUiErrorCode::FOCUS_NON_EXISTENT) if the node is not exists.
+    /// * Result code.
+    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// <br>Returns [`ARKUI_ERROR_CODE_FOCUS_NON_FOCUSABLE`](crate::error_code::ArkUiErrorCode::FOCUS_NON_FOCUSABLE) if the node cannot receive focus.
+    /// <br>Returns [`ARKUI_ERROR_CODE_FOCUS_NON_FOCUSABLE_ANCESTOR`](crate::error_code::ArkUiErrorCode::FOCUS_NON_FOCUSABLE_ANCESTOR) if the ancestor node cannot receive focus.
+    /// <br>Returns [`ARKUI_ERROR_CODE_FOCUS_NON_EXISTENT`](crate::error_code::ArkUiErrorCode::FOCUS_NON_EXISTENT) if the node does not exist.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub fn OH_ArkUI_FocusRequest(node: ArkUI_NodeHandle) -> ArkUiResult;
-    /// Clear current focus to root scope.
+    /// Clears the focus to the root container node.
     ///
     /// # Arguments
     ///
-    /// * `uiContext` - Indicates the pointer to a UI instance.
+    /// * `uiContext` - UI instance object pointer.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub fn OH_ArkUI_FocusClear(uiContext: ArkUI_ContextHandle);
-    /// Set the focus active state in current window, the focus node would show its focus box.
+    /// Sets the focus activation state for the current page. When activated, the focused node displays a focus box.
     ///
     /// # Arguments
     ///
-    /// * `uiContext` - Indicates the pointer to a UI instance.
+    /// * `uiContext` - UI instance object pointer.
     ///
-    /// * `isActive` - Set the state to be active or inactive.
+    /// * `isActive` - Whether to enter or exit the focus activation state. The value **true** means to enter the focus
+    /// activation state, and **false** means to exit the focus activation state.
     ///
-    /// * `isAutoInactive` - When touch event or mouse-pressed event triggerd,
-    /// "true" indicates to set state to inactive,
-    /// "false" indicates to maintain the state until relative API is called.
+    /// * `isAutoInactive` - Whether to automatically exit the focus active state on touch or mouse down events. **true**:
+    /// Automatically exit the focus active state. **false**: Maintain the current state until the corresponding setting
+    /// API is called.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
@@ -75,25 +76,26 @@ extern "C" {
         isActive: bool,
         isAutoInactive: bool,
     );
-    /// Set the focus transfer behaviour when current focus view changes.
+    /// Configures the focus transfer behavior when pages are switched.
     ///
     /// # Arguments
     ///
-    /// * `uiContext` - Indicates the pointer to a UI instance.
+    /// * `uiContext` - UI instance object pointer.
     ///
-    /// * `autoTransfer` - Indicates whether to transfer focus when focus view show.
+    /// * `autoTransfer` - Whether to automatically transfer focus when pages are switched. The value **true** means to
+    /// automatically transfer focus when pages are switched, and **false** means the opposite.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub fn OH_ArkUI_FocusSetAutoTransfer(uiContext: ArkUI_ContextHandle, autoTransfer: bool);
-    /// Set the priority of key event processing when component cannot handle the key event.
+    /// Sets the mode for processing key events.
     ///
     /// # Arguments
     ///
-    /// * `uiContext` - Indicates the pointer to a UI instance.
+    /// * `uiContext` - UI instance object pointer.
     ///
-    /// * `mode` - Indicates the key processing mode.
+    /// * `mode` - Key event processing priority mode.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]

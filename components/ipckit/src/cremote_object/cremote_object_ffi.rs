@@ -6,8 +6,7 @@
 use crate::cparcel::{OHIPCRemoteStub, OH_IPC_MemAllocator};
 use ohos_sys_opaque_types::{OHIPCParcel, OHIPCRemoteProxy};
 
-/// Defines an <b>OHIPCDeathRecipient</b> object, which is used to receive a notification
-/// when the <b>OHIPCRemoteStub</b> object dies unexpectedly.
+/// Defines an object that receives death notifications.
 ///
 ///
 /// Required System Capabilities: SystemCapability.Communication.IPC.Core
@@ -19,28 +18,27 @@ use ohos_sys_opaque_types::{OHIPCParcel, OHIPCRemoteProxy};
 pub struct OHIPCDeathRecipient {
     _unused: [u8; 0],
 }
-/// Called to process the remote data request at the stub.
+/// Called to process the peer request at the stub.
 ///
 ///
 /// Required System Capabilities: SystemCapability.Communication.IPC.Core
 /// # Arguments
 ///
-/// * `code` - Custom command word for communication, in the range \[0x01, 0x00ffffff\].
+/// * `code` - Customized communication command word.
+/// Value range: \[0x01, 0x00ffffff\]
 ///
-/// * `data` - Pointer to the request data object. It cannot be NULL or released in the function.
+/// * `data` - Pointer to the requested data object. It cannot be NULL or released in the function.
 ///
-/// * `reply` - Pointer to the response data object. It cannot be NULL or released in the function.
-/// If this function returns an error, data cannot be written to this parameter.
+/// * `reply` - Pointer to the response data object. It cannot be NULL or released in the function. If this function
+/// returns an error, data cannot be written to this parameter.
 ///
-/// * `userData` - Pointer to the user data. It can be NULL.
+/// * `userData` - Pointer to the private user data. It can be NULL.
 ///
 /// # Returns
 ///
 /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_SUCCESS) if the operation is successful.
-///
 /// Returns a custom error code in the range \[1909001, 1909999\] or a system error code otherwise.
-///
-/// Returns [`OH_IPC_ErrorCode#OH_IPC_INVALID_USER_ERROR_CODE`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_INVALID_USER_ERROR_CODE) if the custom error code is out of the value range.
+/// If the custom error code is out of range, [`OH_IPC_ErrorCode#OH_IPC_INVALID_USER_ERROR_CODE`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_INVALID_USER_ERROR_CODE) is returned.
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
@@ -59,7 +57,7 @@ pub type OH_OnRemoteRequestCallback = ::core::option::Option<
 /// Required System Capabilities: SystemCapability.Communication.IPC.Core
 /// # Arguments
 ///
-/// * `userData` - Pointer to the user data. It can be NULL.
+/// * `userData` - Pointer to the private user data. It can be NULL.
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
@@ -93,26 +91,26 @@ pub struct OH_IPC_MessageOption {
     /// Reserved parameter, which must be NULL.
     pub reserved: *mut ::core::ffi::c_void,
 }
-/// Called when the <b>OHIPCRemoteStub</b> object dies unexpectedly.
+/// Defines a callback to be invoked when the remote **OHIPCRemoteStub** object dies unexpectedly.
 ///
 ///
 /// Required System Capabilities: SystemCapability.Communication.IPC.Core
 /// # Arguments
 ///
-/// * `userData` - Pointer to the user data. It can be NULL.
+/// * `userData` - Pointer to the private user data. It can be NULL.
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub type OH_OnDeathRecipientCallback =
     ::core::option::Option<unsafe extern "C" fn(userData: *mut ::core::ffi::c_void)>;
-/// Called when the <b>OHIPCDeathRecipient</b> object is destroyed.
+/// Defines a callback to be invoked when the **OHIPCDeathRecipient** object is destroyed.
 ///
 ///
 /// Required System Capabilities: SystemCapability.Communication.IPC.Core
 /// # Arguments
 ///
-/// * `userData` - Pointer to the user data. It can be NULL.
+/// * `userData` - Pointer to the private user data. It can be NULL.
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
@@ -120,24 +118,24 @@ pub type OH_OnDeathRecipientCallback =
 pub type OH_OnDeathRecipientDestroyCallback =
     ::core::option::Option<unsafe extern "C" fn(userData: *mut ::core::ffi::c_void)>;
 extern "C" {
-    /// Creates an <b>OHIPCRemoteStub</b> object.
+    /// Creates an **OHIPCRemoteStub** object.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Communication.IPC.Core
     /// # Arguments
     ///
-    /// * `descriptor` - Pointer to the descriptor of the <b>OHIPCRemoteStub</b> object to create. It cannot be NULL.
+    /// * `descriptor` - Pointer to the descriptor of the **OHIPCRemoteStub** object to create. It cannot be NULL.
     ///
     /// * `requestCallback` - Callback used to process the data request. It cannot be NULL.
     ///
     /// * `destroyCallback` - Callback to be invoked when the object is destroyed. It can be NULL.
     ///
-    /// * `userData` - Pointer to the user data. It can be NULL.
+    /// * `userData` - Pointer to the private user data. It can be NULL.
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the <b>OHIPCRemoteStub</b> object created if the operation is successful;
-    /// returns NULL otherwise.
+    /// * Returns the pointer to the **OHIPCRemoteStub** object created if the operation is successful; returns NULL
+    /// otherwise.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -148,25 +146,25 @@ extern "C" {
         destroyCallback: OH_OnRemoteDestroyCallback,
         userData: *mut ::core::ffi::c_void,
     ) -> *mut OHIPCRemoteStub;
-    /// Destroys an <b>OHIPCRemoteStub</b> object.
+    /// Destroys an **OHIPCRemoteStub** object.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Communication.IPC.Core
     /// # Arguments
     ///
-    /// * `stub` - Pointer to the <b>OHIPCRemoteStub</b> object to destroy.
+    /// * `stub` - Pointer to the **OHIPCRemoteStub** object to destroy.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_IPCRemoteStub_Destroy(stub: *mut OHIPCRemoteStub);
-    /// Destroys an <b>OHIPCRemoteProxy</b> object.
+    /// Destroys an **OHIPCRemoteProxy** object.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Communication.IPC.Core
     /// # Arguments
     ///
-    /// * `proxy` - Pointer to the <b>OHIPCRemoteProxy</b> object to destroy.
+    /// * `proxy` - Pointer to the **OHIPCRemoteProxy** object to destroy.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -178,27 +176,23 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Communication.IPC.Core
     /// # Arguments
     ///
-    /// * `proxy` - Pointer to the <b>OHIPCRemoteProxy</b> object. It cannot be NULL.
+    /// * `proxy` - Pointer to the **OHIPCRemoteProxy** object. It cannot be NULL.
     ///
-    /// * `code` - Custom IPC command word, in the range \[0x01, 0x00ffffff\].
+    /// * `code` - Customized IPC command word, in the range \[0x01, 0x00ffffff\].
     ///
-    /// * `data` - Pointer to the request data object. It cannot be NULL.
+    /// * `data` - Pointer to the requested data object. It cannot be NULL.
     ///
-    /// * `reply` - Pointer to the response data object. It cannot be NULL in the case of a synchronous request,
-    /// and can be NULL in the case of an asynchronous request.
+    /// * `reply` - Pointer to the response data object. It cannot be NULL in the case of a synchronous request, and can be
+    /// NULL in the case of an asynchronous request.
     ///
-    /// * `option` - Pointer to the message options. It can be NULL, which indicates a synchronous request.
+    /// * `option` - Pointer to the message option. It can be NULL, which indicates a synchronous request.
     ///
     /// # Returns
     ///
-    /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_SUCCESS) if the operation is successful.
-    ///
+    /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_SUCCESS) if the message is sent successfully.
     /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_CHECK_PARAM_ERROR) if invalid parameters are found.
-    ///
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_DEAD_REMOTE_OBJECT`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_DEAD_REMOTE_OBJECT) if the <b>OHIPCRemoteStub</b> object is dead.
-    ///
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_CODE_OUT_OF_RANGE`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_CODE_OUT_OF_RANGE) if the error code is out of the value range.
-    ///
+    /// Returns [`OH_IPC_ErrorCode#OH_IPC_DEAD_REMOTE_OBJECT`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_DEAD_REMOTE_OBJECT) if the remote **OHIPCRemoteStub** object dies.
+    /// Returns [`OH_IPC_ErrorCode#OH_IPC_CODE_OUT_OF_RANGE`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_CODE_OUT_OF_RANGE) if the code is out of range.
     /// Returns [`OH_IPC_ErrorCode#OH_IPC_INNER_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_INNER_ERROR) or a custom error code in other cases.
     ///
     /// Available since API-level: 12
@@ -217,30 +211,25 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Communication.IPC.Core
     /// # Arguments
     ///
-    /// * `proxy` - Pointer to the <b>OHIPCRemoteProxy</b> object. It cannot be NULL.
+    /// * `proxy` - Pointer to the **OHIPCRemoteProxy** object. It cannot be NULL.
     ///
-    /// * `descriptor` - Double pointer to the address of the memory for holding the interface descriptor.
-    /// The memory is allocated by the allocator provided by the user and needs to be released. This pointer cannot be NULL.
-    /// If an error code is returned, you still need to check whether the memory is empty and release the memory.
-    /// Otherwise, memory leaks may occur.
+    /// * `descriptor` - Pointer to the address of the memory for holding the interface descriptor. The memory is allocated
+    /// by the allocator provided by the user and needs to be released. This pointer cannot be NULL. If an error code is
+    /// returned, you still need to check whether the memory is empty and release the memory. Otherwise, memory leaks may
+    /// occur.
     ///
-    /// * `len` - Pointer to the length of the data to be written to the descriptor, including the terminator.
-    /// This parameter cannot be NULL.
+    /// * `len` - Pointer to the length of the data written to the descriptor, including the terminator. It cannot be NULL.
     ///
-    /// * `allocator` - Memory allocator specified by the user for allocating memory for <b>descriptor</b>.
-    /// It cannot be NULL.
+    /// * `allocator` - Memory allocator specified by the user for allocating memory for **identity**. It cannot be NULL.
     ///
     /// # Returns
     ///
-    /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_SUCCESS) if the operation is successful.
-    ///
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_CHECK_PARAM_ERROR) if incorrect parameters are found.
-    ///
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_DEAD_REMOTE_OBJECT`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_DEAD_REMOTE_OBJECT) if the <b>OHIPCRemoteStub</b> object is dead.
-    ///
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_MEM_ALLOCATOR_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_MEM_ALLOCATOR_ERROR) if memory allocation fails.
-    ///
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_PARCEL_READ_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_PARCEL_READ_ERROR) if the data in the serialized object failed to be read.
+    /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_SUCCESS) if the message is sent successfully.
+    /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_CHECK_PARAM_ERROR) if the parameters are incorrect.
+    /// Returns [`OH_IPC_ErrorCode#OH_IPC_DEAD_REMOTE_OBJECT`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_DEAD_REMOTE_OBJECT) if the remote **OHIPCRemoteStub** object dies.
+    /// Returns [`OH_IPC_ErrorCode#OH_IPC_MEM_ALLOCATOR_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_MEM_ALLOCATOR_ERROR) if the memory allocation fails.
+    /// Returns [`OH_IPC_ErrorCode#OH_IPC_PARCEL_READ_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_PARCEL_READ_ERROR) or a custom error code if the data in the serialized
+    /// object fails to be read.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -251,24 +240,23 @@ extern "C" {
         len: *mut i32,
         allocator: OH_IPC_MemAllocator,
     ) -> ::core::ffi::c_int;
-    /// Creates an <b>OHIPCDeathRecipient</b> object, which allows a notification to be received
-    /// when the <b>OHIPCRemoteStub</b> object dies unexpectedly.
+    /// Creates an **OHIPCDeathRecipient** object, which triggers a notification when the **OHIPCRemoteStub** object
+    /// dies unexpectedly.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Communication.IPC.Core
     /// # Arguments
     ///
-    /// * `deathRecipientCallback` - Callback to be invoked when the <b>OHIPCRemoteStub</b> object is dead.
-    /// It cannot be NULL.
+    /// * `deathRecipientCallback` - Callback to be invoked when the **OHIPCRemoteStub** object is dead. It cannot be NULL.
     ///
     /// * `destroyCallback` - Callback to be invoked when the object is destroyed. It can be NULL.
     ///
-    /// * `userData` - Pointer to the user data. It can be NULL.
+    /// * `userData` - Pointer to the private user data. It can be NULL.
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the <b>OHIPCDeathRecipient</b> object created if the operation is successful;
-    /// returns NULL otherwise.
+    /// * Returns the pointer to the **OHIPCDeathRecipient** object created if the operation is successful; returns
+    /// NULL otherwise.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -278,36 +266,33 @@ extern "C" {
         destroyCallback: OH_OnDeathRecipientDestroyCallback,
         userData: *mut ::core::ffi::c_void,
     ) -> *mut OHIPCDeathRecipient;
-    /// Destroys an <b>OHIPCDeathRecipient</b> object.
+    /// Destroys an **OHIPCDeathRecipient** object.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Communication.IPC.Core
     /// # Arguments
     ///
-    /// * `recipient` - Pointer to the <b>OHIPCDeathRecipient</b> object to destroy.
+    /// * `recipient` - Pointer to the **OHIPCDeathRecipient** object to destroy.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_IPCDeathRecipient_Destroy(recipient: *mut OHIPCDeathRecipient);
-    /// Subscribes to the death of an <b>OHIPCRemoteStub</b> object for an <b>OHIPCRemoteProxy</b> object.
+    /// Subscribes to the death of an **OHIPCRemoteStub** object for an **OHIPCRemoteProxy** object.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Communication.IPC.Core
     /// # Arguments
     ///
-    /// * `proxy` - Pointer to the <b>OHIPCRemoteProxy</b> object that subscribes to the death notification.
-    /// It cannot be NULL.
+    /// * `proxy` - Pointer to the **OHIPCRemoteProxy** object that subscribes to the death notification. It cannot be NULL.
     ///
-    /// * `recipient` - Pointer to the object that receives the death notification of the <b>OHIPCRemoteStub</b> object.
-    /// It cannot be NULL.
+    /// * `recipient` - Pointer to the object that receives the death notification of the **OHIPCRemoteStub** object. It
+    /// cannot be NULL.
     ///
     /// # Returns
     ///
     /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_SUCCESS) if the operation is successful.
-    ///
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_CHECK_PARAM_ERROR) if incorrect parameters are found.
-    ///
+    /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_CHECK_PARAM_ERROR) if the parameters are incorrect.
     /// Returns [`OH_IPC_ErrorCode#OH_IPC_INNER_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_INNER_ERROR) in other cases.
     ///
     /// Available since API-level: 12
@@ -317,24 +302,22 @@ extern "C" {
         proxy: *mut OHIPCRemoteProxy,
         recipient: *mut OHIPCDeathRecipient,
     ) -> ::core::ffi::c_int;
-    /// Unsubscribes from the death of the <b>OHIPCRemoteStub</b> object for an <b>OHIPCRemoteProxy</b> object.
+    /// Unsubscribes from the death of the **OHIPCRemoteStub** object for an **OHIPCRemoteProxy** object.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Communication.IPC.Core
     /// # Arguments
     ///
-    /// * `proxy` - Pointer to the <b>OHIPCRemoteProxy</b> object that unsubscribes from the death notification.
-    /// It cannot be NULL.
+    /// * `proxy` - Pointer to the **OHIPCRemoteProxy** object that unsubscribes from the death notification. It cannot be
+    /// NULL.
     ///
-    /// * `recipient` - Pointer to the object that receives the death notification of the <b>OHIPCRemoteStub</b> object.
-    /// It cannot be NULL.
+    /// * `recipient` - Pointer to the object that receives the death notification of the **OHIPCRemoteStub** object. It
+    /// cannot be NULL.
     ///
     /// # Returns
     ///
     /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_SUCCESS) if the operation is successful.
-    ///
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_CHECK_PARAM_ERROR) if incorrect parameters are found.
-    ///
+    /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_CHECK_PARAM_ERROR) if the parameters are incorrect.
     /// Returns [`OH_IPC_ErrorCode#OH_IPC_INNER_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_INNER_ERROR) in other cases.
     ///
     /// Available since API-level: 12
@@ -344,19 +327,18 @@ extern "C" {
         proxy: *mut OHIPCRemoteProxy,
         recipient: *mut OHIPCDeathRecipient,
     ) -> ::core::ffi::c_int;
-    /// Checks whether the <b>OHIPCRemoteStub</b> object corresponding to the <b>OHIPCRemoteProxy</b> object is dead.
+    /// Checks whether the **OHIPCRemoteStub** object corresponding to the **OHIPCRemoteProxy** object is dead.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Communication.IPC.Core
     /// # Arguments
     ///
-    /// * `proxy` - Pointer to the <b>OHIPCRemoteProxy</b> object to check. It cannot be NULL.
+    /// * `proxy` - Pointer to the **OHIPCRemoteProxy** object to check. It cannot be NULL.
     ///
     /// # Returns
     ///
-    /// * Returns <b>1</b> if the <b>OHIPCRemoteStub</b> object is dead; returns <b>0</b> otherwise.
-    /// If an invalid parameter is found, the <b>OHIPCRemoteStub</b> object does not exist.
-    /// In this case, <b>1</b> is returned.
+    /// * Returns **1** if the **OHIPCRemoteStub** object is dead or invalid parameters are found; returns **0**
+    /// otherwise. If invalid parameters are found, the **OHIPCRemoteStub** object does not exist.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]

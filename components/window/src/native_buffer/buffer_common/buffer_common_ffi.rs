@@ -94,6 +94,20 @@ impl OH_NativeBuffer_ColorSpace {
     /// equal to OH_COLORSPACE_BT2020_PQ_FULL
     pub const OH_COLORSPACE_DISPLAY_BT2020_PQ: OH_NativeBuffer_ColorSpace =
         OH_NativeBuffer_ColorSpace(31);
+    /// COLORPRIMARIES_BT2020 | (TRANSFUNC_PRIV_LOG << 8) | (MATRIX_BT2020 << 16) | (RANGE_FULL << 21)
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub const OH_COLORSPACE_BT2020_LOG_FULL: OH_NativeBuffer_ColorSpace =
+        OH_NativeBuffer_ColorSpace(32);
+    /// COLORPRIMARIES_BT2020 | (TRANSFUNC_PRIV_LOG << 8) | (MATRIX_BT2020 << 16) | (RANGE_LIMITED << 21)
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub const OH_COLORSPACE_BT2020_LOG_LIMIT: OH_NativeBuffer_ColorSpace =
+        OH_NativeBuffer_ColorSpace(33);
 }
 #[repr(transparent)]
 /// Indicates the color space of a native buffer.
@@ -263,14 +277,28 @@ impl OH_NativeBuffer_MetadataKey {
     pub const OH_HDR_STATIC_METADATA: OH_NativeBuffer_MetadataKey = OH_NativeBuffer_MetadataKey(1);
     /// byte stream of SEI in video stream
     pub const OH_HDR_DYNAMIC_METADATA: OH_NativeBuffer_MetadataKey = OH_NativeBuffer_MetadataKey(2);
-    /// Region of interest(ROI) metadata is used to conifgure ROI feature in video encoding. Value type is string
-    /// in the format "Top1,Left1-Bottom1,Right1=QpOffset1;Top2,Left2-Bottom2,Right2=QpOffset2;".
-    /// Each "Top,Left-Bottom,Right=QpOffset" represents the coordinate information and quantization parameter
-    /// offset of one ROI. Each "=QpOffset" in the string can be omitted,
-    /// like "Top1,Left1-Bottom1,Right1;Top2,Left2-Bottom2,Right2=QpOffset2;", the encoder will use the default
-    /// quantization parameter offset to perform the ROI encoding on the first ROI and use QpOffset2 on the second ROI.
+    /// Region of interest(ROI) metadata is used to configure ROI feature in video encoding. Value type is string
+    /// in the format "Top1,Left1-Bottom1,Right1\[=Params1\];Top2,Left2-Bottom2,Right2\[=Params2\];".
+    /// Each "Top,Left-Bottom,Right" represents the coordinate information of one ROI.
+    /// The "\[=Params\]" is optional.
+    /// The format of "\[=Params\]" varies by version:
+    /// 1. Prior to version 26.0.0: Only a single int32_t value representing the
+    /// quantization parameter offset is supported (e.g., "=QpOffset").
+    /// 2. Since version 26.0.0: A Key-Value format is additionally supported and recommended.
+    /// It uses comma-separated key-value pairs (e.g., "=dqp:-6,slb:1").
+    /// Supported keys:
+    /// - "dqp": Quantization parameter offset.
+    /// - "slb": Semantic label. The value must correspond to `OH_VideoMetadataRoiSemanticLabel`.
+    ///
+    /// If "=Params" is omitted entirely, like "Top1,Left1-Bottom1,Right1;Top2,Left2-Bottom2,Right2=dqp:-6;",
+    /// the encoder will use the default parameters to perform the ROI encoding on the first ROI and
+    /// use the specified parameters on the second ROI.
     /// Note that the number of ROIs that can be applied simultaneously does not exceed six, and the total area must
     /// not exceed one-fifth of the total image area.
+    ///
+    ///
+    /// **Note:** Since version 26.0.0, it is highly recommended to use `OH_VideoMetadata_AppendRoiString` to format
+    /// and append ROI configurations safely instead of concatenating the string manually.
     ///
     ///
     /// Available since API-level: 22
@@ -563,3 +591,51 @@ impl OH_NativeBuffer_TransformType {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OH_NativeBuffer_TransformType(pub ::core::ffi::c_uint);
+#[cfg(feature = "api-26")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+impl OH_NativeBuffer_VideoDimensionType {
+    /// 2-dimension video
+    pub const OH_VIDEO_DIM_TYPE_2D: OH_NativeBuffer_VideoDimensionType =
+        OH_NativeBuffer_VideoDimensionType(0);
+    /// 3-dimension video, format: side by side
+    pub const OH_VIDEO_DIM_TYPE_3D_SBS: OH_NativeBuffer_VideoDimensionType =
+        OH_NativeBuffer_VideoDimensionType(1);
+    /// 3-dimension video, format: top and bottom
+    pub const OH_VIDEO_DIM_TYPE_3D_TAB: OH_NativeBuffer_VideoDimensionType =
+        OH_NativeBuffer_VideoDimensionType(2);
+    /// Invalid video dimension type
+    pub const OH_VIDEO_DIM_TYPE_BUTT: OH_NativeBuffer_VideoDimensionType =
+        OH_NativeBuffer_VideoDimensionType(3);
+}
+#[repr(transparent)]
+/// Indicates video dimension type.
+///
+///
+/// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeBuffer
+///
+/// Available since API-level: 26
+///
+/// Version: 1.0
+#[cfg(feature = "api-26")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct OH_NativeBuffer_VideoDimensionType(pub ::core::ffi::c_uint);
+#[cfg(feature = "api-26")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+impl OH_NativeBuffer_3D_MetadataKey {
+    /// value: the video dimension type of the native buffer
+    pub const OH_VIDEO_DIM_TYPE: OH_NativeBuffer_3D_MetadataKey = OH_NativeBuffer_3D_MetadataKey(0);
+}
+#[repr(transparent)]
+/// Indicates the descriptive 3D information of a native buffer.
+///
+///
+/// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeBuffer
+///
+/// Available since API-level: 26
+///
+/// Version: 1.0
+#[cfg(feature = "api-26")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct OH_NativeBuffer_3D_MetadataKey(pub ::core::ffi::c_uint);

@@ -58,7 +58,28 @@ pub type NativeArkWeb_OnDestroyCallback =
 #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
 pub type OH_ArkWeb_OnCookieSaveCallback =
     ::core::option::Option<unsafe extern "C" fn(errorCode: ArkWeb_ErrorCode)>;
-/// Defines the blankless information.
+/// Defines the callback function type invoked when the cookie fetching operation completes.
+///
+/// # Arguments
+///
+/// * `errorCode` - The result code of the cookie fetching operation.
+/// [`ARKWEB_SUCCESS`](crate::arkweb_error_code::ArkWeb_ErrorCode) fetch cookie success.
+/// [`ARKWEB_INVALID_URL`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::INVALID_URL) invalid url.
+/// [`ARKWEB_LIBRARY_OPEN_FAILURE`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::LIBRARY_OPEN_FAILURE) Failed to open the library.
+/// [`ARKWEB_LIBRARY_SYMBOL_NOT_FOUND`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::LIBRARY_SYMBOL_NOT_FOUND) The required symbol was not found in the library.
+///
+/// * `cookieValue` - Get the cookie value corresponding to the URL. This function will allocate memory for the
+/// cookieValue string and caller must release the string by [`OH_ArkWeb_ReleaseString`](crate::arkweb_scheme_handler::OH_ArkWeb_ReleaseString).
+///
+/// Available since API-level: 26
+#[cfg(feature = "api-26")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+pub type OH_ArkWeb_OnCookieFetchCallback = ::core::option::Option<
+    unsafe extern "C" fn(errorCode: ArkWeb_ErrorCode, cookieValue: *mut ::core::ffi::c_char),
+>;
+/// Describes prediction information about blankless loading, including the first screen similarity, first screen
+/// loading duration, and error codes. The application determines whether to enable the blankless loading solution based
+/// on the prediction information.
 ///
 ///
 /// Available since API-level: 20
@@ -66,36 +87,54 @@ pub type OH_ArkWeb_OnCookieSaveCallback =
 #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
 #[repr(C)]
 pub struct ArkWeb_BlanklessInfo {
-    /// The errCode of the blankless.
+    /// Error codes of blankless loading. For details, see [`ArkWeb_BlanklessErrorCode`](crate::arkweb_error_code::ArkWeb_BlanklessErrorCode).
     pub errCode: ArkWeb_BlanklessErrorCode,
-    /// The estimated similarity of the history snapshots.
+    /// First screen similarity, which is calculated based on the historical first screen content. The value ranges from
+    /// 0 to 1.0. 1.0 indicates that the content is the same. A value closer to 1 indicates a higher similarity. This
+    /// value is lagging, and the similarity of the local loading is displayed in the next loading. You are advised not
+    /// to enable the blankless loading frame insertion solution when the similarity is low.
     pub similarity: f64,
-    /// The loadingTime of the history loading.
+    /// Loading duration estimated based on the historical first screen loading durations, in milliseconds. The value
+    /// must be greater than 0.
     pub loadingTime: i32,
 }
 #[cfg(feature = "api-20")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
 impl ArkWebEngineVersion {
-    /// the system default ArkWeb engine.
+    /// Default system kernel. For OpenHarmony 6.0, the default kernel is M132.
+    ///
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const SYSTEM_DEFAULT: ArkWebEngineVersion = ArkWebEngineVersion(0);
-    /// ArkWeb M114 version.
+    /// Legacy kernel of OpenHarmony 6.0. You can select this legacy kernel. If it does not exist, the setting
+    /// is invalid.
+    ///
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const ARKWEB_M114: ArkWebEngineVersion = ArkWebEngineVersion(1);
-    /// ArkWeb M132 version.
+    /// Evergreen kernel of OpenHarmony 6.0, which is M132 by default. If it does not exist, the setting is
+    /// invalid.
+    ///
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const ARKWEB_M132: ArkWebEngineVersion = ArkWebEngineVersion(2);
-    /// ArkWeb auto use the newest ArkWeb Engine version.
-    /// Evergreen Web Engine.
+    /// Evergreen kernel of OpenHarmony 7.0, which is M144 by default. If it does not exist, the setting is
+    /// invalid.
+    ///
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub const ARKWEB_M144: ArkWebEngineVersion = ArkWebEngineVersion(3);
+    /// Evergreen kernel, which is the latest kernel of the system. You can choose to use the latest kernel for
+    /// each system version. This setting takes effect for OpenHarmony 6.1 and later versions.
+    ///
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -103,10 +142,11 @@ impl ArkWebEngineVersion {
     pub const ARKWEB_EVERGREEN: ArkWebEngineVersion = ArkWebEngineVersion(99999);
 }
 #[repr(transparent)]
-/// ArkWeb Engine Version.
-///
-/// <strong>ArkWeb Dual Web Engine Versioning Convention</strong>:
-/// <p>See [ArkWeb Dual Web Engine Versioning Convention] for switching between Legacy and Evergreen Web Engine.
+/// For details about the ArkWeb kernel version, see
+/// \[Adaptation Guide for the M114 Kernel on OpenHarmony 6.0\]
+/// (https://gitcode.com/openharmony-tpc/chromium_src/blob/master/web/ReleaseNote/CompatibleWithLegacyWebEngine_6.0.md),
+/// \[Adaptation Guide for the M114 Kernel on OpenHarmony 7.0\]
+/// (https://gitcode.com/openharmony-tpc/chromium_src/blob/master/web/ReleaseNote/CompatibleWithLegacyWebEngine_7.0.md).
 ///
 ///
 /// Available since API-level: 20
@@ -329,27 +369,28 @@ extern "C" {
         proxyObject: *const ArkWeb_ProxyObjectWithResult,
         permission: *const ::core::ffi::c_char,
     );
-    /// Sets whether to enable blankless page loading. This API must be used in pair with the
-    /// OH_NativeArkWeb_GetBlanklessInfoWithKey API.
+    /// Sets whether to enable blankless loading. This API must be used together with the [`OH_NativeArkWeb_GetBlanklessInfoWithKey`](crate::native_interface_arkweb::OH_NativeArkWeb_GetBlanklessInfoWithKey)
+    /// API.
     ///
     ///
     /// Required Permissions: ohos.permission.INTERNET and ohos.permission.GET_NETWORK_INFO
     /// # Arguments
     ///
-    /// * `webTag` - webTag used when the webviewController is created.
+    /// * `webTag` - Name of the **Web** component.
     ///
-    /// * `key` - Key value that uniquely identifies the current page. It must be the same as the key value of the
-    /// OH_NativeArkWeb_GetBlanklessInfoWithKey API.
+    /// * `key` - Key value that uniquely identifies the page. The value must be the same as the key value of the [`OH_NativeArkWeb_GetBlanklessInfoWithKey`](crate::native_interface_arkweb::OH_NativeArkWeb_GetBlanklessInfoWithKey)
+    /// API.
+    /// The value cannot be empty and can contain a maximum of 2048 characters.
+    /// When an invalid value is set, the error code [`ArkWeb_BlanklessErrorCode`](crate::arkweb_error_code::ArkWeb_BlanklessErrorCode) is returned and the frame insertion
+    /// does not take effect.
     ///
-    /// * `isStarted` - Whether to enable frame interpolation. The value true indicates to enable frame
-    /// interpolation, and the value false indicates the opposite.
-    /// The default value is false.
-    /// The value can be true or false.
-    /// Action for setting an invalid value: N/A.
+    /// * `isStarted` - Whether to enable frame insertion. The value **true** indicates to enable frame insertion, and **
+    /// false** indicates the opposite.
+    /// The default value is **false**.
     ///
     /// # Returns
     ///
-    /// * Whether the API is successfully called. For details, see ArkWeb_BlanklessErrorCode.
+    /// * Whether the API is successfully called. For details, see [`ArkWeb_BlanklessErrorCode`](crate::arkweb_error_code::ArkWeb_BlanklessErrorCode).
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -365,13 +406,20 @@ extern "C" {
     ///
     /// * `key` - The list of key values of pages cached in the blankless loading solution. These key values are
     /// specified in OH_NativeArkWeb_GetBlanklessInfoWithKey.
+    ///
     /// The default value is the list of key values of all pages cached in the blankless loading solution.
+    ///
     /// The key length cannot exceed 2048 characters, and the number of keys must be less than or equal to 100. The
     /// URL is the same as that input to the Web component during page loading.
+    ///
     /// When the key length exceeds 2048 characters, the key does not take effect. When the number of keys exceeds
     /// 100, the first 100 keys are used. If this parameter is set to NULL, the default value is used.
     ///
-    /// * `size` - Size of the key list.
+    ///
+    /// * `size` - Size of the key array.
+    /// The default value is **0**.
+    /// The value ranges from 0 to 100. If the size exceeds 100, the first 100 keys are used.
+    /// When an invalid value is set, the value **0** is used.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -380,26 +428,25 @@ extern "C" {
         key: *mut *const ::core::ffi::c_char,
         size: u32,
     );
-    /// Obtains the prediction information about the blankless loading solution and enables the generation
-    /// of the transition frame for the current loading. The application determines whether to enable the blankless
-    /// loading solution based on the information.
-    /// This API applies to pages in an applet or web application whose URLs are not fixed or cannot be uniquely
-    /// identified.
+    /// Obtains the first screen loading prediction information, and starts to generate the loading transition frame.
+    /// The application determines whether to enable blankless loading based on the information. For details, see [`ArkWeb_BlanklessInfo`](crate::native_interface_arkweb::ArkWeb_BlanklessInfo)
+    /// . This API must be used together with the [`OH_NativeArkWeb_SetBlanklessLoadingWithKey`](crate::native_interface_arkweb::OH_NativeArkWeb_SetBlanklessLoadingWithKey) API and must be called
+    /// before the page loading API is triggered and after **WebViewController** is bound to the **Web** component.
     ///
     ///
     /// Required Permissions: ohos.permission.INTERNET and ohos.permission.GET_NETWORK_INFO
     /// # Arguments
     ///
-    /// * `webTag` - webTag used when the webviewController is created.
-    /// Default value: N/A.
-    /// The value cannot be empty.
-    /// When an invalid value is set, the error code is returned, and the API does not take effect.
+    /// * `webTag` - Name of the **Web** component.
     ///
-    /// * `key` - Key value that uniquely identifies the current page.
+    /// * `key` - Key value that uniquely identifies the page.
+    /// The value cannot be empty and can contain a maximum of 2048 characters.
+    /// Invalid values do not take effect.
     ///
     /// # Returns
     ///
-    /// * Return value of the ArkWeb_BlanklessInfo type.
+    /// * Prediction information about blankless loading, including the first screen similarity and first screen
+    /// loading duration. The application determines whether to enable blankless loading based on the prediction information.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -408,20 +455,24 @@ extern "C" {
         webTag: *const ::core::ffi::c_char,
         key: *const ::core::ffi::c_char,
     ) -> ArkWeb_BlanklessInfo;
-    /// Sets the cache capacity of the blankless loading solution and returns the value that takes effect.
+    /// Sets the persistent cache capacity of the blankless loading solution and returns the value that takes effect.
+    /// The default cache capacity is 30 MB, and the maximum cache capacity is 100 MB. When this limit is exceeded,
+    /// transition frames that are not frequently used are eliminated.
     ///
     /// # Arguments
     ///
-    /// * `capacity` - Cache capacity, in MB. The maximum value is 100 MB.
+    /// * `capacity` - Persistent cache capacity, in MB. The maximum value is 100 MB.
     /// The default value is 30 MB.
-    /// The value ranges from 0 to 100. If this parameter is set to 0, no cache capacity is available and the
+    /// The value ranges from 0 to 100. If this parameter is set to **0**, no cache capacity is available and the
     /// functionality is disabled globally.
-    /// When the value is set to a number smaller than 0, the value 0 takes effect. When the value is set to a
-    /// number greater than 100, the value 100 takes effect.
+    /// When a value less than 0 is set, the value **0** takes effect. When a value greater than 100 is set, the value **100*
+    /// * takes effect.
     ///
     /// # Returns
     ///
     /// * The effective value that ranges from 0 MB to 100 MB.
+    /// When a value less than 0 is set, the value **0** takes effect. When a value greater than 100 is set, the value **100*
+    /// * takes effect.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -456,30 +507,25 @@ extern "C" {
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_ArkWebCookieManager_SaveCookieAsync(callback: OH_ArkWeb_OnCookieSaveCallback);
-    /// Set active ArkWeb engine version.
-    /// If the system does not support the specified version, it will not take effect.
-    ///
-    /// This is a global static API that must be called before initializeWebEngine, and it will have no effect if any
-    /// Web components are loaded.
-    ///
-    /// <strong>Legacy Web Engine Compatibility Note</strong>:
-    /// <p>When using legacy ArkWeb Engine, some ArkWeb newly created API will not take effect,<br>
-    /// see [Compatible with Legacy Web Engine in release note] for compatibility guidelines.
-    /// </p>
+    /// Sets the ArkWeb kernel version. If the system does not support the specified version, the setting is invalid.
+    /// This API is a global static method and must be called before **initializeWebEngine** is called. If any **Web**
+    /// component has been loaded, the setting of this API is invalid.
     ///
     /// # Arguments
     ///
-    /// { ArkWebEngineVersion } webEngineVersion - the ArkWebEngineVersion
+    /// { ArkWebEngineVersion } webEngineVersion - ArkWeb kernel version.
+    /// For details, see [`ArkWebEngineVersion`](crate::native_interface_arkweb::ArkWebEngineVersion).
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_NativeArkWeb_SetActiveWebEngineVersion(webEngineVersion: ArkWebEngineVersion);
-    /// Get currently active ArkWeb engine version.
+    /// Obtains the current ArkWeb kernel version.
+    ///
     ///
     /// # Returns
     ///
-    /// * { ArkWebEngineVersion } Active ArkWeb Engine version as defined by ArkWebEngineVersion
+    /// * The current ArkWeb kernel version defined by [`ArkWebEngineVersion`](crate::native_interface_arkweb::ArkWebEngineVersion).
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -497,14 +543,78 @@ extern "C" {
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub fn OH_NativeArkWeb_LazyInitializeWebEngineInCookieManager(lazy: bool);
-    /// Check if the currently active ArkWeb engine is Evergreen.
+    /// Checks whether the ArkWeb kernel used by the application is the evergreen kernel, that is, the latest kernel of the
+    /// system.
+    ///
     ///
     /// # Returns
     ///
-    /// * { bool } true means the application is using the Evergreen Web Engine, false means not.
+    /// * Whether the kernel used by the application is the evergreen kernel. The value **true** indicates that the
+    /// kernel used by the application is the evergreen kernel, and **false** indicates the opposite.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub fn OH_NativeArkWeb_IsActiveWebEngineEvergreen() -> bool;
+    /// Synchronously obtains the cookie value corresponding to a specified URL.
+    ///
+    /// # Arguments
+    ///
+    /// * `url` - URL to which the cookie to be obtained belongs. A complete URL is recommended.
+    ///
+    /// * `incognito` - True indicates that the memory cookies of the webview in privacy mode are obtained,
+    /// and false indicates that cookies in non-privacy mode are obtained.
+    ///
+    /// * `includeHttpOnly` - If true HTTP-only cookies will also be included in the cookieValue.
+    ///
+    /// * `includePartitionedCookies` - If true, allows fetching first-party partitioned cookies.
+    ///
+    /// * `cookieValue` - Get the cookie value corresponding to the URL. This function will allocate memory for the
+    /// *cookieValue string and caller must release the string by [`OH_ArkWeb_ReleaseString`](crate::arkweb_scheme_handler::OH_ArkWeb_ReleaseString).
+    ///
+    /// # Returns
+    ///
+    /// * Fetch cookie result code.
+    ///  - [`ARKWEB_SUCCESS`](crate::arkweb_error_code::ArkWeb_ErrorCode) fetch cookie success.
+    ///  - [`ARKWEB_INVALID_URL`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::INVALID_URL) invalid url.
+    ///  - [`ARKWEB_INVALID_PARAM`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::INVALID_PARAM) cookieValue is nullptr.
+    ///  - [`ARKWEB_LIBRARY_OPEN_FAILURE`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::LIBRARY_OPEN_FAILURE) Failed to open the library.
+    ///  - [`ARKWEB_LIBRARY_SYMBOL_NOT_FOUND`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::LIBRARY_SYMBOL_NOT_FOUND) The required symbol was not found in the library.
+    ///  - [`ARKWEB_COOKIE_MANAGER_NOT_INITIALIZED`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::COOKIE_MANAGER_NOT_INITIALIZED) It is not allowed to call on a non-UI thread without initializing the CookieManager interface. please initialize the CookieManager interface using OH_ArkWeb_GetNativeAPI first.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_ArkWebCookieManager_FetchCookieSync(
+        url: *const ::core::ffi::c_char,
+        incognito: bool,
+        includeHttpOnly: bool,
+        includePartitionedCookies: bool,
+        cookieValue: *mut *mut ::core::ffi::c_char,
+    ) -> ArkWeb_ErrorCode;
+    /// Asynchronously obtains the cookie value corresponding to a specified URL.
+    ///
+    /// # Arguments
+    ///
+    /// * `url` - URL to which the cookie to be obtained belongs. A complete URL is recommended.
+    ///
+    /// * `incognito` - True indicates that the memory cookies of the webview in privacy mode are obtained,
+    /// and false indicates that cookies in non-privacy mode are obtained.
+    ///
+    /// * `includeHttpOnly` - If true HTTP-only cookies will also be included in the cookieValue.
+    ///
+    /// * `includePartitionedCookies` - If true, allows fetching first-party partitioned cookies.
+    ///
+    /// * `callback` - Callback execute when fetch cookie done.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_ArkWebCookieManager_FetchCookieAsync(
+        url: *const ::core::ffi::c_char,
+        incognito: bool,
+        includeHttpOnly: bool,
+        includePartitionedCookies: bool,
+        callback: OH_ArkWeb_OnCookieFetchCallback,
+    );
 }

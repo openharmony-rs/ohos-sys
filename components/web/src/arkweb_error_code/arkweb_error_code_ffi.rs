@@ -28,7 +28,7 @@ impl ArkWeb_ErrorCodeError {
         ArkWeb_ErrorCodeError(const { core::num::NonZero::new(17100105).unwrap() });
     pub const LIBRARY_SYMBOL_NOT_FOUND: ArkWeb_ErrorCodeError =
         ArkWeb_ErrorCodeError(const { core::num::NonZero::new(17100106).unwrap() });
-    /// The CookieManager not initialized.
+    /// The CookieManager is not initialized.
     ///
     ///
     /// Available since API-level: 20
@@ -36,7 +36,7 @@ impl ArkWeb_ErrorCodeError {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const COOKIE_MANAGER_NOT_INITIALIZED: ArkWeb_ErrorCodeError =
         ArkWeb_ErrorCodeError(const { core::num::NonZero::new(17100107).unwrap() });
-    /// The CookieManager initialize failed.
+    /// The CookieManager initialization failed.
     ///
     ///
     /// Available since API-level: 20
@@ -59,31 +59,31 @@ pub struct ArkWeb_ErrorCodeError(pub core::num::NonZero<::core::ffi::c_uint>);
 #[cfg(feature = "api-20")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
 impl ArkWeb_BlanklessErrorCode {
-    /// The operation is successful.
+    /// Operation successful.
     pub const ARKWEB_BLANKLESS_SUCCESS: ArkWeb_BlanklessErrorCode = ArkWeb_BlanklessErrorCode(0);
-    /// Unidentified error.
+    /// Unknown error.
     pub const ARKWEB_BLANKLESS_ERR_UNKNOWN: ArkWeb_BlanklessErrorCode =
         ArkWeb_BlanklessErrorCode(-1);
     /// Invalid parameter.
     pub const ARKWEB_BLANKLESS_ERR_INVALID_ARGS: ArkWeb_BlanklessErrorCode =
         ArkWeb_BlanklessErrorCode(-2);
-    /// The web controller is not bound to a component.
+    /// **WebViewController** is not bound to any component.
     pub const ARKWEB_BLANKLESS_ERR_CONTROLLER_NOT_INITED: ArkWeb_BlanklessErrorCode =
         ArkWeb_BlanklessErrorCode(-3);
-    /// The key value is not matched. The OH_NativeArkWeb_SetBlanklessLoadingWithKey
-    /// and OH_NativeArkWeb_GetBlanklessInfoWithKey APIs must be used in pair and use the same key value.
+    /// The key value is not matched. The **OH_NativeArkWeb_SetBlanklessLoadingWithKey** and **
+    /// OH_NativeArkWeb_GetBlanklessInfoWithKey** APIs must be used in pair and use the same key value.
     pub const ARKWEB_BLANKLESS_ERR_KEY_NOT_MATCH: ArkWeb_BlanklessErrorCode =
         ArkWeb_BlanklessErrorCode(-4);
-    /// If the similarity is low, the system determines that the change is too large.
-    /// As a result, the OH_NativeArkWeb_SetBlanklessLoadingWithKey API fails to enable frame interpolation.
+    /// When the similarity is low, the system will deem the scene change too abrupt and frame insertion through the **
+    /// OH_NativeArkWeb_SetBlanklessLoadingWithKey** API will fail.
     pub const ARKWEB_BLANKLESS_ERR_SIGNIFICANT_CHANGE: ArkWeb_BlanklessErrorCode =
         ArkWeb_BlanklessErrorCode(-5);
-    /// The device does not support this feature.
+    /// This device does not support this feature.
     pub const ARKWEB_BLANKLESS_ERR_DEVICE_NOT_SUPPORT: ArkWeb_BlanklessErrorCode =
         ArkWeb_BlanklessErrorCode(801);
 }
 #[repr(transparent)]
-/// Defines an enum for the error codes of the white screen optimization solution.
+/// Enumerates the error codes for the blankless loading.
 ///
 ///
 /// Available since API-level: 20

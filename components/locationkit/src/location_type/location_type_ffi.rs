@@ -211,6 +211,22 @@ pub struct Location_RequestConfig {
     _unused: [u8; 0],
 }
 extern "C" {
+    /// Indicates whether the location was obtained from the mock location function.
+    ///
+    /// # Arguments
+    ///
+    /// * `location` - - Pointer to the location information structure.
+    /// A non‑null pointer is required. The pointer can be obtained via [`Location_InfoCallback`](crate::location_type::Location_InfoCallback).
+    ///
+    /// # Returns
+    ///
+    /// * true if the location was obtained from the mock location function.
+    /// Otherwise, the location originates from the system's real positioning result.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_LocationInfo_IsFromMock(location: *mut Location_Info) -> bool;
     /// Obtain basic location information.
     ///
     /// # Arguments

@@ -3,6 +3,7 @@
 #![allow(non_upper_case_globals)]
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
+pub use crate::common_type::ArkUI_NodeEvent;
 use crate::native_type::*;
 #[cfg(feature = "api-12")]
 use ohos_sys_opaque_types::ArkUI_ContextHandle;
@@ -24,8 +25,8 @@ impl ArkUI_DragResult {
     pub const CANCELED: ArkUI_DragResult = ArkUI_DragResult(2);
 }
 #[repr(transparent)]
-/// Defines an enum for drag results, which are set by the data receiver and transferred by the system to the
-/// drag source so that the drag source is aware of the data processing result of the receiver.
+/// Enumerates drag results, which are set by the data receiver and transferred by the system to the drag source
+/// so that the drag source is aware of the data processing result of the receiver.
 ///
 ///
 /// Available since API-level: 12
@@ -42,7 +43,9 @@ impl ArkUI_DropOperation {
     pub const ARKUI_DROP_OPERATION_MOVE: ArkUI_DropOperation = ArkUI_DropOperation(1);
 }
 #[repr(transparent)]
-/// Defines an enum for data processing modes used when data is dropped, which affects the display of the badge.
+/// Enumerates data processing modes used when data is dropped, which affects the display of the badge. When the
+/// copy operation is set, the badge displays a plus sign (+). When the cut operation is set, the badge does not display
+/// a plus sign (+).
 ///
 ///
 /// Available since API-level: 12
@@ -77,7 +80,7 @@ impl ArkUI_PreDragStatus {
         ArkUI_PreDragStatus(6);
 }
 #[repr(transparent)]
-/// Defines an enum for interaction states prior to a drop and drop operation.
+/// Enumerates interaction states prior to a drop and drop operation.
 ///
 ///
 /// Available since API-level: 12
@@ -88,16 +91,16 @@ pub struct ArkUI_PreDragStatus(pub ::core::ffi::c_int);
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl ArkUI_DragPreviewScaleMode {
-    /// The system automatically changes the position of the dragged point based on the scenario and
-    /// scales the drag preview based on set rules.
+    /// Enables the system to automatically change the position of the dragged point based on the scenario and apply
+    /// scaling transformations to the drag preview based on set rules.
     pub const ARKUI_DRAG_PREVIEW_SCALE_AUTO: ArkUI_DragPreviewScaleMode =
         ArkUI_DragPreviewScaleMode(0);
-    /// The system does not scale the drag preview.
+    /// Disables the system's scaling behavior for the drag preview.
     pub const ARKUI_DRAG_PREVIEW_SCALE_DISABLED: ArkUI_DragPreviewScaleMode =
         ArkUI_DragPreviewScaleMode(1);
 }
 #[repr(transparent)]
-/// Defines an enum for drag preview scale modes.
+/// Enumerates drag preview scale modes.
 ///
 ///
 /// Available since API-level: 12
@@ -110,13 +113,13 @@ pub struct ArkUI_DragPreviewScaleMode(pub ::core::ffi::c_uint);
 impl ArkUI_DragStatus {
     /// Unknown.
     pub const ARKUI_DRAG_STATUS_UNKNOWN: ArkUI_DragStatus = ArkUI_DragStatus(-1);
-    /// Started.
+    /// The drag operation has started.
     pub const ARKUI_DRAG_STATUS_STARTED: ArkUI_DragStatus = ArkUI_DragStatus(0);
-    /// Ended.
+    /// The drag operation has ended.
     pub const ARKUI_DRAG_STATUS_ENDED: ArkUI_DragStatus = ArkUI_DragStatus(1);
 }
 #[repr(transparent)]
-/// Defines an enum for drag states.
+/// Enumerates drag operation states.
 ///
 ///
 /// Available since API-level: 12
@@ -124,16 +127,6 @@ impl ArkUI_DragStatus {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct ArkUI_DragStatus(pub ::core::ffi::c_int);
-/// Defines a struct for a component event.
-///
-///
-/// Available since API-level: 12
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-#[repr(C)]
-pub struct ArkUI_NodeEvent {
-    _unused: [u8; 0],
-}
 /// Defines a struct for a drag event.
 ///
 ///
@@ -154,7 +147,7 @@ pub struct ArkUI_DragEvent {
 pub struct ArkUI_DragPreviewOption {
     _unused: [u8; 0],
 }
-/// Defines a struct for a drag action.
+/// Defines a drag action.
 ///
 ///
 /// Available since API-level: 12
@@ -164,7 +157,7 @@ pub struct ArkUI_DragPreviewOption {
 pub struct ArkUI_DragAction {
     _unused: [u8; 0],
 }
-/// Defines a struct for drag and drop information returned through a drag status listener.
+/// Defines drag and drop information returned through a drag status listener.
 ///
 ///
 /// Available since API-level: 12
@@ -175,31 +168,31 @@ pub struct ArkUI_DragAndDropInfo {
     _unused: [u8; 0],
 }
 extern "C" {
-    /// Obtains a <b>ArkUI_DragEvent</b> object from the specified <b>ArkUI_NodeEvent</b> object.
+    /// Obtains a **DragEvent** object from the specified **NodeEvent** object.
     ///
     /// # Arguments
     ///
-    /// * `nodeEvent` - Indicates the pointer to an <b>ArkUI_NodeEvent</b> object.
+    /// * `nodeEvent` - Pointer to the target **ArkUI_NodeEvent** object.
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to an <b>ArkUI_DragEvent</b> object.
-    /// Returns <b>null</b> if the parameter passed in is invalid or is not a drag-related event.
+    /// * Returns the pointer to an **ArkUI_DragEvent** object; returns null if the parameter passed in is invalid or
+    /// is not a drag-related event.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_ArkUI_NodeEvent_GetDragEvent(nodeEvent: *mut ArkUI_NodeEvent)
         -> *mut ArkUI_DragEvent;
-    /// Obtains the interaction state prior to a drop and drop operation.
+    /// Obtains the state prior to a drop and drop operation.
     ///
     /// # Arguments
     ///
-    /// * `nodeEvent` - Indicates the pointer to an <b>ArkUI_NodeEvent</b> object.
+    /// * `nodeEvent` - Pointer to the target **ArkUI_NodeEvent** object.
     ///
     /// # Returns
     ///
-    /// * Returns the interaction state prior to the drop and drop operation.
+    /// * State prior to the drop and drop operation.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -207,21 +200,21 @@ extern "C" {
     pub fn OH_ArkUI_NodeEvent_GetPreDragStatus(
         nodeEvent: *mut ArkUI_NodeEvent,
     ) -> ArkUI_PreDragStatus;
-    /// Sets whether to disable the default drop animation.
-    /// The default drop animation is enabled by default and can be disabled to apply a custom drop animation.
+    /// Sets whether to disable the default drop animation, which is enabled by default. Use this API to apply a
+    /// custom drop animation.
     ///
     /// # Arguments
     ///
-    /// * `event` - Indicates the pointer to an <b>ArkUI_DragEvent</b> object.
+    /// * `event` - Pointer to the target **ArkUI_DragEvent** object.
     ///
-    /// * `disable` - Indicates whether to disable the default drop animation.
-    /// The value <b>true</b> means to disable the default drop animation, and <b>false</b> means the opposite.
+    /// * `disable` - Whether to disable the default drop animation. The value **true** means to disable the default drop
+    /// animation, and **false** means the opposite.
     ///
     /// # Returns
     ///
-    /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// * Result code.
+    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -234,15 +227,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `event` - Indicates the pointer to an <b>ArkUI_DragEvent</b> object.
+    /// * `event` - Pointer to the target **ArkUI_DragEvent** object.
     ///
-    /// * `dropOperation` - Indicates the data processing mode.
+    /// * `dropOperation` - Type of the suggested drop operation.
     ///
     /// # Returns
     ///
-    /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// * Result code.
+    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -255,15 +248,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `event` - Indicates the pointer to an <b>ArkUI_DragEvent</b> object.
+    /// * `event` - Pointer to the target **ArkUI_DragEvent** object.
     ///
-    /// * `result` - Indicates the drag result.
+    /// * `result` - Drag data processing result.
     ///
     /// # Returns
     ///
-    /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// * Result code.
+    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -276,43 +269,38 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `event` - Indicates the pointer to an <b>ArkUI_DragEvent</b> object.
+    /// * `event` - Pointer to the target **ArkUI_DragEvent** object.
     ///
-    /// * `data` - Indicates the drag data.
+    /// * `data` - Drag data configuration.
     ///
     /// # Returns
     ///
-    /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// * Result code.
+    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_ArkUI_DragEvent_SetData(event: *mut ArkUI_DragEvent, data: *mut OH_UdmfData) -> i32;
-    /// Use this method to provide a data loading parameter to the system instead of providing
-    /// a complete data object directly. When the user drags and drops to the target application,
-    /// the system will use this parameter to request data from you. This can greatly improve the efficiency
-    /// of the dragging operation for large amounts of data and the effectiveness of the drop data handling
-    /// in the target application.
-    ///
-    /// This method should be always prioritized over using [`OH_ArkUI_DragEvent_SetData`](crate::drag_and_drop::OH_ArkUI_DragEvent_SetData).
-    /// See `OH_UdmfDataLoadParams_Create` in <b>udmf.h</b> for how to create and prepare the data loading parameter.
-    ///
-    /// \[Note\]: Please be awared this method is conflict with [`OH_ArkUI_DragEvent_SetData`](crate::drag_and_drop::OH_ArkUI_DragEvent_SetData), and the system always use
-    /// the last called method as the final result.
+    /// This API provides data loading parameters to the system instead of directly providing a complete data object.
+    /// When the user drops data on the target application, the system will use **dataLoadParams** to request data. This can
+    /// significantly improve the efficiency of dragging large volumes of data and the efficiency of processing the dropped
+    /// data in the target application. This API must always be used in preference to [`OH_ArkUI_DragEvent_SetData`](crate::drag_and_drop::OH_ArkUI_DragEvent_SetData).
+    /// For details about how to create and prepare data loading parameters, see `OH_UdmfDataLoadParams_Create` in **
+    /// udmf.h**. If this API conflicts with [`OH_ArkUI_DragEvent_SetData`](crate::drag_and_drop::OH_ArkUI_DragEvent_SetData), the system always uses the last called API.
     ///
     /// # Arguments
     ///
-    /// * `event` - Indicates the pointer to an <b>ArkUI_DragEvent</b> object.
+    /// * `event` - Pointer to the target **ArkUI_DragEvent** object.
     ///
-    /// * `dataLoadParams` - Indicates the data loading parameters which will be used when dropping.
+    /// * `dataLoadParams` - Data loading parameters used during a drop operation.
     ///
     /// # Returns
     ///
-    /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// * Result code.
+    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -325,16 +313,16 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `event` - Indicates the pointer to an <b>ArkUI_DragEvent</b> object.
+    /// * `event` - Pointer to the target **ArkUI_DragEvent** object.
     ///
-    /// * `data` - Indicates the pointer to an <b>OH_UdmfData</b> object. The application needs to create a pointer
-    /// for receiving data by using the `OH_UdmfData_Create` method.
+    /// * `data` - Pointer to an **OH_UdmfData** object. The application needs to create a pointer for receiving data by
+    /// using the `OH_UdmfData_Create` API.
     ///
     /// # Returns
     ///
-    /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// * Result code.
+    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -347,15 +335,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `event` - Indicates the pointer to an <b>ArkUI_DragEvent</b> object.
+    /// * `event` - Pointer to the target **ArkUI_DragEvent** object.
     ///
-    /// * `count` - Indicates the number of drag data types returned.
+    /// * `count` - Number of drag data types returned.
     ///
     /// # Returns
     ///
-    /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// * Result code.
+    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -378,9 +366,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// Returns [`ARKUI_ERROR_CODE_BUFFER_SIZE_ERROR`](crate::native_type::ArkUiErrorCode::BUFFER_SIZE_ERROR) if the giving buffer is not enough for string copy.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_BUFFER_SIZE_ERROR`](crate::error_code::ArkUiErrorCode::BUFFER_SIZE_ERROR) if the giving buffer is not enough for string copy.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -391,19 +379,19 @@ extern "C" {
         length: i32,
         maxStrLen: i32,
     ) -> i32;
-    /// Obtains the drag result from a drag event.
+    /// Obtains the drag and drop result from the drag event.
     ///
     /// # Arguments
     ///
-    /// * `event` - Indicates the pointer to an <b>ArkUI_DragEvent</b> object.
+    /// * `event` - Pointer to the target **ArkUI_DragEvent** object.
     ///
-    /// * `result` - Indicates the drag result returned.
+    /// * `result` - Drag result returned.
     ///
     /// # Returns
     ///
-    /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// * Result code.
+    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -412,20 +400,20 @@ extern "C" {
         event: *mut ArkUI_DragEvent,
         result: *mut ArkUI_DragResult,
     ) -> i32;
-    /// Obtains the drop operation from a drag event.
+    /// Obtains the data handling method from the drag event.
     ///
     /// # Arguments
     ///
-    /// * `event` - Indicates the pointer to an <b>ArkUI_DragEvent</b> object.
+    /// * `event` - Pointer to the target **ArkUI_DragEvent** object.
     ///
-    /// * `operation` - Indicates the drop operation which the data receiver set.
+    /// * `operation` - Data handling method.
     ///
     /// # Returns
     ///
-    /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// Possible causes: 1. The given parameters are null or the given event is not a valid DragEvent.
+    /// * Result code.
+    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// <br>Possible causes: 1. Parameters are null or the event is not a valid DragEvent.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -434,31 +422,29 @@ extern "C" {
         event: *mut ArkUI_DragEvent,
         operation: *mut ArkUI_DropOperation,
     ) -> i32;
-    /// Obtains the X coordinate of the touch point for a drag preview from a drag event.
+    /// Obtains the x-coordinate of the touch point for a drag preview from a drag event.
     ///
     /// # Arguments
     ///
-    /// * `event` - Indicates the pointer to an <b>ArkUI_DragEvent</b> object.
+    /// * `event` - Pointer to the target **ArkUI_DragEvent** object.
     ///
     /// # Returns
     ///
-    /// * Returns the X coordinate of the touch point, in px.
-    /// Returns the default value <b>0</b> if the input parameter is invalid.
+    /// * X-coordinate of the touch point, in px, or the default value **0** if the input parameter is invalid.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_ArkUI_DragEvent_GetPreviewTouchPointX(event: *mut ArkUI_DragEvent) -> f32;
-    /// Obtains the Y coordinate of the touch point for a drag preview from a drag event.
+    /// Obtains the y-coordinate of the touch point on the preview image from a drag event.
     ///
     /// # Arguments
     ///
-    /// * `event` - Indicates the pointer to an <b>ArkUI_DragEvent</b> object.
+    /// * `event` - Pointer to the target **ArkUI_DragEvent** object.
     ///
     /// # Returns
     ///
-    /// * Returns the Y coordinate of the touch point, in px.
-    /// Returns the default value <b>0</b> if the input parameter is invalid.
+    /// * Y-coordinate of the touch point, in px, or the default value **0** if the input parameter is invalid.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -468,12 +454,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `event` - Indicates the pointer to an <b>ArkUI_DragEvent</b> object.
+    /// * `event` - Pointer to the target **ArkUI_DragEvent** object.
     ///
     /// # Returns
     ///
-    /// * Returns the width of the drag preview, in px.
-    /// Returns the default value <b>0</b> if the input parameter is invalid.
+    /// * Width of the drag preview, in px, or the default value **0** if the input parameter is invalid.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -483,102 +468,103 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `event` - Indicates the pointer to an <b>ArkUI_DragEvent</b> object.
+    /// * `event` - Pointer to the target **ArkUI_DragEvent** object.
     ///
     /// # Returns
     ///
-    /// * Returns the height of the drag preview, in px.
-    /// Returns the default value <b>0</b> if the input parameter is invalid.
+    /// * Height of the drag preview, in px, or the default value **0** if the input parameter is invalid.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_ArkUI_DragEvent_GetPreviewRectHeight(event: *mut ArkUI_DragEvent) -> f32;
-    /// Obtains the X coordinate of the touch point relative to the window from a drag event.
+    /// Obtains the x-coordinate of the touch point relative to the window from a drag event.
     ///
     /// # Arguments
     ///
-    /// * `event` - Indicates the pointer to an <b>ArkUI_DragEvent</b> object.
+    /// * `event` - Pointer to the target **ArkUI_DragEvent** object.
     ///
     /// # Returns
     ///
-    /// * Returns the X coordinate of the touch point relative to the window, in px.
-    /// Returns the default value <b>0</b> if the input parameter is invalid.
+    /// * X-coordinate of the touch point relative to the window, in px, or the default value **0** if the input
+    /// parameter is invalid.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_ArkUI_DragEvent_GetTouchPointXToWindow(event: *mut ArkUI_DragEvent) -> f32;
-    /// Obtains the Y coordinate of the touch point relative to the window from a drag event.
+    /// Obtains the y-coordinate of the touch point relative to the window from a drag event.
     ///
     /// # Arguments
     ///
-    /// * `event` - Indicates the pointer to an <b>ArkUI_DragEvent</b> object.
+    /// * `event` - Pointer to the target **ArkUI_DragEvent** object.
     ///
     /// # Returns
     ///
-    /// * Returns the Y coordinate of the touch point relative to the window, in px.
-    /// Returns the default value <b>0</b> if the input parameter is invalid.
+    /// * Y-coordinate of the touch point relative to the window, in px, or the default value **0** if the input
+    /// parameter is invalid.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_ArkUI_DragEvent_GetTouchPointYToWindow(event: *mut ArkUI_DragEvent) -> f32;
-    /// Obtains the X coordinate of the touch point relative to the current display from a drag event.
+    /// Obtains the x-coordinate of the touch point relative to the display from a drag event.
     ///
     /// # Arguments
     ///
-    /// * `event` - Indicates the pointer to an <b>ArkUI_DragEvent</b> object.
+    /// * `event` - Pointer to the target **ArkUI_DragEvent** object.
     ///
     /// # Returns
     ///
-    /// * Returns the X coordinate of the touch point relative to the current display, in px.
-    /// Returns the default value <b>0</b> if the input parameter is invalid.
+    /// * X-coordinate of the touch point relative to the display, in px, or the default value **0** if the input
+    /// parameter is invalid.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_ArkUI_DragEvent_GetTouchPointXToDisplay(event: *mut ArkUI_DragEvent) -> f32;
-    /// Obtains the Y coordinate of the touch point relative to the current display from a drag event.
+    /// Obtains the y-coordinate of the touch point relative to the display from a drag event.
     ///
     /// # Arguments
     ///
-    /// * `event` - Indicates the pointer to an <b>ArkUI_DragEvent</b> object.
+    /// * `event` - Pointer to the target **ArkUI_DragEvent** object.
     ///
     /// # Returns
     ///
-    /// * Returns the Y coordinate of the touch point relative to the current display, in px.
-    /// Returns the default value <b>0</b> if the input parameter is invalid.
+    /// * Y-coordinate of the touch point relative to the display, in px, or the default value **0** if the input
+    /// parameter is invalid.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_ArkUI_DragEvent_GetTouchPointYToDisplay(event: *mut ArkUI_DragEvent) -> f32;
-    /// Obtains the global display X coordinate of the touch point from an <b>ArkUI_DragEvent</b> object.
+    /// Obtains the x-coordinate of the drag touch point relative to the global display from the specified **
+    /// ArkUI_DragEvent** object.
     ///
     /// # Arguments
     ///
-    /// * `event` - Pointer to an <b>ArkUI_DragEvent</b> object.
+    /// * `event` - Pointer to the target **ArkUI_DragEvent** object.
     ///
     /// # Returns
     ///
-    /// * float Global display X coordinate of the touch point, in px.
-    /// If the input parameter is invalid, the default value <b>0</b> is returned.
+    /// * X-coordinate of the touch point relative to the global display, in px, or the default value **0** if the
+    /// input parameter is invalid.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_ArkUI_DragEvent_GetTouchPointXToGlobalDisplay(event: *mut ArkUI_DragEvent) -> f32;
-    /// Obtains the global display Y coordinate of the touch point from an <b>ArkUI_DragEvent</b> object.
+    /// Obtains the y-coordinate of the drag touch point relative to the global display from the specified **
+    /// ArkUI_DragEvent** object.
     ///
     /// # Arguments
     ///
-    /// * `event` - Pointer to an <b>ArkUI_DragEvent</b> object.
+    /// * `event` - Pointer to the target **ArkUI_DragEvent** object.
     ///
     /// # Returns
     ///
-    /// * float Global display Y coordinate of the touch point, in px.
-    /// If the input parameter is invalid, the default value <b>0</b> is returned.
+    /// * Y-coordinate of the touch point relative to the global display, in px, or the default value **0** if the
+    /// input parameter is invalid.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -588,12 +574,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `event` - Indicates the pointer to an <b>ArkUI_DragEvent</b> object.
+    /// * `event` - Pointer to the target **ArkUI_DragEvent** object.
     ///
     /// # Returns
     ///
-    /// * Returns the dragging velocity along the x-axis, in px.
-    /// Returns the default value <b>0</b> if the input parameter is invalid.
+    /// * Dragging velocity along the x-axis, in px/s, or the default value **0** if the input parameter is invalid.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -603,12 +588,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `event` - Indicates the pointer to an <b>ArkUI_DragEvent</b> object.
+    /// * `event` - Pointer to the target **ArkUI_DragEvent** object.
     ///
     /// # Returns
     ///
-    /// * Returns the dragging velocity along the y-axis, in px.
-    /// Returns the default value <b>0</b> if the input parameter is invalid.
+    /// * Dragging velocity along the y-axis, in px/s, or the default value **0** if the input parameter is invalid.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -618,31 +602,30 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `event` - Indicates the pointer to an <b>ArkUI_DragEvent</b> object.
+    /// * `event` - Pointer to the target **ArkUI_DragEvent** object.
     ///
     /// # Returns
     ///
-    /// * Returns the dragging velocity along the main axis, in px.
-    /// Returns the default value <b>0</b> if the input parameter is invalid.
+    /// * Dragging velocity along the main axis, in px/s, or the default value **0** if the input parameter is invalid.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_ArkUI_DragEvent_GetVelocity(event: *mut ArkUI_DragEvent) -> f32;
-    /// Obtains the pressed status of modifier keys from a drag event.
+    /// Obtains the pressed status of modifier keys.
     ///
     /// # Arguments
     ///
-    /// * `event` - Indicates the pointer to an <b>ArkUI_DragEvent</b> object.
+    /// * `event` - Pointer to the target **ArkUI_DragEvent** object.
     ///
-    /// * `keys` - [`ArkUI_ModifierKeyName`](crate::ui_input_event::ArkUI_ModifierKeyName) Indicates the returned combination of modifier keys that are
-    /// currently pressed. The application can determine the pressed modifier keys through bitwise operations.
+    /// * `keys` - Pointer to the combination of pressed modifier keys (Ctrl, Shift, and Alt). The application can use
+    /// bitwise operations to determine which keys are pressed.
     ///
     /// # Returns
     ///
-    /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// * Result code.
+    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -651,19 +634,20 @@ extern "C" {
         event: *mut ArkUI_DragEvent,
         keys: *mut u64,
     ) -> i32;
-    /// Obtains the display ID of the screen for the specified drag event.
+    /// Obtains the ID of the screen where this drag event occurs. This API is not supported when **eventType** is **
+    /// NODE_ON_DRAG_END**.
     ///
     /// # Arguments
     ///
-    /// * `event` - Pointer to an <b>ArkUI_DragEvent</b> object.
+    /// * `event` - Pointer to the target **ArkUI_DragEvent** object.
     ///
-    /// * `displayId` - Display ID of the event occurs in.
+    /// * `displayId` - ID of the screen where the current drag event occurs.
     ///
     /// # Returns
     ///
-    /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// * Result code.
+    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -672,24 +656,71 @@ extern "C" {
         event: *mut ArkUI_DragEvent,
         displayId: *mut i32,
     ) -> ArkUiResult;
-    /// Request to start the data sync process with the sync option.
+    /// Obtains the bundle name of the drag source application. The caller must provide a character array with a
+    /// minimum length of 128 characters to store the bundle name.
     ///
     /// # Arguments
     ///
-    /// * `event` - Indicates the pointer to an <b>ArkUI_DragEvent</b> object.
+    /// * `event` - Pointer to the target **ArkUI_DragEvent** object.
     ///
-    /// * `options` - Indicates the pointer to an <b>OH_UdmfGetDataParams</b> object.
+    /// * `bundleName` - Character array to store the bundle name string, with a length of at least 128 characters.
     ///
-    /// * `key` - Represents return value after set data to database successfully, it should be not
-    /// less than `UDMF_KEY_BUFFER_LEN`.
-    ///
-    /// * `keyLen` - Represents the length of key string.
+    /// * `length` - Length of the character array to store the bundle name string. The minimum length is 128 characters.
     ///
     /// # Returns
     ///
-    /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// * Result code.
+    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_ArkUI_DragEvent_GetDragSource(
+        event: *mut ArkUI_DragEvent,
+        bundleName: *mut ::core::ffi::c_char,
+        length: i32,
+    ) -> ArkUiResult;
+    /// Checks whether the current drag operation is a cross-device drag.
+    ///
+    /// # Arguments
+    ///
+    /// * `event` - Pointer to the target **ArkUI_DragEvent** object.
+    ///
+    /// * `isRemote` - Pointer to a boolean variable to store the result. The value **true** means that the current drag
+    /// operation is a cross-device drag, and **false** means the opposite.
+    ///
+    /// # Returns
+    ///
+    /// * Result code.
+    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_ArkUI_DragEvent_IsRemote(
+        event: *mut ArkUI_DragEvent,
+        isRemote: *mut bool,
+    ) -> ArkUiResult;
+    /// Starts data synchronization using the specified synchronization parameters.
+    ///
+    /// # Arguments
+    ///
+    /// * `event` - Pointer to the target **ArkUI_DragEvent** object.
+    ///
+    /// * `options` - Pointer to the **OH_UdmfGetDataParams** object.
+    ///
+    /// * `key` - Key value returned after successful data setting. The length of the string must be no less than
+    /// `UDMF_KEY_BUFFER_LEN`.
+    ///
+    /// * `keyLen` - Length of the **key** string.
+    ///
+    /// # Returns
+    ///
+    /// * Result code.
+    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
@@ -700,19 +731,19 @@ extern "C" {
         key: *mut ::core::ffi::c_char,
         keyLen: ::core::ffi::c_uint,
     ) -> i32;
-    /// Cancel the data sync process.
+    /// Cancels the ongoing data synchronization.
     ///
     /// # Arguments
     ///
-    /// * `uiContext` - Indicates the pointer to a UI instance.
+    /// * `uiContext` - Pointer to the UI instance.
     ///
-    /// * `key` - Represents the data key returned by [`OH_ArkUI_DragEvent_StartDataLoading`](crate::drag_and_drop::OH_ArkUI_DragEvent_StartDataLoading).
+    /// * `key` - Data key value, which is returned via [`OH_ArkUI_DragEvent_StartDataLoading`](crate::drag_and_drop::OH_ArkUI_DragEvent_StartDataLoading).
     ///
     /// # Returns
     ///
-    /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// * Result code.
+    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
@@ -721,72 +752,72 @@ extern "C" {
         uiContext: ArkUI_ContextHandle,
         key: *const ::core::ffi::c_char,
     ) -> i32;
-    /// Sets whether to disable data prefetch process before the onDrop callback executing.
-    /// The system will retry to getting data until the max time limit (2.4s for now) reaches,
-    /// this's useful for the cross device draging operation, as the system helps to eliminate
-    /// the communication instability, but it's redundant for [`OH_ArkUI_DragEvent_StartDataLoading`](crate::drag_and_drop::OH_ArkUI_DragEvent_StartDataLoading)
-    /// method, as it will take care the data fetching with asynchronous mechanism, so must set this
-    /// field to true if using [`OH_ArkUI_DragEvent_StartDataLoading`](crate::drag_and_drop::OH_ArkUI_DragEvent_StartDataLoading) in onDrop to avoid the data is
-    /// fetched before onDrop executing unexpectedly.
+    /// Sets whether to disable the data prefetch process before executing [`NODE_ON_DROP`](crate::native_node::ArkUI_NodeEventType::NODE_ON_DROP). The system will
+    /// retry data fetching until the maximum time limit (currently 2.4 seconds) is reached, which is useful for cross-
+    /// device drag and drop operations as it helps stabilize system communication. However, this feature is redundant for
+    /// the [`OH_ArkUI_DragEvent_StartDataLoading`](crate::drag_and_drop::OH_ArkUI_DragEvent_StartDataLoading) API. Since this API uses an asynchronous mechanism to fetch data,
+    /// when [`OH_ArkUI_DragEvent_StartDataLoading`](crate::drag_and_drop::OH_ArkUI_DragEvent_StartDataLoading) is used in **NODE_ON_DROP**, this field must be set to **true** to
+    /// prevent accidental data fetching before **NODE_ON_DROP** is executed.
     ///
     /// # Arguments
     ///
-    /// * `node` - Indicates the pointer to a component node.
+    /// * `node` - Pointer to the component node.
     ///
-    /// * `disabled` - Indicates whether to disable the data pre-fetch process, true for disable, false for not.
+    /// * `disabled` - Whether to disable the data prefetching process. The value **true** means to disable the data
+    /// prefetching process, and **false** means the opposite.
     ///
     /// # Returns
     ///
-    /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// * Result code.
+    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub fn OH_ArkUI_DisableDropDataPrefetchOnNode(node: ArkUI_NodeHandle, disabled: bool) -> i32;
-    /// Sets whether to enable strict reporting on drag events.
-    /// This feature is disabled by default, and you are advised to enable it.
-    /// If this feature is disabled, the parent component is not notified when an item in it is dragged over its child
-    /// component. If this feature is enabled, the component is notified of the dragged item's leaving, and the chil
-    /// component to which the dragged item is dropped is notified of the item's entering. This configuration is
-    /// related to a specific UI instance. You can pass in a specific component node on the current UI instance
-    /// for association.
+    /// Sets whether to enable strict reporting on drag events. This feature is disabled by default, and you are
+    /// advised to enable it. If this feature is disabled, the parent component is not notified when an item in it is
+    /// dragged over its child component. If this feature is enabled, the component is notified of the dragged item's
+    /// leaving, and the child component to which the dragged item is dropped is notified of the item's entering. This
+    /// configuration is related to a specific UI instance. You can pass in a specific component node on the current UI
+    /// instance for association.
     ///
     /// # Arguments
     ///
-    /// * `node` - Indicates the pointer to a component node.
+    /// * `node` - Pointer to the component node.
     ///
-    /// * `enabled` - Indicates whether to enable strict reporting on drag events.
+    /// * `enabled` - Whether to enable strict reporting on drag events. The value **true** means to enable strict
+    /// reporting on drag events, and **false** means the opposite.
     ///
     /// # Returns
     ///
-    /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// * Result code.
+    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_ArkUI_SetDragEventStrictReportWithNode(node: ArkUI_NodeHandle, enabled: bool) -> i32;
-    /// Sets whether to enable strict reporting on drag events.
-    /// This feature is disabled by default, and you are advised to enable it.
-    /// If this feature is disabled, the parent component is not notified when an item in it is dragged over its child
-    /// component. If this feature is enabled, the component is notified of the dragged item's leaving, and the child
-    /// component to which the dragged item is dropped is notified of the item's entering. This configuration is
-    /// related to a specific UI instance. You can pass in a specific UI instance for association.
+    /// Sets whether to enable strict reporting on drag events. This feature is disabled by default, and you are
+    /// advised to enable it. If this feature is disabled, the parent component is not notified when an item in it is
+    /// dragged over its child component. If this feature is enabled, the component is notified of the dragged item's
+    /// leaving, and the child component to which the dragged item is dropped is notified of the item's entering. This
+    /// configuration is related to a specific UI instance. You can pass in a specific UI instance for association.
     ///
     /// # Arguments
     ///
-    /// * `uiContext` - Indicates the pointer to a UI instance.
+    /// * `uiContext` - Pointer to the UI instance.
     ///
-    /// * `enabled` - Indicates whether to enable strict reporting on drag events.
+    /// * `enabled` - Whether to enable strict reporting on drag events. The value **true** means to enable strict
+    /// reporting on drag events, and **false** means the opposite.
     ///
     /// # Returns
     ///
-    /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// * Result code.
+    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -795,22 +826,22 @@ extern "C" {
         uiContext: ArkUI_ContextHandle,
         enabled: bool,
     ) -> i32;
-    /// Sets the types of data that can be dropped to the specified component. This API resets the settings configured
-    /// through [`OH_ArkUI_DisallowNodeAnyDropDataTypes`](crate::drag_and_drop::OH_ArkUI_DisallowNodeAnyDropDataTypes) and [`OH_ArkUI_AllowNodeAllDropDataTypes`](crate::drag_and_drop::OH_ArkUI_AllowNodeAllDropDataTypes).
+    /// Sets the types of data that can be dropped to the specified component. This API resets the settings
+    /// configured through [`OH_ArkUI_DisallowNodeAnyDropDataTypes`](crate::drag_and_drop::OH_ArkUI_DisallowNodeAnyDropDataTypes) or [`OH_ArkUI_AllowNodeAllDropDataTypes`](crate::drag_and_drop::OH_ArkUI_AllowNodeAllDropDataTypes).
     ///
     /// # Arguments
     ///
-    /// * `node` - Indicates the pointer to a component node.
+    /// * `node` - Pointer to the component node.
     ///
     /// * `typesArray` - Indicates the array of types of data that can be dropped.
     ///
-    /// * `count` - Indicates length of an array.
+    /// * `count` - Length of the array.
     ///
     /// # Returns
     ///
-    /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// * Result code.
+    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -820,18 +851,18 @@ extern "C" {
         typesArray: *mut *const ::core::ffi::c_char,
         count: i32,
     ) -> i32;
-    /// Configures the specified component to disallow any data types. This API resets the settings configured through
-    /// [`OH_ArkUI_SetNodeAllowedDropDataTypes`](crate::drag_and_drop::OH_ArkUI_SetNodeAllowedDropDataTypes).
+    /// Configures the specified component to disallow any data types. This API resets the settings configured
+    /// through [`OH_ArkUI_SetNodeAllowedDropDataTypes`](crate::drag_and_drop::OH_ArkUI_SetNodeAllowedDropDataTypes).
     ///
     /// # Arguments
     ///
-    /// * `node` - Indicates the pointer to a component node.
+    /// * `node` - Pointer to the component node.
     ///
     /// # Returns
     ///
-    /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// * Result code.
+    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -842,31 +873,32 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `node` - Indicates the pointer to a component node.
+    /// * `node` - Pointer to the component node.
     ///
     /// # Returns
     ///
-    /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// * Result code.
+    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_ArkUI_AllowNodeAllDropDataTypes(node: ArkUI_NodeHandle) -> i32;
-    /// Sets whether the specified component is draggable.
+    /// Sets whether the component is draggable.
     ///
     /// # Arguments
     ///
-    /// * `node` - Indicates the pointer to a component node.
+    /// * `node` - Pointer to the component node.
     ///
-    /// * `enabled` - Indicates whether the component is draggable.
+    /// * `enabled` - Whether the component is draggable. The value **true** means that the component is draggable, and **
+    /// false** means the opposite.
     ///
     /// # Returns
     ///
-    /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// * Result code.
+    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -876,15 +908,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `node` - Indicates the pointer to a component node.
+    /// * `node` - Pointer to the component node.
     ///
-    /// * `preview` - Indicates the custom drag preview, which is a pixel map.
+    /// * `preview` - Custom drag preview, which is a pixel map.
     ///
     /// # Returns
     ///
-    /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// * Result code.
+    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -893,40 +925,40 @@ extern "C" {
         node: ArkUI_NodeHandle,
         preview: *mut OH_PixelmapNative,
     ) -> i32;
-    /// Creates an <b>ArkUI_DragPreviewOption</b> object.
+    /// Creates an **ArkUI_DragPreviewOption** object.
     ///
     ///
     /// # Returns
     ///
-    /// * Returns the created <b>ArkUI_DragPreviewOption</b> object.
+    /// * **ArkUI_DragPreviewOption** object.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_ArkUI_CreateDragPreviewOption() -> *mut ArkUI_DragPreviewOption;
-    /// Disposes of a <b>ArkUI_DragPreviewOption</b> object.
+    /// Disposes of an **ArkUI_DragPreviewOption** object.
     ///
     /// # Arguments
     ///
-    /// * `option` - Indicates the pointer to an <b>ArkUI_DragPreviewOption</b> object.
+    /// * `option` - Custom parameters.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_ArkUI_DragPreviewOption_Dispose(option: *mut ArkUI_DragPreviewOption);
-    /// Sets the scale mode for an <b>ArkUI_DragPreviewOption</b> object.
+    /// Sets the scale mode for an **ArkUI_DragPreviewOption** object.
     ///
     /// # Arguments
     ///
-    /// * `option` - Indicates the pointer to an <b>ArkUI_DragPreviewOption</b> object.
+    /// * `option` - Custom parameters.
     ///
-    /// * `scaleMode` - Indicates the scale mode.
+    /// * `scaleMode` - Scale mode to set.
     ///
     /// # Returns
     ///
-    /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// * Result code.
+    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -935,20 +967,21 @@ extern "C" {
         option: *mut ArkUI_DragPreviewOption,
         scaleMode: ArkUI_DragPreviewScaleMode,
     ) -> i32;
-    /// Sets whether to enable the shadow effect for an <b>ArkUI_DragPreviewOption</b> object.
-    /// The shadow effect is enabled by default.
+    /// Sets whether to enable the default shadow effect for an **ArkUI_DragPreviewOption** object. The effect is
+    /// disabled by default.
     ///
     /// # Arguments
     ///
-    /// * `option` - Indicates the pointer to an <b>ArkUI_DragPreviewOption</b> object.
+    /// * `option` - Custom parameters.
     ///
-    /// * `enabled` - Indicates whether to enable the shadow effect.
+    /// * `enabled` - Whether to enable the default shadow effect. The value **true** means to enable the default shadow
+    /// effect, and **false** means the opposite.
     ///
     /// # Returns
     ///
-    /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// * Result code.
+    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -957,20 +990,21 @@ extern "C" {
         option: *mut ArkUI_DragPreviewOption,
         enabled: bool,
     ) -> i32;
-    /// Sets whether to enable the rounded corner effect for an <b>ArkUI_DragPreviewOption</b> object.
-    /// The rounded corner effect is enabled by default.
+    /// Sets whether to enable the default rounded corner effect for an **ArkUI_DragPreviewOption** object. The
+    /// rounded corner radius is 12.0 vp by default. The effect is disabled by default.
     ///
     /// # Arguments
     ///
-    /// * `option` - Indicates the pointer to an <b>ArkUI_DragPreviewOption</b> object.
+    /// * `option` - Custom parameters.
     ///
-    /// * `enabled` - Indicates whether to enable the rounded corner effect.
+    /// * `enabled` - Whether to enable the default corner radius effect. The value **true** means to enable the default
+    /// corner radius effect, and **false** means the opposite.
     ///
     /// # Returns
     ///
-    /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// * Result code.
+    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -979,20 +1013,21 @@ extern "C" {
         option: *mut ArkUI_DragPreviewOption,
         enabled: bool,
     ) -> i32;
-    /// Sets whether to enable the badge for an <b>ArkUI_DragPreviewOption</b> object.
-    /// If this feature is enabled, a badge that contains the number of dragged items is displayed.
+    /// Sets whether to enable the badge for an **ArkUI_DragPreviewOption** object. If this feature is enabled, a
+    /// badge that contains the number of dragged items is displayed.
     ///
     /// # Arguments
     ///
-    /// * `option` - Indicates the pointer to an <b>ArkUI_DragPreviewOption</b> object.
+    /// * `option` - Custom parameters.
     ///
-    /// * `enabled` - Indicates whether to enable badge.
+    /// * `enabled` - Whether to enable the badge. The value **true** means to enable the badge, and **false** means the
+    /// opposite.
     ///
     /// # Returns
     ///
-    /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// * Result code.
+    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1001,20 +1036,20 @@ extern "C" {
         option: *mut ArkUI_DragPreviewOption,
         enabled: bool,
     ) -> i32;
-    /// Sets the count on the badge.
-    /// The settings will overwrite the value in the <b>SetDragPreviewNumberBadgeEnabled</b> API.
+    /// Sets the count on the badge. The settings will overwrite the value in
+    /// [`OH_ArkUI_DragPreviewOption_SetNumberBadgeEnabled`](crate::drag_and_drop::OH_ArkUI_DragPreviewOption_SetNumberBadgeEnabled).
     ///
     /// # Arguments
     ///
-    /// * `option` - Indicates the pointer to an <b>ArkUI_DragPreviewOption</b> object.
+    /// * `option` - Custom parameters.
     ///
-    /// * `forcedNumber` - Indicates the count on the badge.
+    /// * `forcedNumber` - Number of badges.
     ///
     /// # Returns
     ///
-    /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// * Result code.
+    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1023,19 +1058,20 @@ extern "C" {
         option: *mut ArkUI_DragPreviewOption,
         forcedNumber: u32,
     ) -> i32;
-    /// Sets whether to enable the default animation on a click or touch, it's not used in drag action.
+    /// Sets whether to enable the default animation on a click or touch.
     ///
     /// # Arguments
     ///
-    /// * `option` - Indicates the pointer to an <b>ArkUI_DragPreviewOption</b> object.
+    /// * `option` - Custom parameters.
     ///
-    /// * `enabled` - Indicates whether to enable the default animation on a click or touch.
+    /// * `enabled` - Whether to enable the default animation on a click or touch. The value **true** means to enable the
+    /// default animation on a click or touch, and **false** means the opposite.
     ///
     /// # Returns
     ///
-    /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// * Result code.
+    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1044,19 +1080,19 @@ extern "C" {
         option: *mut ArkUI_DragPreviewOption,
         enabled: bool,
     ) -> i32;
-    /// Sets an <b>ArkUI_DragPreviewOption</b> object for the specified component.
+    /// Sets an **ArkUI_DragPreviewOption** object for the specified component.
     ///
     /// # Arguments
     ///
-    /// * `node` - Indicates the pointer to a component node.
+    /// * `node` - Pointer to the component node.
     ///
-    /// * `option` - Indicates the pointer to an <b>ArkUI_DragPreviewOption</b> object.
+    /// * `option` - Custom parameters.
     ///
     /// # Returns
     ///
-    /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// * Result code.
+    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1065,16 +1101,16 @@ extern "C" {
         node: ArkUI_NodeHandle,
         option: *mut ArkUI_DragPreviewOption,
     ) -> i32;
-    /// Creates a drag action object for a UI instance based on the specified component node of the current
-    /// UI instance.
+    /// Creates a drag action object. The object needs to be associated with a UI instance, which can be specified by
+    /// passing in a component node of the current UI instance.
     ///
     /// # Arguments
     ///
-    /// * `node` - Indicates the pointer to a component node.
+    /// * `node` - Pointer to the component node.
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the created drag action object; returns null if the operation fails.
+    /// * Pointer to the created drag action object, or null if the operation fails.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1084,11 +1120,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `uiContext` - Indicates the pointer to a UI instance.
+    /// * `uiContext` - Pointer to the UI instance.
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the created drag action object; returns null if the operation fails.
+    /// * Pointer to the created drag action object, or null if the operation fails.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1096,51 +1132,51 @@ extern "C" {
     pub fn OH_ArkUI_CreateDragActionWithContext(
         uiContext: ArkUI_ContextHandle,
     ) -> *mut ArkUI_DragAction;
-    /// Disposes of a drag action object.
+    /// Disposes of an **ArkUI_DragAction** object.
     ///
     /// # Arguments
     ///
-    /// * `dragAction` - Indicates the pointer to the target drag action object.
+    /// * `dragAction` - Pointer to the target drag action object.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_ArkUI_DragAction_Dispose(dragAction: *mut ArkUI_DragAction);
-    /// Sets the pointer ID. If only one finger is operating on the screen, the pointer ID is 0.
-    /// In general cases, you can set the pointer ID to 0.
+    /// Sets the pointer ID. If only one finger is used on the screen, the finger ID is 0. Generally, you can set
+    /// this parameter to **0**.
     ///
     /// # Arguments
     ///
-    /// * `dragAction` - Indicates the pointer to the target drag action object.
+    /// * `dragAction` - Pointer to the target drag action object.
     ///
-    /// * `pointer` - Indicates the pointer ID. The value ranges from 0 to 9.
+    /// * `pointer` - Pointer ID. The value ranges from 0 to 9. If the value is out of the range, **-1** is used by default.
     ///
     /// # Returns
     ///
-    /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// * Result code.
+    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_ArkUI_DragAction_SetPointerId(dragAction: *mut ArkUI_DragAction, pointer: i32)
         -> i32;
-    /// Sets the drag previews for a drag action.
+    /// Sets the drag previews for a drag action. Only pixel map objects are supported.
     ///
     /// # Arguments
     ///
-    /// * `dragAction` - Indicates the pointer to the target drag action object.
+    /// * `dragAction` - Pointer to the target drag action object.
     ///
     /// * `pixelmapArray` - Indicates the array of the drag previews to set, which must be pixel maps.
     ///
-    /// * `size` - Indicates the size of the drag preview array.
+    /// * `size` - Number of drag previews.
     ///
     /// # Returns
     ///
-    /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// * Result code.
+    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1154,15 +1190,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `dragAction` - Indicates the pointer to the target drag action object.
+    /// * `dragAction` - Pointer to the target drag action object.
     ///
-    /// * `x` - Indicates the X coordinate of the touch point.
+    /// * `x` - X-coordinate of the touch point, in px.
     ///
     /// # Returns
     ///
-    /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// * Result code.
+    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1172,15 +1208,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `dragAction` - Indicates the pointer to the target drag action object.
+    /// * `dragAction` - Pointer to the target drag action object.
     ///
-    /// * `y` - Indicates the Y coordinate of the touch point.
+    /// * `y` - Y-coordinate of the touch point, in px.
     ///
     /// # Returns
     ///
-    /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// * Result code.
+    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1190,15 +1226,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `dragAction` - Indicates the pointer to the target drag action object.
+    /// * `dragAction` - Pointer to the target drag action object.
     ///
-    /// * `data` - Indicates the drag data.
+    /// * `data` - Drag data configuration.
     ///
     /// # Returns
     ///
-    /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// * Result code.
+    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1207,29 +1243,24 @@ extern "C" {
         dragAction: *mut ArkUI_DragAction,
         data: *mut OH_UdmfData,
     ) -> i32;
-    /// Use this method to provide a data loading parameter to the system instead of providing
-    /// a complete data object directly. When the user drags and drops to the target application,
-    /// the system will use this parameter to request data from you. This can greatly improve the efficiency
-    /// of the dragging operation for large amounts of data and the effectiveness of the drop data handling
-    /// in the target application.
-    ///
-    /// It's recommanded to use this method instead of using [`OH_ArkUI_DragAction_SetData`](crate::drag_and_drop::OH_ArkUI_DragAction_SetData).
-    /// See `OH_UdmfDataLoadParams_Create` in <b>udmf.h</b> for how to create and prepare the data loading parameter.
-    ///
-    /// \[Note\]: Please be awared this method is conflict with [`OH_ArkUI_DragAction_SetData`](crate::drag_and_drop::OH_ArkUI_DragAction_SetData), and the system always use
-    /// the last called method as the final result.
+    /// This API provides data loading parameters to the system instead of directly providing a complete data object.
+    /// When the user drops data on the target application, the system will use **dataLoadParams** to request data. This can
+    /// significantly improve the efficiency of dragging large volumes of data and the efficiency of processing the dropped
+    /// data in the target application. This API must always be used in preference to [`OH_ArkUI_DragAction_SetData`](crate::drag_and_drop::OH_ArkUI_DragAction_SetData).
+    /// For details about how to create and prepare data loading parameters, see `OH_UdmfDataLoadParams_Create` in **
+    /// udmf.h**. If this API conflicts with [`OH_ArkUI_DragAction_SetData`](crate::drag_and_drop::OH_ArkUI_DragAction_SetData), the system always uses the last called API.
     ///
     /// # Arguments
     ///
-    /// * `dragAction` - Indicates the pointer to the target drag action object.
+    /// * `dragAction` - Pointer to the target drag action object.
     ///
-    /// * `dataLoadParams` - Indicates the data loading parameters which will be used when dropping.
+    /// * `dataLoadParams` - Data loading parameters used during a drop operation.
     ///
     /// # Returns
     ///
-    /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// * Result code.
+    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -1238,19 +1269,19 @@ extern "C" {
         dragAction: *mut ArkUI_DragAction,
         dataLoadParams: *mut OH_UdmfDataLoadParams,
     ) -> ArkUiResult;
-    /// Sets an <b>ArkUI_DragPreviewOption</b> object for the specified drag action object.
+    /// Sets an **ArkUI_DragPreviewOption** object for the specified drag action object.
     ///
     /// # Arguments
     ///
-    /// * `dragAction` - Indicates the pointer to the target drag action object.
+    /// * `dragAction` - Pointer to the target drag action object.
     ///
-    /// * `option` - Indicates the pointer to an <b>ArkUI_DragPreviewOption</b> object.
+    /// * `option` - Custom parameters.
     ///
     /// # Returns
     ///
-    /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// * Result code.
+    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1259,23 +1290,23 @@ extern "C" {
         dragAction: *mut ArkUI_DragAction,
         option: *mut ArkUI_DragPreviewOption,
     ) -> i32;
-    /// Registers a drag status listener.
-    /// This listener can be used to check whether the data is successfully received and processed.
+    /// Registers a drag status listener. This listener can be used to check whether the data is successfully
+    /// received and processed.
     ///
     /// # Arguments
     ///
-    /// * `dragAction` - Indicates the pointer to the target drag action object.
+    /// * `dragAction` - Pointer to the target drag action object.
     ///
-    /// * `userData` - Indicates the custom user data.
+    /// * `userData` - Custom user data.
     ///
-    /// * `listener` - Indicates the listener to register. When the callback is invoked, the system returns a pointer to the drag status
+    /// * `listener` - Listener to register. When the callback is invoked, the system returns a pointer to the drag status
     /// object. The pointer is destroyed after the callback is complete and the application should not hold it anymore.
     ///
     /// # Returns
     ///
-    /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// * Result code.
+    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1294,21 +1325,22 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `dragAction` - Indicates the pointer to the target drag action object.
+    /// * `dragAction` - Pointer to the target drag action object.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_ArkUI_DragAction_UnregisterStatusListener(dragAction: *mut ArkUI_DragAction);
-    /// Obtains the drag status of a drag action.
+    /// Obtains the drag status of the [`ArkUI_DragAction`](crate::drag_and_drop::ArkUI_DragAction). **ArkUI_DRAG_STATUS_UNKNOWN** is returned if the
+    /// acquisition fails.
     ///
     /// # Arguments
     ///
-    /// * `dragAndDropInfo` - Indicates the drag and drop information returned by the drag status listener.
+    /// * `dragAndDropInfo` - Drag and drop information returned by the drag status listener.
     ///
     /// # Returns
     ///
-    /// * Returns an <b>ArkUI_DragStatus</b> object; returns <b>ArkUI_DRAG_STATUS_UNKNOWN</b> if an error occurs.
+    /// * **ArkUI_DragStatus** object, or **ArkUI_DRAG_STATUS_UNKNOWN** if an error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1316,17 +1348,16 @@ extern "C" {
     pub fn OH_ArkUI_DragAndDropInfo_GetDragStatus(
         dragAndDropInfo: *mut ArkUI_DragAndDropInfo,
     ) -> ArkUI_DragStatus;
-    /// Obtains a drag event based on the specified drag and drop information.
-    /// The drag event can then be used to obtain the drag result and the drag behavior, please note
-    /// other info is not included in such a drag event.
+    /// Obtains a drag event based on the specified drag and drop information. The drag event can then be used to
+    /// obtain the drag result.
     ///
     /// # Arguments
     ///
-    /// * `dragAndDropInfo` - Indicates the drag and drop information returned by the drag status listener.
+    /// * `dragAndDropInfo` - Drag and drop information returned by the drag status listener.
     ///
     /// # Returns
     ///
-    /// * Returns an <b>ArkUI_DragEvent</b> object; returns null if an error occurs.
+    /// * **ArkUI_DragEvent** object, or null if an error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1334,41 +1365,41 @@ extern "C" {
     pub fn OH_ArkUI_DragAndDropInfo_GetDragEvent(
         dragAndDropInfo: *mut ArkUI_DragAndDropInfo,
     ) -> *mut ArkUI_DragEvent;
-    /// Initiates a drag action through the specified drag action object.
+    /// Initiates a drag action through the specified **DragAction** object.
     ///
     /// # Arguments
     ///
-    /// * `dragAction` - Indicates a drag action object.
+    /// * `dragAction` - Drag action object.
     ///
     /// # Returns
     ///
-    /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// * Result code.
+    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_ArkUI_StartDrag(dragAction: *mut ArkUI_DragAction) -> i32;
-    /// Request to delay the drop end handling for a while to wait until the process result
-    /// is really conformed by application, the result need to be notified back to system through
-    /// [`OH_ArkUI_NotifyDragResult`](crate::drag_and_drop::OH_ArkUI_NotifyDragResult) interface. And when all the handling done, the
-    /// [`OH_ArkUI_NotifyDragEndPendingDone`](crate::drag_and_drop::OH_ArkUI_NotifyDragEndPendingDone) should be called.
-    /// Please be aware, the maximum pending time is 2 seconds;
+    /// Requests deferred processing of the drag end event, allowing the application to asynchronously confirm the
+    /// operation result. The application must pass the final result back to the system via the
+    /// [`OH_ArkUI_NotifyDragResult`](crate::drag_and_drop::OH_ArkUI_NotifyDragResult) API, and call [`OH_ArkUI_NotifyDragEndPendingDone`](crate::drag_and_drop::OH_ArkUI_NotifyDragEndPendingDone) after all processing is
+    /// completed. The maximum waiting time is 2 seconds.
     ///
     /// # Arguments
     ///
-    /// * `event` - Indicates the pointer to an <b>ArkUI_DragEvent</b> object.
+    /// * `event` - Pointer to the target **ArkUI_DragEvent** object.
     ///
-    /// * `requestIdentify` - Indicates the Identify for the request initiated by this method, it's a number generated
-    /// by system automatically, and it's an out parameter too, so one valid address needed.
+    /// * `requestIdentify` - System-generated request identifier, which is an output parameter and must point to a valid
+    /// address.
     ///
     /// # Returns
     ///
-    /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// Returns [`ARKUI_ERROR_CODE_DRAG_DROP_OPERATION_NOT_ALLOWED`](crate::native_type::ArkUiErrorCode::DRAG_DROP_OPERATION_NOT_ALLOWED) if current is not during the drop handing.
+    /// * Result code.
+    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// <br>Returns [`ARKUI_ERROR_CODE_DRAG_DROP_OPERATION_NOT_ALLOWED`](crate::error_code::ArkUiErrorCode::DRAG_DROP_OPERATION_NOT_ALLOWED) if the operation is not allowed at the
+    /// current stage.
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
@@ -1377,118 +1408,111 @@ extern "C" {
         event: *mut ArkUI_DragEvent,
         requestIdentify: *mut i32,
     ) -> i32;
-    /// Notify the system final drag result, the request identify will be checked, it should be the same
-    /// as the one returned by [`OH_ArkUI_DragEvent_RequestDragEndPending`](crate::drag_and_drop::OH_ArkUI_DragEvent_RequestDragEndPending) interface, if it's not,
-    /// the calling will be ignored.
+    /// Notifies the system of the final drag result. The system will verify whether the request identifier matches
+    /// that returned by [`OH_ArkUI_DragEvent_RequestDragEndPending`](crate::drag_and_drop::OH_ArkUI_DragEvent_RequestDragEndPending). If they do not match, this call will be ignored.
     ///
     /// # Arguments
     ///
-    /// * `requestIdentify` - The identify returned by [`OH_ArkUI_DragEvent_RequestDragEndPending`](crate::drag_and_drop::OH_ArkUI_DragEvent_RequestDragEndPending) interface.
+    /// * `requestIdentify` - Identifier returned by [`OH_ArkUI_DragEvent_RequestDragEndPending`](crate::drag_and_drop::OH_ArkUI_DragEvent_RequestDragEndPending).
     ///
-    /// * `result` - Indicates the drag result.
+    /// * `result` - Enumerated value of the drag result (of the [`ArkUI_DragResult`](crate::drag_and_drop::ArkUI_DragResult) type).
     ///
     /// # Returns
     ///
-    /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// Returns [`ARKUI_ERROR_CODE_DRAG_DROP_OPERATION_NOT_ALLOWED`](crate::native_type::ArkUiErrorCode::DRAG_DROP_OPERATION_NOT_ALLOWED) if current is not during the drop handing.
+    /// * Result code.
+    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// <br>Returns [`ARKUI_ERROR_CODE_DRAG_DROP_OPERATION_NOT_ALLOWED`](crate::error_code::ArkUiErrorCode::DRAG_DROP_OPERATION_NOT_ALLOWED) if the operation is not allowed at the
+    /// current stage.
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
     pub fn OH_ArkUI_NotifyDragResult(requestIdentify: i32, result: ArkUI_DragResult) -> i32;
-    /// Notify the system all handling done, the drag end pending can be finished.
+    /// Notifies the drag initiator of the operation type of the current drop. The drag initiator can call
+    /// [`OH_ArkUI_DragEvent_GetDropOperation`](crate::drag_and_drop::OH_ArkUI_DragEvent_GetDropOperation) in the drag end callback to obtain the operation type of the current
+    /// drop and perform custom processing. The drag initiator can also ignore the notification. If the drag operation fails,
+    /// the action type of the current drop is unreliable. In this case, the action type obtained by calling
+    /// [`OH_ArkUI_DragEvent_GetDropOperation`](crate::drag_and_drop::OH_ArkUI_DragEvent_GetDropOperation) is always **ARKUI_DROP_OPERATION_COPY**. The system will verify whether
+    /// the value of **requestIdentity** is the same as that returned by [`OH_ArkUI_DragEvent_RequestDragEndPending`](crate::drag_and_drop::OH_ArkUI_DragEvent_RequestDragEndPending).
+    /// If they are different, this API call does not take effect.
     ///
     /// # Arguments
     ///
-    /// * `requestIdentify` - The identify returned by [`OH_ArkUI_DragEvent_RequestDragEndPending`](crate::drag_and_drop::OH_ArkUI_DragEvent_RequestDragEndPending) interface.
+    /// * `requestIdentity` - The identity returned by [`OH_ArkUI_DragEvent_RequestDragEndPending`](crate::drag_and_drop::OH_ArkUI_DragEvent_RequestDragEndPending) interface.
+    ///
+    /// * `operation` - Operation type of the current drop.
     ///
     /// # Returns
     ///
-    /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// Returns [`ARKUI_ERROR_CODE_DRAG_DROP_OPERATION_NOT_ALLOWED`](crate::native_type::ArkUiErrorCode::DRAG_DROP_OPERATION_NOT_ALLOWED) if current is not during the drop handing.
+    /// * Result code.
+    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// <br>Returns [`ARKUI_ERROR_CODE_DRAG_DROP_OPERATION_NOT_ALLOWED`](crate::error_code::ArkUiErrorCode::DRAG_DROP_OPERATION_NOT_ALLOWED) if the API is not called in the drop phase.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_NotifySuggestedDropOperation(
+        requestIdentity: i32,
+        operation: ArkUI_DropOperation,
+    ) -> i32;
+    /// Notifies the system whether to disable the default drop animation. If the drag fails, the default drop
+    /// animation is diffusion. If the drag succeeds, the default drop animation is shrinking and fading. Calling this API
+    /// can disable the default animation and implement a custom drop animation as required. The system will verify whether
+    /// the value of **requestIdentity** is the same as that returned by [`OH_ArkUI_DragEvent_RequestDragEndPending`](crate::drag_and_drop::OH_ArkUI_DragEvent_RequestDragEndPending).
+    /// If they are different, this API call does not take effect.
+    ///
+    /// # Arguments
+    ///
+    /// * `requestIdentity` - The identity returned by [`OH_ArkUI_DragEvent_RequestDragEndPending`](crate::drag_and_drop::OH_ArkUI_DragEvent_RequestDragEndPending) interface.
+    ///
+    /// * `disable` - Whether to disable the default drop animation. **true** if disable; **false** otherwise.
+    ///
+    /// # Returns
+    ///
+    /// * Result code.
+    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// <br>Returns [`ARKUI_ERROR_CODE_DRAG_DROP_OPERATION_NOT_ALLOWED`](crate::error_code::ArkUiErrorCode::DRAG_DROP_OPERATION_NOT_ALLOWED) if the API is not called in the drop phase.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_NotifyDisableDefaultDropAnimation(requestIdentity: i32, disable: bool) -> i32;
+    /// Notifies the system that all asynchronous processing has been completed and the drag end pending state can be
+    /// terminated.
+    ///
+    /// # Arguments
+    ///
+    /// * `requestIdentify` - Identifier returned by [`OH_ArkUI_DragEvent_RequestDragEndPending`](crate::drag_and_drop::OH_ArkUI_DragEvent_RequestDragEndPending).
+    ///
+    /// # Returns
+    ///
+    /// * Result code.
+    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// <br>Returns [`ARKUI_ERROR_CODE_DRAG_DROP_OPERATION_NOT_ALLOWED`](crate::error_code::ArkUiErrorCode::DRAG_DROP_OPERATION_NOT_ALLOWED) if the operation is not allowed at the
+    /// current stage.
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
     pub fn OH_ArkUI_NotifyDragEndPendingDone(requestIdentify: i32) -> i32;
-    /// Use this method to obtain the application bundle name of the drag-and-drop initiator, you need
-    /// to pass a character array for receiving the string and explicitly specify the array length. It is
-    /// recommended that the array length be no less than 128 characters. If the length cannot accommodate
-    /// the actual bundle name length, the ERROR result will be returned.
-    /// # Arguments
-    ///
-    /// * `event` - Indicates the pointer to an <b>ArkUI_DragEvent</b> object.
-    ///
-    /// * `bundleName` - A string array used to receive the source application's bundle name.
-    ///
-    /// * `length` - Use this to explicitly specify the length of the incoming string array.
-    /// It is recommended to be bigger than 128.
-    ///
-    /// # Returns
-    ///
-    /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    ///
-    /// Available since API-level: 20
-    #[cfg(feature = "api-20")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
-    pub fn OH_ArkUI_DragEvent_GetDragSource(
-        event: *mut ArkUI_DragEvent,
-        bundleName: *mut ::core::ffi::c_char,
-        length: i32,
-    ) -> ArkUiResult;
-    /// Call this method to determine whether the current drag and drop operation is cross-device.
+    /// Sets whether the drop-disallowed badge can be displayed.
     ///
     /// # Arguments
     ///
-    /// * `event` - Indicates the pointer to an <b>ArkUI_DragEvent</b> object.
+    /// * `uiContext` - Pointer to the UI instance.
     ///
-    /// * `isRemote` - Boolean pointer to receive the result.
-    ///
-    /// # Returns
-    ///
-    /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    ///
-    /// Available since API-level: 20
-    #[cfg(feature = "api-20")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
-    pub fn OH_ArkUI_DragEvent_IsRemote(
-        event: *mut ArkUI_DragEvent,
-        isRemote: *mut bool,
-    ) -> ArkUiResult;
-    /// Sets whether to enable the display of a disallow status icon.
-    ///
-    /// Typically, when a component can receive or process data dragged by the user, or when it declares to the
-    /// system that data should be processed in COPY way by setting ARKUI_DROP_OPERATION_COPY through
-    /// [`OH_ArkUI_DragEvent_SetSuggestedDropOperation`](crate::drag_and_drop::OH_ArkUI_DragEvent_SetSuggestedDropOperation), the system will display
-    /// a plus sign together with the data number on the upper-left corner of the dragged object; if setting
-    /// ARKUI_DROP_OPERATION_MOVE to the system to declare that data should be processed in CUT way, the system will only
-    /// display the data number on the upper-left corner of the dragged object.
-    ///
-    /// In some cases, when the system determines or the component explicitly declares that it cannot handle the
-    /// data that the user is dragging, the system displays a badge icon in the same way as it does for DragBehavior.MOVE.
-    /// So if you want to show the more clearly status, you can call this method on the UI instance in advance to force
-    /// the system to display a clear prohibition icon on the upper left corner in such cases, and the user can clearly
-    /// know that data cannot be dropped here.
-    ///
-    /// # Arguments
-    ///
-    /// * `uiContext` - Pointer to a UI instance.
-    ///
-    /// * `enabled` - Whether to enable the display of the disallow badge icon.
+    /// * `enabled` - Whether the drop-disallowed badge can be displayed. The value **true** means that the drop-
+    /// disallowed badge can be displayed, and **false** means the opposite.
     ///
     /// # Returns
     ///
-    /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// * Result code.
+    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]

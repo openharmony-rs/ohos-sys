@@ -69,7 +69,7 @@ pub struct Image_Scale {
     /// Scale ratio on the y-axis.
     pub y: f32,
 }
-/// Defines the region of the image source to decode.
+/// The struct describes an image string, which is a carrier for string data.
 ///
 ///
 /// Available since API-level: 12
@@ -79,7 +79,7 @@ pub struct Image_Scale {
 pub struct Image_String {
     /// data for string type
     pub data: *mut ::core::ffi::c_char,
-    /// data lenth for string type
+    /// data length for string type
     pub size: usize,
 }
 /// Define a PictureMetadata struct type, used for picture metadata.
@@ -118,6 +118,12 @@ impl ImageResult {
     #[cfg(feature = "api-23")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub const GET_IMAGE_DATA_FAILED: ImageResult = ImageResult(7600104);
+    /// PixelMap has been released.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub const PIXELMAP_RELEASED: ImageResult = ImageResult(7600105);
     /// DMA memory does not exist
     pub const DMA_NOT_EXIST: ImageResult = ImageResult(7600173);
     /// DMA operation failed
@@ -170,6 +176,12 @@ impl ImageResult {
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub const CREATE_PIXELMAP_FAILED: ImageResult = ImageResult(7600305);
+    /// Data conversion failed.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub const DATA_CONVERSION_FAILED: ImageResult = ImageResult(7600306);
     /// unsupported allocator mode, e.g., use share memory to create a HDR image as only
     /// DMA supported hdr metadata.
     ///
@@ -207,6 +219,11 @@ impl ImageResult {
     #[cfg(feature = "api-23")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub const SOURCE_UNSUPPORTED_METADATA: ImageResult = ImageResult(7700202);
+    /// unsupported options, e.g, cannot convert image into desired pixel format.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub const SOURCE_UNSUPPORTED_OPTIONS: ImageResult = ImageResult(7700203);
     /// Invalid parameter.
     ///
@@ -249,11 +266,21 @@ pub struct ImageResult(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-13")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
 impl Image_MetadataType {
-    /// EXIF metadata.
+    /// Exif metadata.
+    ///
+    ///
+    /// Available since API-level: 13
+    #[cfg(feature = "api-13")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub const EXIF_METADATA: Image_MetadataType = Image_MetadataType(1);
-    /// Fragment metadata.
+    /// Fragment map metadata.
+    ///
+    ///
+    /// Available since API-level: 13
+    #[cfg(feature = "api-13")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub const FRAGMENT_METADATA: Image_MetadataType = Image_MetadataType(2);
-    /// Metadata of a GIF image.
+    /// GIF image metadata.
     ///
     ///
     /// Available since API-level: 20
@@ -262,7 +289,7 @@ impl Image_MetadataType {
     pub const GIF_METADATA: Image_MetadataType = Image_MetadataType(5);
 }
 #[repr(transparent)]
-/// Define the metadata type.
+/// Enumerates the metadata types.
 ///
 ///
 /// Available since API-level: 13
@@ -734,7 +761,7 @@ pub const OHOS_IMAGE_PROPERTY_SUBJECT_DISTANCE: &::core::ffi::CStr = c"SubjectDi
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub const OHOS_IMAGE_PROPERTY_SUBJECT_AREA: &::core::ffi::CStr = c"SubjectArea";
-/// A tag for manufacturers of Exif/DCF writers to record any desired infomation.
+/// A tag for manufacturers of Exif/DCF writers to record any desired information.
 /// It is used in `OH_ImageSource_GetImageProperty` and `OH_ImageSource_ModifyImageProperty`.
 ///
 ///
@@ -1540,34 +1567,831 @@ pub const OHOS_IMAGE_PROPERTY_FRAGMENT_WIDTH: &::core::ffi::CStr = c"FragmentIma
 #[cfg(feature = "api-13")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
 pub const OHOS_IMAGE_PROPERTY_FRAGMENT_HEIGHT: &::core::ffi::CStr = c"FragmentImageHeight";
-/// Delay time of each frame in a GIF image in milliseconds.
+/// Delay of each frame in a GIF image, in milliseconds.
 ///
 ///
 /// Available since API-level: 20
 #[cfg(feature = "api-20")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
 pub const IMAGE_PROPERTY_GIF_DELAY_TIME: &::core::ffi::CStr = c"GifDelayTime";
-/// Disposal type of each frame in gif.
+/// Disposal type of each frame in a GIF image.
 ///
 ///
 /// Available since API-level: 20
 #[cfg(feature = "api-20")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
 pub const IMAGE_PROPERTY_GIF_DISPOSAL_TYPE: &::core::ffi::CStr = c"GifDisposalType";
+/// The dng version.
+/// It is used in [`OH_ImageSourceNative_GetImagePropertyArraySize`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyArraySize) and
+/// [`OH_ImageSourceNative_GetImagePropertyIntArray`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyIntArray).
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+pub const OHOS_DNG_PROPERTY_DNG_VERSION: &::core::ffi::CStr = c"DNGVersion";
+/// The dng backward version.
+/// It is used in [`OH_ImageSourceNative_GetImagePropertyArraySize`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyArraySize) and
+/// [`OH_ImageSourceNative_GetImagePropertyIntArray`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyIntArray).
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+pub const OHOS_DNG_PROPERTY_DNG_BACKWARD_VERSION: &::core::ffi::CStr = c"DNGBackwardVersion";
+/// A unique camera model.
+/// It is used in [`OH_ImageSourceNative_GetImagePropertyArraySize`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyArraySize) and
+/// [`OH_ImageSourceNative_GetImagePropertyString`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyString).
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+pub const OHOS_DNG_PROPERTY_UNIQUE_CAMERA_MODEL: &::core::ffi::CStr = c"UniqueCameraModel";
+/// A localized camera model.
+/// It is used in [`OH_ImageSourceNative_GetImagePropertyArraySize`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyArraySize) and
+/// [`OH_ImageSourceNative_GetImagePropertyString`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyString).
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+pub const OHOS_DNG_PROPERTY_LOCALIZED_CAMERA_MODEL: &::core::ffi::CStr = c"LocalizedCameraModel";
+/// The CFA (color filter array) plane color.
+/// It is used in [`OH_ImageSourceNative_GetImagePropertyArraySize`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyArraySize) and
+/// [`OH_ImageSourceNative_GetImagePropertyIntArray`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyIntArray).
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+pub const OHOS_DNG_PROPERTY_CFA_PLANE_COLOR: &::core::ffi::CStr = c"CFAPlaneColor";
+/// The CFA (color filter array) layout.
+/// It is used in [`OH_ImageSourceNative_GetImagePropertyShort`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyShort) and
+/// [`OH_ImageSourceNative_GetImagePropertyLong`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyLong).
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+pub const OHOS_DNG_PROPERTY_CFA_LAYOUT: &::core::ffi::CStr = c"CFALayout";
+/// The linearization table.
+/// It is used in [`OH_ImageSourceNative_GetImagePropertyArraySize`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyArraySize) and
+/// [`OH_ImageSourceNative_GetImagePropertyIntArray`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyIntArray).
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+pub const OHOS_DNG_PROPERTY_LINEARIZATION_TABLE: &::core::ffi::CStr = c"LinearizationTable";
+/// The black level repeat dimension.
+/// It is used in [`OH_ImageSourceNative_GetImagePropertyArraySize`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyArraySize) and
+/// [`OH_ImageSourceNative_GetImagePropertyIntArray`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyIntArray).
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+pub const OHOS_DNG_PROPERTY_BLACK_LEVEL_REPEAT_DIM: &::core::ffi::CStr = c"BlackLevelRepeatDim";
+/// The zero‑light encoding level.
+/// It is used in [`OH_ImageSourceNative_GetImagePropertyArraySize`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyArraySize) and
+/// [`OH_ImageSourceNative_GetImagePropertyDoubleArray`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyDoubleArray).
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+pub const OHOS_DNG_PROPERTY_BLACK_LEVEL: &::core::ffi::CStr = c"BlackLevel";
+/// The black level delta H.
+/// It is used in [`OH_ImageSourceNative_GetImagePropertyArraySize`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyArraySize) and
+/// [`OH_ImageSourceNative_GetImagePropertyDoubleArray`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyDoubleArray).
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+pub const OHOS_DNG_PROPERTY_BLACK_LEVEL_DELTA_H: &::core::ffi::CStr = c"BlackLevelDeltaH";
+/// The black level delta V.
+/// It is used in [`OH_ImageSourceNative_GetImagePropertyArraySize`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyArraySize) and
+/// [`OH_ImageSourceNative_GetImagePropertyDoubleArray`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyDoubleArray).
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+pub const OHOS_DNG_PROPERTY_BLACK_LEVEL_DELTA_V: &::core::ffi::CStr = c"BlackLevelDeltaV";
+/// The white level.
+/// It is used in [`OH_ImageSourceNative_GetImagePropertyArraySize`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyArraySize) and
+/// [`OH_ImageSourceNative_GetImagePropertyDoubleArray`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyDoubleArray).
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+pub const OHOS_DNG_PROPERTY_WHITE_LEVEL: &::core::ffi::CStr = c"WhiteLevel";
+/// The default scale.
+/// It is used in [`OH_ImageSourceNative_GetImagePropertyArraySize`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyArraySize) and
+/// [`OH_ImageSourceNative_GetImagePropertyDoubleArray`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyDoubleArray).
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+pub const OHOS_DNG_PROPERTY_DEFAULT_SCALE: &::core::ffi::CStr = c"DefaultScale";
+/// The default crop origin.
+/// It is used in [`OH_ImageSourceNative_GetImagePropertyArraySize`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyArraySize) and
+/// [`OH_ImageSourceNative_GetImagePropertyDoubleArray`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyDoubleArray).
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+pub const OHOS_DNG_PROPERTY_DEFAULT_CROP_ORIGIN: &::core::ffi::CStr = c"DefaultCropOrigin";
+/// The default crop size.
+/// It is used in [`OH_ImageSourceNative_GetImagePropertyArraySize`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyArraySize) and
+/// [`OH_ImageSourceNative_GetImagePropertyIntArray`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyIntArray).
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+pub const OHOS_DNG_PROPERTY_DEFAULT_CROP_SIZE: &::core::ffi::CStr = c"DefaultCropSize";
+/// A transformation matrix under the first calibration illuminant.
+/// It is used in [`OH_ImageSourceNative_GetImagePropertyArraySize`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyArraySize) and
+/// [`OH_ImageSourceNative_GetImagePropertyDoubleArray`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyDoubleArray).
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+pub const OHOS_DNG_PROPERTY_COLOR_MATRIX1: &::core::ffi::CStr = c"ColorMatrix1";
+/// A transformation matrix under the second calibration illuminant.
+/// It is used in [`OH_ImageSourceNative_GetImagePropertyArraySize`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyArraySize) and
+/// [`OH_ImageSourceNative_GetImagePropertyDoubleArray`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyDoubleArray).
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+pub const OHOS_DNG_PROPERTY_COLOR_MATRIX2: &::core::ffi::CStr = c"ColorMatrix2";
+/// A calibration matrix under the first calibration illuminant.
+/// It is used in [`OH_ImageSourceNative_GetImagePropertyArraySize`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyArraySize) and
+/// [`OH_ImageSourceNative_GetImagePropertyDoubleArray`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyDoubleArray).
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+pub const OHOS_DNG_PROPERTY_CAMERA_CALIBRATION1: &::core::ffi::CStr = c"CameraCalibration1";
+/// A calibration matrix under the second calibration illuminant.
+/// It is used in [`OH_ImageSourceNative_GetImagePropertyArraySize`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyArraySize) and
+/// [`OH_ImageSourceNative_GetImagePropertyDoubleArray`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyDoubleArray).
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+pub const OHOS_DNG_PROPERTY_CAMERA_CALIBRATION2: &::core::ffi::CStr = c"CameraCalibration2";
+/// A dimensionality reduction matrix under the first calibration
+/// illuminant. It is used in [`OH_ImageSourceNative_GetImagePropertyArraySize`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyArraySize)
+/// and [`OH_ImageSourceNative_GetImagePropertyDoubleArray`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyDoubleArray).
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+pub const OHOS_DNG_PROPERTY_REDUCTION_MATRIX1: &::core::ffi::CStr = c"ReductionMatrix1";
+/// A dimensionality reduction matrix under the second calibration
+/// illuminant. It is used in [`OH_ImageSourceNative_GetImagePropertyArraySize`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyArraySize) and
+/// [`OH_ImageSourceNative_GetImagePropertyDoubleArray`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyDoubleArray).
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+pub const OHOS_DNG_PROPERTY_REDUCTION_MATRIX2: &::core::ffi::CStr = c"ReductionMatrix2";
+/// The analog balance.
+/// It is used in [`OH_ImageSourceNative_GetImagePropertyArraySize`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyArraySize) and
+/// [`OH_ImageSourceNative_GetImagePropertyDoubleArray`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyDoubleArray).
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+pub const OHOS_DNG_PROPERTY_ANALOG_BALANCE: &::core::ffi::CStr = c"AnalogBalance";
+/// The as‑shot neutral.
+/// It is used in [`OH_ImageSourceNative_GetImagePropertyArraySize`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyArraySize) and
+/// [`OH_ImageSourceNative_GetImagePropertyDoubleArray`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyDoubleArray).
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+pub const OHOS_DNG_PROPERTY_AS_SHOT_NEUTRAL: &::core::ffi::CStr = c"AsShotNeutral";
+/// The as‑shot white point encoded as x-y chromaticity coordinates.
+/// It is used in [`OH_ImageSourceNative_GetImagePropertyArraySize`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyArraySize) and
+/// [`OH_ImageSourceNative_GetImagePropertyDoubleArray`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyDoubleArray).
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+pub const OHOS_DNG_PROPERTY_AS_SHOT_WHITEXY: &::core::ffi::CStr = c"AsShotWhiteXY";
+/// The baseline exposure.
+/// It is used in [`OH_ImageSourceNative_GetImagePropertyDouble`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyDouble).
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+pub const OHOS_DNG_PROPERTY_BASELINE_EXPOSURE: &::core::ffi::CStr = c"BaselineExposure";
+/// The baseline noise.
+/// It is used in [`OH_ImageSourceNative_GetImagePropertyDouble`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyDouble).
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+pub const OHOS_DNG_PROPERTY_BASELINE_NOISE: &::core::ffi::CStr = c"BaselineNoise";
+/// The baseline sharpness.
+/// It is used in [`OH_ImageSourceNative_GetImagePropertyDouble`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyDouble).
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+pub const OHOS_DNG_PROPERTY_BASELINE_SHARPNESS: &::core::ffi::CStr = c"BaselineSharpness";
+/// The Bayer green split.
+/// It is used in [`OH_ImageSourceNative_GetImagePropertyLong`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyLong).
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+pub const OHOS_DNG_PROPERTY_BAYER_GREEN_SPLIT: &::core::ffi::CStr = c"BayerGreenSplit";
+/// The linear response limit.
+/// It is used in [`OH_ImageSourceNative_GetImagePropertyDouble`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyDouble).
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+pub const OHOS_DNG_PROPERTY_LINEAR_RESPONSE_LIMIT: &::core::ffi::CStr = c"LinearResponseLimit";
+/// The serial number of the camera.
+/// It is used in [`OH_ImageSourceNative_GetImagePropertyArraySize`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyArraySize) and
+/// [`OH_ImageSourceNative_GetImagePropertyString`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyString).
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+pub const OHOS_DNG_PROPERTY_CAMERA_SERIAL_NUMBER: &::core::ffi::CStr = c"CameraSerialNumber";
+/// Information about the lens.
+/// It is used in [`OH_ImageSourceNative_GetImagePropertyArraySize`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyArraySize) and
+/// [`OH_ImageSourceNative_GetImagePropertyDoubleArray`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyDoubleArray).
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+pub const OHOS_DNG_PROPERTY_LENS_INFO: &::core::ffi::CStr = c"LensInfo";
+/// The chroma blur radius.
+/// It is used in [`OH_ImageSourceNative_GetImagePropertyDouble`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyDouble).
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+pub const OHOS_DNG_PROPERTY_CHROMA_BLUR_RADIUS: &::core::ffi::CStr = c"ChromaBlurRadius";
+/// The anti‑alias strength.
+/// It is used in [`OH_ImageSourceNative_GetImagePropertyDouble`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyDouble).
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+pub const OHOS_DNG_PROPERTY_ANTI_ALIAS_STRENGTH: &::core::ffi::CStr = c"AntiAliasStrength";
+/// The shadow scale.
+/// It is used in [`OH_ImageSourceNative_GetImagePropertyDouble`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyDouble).
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+pub const OHOS_DNG_PROPERTY_SHADOW_SCALE: &::core::ffi::CStr = c"ShadowScale";
+/// The private data.
+/// It is used in [`OH_ImageSourceNative_GetImagePropertyArraySize`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyArraySize) and
+/// [`OH_ImageSourceNative_GetImagePropertyBlob`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyBlob).
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+pub const OHOS_DNG_PROPERTY_DNG_PRIVATE_DATA: &::core::ffi::CStr = c"DNGPrivateData";
+/// Whether the EXIF MakerNote tag is safe.
+/// It is used in [`OH_ImageSourceNative_GetImagePropertyShort`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyShort) and
+/// [`OH_ImageSourceNative_GetImagePropertyLong`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyLong).
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+pub const OHOS_DNG_PROPERTY_MAKER_NOTE_SAFETY: &::core::ffi::CStr = c"MakerNoteSafety";
+/// The first calibration illuminant.
+/// It is used in [`OH_ImageSourceNative_GetImagePropertyShort`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyShort) and
+/// [`OH_ImageSourceNative_GetImagePropertyLong`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyLong).
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+pub const OHOS_DNG_PROPERTY_CALIBRATION_ILLUMINANT1: &::core::ffi::CStr = c"CalibrationIlluminant1";
+/// The second calibration illuminant.
+/// It is used in [`OH_ImageSourceNative_GetImagePropertyShort`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyShort) and
+/// [`OH_ImageSourceNative_GetImagePropertyLong`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyLong).
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+pub const OHOS_DNG_PROPERTY_CALIBRATION_ILLUMINANT2: &::core::ffi::CStr = c"CalibrationIlluminant2";
+/// The best quality scale.
+/// It is used in [`OH_ImageSourceNative_GetImagePropertyDouble`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyDouble).
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+pub const OHOS_DNG_PROPERTY_BEST_QUALITY_SCALE: &::core::ffi::CStr = c"BestQualityScale";
+/// The unique identifier of raw image data.
+/// It is used in [`OH_ImageSourceNative_GetImagePropertyArraySize`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyArraySize) and
+/// [`OH_ImageSourceNative_GetImagePropertyString`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyString).
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+pub const OHOS_DNG_PROPERTY_RAW_DATA_UNIQUE_ID: &::core::ffi::CStr = c"RawDataUniqueID";
+/// The original raw file name.
+/// It is used in [`OH_ImageSourceNative_GetImagePropertyArraySize`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyArraySize) and
+/// [`OH_ImageSourceNative_GetImagePropertyString`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyString).
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+pub const OHOS_DNG_PROPERTY_ORIGINAL_RAW_FILE_NAME: &::core::ffi::CStr = c"OriginalRawFileName";
+/// The original raw file data.
+/// It is used in [`OH_ImageSourceNative_GetImagePropertyArraySize`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyArraySize) and
+/// [`OH_ImageSourceNative_GetImagePropertyBlob`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyBlob).
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+pub const OHOS_DNG_PROPERTY_ORIGINAL_RAW_FILE_DATA: &::core::ffi::CStr = c"OriginalRawFileData";
+/// The active area.
+/// It is used in [`OH_ImageSourceNative_GetImagePropertyArraySize`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyArraySize) and
+/// [`OH_ImageSourceNative_GetImagePropertyIntArray`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyIntArray).
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+pub const OHOS_DNG_PROPERTY_ACTIVE_AREA: &::core::ffi::CStr = c"ActiveArea";
+/// The masked areas.
+/// It is used in [`OH_ImageSourceNative_GetImagePropertyArraySize`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyArraySize) and
+/// [`OH_ImageSourceNative_GetImagePropertyIntArray`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyIntArray).
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+pub const OHOS_DNG_PROPERTY_MASKED_AREAS: &::core::ffi::CStr = c"MaskedAreas";
+/// An ICC profile.
+/// It is used in [`OH_ImageSourceNative_GetImagePropertyArraySize`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyArraySize) and
+/// [`OH_ImageSourceNative_GetImagePropertyBlob`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyBlob).
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+pub const OHOS_DNG_PROPERTY_AS_SHOT_ICC_PROFILE: &::core::ffi::CStr = c"AsShotICCProfile";
+/// The as‑shot pre‑profile matrix.
+/// It is used in [`OH_ImageSourceNative_GetImagePropertyArraySize`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyArraySize) and
+/// [`OH_ImageSourceNative_GetImagePropertyDoubleArray`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyDoubleArray).
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+pub const OHOS_DNG_PROPERTY_AS_SHOT_PRE_PROFILE_MATRIX: &::core::ffi::CStr =
+    c"AsShotPreProfileMatrix";
+/// The current ICC profile.
+/// It is used in [`OH_ImageSourceNative_GetImagePropertyArraySize`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyArraySize) and
+/// [`OH_ImageSourceNative_GetImagePropertyBlob`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyBlob).
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+pub const OHOS_DNG_PROPERTY_CURRENT_ICC_PROFILE: &::core::ffi::CStr = c"CurrentICCProfile";
+/// The current pre‑profile matrix.
+/// It is used in [`OH_ImageSourceNative_GetImagePropertyArraySize`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyArraySize) and
+/// [`OH_ImageSourceNative_GetImagePropertyDoubleArray`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyDoubleArray).
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+pub const OHOS_DNG_PROPERTY_CURRENT_PRE_PROFILE_MATRIX: &::core::ffi::CStr =
+    c"CurrentPreProfileMatrix";
+/// The colorimetric reference.
+/// It is used in [`OH_ImageSourceNative_GetImagePropertyShort`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyShort) and
+/// [`OH_ImageSourceNative_GetImagePropertyLong`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyLong).
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+pub const OHOS_DNG_PROPERTY_COLORIMETRIC_REFERENCE: &::core::ffi::CStr = c"ColorimetricReference";
+/// The camera calibration signature.
+/// It is used in [`OH_ImageSourceNative_GetImagePropertyArraySize`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyArraySize) and
+/// [`OH_ImageSourceNative_GetImagePropertyString`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyString).
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+pub const OHOS_DNG_PROPERTY_CAMERA_CALIBRATION_SIGNATURE: &::core::ffi::CStr =
+    c"CameraCalibrationSignature";
+/// The profile calibration signature.
+/// It is used in [`OH_ImageSourceNative_GetImagePropertyArraySize`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyArraySize) and
+/// [`OH_ImageSourceNative_GetImagePropertyString`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyString).
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+pub const OHOS_DNG_PROPERTY_PROFILE_CALIBRATION_SIGNATURE: &::core::ffi::CStr =
+    c"ProfileCalibrationSignature";
+/// The extra camera profiles.
+/// It is used in [`OH_ImageSourceNative_GetImagePropertyArraySize`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyArraySize) and
+/// [`OH_ImageSourceNative_GetImagePropertyIntArray`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyIntArray).
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+pub const OHOS_DNG_PROPERTY_EXTRA_CAMERA_PROFILES: &::core::ffi::CStr = c"ExtraCameraProfiles";
+/// The as‑shot camera profile name.
+/// It is used in [`OH_ImageSourceNative_GetImagePropertyArraySize`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyArraySize) and
+/// [`OH_ImageSourceNative_GetImagePropertyString`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyString).
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+pub const OHOS_DNG_PROPERTY_AS_SHOT_PROFILE_NAME: &::core::ffi::CStr = c"AsShotProfileName";
+/// The applied noise reduction.
+/// It is used in [`OH_ImageSourceNative_GetImagePropertyDouble`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyDouble).
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+pub const OHOS_DNG_PROPERTY_NOISE_REDUCTION_APPLIED: &::core::ffi::CStr = c"NoiseReductionApplied";
+/// The profile name.
+/// It is used in [`OH_ImageSourceNative_GetImagePropertyArraySize`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyArraySize) and
+/// [`OH_ImageSourceNative_GetImagePropertyString`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyString).
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+pub const OHOS_DNG_PROPERTY_PROFILE_NAME: &::core::ffi::CStr = c"ProfileName";
+/// The profile hue/saturation map dimensions.
+/// It is used in [`OH_ImageSourceNative_GetImagePropertyArraySize`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyArraySize) and
+/// [`OH_ImageSourceNative_GetImagePropertyIntArray`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyIntArray).
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+pub const OHOS_DNG_PROPERTY_PROFILE_HUE_SAT_MAP_DIMS: &::core::ffi::CStr = c"ProfileHueSatMapDims";
+/// The first hue/saturation mapping table data.
+/// It is used in [`OH_ImageSourceNative_GetImagePropertyArraySize`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyArraySize) and
+/// [`OH_ImageSourceNative_GetImagePropertyDoubleArray`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyDoubleArray).
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+pub const OHOS_DNG_PROPERTY_PROFILE_HUE_SAT_MAP_DATA1: &::core::ffi::CStr =
+    c"ProfileHueSatMapData1";
+/// The second hue/saturation mapping table data.
+/// It is used in [`OH_ImageSourceNative_GetImagePropertyArraySize`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyArraySize) and
+/// [`OH_ImageSourceNative_GetImagePropertyDoubleArray`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyDoubleArray).
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+pub const OHOS_DNG_PROPERTY_PROFILE_HUE_SAT_MAP_DATA2: &::core::ffi::CStr =
+    c"ProfileHueSatMapData2";
+/// The profile tone curve.
+/// It is used in [`OH_ImageSourceNative_GetImagePropertyArraySize`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyArraySize) and
+/// [`OH_ImageSourceNative_GetImagePropertyDoubleArray`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyDoubleArray).
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+pub const OHOS_DNG_PROPERTY_PROFILE_TONE_CURVE: &::core::ffi::CStr = c"ProfileToneCurve";
+/// The profile embedding policy.
+/// It is used in [`OH_ImageSourceNative_GetImagePropertyLong`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyLong).
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+pub const OHOS_DNG_PROPERTY_PROFILE_EMBED_POLICY: &::core::ffi::CStr = c"ProfileEmbedPolicy";
+/// The profile copyright.
+/// It is used in [`OH_ImageSourceNative_GetImagePropertyArraySize`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyArraySize) and
+/// [`OH_ImageSourceNative_GetImagePropertyString`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyString).
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+pub const OHOS_DNG_PROPERTY_PROFILE_COPYRIGHT: &::core::ffi::CStr = c"ProfileCopyright";
+/// The first forward matrix.
+/// It is used in [`OH_ImageSourceNative_GetImagePropertyArraySize`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyArraySize) and
+/// [`OH_ImageSourceNative_GetImagePropertyDoubleArray`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyDoubleArray).
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+pub const OHOS_DNG_PROPERTY_FORWARD_MATRIX1: &::core::ffi::CStr = c"ForwardMatrix1";
+/// The second forward matrix.
+/// It is used in [`OH_ImageSourceNative_GetImagePropertyArraySize`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyArraySize) and
+/// [`OH_ImageSourceNative_GetImagePropertyDoubleArray`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyDoubleArray).
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+pub const OHOS_DNG_PROPERTY_FORWARD_MATRIX2: &::core::ffi::CStr = c"ForwardMatrix2";
+/// The preview application name.
+/// It is used in [`OH_ImageSourceNative_GetImagePropertyArraySize`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyArraySize) and
+/// [`OH_ImageSourceNative_GetImagePropertyString`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyString).
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+pub const OHOS_DNG_PROPERTY_PREVIEW_APPLICATION_NAME: &::core::ffi::CStr =
+    c"PreviewApplicationName";
+/// The preview application version.
+/// It is used in [`OH_ImageSourceNative_GetImagePropertyArraySize`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyArraySize) and
+/// [`OH_ImageSourceNative_GetImagePropertyString`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyString).
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+pub const OHOS_DNG_PROPERTY_PREVIEW_APPLICATION_VERSION: &::core::ffi::CStr =
+    c"PreviewApplicationVersion";
+/// The preview settings name.
+/// It is used in [`OH_ImageSourceNative_GetImagePropertyArraySize`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyArraySize) and
+/// [`OH_ImageSourceNative_GetImagePropertyString`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyString).
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+pub const OHOS_DNG_PROPERTY_PREVIEW_SETTINGS_NAME: &::core::ffi::CStr = c"PreviewSettingsName";
+/// The preview settings digest.
+/// It is used in [`OH_ImageSourceNative_GetImagePropertyArraySize`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyArraySize) and
+/// [`OH_ImageSourceNative_GetImagePropertyString`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyString).
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+pub const OHOS_DNG_PROPERTY_PREVIEW_SETTINGS_DIGEST: &::core::ffi::CStr = c"PreviewSettingsDigest";
+/// The preview color space.
+/// It is used in [`OH_ImageSourceNative_GetImagePropertyLong`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyLong).
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+pub const OHOS_DNG_PROPERTY_PREVIEW_COLOR_SPACE: &::core::ffi::CStr = c"PreviewColorSpace";
+/// The preview date and time.
+/// It is used in [`OH_ImageSourceNative_GetImagePropertyArraySize`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyArraySize) and
+/// [`OH_ImageSourceNative_GetImagePropertyString`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyString).
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+pub const OHOS_DNG_PROPERTY_PREVIEW_DATE_TIME: &::core::ffi::CStr = c"PreviewDateTime";
+/// An MD5 digest of the raw image data.
+/// It is used in [`OH_ImageSourceNative_GetImagePropertyArraySize`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyArraySize) and
+/// [`OH_ImageSourceNative_GetImagePropertyString`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyString).
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+pub const OHOS_DNG_PROPERTY_RAW_IMAGE_DIGEST: &::core::ffi::CStr = c"RawImageDigest";
+/// An MD5 digest of the data stored in the OriginalRawFileData.
+/// It is used in [`OH_ImageSourceNative_GetImagePropertyArraySize`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyArraySize) and
+/// [`OH_ImageSourceNative_GetImagePropertyString`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyString).
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+pub const OHOS_DNG_PROPERTY_ORIGINAL_RAW_FILE_DIGEST: &::core::ffi::CStr = c"OriginalRawFileDigest";
+/// The sub-tile block size.
+/// It is used in [`OH_ImageSourceNative_GetImagePropertyArraySize`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyArraySize) and
+/// [`OH_ImageSourceNative_GetImagePropertyIntArray`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyIntArray).
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+pub const OHOS_DNG_PROPERTY_SUB_TILE_BLOCK_SIZE: &::core::ffi::CStr = c"SubTileBlockSize";
+/// The row interleave factor.
+/// It is used in [`OH_ImageSourceNative_GetImagePropertyShort`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyShort) and
+/// [`OH_ImageSourceNative_GetImagePropertyLong`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyLong).
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+pub const OHOS_DNG_PROPERTY_ROW_INTERLEAVE_FACTOR: &::core::ffi::CStr = c"RowInterleaveFactor";
+/// The profile lookup table dimensions.
+/// It is used in [`OH_ImageSourceNative_GetImagePropertyArraySize`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyArraySize) and
+/// [`OH_ImageSourceNative_GetImagePropertyIntArray`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyIntArray).
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+pub const OHOS_DNG_PROPERTY_PROFILE_LOOK_TABLE_DIMS: &::core::ffi::CStr = c"ProfileLookTableDims";
+/// The profile lookup table data.
+/// It is used in [`OH_ImageSourceNative_GetImagePropertyArraySize`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyArraySize) and
+/// [`OH_ImageSourceNative_GetImagePropertyDoubleArray`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyDoubleArray).
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+pub const OHOS_DNG_PROPERTY_PROFILE_LOOK_TABLE_DATA: &::core::ffi::CStr = c"ProfileLookTableData";
+/// The first opcode list.
+/// It is used in [`OH_ImageSourceNative_GetImagePropertyArraySize`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyArraySize) and
+/// [`OH_ImageSourceNative_GetImagePropertyBlob`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyBlob).
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+pub const OHOS_DNG_PROPERTY_OPCODE_LIST1: &::core::ffi::CStr = c"OpcodeList1";
+/// The second opcode list.
+/// It is used in [`OH_ImageSourceNative_GetImagePropertyArraySize`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyArraySize) and
+/// [`OH_ImageSourceNative_GetImagePropertyBlob`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyBlob).
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+pub const OHOS_DNG_PROPERTY_OPCODE_LIST2: &::core::ffi::CStr = c"OpcodeList2";
+/// The third opcode list.
+/// It is used in [`OH_ImageSourceNative_GetImagePropertyArraySize`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyArraySize) and
+/// [`OH_ImageSourceNative_GetImagePropertyBlob`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyBlob).
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+pub const OHOS_DNG_PROPERTY_OPCODE_LIST3: &::core::ffi::CStr = c"OpcodeList3";
+/// The noise profile.
+/// It is used in [`OH_ImageSourceNative_GetImagePropertyArraySize`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyArraySize) and
+/// [`OH_ImageSourceNative_GetImagePropertyDoubleArray`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyDoubleArray).
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+pub const OHOS_DNG_PROPERTY_NOISE_PROFILE: &::core::ffi::CStr = c"NoiseProfile";
+/// The original default final size.
+/// It is used in [`OH_ImageSourceNative_GetImagePropertyArraySize`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyArraySize) and
+/// [`OH_ImageSourceNative_GetImagePropertyIntArray`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyIntArray).
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+pub const OHOS_DNG_PROPERTY_ORIGINAL_DEFAULT_FINAL_SIZE: &::core::ffi::CStr =
+    c"OriginalDefaultFinalSize";
+/// The original best quality final size.
+/// It is used in [`OH_ImageSourceNative_GetImagePropertyArraySize`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyArraySize) and
+/// [`OH_ImageSourceNative_GetImagePropertyIntArray`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyIntArray).
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+pub const OHOS_DNG_PROPERTY_ORIGINAL_BEST_QUALITY_FINAL_SIZE: &::core::ffi::CStr =
+    c"OriginalBestQualityFinalSize";
+/// The original default crop size.
+/// It is used in [`OH_ImageSourceNative_GetImagePropertyArraySize`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyArraySize) and
+/// [`OH_ImageSourceNative_GetImagePropertyDoubleArray`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyDoubleArray).
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+pub const OHOS_DNG_PROPERTY_ORIGINAL_DEFAULT_CROP_SIZE: &::core::ffi::CStr =
+    c"OriginalDefaultCropSize";
+/// The profile hue‑saturation map encoding.
+/// It is used in [`OH_ImageSourceNative_GetImagePropertyLong`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyLong).
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+pub const OHOS_DNG_PROPERTY_PROFILE_HUE_SAT_MAP_ENCODING: &::core::ffi::CStr =
+    c"ProfileHueSatMapEncoding";
+/// The profile lookup table encoding.
+/// It is used in [`OH_ImageSourceNative_GetImagePropertyLong`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyLong).
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+pub const OHOS_DNG_PROPERTY_PROFILE_LOOK_TABLE_ENCODING: &::core::ffi::CStr =
+    c"ProfileLookTableEncoding";
+/// The baseline exposure offset.
+/// It is used in [`OH_ImageSourceNative_GetImagePropertyDouble`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyDouble).
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+pub const OHOS_DNG_PROPERTY_BASELINE_EXPOSURE_OFFSET: &::core::ffi::CStr =
+    c"BaselineExposureOffset";
+/// The default black render.
+/// It is used in [`OH_ImageSourceNative_GetImagePropertyLong`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyLong).
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+pub const OHOS_DNG_PROPERTY_DEFAULT_BLACK_RENDER: &::core::ffi::CStr = c"DefaultBlackRender";
+/// A modified MD5 digest of the raw image data.
+/// It is used in [`OH_ImageSourceNative_GetImagePropertyArraySize`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyArraySize) and
+/// [`OH_ImageSourceNative_GetImagePropertyString`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyString).
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+pub const OHOS_DNG_PROPERTY_NEW_RAW_IMAGE_DIGEST: &::core::ffi::CStr = c"NewRawImageDigest";
+/// The gain between the main raw IFD and the preview IFD.
+/// It is used in [`OH_ImageSourceNative_GetImagePropertyDouble`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyDouble).
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+pub const OHOS_DNG_PROPERTY_RAW_TO_PREVIEW_GAIN: &::core::ffi::CStr = c"RawToPreviewGain";
+/// The default user crop.
+/// It is used in [`OH_ImageSourceNative_GetImagePropertyArraySize`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyArraySize) and
+/// [`OH_ImageSourceNative_GetImagePropertyIntArray`](crate::native_image::image_source::OH_ImageSourceNative_GetImagePropertyIntArray).
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+pub const OHOS_DNG_PROPERTY_DEFAULT_USER_CROP: &::core::ffi::CStr = c"DefaultUserCrop";
 extern "C" {
-    /// Creates a <b>PictureMetadata</b> object.
+    /// Creates the pointer to an OH_PictureMetadata struct.
     ///
     /// # Arguments
     ///
-    /// * `metadataType` - The type of metadata.
+    /// * `metadataType` - Metadata type.
     ///
-    /// * `metadata` - The PictureMetadata pointer will be operated.
+    /// * `metadata` - Double pointer to the OH_PictureMetadata struct created.
     ///
     /// # Returns
     ///
-    /// * Image functions result code.
-    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) metadata is nullptr.
+    /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS): The operation is successful.
+    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER): A parameter is incorrect.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -1576,23 +2400,23 @@ extern "C" {
         metadataType: Image_MetadataType,
         metadata: *mut *mut OH_PictureMetadata,
     ) -> ImageResult;
-    /// Obtains the property of picture metadata.
+    /// Obtains a property of metadata based on the key. **value.data** obtained through this API lacks the string
+    /// terminator **\0**. Please use it with caution.
     ///
     /// # Arguments
     ///
-    /// * `metadata` - The PictureMetadata pointer will be operated.
+    /// * `metadata` - Pointer to an OH_PictureMetadata struct.
     ///
-    /// * `key` - The property's key.
+    /// * `key` - Pointer to the key of the property.
     ///
-    /// * `value` - The property's value.
+    /// * `value` - Pointer to the value of the property.
     ///
     /// # Returns
     ///
-    /// * Image functions result code.
-    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) metadata is nullptr, or key is nullptr, or value is nullptr.
-    /// [`IMAGE_UNSUPPORTED_METADATA`](crate::native_image::common::ImageResult::UNSUPPORTED_METADATA) unsupported metadata type, or the metadata type does not match the
-    /// auxiliary picture type.
+    /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS): The operation is successful.
+    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER): A parameter is incorrect.
+    /// <br>[`IMAGE_UNSUPPORTED_METADATA`](crate::native_image::common::ImageResult::UNSUPPORTED_METADATA): The metadata type is not supported, or the metadata type and the
+    /// auxiliary picture type do not match.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -1602,49 +2426,23 @@ extern "C" {
         key: *mut Image_String,
         value: *mut Image_String,
     ) -> ImageResult;
-    /// Set picture metadata property.
+    /// Obtains the metadata value of an OH_PictureMetadata instance. The output **value.data** ends with the string
+    /// terminator **\0**.
     ///
     /// # Arguments
     ///
-    /// * `metadata` - The PictureMetadata pointer will be operated.
+    /// * `metadata` - Pointer to an OH_PictureMetadata struct.
     ///
-    /// * `key` - The property's key.
+    /// * `key` - Pointer to the key of the property.
     ///
-    /// * `value` - The property's value.
-    ///
-    /// # Returns
-    ///
-    /// * Image functions result code.
-    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) metadata is nullptr, or key is nullptr, or value is nullptr.
-    /// [`IMAGE_UNSUPPORTED_METADATA`](crate::native_image::common::ImageResult::UNSUPPORTED_METADATA) unsupported metadata type, or the metadata type does not match the
-    /// auxiliary picture type.
-    ///
-    /// Available since API-level: 13
-    #[cfg(feature = "api-13")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
-    pub fn OH_PictureMetadata_SetProperty(
-        metadata: *mut OH_PictureMetadata,
-        key: *mut Image_String,
-        value: *mut Image_String,
-    ) -> ImageResult;
-    /// Obtains the property of picture metadata. The output value.data is null-terminated.
-    ///
-    /// # Arguments
-    ///
-    /// * `metadata` - Pointer to OH_PictureMetadata.
-    ///
-    /// * `key` - Pointer to property's key.
-    ///
-    /// * `value` - Pointer to property's value. Output parameter.
+    /// * `value` - Pointer to the value of the property.
     ///
     /// # Returns
     ///
-    /// * Image functions result code.
-    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// [`IMAGE_INVALID_PARAMETER`](crate::native_image::common::ImageResult::INVALID_PARAMETER) metadata is nullptr, or key is nullptr, or value is nullptr.
-    /// [`IMAGE_UNSUPPORTED_METADATA`](crate::native_image::common::ImageResult::UNSUPPORTED_METADATA) unsupported metadata type, or the metadata type does not match the
-    /// auxiliary picture type.
+    /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS): The operation is successful.
+    /// <br>[`IMAGE_INVALID_PARAMETER`](crate::native_image::common::ImageResult::INVALID_PARAMETER): The **metadata**, **key**, or **value** parameter is a null pointer.
+    /// <br>[`IMAGE_UNSUPPORTED_METADATA`](crate::native_image::common::ImageResult::UNSUPPORTED_METADATA): The metadata type is not supported, or the metadata type and the
+    /// auxiliary picture type do not match.
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
@@ -1654,37 +2452,132 @@ extern "C" {
         key: *mut Image_String,
         value: *mut Image_String,
     ) -> ImageResult;
-    /// Releases this PictureMetadata object.
+    /// Sets a property of metadata based on the key.
     ///
     /// # Arguments
     ///
-    /// * `metadata` - The PictureMetadata pointer will be operated.
+    /// * `metadata` - Pointer to an OH_PictureMetadata struct.
+    ///
+    /// * `key` - Pointer to the key of the property.
+    ///
+    /// * `value` - Pointer to the value of the property.
     ///
     /// # Returns
     ///
-    /// * Image functions result code.
-    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) metadata is nullptr.
+    /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS): The operation is successful.
+    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER): A parameter is incorrect.
+    /// <br>[`IMAGE_UNSUPPORTED_METADATA`](crate::native_image::common::ImageResult::UNSUPPORTED_METADATA): The metadata type is not supported, or the metadata type and the
+    /// auxiliary picture type do not match.
+    ///
+    /// Available since API-level: 13
+    #[cfg(feature = "api-13")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
+    pub fn OH_PictureMetadata_SetProperty(
+        metadata: *mut OH_PictureMetadata,
+        key: *mut Image_String,
+        value: *mut Image_String,
+    ) -> ImageResult;
+    /// Sets blob data in the metadata.
+    ///
+    /// # Arguments
+    ///
+    /// * `metadata` - Pointer to an OH_PictureMetadata struct.
+    ///
+    /// * `blob` - Pointer to the blob data.
+    ///
+    /// * `blobSize` - Size of the blob data.
+    ///
+    /// # Returns
+    ///
+    /// - [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
+    /// - [`IMAGE_INVALID_PARAMETER`](crate::native_image::common::ImageResult::INVALID_PARAMETER) metadata is nullptr, or blob is nullptr, or blobSize is 0.
+    /// - [`IMAGE_UNSUPPORTED_METADATA`](crate::native_image::common::ImageResult::UNSUPPORTED_METADATA) unsupported metadata type.
+    /// - [`IMAGE_UNSUPPORTED_OPERATION`](crate::native_image::common::ImageResult::UNSUPPORTED_OPERATION) failed to set blob data.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_PictureMetadata_SetBlobData(
+        metadata: *mut OH_PictureMetadata,
+        blob: *mut u8,
+        blobSize: u32,
+    ) -> ImageResult;
+    /// Obtains the size of the blob data in the metadata.
+    ///
+    /// # Arguments
+    ///
+    /// * `metadata` - Pointer to an OH_PictureMetadata struct.
+    ///
+    /// * `blobSize` - Pointer to the size of the blob data.
+    ///
+    /// # Returns
+    ///
+    /// - [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
+    /// - [`IMAGE_INVALID_PARAMETER`](crate::native_image::common::ImageResult::INVALID_PARAMETER) metadata or blobSize is nullptr.
+    /// - [`IMAGE_UNSUPPORTED_METADATA`](crate::native_image::common::ImageResult::UNSUPPORTED_METADATA) unsupported metadata type.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_PictureMetadata_GetBlobDataSize(
+        metadata: *mut OH_PictureMetadata,
+        blobSize: *mut u32,
+    ) -> ImageResult;
+    /// Obtains blob data from the metadata.
+    ///
+    /// # Arguments
+    ///
+    /// * `metadata` - Pointer to an OH_PictureMetadata struct.
+    ///
+    /// * `blob` - Pointer to the blob data obtained.
+    ///
+    /// * `blobSize` - Size of the blob data. The value must be greater than or equal to the value obtained by the
+    /// OH_PictureMetadata_GetBlobSize method.
+    ///
+    /// # Returns
+    ///
+    /// - [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
+    /// - [`IMAGE_INVALID_PARAMETER`](crate::native_image::common::ImageResult::INVALID_PARAMETER) metadata is nullptr, or blob is nullptr, or blobSize is 0, or blobSize is less than metadata length.
+    /// - [`IMAGE_UNSUPPORTED_METADATA`](crate::native_image::common::ImageResult::UNSUPPORTED_METADATA) unsupported metadata type.
+    /// - [`IMAGE_UNSUPPORTED_OPERATION`](crate::native_image::common::ImageResult::UNSUPPORTED_OPERATION) failed to get blob data.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_PictureMetadata_GetBlobData(
+        metadata: *mut OH_PictureMetadata,
+        blob: *mut u8,
+        blobSize: u32,
+    ) -> ImageResult;
+    /// Releases the pointer to an OH_PictureMetadata struct.
+    ///
+    /// # Arguments
+    ///
+    /// * `metadata` - Pointer to an OH_PictureMetadata struct.
+    ///
+    /// # Returns
+    ///
+    /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS): The operation is successful.
+    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER): A parameter is incorrect.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub fn OH_PictureMetadata_Release(metadata: *mut OH_PictureMetadata) -> ImageResult;
-    /// Obtains a clone of metadata.
+    /// Clones metadata.
     ///
     /// # Arguments
     ///
-    /// * `oldMetadata` - The PictureMetadata pointer will be operated.
+    /// * `oldMetadata` - Pointer to an OH_PictureMetadata struct.
     ///
-    /// * `newMetadata` - The PictureMetadata pointer will be cloned.
+    /// * `newMetadata` - Double pointer to the OH_PictureMetadata struct obtained.
     ///
     /// # Returns
     ///
-    /// * Image functions result code.
-    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) metadata is nullptr.
-    /// [`IMAGE_ALLOC_FAILED`](crate::native_image::common::ImageResult::ALLOC_FAILED) memory alloc failed.
-    /// [`IMAGE_COPY_FAILED`](crate::native_image::common::ImageResult::COPY_FAILED) memory copy failed.
+    /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS): The operation is successful.
+    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER): A parameter is incorrect.
+    /// <br>[`IMAGE_ALLOC_FAILED`](crate::native_image::common::ImageResult::ALLOC_FAILED): The memory allocation fails.
+    /// <br>[`IMAGE_COPY_FAILED`](crate::native_image::common::ImageResult::COPY_FAILED): The memory copy fails.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]

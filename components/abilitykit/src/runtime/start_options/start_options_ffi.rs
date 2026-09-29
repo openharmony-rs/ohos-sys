@@ -65,23 +65,6 @@ extern "C" {
         startOptions: *mut AbilityRuntime_StartOptions,
         windowMode: AbilityRuntime_WindowMode,
     ) -> AbilityRuntimeResult;
-    /// Get window mode from start options.
-    ///
-    /// # Arguments
-    ///
-    /// * `startOptions` - The options to get window mode from.
-    ///
-    /// * `windowMode` - The obtained window mode.
-    ///
-    /// # Returns
-    ///
-    /// * The error code.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the startOptions is invalid.
-    ///
-    /// Available since API-level: 17
-    #[cfg(feature = "api-17")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
     pub fn OH_AbilityRuntime_GetStartOptionsWindowMode(
         startOptions: *mut AbilityRuntime_StartOptions,
         windowMode: *mut AbilityRuntime_WindowMode,
@@ -107,23 +90,6 @@ extern "C" {
         startOptions: *mut AbilityRuntime_StartOptions,
         displayId: i32,
     ) -> AbilityRuntimeResult;
-    /// Get display id from start options.
-    ///
-    /// # Arguments
-    ///
-    /// * `startOptions` - The options to get display id from.
-    ///
-    /// * `displayId` - The obtained display id.
-    ///
-    /// # Returns
-    ///
-    /// * The error code.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the startOptions is invalid.
-    ///
-    /// Available since API-level: 17
-    #[cfg(feature = "api-17")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
     pub fn OH_AbilityRuntime_GetStartOptionsDisplayId(
         startOptions: *mut AbilityRuntime_StartOptions,
         displayId: *mut i32,
@@ -149,23 +115,6 @@ extern "C" {
         startOptions: *mut AbilityRuntime_StartOptions,
         withAnimation: bool,
     ) -> AbilityRuntimeResult;
-    /// Get with animation from start options.
-    ///
-    /// # Arguments
-    ///
-    /// * `startOptions` - The options to get with animation from.
-    ///
-    /// * `withAnimation` - The obtained with animation.
-    ///
-    /// # Returns
-    ///
-    /// * The error code.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the startOptions is invalid.
-    ///
-    /// Available since API-level: 17
-    #[cfg(feature = "api-17")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
     pub fn OH_AbilityRuntime_GetStartOptionsWithAnimation(
         startOptions: *mut AbilityRuntime_StartOptions,
         withAnimation: *mut bool,
@@ -191,23 +140,6 @@ extern "C" {
         startOptions: *mut AbilityRuntime_StartOptions,
         windowLeft: i32,
     ) -> AbilityRuntimeResult;
-    /// Get window left from start options.
-    ///
-    /// # Arguments
-    ///
-    /// * `startOptions` - The options to get window left from.
-    ///
-    /// * `windowLeft` - The obtained window left.
-    ///
-    /// # Returns
-    ///
-    /// * The error code.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the startOptions is invalid.
-    ///
-    /// Available since API-level: 17
-    #[cfg(feature = "api-17")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
     pub fn OH_AbilityRuntime_GetStartOptionsWindowLeft(
         startOptions: *mut AbilityRuntime_StartOptions,
         windowLeft: *mut i32,
@@ -233,23 +165,6 @@ extern "C" {
         startOptions: *mut AbilityRuntime_StartOptions,
         windowTop: i32,
     ) -> AbilityRuntimeResult;
-    /// Get window top from start options.
-    ///
-    /// # Arguments
-    ///
-    /// * `startOptions` - The options to get window top from.
-    ///
-    /// * `windowTop` - The obtained window top.
-    ///
-    /// # Returns
-    ///
-    /// * The error code.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the startOptions is invalid.
-    ///
-    /// Available since API-level: 17
-    #[cfg(feature = "api-17")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
     pub fn OH_AbilityRuntime_GetStartOptionsWindowTop(
         startOptions: *mut AbilityRuntime_StartOptions,
         windowTop: *mut i32,
@@ -275,23 +190,6 @@ extern "C" {
         startOptions: *mut AbilityRuntime_StartOptions,
         windowHeight: i32,
     ) -> AbilityRuntimeResult;
-    /// Get window height from start options.
-    ///
-    /// # Arguments
-    ///
-    /// * `startOptions` - The options to get window height from.
-    ///
-    /// * `windowHeight` - The obtained window height.
-    ///
-    /// # Returns
-    ///
-    /// * The error code.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the startOptions is invalid.
-    ///
-    /// Available since API-level: 17
-    #[cfg(feature = "api-17")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
     pub fn OH_AbilityRuntime_GetStartOptionsWindowHeight(
         startOptions: *mut AbilityRuntime_StartOptions,
         windowHeight: *mut i32,
@@ -317,23 +215,6 @@ extern "C" {
         startOptions: *mut AbilityRuntime_StartOptions,
         windowWidth: i32,
     ) -> AbilityRuntimeResult;
-    /// Get window width from start options.
-    ///
-    /// # Arguments
-    ///
-    /// * `startOptions` - The options to get window width from.
-    ///
-    /// * `windowWidth` - The obtained window width.
-    ///
-    /// # Returns
-    ///
-    /// * The error code.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the startOptions is invalid.
-    ///
-    /// Available since API-level: 17
-    #[cfg(feature = "api-17")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
     pub fn OH_AbilityRuntime_GetStartOptionsWindowWidth(
         startOptions: *mut AbilityRuntime_StartOptions,
         windowWidth: *mut i32,
@@ -359,23 +240,6 @@ extern "C" {
         startOptions: *mut AbilityRuntime_StartOptions,
         startVisibility: AbilityRuntime_StartVisibility,
     ) -> AbilityRuntimeResult;
-    /// Get start visibility from start options.
-    ///
-    /// # Arguments
-    ///
-    /// * `startOptions` - The options to get start visibility from.
-    ///
-    /// * `startVisibility` - The obtained start visibility.
-    ///
-    /// # Returns
-    ///
-    /// * The error code.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the startOptions is invalid.
-    ///
-    /// Available since API-level: 17
-    #[cfg(feature = "api-17")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
     pub fn OH_AbilityRuntime_GetStartOptionsStartVisibility(
         startOptions: *mut AbilityRuntime_StartOptions,
         startVisibility: *mut AbilityRuntime_StartVisibility,
@@ -446,27 +310,6 @@ extern "C" {
         startOptions: *mut AbilityRuntime_StartOptions,
         startWindowBackgroundColor: *const ::core::ffi::c_char,
     ) -> AbilityRuntimeResult;
-    /// Get start window background color from start options.
-    ///
-    /// # Arguments
-    ///
-    /// * `startOptions` - The options to get start window background color from.
-    ///
-    /// * `startWindowBackgroundColor` - The obtained start window background color.
-    ///
-    /// * `size` - The size of start window background color.
-    ///
-    /// # Returns
-    ///
-    /// * The error code.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the startOptions is invalid
-    /// or startWindowBackgroundColor is NOT nullptr.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_INTERNAL`](crate::runtime::AbilityRuntimeErrorCode::INTERNAL) if error occurred in malloc.
-    ///
-    /// Available since API-level: 17
-    #[cfg(feature = "api-17")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
     pub fn OH_AbilityRuntime_GetStartOptionsStartWindowBackgroundColor(
         startOptions: *mut AbilityRuntime_StartOptions,
         startWindowBackgroundColor: *mut *mut ::core::ffi::c_char,
@@ -497,27 +340,6 @@ extern "C" {
         supportedWindowModes: *mut AbilityRuntime_SupportedWindowMode,
         size: usize,
     ) -> AbilityRuntimeResult;
-    /// Get start window modes from start options.
-    ///
-    /// # Arguments
-    ///
-    /// * `startOptions` - The options to get start window modes from.
-    ///
-    /// * `supportedWindowModes` - The obtained start window modes.
-    ///
-    /// * `size` - The size of the returned start window modes.
-    ///
-    /// # Returns
-    ///
-    /// * The error code.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the startOptions is invallid
-    /// or supportWindowMode is NOT nullptr
-    /// [`ABILITY_RUNTIME_ERROR_CODE_INTERNAL`](crate::runtime::AbilityRuntimeErrorCode::INTERNAL) if error occurred in malloc.
-    ///
-    /// Available since API-level: 17
-    #[cfg(feature = "api-17")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
     pub fn OH_AbilityRuntime_GetStartOptionsSupportedWindowModes(
         startOptions: *mut AbilityRuntime_StartOptions,
         supportedWindowModes: *mut *mut AbilityRuntime_SupportedWindowMode,
@@ -544,23 +366,6 @@ extern "C" {
         startOptions: *mut AbilityRuntime_StartOptions,
         minWindowWidth: i32,
     ) -> AbilityRuntimeResult;
-    /// Get min window width from start options.
-    ///
-    /// # Arguments
-    ///
-    /// * `startOptions` - The options to get min window width from.
-    ///
-    /// * `minWindowWidth` - The obtained min window width.
-    ///
-    /// # Returns
-    ///
-    /// * The error code.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the startOptions is invalid.
-    ///
-    /// Available since API-level: 17
-    #[cfg(feature = "api-17")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
     pub fn OH_AbilityRuntime_GetStartOptionsMinWindowWidth(
         startOptions: *mut AbilityRuntime_StartOptions,
         minWindowWidth: *mut i32,
@@ -586,23 +391,6 @@ extern "C" {
         startOptions: *mut AbilityRuntime_StartOptions,
         maxWindowWidth: i32,
     ) -> AbilityRuntimeResult;
-    /// Get max window width from start options.
-    ///
-    /// # Arguments
-    ///
-    /// * `startOptions` - The options to get max window width from.
-    ///
-    /// * `maxWindowWidth` - The obtained max window width.
-    ///
-    /// # Returns
-    ///
-    /// * The error code.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the startOptions is invalid.
-    ///
-    /// Available since API-level: 17
-    #[cfg(feature = "api-17")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
     pub fn OH_AbilityRuntime_GetStartOptionsMaxWindowWidth(
         startOptions: *mut AbilityRuntime_StartOptions,
         maxWindowWidth: *mut i32,
@@ -628,23 +416,6 @@ extern "C" {
         startOptions: *mut AbilityRuntime_StartOptions,
         minWindowHeight: i32,
     ) -> AbilityRuntimeResult;
-    /// Get min window height from start options.
-    ///
-    /// # Arguments
-    ///
-    /// * `startOptions` - The options to get min window height from.
-    ///
-    /// * `minWindowHeight` - The obtained min window height.
-    ///
-    /// # Returns
-    ///
-    /// * The error code.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the startOptions is invalid.
-    ///
-    /// Available since API-level: 17
-    #[cfg(feature = "api-17")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
     pub fn OH_AbilityRuntime_GetStartOptionsMinWindowHeight(
         startOptions: *mut AbilityRuntime_StartOptions,
         minWindowHeight: *mut i32,
@@ -670,24 +441,308 @@ extern "C" {
         startOptions: *mut AbilityRuntime_StartOptions,
         maxWindowHeight: i32,
     ) -> AbilityRuntimeResult;
-    /// Get max window height from start options.
+    pub fn OH_AbilityRuntime_GetStartOptionsMaxWindowHeight(
+        startOptions: *mut AbilityRuntime_StartOptions,
+        maxWindowHeight: *mut i32,
+    ) -> AbilityRuntimeResult;
+    /// Get the window mode from start options.
     ///
     /// # Arguments
     ///
-    /// * `startOptions` - The options to get max window height from.
+    /// * `startOptions` - \[in\] The start options to read.
     ///
-    /// * `maxWindowHeight` - The obtained max window height.
+    /// * `windowMode` - \[out\] The obtained window mode. It must not be NULL.
     ///
     /// # Returns
     ///
-    /// * The error code.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the startOptions is invalid.
+    /// - [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
+    /// - [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if any parameter is invalid.
     ///
-    /// Available since API-level: 17
-    #[cfg(feature = "api-17")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
-    pub fn OH_AbilityRuntime_GetStartOptionsMaxWindowHeight(
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_AbilityRuntime_GetStartOptionsWindowModeValue(
+        startOptions: *mut AbilityRuntime_StartOptions,
+        windowMode: *mut AbilityRuntime_WindowMode,
+    ) -> AbilityRuntimeResult;
+    /// Get the display ID from start options.
+    ///
+    /// # Arguments
+    ///
+    /// * `startOptions` - \[in\] The start options to read.
+    ///
+    /// * `displayId` - \[out\] The obtained display ID. It must not be NULL.
+    ///
+    /// # Returns
+    ///
+    /// - [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
+    /// - [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if any parameter is invalid.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_AbilityRuntime_GetStartOptionsDisplayIdValue(
+        startOptions: *mut AbilityRuntime_StartOptions,
+        displayId: *mut i32,
+    ) -> AbilityRuntimeResult;
+    /// Get whether animation is enabled from start options.
+    ///
+    /// # Arguments
+    ///
+    /// * `startOptions` - \[in\] The start options to read.
+    ///
+    /// * `withAnimation` - \[out\] The obtained animation flag. It must not be NULL.
+    ///
+    /// # Returns
+    ///
+    /// - [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
+    /// - [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if any parameter is invalid.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_AbilityRuntime_GetStartOptionsWithAnimationValue(
+        startOptions: *mut AbilityRuntime_StartOptions,
+        withAnimation: *mut bool,
+    ) -> AbilityRuntimeResult;
+    /// Get the window left position from start options.
+    ///
+    /// # Arguments
+    ///
+    /// * `startOptions` - \[in\] The start options to read.
+    ///
+    /// * `windowLeft` - \[out\] The obtained window left position. It must not be NULL.
+    ///
+    /// # Returns
+    ///
+    /// - [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
+    /// - [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if any parameter is invalid.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_AbilityRuntime_GetStartOptionsWindowLeftValue(
+        startOptions: *mut AbilityRuntime_StartOptions,
+        windowLeft: *mut i32,
+    ) -> AbilityRuntimeResult;
+    /// Get the window top position from start options.
+    ///
+    /// # Arguments
+    ///
+    /// * `startOptions` - \[in\] The start options to read.
+    ///
+    /// * `windowTop` - \[out\] The obtained window top position. It must not be NULL.
+    ///
+    /// # Returns
+    ///
+    /// - [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
+    /// - [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if any parameter is invalid.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_AbilityRuntime_GetStartOptionsWindowTopValue(
+        startOptions: *mut AbilityRuntime_StartOptions,
+        windowTop: *mut i32,
+    ) -> AbilityRuntimeResult;
+    /// Get the window height from start options.
+    ///
+    /// # Arguments
+    ///
+    /// * `startOptions` - \[in\] The start options to read.
+    ///
+    /// * `windowHeight` - \[out\] The obtained window height. It must not be NULL.
+    ///
+    /// # Returns
+    ///
+    /// - [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
+    /// - [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if any parameter is invalid.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_AbilityRuntime_GetStartOptionsWindowHeightValue(
+        startOptions: *mut AbilityRuntime_StartOptions,
+        windowHeight: *mut i32,
+    ) -> AbilityRuntimeResult;
+    /// Get the window width from start options.
+    ///
+    /// # Arguments
+    ///
+    /// * `startOptions` - \[in\] The start options to read.
+    ///
+    /// * `windowWidth` - \[out\] The obtained window width. It must not be NULL.
+    ///
+    /// # Returns
+    ///
+    /// - [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
+    /// - [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if any parameter is invalid.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_AbilityRuntime_GetStartOptionsWindowWidthValue(
+        startOptions: *mut AbilityRuntime_StartOptions,
+        windowWidth: *mut i32,
+    ) -> AbilityRuntimeResult;
+    /// Get the start visibility from start options.
+    ///
+    /// # Arguments
+    ///
+    /// * `startOptions` - \[in\] The start options to read.
+    ///
+    /// * `startVisibility` - \[out\] The obtained start visibility. It must not be NULL.
+    ///
+    /// # Returns
+    ///
+    /// - [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
+    /// - [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if any parameter is invalid.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_AbilityRuntime_GetStartOptionsStartVisibilityValue(
+        startOptions: *mut AbilityRuntime_StartOptions,
+        startVisibility: *mut AbilityRuntime_StartVisibility,
+    ) -> AbilityRuntimeResult;
+    /// Get the start window background color from start options.
+    ///
+    /// # Arguments
+    ///
+    /// * `startOptions` - \[in\] The start options to read.
+    ///
+    /// * `startWindowBackgroundColor` - \[out\] The pointer used to receive the UTF-8 background color string.
+    /// It must not be NULL and must point to NULL before the call.
+    ///
+    /// * `size` - \[out\] The length of the background color string, excluding the trailing NUL.
+    /// It must not be NULL.
+    ///
+    /// # Returns
+    ///
+    /// - [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
+    /// - [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if any parameter is invalid.
+    /// - [`ABILITY_RUNTIME_ERROR_CODE_INTERNAL`](crate::runtime::AbilityRuntimeErrorCode::INTERNAL) if error occurred in malloc.
+    ///
+    /// **Note:** If the background color is not set, [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) is returned,
+    /// *startWindowBackgroundColor remains NULL, and *size is set to 0.
+    ///
+    /// **Note:** Release `startWindowBackgroundColor` with `free`.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_AbilityRuntime_GetStartOptionsStartWindowBackgroundColorValue(
+        startOptions: *mut AbilityRuntime_StartOptions,
+        startWindowBackgroundColor: *mut *mut ::core::ffi::c_char,
+        size: *mut usize,
+    ) -> AbilityRuntimeResult;
+    /// Get the supported start window modes from start options.
+    ///
+    /// # Arguments
+    ///
+    /// * `startOptions` - \[in\] The start options to read.
+    ///
+    /// * `supportedWindowModes` - \[out\] The pointer used to receive the supported start window modes.
+    /// It must not be NULL and must point to NULL before the call.
+    ///
+    /// * `size` - \[out\] The number of returned supported start window modes. It must not be NULL.
+    ///
+    /// # Returns
+    ///
+    /// - [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
+    /// - [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if any parameter is invalid.
+    /// - [`ABILITY_RUNTIME_ERROR_CODE_INTERNAL`](crate::runtime::AbilityRuntimeErrorCode::INTERNAL) if error occurred in malloc.
+    ///
+    /// **Note:** If no supported window modes are set, [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) is returned,
+    /// *supportedWindowModes remains NULL, and *size is set to 0.
+    ///
+    /// **Note:** Release `supportedWindowModes` with `free`.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_AbilityRuntime_GetStartOptionsSupportedWindowModesValue(
+        startOptions: *mut AbilityRuntime_StartOptions,
+        supportedWindowModes: *mut *mut AbilityRuntime_SupportedWindowMode,
+        size: *mut usize,
+    ) -> AbilityRuntimeResult;
+    /// Get the minimum window width from start options.
+    ///
+    /// # Arguments
+    ///
+    /// * `startOptions` - \[in\] The start options to read.
+    ///
+    /// * `minWindowWidth` - \[out\] The obtained minimum window width. It must not be NULL.
+    ///
+    /// # Returns
+    ///
+    /// - [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
+    /// - [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if any parameter is invalid.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_AbilityRuntime_GetStartOptionsMinWindowWidthValue(
+        startOptions: *mut AbilityRuntime_StartOptions,
+        minWindowWidth: *mut i32,
+    ) -> AbilityRuntimeResult;
+    /// Get the maximum window width from start options.
+    ///
+    /// # Arguments
+    ///
+    /// * `startOptions` - \[in\] The start options to read.
+    ///
+    /// * `maxWindowWidth` - \[out\] The obtained maximum window width. It must not be NULL.
+    ///
+    /// # Returns
+    ///
+    /// - [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
+    /// - [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if any parameter is invalid.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_AbilityRuntime_GetStartOptionsMaxWindowWidthValue(
+        startOptions: *mut AbilityRuntime_StartOptions,
+        maxWindowWidth: *mut i32,
+    ) -> AbilityRuntimeResult;
+    /// Get the minimum window height from start options.
+    ///
+    /// # Arguments
+    ///
+    /// * `startOptions` - \[in\] The start options to read.
+    ///
+    /// * `minWindowHeight` - \[out\] The obtained minimum window height. It must not be NULL.
+    ///
+    /// # Returns
+    ///
+    /// - [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
+    /// - [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if any parameter is invalid.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_AbilityRuntime_GetStartOptionsMinWindowHeightValue(
+        startOptions: *mut AbilityRuntime_StartOptions,
+        minWindowHeight: *mut i32,
+    ) -> AbilityRuntimeResult;
+    /// Get the maximum window height from start options.
+    ///
+    /// # Arguments
+    ///
+    /// * `startOptions` - \[in\] The start options to read.
+    ///
+    /// * `maxWindowHeight` - \[out\] The obtained maximum window height. It must not be NULL.
+    ///
+    /// # Returns
+    ///
+    /// - [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
+    /// - [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if any parameter is invalid.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_AbilityRuntime_GetStartOptionsMaxWindowHeightValue(
         startOptions: *mut AbilityRuntime_StartOptions,
         maxWindowHeight: *mut i32,
     ) -> AbilityRuntimeResult;

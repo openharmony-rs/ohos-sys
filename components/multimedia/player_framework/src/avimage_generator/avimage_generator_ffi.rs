@@ -10,10 +10,8 @@ use crate::averrors::OH_AVErrCode;
 use crate::avimage_generator_base::OH_AVImageGenerator_QueryOptions;
 use ohos_sys_opaque_types::OH_PixelmapNative;
 
-/// Define OH_AVImageGenerator field.
+/// The OH_AVImageGenerator struct describes the type used for generating video frames at specified timestamps.
 ///
-///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.AVImageGenerator
 ///
 /// Available since API-level: 18
 #[cfg(feature = "api-18")]
@@ -23,10 +21,8 @@ pub struct OH_AVImageGenerator {
     _unused: [u8; 0],
 }
 extern "C" {
-    /// Create an image generator.
+    /// Creates an OH_AVImageGenerator instance, which is used to generate video frames at given time points.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.AVImageGenerator
     ///
     /// # Returns
     ///
@@ -37,27 +33,25 @@ extern "C" {
     #[cfg(feature = "api-18")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
     pub fn OH_AVImageGenerator_Create() -> *mut OH_AVImageGenerator;
-    /// Sets the media file descriptor source for the image generator.
+    /// Sets a data source based on the media file descriptor.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.AVImageGenerator
     /// # Arguments
     ///
-    /// * `generator` - Pointer to an OH_AVImageGenerator instance.
+    /// * `generator` - Pointer to the OH_AVImageGenerator instance.
     ///
-    /// * `fd` - Indicates the file descriptor of media source.
+    /// * `fd` - File descriptor of the media source.
     ///
-    /// * `offset` - Indicates the offset of media source in file descriptor.
+    /// * `offset` - Offset of the media source in the file descriptor.
     ///
-    /// * `size` - Indicates the size of media source.
+    /// * `size` - Size of the media source.
     ///
     /// # Returns
     ///
     /// * Function result code.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input generator is nullptr or input param is invalid.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) if operation not allowed.
-    /// [`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY) if internal memory allocation failed.
+    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): the execution is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): input generator is nullptr or input param is invalid.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): operation not allowed.
+    /// [`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): internal memory allocation failed.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -68,31 +62,26 @@ extern "C" {
         offset: i64,
         size: i64,
     ) -> OH_AVErrCode;
-    /// Fetch an image at the specific time from a video resource.
+    /// Extracts a video frame at a given time from a video.
     ///
-    /// This function must be called after `SetFDSource`.
-    ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.AVImageGenerator
     /// # Arguments
     ///
-    /// * `generator` - Pointer to an OH_AVImageGenerator instance.
+    /// * `generator` - Pointer to the OH_AVImageGenerator instance.
     ///
-    /// * `timeUs` - The time expected to fetch picture from the video resource. The unit is microsecond(us).
+    /// * `timeUs` - Time point of the video frame to be extracted in the video, in μs.
     ///
-    /// * `options` - The time options about the relationship between the given timeUs and a key frame,
-    /// see [`OH_AVImageGenerator_QueryOptions`](crate::avimage_generator_base::OH_AVImageGenerator_QueryOptions).
+    /// * `options` - Mappings between the given time points and video frames.
     ///
-    /// * `pixelMap` - The fetched output image from the video source. For details, see [`OH_PixelmapNative`](ohos_sys_opaque_types::OH_PixelmapNative).
+    /// * `pixelMap` - Double pointer to the video frame object obtained.
     ///
     /// # Returns
     ///
     /// * Function result code.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input generator is nullptr or input param is invalid.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) if operation not allowed.
-    /// [`AV_ERR_UNSUPPORTED_FORMAT`](crate::averrors::OH_AVErrCode::AV_ERR_UNSUPPORTED_FORMAT) if format is unsupported.
-    /// [`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY) if internal memory allocation failed.
+    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): the execution is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): input generator is nullptr or input param is invalid.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): operation not allowed.
+    /// [`AV_ERR_UNSUPPORTED_FORMAT`](crate::averrors::OH_AVErrCode::AV_ERR_UNSUPPORTED_FORMAT): format is unsupported.
+    /// [`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): internal memory allocation failed.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -103,19 +92,17 @@ extern "C" {
         options: OH_AVImageGenerator_QueryOptions,
         pixelMap: *mut *mut OH_PixelmapNative,
     ) -> OH_AVErrCode;
-    /// Release the resource used for AVImageGenerator.
+    /// Releases the resources used by the OH_AVImageGenerator instance and destroys the instance.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.AVImageGenerator
     /// # Arguments
     ///
-    /// * `generator` - Pointer to an OH_AVImageGenerator instance.
+    /// * `generator` - Pointer to the OH_AVImageGenerator instance.
     ///
     /// # Returns
     ///
     /// * Function result code.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input generator is nullptr or input param is invalid.
+    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): the execution is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): input generator is nullptr or input param is invalid.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]

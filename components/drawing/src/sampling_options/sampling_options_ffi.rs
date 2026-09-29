@@ -8,13 +8,13 @@ use crate::types::*;
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl OH_Drawing_FilterMode {
-    /// single sample point (nearest neighbor)
+    /// Nearest filter mode.
     pub const FILTER_MODE_NEAREST: OH_Drawing_FilterMode = OH_Drawing_FilterMode(0);
-    /// interporate between 2x2 sample points (bilinear interpolation)
+    /// Linear filter mode.
     pub const FILTER_MODE_LINEAR: OH_Drawing_FilterMode = OH_Drawing_FilterMode(1);
 }
 #[repr(transparent)]
-/// Enumerates storage filter mode.
+/// Defines an enum for the filter modes.
 ///
 ///
 /// Available since API-level: 12
@@ -27,15 +27,15 @@ pub struct OH_Drawing_FilterMode(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl OH_Drawing_MipmapMode {
-    /// ignore mipmap levels, sample from the "base"
+    /// Mipmap level ignored.
     pub const MIPMAP_MODE_NONE: OH_Drawing_MipmapMode = OH_Drawing_MipmapMode(0);
-    /// sample from the nearest level
+    /// Nearest sampling from two adjacent mipmap levels.
     pub const MIPMAP_MODE_NEAREST: OH_Drawing_MipmapMode = OH_Drawing_MipmapMode(1);
-    /// interpolate between the two nearest levels
+    /// Linear interpolation sampling between two adjacent mipmap levels.
     pub const MIPMAP_MODE_LINEAR: OH_Drawing_MipmapMode = OH_Drawing_MipmapMode(2);
 }
 #[repr(transparent)]
-/// Enumerates storage formats mipmap mode.
+/// Defines an enum for the mipmap modes.
 ///
 ///
 /// Available since API-level: 12
@@ -46,19 +46,20 @@ impl OH_Drawing_MipmapMode {
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OH_Drawing_MipmapMode(pub ::core::ffi::c_uint);
 extern "C" {
-    /// Creates an <b>OH_Drawing_SamplingOptions</b> object.
+    /// Creates an **OH_Drawing_SamplingOptions** object.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **mipmapMode** is not set to one of the enumerated values, **OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE** is
+    /// returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `filterMode` - sampling filter mode.
+    /// * `filterMode` - Filter sampling mode.
     ///
-    /// * `mipmapMode` - sampling mipmap mode..
+    /// * `mipmapMode` - Mipmap mode.
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the <b>OH_Drawing_SamplingOptions</b> object created.
+    /// * Returns a pointer to the created [`OH_Drawing_SamplingOptions`](crate::types::OH_Drawing_SamplingOptions) object.
     ///
     /// Available since API-level: 12
     ///
@@ -69,17 +70,16 @@ extern "C" {
         filterMode: OH_Drawing_FilterMode,
         mipmapMode: OH_Drawing_MipmapMode,
     ) -> *mut OH_Drawing_SamplingOptions;
-    /// Creates an <b>OH_Drawing_SamplingOptions</b> copy object.
+    /// Creates a copy of an [`OH_Drawing_SamplingOptions`](crate::types::OH_Drawing_SamplingOptions) object.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `samplingOptions` - Indicates the pointer to an <b>OH_Drawing_SamplingOptions</b> object.
+    /// * `samplingOptions` - Pointer to the [`OH_Drawing_SamplingOptions`](crate::types::OH_Drawing_SamplingOptions) object.
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the <b>OH_Drawing_SamplingOptions</b> object created.
+    /// * Returns a pointer to the created [`OH_Drawing_SamplingOptions`](crate::types::OH_Drawing_SamplingOptions) object copy. If NULL is returned, the
+    /// creation fails. The possible failure cause is that no memory is available or **samplingOptions** is NULL.
     ///
     /// Available since API-level: 20
     ///
@@ -89,13 +89,11 @@ extern "C" {
     pub fn OH_Drawing_SamplingOptionsCopy(
         samplingOptions: *mut OH_Drawing_SamplingOptions,
     ) -> *mut OH_Drawing_SamplingOptions;
-    /// Destroys an <b>OH_Drawing_SamplingOptions</b> object and reclaims the memory occupied by the object.
+    /// Destroys an **OH_Drawing_SamplingOptions** object and reclaims the memory occupied by the object.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `samplingOptions` - Indicates the pointer to an <b>OH_Drawing_SamplingOptions</b> object.
+    /// * `samplingOptions` - Pointer to the [`OH_Drawing_SamplingOptions`](crate::types::OH_Drawing_SamplingOptions) object.
     ///
     /// Available since API-level: 12
     ///

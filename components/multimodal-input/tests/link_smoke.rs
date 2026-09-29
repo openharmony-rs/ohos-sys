@@ -41,4 +41,14 @@ fn link_smoke() {
     unsafe {
         let _ = input::input_manager::OH_Input_GetKeyEventId(ptr::null_mut(), ptr::null_mut());
     }
+
+    #[cfg(feature = "api-24")]
+    unsafe {
+        let _ = input::input_manager::OH_Input_GetTouchEventPressure(ptr::null());
+    }
+
+    #[cfg(feature = "api-26")]
+    unsafe {
+        let _ = input::input_manager::OH_Input_BindInputDeviceToDisplay(0, 0);
+    }
 }

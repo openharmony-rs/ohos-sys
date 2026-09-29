@@ -8,17 +8,17 @@ use crate::types::*;
 #[cfg(feature = "api-11")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
 impl OH_Drawing_BlurType {
-    /// Fuzzy inside and outside.
+    /// Blurs both inside and outside the original border.
     pub const NORMAL: OH_Drawing_BlurType = OH_Drawing_BlurType(0);
-    /// Solid inside, fuzzy outside.
+    /// Draws solid inside the border, and blurs outside.
     pub const SOLID: OH_Drawing_BlurType = OH_Drawing_BlurType(1);
-    /// Nothing inside, fuzzy outside.
+    /// Draws nothing inside the border, and blurs outside.
     pub const OUTER: OH_Drawing_BlurType = OH_Drawing_BlurType(2);
-    /// Fuzzy inside, nothing outside.
+    /// Blurs inside the border, and draws nothing outside.
     pub const INNER: OH_Drawing_BlurType = OH_Drawing_BlurType(3);
 }
 #[repr(transparent)]
-/// Enumerates blur type.
+/// Defines an enum for the blur types.
 ///
 ///
 /// Available since API-level: 11
@@ -29,21 +29,21 @@ impl OH_Drawing_BlurType {
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OH_Drawing_BlurType(pub ::core::ffi::c_uint);
 extern "C" {
-    /// Creates an <b>OH_Drawing_MaskFilter</b> with a blur effect.
+    /// Creates an **OH_Drawing_MaskFilter** object with a blur type.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `blurType` - Indicates the blur type.
+    /// * `blurType` - Blur type.
     ///
-    /// * `sigma` - Indicates the standard deviation of the Gaussian blur to apply. Must be > 0.
+    /// * `sigma` - Standard deviation of the Gaussian blur to apply. The value must be greater than 0.
     ///
-    /// * `respectCTM` - Indicates the blur's sigma is modified by the CTM, default is true.
+    /// * `respectCTM` - Whether the blur standard deviation is modified by the current transformation matrix (CTM). The
+    /// default value is **true**. **true**: The blur standard deviation is affected by the CTM. **false**: The blur
+    /// standard deviation is fixed and not affected by the CTM.
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the <b>OH_Drawing_MaskFilter</b> object created.
+    /// * Returns the pointer to the **OH_Drawing_MaskFilter** object created.
     ///
     /// Available since API-level: 11
     ///
@@ -55,13 +55,11 @@ extern "C" {
         sigma: f32,
         respectCTM: bool,
     ) -> *mut OH_Drawing_MaskFilter;
-    /// Destroys an <b>OH_Drawing_MaskFilter</b> object and reclaims the memory occupied by the object.
+    /// Destroys an **OH_Drawing_MaskFilter** object and reclaims the memory occupied by the object.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `maskFilter` - Indicates the pointer to an <b>OH_Drawing_MaskFilter</b> object.
+    /// * `maskFilter` - Pointer to an **OH_Drawing_MaskFilter** object.
     ///
     /// Available since API-level: 11
     ///

@@ -4,6 +4,8 @@
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
 #![allow(deprecated)]
+#[cfg(feature = "api-26")]
+use crate::native_buffer::buffer_common::OH_NativeBuffer_3D_MetadataKey;
 #[cfg(feature = "api-12")]
 use crate::native_buffer::buffer_common::{
     OH_NativeBuffer_ColorSpace, OH_NativeBuffer_MetadataKey,
@@ -749,7 +751,7 @@ extern "C" {
     ///
     /// * `size` - Indicates the size of a <b>OHHDRMetaData</b> vector.
     ///
-    /// * `metaDate` - Indicates the pointer to a <b>OHHDRMetaData</b> vector.
+    /// * `metaData` - Indicates the pointer to a <b>OHHDRMetaData</b> vector.
     ///
     /// # Returns
     ///
@@ -1308,4 +1310,74 @@ extern "C" {
     #[cfg(feature = "api-23")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub fn OH_NativeWindow_UnlockAndFlushBuffer(window: *mut OHNativeWindow) -> i32;
+    /// Set the 3D metadata of the native window.
+    ///
+    /// This interface is a non-thread-safe type interface.
+    ///
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeWindow
+    /// # Arguments
+    ///
+    /// * `window` - Indicates the pointer to a <b>OHNativeWindow</b> instance.
+    ///
+    /// * `metadataKey` - Indicates the 3D metadata type of native window, see <b>OH_NativeBuffer_3D_MetadataKey</b>.
+    ///
+    /// * `size` - Indicates the size of a uint8_t vector.
+    ///
+    /// * `metadata` - Indicates the pointer to a uint8_t vector.
+    ///
+    /// # Returns
+    ///
+    /// * `NATIVE_ERROR_OK` 0 - Success.
+    /// `NATIVE_ERROR_INVALID_ARGUMENTS` 40001000 - window or metadata is NULL.
+    /// `NATIVE_ERROR_UNKNOWN` 50002000 - set 3D metadata failed.
+    /// `NATIVE_ERROR_UNSUPPORTED` 50102000 - unsupported metadata key.
+    ///
+    /// Available since API-level: 26
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_NativeWindow_Set3DMetadataValue(
+        window: *mut OHNativeWindow,
+        metadataKey: OH_NativeBuffer_3D_MetadataKey,
+        size: i32,
+        metadata: *mut u8,
+    ) -> i32;
+    /// Get the 3D metadata of the native window.
+    ///
+    /// This interface is a non-thread-safe type interface.
+    ///
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeWindow
+    /// # Arguments
+    ///
+    /// * `window` - Indicates the pointer to a <b>OHNativeWindow</b> instance.
+    ///
+    /// * `metadataKey` - Indicates the 3D metadata type of native window, see <b>OH_NativeBuffer_3D_MetadataKey</b>.
+    ///
+    /// * `size` - Indicates the size of a uint8_t vector.
+    ///
+    /// * `metadata` - Indicates the pointer to a uint8_t vector.
+    ///
+    /// # Returns
+    ///
+    /// * `NATIVE_ERROR_OK` 0 - Success.
+    /// `NATIVE_ERROR_INVALID_ARGUMENTS` 40001000 - window, metadata, or size is NULL.
+    /// `NATIVE_ERROR_UNKNOWN` 50002000 - copy or allocate memory failed, otherwise get 3D metadata failed.
+    /// `NATIVE_ERROR_UNSUPPORTED` 50102000 - unsupported metadata key.
+    ///
+    /// Available since API-level: 26
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_NativeWindow_Get3DMetadataValue(
+        window: *mut OHNativeWindow,
+        metadataKey: OH_NativeBuffer_3D_MetadataKey,
+        size: *mut i32,
+        metadata: *mut *mut u8,
+    ) -> i32;
 }

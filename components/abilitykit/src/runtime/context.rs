@@ -1,3 +1,2 @@
-#[path = "context_constant/context_constant_ffi.rs"]
-mod context;
-pub use context::*;
+mod context_ffi;
+pub use context_ffi::*;

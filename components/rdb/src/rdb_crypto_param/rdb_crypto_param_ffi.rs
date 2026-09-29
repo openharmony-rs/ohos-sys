@@ -215,7 +215,7 @@ extern "C" {
     ///
     /// * `param` - Represents a pointer to an instance of OH_Rdb_CryptoParam.
     ///
-    /// * `size` - Represents the page size.
+    /// * `size` - Represents the page size, in bytes.
     ///
     /// # Returns
     ///

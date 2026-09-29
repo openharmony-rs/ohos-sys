@@ -7,38 +7,42 @@ use crate::text_declaration::*;
 use crate::types::*;
 
 extern "C" {
-    /// Creates an <b>OH_Drawing_FontCollection</b> object.
+    /// Creates an [`OH_Drawing_FontCollection`](crate::text_declaration::OH_Drawing_FontCollection) object.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the <b>OH_Drawing_FontCollection</b> object created.
+    /// * Pointer to the created font collection object. The font collection pointer object created by this function
+    /// can only be used by one [`OH_Drawing_TypographyCreate`](crate::text_declaration::OH_Drawing_TypographyCreate) object and does not support shared use among
+    /// multiple OH_Drawing_TypographyCreate objects. To share the same OH_Drawing_FontCollection among multiple
+    /// OH_Drawing_TypographyCreate objects, use the [`OH_Drawing_CreateSharedFontCollection`](crate::font_collection::OH_Drawing_CreateSharedFontCollection) function to create
+    /// the OH_Drawing_FontCollection object.
     ///
     /// Available since API-level: 8
     ///
     /// Version: 1.0
     pub fn OH_Drawing_CreateFontCollection() -> *mut OH_Drawing_FontCollection;
-    /// Releases the memory occupied by an <b>OH_Drawing_FontCollection</b> object.
+    /// Destroys an **OH_Drawing_FontCollection** object and reclaims the memory occupied by the object.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `fontCollection` - Indicates the pointer to an <b>OH_Drawing_FontCollection</b> object.
+    /// * `fontCollection` - Pointer to an **OH_Drawing_FontCollection** object.
     ///
     /// Available since API-level: 8
     ///
     /// Version: 1.0
     pub fn OH_Drawing_DestroyFontCollection(fontCollection: *mut OH_Drawing_FontCollection);
-    /// Disable the font collection fallback.
+    /// Disables the system fonts.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `fontCollection` - Indicates the pointer to an <b>OH_Drawing_FontCollection</b> object.
+    /// * `fontCollection` - Pointer to an [`OH_Drawing_FontCollection`](crate::text_declaration::OH_Drawing_FontCollection) object.
     ///
     /// Available since API-level: 12
     ///
@@ -54,13 +58,15 @@ extern "C" {
         note = "Use instead: OH_Drawing_DisableFontCollectionSystemFont"
     )]
     pub fn OH_Drawing_DisableFontCollectionFallback(fontCollection: *mut OH_Drawing_FontCollection);
-    /// Disable the font collection systemfont.
+    /// Disables system fonts. After disabling, the font collection object can only use registered custom fonts for
+    /// text rendering.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `fontCollection` - Indicates the pointer to an <b>OH_Drawing_FontCollection</b> object.
+    /// * `fontCollection` - Pointer to the font collection object [`OH_Drawing_FontCollection`](crate::text_declaration::OH_Drawing_FontCollection) for which system fonts
+    /// are to be disabled.
     ///
     /// Available since API-level: 12
     ///
@@ -70,15 +76,15 @@ extern "C" {
     pub fn OH_Drawing_DisableFontCollectionSystemFont(
         fontCollection: *mut OH_Drawing_FontCollection,
     );
-    /// Creates an <b>OH_Drawing_FontCollection</b> object with shared usage between
-    /// <b>OH_Drawing_TypographyCreate</b>.
+    /// Creates a shareable [`OH_Drawing_FontCollection`](crate::text_declaration::OH_Drawing_FontCollection) object.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the <b>OH_Drawing_FontCollection</b> object created.
+    /// * Pointer to the created font collection object, which can be used by multiple
+    /// [`OH_Drawing_TypographyCreate`](crate::text_declaration::OH_Drawing_TypographyCreate) objects.
     ///
     /// Available since API-level: 12
     ///
@@ -86,13 +92,14 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_CreateSharedFontCollection() -> *mut OH_Drawing_FontCollection;
-    /// Clear font caches.
+    /// Clears the font cache. (The font cache has a memory limit and a clearing mechanism. It occupies limited
+    /// memory. You are not advised to clear it unless otherwise required.)
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `fontCollection` - Indicates the pointer to an <b>OH_Drawing_FontCollection</b> object.
+    /// * `fontCollection` - Pointer to an [`OH_Drawing_FontCollection`](crate::text_declaration::OH_Drawing_FontCollection) object.
     ///
     /// Available since API-level: 12
     ///
@@ -100,14 +107,16 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_ClearFontCaches(fontCollection: *mut OH_Drawing_FontCollection);
-    /// Get the <b>OH_Drawing_FontCollection</b> global instance.
+    /// Obtains the global font collection object [`OH_Drawing_FontCollection`](crate::text_declaration::OH_Drawing_FontCollection), which can be used to obtain
+    /// theme font information. This object is prohibited from being released.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     ///
     /// # Returns
     ///
-    /// * Return the pointer to the <b>OH_Drawing_FontCollection</b> global instance.
+    /// * Pointer to the global font collection object, which can be used by multiple
+    /// [`OH_Drawing_TypographyCreate`](crate::text_declaration::OH_Drawing_TypographyCreate) objects and is prohibited from being released.
     ///
     /// Available since API-level: 14
     ///

@@ -12,7 +12,7 @@ use crate::averrors::OH_AVErrCode;
 use crate::avformat::OH_AVFormat;
 use crate::avmemory::OH_AVMemory;
 
-/// Forward declaration of OH_AVCodec.
+/// Describes a native object for the audio and video codec interface.
 ///
 ///
 /// Available since API-level: 9
@@ -20,18 +20,23 @@ use crate::avmemory::OH_AVMemory;
 pub struct OH_AVCodec {
     _unused: [u8; 0],
 }
-/// When an error occurs in the running of the OH_AVCodec instance, the function pointer will be called
-/// to report specific error information.
+/// Defines the pointer to the function that is called to report error information when an error occurs during
+/// the running of an OH_AVCodec instance.
 ///
+/// | Use Case| Error Code|
+/// | -------- | -------- |
+/// | Audio encoding/decoding| **AV_ERR_DRM_DECRYPT_FAILED**: DRM decryption failed. |
+/// | Video encoding/decoding| **AV_ERROR_NO_MEMORY**: System resources are insufficient.<br>**AV_ERROR_UNKNOWN**: An unknown error occurs. Analyze the error based on specific logs.<br>**AV_ERR_SERVICE_DIED**: The service is dead. |
+/// | Video decoding| **AV_ERR_VIDEO_UNSUPPORTED_COLOR_SPACE_CONVERSION**: The current input does not support CSC. |
+/// <!--RP1--><!--RP1End-->
 ///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
 /// # Arguments
 ///
-/// * `codec` - OH_AVCodec instance
+/// * `codec` - Pointer to an OH_AVCodec instance.
 ///
-/// * `errorCode` - specific error code
+/// * `errorCode` - Error code.
 ///
-/// * `userData` - User specific data
+/// * `userData` - Pointer to the data on which the caller depends when executing the callback.
 ///
 /// Available since API-level: 9
 pub type OH_AVCodecOnError = ::core::option::Option<
@@ -41,19 +46,23 @@ pub type OH_AVCodecOnError = ::core::option::Option<
         userData: *mut ::core::ffi::c_void,
     ),
 >;
-/// When the output stream changes, the function pointer will be called to report the new stream description
-/// information. It should be noted that the life cycle of the OH_AVFormat pointer
-/// is only valid when the function pointer is called, and it is forbidden to continue to access after the call ends.
+/// Defines the pointer to the function that is called to report the new stream description when the resolution
+/// of the input video stream being decoded or the output video stream that has been encoded changes.
 ///
+/// Starting from API version 15, this function pointer is called to report the new stream description when the stream
+/// sampling rate, number of audio channels, or audio sampling format changes during audio decoding. The decoding
+/// formats that can detect these changes include <!--RP3--><!--RP3End-->AAC, FLAC, MP3, and VORBIS.
 ///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
+/// Note that the lifecycle of the pointer to the OH_AVFormat instance is valid only when the function pointer is being
+/// called. Do not access the pointer to the instance after the function pointer is called.
+///
 /// # Arguments
 ///
-/// * `codec` - OH_AVCodec instance
+/// * `codec` - Pointer to an OH_AVCodec instance.
 ///
-/// * `format` - New output stream description information
+/// * `format` - Pointer to the description information about the new output stream.
 ///
-/// * `userData` - User specific data
+/// * `userData` - Pointer to the data on which the caller depends when executing the callback.
 ///
 /// Available since API-level: 9
 pub type OH_AVCodecOnStreamChanged = ::core::option::Option<
@@ -63,20 +72,18 @@ pub type OH_AVCodecOnStreamChanged = ::core::option::Option<
         userData: *mut ::core::ffi::c_void,
     ),
 >;
-/// When OH_AVCodec needs new input data during the running process,
-/// the function pointer will be called and carry an available Buffer to fill in the new input data.
+/// Defines the pointer to the function that is called when new input data is required during the running of an
+/// OH_AVCodec instance. The function carries a buffer to fill in new input data.
 ///
-///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
 /// # Arguments
 ///
-/// * `codec` - OH_AVCodec instance
+/// * `codec` - Pointer to an OH_AVCodec instance.
 ///
-/// * `index` - The index corresponding to the newly available input buffer.
+/// * `index` - Index of the new input buffer.
 ///
-/// * `data` - New available input buffer.
+/// * `data` - Pointer to the data to fill in the new input buffer.
 ///
-/// * `userData` - User specific data
+/// * `userData` - Pointer to the data on which the caller depends when executing the callback.
 ///
 /// **Deprecated** since 11
 ///
@@ -92,24 +99,22 @@ pub type OH_AVCodecOnNeedInputData = ::core::option::Option<
         userData: *mut ::core::ffi::c_void,
     ),
 >;
-/// When new output data is generated during the operation of OH_AVCodec, the function pointer will be
-/// called and carry a Buffer containing the new output data. It should be noted that the life cycle of the
-/// OH_AVCodecBufferAttr pointer is only valid when the function pointer is called. , which prohibits continued
-/// access after the call ends.
+/// Defines the pointer to the function that is called when new output data is generated during the running of an
+/// OH_AVCodec instance. The function carries a buffer filled with new output data. Note that the lifecycle of the
+/// pointer to the OH_AVCodecBufferAttr instance is valid only when the function pointer is being called. Do not access
+/// the pointer to the instance after the function pointer is called.
 ///
-///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
 /// # Arguments
 ///
-/// * `codec` - OH_AVCodec instance
+/// * `codec` - Pointer to an OH_AVCodec instance.
 ///
-/// * `index` - The index corresponding to the new output Buffer.
+/// * `index` - Index of the new output buffer.
 ///
-/// * `data` - Buffer containing the new output data
+/// * `data` - Pointer to the data filled in the new output buffer.
 ///
-/// * `attr` - The description of the new output Buffer, please refer to [`OH_AVCodecBufferAttr`](crate::avbuffer_info::OH_AVCodecBufferAttr)
+/// * `attr` - Pointer to the description information about the new output buffer.
 ///
-/// * `userData` - specified data
+/// * `userData` - Pointer to the data on which the caller depends when executing the callback.
 ///
 /// **Deprecated** since 11
 ///
@@ -126,20 +131,18 @@ pub type OH_AVCodecOnNewOutputData = ::core::option::Option<
         userData: *mut ::core::ffi::c_void,
     ),
 >;
-/// When OH_AVCodec needs new input data during the running process,
-/// the function pointer will be called and carry an available Buffer to fill in the new input data.
+/// Defines the pointer to the function that is called when new input data is required during the running of an
+/// OH_AVCodec instance. The function carries a buffer to fill in new input data.
 ///
-///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
 /// # Arguments
 ///
-/// * `codec` - OH_AVCodec instance
+/// * `codec` - Pointer to an OH_AVCodec instance.
 ///
-/// * `index` - The index corresponding to the newly available input buffer.
+/// * `index` - Index of the new input buffer.
 ///
-/// * `buffer` - New available input buffer.
+/// * `buffer` - Pointer to the data to fill in the new input buffer.
 ///
-/// * `userData` - User specific data
+/// * `userData` - Pointer to the data on which the caller depends when executing the callback.
 ///
 /// Available since API-level: 11
 #[cfg(feature = "api-11")]
@@ -152,20 +155,18 @@ pub type OH_AVCodecOnNeedInputBuffer = ::core::option::Option<
         userData: *mut ::core::ffi::c_void,
     ),
 >;
-/// When new output data is generated during the operation of OH_AVCodec, the function pointer will be
-/// called and carry a Buffer containing the new output data.
+/// Defines the pointer to the function that is called when new output data is generated during the running of an
+/// OH_AVCodec instance. The function carries a buffer filled with new output data.
 ///
-///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
 /// # Arguments
 ///
-/// * `codec` - OH_AVCodec instance
+/// * `codec` - Pointer to an OH_AVCodec instance.
 ///
-/// * `index` - The index corresponding to the new output Buffer.
+/// * `index` - Index of the new output buffer.
 ///
-/// * `buffer` - Buffer containing the new output buffer.
+/// * `buffer` - Pointer to the data filled in the new output buffer.
 ///
-/// * `userData` - specified data
+/// * `userData` - Pointer to the data on which the caller depends when executing the callback.
 ///
 /// Available since API-level: 11
 #[cfg(feature = "api-11")]
@@ -178,12 +179,10 @@ pub type OH_AVCodecOnNewOutputBuffer = ::core::option::Option<
         userData: *mut ::core::ffi::c_void,
     ),
 >;
-/// A collection of all asynchronous callback function pointers in OH_AVCodec. Register an instance of this
-/// structure to the OH_AVCodec instance, and process the information reported through the callback to ensure the
-/// normal operation of OH_AVCodec.
+/// The struct defines all the asynchronous callback function pointers of an OH_AVCodec instance. To ensure the
+/// normal running of OH_AVCodec, you must register the instance of this struct with the OH_AVCodec instance and process
+/// the information reported by the callback function.
 ///
-///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
 /// # Arguments
 ///
 /// * `onError` - Monitor OH_AVCodec operation errors, refer to [`OH_AVCodecOnError`](crate::avcodec_base::OH_AVCodecOnError)
@@ -208,12 +207,10 @@ pub struct OH_AVCodecAsyncCallback {
     pub onNeedInputData: OH_AVCodecOnNeedInputData,
     pub onNeedOutputData: OH_AVCodecOnNewOutputData,
 }
-/// A collection of all asynchronous callback function pointers in OH_AVCodec. Register an instance of this
-/// structure to the OH_AVCodec instance, and process the information reported through the callback to ensure the
-/// normal operation of OH_AVCodec.
+/// The struct defines all the asynchronous callback function pointers of an OH_AVCodec instance. To ensure the
+/// normal running of OH_AVCodec, you must register the instance of this struct with the OH_AVCodec instance and process
+/// the information reported by the callback function.
 ///
-///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
 /// # Arguments
 ///
 /// * `onError` - Monitor OH_AVCodec operation errors, refer to [`OH_AVCodecOnError`](crate::avcodec_base::OH_AVCodecOnError)
@@ -235,20 +232,19 @@ pub struct OH_AVCodecCallback {
     pub onNeedInputBuffer: OH_AVCodecOnNeedInputBuffer,
     pub onNewOutputBuffer: OH_AVCodecOnNewOutputBuffer,
 }
-/// the function pointer will be called to get sequence media data.
+/// Defines a function pointer used to provide the capability of obtaining user-defined media data.
 ///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
 /// # Arguments
 ///
-/// * `data` - OH_AVBuffer buffer to fill
+/// * `data` - Pointer to the buffer to be filled in.
 ///
-/// * `length` - expected to read size;
+/// * `length` - Length of the data to read.
 ///
-/// * `pos` - current read offset
+/// * `pos` - Offset from which the data is read.
 ///
 /// # Returns
 ///
-/// *  Actual size of data read to the buffer.
+/// * Actual length of the data read to the buffer.
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
@@ -256,9 +252,8 @@ pub struct OH_AVCodecCallback {
 pub type OH_AVDataSourceReadAt = ::core::option::Option<
     unsafe extern "C" fn(data: *mut OH_AVBuffer, length: i32, pos: i64) -> i32,
 >;
-/// User customized data source.
+/// The struct describes a user-defined data source.
 ///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
@@ -266,27 +261,30 @@ pub type OH_AVDataSourceReadAt = ::core::option::Option<
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct OH_AVDataSource {
-    /// Total size of the data source.
+    /// Size of the data source.
+    ///
+    /// Available since API-level: 12
     pub size: i64,
-    /// Callback interface for reading data from datasource.
+    /// Callback of the data source.
+    ///
+    /// Available since API-level: 12
     pub readAt: OH_AVDataSourceReadAt,
 }
-/// the function pointer will be called to get sequence media data.
+/// Defines a function pointer used to provide the capability of obtaining user-defined media data.
 ///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
 /// # Arguments
 ///
-/// * `data` - OH_AVBuffer buffer to fill
+/// * `data` - Pointer to the buffer to be filled in.
 ///
-/// * `length` - expected to read size;
+/// * `length` - Length of the data to read.
 ///
-/// * `pos` - current read offset
+/// * `pos` - Offset from which the data is read.
 ///
-/// * `userData` - user-defined data
+/// * `userData` - Pointer to user-defined data.
 ///
 /// # Returns
 ///
-/// *  Actual size of data read to the buffer.
+/// * Actual length of the data read to the buffer.
 ///
 /// Available since API-level: 20
 #[cfg(feature = "api-20")]
@@ -299,9 +297,9 @@ pub type OH_AVDataSourceReadAtExt = ::core::option::Option<
         userData: *mut ::core::ffi::c_void,
     ) -> i32,
 >;
-/// User customized data source.
+/// The struct describes a user-defined data source. User-defined data can be passed to its callback functions
+/// through the **userData** parameter.
 ///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
 ///
 /// Available since API-level: 20
 #[cfg(feature = "api-20")]
@@ -309,27 +307,37 @@ pub type OH_AVDataSourceReadAtExt = ::core::option::Option<
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct OH_AVDataSourceExt {
-    /// Total size of the data source.
+    /// Size of the data source.
+    ///
+    /// Available since API-level: 20
     pub size: i64,
-    /// Callback interface for reading data from datasource.
+    /// Callback of the data source.
+    ///
+    /// Available since API-level: 20
     pub readAt: OH_AVDataSourceReadAtExt,
 }
 impl OH_MediaType {
+    /// Audio track.
+    ///
+    /// Available since API-level: 9
     pub const MEDIA_TYPE_AUD: OH_MediaType = OH_MediaType(0);
+    /// Video track.
+    ///
+    /// Available since API-level: 9
     pub const MEDIA_TYPE_VID: OH_MediaType = OH_MediaType(1);
-    /// track is subtitle.
+    /// Subtitle track.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const MEDIA_TYPE_SUBTITLE: OH_MediaType = OH_MediaType(2);
-    /// track is timed meta.
+    /// Timed metadata track.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const MEDIA_TYPE_TIMED_METADATA: OH_MediaType = OH_MediaType(5);
-    /// track is auxiliary.
+    /// Auxiliary track.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -337,23 +345,24 @@ impl OH_MediaType {
     pub const MEDIA_TYPE_AUXILIARY: OH_MediaType = OH_MediaType(6);
 }
 #[repr(transparent)]
-/// Media type.
+/// Enumerates the media types.
 ///
-///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
 ///
 /// Available since API-level: 9
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OH_MediaType(pub ::core::ffi::c_uint);
 impl OH_AACProfile {
+    /// AAC profile of the low complexity level.
+    ///
+    /// Available since API-level: 9
     pub const AAC_PROFILE_LC: OH_AACProfile = OH_AACProfile(0);
-    /// High-Efficiency AAC profile, contain the audio object types: AAC LC, SBR
+    /// AAC profile of the high efficiency level. Audio object types AAC LC and SBR are included.
     ///
     /// Available since API-level: 14
     #[cfg(feature = "api-14")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
     pub const AAC_PROFILE_HE: OH_AACProfile = OH_AACProfile(3);
-    /// High-Efficiency AAC v2 profile, contain the audio object types: AAC LC, SBR, PS
+    /// AAC profile of the high efficiency V2 level. Audio object types AAC LC, SBR, and PS are included.
     ///
     /// Available since API-level: 14
     #[cfg(feature = "api-14")]
@@ -361,44 +370,64 @@ impl OH_AACProfile {
     pub const AAC_PROFILE_HE_V2: OH_AACProfile = OH_AACProfile(4);
 }
 #[repr(transparent)]
-/// AAC Profile
+/// Enumerates the AAC profiles.
 ///
-///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
 ///
 /// Available since API-level: 9
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OH_AACProfile(pub ::core::ffi::c_uint);
 impl OH_AVCProfile {
+    /// AVC baseline profile.
+    ///
+    /// Available since API-level: 9
     pub const AVC_PROFILE_BASELINE: OH_AVCProfile = OH_AVCProfile(0);
+    /// AVC high profile.
+    ///
+    /// Available since API-level: 9
     pub const AVC_PROFILE_HIGH: OH_AVCProfile = OH_AVCProfile(4);
+    /// AVC main profile.
+    ///
+    /// Available since API-level: 9
     pub const AVC_PROFILE_MAIN: OH_AVCProfile = OH_AVCProfile(8);
 }
 #[repr(transparent)]
-/// AVC Profile
+/// Enumerates the AVC profiles.
 ///
-///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
 ///
 /// Available since API-level: 9
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OH_AVCProfile(pub ::core::ffi::c_uint);
 impl OH_HEVCProfile {
+    /// HEVC profile of the main level.
+    ///
+    /// Available since API-level: 10
     pub const HEVC_PROFILE_MAIN: OH_HEVCProfile = OH_HEVCProfile(0);
+    /// HEVC profile of the 10-bit main level.
+    ///
+    /// Available since API-level: 10
     pub const HEVC_PROFILE_MAIN_10: OH_HEVCProfile = OH_HEVCProfile(1);
+    /// HEVC profile of the main still picture level.
+    ///
+    /// Available since API-level: 10
     pub const HEVC_PROFILE_MAIN_STILL: OH_HEVCProfile = OH_HEVCProfile(2);
+    /// HEVC profile of the main 10 HDR10 level.
+    ///
     /// **Deprecated** since 14
+    ///
+    /// Available since API-level: 10
     #[deprecated(since = "14")]
     pub const HEVC_PROFILE_MAIN_10_HDR10: OH_HEVCProfile = OH_HEVCProfile(3);
+    /// HEVC profile of the main 10 HDR10+ level.
+    ///
     /// **Deprecated** since 14
+    ///
+    /// Available since API-level: 10
     #[deprecated(since = "14")]
     pub const HEVC_PROFILE_MAIN_10_HDR10_PLUS: OH_HEVCProfile = OH_HEVCProfile(4);
 }
 #[repr(transparent)]
-/// HEVC Profile
+/// Enumerates the HEVC profiles.
 ///
-///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
 ///
 /// Available since API-level: 10
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
@@ -406,42 +435,100 @@ pub struct OH_HEVCProfile(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-15")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
 impl OH_VVCProfile {
-    /// Main 10 profile
+    /// VVC profile of the 10-bit main level.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub const VVC_PROFILE_MAIN_10: OH_VVCProfile = OH_VVCProfile(1);
-    /// Main 12 profile
+    /// VVC profile of the 12-bit main level.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub const VVC_PROFILE_MAIN_12: OH_VVCProfile = OH_VVCProfile(2);
-    /// Main 12 Intra profile
+    /// VVC profile of the 12-bit intra main level.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub const VVC_PROFILE_MAIN_12_INTRA: OH_VVCProfile = OH_VVCProfile(10);
-    /// Multilayer Main 10 profile
+    /// VVC profile of the 10-bit main level for multi-layer encoding.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub const VVC_PROFILE_MULTI_MAIN_10: OH_VVCProfile = OH_VVCProfile(17);
-    /// Main 10 4:4:4 profile
+    /// VVC profile of the 10-bit full-sample main level.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub const VVC_PROFILE_MAIN_10_444: OH_VVCProfile = OH_VVCProfile(33);
-    /// Main 12 4:4:4 profile
+    /// VVC profile of the 12-bit full-sample main level.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub const VVC_PROFILE_MAIN_12_444: OH_VVCProfile = OH_VVCProfile(34);
-    /// Main 16 4:4:4 profile
+    /// VVC profile of the 16-bit full-sample main level.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub const VVC_PROFILE_MAIN_16_444: OH_VVCProfile = OH_VVCProfile(36);
-    /// Main 12 4:4:4 Intra profile
+    /// VVC profile of the 12-bit full-sample intra main level.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub const VVC_PROFILE_MAIN_12_444_INTRA: OH_VVCProfile = OH_VVCProfile(42);
-    /// Main 16 4:4:4 Intra profile
+    /// VVC profile of the 16-bit full-sample intra main level.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub const VVC_PROFILE_MAIN_16_444_INTRA: OH_VVCProfile = OH_VVCProfile(44);
-    /// Multilayer Main 10 4:4:4 profile
+    /// VVC profile of the 10-bit full-sample main level for multi-layer encoding.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub const VVC_PROFILE_MULTI_MAIN_10_444: OH_VVCProfile = OH_VVCProfile(49);
-    /// Main 10 Still Picture profile
+    /// VVC profile of the 10-bit still picture main level.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub const VVC_PROFILE_MAIN_10_STILL: OH_VVCProfile = OH_VVCProfile(65);
-    /// Main 12 Still Picture profile
+    /// VVC profile of the 12-bit still picture main level.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub const VVC_PROFILE_MAIN_12_STILL: OH_VVCProfile = OH_VVCProfile(66);
-    /// Main 10 4:4:4 Still Picture profile
+    /// VVC profile of the 10-bit full-sample still picture main level.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub const VVC_PROFILE_MAIN_10_444_STILL: OH_VVCProfile = OH_VVCProfile(97);
-    /// Main 12 4:4:4 Still Picture profile
+    /// VVC profile of the 12-bit full-sample still picture main level.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub const VVC_PROFILE_MAIN_12_444_STILL: OH_VVCProfile = OH_VVCProfile(98);
-    /// Main 16 4:4:4 Still Picture profile
+    /// VVC profile of the 16-bit full-sample still picture main level.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub const VVC_PROFILE_MAIN_16_444_STILL: OH_VVCProfile = OH_VVCProfile(100);
 }
 #[repr(transparent)]
-/// Profile: A specified subset of the syntax of VVC.
+/// Enumerates the VVC profiles.
 ///
-///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
 ///
 /// Available since API-level: 15
 #[cfg(feature = "api-15")]
@@ -451,24 +538,46 @@ pub struct OH_VVCProfile(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-17")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
 impl OH_MPEG2Profile {
-    /// Simple profile
+    /// Simple profile.
+    ///
+    /// Available since API-level: 17
+    #[cfg(feature = "api-17")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
     pub const MPEG2_PROFILE_SIMPLE: OH_MPEG2Profile = OH_MPEG2Profile(0);
-    /// Main profile
+    /// Main profile.
+    ///
+    /// Available since API-level: 17
+    #[cfg(feature = "api-17")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
     pub const MPEG2_PROFILE_MAIN: OH_MPEG2Profile = OH_MPEG2Profile(1);
-    /// SNR scalable profile
+    /// Signal-to-Noise Ratio (SNR) scalable profile.
+    ///
+    /// Available since API-level: 17
+    #[cfg(feature = "api-17")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
     pub const MPEG2_PROFILE_SNR_SCALABLE: OH_MPEG2Profile = OH_MPEG2Profile(2);
-    /// Spatially scalable profile
+    /// Spatial scalable profile.
+    ///
+    /// Available since API-level: 17
+    #[cfg(feature = "api-17")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
     pub const MPEG2_PROFILE_SPATIALLY_SCALABLE: OH_MPEG2Profile = OH_MPEG2Profile(3);
-    /// High profile
+    /// High profile.
+    ///
+    /// Available since API-level: 17
+    #[cfg(feature = "api-17")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
     pub const MPEG2_PROFILE_HIGH: OH_MPEG2Profile = OH_MPEG2Profile(4);
-    /// 4:2:2 profile
+    /// 4:2:2 profile.
+    ///
+    /// Available since API-level: 17
+    #[cfg(feature = "api-17")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
     pub const MPEG2_PROFILE_422: OH_MPEG2Profile = OH_MPEG2Profile(5);
 }
 #[repr(transparent)]
-/// MPEG2 Profile
+/// Enumerates the MPEG2 profiles.
 ///
-///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
 ///
 /// Available since API-level: 17
 #[cfg(feature = "api-17")]
@@ -478,42 +587,100 @@ pub struct OH_MPEG2Profile(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-17")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
 impl OH_MPEG4Profile {
-    /// Simple profile
+    /// Simple profile.
+    ///
+    /// Available since API-level: 17
+    #[cfg(feature = "api-17")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
     pub const MPEG4_PROFILE_SIMPLE: OH_MPEG4Profile = OH_MPEG4Profile(0);
-    /// Simple scalable profile
+    /// Simple scalable profile.
+    ///
+    /// Available since API-level: 17
+    #[cfg(feature = "api-17")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
     pub const MPEG4_PROFILE_SIMPLE_SCALABLE: OH_MPEG4Profile = OH_MPEG4Profile(1);
-    /// Core profile
+    /// Core profile.
+    ///
+    /// Available since API-level: 17
+    #[cfg(feature = "api-17")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
     pub const MPEG4_PROFILE_CORE: OH_MPEG4Profile = OH_MPEG4Profile(2);
-    /// Main profile
+    /// Main profile.
+    ///
+    /// Available since API-level: 17
+    #[cfg(feature = "api-17")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
     pub const MPEG4_PROFILE_MAIN: OH_MPEG4Profile = OH_MPEG4Profile(3);
-    /// N-Bit profile
+    /// N-bit profile.
+    ///
+    /// Available since API-level: 17
+    #[cfg(feature = "api-17")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
     pub const MPEG4_PROFILE_N_BIT: OH_MPEG4Profile = OH_MPEG4Profile(4);
-    /// Hybrid profile
+    /// Hybrid profile.
+    ///
+    /// Available since API-level: 17
+    #[cfg(feature = "api-17")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
     pub const MPEG4_PROFILE_HYBRID: OH_MPEG4Profile = OH_MPEG4Profile(5);
-    /// Basic animated texture profile
+    /// Basic animated texture profile.
+    ///
+    /// Available since API-level: 17
+    #[cfg(feature = "api-17")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
     pub const MPEG4_PROFILE_BASIC_ANIMATED_TEXTURE: OH_MPEG4Profile = OH_MPEG4Profile(6);
-    /// Scalable texture profile
+    /// Scalable texture profile.
+    ///
+    /// Available since API-level: 17
+    #[cfg(feature = "api-17")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
     pub const MPEG4_PROFILE_SCALABLE_TEXTURE: OH_MPEG4Profile = OH_MPEG4Profile(7);
-    /// Simple FA profile
+    /// Simple FA profile.
+    ///
+    /// Available since API-level: 17
+    #[cfg(feature = "api-17")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
     pub const MPEG4_PROFILE_SIMPLE_FA: OH_MPEG4Profile = OH_MPEG4Profile(8);
-    /// Advanced real time simple profile
+    /// Advanced real-time simple profile.
+    ///
+    /// Available since API-level: 17
+    #[cfg(feature = "api-17")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
     pub const MPEG4_PROFILE_ADVANCED_REAL_TIME_SIMPLE: OH_MPEG4Profile = OH_MPEG4Profile(9);
-    /// Core scalable profile
+    /// Core scalable profile.
+    ///
+    /// Available since API-level: 17
+    #[cfg(feature = "api-17")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
     pub const MPEG4_PROFILE_CORE_SCALABLE: OH_MPEG4Profile = OH_MPEG4Profile(10);
-    /// Advanced coding efficiency profile
+    /// Advanced coding efficiency profile.
+    ///
+    /// Available since API-level: 17
+    #[cfg(feature = "api-17")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
     pub const MPEG4_PROFILE_ADVANCED_CODING_EFFICIENCY: OH_MPEG4Profile = OH_MPEG4Profile(11);
-    /// Advanced core profile
+    /// Advanced core profile.
+    ///
+    /// Available since API-level: 17
+    #[cfg(feature = "api-17")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
     pub const MPEG4_PROFILE_ADVANCED_CORE: OH_MPEG4Profile = OH_MPEG4Profile(12);
-    /// Advanced scalable texture profile
+    /// Advanced scalable texture profile.
+    ///
+    /// Available since API-level: 17
+    #[cfg(feature = "api-17")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
     pub const MPEG4_PROFILE_ADVANCED_SCALABLE_TEXTURE: OH_MPEG4Profile = OH_MPEG4Profile(13);
-    /// Advanced simple profile
+    /// Advanced simple profile.
+    ///
+    /// Available since API-level: 17
+    #[cfg(feature = "api-17")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
     pub const MPEG4_PROFILE_ADVANCED_SIMPLE: OH_MPEG4Profile = OH_MPEG4Profile(17);
 }
 #[repr(transparent)]
-/// MPEG4 Profile
+/// Enumerates the MPEG4 profiles.
 ///
-///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
 ///
 /// Available since API-level: 17
 #[cfg(feature = "api-17")]
@@ -523,16 +690,22 @@ pub struct OH_MPEG4Profile(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-17")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
 impl OH_H263Profile {
-    /// Baseline profile
+    /// Baseline profile.
+    ///
+    /// Available since API-level: 17
+    #[cfg(feature = "api-17")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
     pub const H263_PROFILE_BASELINE: OH_H263Profile = OH_H263Profile(0);
-    /// Version 1 backward compatibility profile
+    /// Version 1 backward compatibility.
+    ///
+    /// Available since API-level: 17
+    #[cfg(feature = "api-17")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
     pub const H263_PROFILE_VERSION_1_BACKWARD_COMPATIBILITY: OH_H263Profile = OH_H263Profile(2);
 }
 #[repr(transparent)]
-/// H263 Profile
+/// Enumerates the H.263 profiles.
 ///
-///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
 ///
 /// Available since API-level: 17
 #[cfg(feature = "api-17")]
@@ -542,15 +715,27 @@ pub struct OH_H263Profile(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-22")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
 impl OH_VC1Profile {
-    /// Simple profile
+    /// Simple profile.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub const VC1_PROFILE_SIMPLE: OH_VC1Profile = OH_VC1Profile(0);
-    /// Main profile
+    /// Main profile.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub const VC1_PROFILE_MAIN: OH_VC1Profile = OH_VC1Profile(1);
-    /// Advanced profile
+    /// High profile.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub const VC1_PROFILE_ADVANCED: OH_VC1Profile = OH_VC1Profile(2);
 }
 #[repr(transparent)]
-/// VC-1 Profile
+/// Enumerates the VC-1 profiles.
 ///
 ///
 /// Available since API-level: 22
@@ -561,15 +746,27 @@ pub struct OH_VC1Profile(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-23")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
 impl OH_AV1Profile {
-    /// Main profile
+    /// Main profile.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub const AV1_PROFILE_MAIN: OH_AV1Profile = OH_AV1Profile(0);
-    /// High profile
+    /// High profile.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub const AV1_PROFILE_HIGH: OH_AV1Profile = OH_AV1Profile(1);
-    /// Professional profile
+    /// Professional profile.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub const AV1_PROFILE_PROFESSIONAL: OH_AV1Profile = OH_AV1Profile(2);
 }
 #[repr(transparent)]
-/// AV1 Profile
+/// AV1 profile.
 ///
 ///
 /// Available since API-level: 23
@@ -580,17 +777,33 @@ pub struct OH_AV1Profile(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-23")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
 impl OH_VP9Profile {
-    /// 0 profile
+    /// Profile 0.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub const VP9_PROFILE_0: OH_VP9Profile = OH_VP9Profile(0);
-    /// 1 profile
+    /// Profile 1.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub const VP9_PROFILE_1: OH_VP9Profile = OH_VP9Profile(1);
-    /// 2 profile
+    /// Profile 2.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub const VP9_PROFILE_2: OH_VP9Profile = OH_VP9Profile(2);
-    /// 3 profile
+    /// Profile 3.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub const VP9_PROFILE_3: OH_VP9Profile = OH_VP9Profile(3);
 }
 #[repr(transparent)]
-/// VP9 Profile
+/// VP9 profile.
 ///
 ///
 /// Available since API-level: 23
@@ -601,11 +814,15 @@ pub struct OH_VP9Profile(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-23")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
 impl OH_WVC1Profile {
-    /// Advanced profile
+    /// High profile.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub const WVC1_PROFILE_ADVANCED: OH_WVC1Profile = OH_WVC1Profile(0);
 }
 #[repr(transparent)]
-/// WVC1 Profile.
+/// WVC1 profile.
 ///
 ///
 /// Available since API-level: 23
@@ -616,13 +833,21 @@ pub struct OH_WVC1Profile(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-22")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
 impl OH_WMV3Profile {
-    /// Simple profile
+    /// Simple profile.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub const WMV3_PROFILE_SIMPLE: OH_WMV3Profile = OH_WMV3Profile(0);
-    /// Main profile
+    /// Main profile.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub const WMV3_PROFILE_MAIN: OH_WMV3Profile = OH_WMV3Profile(1);
 }
 #[repr(transparent)]
-/// WMV3 Profile
+/// Enumerates the WMV3 profiles.
 ///
 ///
 /// Available since API-level: 22
@@ -631,10 +856,23 @@ impl OH_WMV3Profile {
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OH_WMV3Profile(pub ::core::ffi::c_uint);
 impl OH_AVOutputFormat {
+    /// Default format, which is MP4.
+    ///
+    ///
+    /// Available since API-level: 10
     pub const AV_OUTPUT_FORMAT_DEFAULT: OH_AVOutputFormat = OH_AVOutputFormat(0);
+    /// The muxer output MP4 file format.
+    ///
+    ///
+    /// Available since API-level: 10
     pub const AV_OUTPUT_FORMAT_MPEG_4: OH_AVOutputFormat = OH_AVOutputFormat(2);
+    /// The muxer output M4A file format.
+    ///
+    ///
+    /// Available since API-level: 10
     pub const AV_OUTPUT_FORMAT_M4A: OH_AVOutputFormat = OH_AVOutputFormat(6);
     /// The muxer output amr file format.
+    ///
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -642,11 +880,13 @@ impl OH_AVOutputFormat {
     pub const AV_OUTPUT_FORMAT_AMR: OH_AVOutputFormat = OH_AVOutputFormat(8);
     /// The muxer output mp3 file format.
     ///
+    ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const AV_OUTPUT_FORMAT_MP3: OH_AVOutputFormat = OH_AVOutputFormat(9);
     /// The muxer output wav file format.
+    ///
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -654,11 +894,13 @@ impl OH_AVOutputFormat {
     pub const AV_OUTPUT_FORMAT_WAV: OH_AVOutputFormat = OH_AVOutputFormat(10);
     /// The muxer output aac file format.
     ///
+    ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
     pub const AV_OUTPUT_FORMAT_AAC: OH_AVOutputFormat = OH_AVOutputFormat(11);
     /// The muxer output flac file format.
+    ///
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -666,51 +908,74 @@ impl OH_AVOutputFormat {
     pub const AV_OUTPUT_FORMAT_FLAC: OH_AVOutputFormat = OH_AVOutputFormat(12);
     /// The muxer output ogg file format.
     ///
+    ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub const AV_OUTPUT_FORMAT_OGG: OH_AVOutputFormat = OH_AVOutputFormat(13);
+    /// The muxer output flv file format.
+    ///
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub const AV_OUTPUT_FORMAT_FLV: OH_AVOutputFormat = OH_AVOutputFormat(14);
 }
 #[repr(transparent)]
-/// Enumerates the muxer output file format
+/// Enumerates the output file formats supported by a muxer.
 ///
-///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
 ///
 /// Available since API-level: 10
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OH_AVOutputFormat(pub ::core::ffi::c_uint);
 impl OH_AVSeekMode {
+    /// Seeks to the next I-frame at the specified position. If there is no I-frame after the specified position,
+    /// the seek operation may fail.
+    ///
+    ///
+    /// Available since API-level: 10
     pub const SEEK_MODE_NEXT_SYNC: OH_AVSeekMode = OH_AVSeekMode(0);
+    /// Seeks to the previous I-frame at the specified position.
+    ///
+    ///
+    /// Available since API-level: 10
     pub const SEEK_MODE_PREVIOUS_SYNC: OH_AVSeekMode = OH_AVSeekMode(1);
+    /// Seeks to the closest I-frame at the specified position.
+    ///
+    ///
+    /// Available since API-level: 10
     pub const SEEK_MODE_CLOSEST_SYNC: OH_AVSeekMode = OH_AVSeekMode(2);
 }
 #[repr(transparent)]
-/// Seek Mode
+/// Enumerates the seek modes.
 ///
-///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
 ///
 /// Available since API-level: 10
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OH_AVSeekMode(pub ::core::ffi::c_uint);
 impl OH_ScalingMode {
+    /// Scales the image based on the window size.
+    ///
     /// **Deprecated** since 14
     ///
     /// **Use instead:** OH_SCALING_MODE_SCALE_TO_WINDOW_V2
+    ///
+    /// Available since API-level: 10
     #[deprecated(since = "14", note = "Use instead: OH_SCALING_MODE_SCALE_TO_WINDOW_V2")]
     pub const SCALING_MODE_SCALE_TO_WINDOW: OH_ScalingMode = OH_ScalingMode(1);
+    /// Crops the image based on the window size.
+    ///
     /// **Deprecated** since 14
     ///
     /// **Use instead:** OH_SCALING_MODE_SCALE_CROP_V2
+    ///
+    /// Available since API-level: 10
     #[deprecated(since = "14", note = "Use instead: OH_SCALING_MODE_SCALE_CROP_V2")]
     pub const SCALING_MODE_SCALE_CROP: OH_ScalingMode = OH_ScalingMode(2);
 }
 #[repr(transparent)]
-/// Scaling Mode
+/// Enumerates the scaling modes. This enum is used only in surface mode.
 ///
-///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
 ///
 /// **Deprecated** since 14
 ///
@@ -721,113 +986,264 @@ impl OH_ScalingMode {
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OH_ScalingMode(pub ::core::ffi::c_uint);
 impl OH_BitsPerSample {
+    /// 8-bit unsigned integer sampling.
+    ///
+    /// Available since API-level: 10
     pub const SAMPLE_U8: OH_BitsPerSample = OH_BitsPerSample(0);
+    /// 16-bit signed integer sampling.
+    ///
+    /// Available since API-level: 10
     pub const SAMPLE_S16LE: OH_BitsPerSample = OH_BitsPerSample(1);
+    /// 24-bit signed integer sampling.
+    ///
+    /// Available since API-level: 10
     pub const SAMPLE_S24LE: OH_BitsPerSample = OH_BitsPerSample(2);
+    /// 32-bit signed integer sampling.
+    ///
+    /// Available since API-level: 10
     pub const SAMPLE_S32LE: OH_BitsPerSample = OH_BitsPerSample(3);
+    /// 32-bit floating-point sampling.
+    ///
+    /// Available since API-level: 10
     pub const SAMPLE_F32LE: OH_BitsPerSample = OH_BitsPerSample(4);
+    /// 8-bit unsigned integer plane sampling.
+    ///
+    /// Available since API-level: 10
     pub const SAMPLE_U8P: OH_BitsPerSample = OH_BitsPerSample(5);
+    /// 16-bit signed integer plane sampling.
+    ///
+    /// Available since API-level: 10
     pub const SAMPLE_S16P: OH_BitsPerSample = OH_BitsPerSample(6);
+    /// 24-bit signed integer plane sampling.
+    ///
+    /// Available since API-level: 10
     pub const SAMPLE_S24P: OH_BitsPerSample = OH_BitsPerSample(7);
+    /// 32-bit signed integer plane sampling.
+    ///
+    /// Available since API-level: 10
     pub const SAMPLE_S32P: OH_BitsPerSample = OH_BitsPerSample(8);
+    /// 32-bit floating-point plane sampling.
+    ///
+    /// Available since API-level: 10
     pub const SAMPLE_F32P: OH_BitsPerSample = OH_BitsPerSample(9);
+    /// Invalid sampling format.
+    ///
+    /// Available since API-level: 10
     pub const INVALID_WIDTH: OH_BitsPerSample = OH_BitsPerSample(-1);
 }
 #[repr(transparent)]
-/// enum Audio Bits Per Coded Sample
+/// Enumerates the number of audio bits for each coded sample.
 ///
-///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
 ///
 /// Available since API-level: 10
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OH_BitsPerSample(pub ::core::ffi::c_int);
 impl OH_ColorPrimary {
+    /// BT709 color gamut.
+    ///
+    /// Available since API-level: 10
     pub const COLOR_PRIMARY_BT709: OH_ColorPrimary = OH_ColorPrimary(1);
+    /// Unspecified color gamut.
+    ///
+    /// Available since API-level: 10
     pub const COLOR_PRIMARY_UNSPECIFIED: OH_ColorPrimary = OH_ColorPrimary(2);
+    /// BT470_M color gamut.
+    ///
+    /// Available since API-level: 10
     pub const COLOR_PRIMARY_BT470_M: OH_ColorPrimary = OH_ColorPrimary(4);
+    /// BT601_625 color gamut.
+    ///
+    /// Available since API-level: 10
     pub const COLOR_PRIMARY_BT601_625: OH_ColorPrimary = OH_ColorPrimary(5);
+    /// BT601_525 color gamut.
+    ///
+    /// Available since API-level: 10
     pub const COLOR_PRIMARY_BT601_525: OH_ColorPrimary = OH_ColorPrimary(6);
+    /// SMPTE_ST240 color gamut.
+    ///
+    /// Available since API-level: 10
     pub const COLOR_PRIMARY_SMPTE_ST240: OH_ColorPrimary = OH_ColorPrimary(7);
+    /// GENERIC_FILM color gamut.
+    ///
+    /// Available since API-level: 10
     pub const COLOR_PRIMARY_GENERIC_FILM: OH_ColorPrimary = OH_ColorPrimary(8);
+    /// BT2020 color gamut.
+    ///
+    /// Available since API-level: 10
     pub const COLOR_PRIMARY_BT2020: OH_ColorPrimary = OH_ColorPrimary(9);
+    /// SMPTE_ST428 color gamut.
+    ///
+    /// Available since API-level: 10
     pub const COLOR_PRIMARY_SMPTE_ST428: OH_ColorPrimary = OH_ColorPrimary(10);
+    /// P3DCI color gamut.
+    ///
+    /// Available since API-level: 10
     pub const COLOR_PRIMARY_P3DCI: OH_ColorPrimary = OH_ColorPrimary(11);
+    /// P3D65 color gamut.
+    ///
+    /// Available since API-level: 10
     pub const COLOR_PRIMARY_P3D65: OH_ColorPrimary = OH_ColorPrimary(12);
 }
 #[repr(transparent)]
-/// Color Primary
+/// Enumerates the primary colors. This enum is used for both encoding and decoding.
 ///
-///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
 ///
 /// Available since API-level: 10
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OH_ColorPrimary(pub ::core::ffi::c_uint);
 impl OH_TransferCharacteristic {
+    /// BT709 transfer function.
+    ///
+    /// Available since API-level: 10
     pub const TRANSFER_CHARACTERISTIC_BT709: OH_TransferCharacteristic =
         OH_TransferCharacteristic(1);
+    /// Unspecified transfer function.
+    ///
+    /// Available since API-level: 10
     pub const TRANSFER_CHARACTERISTIC_UNSPECIFIED: OH_TransferCharacteristic =
         OH_TransferCharacteristic(2);
+    /// GAMMA_2_2 transfer function.
+    ///
+    /// Available since API-level: 10
     pub const TRANSFER_CHARACTERISTIC_GAMMA_2_2: OH_TransferCharacteristic =
         OH_TransferCharacteristic(4);
+    /// GAMMA_2_8 transfer function.
+    ///
+    /// Available since API-level: 10
     pub const TRANSFER_CHARACTERISTIC_GAMMA_2_8: OH_TransferCharacteristic =
         OH_TransferCharacteristic(5);
+    /// BT601 transfer function.
+    ///
+    /// Available since API-level: 10
     pub const TRANSFER_CHARACTERISTIC_BT601: OH_TransferCharacteristic =
         OH_TransferCharacteristic(6);
+    /// SMPTE_ST240 transfer function.
+    ///
+    /// Available since API-level: 10
     pub const TRANSFER_CHARACTERISTIC_SMPTE_ST240: OH_TransferCharacteristic =
         OH_TransferCharacteristic(7);
+    /// Linear transfer function.
+    ///
+    /// Available since API-level: 10
     pub const TRANSFER_CHARACTERISTIC_LINEAR: OH_TransferCharacteristic =
         OH_TransferCharacteristic(8);
+    /// Log transfer function.
+    ///
+    /// Available since API-level: 10
     pub const TRANSFER_CHARACTERISTIC_LOG: OH_TransferCharacteristic = OH_TransferCharacteristic(9);
+    /// LOG_SQRT transfer function.
+    ///
+    /// Available since API-level: 10
     pub const TRANSFER_CHARACTERISTIC_LOG_SQRT: OH_TransferCharacteristic =
         OH_TransferCharacteristic(10);
+    /// IEC_61966_2_4 transfer function.
+    ///
+    /// Available since API-level: 10
     pub const TRANSFER_CHARACTERISTIC_IEC_61966_2_4: OH_TransferCharacteristic =
         OH_TransferCharacteristic(11);
+    /// BT1361 transfer function.
+    ///
+    /// Available since API-level: 10
     pub const TRANSFER_CHARACTERISTIC_BT1361: OH_TransferCharacteristic =
         OH_TransferCharacteristic(12);
+    /// IEC_61966_2_1 transfer function.
+    ///
+    /// Available since API-level: 10
     pub const TRANSFER_CHARACTERISTIC_IEC_61966_2_1: OH_TransferCharacteristic =
         OH_TransferCharacteristic(13);
+    /// BT2020_10BIT transfer function.
+    ///
+    /// Available since API-level: 10
     pub const TRANSFER_CHARACTERISTIC_BT2020_10BIT: OH_TransferCharacteristic =
         OH_TransferCharacteristic(14);
+    /// BT2020_12BIT transfer function.
+    ///
+    /// Available since API-level: 10
     pub const TRANSFER_CHARACTERISTIC_BT2020_12BIT: OH_TransferCharacteristic =
         OH_TransferCharacteristic(15);
+    /// PQ transfer function.
+    ///
+    /// Available since API-level: 10
     pub const TRANSFER_CHARACTERISTIC_PQ: OH_TransferCharacteristic = OH_TransferCharacteristic(16);
+    /// SMPTE_ST428 transfer function.
+    ///
+    /// Available since API-level: 10
     pub const TRANSFER_CHARACTERISTIC_SMPTE_ST428: OH_TransferCharacteristic =
         OH_TransferCharacteristic(17);
+    /// HLG transfer function.
+    ///
+    /// Available since API-level: 10
     pub const TRANSFER_CHARACTERISTIC_HLG: OH_TransferCharacteristic =
         OH_TransferCharacteristic(18);
 }
 #[repr(transparent)]
-/// Transfer Characteristic
+/// Enumerates the transfer characteristics. This enum is used for both encoding and decoding.
 ///
-///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
 ///
 /// Available since API-level: 10
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OH_TransferCharacteristic(pub ::core::ffi::c_uint);
 impl OH_MatrixCoefficient {
+    /// Identity matrix.
+    ///
+    /// Available since API-level: 10
     pub const MATRIX_COEFFICIENT_IDENTITY: OH_MatrixCoefficient = OH_MatrixCoefficient(0);
+    /// BT709 conversion matrix.
+    ///
+    /// Available since API-level: 10
     pub const MATRIX_COEFFICIENT_BT709: OH_MatrixCoefficient = OH_MatrixCoefficient(1);
+    /// Unspecified conversion matrix.
+    ///
+    /// Available since API-level: 10
     pub const MATRIX_COEFFICIENT_UNSPECIFIED: OH_MatrixCoefficient = OH_MatrixCoefficient(2);
+    /// FCC conversion matrix.
+    ///
+    /// Available since API-level: 10
     pub const MATRIX_COEFFICIENT_FCC: OH_MatrixCoefficient = OH_MatrixCoefficient(4);
+    /// BT601_625 conversion matrix.
+    ///
+    /// Available since API-level: 10
     pub const MATRIX_COEFFICIENT_BT601_625: OH_MatrixCoefficient = OH_MatrixCoefficient(5);
+    /// BT601_525 conversion matrix.
+    ///
+    /// Available since API-level: 10
     pub const MATRIX_COEFFICIENT_BT601_525: OH_MatrixCoefficient = OH_MatrixCoefficient(6);
+    /// SMPTE_ST240 conversion matrix.
+    ///
+    /// Available since API-level: 10
     pub const MATRIX_COEFFICIENT_SMPTE_ST240: OH_MatrixCoefficient = OH_MatrixCoefficient(7);
+    /// YCGCO conversion matrix.
+    ///
+    /// Available since API-level: 10
     pub const MATRIX_COEFFICIENT_YCGCO: OH_MatrixCoefficient = OH_MatrixCoefficient(8);
+    /// BT2020_NCL conversion matrix.
+    ///
+    /// Available since API-level: 10
     pub const MATRIX_COEFFICIENT_BT2020_NCL: OH_MatrixCoefficient = OH_MatrixCoefficient(9);
+    /// BT2020_CL conversion matrix.
+    ///
+    /// Available since API-level: 10
     pub const MATRIX_COEFFICIENT_BT2020_CL: OH_MatrixCoefficient = OH_MatrixCoefficient(10);
+    /// SMPTE_ST2085 conversion matrix.
+    ///
+    /// Available since API-level: 10
     pub const MATRIX_COEFFICIENT_SMPTE_ST2085: OH_MatrixCoefficient = OH_MatrixCoefficient(11);
+    /// CHROMATICITY_NCL conversion matrix.
+    ///
+    /// Available since API-level: 10
     pub const MATRIX_COEFFICIENT_CHROMATICITY_NCL: OH_MatrixCoefficient = OH_MatrixCoefficient(12);
+    /// CHROMATICITY_CL conversion matrix.
+    ///
+    /// Available since API-level: 10
     pub const MATRIX_COEFFICIENT_CHROMATICITY_CL: OH_MatrixCoefficient = OH_MatrixCoefficient(13);
+    /// ICTCP conversion matrix.
+    ///
+    /// Available since API-level: 10
     pub const MATRIX_COEFFICIENT_ICTCP: OH_MatrixCoefficient = OH_MatrixCoefficient(14);
 }
 #[repr(transparent)]
-/// Matrix Coefficient
+/// Enumerates the matrix coefficients. This enum is used for both encoding and decoding.
 ///
-///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
 ///
 /// Available since API-level: 10
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
@@ -835,32 +1251,130 @@ pub struct OH_MatrixCoefficient(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl OH_AVCLevel {
+    /// Level 1.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const AVC_LEVEL_1: OH_AVCLevel = OH_AVCLevel(0);
+    /// Level 1b.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const AVC_LEVEL_1b: OH_AVCLevel = OH_AVCLevel(1);
+    /// Level 1.1.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const AVC_LEVEL_11: OH_AVCLevel = OH_AVCLevel(2);
+    /// Level 1.2.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const AVC_LEVEL_12: OH_AVCLevel = OH_AVCLevel(3);
+    /// Level 1.3.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const AVC_LEVEL_13: OH_AVCLevel = OH_AVCLevel(4);
+    /// Level 2.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const AVC_LEVEL_2: OH_AVCLevel = OH_AVCLevel(5);
+    /// Level 2.1.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const AVC_LEVEL_21: OH_AVCLevel = OH_AVCLevel(6);
+    /// Level 2.2.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const AVC_LEVEL_22: OH_AVCLevel = OH_AVCLevel(7);
+    /// Level 3.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const AVC_LEVEL_3: OH_AVCLevel = OH_AVCLevel(8);
+    /// Level 3.1.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const AVC_LEVEL_31: OH_AVCLevel = OH_AVCLevel(9);
+    /// Level 3.2.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const AVC_LEVEL_32: OH_AVCLevel = OH_AVCLevel(10);
+    /// Level 4.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const AVC_LEVEL_4: OH_AVCLevel = OH_AVCLevel(11);
+    /// Level 4.1.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const AVC_LEVEL_41: OH_AVCLevel = OH_AVCLevel(12);
+    /// Level 4.2.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const AVC_LEVEL_42: OH_AVCLevel = OH_AVCLevel(13);
+    /// Level 5.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const AVC_LEVEL_5: OH_AVCLevel = OH_AVCLevel(14);
+    /// Level 5.1.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const AVC_LEVEL_51: OH_AVCLevel = OH_AVCLevel(15);
+    /// Level 5.2.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const AVC_LEVEL_52: OH_AVCLevel = OH_AVCLevel(16);
+    /// Level 6.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const AVC_LEVEL_6: OH_AVCLevel = OH_AVCLevel(17);
+    /// Level 6.1.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const AVC_LEVEL_61: OH_AVCLevel = OH_AVCLevel(18);
+    /// Level 6.2.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const AVC_LEVEL_62: OH_AVCLevel = OH_AVCLevel(19);
 }
 #[repr(transparent)]
-/// AVC Level.
+/// Enumerates the AVC levels.
 ///
-///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
@@ -870,25 +1384,88 @@ pub struct OH_AVCLevel(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl OH_HEVCLevel {
+    /// Level 1.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const HEVC_LEVEL_1: OH_HEVCLevel = OH_HEVCLevel(0);
+    /// Level 2.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const HEVC_LEVEL_2: OH_HEVCLevel = OH_HEVCLevel(1);
+    /// Level 2.1.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const HEVC_LEVEL_21: OH_HEVCLevel = OH_HEVCLevel(2);
+    /// Level 3.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const HEVC_LEVEL_3: OH_HEVCLevel = OH_HEVCLevel(3);
+    /// Level 3.1.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const HEVC_LEVEL_31: OH_HEVCLevel = OH_HEVCLevel(4);
+    /// Level 4.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const HEVC_LEVEL_4: OH_HEVCLevel = OH_HEVCLevel(5);
+    /// Level 4.1.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const HEVC_LEVEL_41: OH_HEVCLevel = OH_HEVCLevel(6);
+    /// Level 5.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const HEVC_LEVEL_5: OH_HEVCLevel = OH_HEVCLevel(7);
+    /// Level 5.1.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const HEVC_LEVEL_51: OH_HEVCLevel = OH_HEVCLevel(8);
+    /// Level 5.2.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const HEVC_LEVEL_52: OH_HEVCLevel = OH_HEVCLevel(9);
+    /// Level 6.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const HEVC_LEVEL_6: OH_HEVCLevel = OH_HEVCLevel(10);
+    /// Level 6.1.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const HEVC_LEVEL_61: OH_HEVCLevel = OH_HEVCLevel(11);
+    /// Level 6.2.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const HEVC_LEVEL_62: OH_HEVCLevel = OH_HEVCLevel(12);
 }
 #[repr(transparent)]
-/// HEVC Level.
+/// Enumerates the HEVC levels.
 ///
-///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
@@ -898,43 +1475,100 @@ pub struct OH_HEVCLevel(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-15")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
 impl OH_VVCLevel {
-    /// VVC level 1.0
+    /// Level 1.0.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub const VVC_LEVEL_1: OH_VVCLevel = OH_VVCLevel(16);
-    /// VVC level 2.0
+    /// Level 2.0.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub const VVC_LEVEL_2: OH_VVCLevel = OH_VVCLevel(32);
-    /// VVC level 2.1
+    /// Level 2.1.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub const VVC_LEVEL_21: OH_VVCLevel = OH_VVCLevel(35);
-    /// VVC level 3.0
+    /// Level 3.0.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub const VVC_LEVEL_3: OH_VVCLevel = OH_VVCLevel(48);
-    /// VVC level 3.1
+    /// Level 3.1.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub const VVC_LEVEL_31: OH_VVCLevel = OH_VVCLevel(51);
-    /// VVC level 4.0
+    /// Level 4.0.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub const VVC_LEVEL_4: OH_VVCLevel = OH_VVCLevel(64);
-    /// VVC level 4.1
+    /// Level 4.1.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub const VVC_LEVEL_41: OH_VVCLevel = OH_VVCLevel(67);
-    /// VVC level 5.0
+    /// Level 5.0.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub const VVC_LEVEL_5: OH_VVCLevel = OH_VVCLevel(80);
-    /// VVC level 5.1
+    /// Level 5.1.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub const VVC_LEVEL_51: OH_VVCLevel = OH_VVCLevel(83);
-    /// VVC level 5.2
+    /// Level 5.2.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub const VVC_LEVEL_52: OH_VVCLevel = OH_VVCLevel(86);
-    /// VVC level 6.0
+    /// Level 6.0.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub const VVC_LEVEL_6: OH_VVCLevel = OH_VVCLevel(96);
-    /// VVC level 6.1
+    /// Level 6.1.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub const VVC_LEVEL_61: OH_VVCLevel = OH_VVCLevel(99);
-    /// VVC level 6.2
+    /// Level 6.2.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub const VVC_LEVEL_62: OH_VVCLevel = OH_VVCLevel(102);
-    /// VVC level 6.3
+    /// Level 6.3.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub const VVC_LEVEL_63: OH_VVCLevel = OH_VVCLevel(105);
-    /// VVC level 15.5
+    /// Level 15.5.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub const VVC_LEVEL_155: OH_VVCLevel = OH_VVCLevel(255);
 }
 #[repr(transparent)]
-/// VVC Level: A defined set of constraints on the values that may be taken by the syntax elements and variables
-/// of VVC, or the value of a transform coefficient prior to scaling.
+/// Enumerates the VVC levels.
 ///
-///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
 ///
 /// Available since API-level: 15
 #[cfg(feature = "api-15")]
@@ -944,20 +1578,34 @@ pub struct OH_VVCLevel(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-17")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
 impl OH_MPEG2Level {
-    /// Low level
+    /// Low level.
+    ///
+    /// Available since API-level: 17
+    #[cfg(feature = "api-17")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
     pub const MPEG2_LEVEL_LOW: OH_MPEG2Level = OH_MPEG2Level(0);
-    /// Main level
+    /// Main level.
+    ///
+    /// Available since API-level: 17
+    #[cfg(feature = "api-17")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
     pub const MPEG2_LEVEL_MAIN: OH_MPEG2Level = OH_MPEG2Level(1);
-    /// High 1440 level
+    /// High 1440 level.
+    ///
+    /// Available since API-level: 17
+    #[cfg(feature = "api-17")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
     pub const MPEG2_LEVEL_HIGH_1440: OH_MPEG2Level = OH_MPEG2Level(2);
-    /// High level
+    /// High level.
+    ///
+    /// Available since API-level: 17
+    #[cfg(feature = "api-17")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
     pub const MPEG2_LEVEL_HIGH: OH_MPEG2Level = OH_MPEG2Level(3);
 }
 #[repr(transparent)]
-/// MPEG2 Level.
+/// Enumerates the MPEG2 levels.
 ///
-///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
 ///
 /// Available since API-level: 17
 #[cfg(feature = "api-17")]
@@ -967,32 +1615,70 @@ pub struct OH_MPEG2Level(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-17")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
 impl OH_MPEG4Level {
-    /// 0 level
+    /// Level 0.
+    ///
+    /// Available since API-level: 17
+    #[cfg(feature = "api-17")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
     pub const MPEG4_LEVEL_0: OH_MPEG4Level = OH_MPEG4Level(0);
-    /// 0B level
+    /// Level 0B.
+    ///
+    /// Available since API-level: 17
+    #[cfg(feature = "api-17")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
     pub const MPEG4_LEVEL_0B: OH_MPEG4Level = OH_MPEG4Level(1);
-    /// 1 level
+    /// Level 1.
+    ///
+    /// Available since API-level: 17
+    #[cfg(feature = "api-17")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
     pub const MPEG4_LEVEL_1: OH_MPEG4Level = OH_MPEG4Level(2);
-    /// 2 level
+    /// Level 2.
+    ///
+    /// Available since API-level: 17
+    #[cfg(feature = "api-17")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
     pub const MPEG4_LEVEL_2: OH_MPEG4Level = OH_MPEG4Level(3);
-    /// 3 level
+    /// Level 3.
+    ///
+    /// Available since API-level: 17
+    #[cfg(feature = "api-17")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
     pub const MPEG4_LEVEL_3: OH_MPEG4Level = OH_MPEG4Level(4);
-    /// 3B level
+    /// Level 3B.
+    ///
+    /// Available since API-level: 17
+    #[cfg(feature = "api-17")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
     pub const MPEG4_LEVEL_3B: OH_MPEG4Level = OH_MPEG4Level(5);
-    /// 4 level
+    /// Level 4.
+    ///
+    /// Available since API-level: 17
+    #[cfg(feature = "api-17")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
     pub const MPEG4_LEVEL_4: OH_MPEG4Level = OH_MPEG4Level(6);
-    /// 4A level
+    /// Level 4A.
+    ///
+    /// Available since API-level: 17
+    #[cfg(feature = "api-17")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
     pub const MPEG4_LEVEL_4A: OH_MPEG4Level = OH_MPEG4Level(7);
-    /// 5 level
+    /// Level 5.
+    ///
+    /// Available since API-level: 17
+    #[cfg(feature = "api-17")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
     pub const MPEG4_LEVEL_5: OH_MPEG4Level = OH_MPEG4Level(8);
-    /// 6 level
+    /// Level 6.
+    ///
+    /// Available since API-level: 17
+    #[cfg(feature = "api-17")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
     pub const MPEG4_LEVEL_6: OH_MPEG4Level = OH_MPEG4Level(9);
 }
 #[repr(transparent)]
-/// MPEG4 Level.
+/// Enumerates the MPEG4 levels.
 ///
-///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
 ///
 /// Available since API-level: 17
 #[cfg(feature = "api-17")]
@@ -1002,28 +1688,58 @@ pub struct OH_MPEG4Level(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-17")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
 impl OH_H263Level {
-    /// 10 level
+    /// Level 10.
+    ///
+    /// Available since API-level: 17
+    #[cfg(feature = "api-17")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
     pub const H263_LEVEL_10: OH_H263Level = OH_H263Level(0);
-    /// 20 level
+    /// Level 20.
+    ///
+    /// Available since API-level: 17
+    #[cfg(feature = "api-17")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
     pub const H263_LEVEL_20: OH_H263Level = OH_H263Level(1);
-    /// 30 level
+    /// Level 30.
+    ///
+    /// Available since API-level: 17
+    #[cfg(feature = "api-17")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
     pub const H263_LEVEL_30: OH_H263Level = OH_H263Level(2);
-    /// 40 level
+    /// Level 40.
+    ///
+    /// Available since API-level: 17
+    #[cfg(feature = "api-17")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
     pub const H263_LEVEL_40: OH_H263Level = OH_H263Level(3);
-    /// 45 level
+    /// Level 45.
+    ///
+    /// Available since API-level: 17
+    #[cfg(feature = "api-17")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
     pub const H263_LEVEL_45: OH_H263Level = OH_H263Level(4);
-    /// 50 level
+    /// Level 50.
+    ///
+    /// Available since API-level: 17
+    #[cfg(feature = "api-17")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
     pub const H263_LEVEL_50: OH_H263Level = OH_H263Level(5);
-    /// 60 level
+    /// Level 60.
+    ///
+    /// Available since API-level: 17
+    #[cfg(feature = "api-17")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
     pub const H263_LEVEL_60: OH_H263Level = OH_H263Level(6);
-    /// 70 level
+    /// Level 70.
+    ///
+    /// Available since API-level: 17
+    #[cfg(feature = "api-17")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
     pub const H263_LEVEL_70: OH_H263Level = OH_H263Level(7);
 }
 #[repr(transparent)]
-/// H263 Level.
+/// Enumerates the H.263 levels.
 ///
-///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
 ///
 /// Available since API-level: 17
 #[cfg(feature = "api-17")]
@@ -1033,25 +1749,57 @@ pub struct OH_H263Level(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-22")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
 impl OH_VC1Level {
-    /// L0 level
+    /// Level L0.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub const VC1_LEVEL_L0: OH_VC1Level = OH_VC1Level(0);
-    /// L1 level
+    /// Level L1.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub const VC1_LEVEL_L1: OH_VC1Level = OH_VC1Level(1);
-    /// L2 level
+    /// Level L2.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub const VC1_LEVEL_L2: OH_VC1Level = OH_VC1Level(2);
-    /// L3 level
+    /// Level L3.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub const VC1_LEVEL_L3: OH_VC1Level = OH_VC1Level(3);
-    /// L4 level
+    /// Level L4.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub const VC1_LEVEL_L4: OH_VC1Level = OH_VC1Level(4);
-    /// LOW level
+    /// Low level.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub const VC1_LEVEL_LOW: OH_VC1Level = OH_VC1Level(5);
-    /// MEDIUM level
+    /// Medium level.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub const VC1_LEVEL_MEDIUM: OH_VC1Level = OH_VC1Level(6);
-    /// HIGH level
+    /// High level.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub const VC1_LEVEL_HIGH: OH_VC1Level = OH_VC1Level(7);
 }
 #[repr(transparent)]
-/// VC-1 Level.
+/// Enumerates the VC-1 levels.
 ///
 ///
 /// Available since API-level: 22
@@ -1062,57 +1810,153 @@ pub struct OH_VC1Level(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-23")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
 impl OH_AV1Level {
-    /// 2.0 level
+    /// Level 2.0.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub const AV1_LEVEL_20: OH_AV1Level = OH_AV1Level(0);
-    /// 2.1 level
+    /// Level 2.1.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub const AV1_LEVEL_21: OH_AV1Level = OH_AV1Level(1);
-    /// 2.2 level
+    /// Level 2.2.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub const AV1_LEVEL_22: OH_AV1Level = OH_AV1Level(2);
-    /// 2.3 level
+    /// Level 2.3.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub const AV1_LEVEL_23: OH_AV1Level = OH_AV1Level(3);
-    /// 3.0 level
+    /// Level 3.0.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub const AV1_LEVEL_30: OH_AV1Level = OH_AV1Level(4);
-    /// 3.1 level
+    /// Level 3.1.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub const AV1_LEVEL_31: OH_AV1Level = OH_AV1Level(5);
-    /// 3.2 level
+    /// Level 3.2.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub const AV1_LEVEL_32: OH_AV1Level = OH_AV1Level(6);
-    /// 3.3 level
+    /// Level 3.3.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub const AV1_LEVEL_33: OH_AV1Level = OH_AV1Level(7);
-    /// 4.0 level
+    /// Level 4.0.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub const AV1_LEVEL_40: OH_AV1Level = OH_AV1Level(8);
-    /// 4.1 level
+    /// Level 4.1.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub const AV1_LEVEL_41: OH_AV1Level = OH_AV1Level(9);
-    /// 4.2 level
+    /// Level 4.2.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub const AV1_LEVEL_42: OH_AV1Level = OH_AV1Level(10);
-    /// 4.3 level
+    /// Level 4.3.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub const AV1_LEVEL_43: OH_AV1Level = OH_AV1Level(11);
-    /// 5.0 level
+    /// Level 5.0.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub const AV1_LEVEL_50: OH_AV1Level = OH_AV1Level(12);
-    /// 5.1 level
+    /// Level 5.1.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub const AV1_LEVEL_51: OH_AV1Level = OH_AV1Level(13);
-    /// 5.2 level
+    /// Level 5.2.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub const AV1_LEVEL_52: OH_AV1Level = OH_AV1Level(14);
-    /// 5.3 level
+    /// Level 5.3.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub const AV1_LEVEL_53: OH_AV1Level = OH_AV1Level(15);
-    /// 6.0 level
+    /// Level 6.0.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub const AV1_LEVEL_60: OH_AV1Level = OH_AV1Level(16);
-    /// 6.1 level
+    /// Level 6.1.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub const AV1_LEVEL_61: OH_AV1Level = OH_AV1Level(17);
-    /// 6.2 level
+    /// Level 6.2.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub const AV1_LEVEL_62: OH_AV1Level = OH_AV1Level(18);
-    /// 6.3 level
+    /// Level 6.3.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub const AV1_LEVEL_63: OH_AV1Level = OH_AV1Level(19);
-    /// 7.0 level
+    /// Level 7.0.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub const AV1_LEVEL_70: OH_AV1Level = OH_AV1Level(20);
-    /// 7.1 level
+    /// Level 7.1.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub const AV1_LEVEL_71: OH_AV1Level = OH_AV1Level(21);
-    /// 7.2 level
+    /// Level 7.2.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub const AV1_LEVEL_72: OH_AV1Level = OH_AV1Level(22);
-    /// 7.3 level
+    /// Level 7.3.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub const AV1_LEVEL_73: OH_AV1Level = OH_AV1Level(23);
 }
 #[repr(transparent)]
-/// AV1 Level.
+/// AV1 level.
 ///
 ///
 /// Available since API-level: 23
@@ -1123,37 +1967,93 @@ pub struct OH_AV1Level(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-23")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
 impl OH_VP9Level {
-    /// 1 level
+    /// Level 1.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub const VP9_LEVEL_1: OH_VP9Level = OH_VP9Level(0);
-    /// 1.1 level
+    /// Level 1.1.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub const VP9_LEVEL_11: OH_VP9Level = OH_VP9Level(1);
-    /// 2 level
+    /// Level 2.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub const VP9_LEVEL_2: OH_VP9Level = OH_VP9Level(2);
-    /// 2.1 level
+    /// Level 2.1.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub const VP9_LEVEL_21: OH_VP9Level = OH_VP9Level(3);
-    /// 3 level
+    /// Level 3.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub const VP9_LEVEL_3: OH_VP9Level = OH_VP9Level(4);
-    /// 3.1 level
+    /// Level 3.1.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub const VP9_LEVEL_31: OH_VP9Level = OH_VP9Level(5);
-    /// 4 level
+    /// Level 4.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub const VP9_LEVEL_4: OH_VP9Level = OH_VP9Level(6);
-    /// 4.1 level
+    /// Level 4.1.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub const VP9_LEVEL_41: OH_VP9Level = OH_VP9Level(7);
-    /// 5 level
+    /// Level 5.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub const VP9_LEVEL_5: OH_VP9Level = OH_VP9Level(8);
-    /// 5.1 level
+    /// Level 5.1.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub const VP9_LEVEL_51: OH_VP9Level = OH_VP9Level(9);
-    /// 5.2 level
+    /// Level 5.2.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub const VP9_LEVEL_52: OH_VP9Level = OH_VP9Level(10);
-    /// 6 level
+    /// Level 6.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub const VP9_LEVEL_6: OH_VP9Level = OH_VP9Level(11);
-    /// 6.1 level
+    /// Level 6.1.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub const VP9_LEVEL_61: OH_VP9Level = OH_VP9Level(12);
-    /// 6.2 level
+    /// Level 6.2.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub const VP9_LEVEL_62: OH_VP9Level = OH_VP9Level(13);
 }
 #[repr(transparent)]
-/// VP9 Level.
+/// VP9 level.
 ///
 ///
 /// Available since API-level: 23
@@ -1164,15 +2064,35 @@ pub struct OH_VP9Level(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-23")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
 impl OH_WVC1Level {
-    /// L0 level
+    /// Level L0.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub const WVC1_LEVEL_L0: OH_WVC1Level = OH_WVC1Level(0);
-    /// L1 level
+    /// Level L1.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub const WVC1_LEVEL_L1: OH_WVC1Level = OH_WVC1Level(1);
-    /// L2 level
+    /// Level L2.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub const WVC1_LEVEL_L2: OH_WVC1Level = OH_WVC1Level(2);
-    /// L3 level
+    /// Level L3.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub const WVC1_LEVEL_L3: OH_WVC1Level = OH_WVC1Level(3);
-    /// L4 level
+    /// Level L4.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub const WVC1_LEVEL_L4: OH_WVC1Level = OH_WVC1Level(4);
 }
 #[repr(transparent)]
@@ -1187,15 +2107,27 @@ pub struct OH_WVC1Level(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-22")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
 impl OH_WMV3Level {
-    /// LOW level
+    /// Low level.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub const WMV3_LEVEL_LOW: OH_WMV3Level = OH_WMV3Level(0);
-    /// MEDIUM level
+    /// Medium level.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub const WMV3_LEVEL_MEDIUM: OH_WMV3Level = OH_WMV3Level(1);
-    /// HIGH level
+    /// High level.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub const WMV3_LEVEL_HIGH: OH_WMV3Level = OH_WMV3Level(2);
 }
 #[repr(transparent)]
-/// WMV3 Level.
+/// Enumerates the WMV3 levels.
 ///
 ///
 /// Available since API-level: 22
@@ -1206,20 +2138,30 @@ pub struct OH_WMV3Level(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl OH_TemporalGopReferenceMode {
-    /// Refer to latest short-term reference frame.
+    /// Refers to the nearest short-term reference frame.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const ADJACENT_REFERENCE: OH_TemporalGopReferenceMode = OH_TemporalGopReferenceMode(0);
-    /// Refer to latest long-term reference frame.
+    /// Refers to the latest LTR frame.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const JUMP_REFERENCE: OH_TemporalGopReferenceMode = OH_TemporalGopReferenceMode(1);
     /// Uniformly scaled reference structure, which has even distribution of video frames after drop the highest
     /// enhance layer. The temporal group of pictures must be power of 2.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const UNIFORMLY_SCALED_REFERENCE: OH_TemporalGopReferenceMode =
         OH_TemporalGopReferenceMode(2);
 }
 #[repr(transparent)]
-/// The reference mode in temporal group of picture.
+/// Enumerates the reference modes of temporal image groups.
 ///
-///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
@@ -1227,11 +2169,17 @@ impl OH_TemporalGopReferenceMode {
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OH_TemporalGopReferenceMode(pub ::core::ffi::c_uint);
 impl OH_BitrateMode {
-    /// Constant Bit rate mode.
+    /// Constant bit rate.
+    ///
+    /// Available since API-level: 10
     pub const BITRATE_MODE_CBR: OH_BitrateMode = OH_BitrateMode(0);
-    /// Variable Bit rate mode.
+    /// Variable bit rate.
+    ///
+    /// Available since API-level: 10
     pub const BITRATE_MODE_VBR: OH_BitrateMode = OH_BitrateMode(1);
-    /// Constant Quality mode.
+    /// Constant quality.
+    ///
+    /// Available since API-level: 10
     pub const BITRATE_MODE_CQ: OH_BitrateMode = OH_BitrateMode(2);
     /// Stable Quality RateControl.
     ///
@@ -1239,564 +2187,604 @@ impl OH_BitrateMode {
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const BITRATE_MODE_SQR: OH_BitrateMode = OH_BitrateMode(3);
+    /// CBR for High Quality.
+    ///
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub const BITRATE_MODE_CBR_HIGH_QUALITY: OH_BitrateMode = OH_BitrateMode(4);
 }
 #[repr(transparent)]
-/// The bitrate mode of encoder.
+/// Enumerates the bit rate modes of an encoder.
 ///
-/// Change the location of the header file, since 14.
-///
-///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
 ///
 /// Available since API-level: 10
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OH_BitrateMode(pub ::core::ffi::c_uint);
+#[cfg(feature = "api-26")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+impl OH_FrameRetentionMode {
+    /// Full frame retention mode. The decoder operates in a transparent passthrough state,
+    /// retaining 100% of the input frames and effectively disabling the frame dropping feature.
+    /// All underlying visual perception algorithms are completely bypassed, resulting in
+    /// zero algorithmic overhead.
+    ///
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub const OH_FRAME_RETENTION_MODE_FULL: OH_FrameRetentionMode = OH_FrameRetentionMode(0);
+    /// Adaptive frame retention mode. The decoder dynamically analyzes video characteristics to drop frames with
+    /// the least perceptual impact, preserving visual smoothness with minimal degradation to the playback experience.
+    /// For optimal algorithmic accuracy, it is highly recommended to explicitly configure
+    /// the current playback speed via [`OH_MD_KEY_VIDEO_DECODER_SPEED`](crate::avcodec_base::OH_MD_KEY_VIDEO_DECODER_SPEED).
+    ///
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub const OH_FRAME_RETENTION_MODE_ADAPTIVE: OH_FrameRetentionMode = OH_FrameRetentionMode(1);
+    /// Uniform frame retention mode. Retains frames evenly according to a user-configured retention ratio
+    /// (configured via [`OH_MD_KEY_VIDEO_DECODER_FRAME_RETENTION_RATIO`](crate::avcodec_base::OH_MD_KEY_VIDEO_DECODER_FRAME_RETENTION_RATIO)).
+    /// If the retention ratio is not explicitly configured, the decoder limits the output to a maximum of 30 fps.
+    ///
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub const OH_FRAME_RETENTION_MODE_UNIFORM: OH_FrameRetentionMode = OH_FrameRetentionMode(2);
+}
+#[repr(transparent)]
+/// The video decoding frame retention mode.
+///
+///
+/// Available since API-level: 26
+#[cfg(feature = "api-26")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct OH_FrameRetentionMode(pub ::core::ffi::c_uint);
+#[cfg(feature = "api-26")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+impl OH_AudioEncoderPTSMode {
+    /// Default PTS mode of audio encoder. Different encoders may perform differently.
+    ///
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub const OH_AUDIO_ENCODER_PTS_MODE_DEFAULT: OH_AudioEncoderPTSMode = OH_AudioEncoderPTSMode(0);
+    /// PTS starts from zero.
+    ///
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub const OH_AUDIO_ENCODER_PTS_MODE_ZERO_START: OH_AudioEncoderPTSMode =
+        OH_AudioEncoderPTSMode(1);
+    /// PTS starts from the first input PTS.
+    ///
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub const OH_AUDIO_ENCODER_PTS_MODE_FIRST_INPUT_START: OH_AudioEncoderPTSMode =
+        OH_AudioEncoderPTSMode(2);
+}
+#[repr(transparent)]
+/// The PTS mode of audio encoder.
+///
+///
+/// Available since API-level: 26
+#[cfg(feature = "api-26")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct OH_AudioEncoderPTSMode(pub ::core::ffi::c_uint);
 extern "C" {
-    /// Enumerates the mime types of video avc codec.
+    /// Pointer to the key that describes the MIME type of the AVC (H.264) video codec.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// Available since API-level: 9
     pub static mut OH_AVCODEC_MIMETYPE_VIDEO_AVC: *const ::core::ffi::c_char;
-    /// Enumerates the mime types of audio aac codec.
+    /// Pointer to the key that describes the MIME type of the AAC audio codec.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// Available since API-level: 9
     pub static mut OH_AVCODEC_MIMETYPE_AUDIO_AAC: *const ::core::ffi::c_char;
-    /// Enumerates the mime types of audio flac codec.
+    /// Pointer to the key that describes the MIME type of the FLAC audio codec.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// Available since API-level: 10
     pub static mut OH_AVCODEC_MIMETYPE_AUDIO_FLAC: *const ::core::ffi::c_char;
-    /// Enumerates the mime types of audio vorbis codec.
+    /// Pointer to the key that describes the MIME type of the Vorbis audio decoder.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// Available since API-level: 10
     pub static mut OH_AVCODEC_MIMETYPE_AUDIO_VORBIS: *const ::core::ffi::c_char;
-    /// Enumerates the mime types of audio mp3 codec.
+    /// Pointer to the key that describes the MIME type of the MP3 audio codec.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// Available since API-level: 10
     pub static mut OH_AVCODEC_MIMETYPE_AUDIO_MPEG: *const ::core::ffi::c_char;
-    /// Enumerates the mime types of video hevc codec.
+    /// Pointer to the key that describes the MIME type of the HEVC (H.265) video codec.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// Available since API-level: 10
     pub static mut OH_AVCODEC_MIMETYPE_VIDEO_HEVC: *const ::core::ffi::c_char;
-    /// Enumerates the mime types of video mpeg4 muxer.
+    /// Pointer to the key that describes the MIME type of the MPEG4 video encoder, which is used only for
+    /// multiplexing MPEG4 video streams.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// **Deprecated** since 11
     ///
+    /// **Use instead:** OH_AVCODEC_MIMETYPE_VIDEO_MPEG4_PART2
+    ///
     /// Available since API-level: 10
-    #[deprecated(since = "11")]
+    #[deprecated(
+        since = "11",
+        note = "Use instead: OH_AVCODEC_MIMETYPE_VIDEO_MPEG4_PART2"
+    )]
     pub static mut OH_AVCODEC_MIMETYPE_VIDEO_MPEG4: *const ::core::ffi::c_char;
-    /// Enumerates the mime types of cover jpg muxer.
+    /// Pointer to the key that describes the MIME type of the JPG image encoder, which is used only for multiplexing
+    /// JPG covers.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// Available since API-level: 10
     pub static mut OH_AVCODEC_MIMETYPE_IMAGE_JPG: *const ::core::ffi::c_char;
-    /// Enumerates the mime types of cover png muxer.
+    /// Pointer to the key that describes the MIME type of the PNG image encoder, which is used only for multiplexing
+    /// PNG covers.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// Available since API-level: 10
     pub static mut OH_AVCODEC_MIMETYPE_IMAGE_PNG: *const ::core::ffi::c_char;
-    /// Enumerates the mime types of cover bmp muxer.
+    /// Pointer to the key that describes the MIME type of the BMP image encoder, which is used only for multiplexing
+    /// BMP covers.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// Available since API-level: 10
     pub static mut OH_AVCODEC_MIMETYPE_IMAGE_BMP: *const ::core::ffi::c_char;
-    /// Enumerates the mime types of audio vivid codec.
+    /// Pointer to the key that describes the MIME type of the Audio Vivid audio codec.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub static mut OH_AVCODEC_MIMETYPE_AUDIO_VIVID: *const ::core::ffi::c_char;
-    /// Enumerates the mime types of audio amrnb codec.
+    /// Pointer to the key that describes the MIME type of the AMR-NB audio <!--RP4--><!--RP4End--> decoder.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub static mut OH_AVCODEC_MIMETYPE_AUDIO_AMR_NB: *const ::core::ffi::c_char;
-    /// Enumerates the mime types of audio amrwb codec.
+    /// Pointer to the key that describes the MIME type of the AMR-WB audio <!--RP4--><!--RP4End--> decoder.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub static mut OH_AVCODEC_MIMETYPE_AUDIO_AMR_WB: *const ::core::ffi::c_char;
-    /// Enumerates the mime types of audio opus codec.
+    /// Pointer to the key that describes the MIME type of the Opus audio codec.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub static mut OH_AVCODEC_MIMETYPE_AUDIO_OPUS: *const ::core::ffi::c_char;
-    /// Enumerates the mime types of audio g711mu codec.
+    /// Pointer to the key that describes the MIME type of the G.711 mu-law audio codec.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub static mut OH_AVCODEC_MIMETYPE_AUDIO_G711MU: *const ::core::ffi::c_char;
-    /// Enumerates the mime type of audio ape codec.
+    /// Pointer to the key that describes the MIME type of the APE audio decoder.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub static mut OH_AVCODEC_MIMETYPE_AUDIO_APE: *const ::core::ffi::c_char;
-    /// Enumerates the MIME type of versatile video coding.
+    /// Pointer to the key that describes the MIME type of the VVC (H.266) video codec.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub static mut OH_AVCODEC_MIMETYPE_VIDEO_VVC: *const ::core::ffi::c_char;
-    /// Enumerates the mime type of subtitle srt.
+    /// Pointer to the key that describes the MIME type of the SRT subtitle demuxer.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub static mut OH_AVCODEC_MIMETYPE_SUBTITLE_SRT: *const ::core::ffi::c_char;
-    /// Enumerates the mime type of subtitle webvtt.
+    /// Pointer to the key that describes the MIME type of the WEBVTT subtitle demuxer.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub static mut OH_AVCODEC_MIMETYPE_SUBTITLE_WEBVTT: *const ::core::ffi::c_char;
-    /// Enumerates the mime type of audio raw stream.
+    /// Pointer to the key that describes the MIME type of raw audio streams.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
     pub static mut OH_AVCODEC_MIMETYPE_AUDIO_RAW: *const ::core::ffi::c_char;
-    /// Enumerates the mime types of audio G711 A-law codec.
+    /// Pointer to the key that describes the MIME type of the G.711 a-law audio decoder.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub static mut OH_AVCODEC_MIMETYPE_AUDIO_G711A: *const ::core::ffi::c_char;
-    /// Enumerates the mime types of ALAC (Apple Lossless Audio Codec).
+    /// Pointer to the key that describes the MIME type of the Apple Lossless Audio Codec (ALAC) audio decoder.
     ///
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub static mut OH_AVCODEC_MIMETYPE_AUDIO_ALAC: *const ::core::ffi::c_char;
-    /// Enumerates the mime types of audio AC-3 codec.
+    /// Pointer to the key that describes the MIME type of the Dolby Audio Coding 3 (AC 3) audio decoder.
     ///
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub static mut OH_AVCODEC_MIMETYPE_AUDIO_AC3: *const ::core::ffi::c_char;
-    /// Enumerates the mime types of audio Enhanced AC-3 codec.
+    /// Pointer to the key that describes the MIME type of the Enhanced AC-3 (EAC3) audio decoder.
     ///
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub static mut OH_AVCODEC_MIMETYPE_AUDIO_EAC3: *const ::core::ffi::c_char;
-    /// Enumerates the mime types of windows media audio 1 codec.
+    /// Pointer to the key that describes the MIME type of the Windows Media Audio (WMA) V1 audio decoder.
     ///
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub static mut OH_AVCODEC_MIMETYPE_AUDIO_WMAV1: *const ::core::ffi::c_char;
-    /// Enumerates the mime types of windows media audio 2 codec.
+    /// Pointer to the key that describes the MIME type of the WMA V2 audio decoder.
     ///
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub static mut OH_AVCODEC_MIMETYPE_AUDIO_WMAV2: *const ::core::ffi::c_char;
-    /// Enumerates the mime types of windows media audio 9 professional codec.
+    /// Pointer to the key that describes the MIME type of the WMA Pro audio decoder.
     ///
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub static mut OH_AVCODEC_MIMETYPE_AUDIO_WMAPRO: *const ::core::ffi::c_char;
-    /// Key for specifying the number of bytes per audio packet. The value type is int32_t.
+    /// Size of the audio data block, in bytes. The value type is int32_t. This key is used only for WMA (V1, V2, and
+    /// PRO) decoders.
     ///
-    /// This key is required only for Windows Media audio decoders. The supported decoder MIME types
-    /// include [`OH_AVCODEC_MIMETYPE_AUDIO_WMAV1`](crate::avcodec_base::OH_AVCODEC_MIMETYPE_AUDIO_WMAV1), [`OH_AVCODEC_MIMETYPE_AUDIO_WMAV2`](crate::avcodec_base::OH_AVCODEC_MIMETYPE_AUDIO_WMAV2),
-    /// and [`OH_AVCODEC_MIMETYPE_AUDIO_WMAPRO`](crate::avcodec_base::OH_AVCODEC_MIMETYPE_AUDIO_WMAPRO).
+    /// The allowed MIME types include **OH_AVCODEC_MIMETYPE_AUDIO_WMAV1**, **OH_AVCODEC_MIMETYPE_AUDIO_WMAV2**, and **
+    /// OH_AVCODEC_MIMETYPE_AUDIO_WMAPRO**.
     ///
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub static mut OH_MD_KEY_BLOCK_ALIGN: *const ::core::ffi::c_char;
-    /// Enumerates the mime types of audio GSM codec.
+    /// Pointer to the key that describes the MIME type of the Global System for Mobile Communications (GSM) audio
+    /// decoder.
     ///
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub static mut OH_AVCODEC_MIMETYPE_AUDIO_GSM: *const ::core::ffi::c_char;
-    /// Enumerates the mime types of audio GSM Microsoft varient codec.
+    /// Pointer to the key that describes the MIME type of the GSM Microsoft variant (MS) audio decoder.
     ///
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub static mut OH_AVCODEC_MIMETYPE_AUDIO_GSM_MS: *const ::core::ffi::c_char;
-    /// Enumerates the mime types of audio TwinVQ codec.
+    /// Pointer to the key that describes the MIME type of the Transform-domain Weighted Interleave Vector
+    /// Quantization (TWINVQ) audio decoder.
     ///
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub static mut OH_AVCODEC_MIMETYPE_AUDIO_TWINVQ: *const ::core::ffi::c_char;
-    /// Enumerates the mime types of audio internet low bitrate codec.
+    /// Pointer to the key that describes the MIME type of the Internet Low Bitrate Codec (ILBC) audio decoder.
     ///
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub static mut OH_AVCODEC_MIMETYPE_AUDIO_ILBC: *const ::core::ffi::c_char;
-    /// Enumerates the mime types of audio TrueHD codec.
+    /// Pointer to the key that describes the MIME type of the True High Definition (TRUEHD) audio decoder.
     ///
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub static mut OH_AVCODEC_MIMETYPE_AUDIO_TRUEHD: *const ::core::ffi::c_char;
-    /// Enumerates the mime types of audio DV Audio codec.
+    /// MIME type of the DVAUDIO (Digital Video Audio) audio decoder.
     ///
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub static mut OH_AVCODEC_MIMETYPE_AUDIO_DVAUDIO: *const ::core::ffi::c_char;
-    /// Enumerates the mime types of audio DTS codec.
+    /// MIME type of the DTS (Digital Theater Systems) audio decoder.
     ///
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub static mut OH_AVCODEC_MIMETYPE_AUDIO_DTS: *const ::core::ffi::c_char;
-    /// Enumerates the mime types of audio COOK codec.
+    /// MIME type of the Cook (RealAudio Cook) audio decoder.
     ///
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub static mut OH_AVCODEC_MIMETYPE_AUDIO_COOK: *const ::core::ffi::c_char;
-    /// Enumerates the MIME type of video mpeg2 codec.
+    /// Pointer to the key that describes the MIME type of the MPEG2 video codec.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// Available since API-level: 17
     #[cfg(feature = "api-17")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
     pub static mut OH_AVCODEC_MIMETYPE_VIDEO_MPEG2: *const ::core::ffi::c_char;
-    /// Enumerates the MIME type of video mpeg4 part2 codec.
+    /// Pointer to the key that describes the MIME type of the MPEG4 video encoder, which is used only for
+    /// multiplexing MPEG4 video streams.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// Available since API-level: 17
     #[cfg(feature = "api-17")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
     pub static mut OH_AVCODEC_MIMETYPE_VIDEO_MPEG4_PART2: *const ::core::ffi::c_char;
-    /// Enumerates the MIME type of video h263 codec.
+    /// Pointer to the key that describes the MIME type of the H.263 video codec.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// Available since API-level: 17
     #[cfg(feature = "api-17")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
     pub static mut OH_AVCODEC_MIMETYPE_VIDEO_H263: *const ::core::ffi::c_char;
-    /// Enumerates the MIME type of video VC-1 codec.
+    /// Pointer to the key that describes the MIME type of the VC-1 video codec.
     ///
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub static mut OH_AVCODEC_MIMETYPE_VIDEO_VC1: *const ::core::ffi::c_char;
-    /// Enumerates the MIME type of video AV1 codec.
+    /// MIME type of the AV1 video codec.
     ///
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub static mut OH_AVCODEC_MIMETYPE_VIDEO_AV1: *const ::core::ffi::c_char;
-    /// Enumerates the MIME type of video VP9 codec.
+    /// MIME type of the VP9 video codec.
     ///
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub static mut OH_AVCODEC_MIMETYPE_VIDEO_VP9: *const ::core::ffi::c_char;
-    /// Enumerates the MIME type of video VP8 codec.
+    /// MIME type of the VP8 video codec.
     ///
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub static mut OH_AVCODEC_MIMETYPE_VIDEO_VP8: *const ::core::ffi::c_char;
-    /// Enumerates the MIME type of video RV30 codec.
+    /// MIME type of the RV30 video codec.
     ///
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub static mut OH_AVCODEC_MIMETYPE_VIDEO_RV30: *const ::core::ffi::c_char;
-    /// Enumerates the MIME type of video RV40 codec.
+    /// MIME type of the RV40 video codec.
     ///
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub static mut OH_AVCODEC_MIMETYPE_VIDEO_RV40: *const ::core::ffi::c_char;
-    /// Enumerates the MIME type of video WVC1 codec.
+    /// MIME type of the WVC1 video codec.
     ///
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub static mut OH_AVCODEC_MIMETYPE_VIDEO_WVC1: *const ::core::ffi::c_char;
-    /// Enumerates the MIME type of video DV codec.
+    /// MIME type of the DVVIDEO (Digital Video) video codec. Supports DV NTSC, DV PAL, and DVCPRO HD.
     ///
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub static mut OH_AVCODEC_MIMETYPE_VIDEO_DVVIDEO: *const ::core::ffi::c_char;
-    /// Enumerates the MIME type of video raw.
+    /// MIME type of the RAWVIDEO video codec.
     ///
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub static mut OH_AVCODEC_MIMETYPE_VIDEO_RAWVIDEO: *const ::core::ffi::c_char;
-    /// Enumerates the MIME type of video MPEG1 codec.
+    /// MIME type of the MPEG1 video codec.
     ///
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub static mut OH_AVCODEC_MIMETYPE_VIDEO_MPEG1: *const ::core::ffi::c_char;
-    /// Enumerates the MIME type of video MSVIDEO1 codec.
+    /// MIME type of the Cinepak video codec.
+    ///
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub static mut OH_AVCODEC_MIMETYPE_VIDEO_CINEPAK: *const ::core::ffi::c_char;
+    /// Pointer to the key that describes the MIME type of the Microsoft Video 1 (MSVIDEO1) video codec.
     ///
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub static mut OH_AVCODEC_MIMETYPE_VIDEO_MSVIDEO1: *const ::core::ffi::c_char;
-    /// Enumerates the MIME type of video WMV3 codec.
+    /// Pointer to the key that describes the MIME type of the WMV3 video codec.
     ///
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub static mut OH_AVCODEC_MIMETYPE_VIDEO_WMV3: *const ::core::ffi::c_char;
-    /// Enumerates the MIME type of video MJPEG codec.
+    /// Pointer to the key that describes the MIME type of the Motion JPEG (MJPEG) video codec.
     ///
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub static mut OH_AVCODEC_MIMETYPE_VIDEO_MJPEG: *const ::core::ffi::c_char;
-    /// Key for timeStamp in surface's extraData, value type is int64_t.
+    /// Pointer to the key that describes the surface buffer timestamp. The value is of the int64_t type.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// **Deprecated** since 14
     ///
     /// Available since API-level: 9
     #[deprecated(since = "14")]
     pub static mut OH_ED_KEY_TIME_STAMP: *const ::core::ffi::c_char;
-    /// Key for endOfStream in surface's extraData, value type is bool.
+    /// Pointer to the key that describes the end of stream for the surface buffer. The value type is int32_t.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// **Deprecated** since 14
     ///
     /// Available since API-level: 9
     #[deprecated(since = "14")]
     pub static mut OH_ED_KEY_EOS: *const ::core::ffi::c_char;
-    /// Key for track type, value type is int32_t, see [`OH_MediaType`](crate::avcodec_base::OH_MediaType).
+    /// Pointer to the key that describes the track type in a media file. The value type is int32_t. For details, see
+    /// [`OH_MediaType`](crate::avcodec_base::OH_MediaType).
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// Available since API-level: 9
     pub static mut OH_MD_KEY_TRACK_TYPE: *const ::core::ffi::c_char;
-    /// Key for codec mime type, value type is string.
+    /// Pointer to the key that describes the MIME type of the codec. The value type is char *.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// Available since API-level: 9
     pub static mut OH_MD_KEY_CODEC_MIME: *const ::core::ffi::c_char;
-    /// Key for file duration in microseconds, value type is int64_t.
+    /// Pointer to the key that describes the duration in a media file, in microseconds. The value type is int64_t.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// Available since API-level: 9
     pub static mut OH_MD_KEY_DURATION: *const ::core::ffi::c_char;
-    /// Key for bitrate, value type is int64_t.
+    /// Pointer to the key that describes the bit rate. The value type is int64_t.
+    /// You can call [`OH_AVCapability_GetEncoderBitrateRange`](crate::avcapability::OH_AVCapability_GetEncoderBitrateRange) to obtain the value range.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// Available since API-level: 9
     pub static mut OH_MD_KEY_BITRATE: *const ::core::ffi::c_char;
-    /// Key for max input size, value type is int32_t.
+    /// Pointer to the key that describes the maximum size of an input stream to decode. The value type is int32_t.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// Available since API-level: 9
     pub static mut OH_MD_KEY_MAX_INPUT_SIZE: *const ::core::ffi::c_char;
-    /// Key for video width, value type is int32_t.
+    /// Pointer to the key that describes the video width. The value type is int32_t.
     ///
+    /// For video encoding, this key is used to set the target encoding resolution. For video decoding, this key serves
+    /// as a resolution hint for the decoder to pre-allocate internal buffers.
+    /// The actual decoded output dimensions are provided by **OH_MD_KEY_VIDEO_PIC_WIDTH**.
+    /// This key is mainly used to control memory allocation. You can call [`OH_AVCapability_GetVideoWidthRange`](crate::avcapability::OH_AVCapability_GetVideoWidthRange)
+    /// to obtain the recommended value range. This API defines the decoding width range supported by the codec.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// Available since API-level: 9
     pub static mut OH_MD_KEY_WIDTH: *const ::core::ffi::c_char;
-    /// Key for video height, value type is int32_t.
+    /// Pointer to the key that describes the video height. The value type is int32_t.
     ///
+    /// For video encoding, this key is used to set the target encoding resolution. For video decoding,
+    /// this key serves as a resolution hint for the decoder to pre-allocate internal buffers.
+    /// The actual decoded output dimensions are provided by **OH_MD_KEY_VIDEO_PIC_HEIGHT**.
+    /// This key is mainly used to control memory allocation. You can call [`OH_AVCapability_GetVideoHeightRange`](crate::avcapability::OH_AVCapability_GetVideoHeightRange)
+    /// to obtain the recommended value range. This API defines the decoding height range supported by the codec.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// Available since API-level: 9
     pub static mut OH_MD_KEY_HEIGHT: *const ::core::ffi::c_char;
-    /// Key for video pixel format, value type is int32_t, see [`OH_AVPixelFormat`](crate::avformat::OH_AVPixelFormat).
+    /// Pointer to the key that describes the video pixel format. The value type is int32_t.
+    /// For details, see [`OH_AVPixelFormat`](crate::avformat::OH_AVPixelFormat).
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// Available since API-level: 9
     pub static mut OH_MD_KEY_PIXEL_FORMAT: *const ::core::ffi::c_char;
-    /// key for audio raw format, value type is int32_t , see [`OH_BitsPerSample`](crate::avcodec_base::OH_BitsPerSample).
+    /// Pointer to the key that describes the original audio format. The value type is int32_t.
+    /// For details, see [`OH_BitsPerSample`](crate::avcodec_base::OH_BitsPerSample).
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// Available since API-level: 9
     pub static mut OH_MD_KEY_AUDIO_SAMPLE_FORMAT: *const ::core::ffi::c_char;
-    /// Key for video frame rate, value type is double.
+    /// Pointer to the key that describes the video frame rate. The value type is double. The value must be greater
+    /// than **0**. You can call [`OH_AVCapability_GetVideoFrameRateRange`](crate::avcapability::OH_AVCapability_GetVideoFrameRateRange) to obtain the value range.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// Available since API-level: 9
     pub static mut OH_MD_KEY_FRAME_RATE: *const ::core::ffi::c_char;
-    /// video encode bitrate mode, the value type is int32_t, see [`OH_VideoEncodeBitrateMode`](crate::avcodec_videoencoder::OH_VideoEncodeBitrateMode).
+    /// Pointer to the key that describes the video encoding bit rate mode. The value type is int32_t. For details,
+    /// see [`OH_BitrateMode`](crate::avcodec_base::OH_BitrateMode).
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// Available since API-level: 9
     pub static mut OH_MD_KEY_VIDEO_ENCODE_BITRATE_MODE: *const ::core::ffi::c_char;
-    /// encode profile, the value type is int32_t. see [`OH_AVCProfile`](crate::avcodec_base::OH_AVCProfile), [`OH_HEVCProfile`](crate::avcodec_base::OH_HEVCProfile),
-    /// [`OH_AACProfile`](crate::avcodec_base::OH_AACProfile).
+    /// Pointer to the key that describes the encoding grading. The value type is int32_t. For details,
+    /// see [`OH_AVCProfile`](crate::avcodec_base::OH_AVCProfile), [`OH_HEVCProfile`](crate::avcodec_base::OH_HEVCProfile), and [`OH_AACProfile`](crate::avcodec_base::OH_AACProfile).
+    /// You can call [`OH_AVCapability_GetSupportedProfiles`](crate::avcapability::OH_AVCapability_GetSupportedProfiles) to obtain the supported profiles.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// Available since API-level: 9
     pub static mut OH_MD_KEY_PROFILE: *const ::core::ffi::c_char;
-    /// Key for audio channel count, value type is int32_t.
+    /// Pointer to the key that describes the number of audio channels. The value type is int32_t.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// Available since API-level: 9
     pub static mut OH_MD_KEY_AUD_CHANNEL_COUNT: *const ::core::ffi::c_char;
-    /// Key for audio sample rate, value type is int32_t.
+    /// Pointer to the key that describes the audio sampling rate. The value type is int32_t.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// Available since API-level: 9
     pub static mut OH_MD_KEY_AUD_SAMPLE_RATE: *const ::core::ffi::c_char;
-    /// Key for the interval of key frame. value type is int32_t, the unit is milliseconds. A negative value means no
-    /// key frames are requested after the first frame. A zero value means a stream containing all key frames is requested.
+    /// Pointer to the key that describes the key frame interval, in milliseconds. The value type is int32_t. This
+    /// key is optional and is used only for video encoding.
     ///
+    /// A negative value means that only the first frame is a keyframe. The value **0** means that all frames are keyframes.
+    /// A positive value means one keyframe every (frameRate * value)/1000 frames. The default value is **1000**.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// Available since API-level: 9
     pub static mut OH_MD_KEY_I_FRAME_INTERVAL: *const ::core::ffi::c_char;
-    /// Key of the surface rotation angle. value type is int32_t: should be {0, 90, 180, 270}, default is 0.
-    ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
-    ///
-    /// Available since API-level: 9
-    pub static mut OH_MD_KEY_ROTATION: *const ::core::ffi::c_char;
     /// Key for video transform type, value type is int32_t, see `OH_NativeBuffer_TransformType`.
     ///
     /// This key is used to set the surface transform for video decoders (surface mode).
     /// If not specified, the default value is 0 (`NATIVEBUFFER_ROTATE_NONE`).
+    ///
     /// This key and [`OH_MD_KEY_ROTATION`](crate::avcodec_base::OH_MD_KEY_ROTATION) are mutually exclusive. If both are provided,
     /// OH_MD_KEY_VIDEO_TRANSFORM_TYPE takes precedence.
+    ///
     /// Note that the degrees specified in `OH_NativeBuffer_TransformType` represent counter-clockwise rotation,
     /// which are opposite to the direction of rotation defined by [`OH_MD_KEY_ROTATION`](crate::avcodec_base::OH_MD_KEY_ROTATION).
+    ///
     /// The correspondence is:
+    ///
     /// - `NATIVEBUFFER_ROTATE_NONE` => same as OH_MD_KEY_ROTATION = 0
+    ///
     /// - `NATIVEBUFFER_ROTATE_90` => same as OH_MD_KEY_ROTATION = 270
+    ///
     /// - `NATIVEBUFFER_ROTATE_180` => same as OH_MD_KEY_ROTATION = 180
+    ///
     /// - `NATIVEBUFFER_ROTATE_270` => same as OH_MD_KEY_ROTATION = 90
     ///
     ///
@@ -1804,194 +2792,176 @@ extern "C" {
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub static mut OH_MD_KEY_VIDEO_TRANSFORM_TYPE: *const ::core::ffi::c_char;
-    /// Key for video YUV value range flag, value type is bool, true for full range, false for limited range.
+    /// Pointer to the key that describes the rotation angle of the surface, with a clockwise direction. The value
+    /// type is int32_t, and the value range is {0, 90, 180, 270}. The default value is 0.
+    ///
+    /// This key is optional and is used only for video decoding in surface mode
+    ///
+    /// You are advised to use the **OH_MD_KEY_VIDEO_TRANSFORM_TYPE** key to set the rotation angle of the surface for video
+    /// decoding.
     ///
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
+    /// Available since API-level: 9
+    pub static mut OH_MD_KEY_ROTATION: *const ::core::ffi::c_char;
+    /// Pointer to the key that describes the video YUV value range flag. The value type is int32_t. The value **1**
+    /// means a full range, and **0** means a limited range. The default value is **0**. If this parameter is set to a non-
+    /// zero value, the value **1** is used.
+    ///
     ///
     /// Available since API-level: 10
     pub static mut OH_MD_KEY_RANGE_FLAG: *const ::core::ffi::c_char;
-    /// Key for video color primaries, value type is int32_t, see [`OH_ColorPrimary`](crate::avcodec_base::OH_ColorPrimary).
+    /// Pointer to the key that describes the video primary colors. The value type is int32_t. The default value is
+    /// **COLOR_PRIMARY_UNSPECIFIED**. For details, see [`OH_ColorPrimary`](crate::avcodec_base::OH_ColorPrimary). The value complies with Table 2 in H.273.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// Available since API-level: 10
     pub static mut OH_MD_KEY_COLOR_PRIMARIES: *const ::core::ffi::c_char;
-    /// Key for video transfer characteristics, value type is int32_t, see [`OH_TransferCharacteristic`](crate::avcodec_base::OH_TransferCharacteristic).
+    /// Pointer to the key that describes the video transfer characteristics. The value type is int32_t. The default
+    /// value is **TRANSFER_CHARACTERISTIC_UNSPECIFIED**. For details, see [`OH_TransferCharacteristic`](crate::avcodec_base::OH_TransferCharacteristic). The value
+    /// complies with Table 3 in H.273.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// Available since API-level: 10
     pub static mut OH_MD_KEY_TRANSFER_CHARACTERISTICS: *const ::core::ffi::c_char;
-    /// Key for video matrix coefficients, value type is int32_t, see [`OH_MatrixCoefficient`](crate::avcodec_base::OH_MatrixCoefficient).
+    /// Pointer to the key that describes the video matrix coefficients. The value type is int32_t. The default value
+    /// is **MATRIX_COEFFICIENT_UNSPECIFIED**. For details, see [`OH_MatrixCoefficient`](crate::avcodec_base::OH_MatrixCoefficient). The value must comply with
+    /// Table 4 in H.273.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// Available since API-level: 10
     pub static mut OH_MD_KEY_MATRIX_COEFFICIENTS: *const ::core::ffi::c_char;
-    /// Key for the request an I-Frame immediately, value type is bool.
+    /// Pointer to the key that describes the request for immediate encoding of I-frames. The value type is int32_t.
+    /// This key is used in [`OH_VideoEncoder_SetParameter`](crate::avcodec_videoencoder::OH_VideoEncoder_SetParameter) or takes effect immediately with each frame.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// Available since API-level: 10
     pub static mut OH_MD_KEY_REQUEST_I_FRAME: *const ::core::ffi::c_char;
-    /// Key for the desired encoding quality, value type is int32_t, this key is only.
-    /// supported for encoders that are configured in constant quality mode.
+    /// Pointer to the key that describes the required encoding quality. The value type is int32_t. The default value
+    /// is **50**. In H.264 and H.265 encoding scenarios, the value range can be obtained by calling
+    /// [`OH_AVCapability_GetEncoderQualityRange`](crate::avcapability::OH_AVCapability_GetEncoderQualityRange). This key applies only to the encoder in constant quality mode.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// Available since API-level: 10
     pub static mut OH_MD_KEY_QUALITY: *const ::core::ffi::c_char;
-    /// Key of the codec specific data. value type is a uint8_t pointer.
+    /// Pointer to the key that describes the codec-specific data. In the case of video, data carried in **SPS/PPS**
+    /// is transferred. In the case of audio, data carried in **extraData** is transferred. The value type is uint8_t\*.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// Available since API-level: 10
     pub static mut OH_MD_KEY_CODEC_CONFIG: *const ::core::ffi::c_char;
-    /// source format Key for title, value type is string.
+    /// Pointer to the key that describes the title of a media file . The value type is char *.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// Available since API-level: 10
     pub static mut OH_MD_KEY_TITLE: *const ::core::ffi::c_char;
-    /// source format Key for artist, value type is string.
+    /// Pointer to the key that describes the artist in a media file. The value type is char *.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// Available since API-level: 10
     pub static mut OH_MD_KEY_ARTIST: *const ::core::ffi::c_char;
-    /// source format Key for album, value type is string.
+    /// Pointer to the key that describes the album in a media file. The value type is char *.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// Available since API-level: 10
     pub static mut OH_MD_KEY_ALBUM: *const ::core::ffi::c_char;
-    /// source format Key for album artist, value type is string.
+    /// Pointer to the key that describes the album artist of the input media. The value type is char *.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// Available since API-level: 10
     pub static mut OH_MD_KEY_ALBUM_ARTIST: *const ::core::ffi::c_char;
-    /// source format Key for date, value type is string.
+    /// Pointer to the key that describes the date in a media file, for example, 2024. The value type is char *.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// Available since API-level: 10
     pub static mut OH_MD_KEY_DATE: *const ::core::ffi::c_char;
-    /// source format Key for comment, value type is string.
+    /// Pointer to the key that describes the comment in a media file. The value type is char *.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// Available since API-level: 10
     pub static mut OH_MD_KEY_COMMENT: *const ::core::ffi::c_char;
-    /// source format Key for genre, value type is string.
+    /// Pointer to the key that describes the genre in a media file. The value type is char *.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// Available since API-level: 10
     pub static mut OH_MD_KEY_GENRE: *const ::core::ffi::c_char;
-    /// source format Key for copyright, value type is string.
+    /// Pointer to the key that describes the copyright of a media file. The value type is char *.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// Available since API-level: 10
     pub static mut OH_MD_KEY_COPYRIGHT: *const ::core::ffi::c_char;
-    /// source format Key for language, value type is string.
+    /// Pointer to the key that describes language of a media file. The value type is char *.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// Available since API-level: 10
     pub static mut OH_MD_KEY_LANGUAGE: *const ::core::ffi::c_char;
-    /// source format Key for description, value type is string.
+    /// Pointer to the key that describes the description of a media file. The value type is char *.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// Available since API-level: 10
     pub static mut OH_MD_KEY_DESCRIPTION: *const ::core::ffi::c_char;
-    /// source format Key for lyrics, value type is string.
+    /// Pointer to the key that describes the lyrics in a media file. The value type is char *.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// Available since API-level: 10
     pub static mut OH_MD_KEY_LYRICS: *const ::core::ffi::c_char;
-    /// source format Key for track count, value type is int32_t.
+    /// Pointer to the key that describes the number of tracks in a media file. The value type is int32_t.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// Available since API-level: 10
     pub static mut OH_MD_KEY_TRACK_COUNT: *const ::core::ffi::c_char;
-    /// Key for the desired encoding channel layout, value type is int64_t, this key is only supported for encoders.
+    /// Pointer to the key that describes the required encoding channel layout. The value type is int64_t. This key
+    /// applies only to encoders. For details, see `OH_AudioChannelLayout`.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// Available since API-level: 10
     pub static mut OH_MD_KEY_CHANNEL_LAYOUT: *const ::core::ffi::c_char;
-    /// Key for bits per coded sample, value type is int32_t, supported for flac encoder,
-    /// see [`OH_BitsPerSample`](crate::avcodec_base::OH_BitsPerSample).
+    /// Pointer to the key that describes the number of bits per sample. The value type is int32_t.
     ///
+    /// In versions earlier than API version 20, this parameter must be set to **1** for FLAC encoding. Otherwise,
+    /// [`OH_AudioCodec_Configure`](crate::avcodec_audiocodec::OH_AudioCodec_Configure) returns the error code [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL).
+    /// However, this parameter has no actual effect and does not affect the encoding result.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
+    /// Starting from API version 20, you do not need to set it anymore.
+    ///
     ///
     /// Available since API-level: 10
     pub static mut OH_MD_KEY_BITS_PER_CODED_SAMPLE: *const ::core::ffi::c_char;
-    /// Key for the aac format, value type is int32_t, supported for aac decoder.
+    /// Pointer to the key that describes the AAC format, which can be ADTS or LATM. The value type is int32_t. The
+    /// value **0** means the LATM format, and **1** means the ADTS format. This key is supported by AAC decoders.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// Available since API-level: 10
     pub static mut OH_MD_KEY_AAC_IS_ADTS: *const ::core::ffi::c_char;
-    /// Key for aac sbr mode, value type is int32_t, supported for aac encoder.
+    /// Pointer to the key that describes the AAC SBR format. The value type is int32_t. This key applies to AAC
+    /// encoders.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// Available since API-level: 10
     pub static mut OH_MD_KEY_SBR: *const ::core::ffi::c_char;
-    /// Key for flac compliance level, value type is int32_t.
+    /// Pointer to the key that describes the FLAC compliance level. The value type is int32_t. This key is used only
+    /// for audio encoding.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// Available since API-level: 10
     pub static mut OH_MD_KEY_COMPLIANCE_LEVEL: *const ::core::ffi::c_char;
-    /// Key for vorbis identification header, value type is a uint8_t pointer, supported only for vorbis decoder.
+    /// Pointer to the key that describes the vorbis identification header. The value type is uint8_t*. This key
+    /// applies only to Vorbis decoders.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// Available since API-level: 10
     pub static mut OH_MD_KEY_IDENTIFICATION_HEADER: *const ::core::ffi::c_char;
-    /// Key for vorbis setup header, value type is a uint8_t pointer, supported only for vorbis decoder.
+    /// Pointer to the key that describes the vorbis setup header. The value type is uint8_t*. This key applies only
+    /// to Vorbis decoders.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// Available since API-level: 10
     pub static mut OH_MD_KEY_SETUP_HEADER: *const ::core::ffi::c_char;
-    /// Key for video scale type, value type is int32_t, see [`OH_ScalingMode`](crate::avcodec_base::OH_ScalingMode).
+    /// Pointer to the key that describes the video scaling mode. The value type is int32_t.
+    /// For details, see [`OH_ScalingMode`](crate::avcodec_base::OH_ScalingMode).
     ///
+    /// You are advised to set the scaling mode by calling `OH_NativeWindow_NativeWindowSetScalingModeV2`. This key is
+    /// optional and is used only for video decoding in surface mode.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// **Deprecated** since 14
     ///
@@ -2003,578 +2973,1018 @@ extern "C" {
         note = "Use instead: OH_NativeWindow_NativeWindowSetScalingModeV2"
     )]
     pub static mut OH_MD_KEY_SCALING_MODE: *const ::core::ffi::c_char;
-    /// Key for max input buffer count, value type is int32_t.
+    /// Pointer to the key that describes the maximum number of input buffers. The value type is int32_t.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// Available since API-level: 10
     pub static mut OH_MD_MAX_INPUT_BUFFER_COUNT: *const ::core::ffi::c_char;
-    /// Key for max output buffer count, value type is int32_t.
+    /// Pointer to the key that describes the maximum number of output buffers. The value type is int32_t.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// Available since API-level: 10
     pub static mut OH_MD_MAX_OUTPUT_BUFFER_COUNT: *const ::core::ffi::c_char;
-    /// Key for audio codec compression level, value type is int32_t.
+    /// Pointer to the key that describes the audio codec compression level. The value type is int32_t type. This key
+    /// is used only for audio encoding.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub static mut OH_MD_KEY_AUDIO_COMPRESSION_LEVEL: *const ::core::ffi::c_char;
-    /// Key of the video is hdr vivid. value type is bool.
+    /// Pointer to the key that specifies whether the video track in a media file is HDR Vivid. The value type is
+    /// int32_t. This key is used for both multiplexing and demultiplexing.
     ///
+    /// The value **1** means the HDR Vivid video track, and **0** means other cases.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub static mut OH_MD_KEY_VIDEO_IS_HDR_VIVID: *const ::core::ffi::c_char;
-    /// Key for number of audio objects. value type is int32_t.
+    /// Pointer to the key that describes the number of audio objects. The value type is int32_t. This key is used
+    /// for Audio Vivid.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub static mut OH_MD_KEY_AUDIO_OBJECT_NUMBER: *const ::core::ffi::c_char;
-    /// Key for meta data of audio vivid. value type is a uint8_t pointer.
+    /// Pointer to the key that describes the Audio Vivid metadata. The value type is uint8_t*. This key is used
+    /// for Audio Vivid.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub static mut OH_MD_KEY_AUDIO_VIVID_METADATA: *const ::core::ffi::c_char;
-    /// Key for querying the maximum long-term reference count of video encoder, value type is int32_t.
-    /// You should query the count through interface [`OH_AVCapability_GetFeatureProperties`](crate::avcapability::OH_AVCapability_GetFeatureProperties)
-    /// with enum [`VIDEO_ENCODER_LONG_TERM_REFERENCE`](crate::avcapability::OH_AVCapabilityFeature::VIDEO_ENCODER_LONG_TERM_REFERENCE).
+    /// Pointer to the key that describes the maximum number of long-term reference (LTR) frames obtained during
+    /// video encoding. The value type is int32_t.
     ///
+    /// You can use the API [`OH_AVCapability_GetFeatureProperties`](crate::avcapability::OH_AVCapability_GetFeatureProperties) and the enumerated value
+    /// **VIDEO_ENCODER_LONG_TERM_REFERENCE** in [`OH_AVCapabilityFeature`](crate::avcapability::OH_AVCapabilityFeature) to query the maximum number.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub static mut OH_FEATURE_PROPERTY_KEY_VIDEO_ENCODER_MAX_LTR_FRAME_COUNT:
         *const ::core::ffi::c_char;
-    /// Key for enable the temporal scalability mode, value type is int32_t (0 or 1): 1 is enabled, 0 otherwise.
-    /// The default value is 0. To query supported, you should use the interface [`OH_AVCapability_IsFeatureSupported`](crate::avcapability::OH_AVCapability_IsFeatureSupported)
-    /// with enum [`VIDEO_ENCODER_TEMPORAL_SCALABILITY`](crate::avcapability::OH_AVCapabilityFeature::VIDEO_ENCODER_TEMPORAL_SCALABILITY). This is an optional key that applies only to video encoder.
-    /// It is used in configure.
+    /// Pointer to the key that describes the enabled status of temporal scalability. The value type is int32_t. **1**
+    /// if enabled, **0** otherwise. The default value is **0**. If this parameter is set to a non-zero value, the value **
+    /// 1** is used.
     ///
+    /// You can use the API [`OH_AVCapability_IsFeatureSupported`](crate::avcapability::OH_AVCapability_IsFeatureSupported) and the enumerated value
+    /// **VIDEO_ENCODER_TEMPORAL_SCALABILITY** in [`OH_AVCapabilityFeature`](crate::avcapability::OH_AVCapabilityFeature)
+    /// to check whether the current video encoder supports temporal scalability.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
+    /// For details, see Temporally Scalable Video Coding.
+    ///
+    /// This key is optional and used only in the configuration phase of video encoding.
+    ///
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub static mut OH_MD_KEY_VIDEO_ENCODER_ENABLE_TEMPORAL_SCALABILITY: *const ::core::ffi::c_char;
-    /// Key for describing the temporal group of picture size, value type is int32_t. It takes effect only when
-    /// temporal level scale is enable. This is an optional key that applies only to video encoder. It is used in configure.
+    /// Pointer to the key that describes the size of a temporal image group. The value type is int32_t. This key is
+    /// valid only when temporal scalability is enabled.
     ///
+    /// This key is optional and used only in the configuration phase of video encoding.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub static mut OH_MD_KEY_VIDEO_ENCODER_TEMPORAL_GOP_SIZE: *const ::core::ffi::c_char;
-    /// Key for describing the reference mode in temporal group of picture, value type is int32_t, see enum
-    /// [`OH_TemporalGopReferenceMode`](crate::avcodec_base::OH_TemporalGopReferenceMode). It takes effect only when temporal level scale is enabled.
-    /// This is an optional key that applies only to video encoder. It is used in configure.
+    /// Pointer to the key that describes the reference mode in a temporal image group. The value type is int32_t.
+    /// For details, see [`OH_TemporalGopReferenceMode`](crate::avcodec_base::OH_TemporalGopReferenceMode). This key is valid only when temporal scalability is enabled.
     ///
+    /// This key is optional and used only in the configuration phase of video encoding.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub static mut OH_MD_KEY_VIDEO_ENCODER_TEMPORAL_GOP_REFERENCE_MODE: *const ::core::ffi::c_char;
-    /// Key for describing the count of used long-term reference frames, value type is int32_t, must be within the
-    /// supported range. To get supported range, you should query whether the capability is supported through the interface
-    /// [`OH_AVCapability_GetFeatureProperties`](crate::avcapability::OH_AVCapability_GetFeatureProperties) with enum [`VIDEO_ENCODER_LONG_TERM_REFERENCE`](crate::avcapability::OH_AVCapabilityFeature::VIDEO_ENCODER_LONG_TERM_REFERENCE), otherwise, not set
-    /// the key. This is an optional key that applies only to video encoder. It is used in configure.
+    /// Pointer to the key that describes the temporal layer ID in a group of pictures (GOP).
+    /// The value type is int32_t.
+    ///
+    /// Temporal layer ID **0** indicates the base layer. Temporal layer IDs **1** and above indicate enhancement layers.
+    /// The maximum temporal layer ID is determined by **OH_MD_KEY_VIDEO_ENCODER_TEMPORAL_GOP_REFERENCE_MODE** and
+    /// **OH_MD_KEY_VIDEO_ENCODER_TEMPORAL_GOP_SIZE**.
+    /// Currently, this key is used only to query the temporal layer ID carried in **AVBuffer** output by the encoder.
+    /// The process is as follows:
+    /// 1. Use [`OH_AVCodecOnNewOutputBuffer`](crate::avcodec_base::OH_AVCodecOnNewOutputBuffer) or [`OH_VideoEncoder_GetOutputBuffer`](crate::avcodec_videoencoder::OH_VideoEncoder_GetOutputBuffer) to
+    /// obtain the buffer instance (**AVBuffer**).
+    /// 2. Use [`OH_AVBuffer_GetParameter`](crate::avbuffer::OH_AVBuffer_GetParameter) to obtain the parameter instance (**OH_AVFormat**),
+    /// which does not contain basic properties.
+    /// 3. Use [`OH_AVFormat_GetIntValue`](crate::avformat::OH_AVFormat_GetIntValue) and this key to obtain the temporal layer ID of the corresponding frame.
     ///
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub static mut OH_MD_KEY_VIDEO_ENCODER_TEMPORAL_LAYER_ID: *const ::core::ffi::c_char;
+    /// Key for describing the downsampling width in video encoder preprocess, value type is int32_t.
+    ///
+    /// It is used in configure or set parameter.
+    /// This key must be used with [`OH_MD_KEY_VIDEO_ENCODER_PREPROC_DOWNSAMPLING_HEIGHT`](crate::avcodec_base::OH_MD_KEY_VIDEO_ENCODER_PREPROC_DOWNSAMPLING_HEIGHT) together.
+    ///
+    /// Using restrictions:
+    /// 1. The downsampling width and height must be configured or set together.
+    /// If only one of them is configured, [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) will be returned.
+    /// 2. When the downsampling width and height are the same and qualified as zero, the downsampling is disabled.
+    /// 3. When the downsampling width and height are within the supported range, the downsampling is enabled.
+    /// It's recommended to query the supported downsampling range through
+    /// the interface [`OH_AVCapability_IsVideoSizeSupported`](crate::avcapability::OH_AVCapability_IsVideoSizeSupported).
+    /// 4. When the downsampling width and height are not within the supported range,
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) will be returned.
+    /// 5. Cannot be used together with crop parameters ([`OH_MD_KEY_VIDEO_ENCODER_PREPROC_CROP_LEFT`](crate::avcodec_base::OH_MD_KEY_VIDEO_ENCODER_PREPROC_CROP_LEFT),
+    /// [`OH_MD_KEY_VIDEO_ENCODER_PREPROC_CROP_TOP`](crate::avcodec_base::OH_MD_KEY_VIDEO_ENCODER_PREPROC_CROP_TOP), [`OH_MD_KEY_VIDEO_ENCODER_PREPROC_CROP_RIGHT`](crate::avcodec_base::OH_MD_KEY_VIDEO_ENCODER_PREPROC_CROP_RIGHT),
+    /// [`OH_MD_KEY_VIDEO_ENCODER_PREPROC_CROP_BOTTOM`](crate::avcodec_base::OH_MD_KEY_VIDEO_ENCODER_PREPROC_CROP_BOTTOM)).
+    /// If both downsampling and crop parameters are set through [`OH_VideoEncoder_Configure`](crate::avcodec_videoencoder::OH_VideoEncoder_Configure) or
+    /// [`OH_VideoEncoder_SetParameter`](crate::avcodec_videoencoder::OH_VideoEncoder_SetParameter), [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) will be returned.
+    ///
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub static mut OH_MD_KEY_VIDEO_ENCODER_PREPROC_DOWNSAMPLING_WIDTH: *const ::core::ffi::c_char;
+    /// Key for describing the downsampling height in video encoder preprocess, value type is int32_t.
+    ///
+    /// It is used in configure or set parameter.
+    /// This key must be used with [`OH_MD_KEY_VIDEO_ENCODER_PREPROC_DOWNSAMPLING_WIDTH`](crate::avcodec_base::OH_MD_KEY_VIDEO_ENCODER_PREPROC_DOWNSAMPLING_WIDTH) together.
+    /// Refer to [`OH_MD_KEY_VIDEO_ENCODER_PREPROC_DOWNSAMPLING_WIDTH`](crate::avcodec_base::OH_MD_KEY_VIDEO_ENCODER_PREPROC_DOWNSAMPLING_WIDTH) for more details on usage and restrictions.
+    ///
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub static mut OH_MD_KEY_VIDEO_ENCODER_PREPROC_DOWNSAMPLING_HEIGHT: *const ::core::ffi::c_char;
+    /// Key for describing the left-coordinate (x) of the crop rectangle in video encoder preprocess,
+    /// value type is int32_t.
+    ///
+    /// The value represents the left-most column included in the crop frame, where column indices start at 0.
+    /// The Caller must use "left, top, right, bottom" together to define the crop rectangle, corresponding to:
+    /// - [`OH_MD_KEY_VIDEO_ENCODER_PREPROC_CROP_LEFT`](crate::avcodec_base::OH_MD_KEY_VIDEO_ENCODER_PREPROC_CROP_LEFT)
+    /// - [`OH_MD_KEY_VIDEO_ENCODER_PREPROC_CROP_TOP`](crate::avcodec_base::OH_MD_KEY_VIDEO_ENCODER_PREPROC_CROP_TOP)
+    /// - [`OH_MD_KEY_VIDEO_ENCODER_PREPROC_CROP_RIGHT`](crate::avcodec_base::OH_MD_KEY_VIDEO_ENCODER_PREPROC_CROP_RIGHT)
+    /// - [`OH_MD_KEY_VIDEO_ENCODER_PREPROC_CROP_BOTTOM`](crate::avcodec_base::OH_MD_KEY_VIDEO_ENCODER_PREPROC_CROP_BOTTOM)
+    /// (left, top) is the coordinate of the top-left corner of the crop rectangle.
+    /// (right, bottom) is the coordinate of the bottom-right corner of the crop rectangle.
+    /// The width and height of the crop rectangle can be calculated as:
+    /// - width = right - left + 1
+    /// - height = bottom - top + 1
+    ///
+    /// Using restrictions:
+    /// 1. Crop left, top, right, bottom must be configured together. If only part of them is configured,
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) will be returned.
+    /// 2. When crop left, top, right, bottom are all 0, the crop is disabled.
+    /// 3. When the crop width, height are within the supported range, the crop is enabled.
+    /// It's recommended to query the supported crop range through
+    /// the interface [`OH_AVCapability_IsVideoSizeSupported`](crate::avcapability::OH_AVCapability_IsVideoSizeSupported).
+    /// 4. When the crop values are not within the supported range,
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) will be returned.
+    /// 5. Cannot be used together with downsampling parameters
+    /// ([`OH_MD_KEY_VIDEO_ENCODER_PREPROC_DOWNSAMPLING_WIDTH`](crate::avcodec_base::OH_MD_KEY_VIDEO_ENCODER_PREPROC_DOWNSAMPLING_WIDTH),
+    /// [`OH_MD_KEY_VIDEO_ENCODER_PREPROC_DOWNSAMPLING_HEIGHT`](crate::avcodec_base::OH_MD_KEY_VIDEO_ENCODER_PREPROC_DOWNSAMPLING_HEIGHT)).
+    /// If both crop and downsampling parameters are set through [`OH_VideoEncoder_Configure`](crate::avcodec_videoencoder::OH_VideoEncoder_Configure) or
+    /// [`OH_VideoEncoder_SetParameter`](crate::avcodec_videoencoder::OH_VideoEncoder_SetParameter), [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) will be returned.
+    /// 6. When crop is enabled, the encoder will only encode the cropped area of the input frame.
+    /// The content outside the crop rectangle will be discarded and not participate in encoding.
+    ///
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub static mut OH_MD_KEY_VIDEO_ENCODER_PREPROC_CROP_LEFT: *const ::core::ffi::c_char;
+    /// Key for describing the top-coordinate (y) of the crop rectangle in video encoder preprocess,
+    /// value type is int32_t.
+    ///
+    /// The value represents the top-most row included in the crop frame, where row indices start at 0.
+    /// Refer to [`OH_MD_KEY_VIDEO_ENCODER_PREPROC_CROP_LEFT`](crate::avcodec_base::OH_MD_KEY_VIDEO_ENCODER_PREPROC_CROP_LEFT) for more details on usage and restrictions.
+    ///
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub static mut OH_MD_KEY_VIDEO_ENCODER_PREPROC_CROP_TOP: *const ::core::ffi::c_char;
+    /// Key for describing the right-coordinate (x) of the crop rectangle in video encoder preprocess,
+    /// value type is int32_t.
+    ///
+    /// The value represents the right-most column included in the crop frame, where column indices start at 0.
+    /// Refer to [`OH_MD_KEY_VIDEO_ENCODER_PREPROC_CROP_LEFT`](crate::avcodec_base::OH_MD_KEY_VIDEO_ENCODER_PREPROC_CROP_LEFT) for more details on usage and restrictions.
+    ///
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub static mut OH_MD_KEY_VIDEO_ENCODER_PREPROC_CROP_RIGHT: *const ::core::ffi::c_char;
+    /// Key for describing the bottom-coordinate (y) of the crop rectangle in video encoder preprocess,
+    /// value type is int32_t.
+    ///
+    /// The value represents the bottom-most row included in the crop frame, where row indices start at 0.
+    /// Refer to [`OH_MD_KEY_VIDEO_ENCODER_PREPROC_CROP_LEFT`](crate::avcodec_base::OH_MD_KEY_VIDEO_ENCODER_PREPROC_CROP_LEFT) for more details on usage and restrictions.
+    ///
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub static mut OH_MD_KEY_VIDEO_ENCODER_PREPROC_CROP_BOTTOM: *const ::core::ffi::c_char;
+    /// Key for describing the drop frame rate in video encoder preprocess, value type is double.
+    ///
+    /// It is used in configure or set parameter.
+    /// The caller must ensure original frame rate is set, refer to [`OH_MD_KEY_FRAME_RATE`](crate::avcodec_base::OH_MD_KEY_FRAME_RATE).
+    /// The value precision is retained to 2 decimal places using round half up.
+    ///
+    /// Using restrictions:
+    /// 1. When value is set to 0.0, the drop frame is disabled.
+    /// 2. When value is set to positive value and less than original frame rate,
+    /// it will drop frames to match the set frame rate.
+    /// 3. When value is set to negative value or equal to or greater than original frame rate,
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) will be returned.
+    /// 4. Can be used together with downsampling parameters
+    /// ([`OH_MD_KEY_VIDEO_ENCODER_PREPROC_DOWNSAMPLING_WIDTH`](crate::avcodec_base::OH_MD_KEY_VIDEO_ENCODER_PREPROC_DOWNSAMPLING_WIDTH),
+    /// [`OH_MD_KEY_VIDEO_ENCODER_PREPROC_DOWNSAMPLING_HEIGHT`](crate::avcodec_base::OH_MD_KEY_VIDEO_ENCODER_PREPROC_DOWNSAMPLING_HEIGHT)).
+    /// 5. Can be used together with crop parameters
+    /// ([`OH_MD_KEY_VIDEO_ENCODER_PREPROC_CROP_LEFT`](crate::avcodec_base::OH_MD_KEY_VIDEO_ENCODER_PREPROC_CROP_LEFT),
+    /// [`OH_MD_KEY_VIDEO_ENCODER_PREPROC_CROP_TOP`](crate::avcodec_base::OH_MD_KEY_VIDEO_ENCODER_PREPROC_CROP_TOP),
+    /// [`OH_MD_KEY_VIDEO_ENCODER_PREPROC_CROP_RIGHT`](crate::avcodec_base::OH_MD_KEY_VIDEO_ENCODER_PREPROC_CROP_RIGHT),
+    /// [`OH_MD_KEY_VIDEO_ENCODER_PREPROC_CROP_BOTTOM`](crate::avcodec_base::OH_MD_KEY_VIDEO_ENCODER_PREPROC_CROP_BOTTOM)).
+    /// 6. Processing order when combined: drop frame will be executed first, then downsampling or crop.
+    ///
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub static mut OH_MD_KEY_VIDEO_ENCODER_PREPROC_DROP_TO_FRAME_RATE: *const ::core::ffi::c_char;
+    /// Pointer to the key that describes the number of LTR frames. The value type is int32_t. The value must be
+    /// within the supported value range.
+    ///
+    /// Before using this key, you can use the API [`OH_AVCapability_GetFeatureProperties`](crate::avcapability::OH_AVCapability_GetFeatureProperties) and the enumerated value
+    /// **VIDEO_ENCODER_LONG_TERM_REFERENCE** in [`OH_AVCapabilityFeature`](crate::avcapability::OH_AVCapabilityFeature) to query the number of supported LTR frames.
+    /// This key is optional and used only in the configuration phase of video encoding.
+    ///
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub static mut OH_MD_KEY_VIDEO_ENCODER_LTR_FRAME_COUNT: *const ::core::ffi::c_char;
-    /// Key for describing mark this frame as a long term reference frame, value type is int32_t (0 or 1): 1 is mark,
-    /// 0 otherwise. It takes effect only when the number of used long term reference frames is configured. This is an
-    /// optional key that applies only to video encoder input loop. It takes effect immediately.
+    /// Pointer to the key that specifies whether the current frame is marked as an LTR frame. The value type is
+    /// int32_t. **1** if marked, **0** otherwise. The default value is **0**. If this parameter is set to a non-zero value,
+    /// the value **1** is used.
     ///
+    /// This key takes effect only after the number of LTR frames is configured.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
+    /// This key is optional and is used only for video encoding input rotation. The configuration takes effect immediately.
+    ///
+    /// For details, see Temporally Scalable Video Coding.
+    ///
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub static mut OH_MD_KEY_VIDEO_ENCODER_PER_FRAME_MARK_LTR: *const ::core::ffi::c_char;
-    /// Key for describing the long term reference frame poc referenced by this frame, value type is int32_t. This is
-    /// an optional key that applies only to video encoder input loop. It takes effect immediately.
+    /// Pointer to the key that describes the POC number of the LTR frame referenced by the current frame. The value
+    /// type is int32_t.
     ///
+    /// This key is optional and is used only for video encoding input rotation. The configuration takes effect immediately.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
+    /// For details, see Temporally Scalable Video Coding.
+    ///
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub static mut OH_MD_KEY_VIDEO_ENCODER_PER_FRAME_USE_LTR: *const ::core::ffi::c_char;
-    /// Key for indicating this frame is a long-term reference frame, value type is int32_t (0 or 1): 1 is LTR,
-    /// 0 otherwise. This is an optional key that applies only to video encoder output loop.
-    /// It indicates the attribute of the frame.
+    /// Pointer to the key that specifies whether the frame corresponding to the stream output from the current
+    /// OH_AVBuffer is marked as an LTR frame. The value type is int32_t. **1** if marked, **0** otherwise. The default
+    /// value is **0**. If this parameter is set to a non-zero value, the value **1** is used.
     ///
+    /// This key is optional and is used only for video encoding output rotation.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
+    /// It indicates the attribute of a frame.
+    ///
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub static mut OH_MD_KEY_VIDEO_PER_FRAME_IS_LTR: *const ::core::ffi::c_char;
-    /// Key for describing the frame poc, value type is int32_t. This is an optional key that applies only to video
-    /// encoder output loop. It indicates the attribute of the frame.
+    /// Pointer to the key that describes the POC of the frame. The value type is int32_t.
     ///
+    /// This key is optional and is used only for video encoding output rotation.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
+    /// It indicates the attribute of a frame.
+    ///
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub static mut OH_MD_KEY_VIDEO_PER_FRAME_POC: *const ::core::ffi::c_char;
-    /// Key for describing the top-coordinate (y) of the crop rectangle, value type is int32_t. This is the top-most
-    /// row included in the crop frame, where row indices start at 0.
+    /// Pointer to the key that describes the top coordinate (y) of the cropped rectangle. The value type is int32_t.
     ///
+    /// The row at the top of the cropped rectangle is contained, and the row index starts from 0.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
+    /// This key is used only for video decoding.
+    ///
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub static mut OH_MD_KEY_VIDEO_CROP_TOP: *const ::core::ffi::c_char;
-    /// Key for describing the bottom-coordinate (y) of the crop rectangle, value type is int32_t. This is the
-    /// bottom-most row included in the crop frame, where row indices start at 0.
+    /// Pointer to the key that describes the bottom coordinate (y) of the cropped rectangle. The value type is
+    /// int32_t.
     ///
+    /// The row at the bottom of the cropped rectangle is contained, and the row index starts from 0.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
+    /// This key is used only for video decoding.
+    ///
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub static mut OH_MD_KEY_VIDEO_CROP_BOTTOM: *const ::core::ffi::c_char;
-    /// Key for describing the left-coordinate (x) of the crop rectangle, value type is int32_t.
-    /// This is the left-most column included in the crop frame, where column indices start at 0.
+    /// Pointer to the key that describes the left coordinate (x) of the cropped rectangle. The value type is int32_t.
     ///
+    /// The leftmost column of the cropped rectangle is contained, and the column index starts from 0.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
+    /// This key is used only for video decoding.
+    ///
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub static mut OH_MD_KEY_VIDEO_CROP_LEFT: *const ::core::ffi::c_char;
-    /// Key for describing the right-coordinate (x) of the crop rectangle, value type is int32_t. This is the
-    /// right-most column included in the crop frame, where column indices start at 0.
+    /// Pointer to the key that describes the right coordinate (x) of the cropped rectangle. The value type is
+    /// int32_t.
     ///
+    /// The rightmost column of the cropped rectangle is contained, and the column index starts from 0.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
+    /// This key is used only for video decoding.
+    ///
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub static mut OH_MD_KEY_VIDEO_CROP_RIGHT: *const ::core::ffi::c_char;
-    /// Key for describing the stride of the video buffer layout, value type is int32_t. Stride (or row increment) is
-    /// the difference between the index of a pixel and that of the pixel directly underneath. For YUV 420 formats, the
-    /// stride corresponds to the Y plane; the stride of the U and V planes can be calculated based on the color format,
-    /// though it is generally undefined and depends on the device and release.
+    /// Pointer to the key that describes the stride of the video frame. The value type is int32_t.
     ///
+    /// Stride indicates the byte distance between the start positions of two consecutive rows in memory.
+    /// Due to hardware alignment requirements, the stride is typically greater than or equal to the image's active width.
+    /// When the stride equals the width, there is no horizontal padding. You should always obtain the actual stride through
+    /// [`OH_VideoEncoder_GetInputDescription`](crate::avcodec_videoencoder::OH_VideoEncoder_GetInputDescription) (for encoding),
+    /// [`OH_VideoDecoder_GetOutputDescription`](crate::avcodec_videodecoder::OH_VideoDecoder_GetOutputDescription) (for decoding), or **OH_AVFormat** in
+    /// the [`OH_AVCodecOnStreamChanged`](crate::avcodec_base::OH_AVCodecOnStreamChanged) callback, instead of assuming a fixed value.
+    /// For details about the example, see step 8 in [video encoding](docroot://media/avcodec/video-encoding.md#buffer-mode)
+    /// in buffer mode or step 11 in [video decoding](docroot://media/avcodec/video-decoding.md#buffer-mode) in buffer mode.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub static mut OH_MD_KEY_VIDEO_STRIDE: *const ::core::ffi::c_char;
-    /// Key for describing the plane height of a multi-planar (YUV) video buffer layout, value type is int32_t.
-    /// Slice height (or plane height/vertical stride) is the number of rows that must be skipped to get from
-    /// the top of the Y plane to the top of the U plane in the buffer. In essence the offset of the U plane
-    /// is sliceHeight * stride. The height of the U/V planes can be calculated based on the color format,
-    /// though it is generally undefined and depends on the device and release.
+    /// Pointer to the key that describes the height of the video frame. The value type is int32_t.
     ///
+    /// Height indicates the total number of rows allocated in the memory for a single plane. Due to hardware alignment
+    /// requirements, **sliceHeight** is typically greater than or equal to the image's active height.
+    /// The offset of the start address of the U plane relative to the origin of the Y plane is **sliceHeight** x **stride**.
+    /// You should always obtain the actual height through [`OH_VideoEncoder_GetInputDescription`](crate::avcodec_videoencoder::OH_VideoEncoder_GetInputDescription) (for encoding),
+    /// [`OH_VideoDecoder_GetOutputDescription`](crate::avcodec_videodecoder::OH_VideoDecoder_GetOutputDescription) (for decoding), or **OH_AVFormat** in
+    /// the [`OH_AVCodecOnStreamChanged`](crate::avcodec_base::OH_AVCodecOnStreamChanged) callback, instead of assuming a fixed value.
+    /// For details about the example, see step 8 in [video encoding](docroot://media/avcodec/video-encoding.md#buffer-mode)
+    /// in buffer mode or step 11 in [video decoding](docroot://media/avcodec/video-decoding.md#buffer-mode) in buffer mode.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub static mut OH_MD_KEY_VIDEO_SLICE_HEIGHT: *const ::core::ffi::c_char;
-    /// Key for describing the valid picture width of the video, value type is int32_t.
-    /// Get the value from an OH_AVFormat instance, which obtained by calling [`OH_VideoDecoder_GetOutputDescription`](crate::avcodec_videodecoder::OH_VideoDecoder_GetOutputDescription)
-    /// or [`OH_AVCodecOnStreamChanged`](crate::avcodec_base::OH_AVCodecOnStreamChanged).
+    /// Pointer to the key that describes the actual active width of a decoded video frame. The value type is int32_t.
+    /// This key is read-only and used only for video decoding.
     ///
+    /// You can obtain the width from the returned **OH_AVFormat** instance when [`OH_VideoDecoder_GetOutputDescription`](crate::avcodec_videodecoder::OH_VideoDecoder_GetOutputDescription)
+    /// is called or decoded output stream changes are detected through the [`OH_AVCodecOnStreamChanged`](crate::avcodec_base::OH_AVCodecOnStreamChanged)
+    /// callback. This value indicates the visible width after cropping, which is different from **OH_MD_KEY_WIDTH** set in
+    /// the configuration phase. The latter is a configuration hint used for pre-allocating buffers. When cropping is
+    /// applied, this value (rather than the stride) should be used as the actual width for displaying or saving the image.
+    /// For details about the image layout and usage example, see step 8 in
+    /// [video encoding](docroot://media/avcodec/video-encoding.md#buffer-mode) in buffer mode or
+    /// step 11 in [video decoding](docroot://media/avcodec/video-decoding.md#buffer-mode) in buffer mode.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub static mut OH_MD_KEY_VIDEO_PIC_WIDTH: *const ::core::ffi::c_char;
-    /// Key for describing the valid picture height of the video, value type is int32_t.
-    /// Get the value from an OH_AVFormat instance, which obtained by calling [`OH_VideoDecoder_GetOutputDescription`](crate::avcodec_videodecoder::OH_VideoDecoder_GetOutputDescription)
-    /// or [`OH_AVCodecOnStreamChanged`](crate::avcodec_base::OH_AVCodecOnStreamChanged).
+    /// Pointer to the key that describes the actual active height of a decoded video frame.
+    /// The value type is int32_t. This key is read-only and used only for video decoding.
     ///
+    /// You can obtain the height from the returned **OH_AVFormat** instance when
+    /// [`OH_VideoDecoder_GetOutputDescription`](crate::avcodec_videodecoder::OH_VideoDecoder_GetOutputDescription) is called or decoded output bitstream changes are detected through
+    /// the [`OH_AVCodecOnStreamChanged`](crate::avcodec_base::OH_AVCodecOnStreamChanged) callback. This value indicates the visible height after cropping,
+    /// which is different from **OH_MD_KEY_HEIGHT** set in the configuration phase. The latter is a configuration hint used
+    /// for pre-allocating buffers. When cropping is applied, this value (rather than **sliceHeight**) should be used as the
+    /// actual height for displaying or saving the image.
+    /// For details about the image layout and usage example, see step 8
+    /// in [video encoding](docroot://media/avcodec/video-encoding.md#buffer-mode) in buffer mode or
+    /// step 11 in [video decoding](docroot://media/avcodec/video-decoding.md#buffer-mode) in buffer mode.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub static mut OH_MD_KEY_VIDEO_PIC_HEIGHT: *const ::core::ffi::c_char;
-    /// Key to enable the low latency mode, value type is int32_t (0 or 1):1 is enabled, 0 otherwise.
-    /// If enabled, the video decoder doesn't hold input and output data more than required by
-    /// the codec standards. This is an optional key that applies only to video decoder.
-    /// It is used in configure.
+    /// Pointer to the key that describes the enabled status of low-latency video decoding. The value type is int32_t.
+    /// **1** if enabled, **0** otherwise. The default value is **0**. If this parameter is set to a non-zero value, the
+    /// value **1** is used.
     ///
+    /// This key is optional and used only in the configuration phase.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
+    /// If enabled, the input and output data held by the video decoder does not exceed the amount required by the decoder
+    /// standard.
+    ///
+    /// You can call [`OH_AVCapability_IsFeatureSupported`](crate::avcapability::OH_AVCapability_IsFeatureSupported) to check whether a specific decoder supports low-latency
+    /// decoding. If supported, the video decoder outputs frames in the decoding sequence when low-latency video codec is
+    /// enabled.
+    ///
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub static mut OH_MD_KEY_VIDEO_ENABLE_LOW_LATENCY: *const ::core::ffi::c_char;
-    /// Key for describing the maximum quantization parameter allowed for video encoder, value type is int32_t.
-    /// It is used in configure/setparameter or takes effect immediately with the frame.
+    /// Pointer to the key that describes the maximum Quantization Parameter (QP) allowed by the video encoder. The
+    /// value type is int32_t.
     ///
+    /// Tt is used in configure/setparameter or takes effect immediately with the frame.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub static mut OH_MD_KEY_VIDEO_ENCODER_QP_MAX: *const ::core::ffi::c_char;
-    /// Key for describing the minimum quantization parameter allowed for video encoder, value type is int32_t.
+    /// Pointer to the key that describes the minimum QP allowed by the video encoder. The value type is int32_t.
+    ///
     /// It is used in configure/setparameter or takes effect immediately with the frame.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub static mut OH_MD_KEY_VIDEO_ENCODER_QP_MIN: *const ::core::ffi::c_char;
-    /// Key for describing the video frame averge quantization parameter, value type is int32_t.
-    /// This is a part of a video encoder statistics export feature. This value is emitted from video encoder for a video
-    /// frame.
+    /// Pointer to the key that describes the average QP of video frames. The value type is int32_t.
     ///
+    /// Pointer to the key that describes the average QP value of the current frame encoding block.
+    /// It is output with [`OH_AVBuffer`](crate::avbuffer::OH_AVBuffer).
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub static mut OH_MD_KEY_VIDEO_ENCODER_QP_AVERAGE: *const ::core::ffi::c_char;
-    /// Key for describing video frame mean squared error, value type is double.
-    /// This is a part of a video encoder statistics export feature. This value is emitted from video encoder for a video
-    /// frame.
+    /// Pointer to the key that describes the Mean Squared Error (MSE) of video frames. The value type is double.
     ///
+    /// Pointer to the key that describes the average MSE value of the current frame encoding block.
+    /// It is output with [`OH_AVBuffer`](crate::avbuffer::OH_AVBuffer).
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub static mut OH_MD_KEY_VIDEO_ENCODER_MSE: *const ::core::ffi::c_char;
-    /// Key for decoding timestamp of the buffer in microseconds, value type is int64_t.
+    /// Pointer to the key that describes the decoding timestamp corresponding to the audio, video, or subtitle
+    /// sample carried in AVBuffer, in microseconds. The value type is int64_t.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub static mut OH_MD_KEY_DECODING_TIMESTAMP: *const ::core::ffi::c_char;
-    /// Key for duration of the buffer in microseconds, value type is int64_t.
+    /// Pointer to the key that describes the duration corresponding to the audio, video, or subtitle sample carried
+    /// in AVBuffer, in microseconds. The value type is int64_t.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub static mut OH_MD_KEY_BUFFER_DURATION: *const ::core::ffi::c_char;
-    /// Key for sample aspect ratio, value type is double.
+    /// Pointer to the key that describes the aspect ratio of the sample. The value type is double.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub static mut OH_MD_KEY_VIDEO_SAR: *const ::core::ffi::c_char;
-    /// Key for start time of the first frame in the media file in microseconds, value type is int64_t.
+    /// Pointer to the key that describes the start time of the first frame in a media file, measured in microseconds.
+    /// The value type is int64_t.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub static mut OH_MD_KEY_START_TIME: *const ::core::ffi::c_char;
-    /// Key for start time of track in microseconds, value type is int64_t.
+    /// Pointer to the key that describes the start time of the track, measured in microseconds. The value type is
+    /// int64_t.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub static mut OH_MD_KEY_TRACK_START_TIME: *const ::core::ffi::c_char;
-    /// Key for setting the output color space of video decoder. The value type is int32_t.
-    /// The supported value is `OH_COLORSPACE_BT709_LIMIT`, see `OH_NativeBuffer_ColorSpace`. It is used in
-    /// [`OH_VideoDecoder_Configure`](crate::avcodec_videodecoder::OH_VideoDecoder_Configure). If the color space conversion capability is supported and this key is configured,
-    /// the video decoder will automatically transcode an HDR Vivid video to an SDR video with color space BT709.
-    /// If color space conversion capability is not supported, [`OH_VideoDecoder_Configure`](crate::avcodec_videodecoder::OH_VideoDecoder_Configure) returns
-    /// [`AV_ERR_VIDEO_UNSUPPORTED_COLOR_SPACE_CONVERSION`](crate::averrors::OH_AVErrCode::AV_ERR_VIDEO_UNSUPPORTED_COLOR_SPACE_CONVERSION).
-    /// If the input video is not an HDR vivid video, an error [`AV_ERR_VIDEO_UNSUPPORTED_COLOR_SPACE_CONVERSION`](crate::averrors::OH_AVErrCode::AV_ERR_VIDEO_UNSUPPORTED_COLOR_SPACE_CONVERSION) will
-    /// be reported by callback function [`OH_AVCodecOnError`](crate::avcodec_base::OH_AVCodecOnError).
+    /// Pointer to the key that describes the output color space of the video decoder. The value type is int32_t.
     ///
+    /// The supported value is **OH_COLORSPACE_BT709_LIMIT**. For details, see `OH_NativeBuffer_ColorSpace`.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
+    /// It is used in [`OH_VideoDecoder_Configure`](crate::avcodec_videodecoder::OH_VideoDecoder_Configure).
+    ///
+    /// Before calling [`OH_VideoDecoder_Start`](crate::avcodec_videodecoder::OH_VideoDecoder_Start), you must call [`OH_VideoDecoder_Prepare`](crate::avcodec_videodecoder::OH_VideoDecoder_Prepare).
+    ///
+    /// If Color Space Conversion (CSC) is supported and this key is configured, the video decoder automatically transcodes
+    /// the HDR Vivid video to the specified color space.
+    ///
+    /// If CSC is not supported, the error code **AV_ERR_VIDEO_UNSUPPORTED_COLOR_SPACE_CONVERSION** in [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
+    /// is returned when [`OH_VideoDecoder_Configure`](crate::avcodec_videodecoder::OH_VideoDecoder_Configure) is called. If the input video is not an HDR Vivid video,
+    /// the callback function [`OH_AVCodecOnError`](crate::avcodec_base::OH_AVCodecOnError) is invoked to report the error code
+    /// **AV_ERR_VIDEO_UNSUPPORTED_COLOR_SPACE_CONVERSION** in [`OH_AVErrCode`](crate::averrors::OH_AVErrCode).
+    ///
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub static mut OH_MD_KEY_VIDEO_DECODER_OUTPUT_COLOR_SPACE: *const ::core::ffi::c_char;
-    /// Key for describing if enable VRR or not, value type is int32_t (0 or 1): 1 is enabled, 0 otherwise.
-    /// This is an optional key that applies only to video decoder. It is used in configure.
+    /// Pointer to the key that specifies whether the decoder enables the video variable frame rate feature. The
+    /// value type is int32_t.
+    /// **1** if enabled, **0** otherwise.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub static mut OH_MD_KEY_VIDEO_DECODER_OUTPUT_ENABLE_VRR: *const ::core::ffi::c_char;
-    /// Key for creation timestamp of a media file, value type is string.
+    /// Pointer to the key that describes the media file creation time. The value type is char *. The value must be
+    /// in the UTC time format complying with ISO 8601. Time format example: 2024-12-28T00:00:00:000000Z
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// Available since API-level: 14
     #[cfg(feature = "api-14")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
     pub static mut OH_MD_KEY_CREATION_TIME: *const ::core::ffi::c_char;
-    /// Key applies only when configuring a video encoder in surface mode, value type is int32_t.
-    /// If no new frame became available since the last frame submitted to the encoder,
-    /// it will submit the previous frame repeatedly in milliseconds. It is used in configure.
+    /// Pointer to the key that describes the duration (in milliseconds) for which the last frame will be resubmitted
+    /// repeatedly, if no new frame is available after the previous frame is submitted to the encoder. The value type is
+    /// int32_t.
     ///
+    /// This key is used only in the configuration phase of video encoding in surface mode.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
+    /// Configured value:
+    ///
+    /// - If the value is less than or equal to 0, the request is intercepted in the configuration phase and ERROR
+    /// AV_ERR_INVALID_VAL is returned.
+    ///
+    /// - If the value is greater than 0, the last frame will be resubmitted repeatedly in the specified duration, measured
+    /// in milliseconds.
+    ///
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
     pub static mut OH_MD_KEY_VIDEO_ENCODER_REPEAT_PREVIOUS_FRAME_AFTER: *const ::core::ffi::c_char;
-    /// Key for describing the maximum count that the frame previously submitted to the encoder will be
-    /// repeated, in case no new frame has been available since, value type is int32_t. This key takes effect only when
-    /// `VIDEO_ENCODER_REPEAT_PREVIOUS_FRAME_AFTER` is valid. It is used in configure.
+    /// Pointer to the key that describes the maximum number of times the encoder can repeat encoding the previous
+    /// frame when no new frame is available. The value type is int32_t.
     ///
+    /// This key takes effect only when **OH_MD_KEY_VIDEO_ENCODER_REPEAT_PREVIOUS_FRAME_AFTER** is available and is used
+    /// only in the configuration phase.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
+    /// Configured value.
+    ///
+    /// - If the value is equal to 0, the request is intercepted in the configuration phase and **ERROR AV_ERR_INVALID_VAL**
+    /// is returned.
+    ///
+    /// - If the value is less than 0 and no new frame is available, the encoder repeatedly encodes the previous frame until
+    /// the upper limit of the system is reached.
+    ///
+    /// - If the value is greater than 0 and no new frame is available, the encoder repeatedly encodes the previous frame
+    /// until the maximum number specified is reached.
+    ///
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
     pub static mut OH_MD_KEY_VIDEO_ENCODER_REPEAT_PREVIOUS_MAX_COUNT: *const ::core::ffi::c_char;
-    /// Key to enable B-frame encoding, value type is int32_t (0 or 1): 1 is enabled, 0 otherwise.
+    /// Pointer to the key that describes the enabled status of B-frame encoding. The value type is int32_t (**0** or
+    /// **1**). **1** if enabled, **0** otherwise. This key is optional and used only for video encoding. The default value
+    /// is **0**.
     ///
-    /// This is an optional key that applies only to video encoder, default is 0.
+    /// If enabled, the video encoder uses B-frames, resulting in a different decoding order from the display order.
     ///
-    /// If enabled, the video encoder will use B-frame, the decode order will be different from the display order.
+    /// If the platform does not support this feature, the configuration of this key does not take effect.
     ///
-    /// For unsupported platforms, Configuring this key will have no effect.
+    /// To check whether the platform supports B-frame encoding, use the [`OH_AVCapability_IsFeatureSupported`](crate::avcapability::OH_AVCapability_IsFeatureSupported) API and
+    /// the enumerated value [`OH_AVCapabilityFeature`](crate::avcapability::OH_AVCapabilityFeature) VIDEO_ENCODER_B_FRAME.
     ///
-    /// Platform capability can be checked via [`OH_AVCapability_IsFeatureSupported`](crate::avcapability::OH_AVCapability_IsFeatureSupported) with
-    /// [`OH_AVCapabilityFeature::VIDEO_ENCODER_B_FRAME`](crate::avcapability::OH_AVCapabilityFeature::VIDEO_ENCODER_B_FRAME).
+    /// This key is used only in the configuration phase.
     ///
-    /// It's only used in configuration phase.
-    ///
-    ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub static mut OH_MD_KEY_VIDEO_ENCODER_ENABLE_B_FRAME: *const ::core::ffi::c_char;
-    /// Key for describing the maximum B-frame count of video encoder, value type is int32_t.
+    /// Pointer to the key that describes the maximum number of consecutive B-frames supported by the video encoder.
+    /// The value type is int32_t. Note: This key is used only to query the encoder capability.
     ///
-    /// Note: This key is only for querying the capability of the codec currently.
-    /// Usage specifications:
-    /// 1. Check feature support via [`OH_AVCapability_IsFeatureSupported`](crate::avcapability::OH_AVCapability_IsFeatureSupported) with
-    /// [`OH_AVCapabilityFeature::VIDEO_ENCODER_B_FRAME`](crate::avcapability::OH_AVCapabilityFeature::VIDEO_ENCODER_B_FRAME).
+    /// The usage specifications are as follows:
     ///
-    /// 2. Obtain OH_AVFormat handle via [`OH_AVCapability_GetFeatureProperties`](crate::avcapability::OH_AVCapability_GetFeatureProperties) with
-    /// [`OH_AVCapabilityFeature::VIDEO_ENCODER_B_FRAME`](crate::avcapability::OH_AVCapabilityFeature::VIDEO_ENCODER_B_FRAME).
+    /// 1. To check whether the platform supports B-frame encoding, use the [`OH_AVCapability_IsFeatureSupported`](crate::avcapability::OH_AVCapability_IsFeatureSupported) API
+    /// and the enumerated value [`OH_AVCapabilityFeature`](crate::avcapability::OH_AVCapabilityFeature) VIDEO_ENCODER_B_FRAME.
     ///
-    /// 3. Get maximum B-frame count via [`OH_AVFormat_GetIntValue`](crate::avformat::OH_AVFormat_GetIntValue) with this key.
+    /// 2. Obtain the OH_AVFormat pointer through the [`OH_AVCapability_GetFeatureProperties`](crate::avcapability::OH_AVCapability_GetFeatureProperties) API and
+    /// the enumerated value [`OH_AVCapabilityFeature`](crate::avcapability::OH_AVCapabilityFeature) VIDEO_ENCODER_B_FRAME.
     ///
+    /// 3. Obtain the maximum number of B-frames through the [`OH_AVFormat_GetIntValue`](crate::avformat::OH_AVFormat_GetIntValue) API and this key.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub static mut OH_MD_KEY_VIDEO_ENCODER_MAX_B_FRAMES: *const ::core::ffi::c_char;
-    /// Key to set the region of interest(ROI) as QpOffset-Rects, value type is string in the format
-    /// "Top1,Left1-Bottom1,Right1=Offset1;Top2,Left2-Bottom2,Right2=Offset2;". Each "Top,Left-Bottom,Right=Offset"
-    /// represents the coordinate information and quantization parameter of one ROI. Each "=Offset" in the string
-    /// can be omitted, like "Top1,Left1-Bottom1,Right1;Top2,Left2-Bottom2,Right2=Offset2;", the encoder
-    /// will use the default quantization parameter to perform the ROI encoding on the first ROI and
-    /// use Offset2 on the second ROI.
+    /// Key to set the region of interest(ROI) parameters. Value type is string in the format
+    /// "Top1,Left1-Bottom1,Right1\[=Params1\];Top2,Left2-Bottom2,Right2\[=Params2\];".
+    ///
+    /// Each "Top,Left-Bottom,Right" represents the coordinate information of one ROI.
+    /// The "\[=Params\]" is optional.
+    /// The format of "\[=Params\]" varies by version:
+    /// 1. Prior to version 26.0.0: Only a single int32_t value representing the
+    /// quantization parameter offset is supported (e.g., "=Offset").
+    /// 2. Since version 26.0.0: A Key-Value format is additionally supported and recommended.
+    /// It uses comma-separated key-value pairs (e.g., "=dqp:-6,slb:1").
+    /// Supported keys:
+    /// - "dqp": Quantization parameter offset.
+    /// - "slb": Semantic label. The value must correspond to [`OH_VideoMetadataRoiSemanticLabel`](crate::avcodec_videobase::OH_VideoMetadataRoiSemanticLabel).
+    ///
+    /// If "=Params" is omitted entirely, like "Top1,Left1-Bottom1,Right1;Top2,Left2-Bottom2,Right2=dqp:-6;",
+    /// the encoder will use the default parameters to perform the ROI encoding on the first ROI and
+    /// use the specified parameters on the second ROI.
+    /// Note that the number of ROIs that can be applied simultaneously does not exceed six, and the total area must
+    /// not exceed one-fifth of the total image area.
     ///
     /// This is an optional key that applies only to video encoder.
     /// It is used in running process and is set with each frame.
     /// In surface mode, it is used in [`OH_VideoEncoder_OnNeedInputParameter`](crate::avcodec_videoencoder::OH_VideoEncoder_OnNeedInputParameter).
     /// In buffer mode, it is configured via [`OH_AVBuffer_SetParameter`](crate::avbuffer::OH_AVBuffer_SetParameter).
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
+    ///
+    /// **Note:** Since version 26.0.0, it is highly recommended to use [`OH_VideoMetadata_AppendRoiString`](crate::avcodec_videobase::OH_VideoMetadata_AppendRoiString) to format
+    /// and append ROI configurations safely instead of concatenating the string manually.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub static mut OH_MD_KEY_VIDEO_ENCODER_ROI_PARAMS: *const ::core::ffi::c_char;
-    /// Key for front moov of the mp4 and m4a media file, value type is int32_t (0 or 1):1 is enabled, 0 otherwise.
-    /// This key may affect the performance of the stop function of the mp4 and m4a muxer.
+    /// Pointer to the key that specifies whether the moov metadata should be at the front of a media file. The value
+    /// type is int32_t. The value **1** indicates that the moov metadata should be at the front of a media file, and **0**
+    /// indicates that the moov metadata should not be at the front of a media file. The default value is **0**.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub static mut OH_MD_KEY_ENABLE_MOOV_FRONT: *const ::core::ffi::c_char;
-    /// Key for the desired encoding quality, value type is int32_t, this key is only
-    /// supported for encoders that are configured in Stable Quality RateControl, the higher
-    /// values generally result in more efficient(smaller-sized) encoding.
+    /// Pointer to the key that describes the quality parameter in SQR mode. The value range is \[0, 51\] (same as the
+    /// QP value in encoding). A smaller value indicates a higher output bit rate and better quality.
     ///
+    /// It is used in the configuration or parameter setting phase.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub static mut OH_MD_KEY_SQR_FACTOR: *const ::core::ffi::c_char;
-    /// Key for maximum bitrate, value type is int64_t.
+    /// Pointer to the key that describes the maximum bit rate in SQR mode. The value range can be obtained by
+    /// calling [`OH_AVCapability_GetEncoderBitrateRange`](crate::avcapability::OH_AVCapability_GetEncoderBitrateRange) and is the same as that of **OH_MD_KEY_BITRATE**. The unit is
+    /// bit/s. The value type is int64_t.
     ///
+    /// It is used in the configuration or parameter setting phase.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub static mut OH_MD_KEY_MAX_BITRATE: *const ::core::ffi::c_char;
-    /// Key for describing the reference relationship between tracks, value type is int32_t*.
+    /// Pointer to the key that describes the reference relationship between media file tracks. The value type is
+    /// int32_t*.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub static mut OH_MD_KEY_REFERENCE_TRACK_IDS: *const ::core::ffi::c_char;
-    /// Key for describing the track reference type, value type is string.
+    /// Pointer to the key that describes the auxiliary track type of a media file. The value type is char *.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub static mut OH_MD_KEY_TRACK_REFERENCE_TYPE: *const ::core::ffi::c_char;
-    /// Key for describing the track description, value type is string.
+    /// Pointer to the key that describes the auxiliary track description of a media file. The value type is char *.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub static mut OH_MD_KEY_TRACK_DESCRIPTION: *const ::core::ffi::c_char;
-    /// Key to enable Bitrate Control Based on Presentation Time Stamp(PTS),
-    /// value type is int32_t (0 or 1):1 is enabled, 0 otherwise.
+    /// Pointer to the key that describes the enabled status of the PTS-based bit rate control mode. The value type
+    /// is int32_t. **1** if enabled, **0** otherwise. The default value is **0**. If this parameter is set to a non-zero
+    /// value, the value **1** is used.
     ///
-    /// This is an optional key that applies only to video encoder, default is 0.
-    /// If enabled, the PTS information must be carried in each video frame and sent to the encoder.
-    /// It is used in configure.
+    /// This key is optional and is used only for video encoding.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
+    /// If this feature is enabled, each video frame must contain PTS information and be sent to the encoder. In surface
+    /// mode, the PTS is set by calling `OH_NativeWindow_NativeWindowHandleOpt`, in units of nanosecond (ns).
+    /// In buffer mode, the PTS is set by calling [`OH_AVBuffer_SetBufferAttr`](crate::avbuffer::OH_AVBuffer_SetBufferAttr), in units of microsecond (us).
+    ///
+    /// It is used in the configuration phase.
+    ///
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub static mut OH_MD_KEY_VIDEO_ENCODER_ENABLE_PTS_BASED_RATECONTROL: *const ::core::ffi::c_char;
-    /// Key to enable synchronous mode, value type is (0 or 1): 1 is enabled, 0 otherwise.
+    /// Pointer to the key that describes the enabled status of audio/video codec synchronization. The value type is
+    /// int32_t. **1** if enabled, **0** otherwise. The default value is **0**. If this parameter is set to a non-zero value,
+    /// the value **1** is used. This key is optional.
     ///
-    /// This is an optional key, default is 0.
+    /// If this feature is enabled, pay attention to the following:
+    /// 1. The codec cannot have a callback function.
+    /// 2. You must use the buffer query API instead of the callback function.
+    /// 3. The key can be used only in the configuration phase.
     ///
-    /// When enabled:
-    /// - Callbacks should NOT be set for codecs
-    /// - Buffer query APIs must be used instead
-    /// - Only used in configuration phase
-    ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub static mut OH_MD_KEY_ENABLE_SYNC_MODE: *const ::core::ffi::c_char;
-    /// Key for specifying whether to output a blank frame during video decoder shutdown,
-    /// value type is int32_t (0 or 1): 1 is enabled, 0 otherwise.
+    /// Pointer to the key that specifies whether to output blank frames when the video decoder is disabled. The
+    /// value type is int32_t. **1** to output, **0** otherwise. The default value is **0**. If this parameter is set to a
+    /// non-zero value, the value **1** is used. This key is optional and is used only for video decoding in surface mode.
     ///
-    /// This is an optional key, only used when configuring a video decoder in surface mode.
-    ///
-    /// By default, this feature is disabled (0).
-    ///
-    /// When enabled, the video decoder will output a blank frame (typically black)
-    /// when stop or release to ensure a smooth transition to no-signal state on display devices.
-    ///
-    /// This prevents display retention or flickering caused by abrupt termination.
-    ///
+    /// After this function is enabled, the video decoder outputs a blank frame (usually black) when the
+    /// [`OH_VideoDecoder_Stop`](crate::avcodec_videodecoder::OH_VideoDecoder_Stop) or [`OH_VideoDecoder_Destroy`](crate::avcodec_videodecoder::OH_VideoDecoder_Destroy) API is called.
+    /// This mechanism prevents frozen frames caused by sudden termination of the decoder.
     ///
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub static mut OH_MD_KEY_VIDEO_DECODER_BLANK_FRAME_ON_SHUTDOWN: *const ::core::ffi::c_char;
-    /// Key for querying native buffer pixel formats for video codec operations, value type is int32_t.
-    /// The value represents pixel formats defined in `OH_NativeBuffer_Format`.
+    /// Pointer to the key that is used to query the native buffer pixel format in video encoding and decoding. The
+    /// value type is int32_t.
     ///
-    /// This key serves two primary purposes:
-    /// 1. Runtime decoder output: Get current output format via [`OH_VideoDecoder_GetOutputDescription`](crate::avcodec_videodecoder::OH_VideoDecoder_GetOutputDescription)
-    /// or [`OH_AVCodecOnStreamChanged`](crate::avcodec_base::OH_AVCodecOnStreamChanged) events.
-    /// 2. Runtime encoder input: Get current input format via [`OH_VideoEncoder_GetInputDescription`](crate::avcodec_videoencoder::OH_VideoEncoder_GetInputDescription).
+    /// For details, see the pixel formats defined in `OH_NativeBuffer_Format`. This key is used in the following
+    /// scenarios:
+    ///
+    /// 1. Video decoding: Call [`OH_VideoDecoder_GetOutputDescription`](crate::avcodec_videodecoder::OH_VideoDecoder_GetOutputDescription) or [`OH_AVCodecOnStreamChanged`](crate::avcodec_base::OH_AVCodecOnStreamChanged) to obtain
+    /// the current output format from the returned OH_AVFormat object.
+    ///
+    /// 2. Video encoding: Call [`OH_VideoEncoder_GetInputDescription`](crate::avcodec_videoencoder::OH_VideoEncoder_GetInputDescription) to obtain the current input format from the
+    /// returned OH_AVFormat object.
     ///
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub static mut OH_MD_KEY_VIDEO_NATIVE_BUFFER_FORMAT: *const ::core::ffi::c_char;
-    /// Key for skip samples of audio frame. value type is a uint8_t pointer.
+    /// Pointer to the key carried in the OH_AVBuffer used to skip part of the decoded audio data. It is measured in
+    /// sample points, with a value type of uint8_t*. This key is supported when using MP3, Vorbis, or OPUS decoders.
+    ///
+    /// It is carried only by the first and last frames of an audio stream and is optional. Method 1: Obtain the information
+    /// during demultiplexing and set it to the input OH_AVBuffer used for decoding.
+    ///
+    /// 1. Obtain the OH_AVBuffer used for decoding from the callback function [`OH_AVCodecOnNeedInputBuffer`](crate::avcodec_base::OH_AVCodecOnNeedInputBuffer) of
+    /// [`OH_AVCodecCallback`](crate::avcodec_base::OH_AVCodecCallback).
+    ///
+    /// 2. Call [`OH_AVDemuxer_ReadSampleBuffer`](crate::avdemuxer::OH_AVDemuxer_ReadSampleBuffer) to read audio data. This function automatically sets **
+    /// OH_MD_KEY_BUFFER_SKIP_SAMPLES_INFO** when needed.
+    ///
+    /// 3. Call [`OH_AudioCodec_PushInputBuffer`](crate::avcodec_audiocodec::OH_AudioCodec_PushInputBuffer) to push the input OH_AVBuffer for decoding.
+    ///
+    /// Method 2: Construct the data required by the key and set it to the input OH_AVBuffer used for decoding.
+    ///
+    /// Create a 10-byte uint8_t[] array with the structure as follows:
+    ///
+    /// 1. Bytes 0-3 (uint32_t, little-endian): number of samples to skip from the beginning of this frame.
+    ///
+    /// 2. Bytes 4-7 (uint32_t, little-endian): number of samples to skip from the end of this frame (must not exceed the
+    /// frame's total sample count).
+    ///
+    /// 3. Bytes 8-9: reserved; set to **0**.
     ///
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub static mut OH_MD_KEY_BUFFER_SKIP_SAMPLES_INFO: *const ::core::ffi::c_char;
+    /// Pointer to the key for enabling [`OH_MD_KEY_BUFFER_SKIP_SAMPLES_INFO`](crate::avcodec_base::OH_MD_KEY_BUFFER_SKIP_SAMPLES_INFO) in the audio decoder.
+    /// The value type is int32_t. **1** to enable, **0** otherwise. The default value is **0**.
+    /// If this parameter is set to a value other than **1**, the value **0** is used.
+    ///
+    /// This key is optional. It is for the audio decoder only.
+    ///
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub static mut OH_MD_KEY_ENABLE_BUFFER_SKIP_SAMPLES: *const ::core::ffi::c_char;
+    /// Key for latitude, value type is float, The range is \[-90.0, 90.0\].
+    ///
+    /// Represents the latitude of the geographic location.
+    ///
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub static mut OH_MD_KEY_LATITUDE: *const ::core::ffi::c_char;
+    /// Longitude key. The value is of the float type, and the value range is \[-180.0, 180.0\]. It indicates the
+    /// longitude in geographic location information.
+    ///
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub static mut OH_MD_KEY_LONGITUDE: *const ::core::ffi::c_char;
+    /// Altitude key. The value is of the float type. This key is optional. It indicates the altitude in geographic
+    /// location information.
+    ///
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub static mut OH_MD_KEY_ALTITUDE: *const ::core::ffi::c_char;
+    /// Pointer to the key that describes the number of pending frames in the video encoder.
+    /// The value type is int32_t.
+    ///
+    /// This key is read-only and used to query the current number of frames that are pending for encoding.
+    /// It can be obtained through [`OH_VideoEncoder_GetInputDescription`](crate::avcodec_videoencoder::OH_VideoEncoder_GetInputDescription).
+    ///
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub static mut OH_MD_KEY_VIDEO_ENCODER_NUMBER_OF_PENDING_FRAMES: *const ::core::ffi::c_char;
+    /// Pointer to the key that describes the decoder output mode. The value type is int32_t (0 or 1).
+    /// 1 indicates outputting frames in decoding order, and 0 indicates outputting frames in display order (default).
+    ///
+    /// This is an optional key that applies only to video decoder and is used only in the Configure phase.
+    /// The default value is 0, which means the decoder outputs frames in display order.
+    /// Before setting this key, you can use [`OH_AVCapability_IsFeatureSupported`](crate::avcapability::OH_AVCapability_IsFeatureSupported) and the enumerated value
+    /// **VIDEO_DECODER_OUTPUT_IN_DECODING_ORDER** in [`OH_AVCapabilityFeature`](crate::avcapability::OH_AVCapabilityFeature) to check
+    /// whether this feature is supported.
+    /// If the video decoder does not support this feature, setting this key through [`OH_VideoDecoder_Configure`](crate::avcodec_videodecoder::OH_VideoDecoder_Configure) return
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL).
+    ///
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub static mut OH_MD_KEY_VIDEO_DECODER_OUTPUT_IN_DECODING_ORDER: *const ::core::ffi::c_char;
+    /// Pointer to the key that describes the maximum number of frames that the video encoder is allowed to hold
+    /// before outputting a compressed frame. The value type is int32_t, and the value range is \[1, 5\].
+    ///
+    /// This is an optional key that applies only to video encoder and is used only in the Configure phase.
+    /// If the value is within \[1, 5\], it takes effect normally.
+    /// If the value is out of range (<1 or >5), [`OH_VideoEncoder_Configure`](crate::avcodec_videoencoder::OH_VideoEncoder_Configure) returns [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL).
+    ///
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub static mut OH_MD_KEY_VIDEO_ENCODER_MAX_FRAME_DELAY_COUNT: *const ::core::ffi::c_char;
+    /// Pointer to the key that describes whether to repeat headers before sync frames. The value type is
+    /// int32_t (0 or 1): 1 is enabled, 0 disabled.
+    ///
+    /// This is an optional key that applies only to video encoder and is used only in the Configure phase.
+    /// The default value is 0, which means this feature is disabled by default.
+    /// When enabled, the encoder inserts codec-specific configuration data (such as SPS/PPS for H.264/H.265) before each
+    /// sync frame.
+    ///
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub static mut OH_MD_KEY_VIDEO_ENCODER_REPEAT_HEADER_BEFORE_SYNC_FRAMES:
+        *const ::core::ffi::c_char;
+    /// Key for setting the Audio Vivid signal input format.
+    ///
+    /// Required for Audio Vivid encoder. Specifies the signal format of input data.
+    /// The value should be from [`OH_AudioVividSignalFormat`](crate::audio_vivid::OH_AudioVividSignalFormat).
+    ///
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub static mut OH_MD_KEY_AUDIO_VIVID_SIGNAL_FORMAT: *const ::core::ffi::c_char;
+    /// Key for setting the soundbed channel layout.
+    ///
+    /// Configures the channel layout for soundbed. The value should be from `OH_AudioChannelLayout`.
+    ///
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub static mut OH_MD_KEY_AUDIO_SOUNDBED_LAYOUT: *const ::core::ffi::c_char;
+    /// Key for setting the soundbed bitrate in bits per second.
+    ///
+    /// Configures the bitrate for soundbed channels. The actual bitrate may be adjusted by the encoder
+    /// based on codec capabilities and constraints.
+    ///
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub static mut OH_MD_KEY_AUDIO_SOUNDBED_BITRATE: *const ::core::ffi::c_char;
+    /// Key for setting the audio object bitrate in bits per second.
+    ///
+    /// Configures the bitrate for audio objects. The actual bitrate may be adjusted by the encoder
+    /// based on codec capabilities and constraints.
+    ///
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub static mut OH_MD_KEY_AUDIO_OBJECT_BITRATE: *const ::core::ffi::c_char;
+    /// Key for setting the video decoding frame retention mode. The value type is int32_t.
+    ///
+    /// The value represents a frame retention mode defined in [`OH_FrameRetentionMode`](crate::avcodec_base::OH_FrameRetentionMode).
+    /// Please refer to the enumeration definition for detailed descriptions of each mode
+    /// and their behaviors.This key can be configured via the [`OH_VideoDecoder_Configure`](crate::avcodec_videodecoder::OH_VideoDecoder_Configure) and
+    /// [`OH_VideoDecoder_SetParameter`](crate::avcodec_videodecoder::OH_VideoDecoder_SetParameter) interfaces.
+    ///
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub static mut OH_MD_KEY_VIDEO_DECODER_FRAME_RETENTION_MODE: *const ::core::ffi::c_char;
+    /// Key for setting the video decoding frame retention ratio. The value type is double.
+    ///
+    /// This parameter takes effect when [`OH_MD_KEY_VIDEO_DECODER_FRAME_RETENTION_MODE`](crate::avcodec_base::OH_MD_KEY_VIDEO_DECODER_FRAME_RETENTION_MODE) is set to
+    /// [`OH_FrameRetentionMode#OH_FRAME_RETENTION_MODE_UNIFORM`](crate::avcodec_base::OH_FrameRetentionMode::OH_FRAME_RETENTION_MODE_UNIFORM), or when the retention mode is not
+    /// configured (implicitly defaulting to uniform behavior). This configuration is ignored ONLY when
+    /// the retention mode is explicitly set to [`OH_FrameRetentionMode#OH_FRAME_RETENTION_MODE_ADAPTIVE`](crate::avcodec_base::OH_FrameRetentionMode::OH_FRAME_RETENTION_MODE_ADAPTIVE)
+    /// or [`OH_FrameRetentionMode#OH_FRAME_RETENTION_MODE_FULL`](crate::avcodec_base::OH_FrameRetentionMode::OH_FRAME_RETENTION_MODE_FULL).
+    /// The valid range is \[0.01, 1.0\] (where 1.0 means all frames retained and 0.01 is the minimum limit);
+    /// any value outside this range is considered invalid and will be ignored. This key can be configured
+    /// via the [`OH_VideoDecoder_Configure`](crate::avcodec_videodecoder::OH_VideoDecoder_Configure) and [`OH_VideoDecoder_SetParameter`](crate::avcodec_videodecoder::OH_VideoDecoder_SetParameter) interfaces.
+    ///
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub static mut OH_MD_KEY_VIDEO_DECODER_FRAME_RETENTION_RATIO: *const ::core::ffi::c_char;
+    /// Key for configuring the video decoder playback speed. The value type is double.
+    ///
+    /// This key specifies the target playback speed of the video. It is primarily recommended
+    /// for use in conjunction with [`OH_FrameRetentionMode#OH_FRAME_RETENTION_MODE_ADAPTIVE`](crate::avcodec_base::OH_FrameRetentionMode::OH_FRAME_RETENTION_MODE_ADAPTIVE)
+    /// to assist the adaptive algorithm in accurately evaluating the perceptual impact of frame
+    /// drops. The value must be strictly greater than 0.0, with recommended standard values
+    /// including 0.5, 0.75, 1.0 (normal speed), 1.25, 1.5, 2.0, and 3.0; any value less than
+    /// or equal to 0.0 is considered invalid. This key can be configured via the
+    /// [`OH_VideoDecoder_Configure`](crate::avcodec_videodecoder::OH_VideoDecoder_Configure) and [`OH_VideoDecoder_SetParameter`](crate::avcodec_videodecoder::OH_VideoDecoder_SetParameter) interfaces.
+    ///
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub static mut OH_MD_KEY_VIDEO_DECODER_SPEED: *const ::core::ffi::c_char;
+    /// Key for setting or querying the maximum input buffer size (in bytes) for audio codec, value type is int32_t.
+    ///
+    /// This key is used to configure or retrieve the maximum size of the input buffer for audio codec.
+    /// The actual buffer size is limited by the codec implementation. Setting a value larger than the
+    /// codec's maximum supported size can not take effect.
+    /// This configuration is optional. If not set, the codec will use its default buffer size.
+    ///
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub static mut OH_MD_KEY_AUDIO_MAX_INPUT_BUFFER_SIZE: *const ::core::ffi::c_char;
+    /// Key for configuring the PTS output mode of the audio encoder.
+    ///
+    /// Sets the PTS output behavior mode. The value type is int32_t from [`OH_AudioEncoderPTSMode`](crate::avcodec_base::OH_AudioEncoderPTSMode).
+    /// Optional. Defaults to [`OH_AUDIO_ENCODER_PTS_MODE_DEFAULT`](crate::avcodec_base::OH_AudioEncoderPTSMode::OH_AUDIO_ENCODER_PTS_MODE_DEFAULT) if not set.
+    ///
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub static mut OH_MD_KEY_AUDIO_ENCODER_PTS_MODE: *const ::core::ffi::c_char;
+    /// Key for enabling sample format conversion in the audio encoder.
+    /// Optional. The value type is int32_t (0 or 1). 1 is enabled, 0 is disabled. Defaults to 0.
+    ///
+    /// The audio encoder supports only a limited number of sample formats. After this configuration is enabled, if
+    /// an unsupported sampling format is used, the audio encoder will convert the sample format to an supported one for
+    /// encoding. The supported sample formats before conversion are as follows: [`SAMPLE_U8`](crate::avcodec_base::OH_BitsPerSample::SAMPLE_U8), [`SAMPLE_S16LE`](crate::avcodec_base::OH_BitsPerSample::SAMPLE_S16LE),
+    /// [`SAMPLE_S24LE`](crate::avcodec_base::OH_BitsPerSample::SAMPLE_S24LE), [`SAMPLE_S32LE`](crate::avcodec_base::OH_BitsPerSample::SAMPLE_S32LE), [`SAMPLE_F32LE`](crate::avcodec_base::OH_BitsPerSample::SAMPLE_F32LE).
+    ///
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub static mut OH_MD_KEY_AUDIO_ENCODER_ENABLE_SAMPLE_FORMAT_CONVERT: *const ::core::ffi::c_char;
 }

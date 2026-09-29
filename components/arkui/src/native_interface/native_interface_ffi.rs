@@ -16,8 +16,8 @@ impl ArkUI_NativeAPIVariantKind {
     pub const ARKUI_NATIVE_GESTURE: ArkUI_NativeAPIVariantKind = ArkUI_NativeAPIVariantKind(2);
     /// API related to animations. For details, see the struct definition in <arkui/native_animate.h>.
     pub const ARKUI_NATIVE_ANIMATE: ArkUI_NativeAPIVariantKind = ArkUI_NativeAPIVariantKind(3);
-    /// API related to supported multi thread UI components.
-    /// For details, see the struct definition in <arkui/native_node.h>.
+    /// API related to multi-threaded UI components. For details, see the `struct` definition in
+    /// `native_node.h`.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -71,4 +71,23 @@ extern "C" {
         type_: ArkUI_NativeAPIVariantKind,
         structName: *const ::core::ffi::c_char,
     ) -> *mut ::core::ffi::c_void;
+    /// Retrieves the latest error message, which includes the error code, method name, and error cause.
+    /// When other interfaces return an error code, they save the corresponding error message,
+    /// and this interface can retrieve the currently stored error message.
+    /// The information returned by this interface may evolve with versions and is intended solely for
+    /// output to aid in analysis and troubleshooting. It should not be used for logical decisions.
+    ///
+    /// The returned string is a thread-local global string created by the system. The caller must not modify its content.
+    /// If any editing is required, create a copy of the string content
+    /// yourself. No memory deallocation is required by the caller.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Returns the most recent error message.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_ArkUI_NativeModule_GetErrorMessage() -> *const ::core::ffi::c_char;
 }

@@ -7,32 +7,30 @@ use crate::native_huks_external_crypto_type::*;
 use crate::native_huks_type::*;
 
 extern "C" {
-    /// Register external key provider.
+    /// Registers an external key management extension provider.
     ///
     ///
     /// Required Permissions: ohos.permission.CRYPTO_EXTENSION_REGISTER
     /// # Arguments
     ///
-    /// * `providerName` - Indicates the name of the provider.
+    /// * `providerName` - Pointer to the provider name.
     ///
-    /// * `paramSet` - Indicates the pointer to the register parameters.
+    /// * `paramSet` - Pointer to the registration parameters.
     ///
     /// # Returns
     ///
-    /// * [`OH_Huks_ErrCode#OH_HUKS_SUCCESS`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_SUCCESS) 0 - If the operation is successful.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_PERMISSION_FAIL`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_PERMISSION_FAIL) 201 - If the permission check failed,
-    /// please apply for the required permissions first.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_NOT_SUPPORTED_API`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_NOT_SUPPORTED_API) 801 - api is not supported
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_MISSING_CRYPTO_ALG_ARGUMENT`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_MISSING_CRYPTO_ALG_ARGUMENT) 12000002 - If failed to
-    /// get provider argument.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_COMMUNICATION_FAIL`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_COMMUNICATION_FAIL) 12000005 - If Ipc communication failed.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY) 12000014 - If the memory is insufficient.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT) 12000018 - If providerName or paramSet is invalid.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ITEM_NOT_EXIST`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_ITEM_NOT_EXIST) 12000019 - If the provider is already registered.
-    /// `OH_Huks_ErrCode#OH_HUKS_ERR_CODE_EXTERNAL_ERROR` 12000020 - If an error occurred in
-    /// the dependent module.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_EXCEED_LIMIT`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_EXCEED_LIMIT) 12000025 - If the number of providers exceeds the
-    /// limit.
+    /// * Possible error codes (**errorCode**):
+    /// <br>OH_HUKS_SUCCESS 0: Operation successful.
+    /// <br>OH_HUKS_ERR_CODE_PERMISSION_FAIL 201: Permission verification fails. Apply for the required permission
+    /// first.
+    /// <br>OH_HUKS_ERR_CODE_NOT_SUPPORTED_API 801: Unsupported API.
+    /// <br>OH_HUKS_ERR_CODE_MISSING_CRYPTO_ALG_ARGUMENT 12000002: Failed to obtain the provider parameters.
+    /// <br>OH_HUKS_ERR_CODE_COMMUNICATION_FAIL 12000005: IPC communication failed.
+    /// <br>OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY 12000014: Insufficient memory.
+    /// <br>OH_HUKS_ERR_CODE_INVALID_ARGUMENT 12000018: Invalid **providerName** or **paramSet**.
+    /// <br>OH_HUKS_ERR_CODE_ITEM_EXISTS 12000019: The provider has been registered.
+    /// <br>OH_HUKS_ERR_CODE_EXTERNAL_ERROR 12000020: An error occurs in the dependent module.
+    /// <br>OH_HUKS_ERR_CODE_EXCEED_LIMIT 12000025: The number of providers exceeds the upper limit.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -41,29 +39,29 @@ extern "C" {
         providerName: *const OH_Huks_Blob,
         paramSet: *const OH_Huks_ExternalCryptoParamSet,
     ) -> OH_Huks_Result;
-    /// Unregister external key provider.
+    /// Unregisters an external key management extension provider.
     ///
     ///
     /// Required Permissions: ohos.permission.CRYPTO_EXTENSION_REGISTER
     /// # Arguments
     ///
-    /// * `providerName` - Indicates the name of the provider.
+    /// * `providerName` - Pointer to the provider name.
     ///
-    /// * `paramSet` - Indicates the pointer to the register parameters.
+    /// * `paramSet` - Pointer to the registration parameters.
     ///
     /// # Returns
     ///
-    /// * [`OH_Huks_ErrCode#OH_HUKS_SUCCESS`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_SUCCESS) 0 - If the operation is successful.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_PERMISSION_FAIL`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_PERMISSION_FAIL) 201 - If the permission check failed,
-    /// please apply for the required permissions first.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_NOT_SUPPORTED_API`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_NOT_SUPPORTED_API) 801 - api is not supported
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_COMMUNICATION_FAIL`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_COMMUNICATION_FAIL) 12000005 - If Ipc communication failed.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ITEM_NOT_EXIST`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_ITEM_NOT_EXIST) 12000011 - If the provider not found.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INTERNAL_ERROR`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_INTERNAL_ERROR) 12000012 - If the device environment or input
-    /// parameter abnormal.
-    /// This may happen for several reasons, such as the model already being unloaded.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY) 12000014 - If the memory is insufficient.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT) 12000018 - If providerName or paramSet is invalid.
+    /// * Possible error codes (**errorCode**):
+    /// <br>OH_HUKS_SUCCESS 0: Operation successful.
+    /// <br>OH_HUKS_ERR_CODE_PERMISSION_FAIL 201: Permission verification fails. Apply for the required permission
+    /// first.
+    /// <br>OH_HUKS_ERR_CODE_NOT_SUPPORTED_API 801: Unsupported API.
+    /// <br>OH_HUKS_ERR_CODE_COMMUNICATION_FAIL 12000005: IPC communication failed.
+    /// <br>OH_HUKS_ERR_CODE_ITEM_NOT_EXIST 12000011: The specified provider is not found.
+    /// <br>[`OH_HUKS_ERR_CODE_INTERNAL_ERROR`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_INTERNAL_ERROR) 12000012: An internal system error occurs. The key management
+    /// extension module is not loaded.
+    /// <br>OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY 12000014: Insufficient memory.
+    /// <br>OH_HUKS_ERR_CODE_INVALID_ARGUMENT 12000018: Invalid **providerName**.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -72,33 +70,32 @@ extern "C" {
         providerName: *const OH_Huks_Blob,
         paramSet: *const OH_Huks_ExternalCryptoParamSet,
     ) -> OH_Huks_Result;
-    /// Open resource by specific resource id.
-    /// NOTE: The opened resource must be closed by OH_Huks_CloseResource.
+    /// Opens a resource based on the specified resource ID.
+    /// <br>Note: The opened resource must be closed using [`OH_Huks_CloseResource`](crate::native_huks_external_crypto_api::OH_Huks_CloseResource).
     ///
     /// # Arguments
     ///
-    /// * `resourceId` - Indicates the resource id of the provider.
+    /// * `resourceId` - Pointer to the resource ID of the specified provider.
     ///
-    /// * `paramSet` - Indicates the pointer to the handle operation parameters.
+    /// * `paramSet` - Pointer to the handle operation parameters.
     ///
     /// # Returns
     ///
-    /// * [`OH_Huks_ErrCode#OH_HUKS_SUCCESS`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_SUCCESS) 0 - If the operation is successful.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_NOT_SUPPORTED_API`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_NOT_SUPPORTED_API) 801 - API is not supported
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_COMMUNICATION_FAIL`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_COMMUNICATION_FAIL) 12000005 - If IPC communication failed.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_CRYPTO_FAIL`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_CRYPTO_FAIL) 12000006 - If the UKey driver operation failed.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ITEM_NOT_EXIST`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_ITEM_NOT_EXIST) 12000011 - If the cached resource ID is not found.
-    /// This may happen because the resourceId has not been opened.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INTERNAL_ERROR`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_INTERNAL_ERROR) 12000012 - If the device environment or input
-    /// parameter is abnormal.
-    /// This error may occur if the process function is not found, or due to other issues.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY) 12000014 - If the memory is insufficient.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_KEY_ALREADY_EXIST`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_KEY_ALREADY_EXIST) 12000017 - If the resource with the
-    /// resourceId is already open.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT) 12000018 - If resourceId or paramSet is invalid.
-    /// `OH_Huks_ErrCode#OH_HUKS_ERR_CODE_EXTERNAL_ERROR` 12000020 - If the provider operation failed.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_BUSY`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_BUSY) 12000024 - If the provider or UKey is busy.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_EXCEED_LIMIT`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_EXCEED_LIMIT) 12000025 - If the opened resources exceed the limit.
+    /// * Possible error codes (**errorCode**):
+    /// <br>OH_HUKS_SUCCESS 0: Operation successful.
+    /// <br>OH_HUKS_ERR_CODE_NOT_SUPPORTED_API 801: Unsupported API.
+    /// <br>OH_HUKS_ERR_CODE_COMMUNICATION_FAIL 12000005: IPC communication failed.
+    /// <br>OH_HUKS_ERR_CODE_CRYPTO_FAIL 12000006: The UKey driver reports an error.
+    /// <br>OH_HUKS_ERR_CODE_ITEM_NOT_EXIST 12000011: The cached resource handle is not found. Open the resource
+    /// based on the resource ID first.
+    /// <br>OH_HUKS_ERR_CODE_INTERNAL_ERROR 12000012: An internal system error occurs. The processing function is
+    /// not found.
+    /// <br>OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY 12000014: Insufficient memory.
+    /// <br>OH_HUKS_ERR_CODE_KEY_ALREADY_EXIST 12000017: The resource is already open.
+    /// <br>OH_HUKS_ERR_CODE_INVALID_ARGUMENT 12000018: Invalid **resourceId** or **paramSet**.
+    /// <br>OH_HUKS_ERR_CODE_EXTERNAL_ERROR 12000020: Provider execution fails.
+    /// <br>OH_HUKS_ERR_CODE_BUSY 12000024: The provider or UKey is busy.
+    /// <br>OH_HUKS_ERR_CODE_EXCEED_LIMIT 12000025: The number of opened resources exceeds the limit.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -107,27 +104,27 @@ extern "C" {
         resourceId: *const OH_Huks_Blob,
         paramSet: *const OH_Huks_ExternalCryptoParamSet,
     ) -> OH_Huks_Result;
-    /// Close the resource by specific resource id.
+    /// Closes a resource based on the specified resource ID.
     ///
     /// # Arguments
     ///
-    /// * `resourceId` - Indicates the resource id of the provider.
+    /// * `resourceId` - Pointer to the resource ID of the specified provider.
     ///
-    /// * `paramSet` - Indicates the pointer to the handle operation parameters.
+    /// * `paramSet` - Pointer to the handle operation parameters.
     ///
     /// # Returns
     ///
-    /// * [`OH_Huks_ErrCode#OH_HUKS_SUCCESS`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_SUCCESS) 0 - If the operation is successful.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_NOT_SUPPORTED_API`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_NOT_SUPPORTED_API) 801 - api is not supported
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_COMMUNICATION_FAIL`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_COMMUNICATION_FAIL) 12000005 - If Ipc communication failed.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_CRYPTO_FAIL`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_CRYPTO_FAIL) 12000006 - If the UKey driver operation failed.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INTERNAL_ERROR`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_INTERNAL_ERROR) 12000012 - If the device environment or input
-    /// parameter abnormal.
-    /// This error may occur if the process function is not found, or due to other issues.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY) 12000014 - If the memory is insufficient.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT) 12000018 - If resourceId or paramSet is invalid.
-    /// `OH_Huks_ErrCode#OH_HUKS_ERR_CODE_EXTERNAL_ERROR` 12000020 - If the provider operation failed.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_BUSY`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_BUSY) 12000024 - If the provider or UKey is busy.
+    /// * Possible error codes (**errorCode**):
+    /// <br>OH_HUKS_SUCCESS 0: Operation successful.
+    /// <br>OH_HUKS_ERR_CODE_NOT_SUPPORTED_API 801: Unsupported API.
+    /// <br>OH_HUKS_ERR_CODE_COMMUNICATION_FAIL 12000005: IPC communication failed.
+    /// <br>OH_HUKS_ERR_CODE_CRYPTO_FAIL 12000006: The UKey driver reports an error.
+    /// <br>OH_HUKS_ERR_CODE_INTERNAL_ERROR 12000012: An internal system error occurs. The processing function is
+    /// not found.
+    /// <br>OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY 12000014: Insufficient memory.
+    /// <br>OH_HUKS_ERR_CODE_INVALID_ARGUMENT 12000018: Invalid **resourceId** or **paramSet**.
+    /// <br>OH_HUKS_ERR_CODE_EXTERNAL_ERROR 12000020: Provider execution fails.
+    /// <br>OH_HUKS_ERR_CODE_BUSY 12000024: The provider or UKey is busy.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -136,31 +133,30 @@ extern "C" {
         resourceId: *const OH_Huks_Blob,
         paramSet: *const OH_Huks_ExternalCryptoParamSet,
     ) -> OH_Huks_Result;
-    /// Get the pin auth state of the specified UKey resource id.
+    /// Obtains the PIN authorization state of the specified UKey resource ID.
     ///
     /// # Arguments
     ///
-    /// * `resourceId` - Indicates the resource id of the provider.
+    /// * `resourceId` - Pointer to the resource ID of the specified provider.
     ///
-    /// * `paramSet` - Indicates the pointer to the pin auth parameters.
+    /// * `paramSet` - Pointer to the PIN authorization parameters.
     ///
-    /// * `authState` - Indicates the auth state of the specified index.
+    /// * `authState` - Pointer to whether a specified index is authorized.
     ///
     /// # Returns
     ///
-    /// * [`OH_Huks_ErrCode#OH_HUKS_SUCCESS`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_SUCCESS) 0 - If the operation is successful.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_NOT_SUPPORTED_API`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_NOT_SUPPORTED_API) 801 - api is not supported
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_COMMUNICATION_FAIL`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_COMMUNICATION_FAIL) 12000005 - If Ipc communication failed.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_CRYPTO_FAIL`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_CRYPTO_FAIL) 12000006 - If the UKey driver operation failed.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ITEM_NOT_EXIST`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_ITEM_NOT_EXIST) 12000011 - If not found the cached resource id.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INTERNAL_ERROR`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_INTERNAL_ERROR) 12000012 - If the device environment or input
-    /// parameter abnormal.
-    /// This error may occur if the process function is not found, or due to other issues.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY) 12000014 - If the memory is insufficient.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT) 12000018 - If resourceId or paramSet
-    /// or authState is invalid.
-    /// `OH_Huks_ErrCode#OH_HUKS_ERR_CODE_EXTERNAL_ERROR` 12000020 - If the provider operation failed.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_BUSY`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_BUSY) 12000024 - If the provider or UKey is busy.
+    /// * Possible error codes (**errorCode**):
+    /// <br>OH_HUKS_SUCCESS 0: Operation successful.
+    /// <br>OH_HUKS_ERR_CODE_NOT_SUPPORTED_API 801: Unsupported API.
+    /// <br>OH_HUKS_ERR_CODE_COMMUNICATION_FAIL 12000005: IPC communication failed.
+    /// <br>OH_HUKS_ERR_CODE_CRYPTO_FAIL 12000006: The UKey driver reports an error.
+    /// <br>OH_HUKS_ERR_CODE_ITEM_NOT_EXIST 12000011: The specified resource ID is invalid.
+    /// <br>OH_HUKS_ERR_CODE_INTERNAL_ERROR 12000012: An internal system error occurs. The processing function is
+    /// not found.
+    /// <br>OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY 12000014: Insufficient memory.
+    /// <br>OH_HUKS_ERR_CODE_INVALID_ARGUMENT 12000018: Invalid **resourceId** or **paramSet**.
+    /// <br>OH_HUKS_ERR_CODE_EXTERNAL_ERROR 12000020: Provider execution fails.
+    /// <br>OH_HUKS_ERR_CODE_BUSY 12000024: The provider or UKey is busy.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -170,37 +166,36 @@ extern "C" {
         paramSet: *const OH_Huks_ExternalCryptoParamSet,
         authState: *mut OH_Huks_ExternalPinAuthState,
     ) -> OH_Huks_Result;
-    /// The general get operations of the external provider.
+    /// Obtains the property information of the external key management capability extension provider.
     ///
     /// # Arguments
     ///
-    /// * `resourceId` - Indicates the resource id of the provider.
+    /// * `resourceId` - Pointer to the resource ID of the specified provider.
     ///
-    /// * `propertyId` - Indicates the name of the property function to be operated (as defined in GMT 0016-2023).
+    /// * `propertyId` - Pointer to the name of the property function defined by GMT 0016-2023.
     ///
-    /// * `paramSetIn` - Indicates the pointer to the input operation parameters.
+    /// * `paramSetIn` - Pointer to the input operation parameters.
     ///
-    /// * `paramSetOut` - Indicates the pointer to the output parameters and must contain the parameter.
-    /// OH_HUKS_EXT_CRYPTO_TAG_EXTRA_DATA.
+    /// * `paramSetOut` - Double pointer to the output parameters, which must contain the **
+    /// OH_HUKS_EXT_CRYPTO_TAG_EXTRA_DATA** parameter.
     ///
     /// # Returns
     ///
-    /// * [`OH_Huks_ErrCode#OH_HUKS_SUCCESS`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_SUCCESS) 0 - If the operation is successful.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_NOT_SUPPORTED_API`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_NOT_SUPPORTED_API) 801 - api is not supported
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_COMMUNICATION_FAIL`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_COMMUNICATION_FAIL) 12000005 - If Ipc communication failed.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_CRYPTO_FAIL`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_CRYPTO_FAIL) 12000006 - If the UKey driver operation failed.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ITEM_NOT_EXIST`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_ITEM_NOT_EXIST) 12000011 - If not found the cached resource id.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INTERNAL_ERROR`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_INTERNAL_ERROR) 12000012 - If the device environment or input
-    /// parameter abnormal.
-    /// This error may occur if the process function is not found, or due to other issues.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY) 12000014 - If the memory is insufficient.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT) 12000018 - If the resourceId or propertyId or
-    /// paramSet
-    /// or callback is invalid.
-    /// `OH_Huks_ErrCode#OH_HUKS_ERR_CODE_EXTERNAL_ERROR` 12000020 - If the provider operation failed.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_PIN_LOCKED`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_PIN_LOCKED) 12000021 - If the UKey PIN is locked.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_PIN_NO_AUTH`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_PIN_NO_AUTH) 12000023 - If the UKey PIN is not authenticated.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_BUSY`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_BUSY) 12000024 - If the provider or UKey is busy.
+    /// * Possible error codes (**errorCode**):
+    /// <br>OH_HUKS_SUCCESS 0: Operation successful.
+    /// <br>OH_HUKS_ERR_CODE_NOT_SUPPORTED_API 801: Unsupported API.
+    /// <br>OH_HUKS_ERR_CODE_COMMUNICATION_FAIL 12000005: IPC communication failed.
+    /// <br>OH_HUKS_ERR_CODE_CRYPTO_FAIL 12000006: Driver error.
+    /// <br>OH_HUKS_ERR_CODE_ITEM_NOT_EXIST 12000011: The specified handle in the cache is not found.
+    /// <br>OH_HUKS_ERR_CODE_INTERNAL_ERROR 12000012: An internal system error occurs. The processing function is
+    /// not found.
+    /// <br>OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY 12000014: Insufficient memory.
+    /// <br>OH_HUKS_ERR_CODE_INVALID_ARGUMENT 12000018: The **resourceId**, **propertyId**, **paramSetIn**, or **
+    /// paramSetOut** parameter is invalid.
+    /// <br>OH_HUKS_ERR_CODE_EXTERNAL_ERROR 12000020: The provider or Ukey internal execution fails.
+    /// <br>OH_HUKS_ERR_CODE_PIN_LOCKED 12000021: The PIN is locked.
+    /// <br>OH_HUKS_ERR_CODE_PIN_NO_AUTH 12000023: PIN authentication fails.
+    /// <br>OH_HUKS_ERR_CODE_BUSY 12000024: The resources in the provider or Ukey are being used.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -215,13 +210,14 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `paramSet` - Indicates the double pointer to the parameter set to initialize.
+    /// * `paramSet` - Double pointer to the parameter set to initialize.
     ///
     /// # Returns
     ///
-    /// * [`OH_Huks_ErrCode#OH_HUKS_SUCCESS`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_SUCCESS) 0 - If the initialization is successful.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY) 12000014 - If the memory is insufficient.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INVALID_ARGUMENT`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_INVALID_ARGUMENT) 12000018 - If the paramSet is null.
+    /// * Possible error codes (**errorCode**):
+    /// <br>OH_HUKS_SUCCESS 0: Operation successful.
+    /// <br>OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY 12000014: Insufficient memory.
+    /// <br>OH_HUKS_ERR_CODE_INVALID_ARGUMENT 12000018: Invalid **paramSet**.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -233,17 +229,17 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `paramSet` - Indicates the pointer to the parameter set to which parameters are to be added.
+    /// * `paramSet` - Pointer to the parameter set to which parameters are to be added.
     ///
-    /// * `params` - Indicates the pointer to the array of parameters to add.
+    /// * `params` - Pointer to the parameter array to be added.
     ///
-    /// * `paramCnt` - Indicates the number of parameters to add.
+    /// * `paramCnt` - Number of parameters to be added.
     ///
     /// # Returns
     ///
-    /// * [`OH_Huks_ErrCode#OH_HUKS_SUCCESS`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_SUCCESS) 0 - If the operation is successful.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INVALID_ARGUMENT`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_INVALID_ARGUMENT) 12000018 - If params is null or paramSet is
-    /// invalid.
+    /// * Possible error codes (**errorCode**):
+    /// <br>OH_HUKS_SUCCESS 0: Operation successful.
+    /// <br>OH_HUKS_ERR_CODE_INVALID_ARGUMENT 12000018: **params** is **NULL** or **paramSet** is invalid.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -253,17 +249,18 @@ extern "C" {
         params: *const OH_Huks_ExternalCryptoParam,
         paramCnt: u32,
     ) -> OH_Huks_Result;
-    /// Constructs a parameter set.
+    /// Builds a parameter set.
     ///
     /// # Arguments
     ///
-    /// * `paramSet` - Indicates the double pointer to the parameter set to construct.
+    /// * `paramSet` - Double pointer to the parameter set to build.
     ///
     /// # Returns
     ///
-    /// * [`OH_Huks_ErrCode#OH_HUKS_SUCCESS`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_SUCCESS) 0 - If the operation is successful.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY) 12000014 - If the memory is insufficient.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INVALID_ARGUMENT`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_INVALID_ARGUMENT) 12000018 - If paramSet is invalid.
+    /// * Possible error codes (**errorCode**):
+    /// <br>OH_HUKS_SUCCESS 0: Operation successful.
+    /// <br>OH_HUKS_ERR_CODE_INVALID_ARGUMENT 12000018: Invalid **paramSet**.
+    /// <br>OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY 12000014: Insufficient memory.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -271,31 +268,32 @@ extern "C" {
     pub fn OH_Huks_BuildExternalCryptoParamSet(
         paramSet: *mut *mut OH_Huks_ExternalCryptoParamSet,
     ) -> OH_Huks_Result;
-    /// Destroys a parameter set.
+    /// Destroys a parameter set and releases related memory.
     ///
     /// # Arguments
     ///
-    /// * `paramSet` - Indicates the double pointer to the parameter set to destroy.
+    /// * `paramSet` - Double pointer to the parameter set to destroy.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub fn OH_Huks_FreeExternalCryptoParamSet(paramSet: *mut *mut OH_Huks_ExternalCryptoParamSet);
-    /// Obtains parameters from a parameter set.
+    /// Obtains a specified parameter from a parameter set.
     ///
     /// # Arguments
     ///
-    /// * `paramSet` - Indicates the pointer to the target parameter set.
+    /// * `paramSet` - Pointer to the target parameter set.
     ///
-    /// * `tag` - Indicates the value of the parameter to be obtained.
+    /// * `tag` - Tag value of the parameter to obtain.
     ///
-    /// * `param` - Indicates the double pointer to the parameter obtained.
+    /// * `param` - Double pointer used to return the obtained parameter.
     ///
     /// # Returns
     ///
-    /// * [`OH_Huks_ErrCode#OH_HUKS_SUCCESS`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_SUCCESS) 0 - If the operation is successful,
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INVALID_ARGUMENT`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_INVALID_ARGUMENT) 12000018 - If paramSet or param is invalid,
-    /// or if the param doesn't exist in the pararmset.
+    /// * Possible error codes (**errorCode**):
+    /// <br>OH_HUKS_SUCCESS 0: Operation successful.
+    /// <br>OH_HUKS_ERR_CODE_INVALID_ARGUMENT 12000018: The **paramSet** or **param** is invalid, or the parameter
+    /// does not exist in the set.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]

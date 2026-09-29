@@ -10,16 +10,16 @@ use ohos_sys_opaque_types::OH_NativeColorSpaceManager;
 impl OH_Drawing_PenLineCapStyle {
     /// There is no cap style. Both ends of the line segment are cut off square.
     pub const LINE_FLAT_CAP: OH_Drawing_PenLineCapStyle = OH_Drawing_PenLineCapStyle(0);
-    /// Square cap style. Both ends have a square, the height of which
-    /// is half of the width of the line segment, with the same width.
+    /// Square cap style. Both ends have a square, the height of which is half of the width of the line segment, with
+    /// the same width.
     pub const LINE_SQUARE_CAP: OH_Drawing_PenLineCapStyle = OH_Drawing_PenLineCapStyle(1);
-    /// Round cap style. Both ends have a semicircle centered, the diameter of which
-    /// is the same as the width of the line segment.
+    /// Round cap style. Both ends have a semicircle centered, the diameter of which is the same as the width of the
+    /// line segment.
     pub const LINE_ROUND_CAP: OH_Drawing_PenLineCapStyle = OH_Drawing_PenLineCapStyle(2);
 }
 #[repr(transparent)]
-/// Enumerates line cap styles of a pen. The line cap style defines
-/// the style of both ends of a line segment drawn by the pen.
+/// Enumerates the line cap styles of a pen. The line cap style defines the style of both ends of a line segment
+/// drawn by the pen.
 ///
 ///
 /// Available since API-level: 8
@@ -28,8 +28,8 @@ impl OH_Drawing_PenLineCapStyle {
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OH_Drawing_PenLineCapStyle(pub ::core::ffi::c_uint);
 impl OH_Drawing_PenLineJoinStyle {
-    /// Mitered corner. If the angle of a polyline is small, its miter length may be inappropriate.
-    /// In this case, you need to use the miter limit to limit the miter length.
+    /// Mitered corner. If the angle of a polyline is small, its miter length may be inappropriate. In this case, you
+    /// need to use the miter limit to limit the miter length.
     pub const LINE_MITER_JOIN: OH_Drawing_PenLineJoinStyle = OH_Drawing_PenLineJoinStyle(0);
     /// Round corner.
     pub const LINE_ROUND_JOIN: OH_Drawing_PenLineJoinStyle = OH_Drawing_PenLineJoinStyle(1);
@@ -37,8 +37,8 @@ impl OH_Drawing_PenLineJoinStyle {
     pub const LINE_BEVEL_JOIN: OH_Drawing_PenLineJoinStyle = OH_Drawing_PenLineJoinStyle(2);
 }
 #[repr(transparent)]
-/// Enumerates pen line join styles. The line join style defines
-/// the shape of the joints of a polyline segment drawn by the pen.
+/// Enumerates the line join styles of a pen. The line join style defines the shape of the joints of a polyline
+/// segment drawn by the pen.
 ///
 ///
 /// Available since API-level: 8
@@ -47,32 +47,29 @@ impl OH_Drawing_PenLineJoinStyle {
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OH_Drawing_PenLineJoinStyle(pub ::core::ffi::c_uint);
 extern "C" {
-    /// Creates an <b>OH_Drawing_Pen</b> object.
+    /// Creates an **OH_Drawing_Pen** object.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the <b>OH_Drawing_Pen</b> object created.
+    /// * Returns the pointer to the **OH_Drawing_Pen** object created.
     ///
     /// Available since API-level: 8
     ///
     /// Version: 1.0
     pub fn OH_Drawing_PenCreate() -> *mut OH_Drawing_Pen;
-    /// Creates an <b>OH_Drawing_Pen</b> copy object.
+    /// Creates a copy of the [`OH_Drawing_Pen`](crate::types::OH_Drawing_Pen) object.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **pen** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
+    /// * `pen` - Pointer to an **OH_Drawing_Pen** object.
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the <b>OH_Drawing_Pen</b> object created.
-    /// If nullptr is returned, the creation fails.
-    /// The possible cause of the failure is that the available memory is empty or a nullptr is passed.
+    /// * Returns the pointer to the [`OH_Drawing_Pen`](crate::types::OH_Drawing_Pen) object created. If NULL is returned, the creation fails.
+    /// The possible failure cause is that no memory is available or **pen** is NULL.
     ///
     /// Available since API-level: 12
     ///
@@ -80,58 +77,56 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_PenCopy(pen: *mut OH_Drawing_Pen) -> *mut OH_Drawing_Pen;
-    /// Destroys an <b>OH_Drawing_Pen</b> object and reclaims the memory occupied by the object.
+    /// Destroys an **OH_Drawing_Pen** object and reclaims the memory occupied by the object.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
+    /// * `pen` - Pointer to an **OH_Drawing_Pen** object.
     ///
     /// Available since API-level: 8
     ///
     /// Version: 1.0
     pub fn OH_Drawing_PenDestroy(pen: *mut OH_Drawing_Pen);
-    /// Checks whether anti-aliasing is enabled for a pen. If anti-aliasing is enabled,
-    /// edges will be drawn with partial transparency.
+    /// Checks whether anti-aliasing is enabled for a pen. Anti-aliasing makes the pixels around the shape edges semi-
+    /// transparent.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **pen** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
+    /// * `pen` - Pointer to an **OH_Drawing_Pen** object.
     ///
     /// # Returns
     ///
-    /// * Returns <b>true</b> if anti-aliasing is enabled; returns <b>false</b> otherwise.
+    /// * Returns **true** if anti-aliasing is enabled; returns **false** otherwise.
     ///
     /// Available since API-level: 8
     ///
     /// Version: 1.0
     pub fn OH_Drawing_PenIsAntiAlias(pen: *const OH_Drawing_Pen) -> bool;
-    /// Enables or disables anti-aliasing for a pen. If anti-aliasing is enabled,
-    /// edges will be drawn with partial transparency.
+    /// Enables or disables anti-aliasing for a pen. Anti-aliasing makes the pixels around the shape edges semi-
+    /// transparent.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **pen** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
+    /// * `pen` - Pointer to an **OH_Drawing_Pen** object.
     ///
-    /// * `antiAlias` - Specifies whether to enable anti-aliasing. The value <b>true</b> means
-    /// to enable anti-aliasing, and <b>false</b> means the opposite.
+    /// * `antiAlias` - Whether to enable anti-aliasing. The value **true** means to enable anti-aliasing, and **false**
+    /// means the opposite.
     ///
     /// Available since API-level: 8
     ///
     /// Version: 1.0
     pub fn OH_Drawing_PenSetAntiAlias(pen: *mut OH_Drawing_Pen, antiAlias: bool);
     /// Obtains the color of a pen. The color is used by the pen to outline a shape.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **pen** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
+    /// * `pen` - Pointer to an **OH_Drawing_Pen** object.
     ///
     /// # Returns
     ///
@@ -142,30 +137,30 @@ extern "C" {
     /// Version: 1.0
     pub fn OH_Drawing_PenGetColor(pen: *const OH_Drawing_Pen) -> u32;
     /// Sets the color for a pen. The color is used by the pen to outline a shape.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **pen** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
+    /// * `pen` - Pointer to an **OH_Drawing_Pen** object.
     ///
-    /// * `color` - Indicates the color to set, which is a 32-bit (ARGB) variable.
+    /// * `color` - Color, which is a 32-bit (ARGB) variable.
     ///
     /// Available since API-level: 8
     ///
     /// Version: 1.0
     pub fn OH_Drawing_PenSetColor(pen: *mut OH_Drawing_Pen, color: u32);
-    /// Obtains the alpha of a pen. The alpha is used by the pen to outline a shape.
+    /// Obtains the alpha value of a pen. This value is used by the alpha channel when the pen outlines a shape.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **pen** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
+    /// * `pen` - Pointer to an **OH_Drawing_Pen** object.
     ///
     /// # Returns
     ///
-    /// * Returns a 8-bit variable that describes the alpha.
+    /// * Returns an 8-bit variable that describes the alpha value.
     ///
     /// Available since API-level: 11
     ///
@@ -173,15 +168,15 @@ extern "C" {
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn OH_Drawing_PenGetAlpha(pen: *const OH_Drawing_Pen) -> u8;
-    /// Sets the alpha for a pen. The alpha is used by the pen to outline a shape.
+    /// Sets the alpha value for a pen. This value is used by the alpha channel when the pen outlines a shape.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **pen** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
+    /// * `pen` - Pointer to an **OH_Drawing_Pen** object.
     ///
-    /// * `alpha` - Indicates the alpha to set, which is a 8-bit variable.
+    /// * `alpha` - Alpha value, which is an 8-bit variable.
     ///
     /// Available since API-level: 11
     ///
@@ -189,31 +184,36 @@ extern "C" {
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn OH_Drawing_PenSetAlpha(pen: *mut OH_Drawing_Pen, alpha: u8);
-    /// Sets the color for a pen. The color will be used by the pen to fill in a shape.
-    /// The color is an ARGB structure described by floating point numbers and interpreted as being in the colorSpaceManager.
-    /// If colorSpaceManager is nullptr, then color is assumed to be in the sRGB color space.
+    /// Sets the color for a pen, which is used to outline a shape.
+    /// The color is in ARGB format represented by floating-point numbers. The color space is specified by
+    /// [`OH_NativeColorSpaceManager`](ohos_sys_opaque_types::OH_NativeColorSpaceManager)
+    /// .
+    /// If **colorSpaceManager** is a null pointer, the SRGB (standard red, green, and blue color space based on IEC 61966-2.
+    /// 1:1999) color space is used as the default value.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
+    /// * `pen` - Pointer to an [`OH_Drawing_Pen`](crate::types::OH_Drawing_Pen) object.
     ///
-    /// * `a` - Indicates the alpha component of color, represented as a floating point number between 0 and 1.
+    /// * `a` - Alpha value of the color, which is a floating-point number ranging from 0.0 to 1.0. Values above 1.0
+    /// default to 1.0, while values below 0.0 default to 0.0.
     ///
-    /// * `r` - Indicates the red component of color, represented as a floating point number between 0 and 1.
+    /// * `r` - Red component of the color, which is a floating-point number ranging from 0.0 to 1.0. Values above 1.0
+    /// default to 1.0, while values below 0.0 default to 0.0.
     ///
-    /// * `g` - Indicates the green component of color, represented as a floating point number between 0 and 1.
+    /// * `g` - Green component of the color, which is a floating-point number ranging from 0.0 to 1.0. Values above 1.0
+    /// default to 1.0, while values below 0.0 default to 0.0.
     ///
-    /// * `b` - Indicates the blue component of color, represented as a floating point number between 0 and 1.
+    /// * `b` - Blue component of the color, which is a floating-point number ranging from 0.0 to 1.0. Values above 1.0
+    /// default to 1.0, while values below 0.0 default to 0.0.
     ///
-    /// * `colorSpaceManager` - Indicates the pointer to an <b>OH_NativeColorSpaceManager</b> object.
+    /// * `colorSpaceManager` - Pointer to an [`OH_NativeColorSpaceManager`](ohos_sys_opaque_types::OH_NativeColorSpaceManager) object.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`](crate::error_code::DrawingErrorCode::INVALID_PARAMETER) if pen is nullptr.
+    /// * Execution result.
+    /// **OH_DRAWING_SUCCESS** if the operation is successful.
+    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if **pen** is NULL.
     ///
     /// Available since API-level: 20
     ///
@@ -228,21 +228,19 @@ extern "C" {
         b: f32,
         colorSpaceManager: *mut OH_NativeColorSpaceManager,
     ) -> crate::error_code::DrawingResult;
-    /// Obtains the alpha component of a pen.
+    /// Obtains the alpha value of the pen color.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
+    /// * `pen` - Pointer to an [`OH_Drawing_Pen`](crate::types::OH_Drawing_Pen) object.
     ///
-    /// * `a` - Indicates the alpha component of color.
+    /// * `a` - Alpha value of the pen color. The value is a floating-point number ranging from 0.0 to 1.0.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`](crate::error_code::DrawingErrorCode::INVALID_PARAMETER) if pen or a is nullptr.
+    /// * Execution result.
+    /// **OH_DRAWING_SUCCESS** if the operation is successful.
+    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if **pen** or **a** is NULL.
     ///
     /// Available since API-level: 20
     ///
@@ -253,21 +251,19 @@ extern "C" {
         pen: *mut OH_Drawing_Pen,
         a: *mut f32,
     ) -> crate::error_code::DrawingResult;
-    /// Obtains the red component of a pen.
+    /// Obtains the red component of the pen color.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
+    /// * `pen` - Pointer to an [`OH_Drawing_Pen`](crate::types::OH_Drawing_Pen) object.
     ///
-    /// * `r` - Indicates the red component of color.
+    /// * `r` - Red component of the pen color. The value is a floating-point number ranging from 0.0 to 1.0.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`](crate::error_code::DrawingErrorCode::INVALID_PARAMETER) if pen or r is nullptr.
+    /// * Execution result.
+    /// **OH_DRAWING_SUCCESS** if the operation is successful.
+    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if **pen** or **r** is NULL.
     ///
     /// Available since API-level: 20
     ///
@@ -278,21 +274,19 @@ extern "C" {
         pen: *mut OH_Drawing_Pen,
         r: *mut f32,
     ) -> crate::error_code::DrawingResult;
-    /// Obtains the green component of a pen.
+    /// Obtains the green component of the pen color.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
+    /// * `pen` - Pointer to an [`OH_Drawing_Pen`](crate::types::OH_Drawing_Pen) object.
     ///
-    /// * `g` - Indicates the green component of color.
+    /// * `g` - Green component of the pen color. The value is a floating-point number ranging from 0.0 to 1.0.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`](crate::error_code::DrawingErrorCode::INVALID_PARAMETER) if pen or g is nullptr.
+    /// * Execution result.
+    /// **OH_DRAWING_SUCCESS** if the operation is successful.
+    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if **pen** or **g** is NULL.
     ///
     /// Available since API-level: 20
     ///
@@ -303,21 +297,19 @@ extern "C" {
         pen: *mut OH_Drawing_Pen,
         g: *mut f32,
     ) -> crate::error_code::DrawingResult;
-    /// Obtains the blue component of a pen.
+    /// Obtains the blue component of the pen color.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
+    /// * `pen` - Pointer to an [`OH_Drawing_Pen`](crate::types::OH_Drawing_Pen) object.
     ///
-    /// * `b` - Indicates the blue component of color.
+    /// * `b` - Blue component of the pen color. The value is a floating-point number ranging from 0.0 to 1.0.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`](crate::error_code::DrawingErrorCode::INVALID_PARAMETER) if pen or b is nullptr.
+    /// * Execution result.
+    /// **OH_DRAWING_SUCCESS** if the operation is successful.
+    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if **pen** or **b** is NULL.
     ///
     /// Available since API-level: 20
     ///
@@ -329,12 +321,12 @@ extern "C" {
         b: *mut f32,
     ) -> crate::error_code::DrawingResult;
     /// Obtains the thickness of a pen. This thickness determines the width of the outline of a shape.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **pen** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
+    /// * `pen` - Pointer to an **OH_Drawing_Pen** object.
     ///
     /// # Returns
     ///
@@ -345,29 +337,27 @@ extern "C" {
     /// Version: 1.0
     pub fn OH_Drawing_PenGetWidth(pen: *const OH_Drawing_Pen) -> f32;
     /// Sets the thickness for a pen. This thickness determines the width of the outline of a shape.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **pen** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
+    /// * `pen` - Pointer to an **OH_Drawing_Pen** object.
     ///
-    /// * `width` - Indicates the thickness to set, which is a variable.
+    /// * `width` - Thickness, which is a variable.
     ///
     /// Available since API-level: 8
     ///
     /// Version: 1.0
     pub fn OH_Drawing_PenSetWidth(pen: *mut OH_Drawing_Pen, width: f32);
-    /// Obtains the stroke miter limit of a polyline drawn by a pen.
+    /// Obtains the stroke miter limit of a polyline drawn by a pen. When the corner type is bevel, a beveled corner
+    /// is displayed if the miter limit is exceeded, and a mitered corner is displayed if the miter limit is not exceeded.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **pen** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    /// When the corner type is bevel, a beveled corner is displayed if the miter limit is exceeded,
-    /// and a mitered corner is displayed if the miter limit is not exceeded.
-    ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
+    /// * `pen` - Pointer to an **OH_Drawing_Pen** object.
     ///
     /// # Returns
     ///
@@ -377,30 +367,28 @@ extern "C" {
     ///
     /// Version: 1.0
     pub fn OH_Drawing_PenGetMiterLimit(pen: *const OH_Drawing_Pen) -> f32;
-    /// Sets the stroke miter limit for a polyline drawn by a pen.
+    /// Sets the stroke miter limit for a polyline drawn by a pen. When the corner type is bevel, a beveled corner is
+    /// displayed if the miter limit is exceeded, and a mitered corner is displayed if the miter limit is not exceeded.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **pen** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    /// When the corner type is bevel, a beveled corner is displayed if the miter limit is exceeded,
-    /// and a mitered corner is displayed if the miter limit is not exceeded.
-    ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
+    /// * `pen` - Pointer to an **OH_Drawing_Pen** object.
     ///
-    /// * `miter` - Indicates a variable that describes the miter limit.
+    /// * `miter` - Stroke miter limit, which is a variable.
     ///
     /// Available since API-level: 8
     ///
     /// Version: 1.0
     pub fn OH_Drawing_PenSetMiterLimit(pen: *mut OH_Drawing_Pen, miter: f32);
     /// Obtains the line cap style of a pen.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **pen** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
+    /// * `pen` - Pointer to an **OH_Drawing_Pen** object.
     ///
     /// # Returns
     ///
@@ -411,26 +399,27 @@ extern "C" {
     /// Version: 1.0
     pub fn OH_Drawing_PenGetCap(pen: *const OH_Drawing_Pen) -> OH_Drawing_PenLineCapStyle;
     /// Sets the line cap style for a pen.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **pen** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
+    /// If **capStyle** is not set to one of the enumerated values, **OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
+    /// * `pen` - Pointer to an **OH_Drawing_Pen** object.
     ///
-    /// * `capStyle` - Indicates a variable that describes the line cap style.
+    /// * `capStyle` - Line cap style, which is a variable.
     ///
     /// Available since API-level: 8
     ///
     /// Version: 1.0
     pub fn OH_Drawing_PenSetCap(pen: *mut OH_Drawing_Pen, capStyle: OH_Drawing_PenLineCapStyle);
     /// Obtains the line join style of a pen.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **pen** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
+    /// * `pen` - Pointer to an **OH_Drawing_Pen** object.
     ///
     /// # Returns
     ///
@@ -440,29 +429,31 @@ extern "C" {
     ///
     /// Version: 1.0
     pub fn OH_Drawing_PenGetJoin(pen: *const OH_Drawing_Pen) -> OH_Drawing_PenLineJoinStyle;
-    /// Sets the line join style for a pen.
+    /// Sets the join style for this pen.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **pen** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
+    /// If **joinStyle** is not set to one of the enumerated values, **OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
+    /// * `pen` - Pointer to an **OH_Drawing_Pen** object.
     ///
-    /// * `joinStyle` - Indicates a variable that describes the line join style.
+    /// * `joinStyle` - Join style.
     ///
     /// Available since API-level: 8
     ///
     /// Version: 1.0
     pub fn OH_Drawing_PenSetJoin(pen: *mut OH_Drawing_Pen, joinStyle: OH_Drawing_PenLineJoinStyle);
-    /// Sets the shaderEffect for a pen.
+    /// Sets the shader effect for this pen.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **pen** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
+    /// * `pen` - Pointer to the [`OH_Drawing_Pen`](crate::types::OH_Drawing_Pen) object.
     ///
-    /// * `shaderEffect` - Indicates the pointer to an <b>OH_Drawing_ShaderEffect</b> object.
+    /// * `shaderEffect` - Pointer to an [`OH_Drawing_ShaderEffect`](crate::types::OH_Drawing_ShaderEffect) object. If NULL is passed in, the shader effect
+    /// will be cleared.
     ///
     /// Available since API-level: 11
     ///
@@ -473,15 +464,16 @@ extern "C" {
         pen: *mut OH_Drawing_Pen,
         shaderEffect: *mut OH_Drawing_ShaderEffect,
     );
-    /// Sets the shadowLayer for a pen.
+    /// Sets the shadow layer for a pen. The shadow layer effect takes effect only when text is drawn.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **pen** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
+    /// * `pen` - Pointer to the [`OH_Drawing_Pen`](crate::types::OH_Drawing_Pen) object.
     ///
-    /// * `shadowLayer` - Indicates the pointer to an <b>OH_Drawing_ShadowLayer</b> object.
+    /// * `shadowLayer` - Pointer to an [`OH_Drawing_ShadowLayer`](crate::types::OH_Drawing_ShadowLayer) object. If NULL is passed in, the shadow layer
+    /// effect will be cleared.
     ///
     /// Available since API-level: 12
     ///
@@ -492,15 +484,16 @@ extern "C" {
         pen: *mut OH_Drawing_Pen,
         shadowLayer: *mut OH_Drawing_ShadowLayer,
     );
-    /// Sets the pathEffect for a pen.
+    /// Sets the path effect for this pen.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **pen** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
+    /// * `pen` - Pointer to the [`OH_Drawing_Pen`](crate::types::OH_Drawing_Pen) object.
     ///
-    /// * `pathEffect` - Indicates the pointer to an <b>OH_Drawing_PathEffect</b> object.
+    /// * `pathEffect` - Pointer to an [`OH_Drawing_PathEffect`](crate::types::OH_Drawing_PathEffect) object. If NULL is passed in, the path effect will be
+    /// cleared.
     ///
     /// Available since API-level: 12
     ///
@@ -511,15 +504,15 @@ extern "C" {
         pen: *mut OH_Drawing_Pen,
         pathEffect: *mut OH_Drawing_PathEffect,
     );
-    /// Sets the filter for a pen.
+    /// Sets a filter for a pen.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **pen** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
+    /// * `pen` - Pointer to the [`OH_Drawing_Pen`](crate::types::OH_Drawing_Pen) object.
     ///
-    /// * `filter` - Indicates the pointer to an <b>OH_Drawing_Filter</b> object.
+    /// * `filter` - Pointer to an [`OH_Drawing_Filter`](crate::types::OH_Drawing_Filter) object. If NULL is passed in, the filter will be cleared.
     ///
     /// Available since API-level: 11
     ///
@@ -527,15 +520,16 @@ extern "C" {
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn OH_Drawing_PenSetFilter(pen: *mut OH_Drawing_Pen, filter: *mut OH_Drawing_Filter);
-    /// Gets the filter from a pen.
+    /// Obtains the [`OH_Drawing_Filter`](crate::types::OH_Drawing_Filter) object from the pen. The filter is a container that holds a mask filter
+    /// and color filter.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If either **pen** or **filter** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
+    /// * `pen` - Pointer to the [`OH_Drawing_Pen`](crate::types::OH_Drawing_Pen) object.
     ///
-    /// * `filter` - Indicates the pointer to an <b>OH_Drawing_Filter</b> object.
+    /// * `filter` - Pointer to an [`OH_Drawing_Filter`](crate::types::OH_Drawing_Filter) object.
     ///
     /// Available since API-level: 12
     ///
@@ -543,15 +537,16 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_PenGetFilter(pen: *mut OH_Drawing_Pen, filter: *mut OH_Drawing_Filter);
-    /// Sets a blender that implements the specified blendmode enum for a pen.
+    /// Sets a blender for a pen. The blender implements the specified blend mode.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **pen** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
+    /// If **blendMode** is not set to one of the enumerated values, **OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
+    /// * `pen` - Pointer to the [`OH_Drawing_Pen`](crate::types::OH_Drawing_Pen) object.
     ///
-    /// * `blendMode` - Indicates the blend mode.
+    /// * `blendMode` - Enumeration of blend modes.
     ///
     /// Available since API-level: 12
     ///
@@ -559,27 +554,26 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_PenSetBlendMode(pen: *mut OH_Drawing_Pen, blendMode: OH_Drawing_BlendMode);
-    /// Gets the filled equivalent of the src path.
+    /// Obtains the source path outline drawn using this pen and represents it using a destination path.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If any of **pen**, **src**, and **dst** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
+    /// * `pen` - Pointer to the [`OH_Drawing_Pen`](crate::types::OH_Drawing_Pen) object.
     ///
-    /// * `src` - Indicates the Path read to create a filled version.
+    /// * `src` - Pointer to the source [`OH_Drawing_Path`](crate::types::OH_Drawing_Path) object.
     ///
-    /// * `dst` - Indicates the resulting Path.
+    /// * `dst` - Pointer to the target [`OH_Drawing_Path`](crate::types::OH_Drawing_Path) object.
     ///
-    /// * `rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object that limits the PathEffect area if
-    /// Pen has PathEffect.
+    /// * `rect` - Pointer to an [`OH_Drawing_Rect`](crate::types::OH_Drawing_Rect) object. NULL is recommended.
     ///
-    /// * `matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object that tranfomation applied to
-    /// PathEffect if Pen has PathEffect.
+    /// * `matrix` - Pointer to an [`OH_Drawing_Matrix`](crate::types::OH_Drawing_Matrix) object. NULL is recommended. The default value is an identity
+    /// matrix.
     ///
     /// # Returns
     ///
-    /// * Returns true if get successes; false if get fails.
+    /// * Returns **true** if the destination path is obtained; returns **false** otherwise.
     ///
     /// Available since API-level: 12
     ///
@@ -593,13 +587,13 @@ extern "C" {
         rect: *const OH_Drawing_Rect,
         matrix: *const OH_Drawing_Matrix,
     ) -> bool;
-    /// Resets all pen contents to their initial values.
+    /// Resets a pen to the initial state.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **pen** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
+    /// * `pen` - Pointer to the [`OH_Drawing_Pen`](crate::types::OH_Drawing_Pen) object.
     ///
     /// Available since API-level: 12
     ///

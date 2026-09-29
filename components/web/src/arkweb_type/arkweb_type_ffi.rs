@@ -34,7 +34,7 @@ impl ArkWeb_WebMessageType {
     pub const ARKWEB_BUFFER: ArkWeb_WebMessageType = ArkWeb_WebMessageType(2);
 }
 #[repr(transparent)]
-/// Defines the data type carried in a ArkWeb_WebMessage.
+/// Defines the data type carried in an ArkWeb_WebMessage.
 ///
 ///
 /// Available since API-level: 12
@@ -53,7 +53,7 @@ impl ArkWeb_JavaScriptValueType {
     pub const ARKWEB_JAVASCRIPT_BOOL: ArkWeb_JavaScriptValueType = ArkWeb_JavaScriptValueType(2);
 }
 #[repr(transparent)]
-/// Defines the data type carried in a ArkWeb_JavaScriptValue.
+/// Defines the data type carried in an ArkWeb_JavaScriptValue.
 ///
 ///
 /// Available since API-level: 18
@@ -143,18 +143,17 @@ pub type ArkWeb_OnJavaScriptProxyCallbackWithResult = ::core::option::Option<
 pub type ArkWeb_OnComponentCallback = ::core::option::Option<
     unsafe extern "C" fn(webTag: *const ::core::ffi::c_char, userData: *mut ::core::ffi::c_void),
 >;
-/// Defines the scroll callback of the native ArkWeb.
+/// Called when the **Web** component is scrolled.
 ///
 /// # Arguments
 ///
-/// * `webTag` - The name of the web component.
+/// * `webTag` - Name of the **Web** component.
 ///
-/// * `userData` - The data set by user.
+/// * `userData` - Pointer to user-defined data.
 ///
-/// * `x` - X-axis scrolling offset.
+/// * `x` - Scrolling offset of the X axis. Unit: vp.
 ///
-/// * `y` - Y-axis scrolling offset.
-///
+/// * `y` - Scrolling offset of the Y axis. Unit: vp.
 ///
 /// Available since API-level: 18
 #[cfg(feature = "api-18")]
@@ -309,7 +308,7 @@ pub struct ArkWeb_ControllerAPI {
             proxyObject: *const ArkWeb_ProxyObject,
         ),
     >,
-    /// Deletes the registered object which th given name.
+    /// Deletes the registered object which the given name.
     pub deleteJavaScriptRegister: ::core::option::Option<
         unsafe extern "C" fn(
             webTag: *const ::core::ffi::c_char,
@@ -377,7 +376,7 @@ pub struct ArkWeb_ControllerAPI {
         ) -> ArkWeb_ErrorCode,
     >,
     /// Get the url of the last frame that calls the JavaScriptProxy.
-    /// This should be call on the thread which JavaScriptProxy called.
+    /// This should be called on the thread which JavaScriptProxy called.
     ///
     ///
     /// # Returns

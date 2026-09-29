@@ -8,7 +8,7 @@ use crate::types::*;
 #[cfg(feature = "api-23")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
 impl OH_Drawing_PathIteratorVerb {
-    /// Sets the start point.
+    /// Sets the start point of the path.
     pub const MOVE: OH_Drawing_PathIteratorVerb = OH_Drawing_PathIteratorVerb(0);
     /// Adds a line segment.
     pub const LINE: OH_Drawing_PathIteratorVerb = OH_Drawing_PathIteratorVerb(1);
@@ -18,9 +18,9 @@ impl OH_Drawing_PathIteratorVerb {
     pub const CONIC: OH_Drawing_PathIteratorVerb = OH_Drawing_PathIteratorVerb(3);
     /// Adds a cubic Bezier curve for smooth transitions.
     pub const CUBIC: OH_Drawing_PathIteratorVerb = OH_Drawing_PathIteratorVerb(4);
-    /// Closes a path.
+    /// Closes the path.
     pub const CLOSE: OH_Drawing_PathIteratorVerb = OH_Drawing_PathIteratorVerb(5);
-    /// The path setting is complete.
+    /// Completes the path configuration.
     pub const DONE: OH_Drawing_PathIteratorVerb = OH_Drawing_PathIteratorVerb(6);
 }
 #[repr(transparent)]
@@ -33,19 +33,19 @@ impl OH_Drawing_PathIteratorVerb {
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OH_Drawing_PathIteratorVerb(pub ::core::ffi::c_uint);
 extern "C" {
-    /// Creates an <b>OH_Drawing_PathIterator</b> object from a path.
+    /// Creates an **OH_Drawing_PathIterator** object.
     ///
     /// # Arguments
     ///
-    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `path` - Pointer to an [`OH_Drawing_Path`](crate::types::OH_Drawing_Path) object.
     ///
-    /// * `pathIterator` - The pointer to the <b>OH_Drawing_PathIterator</b> object created returned to the caller.
+    /// * `pathIterator` - Double pointer to an [`OH_Drawing_PathIterator`](crate::types::OH_Drawing_PathIterator) object, which serves as an output parameter.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`](crate::error_code::DrawingErrorCode::INCORRECT_PARAMETER) if path or pathIterator is nullptr.
+    /// * Execution result.
+    /// **OH_DRAWING_SUCCESS** if the operation is successful.
+    /// **OH_DRAWING_ERROR_INCORRECT_PARAMETER** if **path** or **pathIterator** is a null pointer.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -54,17 +54,17 @@ extern "C" {
         path: *const OH_Drawing_Path,
         pathIterator: *mut *mut OH_Drawing_PathIterator,
     ) -> crate::error_code::DrawingResult;
-    /// Destroys an <b>OH_Drawing_PathIterator</b> object and reclaims the memory occupied by the object.
+    /// Destroys an **OH_Drawing_PathIterator** object and reclaims the memory occupied by the object.
     ///
     /// # Arguments
     ///
-    /// * `pathIterator` - Indicates the pointer to an <b>OH_Drawing_PathIterator</b> object.
+    /// * `pathIterator` - Pointer to an [`OH_Drawing_PathIterator`](crate::types::OH_Drawing_PathIterator) object.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`](crate::error_code::DrawingErrorCode::INCORRECT_PARAMETER) if pathIterator is nullptr.
+    /// * Execution result.
+    /// **OH_DRAWING_SUCCESS** if the operation is successful.
+    /// **OH_DRAWING_ERROR_INCORRECT_PARAMETER** if **pathIterator** is a null pointer.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -72,19 +72,20 @@ extern "C" {
     pub fn OH_Drawing_PathIteratorDestroy(
         pathIterator: *mut OH_Drawing_PathIterator,
     ) -> crate::error_code::DrawingResult;
-    /// Checks if there is a next operation in the path operation iterator.
+    /// Checks whether there is any next operation in the path operation iterator.
     ///
     /// # Arguments
     ///
-    /// * `pathIterator` - Indicates the pointer to an <b>OH_Drawing_PathIterator</b> object.
+    /// * `pathIterator` - Pointer to an [`OH_Drawing_PathIterator`](crate::types::OH_Drawing_PathIterator) object.
     ///
-    /// * `hasNext` - Indicates if there is a next operation in the path operation iterator.
+    /// * `hasNext` - Whether there is a next operation in the path operation iterator, which serves as an output parameter.
+    /// A value of **true** means there is a next operation; **false** means the opposite.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`](crate::error_code::DrawingErrorCode::INCORRECT_PARAMETER) if pathIterator or hasNext is nullptr.
+    /// * Execution result.
+    /// **OH_DRAWING_SUCCESS** if the operation is successful.
+    /// **OH_DRAWING_ERROR_INCORRECT_PARAMETER** if **pathIterator** or **hasNext** is a null pointer.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -93,26 +94,26 @@ extern "C" {
         pathIterator: *const OH_Drawing_PathIterator,
         hasNext: *mut bool,
     ) -> crate::error_code::DrawingResult;
-    /// Retrieves the next operation in the path and moves the iterator to that operation.
+    /// Retrieves the next operation in this path and moves the iterator to that operation.
     ///
     /// # Arguments
     ///
-    /// * `pathIterator` - Indicates the pointer to an <b>OH_Drawing_PathIterator</b> object.
+    /// * `pathIterator` - Pointer to an [`OH_Drawing_PathIterator`](crate::types::OH_Drawing_PathIterator) object.
     ///
-    /// * `points` - Indicates the point array.
+    /// * `points` - Array of coordinate points.
     ///
-    /// * `count` - Indicates the size of the point array.
+    /// * `count` - Size of the coordinate point array.
     ///
-    /// * `offset` - Indicates the offset into the array where entries should be placed.
+    /// * `offset` - Offset of the write position relative to the start point in the array. The value range is \[0, count - 4\].
     ///
-    /// * `verb` - Indicates the next operation in the path.
+    /// * `verb` - Next operation of the current path, which serves as an output parameter.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`](crate::error_code::DrawingErrorCode::INCORRECT_PARAMETER) if any of pathIterator, points and verb is nullptr.
-    /// Returns [`OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE`](crate::error_code::DrawingErrorCode::PARAMETER_OUT_OF_RANGE) if count is less than offset plus 4.
+    /// * Execution result.
+    /// **OH_DRAWING_SUCCESS** if the operation is successful.
+    /// **OH_DRAWING_ERROR_INCORRECT_PARAMETER** if **pathIterator**, **points**, or **verb** is a null pointer.
+    /// **OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE** if **count** is less than offset + 4.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -128,15 +129,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `pathIterator` - Indicates the pointer to an <b>OH_Drawing_PathIterator</b> object.
+    /// * `pathIterator` - Pointer to an [`OH_Drawing_PathIterator`](crate::types::OH_Drawing_PathIterator) object.
     ///
-    /// * `verb` - Indicates the next operation in the path.
+    /// * `verb` - Next operation of the current path, which serves as an output parameter.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`](crate::error_code::DrawingErrorCode::INCORRECT_PARAMETER) if pathIterator or verb is nullptr.
+    /// * Execution result.
+    /// **OH_DRAWING_SUCCESS** if the operation is successful.
+    /// **OH_DRAWING_ERROR_INCORRECT_PARAMETER** if **pathIterator** or **verb** is a null pointer.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]

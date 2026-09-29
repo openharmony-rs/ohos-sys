@@ -8,6 +8,14 @@ pub type OH_AudioCommon_Result = Result<(), OH_AudioCommonErrorCode>;
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl OH_AudioCommonErrorCode {
+    /// This means that caller does not have the required permission.
+    ///
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub const PERMISSION_DENIED: OH_AudioCommonErrorCode =
+        OH_AudioCommonErrorCode(const { core::num::NonZero::new(201).unwrap() });
     /// This means that the input parameter is invalid.
     pub const INVALID_PARAM: OH_AudioCommonErrorCode =
         OH_AudioCommonErrorCode(const { core::num::NonZero::new(6800101).unwrap() });
@@ -20,13 +28,21 @@ impl OH_AudioCommonErrorCode {
     /// This means the operation is unsupported.
     pub const UNSUPPORTED: OH_AudioCommonErrorCode =
         OH_AudioCommonErrorCode(const { core::num::NonZero::new(6800104).unwrap() });
-    /// This means the operation is timeout.
+    /// This means the operation timed out.
     pub const TIMEOUT: OH_AudioCommonErrorCode =
         OH_AudioCommonErrorCode(const { core::num::NonZero::new(6800105).unwrap() });
-    /// This means reached stream limit.
+    /// This means the input audio data does not match the required frame length.
+    ///
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub const FRAME_LENGTH_MISMATCH: OH_AudioCommonErrorCode =
+        OH_AudioCommonErrorCode(const { core::num::NonZero::new(6800106).unwrap() });
+    /// This means the stream limit is reached.
     pub const STREAM_LIMIT: OH_AudioCommonErrorCode =
         OH_AudioCommonErrorCode(const { core::num::NonZero::new(6800201).unwrap() });
-    /// An system error has occurred.
+    /// A system error has occurred.
     pub const SYSTEM: OH_AudioCommonErrorCode =
         OH_AudioCommonErrorCode(const { core::num::NonZero::new(6800301).unwrap() });
 }
@@ -114,3 +130,40 @@ impl OH_AudioRingerMode {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OH_AudioRingerMode(pub ::core::ffi::c_uint);
+#[cfg(feature = "api-26")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+impl OH_AudioNoiseReductionMode {
+    /// Fidelity mode, no noise reduction.
+    ///
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub const AUDIO_NOISE_REDUCTION_MODE_FIDELITY: OH_AudioNoiseReductionMode =
+        OH_AudioNoiseReductionMode(0);
+    /// Pure vocals mode, strong noise reduction.
+    ///
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub const AUDIO_NOISE_REDUCTION_MODE_PURE_VOCALS: OH_AudioNoiseReductionMode =
+        OH_AudioNoiseReductionMode(1);
+    /// Standard mode, weak noise reduction.
+    ///
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub const AUDIO_NOISE_REDUCTION_MODE_STANDARD: OH_AudioNoiseReductionMode =
+        OH_AudioNoiseReductionMode(2);
+}
+#[repr(transparent)]
+/// Enumerates the noise reduction modes.
+///
+///
+/// Available since API-level: 26
+#[cfg(feature = "api-26")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct OH_AudioNoiseReductionMode(pub ::core::ffi::c_uint);

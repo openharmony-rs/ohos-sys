@@ -4,8 +4,8 @@
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
 
-/// Defines a rectangular canvas on which various shapes, images,
-/// and texts can be drawn by using the brush and pen.
+/// Defines a struct for a rectangular canvas, on which various shapes, images, and texts can be drawn by using
+/// the brush and pen.
 ///
 ///
 /// Available since API-level: 8
@@ -15,7 +15,7 @@
 pub struct OH_Drawing_Canvas {
     _unused: [u8; 0],
 }
-/// Defines a pen, which is used to describe the style and color to outline a shape.
+/// Defines a struct for a pen, which is used to describe the style and color to outline a shape.
 ///
 ///
 /// Available since API-level: 8
@@ -25,7 +25,7 @@ pub struct OH_Drawing_Canvas {
 pub struct OH_Drawing_Pen {
     _unused: [u8; 0],
 }
-/// Defines a region, which is used to represent an enclosed area on the canvas layer.
+/// Defines a struct for a region, which represents a closed area on the canvas for more accurate graphic control.
 ///
 ///
 /// Available since API-level: 12
@@ -37,7 +37,7 @@ pub struct OH_Drawing_Pen {
 pub struct OH_Drawing_Region {
     _unused: [u8; 0],
 }
-/// Defines as a brush, which is used to describe the style and color to fill in a shape.
+/// Defines a struct for a brush, which is used to describe the style and color to fill in a shape.
 ///
 ///
 /// Available since API-level: 8
@@ -47,7 +47,7 @@ pub struct OH_Drawing_Region {
 pub struct OH_Drawing_Brush {
     _unused: [u8; 0],
 }
-/// Defines a path, which is used to customize various shapes.
+/// Defines a struct for a path, which is used to customize various shapes.
 ///
 ///
 /// Available since API-level: 8
@@ -57,8 +57,8 @@ pub struct OH_Drawing_Brush {
 pub struct OH_Drawing_Path {
     _unused: [u8; 0],
 }
-/// Defines a pathIterator, which is used to describe a path operation iterator.
-/// You can read path operation instructions by traversing the iterator.
+/// This struct defines a path operation iterator that enables path operation instructions to be read via
+/// iterator traversal.
 ///
 ///
 /// Available since API-level: 23
@@ -70,7 +70,7 @@ pub struct OH_Drawing_Path {
 pub struct OH_Drawing_PathIterator {
     _unused: [u8; 0],
 }
-/// Defines a lattice, which divides an image into a rectangular grid.
+/// This struct defines a rectangle grid, which is used to divide an image by rectangle grid.
 ///
 ///
 /// Available since API-level: 23
@@ -80,7 +80,7 @@ pub struct OH_Drawing_PathIterator {
 pub struct OH_Drawing_Lattice {
     _unused: [u8; 0],
 }
-/// Defines a bitmap, which is a memory that contains the pixel data of a shape.
+/// Defines a struct for a bitmap, which is a memory area that contains the pixel data of a shape.
 ///
 ///
 /// Available since API-level: 8
@@ -90,7 +90,7 @@ pub struct OH_Drawing_Lattice {
 pub struct OH_Drawing_Bitmap {
     _unused: [u8; 0],
 }
-/// Defines a point, which is used to describe the coordinate point.
+/// Defines a struct for a coordinate point.
 ///
 ///
 /// Available since API-level: 11
@@ -102,7 +102,7 @@ pub struct OH_Drawing_Bitmap {
 pub struct OH_Drawing_Point {
     _unused: [u8; 0],
 }
-/// Defines a pixelmap, which is used to wrap real pixelmap supported by image framework.
+/// Defines a struct for a pixel map, which is used to wrap the real pixel map supported by the image framework.
 ///
 ///
 /// Available since API-level: 12
@@ -114,7 +114,7 @@ pub struct OH_Drawing_Point {
 pub struct OH_Drawing_PixelMap {
     _unused: [u8; 0],
 }
-/// Define color space to determine color information.
+/// Defines a struct for a color space, which is used to describe the color information.
 ///
 ///
 /// Available since API-level: 12
@@ -126,7 +126,8 @@ pub struct OH_Drawing_PixelMap {
 pub struct OH_Drawing_ColorSpace {
     _unused: [u8; 0],
 }
-/// Defines a point of 2d.
+/// **OH_Drawing_Point2D** defines a two-dimensional coordinate point.<br>**OH_Drawing_Corner_Radii** defines
+/// rounded corner radii, consisting of an x-axis radius and a y-axis radius.
 ///
 ///
 /// Available since API-level: 12
@@ -140,7 +141,7 @@ pub struct OH_Drawing_Point2D {
     pub x: f32,
     pub y: f32,
 }
-/// Defines a corner radii, which is on x-axis and y-axis.
+/// Defines corner radii, which is on x-axis and y-axis.
 ///
 ///
 /// Available since API-level: 12
@@ -149,7 +150,7 @@ pub struct OH_Drawing_Point2D {
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub type OH_Drawing_Corner_Radii = OH_Drawing_Point2D;
-/// Defines a point of 3d, which is used to describe the coordinate point.
+/// This struct describes a three-dimensional coordinate point.
 ///
 ///
 /// Available since API-level: 12
@@ -164,7 +165,7 @@ pub struct OH_Drawing_Point3D {
     pub y: f32,
     pub z: f32,
 }
-/// Defines a pathEffect, which is used to affects stroked paths.
+/// Defines a struct for a path effect that affects the stroke.
 ///
 ///
 /// Available since API-level: 12
@@ -176,7 +177,7 @@ pub struct OH_Drawing_Point3D {
 pub struct OH_Drawing_PathEffect {
     _unused: [u8; 0],
 }
-/// Defines a rect, which is used to describe the rectangle.
+/// Defines a struct for a rectangle.
 ///
 ///
 /// Available since API-level: 11
@@ -188,7 +189,7 @@ pub struct OH_Drawing_PathEffect {
 pub struct OH_Drawing_Rect {
     _unused: [u8; 0],
 }
-/// Defines a roundRect, which is used to describe the round rectangle.
+/// Defines a struct for a rounded rectangle.
 ///
 ///
 /// Available since API-level: 11
@@ -200,7 +201,7 @@ pub struct OH_Drawing_Rect {
 pub struct OH_Drawing_RoundRect {
     _unused: [u8; 0],
 }
-/// Defines a matrix, which is used to describe the transforming coordinates.
+/// Defines a struct for a matrix, which is used to describe coordinate transformation.
 ///
 ///
 /// Available since API-level: 11
@@ -212,7 +213,7 @@ pub struct OH_Drawing_RoundRect {
 pub struct OH_Drawing_Matrix {
     _unused: [u8; 0],
 }
-/// Defines a shaderEffect, which is used to describe the source color(s) for what is being drawn.
+/// Defines a struct for a shader effect, which is used to describe the source color of the drawn content.
 ///
 ///
 /// Available since API-level: 11
@@ -224,7 +225,7 @@ pub struct OH_Drawing_Matrix {
 pub struct OH_Drawing_ShaderEffect {
     _unused: [u8; 0],
 }
-/// Defines a shadowLayer, which is used to draw shaded parts.
+/// Defines a struct for a shadow, which is used to describe the shadow layer of the drawn content.
 ///
 ///
 /// Available since API-level: 12
@@ -236,7 +237,7 @@ pub struct OH_Drawing_ShaderEffect {
 pub struct OH_Drawing_ShadowLayer {
     _unused: [u8; 0],
 }
-/// Defines a filter, which is used to store maskFilter, colorFilter and imageFilter.
+/// Defines a struct for a filter, which consists of a color filter, mask filter, and image filter.
 ///
 ///
 /// Available since API-level: 11
@@ -248,7 +249,7 @@ pub struct OH_Drawing_ShadowLayer {
 pub struct OH_Drawing_Filter {
     _unused: [u8; 0],
 }
-/// Defines a maskFilter, which is used to perform transformations on the mask before drawing it.
+/// Defines a struct for a mask filter.
 ///
 ///
 /// Available since API-level: 11
@@ -260,7 +261,7 @@ pub struct OH_Drawing_Filter {
 pub struct OH_Drawing_MaskFilter {
     _unused: [u8; 0],
 }
-/// Defines a colorFilter, which is called a color and returns a new color.
+/// Defines a struct for a color filter, which is used to convert a color into a new one.
 ///
 ///
 /// Available since API-level: 11
@@ -272,7 +273,7 @@ pub struct OH_Drawing_MaskFilter {
 pub struct OH_Drawing_ColorFilter {
     _unused: [u8; 0],
 }
-/// Defines a font, which is used to describe the font.
+/// Defines a struct for a font.
 ///
 ///
 /// Available since API-level: 11
@@ -284,7 +285,8 @@ pub struct OH_Drawing_ColorFilter {
 pub struct OH_Drawing_Font {
     _unused: [u8; 0],
 }
-/// Defines fontFeatures, which is used to describe the features for a font.
+/// Defines a struct for font features, which are typesetting rules within a font that determine how glyphs look,
+/// such as ligatures, alternates, and superscripts/subscripts.
 ///
 ///
 /// Available since API-level: 20
@@ -296,7 +298,7 @@ pub struct OH_Drawing_Font {
 pub struct OH_Drawing_FontFeatures {
     _unused: [u8; 0],
 }
-/// Defines a memoryStream, which is used to describe the memory stream.
+/// Defines a struct for a memory stream.
 ///
 ///
 /// Available since API-level: 12
@@ -308,7 +310,7 @@ pub struct OH_Drawing_FontFeatures {
 pub struct OH_Drawing_MemoryStream {
     _unused: [u8; 0],
 }
-/// Defines fontArguments, which is used to describe the arguments for a font.
+/// Defines a struct for font arguments.
 ///
 ///
 /// Available since API-level: 13
@@ -320,7 +322,7 @@ pub struct OH_Drawing_MemoryStream {
 pub struct OH_Drawing_FontArguments {
     _unused: [u8; 0],
 }
-/// Defines a typeface, which is used to describe the typeface.
+/// Defines a struct for a typeface.
 ///
 ///
 /// Available since API-level: 11
@@ -332,8 +334,8 @@ pub struct OH_Drawing_FontArguments {
 pub struct OH_Drawing_Typeface {
     _unused: [u8; 0],
 }
-/// Defines a textBlob, which combines multiple text runs into an immutable container.
-/// Each text run consists of glyphs and positions.
+/// Defines a struct for a text blob, an immutable container that holds multiple texts. Each text blob consists
+/// of glyphs and position.
 ///
 ///
 /// Available since API-level: 11
@@ -345,7 +347,7 @@ pub struct OH_Drawing_Typeface {
 pub struct OH_Drawing_TextBlob {
     _unused: [u8; 0],
 }
-/// Defines a image, which is used to describe a two dimensional array of pixels to draw.
+/// Defines a struct for an image that describes a two-dimensional pixel array.
 ///
 ///
 /// Available since API-level: 12
@@ -357,7 +359,7 @@ pub struct OH_Drawing_TextBlob {
 pub struct OH_Drawing_Image {
     _unused: [u8; 0],
 }
-/// Defines a image filter, which is used to operate on all the color bits of pixels that make up an image.
+/// Defines a struct for an image filter, which is used to operate all color bits that make up image pixels.
 ///
 ///
 /// Available since API-level: 12
@@ -369,7 +371,7 @@ pub struct OH_Drawing_Image {
 pub struct OH_Drawing_ImageFilter {
     _unused: [u8; 0],
 }
-/// Defines a sampling options, which is used to describe the sampling mode.
+/// Defines a struct for sampling options, which describe the sampling methods for images and bitmaps.
 ///
 ///
 /// Available since API-level: 12
@@ -381,7 +383,7 @@ pub struct OH_Drawing_ImageFilter {
 pub struct OH_Drawing_SamplingOptions {
     _unused: [u8; 0],
 }
-/// Defines a textBlobBuilder, which is used to build the textBlob.
+/// Defines a struct for a text blob builder, which is used to build a text blob.
 ///
 ///
 /// Available since API-level: 11
@@ -393,7 +395,7 @@ pub struct OH_Drawing_SamplingOptions {
 pub struct OH_Drawing_TextBlobBuilder {
     _unused: [u8; 0],
 }
-/// Defines a GPU context, which is used to describe the GPU backend context.
+/// Defines a struct for the GPU context, which is used to describe the GPU backend context.
 ///
 ///
 /// Available since API-level: 12
@@ -405,7 +407,7 @@ pub struct OH_Drawing_TextBlobBuilder {
 pub struct OH_Drawing_GpuContext {
     _unused: [u8; 0],
 }
-/// Defines a surface, which is used to manage the pixels that a canvas draws into.
+/// Defines a struct for a surface, which is used to manage the content drawn on the canvas.
 ///
 ///
 /// Available since API-level: 12
@@ -419,24 +421,42 @@ pub struct OH_Drawing_Surface {
 }
 impl OH_Drawing_ColorFormat {
     /// Unknown format.
+    ///
+    ///
+    /// Available since API-level: 8
     pub const COLOR_FORMAT_UNKNOWN: OH_Drawing_ColorFormat = OH_Drawing_ColorFormat(0);
     /// Each pixel is represented by 8 bits, which together indicate alpha.
+    ///
+    ///
+    /// Available since API-level: 8
     pub const COLOR_FORMAT_ALPHA_8: OH_Drawing_ColorFormat = OH_Drawing_ColorFormat(1);
-    /// Each pixel is represented by 16 bits. From the most significant bit to the least significant bit,
-    /// the first 5 bits indicate red, the subsequent 6 bits indicate green, and the last 5 bits indicate blue.
+    /// Each pixel is represented by 16 bits. From the most significant bit to the least significant bit, the first 5
+    /// bits indicate red, the subsequent 6 bits indicate green, and the last 5 bits indicate blue.
+    ///
+    ///
+    /// Available since API-level: 8
     pub const COLOR_FORMAT_RGB_565: OH_Drawing_ColorFormat = OH_Drawing_ColorFormat(2);
-    /// Each pixel is represented by 16 bits. From the most significant bit to the least significant bit,
-    /// every 4 bits indicate alpha, red, green, and blue, respectively.
+    /// Each pixel is represented by 16 bits. From the most significant bit to the least significant bit, every 4 bits
+    /// indicate alpha, red, green, and blue, respectively.
+    ///
+    ///
+    /// Available since API-level: 8
     pub const COLOR_FORMAT_ARGB_4444: OH_Drawing_ColorFormat = OH_Drawing_ColorFormat(3);
-    /// Each pixel is represented by 32 bits. From the most significant bit to the least significant bit,
-    /// every 8 bits indicate alpha, red, green, and blue, respectively.
+    /// Each pixel is represented by 32 bits. From the most significant bit to the least significant bit, every 8 bits
+    /// indicate alpha, red, green, and blue, respectively.
+    ///
+    ///
+    /// Available since API-level: 8
     pub const COLOR_FORMAT_RGBA_8888: OH_Drawing_ColorFormat = OH_Drawing_ColorFormat(4);
-    /// Each pixel is represented by 32 bits. From the most significant bit to the least significant bit,
-    /// every 8 bits indicate blue, green, red, and alpha, respectively.
+    /// Each pixel is represented by 32 bits. From the most significant bit to the least significant bit, every 8 bits
+    /// indicate blue, green, red, and alpha, respectively.
+    ///
+    ///
+    /// Available since API-level: 8
     pub const COLOR_FORMAT_BGRA_8888: OH_Drawing_ColorFormat = OH_Drawing_ColorFormat(5);
 }
 #[repr(transparent)]
-/// Enumerates storage formats of bitmap pixels.
+/// Defines an enum for the storage formats of bitmap pixels.
 ///
 ///
 /// Available since API-level: 8
@@ -446,16 +466,28 @@ impl OH_Drawing_ColorFormat {
 pub struct OH_Drawing_ColorFormat(pub ::core::ffi::c_uint);
 impl OH_Drawing_AlphaFormat {
     /// Unknown format.
+    ///
+    ///
+    /// Available since API-level: 8
     pub const ALPHA_FORMAT_UNKNOWN: OH_Drawing_AlphaFormat = OH_Drawing_AlphaFormat(0);
     /// The bitmap does not have the alpha component.
+    ///
+    ///
+    /// Available since API-level: 8
     pub const ALPHA_FORMAT_OPAQUE: OH_Drawing_AlphaFormat = OH_Drawing_AlphaFormat(1);
     /// The color component of each pixel is premultiplied by the alpha component.
+    ///
+    ///
+    /// Available since API-level: 8
     pub const ALPHA_FORMAT_PREMUL: OH_Drawing_AlphaFormat = OH_Drawing_AlphaFormat(2);
     /// The color component of each pixel is not premultiplied by the alpha component.
+    ///
+    ///
+    /// Available since API-level: 8
     pub const ALPHA_FORMAT_UNPREMUL: OH_Drawing_AlphaFormat = OH_Drawing_AlphaFormat(3);
 }
 #[repr(transparent)]
-/// Enumerates alpha formats of bitmap pixels.
+/// Defines an enum for the alpha formats of bitmap pixels.
 ///
 ///
 /// Available since API-level: 8
@@ -466,80 +498,227 @@ pub struct OH_Drawing_AlphaFormat(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-11")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
 impl OH_Drawing_BlendMode {
-    /// r = 0.
+    /// Clear mode. r = 0.
+    ///
+    ///
+    /// Available since API-level: 11
+    #[cfg(feature = "api-11")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub const BLEND_MODE_CLEAR: OH_Drawing_BlendMode = OH_Drawing_BlendMode(0);
-    /// r = s.
+    /// r = s (The four channels of **result** are equal to the four channels of **source**, that is, the result is
+    /// equal to the source.)
+    ///
+    ///
+    /// Available since API-level: 11
+    #[cfg(feature = "api-11")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub const BLEND_MODE_SRC: OH_Drawing_BlendMode = OH_Drawing_BlendMode(1);
-    /// r = d.
+    /// r = d (The four channels of **result** are equal to the four channels of **destination**, that is, the result is
+    /// equal to the destination.)
+    ///
+    ///
+    /// Available since API-level: 11
+    #[cfg(feature = "api-11")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub const BLEND_MODE_DST: OH_Drawing_BlendMode = OH_Drawing_BlendMode(2);
-    /// r = s + (1-sa)*d.
+    /// r = s + (1 - sa) * d.
+    ///
+    ///
+    /// Available since API-level: 11
+    #[cfg(feature = "api-11")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub const BLEND_MODE_SRC_OVER: OH_Drawing_BlendMode = OH_Drawing_BlendMode(3);
-    /// r = d + (1-da)*s.
+    /// r = d + (1 - da) * s.
+    ///
+    ///
+    /// Available since API-level: 11
+    #[cfg(feature = "api-11")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub const BLEND_MODE_DST_OVER: OH_Drawing_BlendMode = OH_Drawing_BlendMode(4);
     /// r = s * da.
+    ///
+    ///
+    /// Available since API-level: 11
+    #[cfg(feature = "api-11")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub const BLEND_MODE_SRC_IN: OH_Drawing_BlendMode = OH_Drawing_BlendMode(5);
     /// r = d * sa.
+    ///
+    ///
+    /// Available since API-level: 11
+    #[cfg(feature = "api-11")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub const BLEND_MODE_DST_IN: OH_Drawing_BlendMode = OH_Drawing_BlendMode(6);
-    /// r = s * (1-da).
+    /// r = s * (1 - da).
+    ///
+    ///
+    /// Available since API-level: 11
+    #[cfg(feature = "api-11")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub const BLEND_MODE_SRC_OUT: OH_Drawing_BlendMode = OH_Drawing_BlendMode(7);
-    /// r = d * (1-sa).
+    /// r = d * (1 - sa).
+    ///
+    ///
+    /// Available since API-level: 11
+    #[cfg(feature = "api-11")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub const BLEND_MODE_DST_OUT: OH_Drawing_BlendMode = OH_Drawing_BlendMode(8);
-    /// r = s*da + d*(1-sa).
+    /// r = s * da + d * (1 - sa).
+    ///
+    ///
+    /// Available since API-level: 11
+    #[cfg(feature = "api-11")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub const BLEND_MODE_SRC_ATOP: OH_Drawing_BlendMode = OH_Drawing_BlendMode(9);
-    /// r = d*sa + s*(1-da).
+    /// r = d * sa + s * (1 - da).
+    ///
+    ///
+    /// Available since API-level: 11
+    #[cfg(feature = "api-11")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub const BLEND_MODE_DST_ATOP: OH_Drawing_BlendMode = OH_Drawing_BlendMode(10);
-    /// r = s*(1-da) + d*(1-sa).
+    /// r = s * (1 - da) + d * (1 - sa).
+    ///
+    ///
+    /// Available since API-level: 11
+    #[cfg(feature = "api-11")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub const BLEND_MODE_XOR: OH_Drawing_BlendMode = OH_Drawing_BlendMode(11);
     /// r = min(s + d, 1).
+    ///
+    ///
+    /// Available since API-level: 11
+    #[cfg(feature = "api-11")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub const BLEND_MODE_PLUS: OH_Drawing_BlendMode = OH_Drawing_BlendMode(12);
-    /// r = s*d.
+    /// r = s * d.
+    ///
+    ///
+    /// Available since API-level: 11
+    #[cfg(feature = "api-11")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub const BLEND_MODE_MODULATE: OH_Drawing_BlendMode = OH_Drawing_BlendMode(13);
-    /// r = s + d - s*d.
+    /// Screen mode. r = s + d - s * d.
+    ///
+    ///
+    /// Available since API-level: 11
+    #[cfg(feature = "api-11")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub const BLEND_MODE_SCREEN: OH_Drawing_BlendMode = OH_Drawing_BlendMode(14);
-    /// multiply or screen, depending on destination.
+    /// Overlay mode.
+    ///
+    ///
+    /// Available since API-level: 11
+    #[cfg(feature = "api-11")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub const BLEND_MODE_OVERLAY: OH_Drawing_BlendMode = OH_Drawing_BlendMode(15);
-    /// rc = s + d - max(s*da, d*sa), ra = s + (1-sa)*d.
+    /// Darken mode. rc = s + d - max(s * da, d * sa), ra = s + (1 - sa) * d.
+    ///
+    ///
+    /// Available since API-level: 11
+    #[cfg(feature = "api-11")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub const BLEND_MODE_DARKEN: OH_Drawing_BlendMode = OH_Drawing_BlendMode(16);
-    /// rc = s + d - min(s*da, d*sa), ra = s + (1-sa)*d.
+    /// Lighten mode. rc = rc = s + d - min(s * da, d * sa), ra = s + (1 - sa) * d.
+    ///
+    ///
+    /// Available since API-level: 11
+    #[cfg(feature = "api-11")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub const BLEND_MODE_LIGHTEN: OH_Drawing_BlendMode = OH_Drawing_BlendMode(17);
-    /// brighten destination to reflect source.
+    /// Color dodge mode.
+    ///
+    ///
+    /// Available since API-level: 11
+    #[cfg(feature = "api-11")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub const BLEND_MODE_COLOR_DODGE: OH_Drawing_BlendMode = OH_Drawing_BlendMode(18);
-    /// darken destination to reflect source.
+    /// Color burn mode.
+    ///
+    ///
+    /// Available since API-level: 11
+    #[cfg(feature = "api-11")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub const BLEND_MODE_COLOR_BURN: OH_Drawing_BlendMode = OH_Drawing_BlendMode(19);
-    /// multiply or screen, depending on source.
+    /// Hard light mode.
+    ///
+    ///
+    /// Available since API-level: 11
+    #[cfg(feature = "api-11")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub const BLEND_MODE_HARD_LIGHT: OH_Drawing_BlendMode = OH_Drawing_BlendMode(20);
-    /// lighten or darken, depending on source.
+    /// Soft light mode.
+    ///
+    ///
+    /// Available since API-level: 11
+    #[cfg(feature = "api-11")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub const BLEND_MODE_SOFT_LIGHT: OH_Drawing_BlendMode = OH_Drawing_BlendMode(21);
-    /// rc = s + d - 2*(min(s*da, d*sa)), ra = s + (1-sa)*d.
+    /// Difference mode. rc = s + d - 2 * (min(s * da, d * sa)), ra = s + (1 - sa) * d.
+    ///
+    ///
+    /// Available since API-level: 11
+    #[cfg(feature = "api-11")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub const BLEND_MODE_DIFFERENCE: OH_Drawing_BlendMode = OH_Drawing_BlendMode(22);
-    /// rc = s + d - two(s*d), ra = s + (1-sa)*d.
+    /// Exclusion mode. rc = s + d - two(s * d), ra = s + (1 - sa) * d.
+    ///
+    ///
+    /// Available since API-level: 11
+    #[cfg(feature = "api-11")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub const BLEND_MODE_EXCLUSION: OH_Drawing_BlendMode = OH_Drawing_BlendMode(23);
-    /// r = s*(1-da) + d*(1-sa) + s*d.
+    /// Multiply mode. r = s * (1 - da) + d * (1 - sa) + s * d.
+    ///
+    ///
+    /// Available since API-level: 11
+    #[cfg(feature = "api-11")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub const BLEND_MODE_MULTIPLY: OH_Drawing_BlendMode = OH_Drawing_BlendMode(24);
-    /// hue of source with saturation and luminosity of destination.
+    /// Hue mode.
+    ///
+    ///
+    /// Available since API-level: 11
+    #[cfg(feature = "api-11")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub const BLEND_MODE_HUE: OH_Drawing_BlendMode = OH_Drawing_BlendMode(25);
-    /// saturation of source with hue and luminosity of destination.
+    /// Saturation mode.
+    ///
+    ///
+    /// Available since API-level: 11
+    #[cfg(feature = "api-11")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub const BLEND_MODE_SATURATION: OH_Drawing_BlendMode = OH_Drawing_BlendMode(26);
-    /// hue and saturation of source with luminosity of destination.
+    /// Color mode.
+    ///
+    ///
+    /// Available since API-level: 11
+    #[cfg(feature = "api-11")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub const BLEND_MODE_COLOR: OH_Drawing_BlendMode = OH_Drawing_BlendMode(27);
-    /// luminosity of source with hue and saturation of destination.
+    /// Luminosity mode.
+    ///
+    ///
+    /// Available since API-level: 11
+    #[cfg(feature = "api-11")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub const BLEND_MODE_LUMINOSITY: OH_Drawing_BlendMode = OH_Drawing_BlendMode(28);
 }
 #[repr(transparent)]
-/// The blending operation generates a new color for the two colors (source, destination).
-/// These operations are the same on the 4 color channels: red, green, blue, alpha.
-/// For these, we use alpha channel as an example, rather than naming each channel individually.
-///
-/// For brevity, we use the following abbreviations.
-/// s : source
-/// d : destination
-/// sa : source alpha
-/// da : destination alpha
-///
-/// Results are abbreviated
-/// r : if all 4 channels are computed in the same manner
-/// ra : result alpha channel
-/// rc : result "color": red, green, blue channels
+/// Defines an enum for blend modes. In blend mode, each operation generates a new color from two colors (source
+/// color and destination color).
+/// These operations are the same for the red, green, and blue color channels (the alpha channel follows a different
+/// rule).
+/// For simplicity, the following description uses the alpha channel as an example rather than naming each channel
+/// individually. For brevity, the following abbreviations are used:
+/// **s**: source.
+/// **d**: destination.
+/// **sa**: source alpha.
+/// **da**: destination alpha.
+/// The following abbreviations are used in the calculation result:
+/// **r**: The calculation methods of the four channels are the same.
+/// **ra**: used when only the alpha channel is manipulated.
+/// **rc**: used when the other three color channels are manipulated.
 ///
 ///
 /// Available since API-level: 11
@@ -549,78 +728,41 @@ impl OH_Drawing_BlendMode {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OH_Drawing_BlendMode(pub ::core::ffi::c_uint);
-/// Defines image info struct.
-///
-///
-/// Available since API-level: 12
-///
-/// Version: 1.0
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct OH_Drawing_Image_Info {
-    /// storage for width of image
-    pub width: i32,
-    /// storage for height of image
-    pub height: i32,
-    /// storage for color formats
-    pub colorType: OH_Drawing_ColorFormat,
-    /// storage for alpha formats
-    pub alphaType: OH_Drawing_AlphaFormat,
-}
-/// Defines rectstyle info struct.
-///
-///
-/// Available since API-level: 12
-///
-/// Version: 1.0
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct OH_Drawing_RectStyle_Info {
-    /// color of rectstyle
-    pub color: u32,
-    /// radius in left top of rectstyle
-    pub leftTopRadius: f64,
-    /// radius in right top of rectstyle
-    pub rightTopRadius: f64,
-    /// radius in right bottom of rectstyle
-    pub rightBottomRadius: f64,
-    /// radius in left bottom of rectstyle
-    pub leftBottomRadius: f64,
-}
-/// Defines the string information struct.
-///
-///
-/// Available since API-level: 14
-///
-/// Version: 1.0
-#[cfg(feature = "api-14")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct OH_Drawing_String {
-    /// A pointer to a byte string containing UTF-16 encoded entities
-    pub strData: *mut u8,
-    /// The length of `strData` in bytes
-    pub strLen: u32,
-}
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl OH_Drawing_TextEncoding {
-    /// uses bytes to represent UTF-8 or ASCII
+    /// One byte used to indicate UTF-8 or ASCII characters.
+    ///
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const TEXT_ENCODING_UTF8: OH_Drawing_TextEncoding = OH_Drawing_TextEncoding(0);
-    /// uses two byte words to represent most of Unicode
+    /// Two bytes used to indicate most Unicode characters.
+    ///
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const TEXT_ENCODING_UTF16: OH_Drawing_TextEncoding = OH_Drawing_TextEncoding(1);
-    /// uses four byte words to represent all of Unicode
+    /// Four bytes used to indicate all Unicode characters.
+    ///
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const TEXT_ENCODING_UTF32: OH_Drawing_TextEncoding = OH_Drawing_TextEncoding(2);
-    /// uses two byte words to represent glyph indices
+    /// Two bytes used to indicate the glyph index.
+    ///
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const TEXT_ENCODING_GLYPH_ID: OH_Drawing_TextEncoding = OH_Drawing_TextEncoding(3);
 }
 #[repr(transparent)]
-/// Enumerates text encoding types.
+/// Defines an enum for the text encoding types.
+///
 ///
 /// Available since API-level: 12
 ///
@@ -629,7 +771,7 @@ impl OH_Drawing_TextEncoding {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OH_Drawing_TextEncoding(pub ::core::ffi::c_uint);
-/// Defines a OH_Drawing_FontMgr, which is used to manage font family.
+/// Defines a struct for the font manager, which is used for font management.
 ///
 ///
 /// Available since API-level: 12
@@ -641,7 +783,7 @@ pub struct OH_Drawing_TextEncoding(pub ::core::ffi::c_uint);
 pub struct OH_Drawing_FontMgr {
     _unused: [u8; 0],
 }
-/// Defines a OH_Drawing_FontStyleSet, which is used to manage font style.
+/// Defines a struct for a font style set, which is used for font style family matching.
 ///
 ///
 /// Available since API-level: 12
@@ -653,7 +795,7 @@ pub struct OH_Drawing_FontMgr {
 pub struct OH_Drawing_FontStyleSet {
     _unused: [u8; 0],
 }
-/// Define OH_Drawing_RecordCmdUtils, which is used to generate drawing commands tool.
+/// Defines the recording command tool, which is used to generate recording commands.
 ///
 ///
 /// Available since API-level: 13
@@ -665,7 +807,7 @@ pub struct OH_Drawing_FontStyleSet {
 pub struct OH_Drawing_RecordCmdUtils {
     _unused: [u8; 0],
 }
-/// Define OH_Drawing_RecordCmd, which is used to replay drawing commands.
+/// Defines the recording command class, which is used to store the set of recording commands.
 ///
 ///
 /// Available since API-level: 13
@@ -677,7 +819,7 @@ pub struct OH_Drawing_RecordCmdUtils {
 pub struct OH_Drawing_RecordCmd {
     _unused: [u8; 0],
 }
-/// Defines an array object, which is used to store multiple NDK object.
+/// Defines a struct for an array object, which is used to store multiple objects of the same type.
 ///
 ///
 /// Available since API-level: 14
@@ -688,4 +830,95 @@ pub struct OH_Drawing_RecordCmd {
 #[repr(C)]
 pub struct OH_Drawing_Array {
     _unused: [u8; 0],
+}
+/// This struct describes the style of a rectangle.
+///
+///
+/// Available since API-level: 12
+///
+/// Version: 1.0
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct OH_Drawing_RectStyle_Info {
+    /// Color of the rectangle.
+    ///
+    ///
+    /// Available since API-level: 12
+    pub color: u32,
+    /// Left top radius of the rectangle.
+    ///
+    ///
+    /// Available since API-level: 12
+    pub leftTopRadius: f64,
+    /// Right top radius of the rectangle.
+    ///
+    ///
+    /// Available since API-level: 12
+    pub rightTopRadius: f64,
+    /// Right bottom radius of the rectangle.
+    ///
+    ///
+    /// Available since API-level: 12
+    pub rightBottomRadius: f64,
+    /// Left bottom radius of the rectangle.
+    ///
+    ///
+    /// Available since API-level: 12
+    pub leftBottomRadius: f64,
+}
+/// This struct describes the image information.
+///
+///
+/// Available since API-level: 12
+///
+/// Version: 1.0
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct OH_Drawing_Image_Info {
+    /// Width, in pixels.
+    ///
+    ///
+    /// Available since API-level: 12
+    pub width: i32,
+    /// Height, in pixels.
+    ///
+    ///
+    /// Available since API-level: 12
+    pub height: i32,
+    /// Color type.
+    ///
+    ///
+    /// Available since API-level: 12
+    pub colorType: OH_Drawing_ColorFormat,
+    /// Alpha type.
+    ///
+    ///
+    /// Available since API-level: 12
+    pub alphaType: OH_Drawing_AlphaFormat,
+}
+/// This struct describes a string of characters encoded in UTF-16.
+///
+///
+/// Available since API-level: 14
+///
+/// Version: 1.0
+#[cfg(feature = "api-14")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct OH_Drawing_String {
+    /// Pointer to a byte array that stores characters in the UTF-16 encoding format.
+    ///
+    ///
+    /// Available since API-level: 14
+    pub strData: *mut u8,
+    /// Actual length of the string that **strData** points to, in bytes.
+    ///
+    ///
+    /// Available since API-level: 14
+    pub strLen: u32,
 }

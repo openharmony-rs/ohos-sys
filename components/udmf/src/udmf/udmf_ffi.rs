@@ -213,7 +213,7 @@ pub type OH_UdmfRecordProvider_GetData = ::core::option::Option<
     ) -> *mut ::core::ffi::c_void,
 >;
 extern "C" {
-    /// Creation a pointer to the instance of the [`OH_UdmfData`](ohos_sys_opaque_types::OH_UdmfData).
+    /// Creates a pointer to the instance of the [`OH_UdmfData`](ohos_sys_opaque_types::OH_UdmfData).
     ///
     ///
     /// # Returns
@@ -389,7 +389,7 @@ extern "C" {
         callback: OH_UdmfRecordProvider_GetData,
         finalize: UdmfData_Finalize,
     ) -> ::core::ffi::c_int;
-    /// Creation a pointer to the instance of the [`OH_UdmfRecord`](ohos_sys_opaque_types::OH_UdmfRecord), it's relate with UDS data.
+    /// Creates a pointer to the instance of the [`OH_UdmfRecord`](ohos_sys_opaque_types::OH_UdmfRecord), it's relate with UDS data.
     ///
     ///
     /// # Returns
@@ -1004,7 +1004,7 @@ extern "C" {
     #[cfg(feature = "api-13")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub fn OH_UdmfData_IsLocal(data: *mut OH_UdmfData) -> bool;
-    /// Creation a pointer to the instance of the [`OH_UdmfProperty`](ohos_sys_opaque_types::OH_UdmfProperty)
+    /// Creates a pointer to the instance of the [`OH_UdmfProperty`](ohos_sys_opaque_types::OH_UdmfProperty)
     /// from a [`OH_UdmfData`](ohos_sys_opaque_types::OH_UdmfData) data.
     ///
     /// # Arguments
@@ -1225,7 +1225,30 @@ extern "C" {
         key: *const ::core::ffi::c_char,
         param: *const ::core::ffi::c_char,
     ) -> ::core::ffi::c_int;
-    /// Creation a pointer to the instance of the [`OH_UdmfOptions`](crate::data_management_framework::OH_UdmfOptions).
+    /// Set auth permission to the [`OH_UdmfProperty`](ohos_sys_opaque_types::OH_UdmfProperty).
+    ///
+    /// # Arguments
+    ///
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdmfProperty`](ohos_sys_opaque_types::OH_UdmfProperty).
+    ///
+    /// * `authPolicy` - Represents auth permission.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
+    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
+    ///
+    /// **See also:** [`OH_UdmfProperty`](ohos_sys_opaque_types::OH_UdmfProperty) [`Udmf_ErrCode`](crate::Udmf_ErrCode)
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_UdmfProperty_SetAuthPermission(
+        pThis: *mut OH_UdmfProperty,
+        authPolicy: u32,
+    ) -> ::core::ffi::c_int;
+    /// Creates a pointer to the instance of the [`OH_UdmfOptions`](crate::data_management_framework::OH_UdmfOptions).
     ///
     ///
     /// # Returns
@@ -1638,7 +1661,7 @@ extern "C" {
     pub fn OH_UdmfProgressInfo_GetStatus(
         progressInfo: *mut OH_Udmf_ProgressInfo,
     ) -> ::core::ffi::c_int;
-    /// Creation a pointer to the instance of the [`OH_UdmfGetDataParams`](ohos_sys_opaque_types::OH_UdmfGetDataParams).
+    /// Creates a pointer to the instance of the [`OH_UdmfGetDataParams`](ohos_sys_opaque_types::OH_UdmfGetDataParams).
     ///
     ///
     /// # Returns
@@ -1749,7 +1772,7 @@ extern "C" {
         params: *mut OH_UdmfGetDataParams,
         acceptableInfo: *mut OH_UdmfDataLoadInfo,
     );
-    /// Creation a pointer to the instance of the [`OH_UdmfDataLoadParams`](ohos_sys_opaque_types::OH_UdmfDataLoadParams).
+    /// Creates a pointer to the instance of the [`OH_UdmfDataLoadParams`](ohos_sys_opaque_types::OH_UdmfDataLoadParams).
     ///
     ///
     /// # Returns
@@ -1809,7 +1832,7 @@ extern "C" {
         params: *mut OH_UdmfDataLoadParams,
         dataLoadInfo: *mut OH_UdmfDataLoadInfo,
     );
-    /// Creation a pointer to the instance of the [`OH_UdmfDataLoadInfo`](crate::data_management_framework::OH_UdmfDataLoadInfo).
+    /// Creates a pointer to the instance of the [`OH_UdmfDataLoadInfo`](crate::data_management_framework::OH_UdmfDataLoadInfo).
     ///
     ///
     /// # Returns

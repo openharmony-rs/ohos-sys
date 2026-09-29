@@ -7,9 +7,8 @@
 #[allow(unused_imports)]
 use crate::averrors::OH_AVErrCode;
 
-/// Initialization of avrecorder
+/// The struct initializes an AVRecorder.
 ///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.AVRecorder
 ///
 /// Available since API-level: 18
 #[cfg(feature = "api-18")]
@@ -33,9 +32,8 @@ impl OH_AVRecorder_AudioSourceType {
         OH_AVRecorder_AudioSourceType(13);
 }
 #[repr(transparent)]
-/// audio source type for recorder
+/// Enumerates the audio source types of the AVRecorder.
 ///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.AVRecorder
 ///
 /// Available since API-level: 18
 #[cfg(feature = "api-18")]
@@ -51,9 +49,8 @@ impl OH_AVRecorder_VideoSourceType {
         OH_AVRecorder_VideoSourceType(1);
 }
 #[repr(transparent)]
-/// video source type for recorder
+/// Enumerates the video source types of the AVRecorder.
 ///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.AVRecorder
 ///
 /// Available since API-level: 18
 #[cfg(feature = "api-18")]
@@ -74,9 +71,8 @@ impl OH_AVRecorder_CodecMimeType {
         OH_AVRecorder_CodecMimeType(10);
 }
 #[repr(transparent)]
-/// Enumerates Codec MIME types
+/// Enumerates the MIME types of the encoder.
 ///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.AVRecorder
 ///
 /// Available since API-level: 18
 #[cfg(feature = "api-18")]
@@ -96,7 +92,8 @@ impl OH_AVRecorder_ContainerFormatType {
         OH_AVRecorder_ContainerFormatType(9);
     pub const AVRECORDER_CFT_WAV: OH_AVRecorder_ContainerFormatType =
         OH_AVRecorder_ContainerFormatType(10);
-    /// A audio container format type aac with ADTS.
+    /// Audio container format aac (with ADTS header).
+    ///
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -105,9 +102,8 @@ impl OH_AVRecorder_ContainerFormatType {
         OH_AVRecorder_ContainerFormatType(11);
 }
 #[repr(transparent)]
-/// Enumerates container format type(The abbreviation for 'container format type' is CFT)
+/// Enumerates the Container Format Types (CFTs).
 ///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.AVRecorder
 ///
 /// Available since API-level: 18
 #[cfg(feature = "api-18")]
@@ -126,9 +122,8 @@ impl OH_AVRecorder_State {
     pub const AVRECORDER_ERROR: OH_AVRecorder_State = OH_AVRecorder_State(6);
 }
 #[repr(transparent)]
-/// Recorder States
+/// Enumerates the AVRecorder states.
 ///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.AVRecorder
 ///
 /// Available since API-level: 18
 #[cfg(feature = "api-18")]
@@ -143,9 +138,8 @@ impl OH_AVRecorder_StateChangeReason {
         OH_AVRecorder_StateChangeReason(1);
 }
 #[repr(transparent)]
-/// reason of recorder state change
+/// Enumerates the reasons for AVRecorder state changes.
 ///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.AVRecorder
 ///
 /// Available since API-level: 18
 #[cfg(feature = "api-18")]
@@ -161,18 +155,16 @@ impl OH_AVRecorder_FileGenerationMode {
         OH_AVRecorder_FileGenerationMode(1);
 }
 #[repr(transparent)]
-/// mode of creating recorder file
+/// Enumerates the modes available for creating a recording file.
 ///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.AVRecorder
 ///
 /// Available since API-level: 18
 #[cfg(feature = "api-18")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OH_AVRecorder_FileGenerationMode(pub ::core::ffi::c_uint);
-/// Provides the media recorder profile definitions
+/// The struct describes the parameters used for audio and video recording.
 ///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.AVRecorder
 ///
 /// Available since API-level: 18
 #[cfg(feature = "api-18")]
@@ -193,9 +185,8 @@ pub struct OH_AVRecorder_Profile {
     pub isHdr: bool,
     pub enableTemporalScale: bool,
 }
-/// Provides the geographical location definitions for media resources
+/// The struct describes the geographical location information about a media asset.
 ///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.AVRecorder
 ///
 /// Available since API-level: 18
 #[cfg(feature = "api-18")]
@@ -206,9 +197,8 @@ pub struct OH_AVRecorder_Location {
     pub latitude: f32,
     pub longitude: f32,
 }
-/// define the basic template of metadata
+/// The struct describes the basic template of metadata.
 ///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.AVRecorder
 ///
 /// Available since API-level: 18
 #[cfg(feature = "api-18")]
@@ -219,9 +209,8 @@ pub struct OH_AVRecorder_MetadataTemplate {
     pub key: *mut ::core::ffi::c_char,
     pub value: *mut ::core::ffi::c_char,
 }
-/// Provides the container definition for media data
+/// The struct describes the metadata.
 ///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.AVRecorder
 ///
 /// Available since API-level: 18
 #[cfg(feature = "api-18")]
@@ -234,9 +223,8 @@ pub struct OH_AVRecorder_Metadata {
     pub location: OH_AVRecorder_Location,
     pub customInfo: OH_AVRecorder_MetadataTemplate,
 }
-/// Provides the media recorder configuration definitions
+/// The struct describes the AVRecorder configuration.
 ///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.AVRecorder
 ///
 /// Available since API-level: 18
 #[cfg(feature = "api-18")]
@@ -252,9 +240,8 @@ pub struct OH_AVRecorder_Config {
     pub metadata: OH_AVRecorder_Metadata,
     pub maxDuration: i32,
 }
-/// Provides Range with lower and upper limit
+/// The struct describes the range.
 ///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.AVRecorder
 ///
 /// Available since API-level: 18
 #[cfg(feature = "api-18")]
@@ -265,9 +252,8 @@ pub struct OH_AVRecorder_Range {
     pub min: i32,
     pub max: i32,
 }
-/// Provides encoder info
+/// The struct describes the encoder information.
 ///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.AVRecorder
 ///
 /// Available since API-level: 18
 #[cfg(feature = "api-18")]
@@ -285,18 +271,17 @@ pub struct OH_AVRecorder_EncoderInfo {
     pub sampleRate: *mut i32,
     pub sampleRateLen: i32,
 }
-/// Called when the state changed of current recording.
+/// Called when the AVRecorder state changes.
 ///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.AVRecorder
 /// # Arguments
 ///
-/// * `recorder` - The pointer to an OH_AVRecorder instance.
+/// * `recorder` - Pointer to the OH_AVRecorder instance.
 ///
-/// * `state` - Indicates the recorder state. For details, see [`OH_AVRecorder_State`](crate::avrecorder_base::OH_AVRecorder_State).
+/// * `state` - AVRecorder state.
 ///
-/// * `reason` - Reason for recorder state change. For details, see [`OH_AVRecorder_StateChangeReason`](crate::avrecorder_base::OH_AVRecorder_StateChangeReason).
+/// * `reason` - Reason for the AVRecorder state change.
 ///
-/// * `userData` - Pointer to user specific data.
+/// * `userData` - Pointer to user-defined data.
 ///
 /// Available since API-level: 18
 #[cfg(feature = "api-18")]
@@ -309,18 +294,17 @@ pub type OH_AVRecorder_OnStateChange = ::core::option::Option<
         userData: *mut ::core::ffi::c_void,
     ),
 >;
-/// Called when an error occurred during recording
+/// Called when an error occurs during recording.
 ///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.AVRecorder
 /// # Arguments
 ///
-/// * `recorder` - Pointer to an OH_AVRecorder instance.
+/// * `recorder` - Pointer to the OH_AVRecorder instance.
 ///
-/// * `errorCode` - Error code.
+/// * `errorCode` - Error code. For details, see [`OH_AVErrCode`](crate::averrors::OH_AVErrCode).
 ///
-/// * `errorMsg` - Error message.
+/// * `errorMsg` - Pointer to the error message.
 ///
-/// * `userData` - Pointer to user specific data.
+/// * `userData` - Pointer to user-defined data.
 ///
 /// Available since API-level: 18
 #[cfg(feature = "api-18")]

@@ -6,14 +6,12 @@
 use crate::types::*;
 
 extern "C" {
-    /// Creates an <b>OH_Drawing_RecordCmdUtils</b> object.
+    /// Creates an **OH_Drawing_RecordCmdUtils** object.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the <b>OH_Drawing_RecordCmdUtils</b> object created.
+    /// * Returns the pointer to the **OH_Drawing_RecordCmdUtils** object created.
     ///
     /// Available since API-level: 13
     ///
@@ -21,19 +19,17 @@ extern "C" {
     #[cfg(feature = "api-13")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub fn OH_Drawing_RecordCmdUtilsCreate() -> *mut OH_Drawing_RecordCmdUtils;
-    /// Destroys an <b>OH_Drawing_RecordCmdUtils</b> object and reclaims the memory occupied by the object.
+    /// Destroys an **OH_Drawing_RecordCmdUtils** object and reclaims the memory occupied by the object.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `recordCmdUtils` - Indicates the pointer to an <b>OH_Drawing_RecordCmdUtils</b> object.
+    /// * `recordCmdUtils` - Pointer to an [`OH_Drawing_RecordCmdUtils`](crate::types::OH_Drawing_RecordCmdUtils) object.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`](crate::error_code::DrawingErrorCode::INVALID_PARAMETER) if recordCmdUtils is nullptr.
+    /// * Returns one of the following result codes:
+    /// **OH_DRAWING_SUCCESS** if the operation is successful.
+    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if **recordCmdUtils** is NULL.
     ///
     /// Available since API-level: 13
     ///
@@ -43,27 +39,28 @@ extern "C" {
     pub fn OH_Drawing_RecordCmdUtilsDestroy(
         recordCmdUtils: *mut OH_Drawing_RecordCmdUtils,
     ) -> crate::error_code::DrawingResult;
-    /// Get the canvas that records the drawing command.
+    /// Starts recording. This API must be used together with [`OH_Drawing_RecordCmdUtilsFinishRecording`](crate::record_cmd::OH_Drawing_RecordCmdUtilsFinishRecording).
+    /// The **OH_Drawing_RecordCmdUtils** object generates a canvas object of the recording type and calls the interface of
+    /// the drawing object to record all drawing commands.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `recordCmdUtils` - Indicates the pointer to an <b>OH_Drawing_RecordCmdUtils</b> object.
+    /// * `recordCmdUtils` - Pointer to an [`OH_Drawing_RecordCmdUtils`](crate::types::OH_Drawing_RecordCmdUtils) object.
     ///
-    /// * `width` - Width of canvas object.
+    /// * `width` - Width of the canvas.
     ///
-    /// * `height` - Height of canvas object.
+    /// * `height` - Height of the canvas.
     ///
-    /// * `canvas` - Indicates a secondary pointer to an <b>OH_Drawing_Canvas</b>object.
+    /// * `canvas` - Double pointer to the [`OH_Drawing_Canvas`](crate::types::OH_Drawing_Canvas) object. You do not need to release this pointer.
+    /// This object does not support nested calling of [`OH_Drawing_CanvasDrawRecordCmd`](crate::canvas::OH_Drawing_CanvasDrawRecordCmd).
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`](crate::error_code::DrawingErrorCode::INVALID_PARAMETER) if recordCmdUtils or canvas is nullptr,
-    /// width less than or equal to 0 or height less than or equal to 0.
-    /// Returns [`OH_DRAWING_ERROR_ALLOCATION_FAILED`](crate::error_code::DrawingErrorCode::ALLOCATION_FAILED) if no memory.
+    /// * Returns one of the following result codes:
+    /// **OH_DRAWING_SUCCESS** if the operation is successful.
+    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if either **recordCmdUtils** or **canvas** is NULL.
+    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if either **width** or **height** is less than 0.
+    /// **OH_DRAWING_ERROR_ALLOCATION_FAILED** if the system memory is insufficient.
     ///
     /// Available since API-level: 13
     ///
@@ -76,22 +73,24 @@ extern "C" {
         height: i32,
         canvas: *mut *mut OH_Drawing_Canvas,
     ) -> crate::error_code::DrawingResult;
-    /// Finish the recording and get the recording command object.
+    /// Stops video recording. This function must be called after [`OH_Drawing_RecordCmdUtilsBeginRecording`](crate::record_cmd::OH_Drawing_RecordCmdUtilsBeginRecording).
+    /// The **OH_Drawing_RecordCmdUtils** object ends recording and stores the drawing commands recorded by the canvas
+    /// object of the recording type into the generated [`OH_Drawing_RecordCmdUtilsBeginRecording`](crate::record_cmd::OH_Drawing_RecordCmdUtilsBeginRecording) object.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `recordCmdUtils` - Indicates the pointer to an <b>OH_Drawing_RecordCmdUtils</b> object.
+    /// * `recordCmdUtils` - Pointer to an [`OH_Drawing_RecordCmdUtils`](crate::types::OH_Drawing_RecordCmdUtils) object.
     ///
-    /// * `recordCmd` - Indicates a secondary pointer to an <b>OH_Drawing_RecordCmd</b> object.
+    /// * `recordCmd` - Double pointer to the [`OH_Drawing_RecordCmd`](crate::types::OH_Drawing_RecordCmd) object. You need to call
+    /// [`OH_Drawing_CanvasDrawRecordCmd`](crate::canvas::OH_Drawing_CanvasDrawRecordCmd)
+    /// to draw the object, and call [`OH_Drawing_RecordCmdDestroy`](crate::record_cmd::OH_Drawing_RecordCmdDestroy) to release it.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`](crate::error_code::DrawingErrorCode::INVALID_PARAMETER) if recordCmdUtils or recordCmd is nullptr.
-    /// Returns [`OH_DRAWING_ERROR_ALLOCATION_FAILED`](crate::error_code::DrawingErrorCode::ALLOCATION_FAILED) if no memory.
+    /// * Returns one of the following result codes:
+    /// **OH_DRAWING_SUCCESS** if the operation is successful.
+    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if either **recordCmdUtils** or **recordCmd** is NULL.
+    /// **OH_DRAWING_ERROR_ALLOCATION_FAILED** if the system memory is insufficient.
     ///
     /// Available since API-level: 13
     ///
@@ -102,19 +101,17 @@ extern "C" {
         recordCmdUtils: *mut OH_Drawing_RecordCmdUtils,
         recordCmd: *mut *mut OH_Drawing_RecordCmd,
     ) -> crate::error_code::DrawingResult;
-    /// Destroys an <b>OH_Drawing_RecordCmd</b> object and reclaims the memory occupied by the object.
+    /// Destroys an **OH_Drawing_RecordCmd** object and reclaims the memory occupied by the object.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `recordCmd` - Indicates the pointer to an <b>OH_Drawing_RecordCmd</b> object.
+    /// * `recordCmd` - Pointer to an [`OH_Drawing_RecordCmd`](crate::types::OH_Drawing_RecordCmd) object.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`](crate::error_code::DrawingErrorCode::INVALID_PARAMETER) if recordCmd is nullptr.
+    /// * Returns one of the following result codes:
+    /// **OH_DRAWING_SUCCESS** if the operation is successful.
+    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if **recordCmd** is NULL.
     ///
     /// Available since API-level: 13
     ///

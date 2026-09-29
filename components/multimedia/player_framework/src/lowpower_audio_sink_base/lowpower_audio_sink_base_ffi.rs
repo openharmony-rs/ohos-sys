@@ -9,7 +9,7 @@ use crate::averrors::OH_AVErrCode;
 #[allow(unused_imports)]
 use crate::lowpower_avsink_base::OH_AVSamplesBuffer;
 
-/// Forward declaration of OH_LowPowerAudioSink.
+/// The struct describes the declaration for the LowPowerAudioSink.
 ///
 ///
 /// Available since API-level: 20
@@ -19,7 +19,7 @@ use crate::lowpower_avsink_base::OH_AVSamplesBuffer;
 pub struct OH_LowPowerAudioSink {
     _unused: [u8; 0],
 }
-/// Forward declaration of OH_LowPowerAudioSinkCallback.
+/// The struct contains a set of callback function pointers for the LowPowerAudioSink.
 ///
 ///
 /// Available since API-level: 20
@@ -29,18 +29,17 @@ pub struct OH_LowPowerAudioSink {
 pub struct OH_LowPowerAudioSinkCallback {
     _unused: [u8; 0],
 }
-/// When an error occurs in the running of the OH_LowPowerAudioSink instance, the function pointer will be called
-/// to report specific error information.
+/// Called when an error occurs in the LowPowerAudioSink.
 ///
 /// # Arguments
 ///
-/// {OH_LowPowerAudioSink*} sink OH_LowPowerAudioSink instance
+/// * `sink` - OH_LowPowerAudioSink instance
 ///
-/// {OH_AVErrCode} errorCode Error code when an error occurs
+/// * `errorCode` - Error code when an error occurs
 ///
-/// {const char*} errorMsg Error description information
+/// * `errorMsg` - Error description information
 ///
-/// {void*} userData User specific data
+/// * `userData` - User specific data
 ///
 /// Available since API-level: 20
 #[cfg(feature = "api-20")]
@@ -53,16 +52,15 @@ pub type OH_LowPowerAudioSink_OnError = ::core::option::Option<
         userData: *mut ::core::ffi::c_void,
     ),
 >;
-/// When the OH_LowPowerAudioSink instance report current play position, the function pointer will be called
-/// to report position information.
+/// Called when the playback position is updated in the LowPowerAudioSink.
 ///
 /// # Arguments
 ///
-/// {OH_LowPowerAudioSink*} sink OH_LowPowerAudioSink instance
+/// * `sink` - OH_LowPowerAudioSink instance
 ///
-/// {int64_t} currentPosition Returns the current playback progress value of the service
+/// * `currentPosition` - Returns the current playback progress value of the service, in milliseconds
 ///
-/// {void*} userData User specific data
+/// * `userData` - User specific data
 ///
 /// Available since API-level: 20
 #[cfg(feature = "api-20")]
@@ -74,16 +72,15 @@ pub type OH_LowPowerAudioSink_OnPositionUpdated = ::core::option::Option<
         userData: *mut ::core::ffi::c_void,
     ),
 >;
-/// When the OH_LowPowerAudioSink instance report to need data, the function pointer will be called
-/// to request data.
+/// Called when the LowPowerAudioSink needs more data.
 ///
 /// # Arguments
 ///
-/// {OH_LowPowerAudioSink*} sink OH_LowPowerAudioSink instance
+/// * `sink` - OH_LowPowerAudioSink instance
 ///
-/// {OH_AVSamplesBuffer*} samples OH_AVSamplesBuffer instance that will be written in
+/// * `samples` - OH_AVSamplesBuffer instance that will be written in
 ///
-/// {void*} userData User specific data
+/// * `userData` - User specific data
 ///
 /// Available since API-level: 20
 #[cfg(feature = "api-20")]
@@ -95,14 +92,13 @@ pub type OH_LowPowerAudioSink_OnDataNeeded = ::core::option::Option<
         userData: *mut ::core::ffi::c_void,
     ),
 >;
-/// When the lowpower audio sink play to end of stream, the function pointer will be called
-/// to report play completed event.
+/// Called when the playback is complete in the LowPowerAudioSink. This callback is included in [`OH_LowPowerAudioSinkCallback`](crate::lowpower_audio_sink_base::OH_LowPowerAudioSinkCallback).
 ///
 /// # Arguments
 ///
-/// {OH_LowPowerAudioSink*} sink OH_LowPowerAudioSinkinstance
+/// * `sink` - OH_LowPowerAudioSink instance
 ///
-/// {void*} userData User specific data
+/// * `userData` - User specific data
 ///
 /// Available since API-level: 20
 #[cfg(feature = "api-20")]

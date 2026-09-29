@@ -206,4 +206,33 @@ fn link_smoke() {
             ptr::null_mut(),
         );
     }
+
+    #[cfg(feature = "api-24")]
+    unsafe {
+        let _ = media::avcapability::OH_AVCapability_IsSecure(ptr::null_mut());
+        let _ = media::avscreen_capture::OH_AVScreenCapture_GetMultiDisplayIdsSelected(
+            ptr::null_mut(),
+            ptr::null_mut(),
+            ptr::null_mut(),
+        );
+    }
+
+    #[cfg(feature = "api-26")]
+    unsafe {
+        let _ = media::audio_vivid::OH_AudioVividMetaBuilder_Destroy(ptr::null_mut());
+        let _ = media::avcodec_videobase::OH_VideoMetadata_AppendRoiString(
+            ptr::null_mut(),
+            ptr::null_mut(),
+        );
+        let _ = media::avcodec_videoencoder::OH_VideoEncoder_CreatePrimaryWithPreproc(
+            ptr::null(),
+            ptr::null_mut(),
+        );
+        let _ = media::avplayer::OH_AVPlayerVideoOutput_GetNewestVideoSample(ptr::null_mut());
+        let _ = media::avrecorder::OH_AVRecorder_GetAudioCapturerMaxAmplitude(
+            ptr::null_mut(),
+            ptr::null_mut(),
+        );
+        let _ = media::avscreen_capture::OH_AVScreenCapture_PauseScreenCapture(ptr::null_mut());
+    }
 }

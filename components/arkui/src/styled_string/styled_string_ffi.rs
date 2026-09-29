@@ -3,7 +3,13 @@
 #![allow(non_upper_case_globals)]
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
+#[cfg(feature = "api-24")]
+use crate::native_gesture::ArkUI_GestureEvent;
+#[cfg(feature = "api-24")]
+use crate::native_node::OH_ArkUI_TextEditorChangeEvent;
 use crate::native_type::*;
+#[cfg(feature = "api-24")]
+use ohos_sys_opaque_types::OH_PixelmapNative;
 
 /// Defines formatted string data objects supported by the text component.
 ///
@@ -13,6 +19,378 @@ use crate::native_type::*;
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[repr(C)]
 pub struct ArkUI_StyledString {
+    _unused: [u8; 0],
+}
+/// Defines a styled string style.<br> [`OH_ArkUI_SpanStyle_Create`](crate::styled_string::OH_ArkUI_SpanStyle_Create) can be used to create a styled
+/// string style object.<br> [`OH_ArkUI_SpanStyle_Destroy`](crate::styled_string::OH_ArkUI_SpanStyle_Destroy) can be used to destroy the styled string style
+/// object.<br> After the object is created, [`OH_ArkUI_SpanStyle_SetStart`](crate::styled_string::OH_ArkUI_SpanStyle_SetStart) and
+/// [`OH_ArkUI_SpanStyle_SetLength`](crate::styled_string::OH_ArkUI_SpanStyle_SetLength) can be used to set the usage scope of the style.<br> After the object is
+/// created, the **OH_ArkUI_SpanStyle_SetXXXStyle** series APIs can be used to set the specific styles that take effect.
+/// For example, you can use [`OH_ArkUI_SpanStyle_SetTextStyle`](crate::styled_string::OH_ArkUI_SpanStyle_SetTextStyle) to set the font style.
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+#[repr(C)]
+pub struct OH_ArkUI_SpanStyle {
+    _unused: [u8; 0],
+}
+/// Defines an image style object.<br> [`OH_ArkUI_ImageAttachment_Create`](crate::styled_string::OH_ArkUI_ImageAttachment_Create) can be used to create an
+/// image style object.<br> [`OH_ArkUI_ImageAttachment_Destroy`](crate::styled_string::OH_ArkUI_ImageAttachment_Destroy) can be used to destroy the image style
+/// object.<br> After the object is created, the **OH_ArkUI_ImageAttachment_SetXXX** series APIs can be used to
+/// set the styles that take effect. For example, you can use [`OH_ArkUI_ImageAttachment_SetPixelMap`](crate::styled_string::OH_ArkUI_ImageAttachment_SetPixelMap) to set an
+/// image source.
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+#[repr(C)]
+pub struct OH_ArkUI_ImageAttachment {
+    _unused: [u8; 0],
+}
+/// Defines a custom drawing span.<br> [`OH_ArkUI_CustomSpan_Create`](crate::styled_string::OH_ArkUI_CustomSpan_Create) can be used to create a custom
+/// drawing span object.<br> [`OH_ArkUI_CustomSpan_Destroy`](crate::styled_string::OH_ArkUI_CustomSpan_Destroy) can be used to destroy the custom drawing span
+/// object.<br> After the object is created, [`OH_ArkUI_CustomSpan_RegisterOnMeasureCallback`](crate::styled_string::OH_ArkUI_CustomSpan_RegisterOnMeasureCallback) and
+/// [`OH_ArkUI_CustomSpan_RegisterOnDrawCallback`](crate::styled_string::OH_ArkUI_CustomSpan_RegisterOnDrawCallback) can be used to register drawing callback functions.
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+#[repr(C)]
+pub struct OH_ArkUI_CustomSpan {
+    _unused: [u8; 0],
+}
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+impl OH_ArkUI_StyledStringKey {
+    /// No style is specified.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub const OH_ARKUI_STYLEDSTRINGKEY_UNSPECIFIED: OH_ArkUI_StyledStringKey =
+        OH_ArkUI_StyledStringKey(-1);
+    /// Text font style.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub const OH_ARKUI_STYLEDSTRINGKEY_FONT: OH_ArkUI_StyledStringKey = OH_ArkUI_StyledStringKey(0);
+    /// Text decorative line style.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub const OH_ARKUI_STYLEDSTRINGKEY_DECORATION: OH_ArkUI_StyledStringKey =
+        OH_ArkUI_StyledStringKey(1);
+    /// Text baseline offset style.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub const OH_ARKUI_STYLEDSTRINGKEY_BASELINE_OFFSET: OH_ArkUI_StyledStringKey =
+        OH_ArkUI_StyledStringKey(2);
+    /// Text letter spacing style.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub const OH_ARKUI_STYLEDSTRINGKEY_LETTER_SPACING: OH_ArkUI_StyledStringKey =
+        OH_ArkUI_StyledStringKey(3);
+    /// Text shadow style.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub const OH_ARKUI_STYLEDSTRINGKEY_TEXT_SHADOW: OH_ArkUI_StyledStringKey =
+        OH_ArkUI_StyledStringKey(4);
+    /// Text line height style.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub const OH_ARKUI_STYLEDSTRINGKEY_LINE_HEIGHT: OH_ArkUI_StyledStringKey =
+        OH_ArkUI_StyledStringKey(5);
+    /// Text background color style.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub const OH_ARKUI_STYLEDSTRINGKEY_BACKGROUND_COLOR: OH_ArkUI_StyledStringKey =
+        OH_ArkUI_StyledStringKey(6);
+    /// URL style.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub const OH_ARKUI_STYLEDSTRINGKEY_URL: OH_ArkUI_StyledStringKey = OH_ArkUI_StyledStringKey(7);
+    /// Text line spacing style.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub const OH_ARKUI_STYLEDSTRINGKEY_LINE_SPACING: OH_ArkUI_StyledStringKey =
+        OH_ArkUI_StyledStringKey(8);
+    /// Gesture style.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub const OH_ARKUI_STYLEDSTRINGKEY_GESTURE: OH_ArkUI_StyledStringKey =
+        OH_ArkUI_StyledStringKey(100);
+    /// Text paragraph style.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub const OH_ARKUI_STYLEDSTRINGKEY_PARAGRAPH_STYLE: OH_ArkUI_StyledStringKey =
+        OH_ArkUI_StyledStringKey(200);
+    /// Image style.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub const OH_ARKUI_STYLEDSTRINGKEY_IMAGE: OH_ArkUI_StyledStringKey =
+        OH_ArkUI_StyledStringKey(300);
+    /// Custom span style.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub const OH_ARKUI_STYLEDSTRINGKEY_CUSTOM_SPAN: OH_ArkUI_StyledStringKey =
+        OH_ArkUI_StyledStringKey(400);
+    /// User data span style.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub const OH_ARKUI_STYLEDSTRINGKEY_USER_DATA: OH_ArkUI_StyledStringKey =
+        OH_ArkUI_StyledStringKey(500);
+}
+#[repr(transparent)]
+/// Enumerates the styles of a styled string.
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct OH_ArkUI_StyledStringKey(pub ::core::ffi::c_int);
+/// Defines a text font style.
+/// [`OH_ArkUI_TextStyle_Create`](crate::styled_string::OH_ArkUI_TextStyle_Create) can be used to create a text font style object.
+/// [`OH_ArkUI_TextStyle_Destroy`](crate::styled_string::OH_ArkUI_TextStyle_Destroy) can be used to destroy the text font style object.<br>
+/// After the object is created, the **OH_ArkUI_TextStyle_SetXXX** series APIs can be used to set the specific
+/// styles that take effect. For example, you can use [`OH_ArkUI_TextStyle_SetFontColor`](crate::styled_string::OH_ArkUI_TextStyle_SetFontColor) to set text color.
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+#[repr(C)]
+pub struct OH_ArkUI_TextStyle {
+    _unused: [u8; 0],
+}
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+impl OH_ArkUI_SuperscriptStyle {
+    /// Normal text style.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub const OH_ARKUI_SUPERSCRIPTSTYLE_NORMAL: OH_ArkUI_SuperscriptStyle =
+        OH_ArkUI_SuperscriptStyle(0);
+    /// Superscript text style.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub const OH_ARKUI_SUPERSCRIPTSTYLE_SUPERSCRIPT: OH_ArkUI_SuperscriptStyle =
+        OH_ArkUI_SuperscriptStyle(1);
+    /// Subscript text style.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub const OH_ARKUI_SUPERSCRIPTSTYLE_SUBSCRIPT: OH_ArkUI_SuperscriptStyle =
+        OH_ArkUI_SuperscriptStyle(2);
+}
+#[repr(transparent)]
+/// Enumerates the text superscript and subscript styles.
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct OH_ArkUI_SuperscriptStyle(pub ::core::ffi::c_uint);
+/// Defines a paragraph style.<br> [`OH_ArkUI_ParagraphStyle_Create`](crate::styled_string::OH_ArkUI_ParagraphStyle_Create) can be used to create a
+/// paragraph style object.<br> [`OH_ArkUI_ParagraphStyle_Destroy`](crate::styled_string::OH_ArkUI_ParagraphStyle_Destroy) can be used to destroy the paragraph
+/// style object.<br> After the object is created, the **OH_ArkUI_ParagraphStyle_SetXXX** series APIs can be used
+/// to set the specific styles that take effect. For example, you can use [`OH_ArkUI_ParagraphStyle_SetTextAlign`](crate::styled_string::OH_ArkUI_ParagraphStyle_SetTextAlign)
+/// to set a text alignment method.
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+#[repr(C)]
+pub struct OH_ArkUI_ParagraphStyle {
+    _unused: [u8; 0],
+}
+/// Defines a gesture style.
+/// [`OH_ArkUI_GestureStyle_Create`](crate::styled_string::OH_ArkUI_GestureStyle_Create) can be used to create a gesture style object.
+/// [`OH_ArkUI_GestureStyle_Destroy`](crate::styled_string::OH_ArkUI_GestureStyle_Destroy) can be used to destroy the gesture style object.<br>
+/// After the object is created, the **OH_ArkUI_GestureStyle_RegisterOnXXXCallback** series APIs can be used to
+/// register specific event callbacks. For example, you can use [`OH_ArkUI_GestureStyle_RegisterOnClickCallback`](crate::styled_string::OH_ArkUI_GestureStyle_RegisterOnClickCallback) to
+/// register a click event callback.
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+#[repr(C)]
+pub struct OH_ArkUI_GestureStyle {
+    _unused: [u8; 0],
+}
+/// Defines a text shadow style.<br> [`OH_ArkUI_TextShadowStyle_Create`](crate::styled_string::OH_ArkUI_TextShadowStyle_Create) can be used to create a text
+/// shadow style object.<br> [`OH_ArkUI_TextShadowStyle_Destroy`](crate::styled_string::OH_ArkUI_TextShadowStyle_Destroy) can be used to destroy the text shadow
+/// style object.<br> After the object is created, [`OH_ArkUI_TextShadowStyle_SetTextShadow`](crate::styled_string::OH_ArkUI_TextShadowStyle_SetTextShadow) can be used to
+/// set a style.
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+#[repr(C)]
+pub struct OH_ArkUI_TextShadowStyle {
+    _unused: [u8; 0],
+}
+/// Defines a text decoration style.<br> [`OH_ArkUI_DecorationStyle_Create`](crate::styled_string::OH_ArkUI_DecorationStyle_Create) can be used to create a
+/// text decoration style object.<br> [`OH_ArkUI_DecorationStyle_Destroy`](crate::styled_string::OH_ArkUI_DecorationStyle_Destroy) can be used to destroy the text
+/// decoration style object.<br> After the object is created, the **OH_ArkUI_DecorationStyle_SetXXX** series APIs
+/// can be used to set the specific styles that take effect. For example, you can use
+/// [`OH_ArkUI_DecorationStyle_SetTextDecorationType`](crate::styled_string::OH_ArkUI_DecorationStyle_SetTextDecorationType) to set the decoration type.
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+#[repr(C)]
+pub struct OH_ArkUI_DecorationStyle {
+    _unused: [u8; 0],
+}
+/// Defines a baseline offset style.<br> [`OH_ArkUI_BaselineOffsetStyle_Create`](crate::styled_string::OH_ArkUI_BaselineOffsetStyle_Create) can be used to create
+/// a baseline offset style object.<br> [`OH_ArkUI_BaselineOffsetStyle_Destroy`](crate::styled_string::OH_ArkUI_BaselineOffsetStyle_Destroy) can be used to destroy the
+/// baseline offset style object.<br> After the object is created,
+/// [`OH_ArkUI_BaselineOffsetStyle_SetBaselineOffset`](crate::styled_string::OH_ArkUI_BaselineOffsetStyle_SetBaselineOffset) can be used to set a baseline offset.
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+#[repr(C)]
+pub struct OH_ArkUI_BaselineOffsetStyle {
+    _unused: [u8; 0],
+}
+/// Defines a letter spacing style.<br> [`OH_ArkUI_LetterSpacingStyle_Create`](crate::styled_string::OH_ArkUI_LetterSpacingStyle_Create) can be used to create a
+/// letter spacing style object.<br> [`OH_ArkUI_LetterSpacingStyle_Destroy`](crate::styled_string::OH_ArkUI_LetterSpacingStyle_Destroy) can be used to destroy the
+/// letter spacing style object.<br> After the object is created,
+/// [`OH_ArkUI_LetterSpacingStyle_SetLetterSpacing`](crate::styled_string::OH_ArkUI_LetterSpacingStyle_SetLetterSpacing) can be used to set letter spacing.
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+#[repr(C)]
+pub struct OH_ArkUI_LetterSpacingStyle {
+    _unused: [u8; 0],
+}
+/// Defines a line height style.<br> [`OH_ArkUI_LineHeightStyle_Create`](crate::styled_string::OH_ArkUI_LineHeightStyle_Create) can be used to create a line
+/// height style object.<br> [`OH_ArkUI_LineHeightStyle_Destroy`](crate::styled_string::OH_ArkUI_LineHeightStyle_Destroy) can be used to destroy the line height
+/// style object.<br> After the object is created, [`OH_ArkUI_LineHeightStyle_SetLineHeight`](crate::styled_string::OH_ArkUI_LineHeightStyle_SetLineHeight) can be used to
+/// set fixed line height.<br> Since API version 26.0.0, [`OH_ArkUI_LineHeightStyle_SetLineHeightMultiple`](crate::styled_string::OH_ArkUI_LineHeightStyle_SetLineHeightMultiple)
+/// can be used to set the line height multiplier after the object is created.
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+#[repr(C)]
+pub struct OH_ArkUI_LineHeightStyle {
+    _unused: [u8; 0],
+}
+/// Defines a URL style.<br>
+/// [`OH_ArkUI_UrlStyle_Create`](crate::styled_string::OH_ArkUI_UrlStyle_Create) can be used to create a URL style object.
+/// [`OH_ArkUI_UrlStyle_Destroy`](crate::styled_string::OH_ArkUI_UrlStyle_Destroy) can be used to destroy the URL style object.
+/// After the object is created, [`OH_ArkUI_UrlStyle_SetUrl`](crate::styled_string::OH_ArkUI_UrlStyle_SetUrl) can be used to set a URL.
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+#[repr(C)]
+pub struct OH_ArkUI_UrlStyle {
+    _unused: [u8; 0],
+}
+/// Defines a background color style.<br> [`OH_ArkUI_BackgroundColorStyle_Create`](crate::styled_string::OH_ArkUI_BackgroundColorStyle_Create) can be used to
+/// create a background color style object.<br> [`OH_ArkUI_BackgroundColorStyle_Destroy`](crate::styled_string::OH_ArkUI_BackgroundColorStyle_Destroy) can be used to
+/// destroy the background color style object.<br> After the object is created,
+/// [`OH_ArkUI_BackgroundColorStyle_SetColor`](crate::styled_string::OH_ArkUI_BackgroundColorStyle_SetColor) and [`OH_ArkUI_BackgroundColorStyle_SetRadius`](crate::styled_string::OH_ArkUI_BackgroundColorStyle_SetRadius) can be used to
+/// set the background color and rounded corners.
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+#[repr(C)]
+pub struct OH_ArkUI_BackgroundColorStyle {
+    _unused: [u8; 0],
+}
+/// Defines a user data span style.<br> [`OH_ArkUI_UserDataSpan_Create`](crate::styled_string::OH_ArkUI_UserDataSpan_Create) can be used to create a user
+/// data span style object.<br> [`OH_ArkUI_UserDataSpan_Destroy`](crate::styled_string::OH_ArkUI_UserDataSpan_Destroy) can be used to destroy the user data span
+/// style object.<br> After the object is created, [`OH_ArkUI_UserDataSpan_SetUserData`](crate::styled_string::OH_ArkUI_UserDataSpan_SetUserData) can be used to bind
+/// user data.
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+#[repr(C)]
+pub struct OH_ArkUI_UserDataSpan {
+    _unused: [u8; 0],
+}
+/// Defines the custom drawing information for paragraph indentation.<br>
+/// [`OH_ArkUI_LeadingMarginSpanDrawInfo_Create`](crate::styled_string::OH_ArkUI_LeadingMarginSpanDrawInfo_Create) can be used to create a custom drawing information object for
+/// paragraph indentation.<br> [`OH_ArkUI_LeadingMarginSpanDrawInfo_Destroy`](crate::styled_string::OH_ArkUI_LeadingMarginSpanDrawInfo_Destroy) can be used to destroy the
+/// custom drawing information object for paragraph indentation.<br> This object is used to provide the drawing
+/// context information of the current line in the callback function registered by
+/// [`OH_ArkUI_ParagraphStyle_RegisterOnDrawLeadingMarginCallback`](crate::styled_string::OH_ArkUI_ParagraphStyle_RegisterOnDrawLeadingMarginCallback).
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+#[repr(C)]
+pub struct OH_ArkUI_LeadingMarginSpanDrawInfo {
+    _unused: [u8; 0],
+}
+/// Defines a line spacing style.<br> [`OH_ArkUI_LineSpacingStyle_Create`](crate::styled_string::OH_ArkUI_LineSpacingStyle_Create) can be used to create a
+/// line spacing style object.<br> [`OH_ArkUI_LineSpacingStyle_Destroy`](crate::styled_string::OH_ArkUI_LineSpacingStyle_Destroy) can be used to destroy the line
+/// spacing style object.<br> After the object is created, [`OH_ArkUI_LineSpacingStyle_SetLineSpacing`](crate::styled_string::OH_ArkUI_LineSpacingStyle_SetLineSpacing) can
+/// be used to set a line spacing value.<br> After the object is created,
+/// [`OH_ArkUI_LineSpacingStyle_SetOnlyBetweenLines`](crate::styled_string::OH_ArkUI_LineSpacingStyle_SetOnlyBetweenLines) can be used to set whether the line spacing takes effect only
+/// between lines.
+///
+///
+/// Available since API-level: 26
+#[cfg(feature = "api-26")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+#[repr(C)]
+pub struct OH_ArkUI_LineSpacingStyle {
     _unused: [u8; 0],
 }
 /// Defines the layout manager of text.
@@ -25,6 +403,33 @@ pub struct ArkUI_StyledString {
 pub struct ArkUI_TextLayoutManager {
     _unused: [u8; 0],
 }
+#[cfg(feature = "api-26")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+impl OH_ArkUI_TextEncoding {
+    /// UTF-8 encoding. Character positions and character ranges are calculated by UTF-8 byte offsets.
+    ///
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub const OH_ARKUI_TEXT_ENCODING_UTF8: OH_ArkUI_TextEncoding = OH_ArkUI_TextEncoding(0);
+    /// UTF-16 encoding. Character positions and character ranges are calculated by UTF-16 code unit offsets.
+    ///
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub const OH_ARKUI_TEXT_ENCODING_UTF16: OH_ArkUI_TextEncoding = OH_ArkUI_TextEncoding(1);
+}
+#[repr(transparent)]
+/// Enumerates the text encoding types supported by ArkUI text layout query APIs.
+///
+///
+/// Available since API-level: 26
+#[cfg(feature = "api-26")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct OH_ArkUI_TextEncoding(pub ::core::ffi::c_uint);
 extern "C" {
     /// Free the memory occupied by the ArkUI_StyledString object.
     ///
@@ -112,8 +517,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 14
     #[cfg(feature = "api-14")]
@@ -138,9 +543,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// Returns [`ARKUI_ERROR_CODE_INVALID_STYLED_STRING`](crate::native_type::ArkUiErrorCode::INVALID_STYLED_STRING) if the styled string is invalid.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_INVALID_STYLED_STRING`](crate::error_code::ArkUiErrorCode::INVALID_STYLED_STRING) if the styled string is invalid.
     ///
     /// Available since API-level: 14
     #[cfg(feature = "api-14")]
@@ -151,6 +556,4584 @@ extern "C" {
         descriptor: *mut ArkUI_StyledString_Descriptor,
         resultSize: *mut usize,
     ) -> i32;
+    /// Creates an [`ArkUI_StyledString_Descriptor`](crate::node_attributes::text_common::ArkUI_StyledString_Descriptor) object of the plain text content type.
+    ///
+    ///
+    /// **Note:** When the object is no longer in use, invoke <b> OH_ArkUI_StyledString_Descriptor_Destroy </b> to destroy it.
+    /// All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `value` - Pointer to text content string of the styled string.
+    ///
+    /// * `styles` - Pointer to the initialization option of the styled string, which points to an array of the
+    /// [`OH_ArkUI_SpanStyle`](crate::styled_string::OH_ArkUI_SpanStyle) object.
+    ///
+    /// * `length` - Length of the initialization option of the styled string.
+    ///
+    /// # Returns
+    ///
+    /// * The pointer to the <b>ArkUI_StyledString_Descriptor</b> object created. If the result is a null pointer,
+    /// it may be params is invalid.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_StyledString_Descriptor_CreateWithString(
+        value: *const ::core::ffi::c_char,
+        styles: *mut *const OH_ArkUI_SpanStyle,
+        length: i32,
+    ) -> *mut ArkUI_StyledString_Descriptor;
+    /// Creates an [`ArkUI_StyledString_Descriptor`](crate::node_attributes::text_common::ArkUI_StyledString_Descriptor) object of the image content type.
+    ///
+    ///
+    /// **Note:** When the object is no longer in use, invoke <b> OH_ArkUI_StyledString_Descriptor_Destroy </b> to destroy it.
+    /// All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `value` - Pointer to the [`OH_ArkUI_ImageAttachment`](crate::styled_string::OH_ArkUI_ImageAttachment) object.
+    ///
+    /// # Returns
+    ///
+    /// * The pointer to the <b>ArkUI_StyledString_Descriptor</b> object created. If the result is a null pointer,
+    /// it may be params is invalid.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_StyledString_Descriptor_CreateWithImageAttachment(
+        value: *const OH_ArkUI_ImageAttachment,
+    ) -> *mut ArkUI_StyledString_Descriptor;
+    /// Creates an [`ArkUI_StyledString_Descriptor`](crate::node_attributes::text_common::ArkUI_StyledString_Descriptor) object of the custom span content type.
+    ///
+    ///
+    /// **Note:** When the object is no longer in use, invoke <b> OH_ArkUI_StyledString_Descriptor_Destroy </b> to destroy it.
+    /// All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `value` - Pointer to the [`OH_ArkUI_CustomSpan`](crate::styled_string::OH_ArkUI_CustomSpan) object.
+    ///
+    /// # Returns
+    ///
+    /// * The pointer to the <b>ArkUI_StyledString_Descriptor</b> object created. If the result is a null pointer,
+    /// it may be params is invalid.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_StyledString_Descriptor_CreateWithCustomSpan(
+        value: *const OH_ArkUI_CustomSpan,
+    ) -> *mut ArkUI_StyledString_Descriptor;
+    /// Obtains the length of a styled string.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `descriptor` - Pointer to the [`ArkUI_StyledString_Descriptor`](crate::node_attributes::text_common::ArkUI_StyledString_Descriptor) object.
+    ///
+    /// * `length` - Pointer to the character length.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_INVALID_STYLED_STRING`](crate::error_code::ArkUiErrorCode::INVALID_STYLED_STRING) if the styled string is invalid.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_StyledString_Descriptor_GetLength(
+        descriptor: *const ArkUI_StyledString_Descriptor,
+        length: *mut i32,
+    ) -> ArkUiResult;
+    /// Obtains the text content of a styled string.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `descriptor` - Pointer to the [`ArkUI_StyledString_Descriptor`](crate::node_attributes::text_common::ArkUI_StyledString_Descriptor) object.
+    ///
+    /// * `buffer` - Pointer to the buffer for storing the text content in the memory. You need to allocate the memory.
+    ///
+    /// * `bufferSize` - Buffer size.
+    ///
+    /// * `writeLength` - Pointer to the length of the data actually written to the buffer if
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) is returned.
+    /// <br>Pointer to the minimum length required for writing the entire string to the buffer if
+    /// [`ARKUI_ERROR_CODE_BUFFER_SIZE_ERROR`](crate::error_code::ArkUiErrorCode::BUFFER_SIZE_ERROR) is returned.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_INVALID_STYLED_STRING`](crate::error_code::ArkUiErrorCode::INVALID_STYLED_STRING) if the styled string is invalid.
+    /// Returns [`ARKUI_ERROR_CODE_BUFFER_SIZE_ERROR`](crate::error_code::ArkUiErrorCode::BUFFER_SIZE_ERROR) If the buffer size is less than the minimum buffer size.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_StyledString_Descriptor_GetString(
+        descriptor: *const ArkUI_StyledString_Descriptor,
+        buffer: *mut ::core::ffi::c_char,
+        bufferSize: i32,
+        writeLength: *mut i32,
+    ) -> ArkUiResult;
+    /// Checks whether a styled string is the same as another styled string. The two styled strings are the same if
+    /// they have the same text and style.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `firstDescriptor` - Pointer to the [`ArkUI_StyledString_Descriptor`](crate::node_attributes::text_common::ArkUI_StyledString_Descriptor) object.
+    ///
+    /// * `secondDescriptor` - Pointer to another [`ArkUI_StyledString_Descriptor`](crate::node_attributes::text_common::ArkUI_StyledString_Descriptor) object.
+    ///
+    /// * `isEqual` - Pointer to the **isEqual** parameter indicating whether the two styled strings are the same. **true**
+    /// if the two are the same; returns **false** otherwise.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_INVALID_STYLED_STRING`](crate::error_code::ArkUiErrorCode::INVALID_STYLED_STRING) if the styled string is invalid.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_StyledString_Descriptor_IsEqual(
+        firstDescriptor: *const ArkUI_StyledString_Descriptor,
+        secondDescriptor: *const ArkUI_StyledString_Descriptor,
+        isEqual: *mut bool,
+    ) -> ArkUiResult;
+    /// Obtains a sub-styled string of a styled string.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `descriptor` - Pointer to the [`ArkUI_StyledString_Descriptor`](crate::node_attributes::text_common::ArkUI_StyledString_Descriptor) object.
+    ///
+    /// * `subDescriptor` - Pointer to the [`ArkUI_StyledString_Descriptor`](crate::node_attributes::text_common::ArkUI_StyledString_Descriptor) sub-styled string object.
+    ///
+    /// * `start` - Start position of the sub-styled string. The value range is \[0, length of the styled string\].
+    ///
+    /// * `length` - Length of the sub-styled string. The value range is \[0, difference between the length of the styled
+    /// string and the value of **start**\].
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_INVALID_STYLED_STRING`](crate::error_code::ArkUiErrorCode::INVALID_STYLED_STRING) if the styled string is invalid.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_StyledString_Descriptor_SubStyledString(
+        descriptor: *const ArkUI_StyledString_Descriptor,
+        subDescriptor: *mut ArkUI_StyledString_Descriptor,
+        start: u32,
+        length: u32,
+    ) -> ArkUiResult;
+    /// Obtains the style set within a specified range of a styled string.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `descriptor` - Pointer to the [`ArkUI_StyledString_Descriptor`](crate::node_attributes::text_common::ArkUI_StyledString_Descriptor) object.
+    ///
+    /// * `start` - Start position of the specified range. The value range is \[0, length of the styled string\].
+    ///
+    /// * `length` - Length of the specified range. The value range is \[0, difference between the length of the styled
+    /// string and the value of **start**\].
+    ///
+    /// * `styledKey` - Style type to be obtained. The value is an enumerated value of [`OH_ArkUI_StyledStringKey`](crate::styled_string::OH_ArkUI_StyledStringKey).
+    ///
+    /// * `styles` - Pointer to the buffer of the style object array.
+    ///
+    /// * `stylesSize` - Size of the buffer for the style object array.
+    ///
+    /// * `writeLength` - Pointer to the actual size of the array of the style object obtained from the styled string.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_INVALID_STYLED_STRING`](crate::error_code::ArkUiErrorCode::INVALID_STYLED_STRING) if the styled string is invalid.
+    /// Returns [`ARKUI_ERROR_CODE_BUFFER_SIZE_ERROR`](crate::error_code::ArkUiErrorCode::BUFFER_SIZE_ERROR) If the buffer size is less than the minimum buffer size.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_StyledString_Descriptor_GetStyles(
+        descriptor: *const ArkUI_StyledString_Descriptor,
+        start: u32,
+        length: u32,
+        styledKey: OH_ArkUI_StyledStringKey,
+        styles: *mut *mut OH_ArkUI_SpanStyle,
+        stylesSize: u32,
+        writeLength: *mut u32,
+    ) -> ArkUiResult;
+    /// Converts an HTML string to a styled string.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `descriptor` - Pointer to the [`ArkUI_StyledString_Descriptor`](crate::node_attributes::text_common::ArkUI_StyledString_Descriptor) object.
+    ///
+    /// * `html` - Pointer to the HTML string to be converted into a styled string.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_INVALID_STYLED_STRING`](crate::error_code::ArkUiErrorCode::INVALID_STYLED_STRING) if the styled string is invalid.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_StyledString_Descriptor_FromHtml(
+        descriptor: *mut ArkUI_StyledString_Descriptor,
+        html: *const ::core::ffi::c_char,
+    ) -> ArkUiResult;
+    /// Replaces the text within a specified range of a styled string.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `descriptor` - Pointer to the [`ArkUI_StyledString_Descriptor`](crate::node_attributes::text_common::ArkUI_StyledString_Descriptor) object.
+    ///
+    /// * `start` - Start position of the specified range. The value range is \[0, length of the styled string\].
+    ///
+    /// * `length` - Length of the specified range. The value range is \[0, difference between the length of the styled
+    /// string and the value of **start**\].
+    ///
+    /// * `string` - Pointer to the string to replace the content in the target range.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_INVALID_STYLED_STRING`](crate::error_code::ArkUiErrorCode::INVALID_STYLED_STRING) if the styled string is invalid.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_StyledString_Descriptor_ReplaceString(
+        descriptor: *mut ArkUI_StyledString_Descriptor,
+        start: u32,
+        length: u32,
+        string: *const ::core::ffi::c_char,
+    ) -> ArkUiResult;
+    /// Inserts text at a specified position of a styled string.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `descriptor` - Pointer to the [`ArkUI_StyledString_Descriptor`](crate::node_attributes::text_common::ArkUI_StyledString_Descriptor) object.
+    ///
+    /// * `start` - Insertion position. The value range is \[0, length of the styled string\].
+    ///
+    /// * `string` - Pointer to the string to insert.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_INVALID_STYLED_STRING`](crate::error_code::ArkUiErrorCode::INVALID_STYLED_STRING) if the styled string is invalid.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_StyledString_Descriptor_InsertString(
+        descriptor: *mut ArkUI_StyledString_Descriptor,
+        start: u32,
+        string: *const ::core::ffi::c_char,
+    ) -> ArkUiResult;
+    /// Removes the text within a specified range of a styled string.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `descriptor` - Pointer to the [`ArkUI_StyledString_Descriptor`](crate::node_attributes::text_common::ArkUI_StyledString_Descriptor) object.
+    ///
+    /// * `start` - Start position of the specified range. The value range is \[0, length of the styled string\].
+    ///
+    /// * `length` - Length of the specified range. The value range is \[0, difference between the length of the styled
+    /// string and the value of **start**\].
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_INVALID_STYLED_STRING`](crate::error_code::ArkUiErrorCode::INVALID_STYLED_STRING) if the styled string is invalid.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_StyledString_Descriptor_RemoveString(
+        descriptor: *mut ArkUI_StyledString_Descriptor,
+        start: u32,
+        length: u32,
+    ) -> ArkUiResult;
+    /// Replaces the style within a specified range of a styled string.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `descriptor` - Pointer to the [`ArkUI_StyledString_Descriptor`](crate::node_attributes::text_common::ArkUI_StyledString_Descriptor) object.
+    ///
+    /// * `spanStyle` - Pointer to the [`OH_ArkUI_SpanStyle`](crate::styled_string::OH_ArkUI_SpanStyle) object.
+    /// <br>You need to call [`OH_ArkUI_SpanStyle_SetStart`](crate::styled_string::OH_ArkUI_SpanStyle_SetStart) and [`OH_ArkUI_SpanStyle_SetLength`](crate::styled_string::OH_ArkUI_SpanStyle_SetLength) to set the
+    /// target range in the object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_INVALID_STYLED_STRING`](crate::error_code::ArkUiErrorCode::INVALID_STYLED_STRING) if the styled string is invalid.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_StyledString_Descriptor_ReplaceStyle(
+        descriptor: *mut ArkUI_StyledString_Descriptor,
+        spanStyle: *const OH_ArkUI_SpanStyle,
+    ) -> ArkUiResult;
+    /// Sets a new style for a specified range of a styled string.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `descriptor` - Pointer to the [`ArkUI_StyledString_Descriptor`](crate::node_attributes::text_common::ArkUI_StyledString_Descriptor) object.
+    ///
+    /// * `spanStyle` - Pointer to the [`OH_ArkUI_SpanStyle`](crate::styled_string::OH_ArkUI_SpanStyle) object. You need to call
+    /// [`OH_ArkUI_SpanStyle_SetStart`](crate::styled_string::OH_ArkUI_SpanStyle_SetStart) and [`OH_ArkUI_SpanStyle_SetLength`](crate::styled_string::OH_ArkUI_SpanStyle_SetLength) to set the target range in the
+    /// object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_INVALID_STYLED_STRING`](crate::error_code::ArkUiErrorCode::INVALID_STYLED_STRING) if the styled string is invalid.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_StyledString_Descriptor_SetStyle(
+        descriptor: *mut ArkUI_StyledString_Descriptor,
+        spanStyle: *const OH_ArkUI_SpanStyle,
+    ) -> ArkUiResult;
+    /// Removes the specified style for a specified range of a styled string.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `descriptor` - Pointer to the [`ArkUI_StyledString_Descriptor`](crate::node_attributes::text_common::ArkUI_StyledString_Descriptor) object.
+    ///
+    /// * `start` - Start position of the specified range. The value range is \[0, length of the styled string\].
+    ///
+    /// * `length` - Length of the specified range. The value range is \[0, difference between the length of the styled
+    /// string and the value of **start**\].
+    ///
+    /// * `styledKey` - Style type. The value is an enumerated value of [`OH_ArkUI_StyledStringKey`](crate::styled_string::OH_ArkUI_StyledStringKey).
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_INVALID_STYLED_STRING`](crate::error_code::ArkUiErrorCode::INVALID_STYLED_STRING) if the styled string is invalid.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_StyledString_Descriptor_RemoveStyle(
+        descriptor: *mut ArkUI_StyledString_Descriptor,
+        start: u32,
+        length: u32,
+        styledKey: OH_ArkUI_StyledStringKey,
+    ) -> ArkUiResult;
+    /// Clears all styles of a styled string.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `descriptor` - Pointer to the [`ArkUI_StyledString_Descriptor`](crate::node_attributes::text_common::ArkUI_StyledString_Descriptor) object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_INVALID_STYLED_STRING`](crate::error_code::ArkUiErrorCode::INVALID_STYLED_STRING) if the styled string is invalid.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_StyledString_Descriptor_ClearStyles(
+        descriptor: *mut ArkUI_StyledString_Descriptor,
+    ) -> ArkUiResult;
+    /// Replaces the styled string within a specified range.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `descriptor` - Pointer to the [`ArkUI_StyledString_Descriptor`](crate::node_attributes::text_common::ArkUI_StyledString_Descriptor) object.
+    ///
+    /// * `start` - Start position of the specified range. The value range is \[0, length of the styled string\].
+    ///
+    /// * `length` - Length of the specified range. The value range is \[0, difference between the length of the styled
+    /// string and the value of **start**\].
+    ///
+    /// * `other` - Pointer to the new [`ArkUI_StyledString_Descriptor`](crate::node_attributes::text_common::ArkUI_StyledString_Descriptor) object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_INVALID_STYLED_STRING`](crate::error_code::ArkUiErrorCode::INVALID_STYLED_STRING) if the styled string is invalid.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_StyledString_Descriptor_ReplaceStyledString(
+        descriptor: *mut ArkUI_StyledString_Descriptor,
+        start: u32,
+        length: u32,
+        other: *const ArkUI_StyledString_Descriptor,
+    ) -> ArkUiResult;
+    /// Inserts a new styled string at a specified position of a styled string.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `descriptor` - Pointer to the [`ArkUI_StyledString_Descriptor`](crate::node_attributes::text_common::ArkUI_StyledString_Descriptor) object.
+    ///
+    /// * `start` - Insertion position. The value range is \[0, length of the styled string\].
+    ///
+    /// * `other` - Pointer to the new [`ArkUI_StyledString_Descriptor`](crate::node_attributes::text_common::ArkUI_StyledString_Descriptor) object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_INVALID_STYLED_STRING`](crate::error_code::ArkUiErrorCode::INVALID_STYLED_STRING) if the styled string is invalid.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_StyledString_Descriptor_InsertStyledString(
+        descriptor: *mut ArkUI_StyledString_Descriptor,
+        start: u32,
+        other: *const ArkUI_StyledString_Descriptor,
+    ) -> ArkUiResult;
+    /// Appends a new styled string to the end of a styled string.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `descriptor` - Pointer to the [`ArkUI_StyledString_Descriptor`](crate::node_attributes::text_common::ArkUI_StyledString_Descriptor) object.
+    ///
+    /// * `other` - Pointer to the new [`ArkUI_StyledString_Descriptor`](crate::node_attributes::text_common::ArkUI_StyledString_Descriptor) object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_INVALID_STYLED_STRING`](crate::error_code::ArkUiErrorCode::INVALID_STYLED_STRING) if the styled string is invalid.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_StyledString_Descriptor_AppendStyledString(
+        descriptor: *mut ArkUI_StyledString_Descriptor,
+        other: *const ArkUI_StyledString_Descriptor,
+    ) -> ArkUiResult;
+    /// Actively refreshes the custom span in a styled string.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `descriptor` - Pointer to the [`ArkUI_StyledString_Descriptor`](crate::node_attributes::text_common::ArkUI_StyledString_Descriptor) object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_INVALID_STYLED_STRING`](crate::error_code::ArkUiErrorCode::INVALID_STYLED_STRING) if the styled string is invalid.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_StyledString_Descriptor_InvalidateCustomSpan(
+        descriptor: *const ArkUI_StyledString_Descriptor,
+    ) -> ArkUiResult;
+    /// Creates an [`OH_ArkUI_TextStyle`](crate::styled_string::OH_ArkUI_TextStyle) object.
+    ///
+    ///
+    /// **Note:** When the object is no longer in use, invoke <b> OH_ArkUI_TextStyle_Destroy </b> to destroy it.
+    ///
+    /// # Returns
+    ///
+    /// * Pointer to the <b>OH_ArkUI_TextStyle</b> object.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_TextStyle_Create() -> *mut OH_ArkUI_TextStyle;
+    /// Releases the memory occupied by the [`OH_ArkUI_TextStyle`](crate::styled_string::OH_ArkUI_TextStyle) object.
+    ///
+    /// # Arguments
+    ///
+    /// * `textStyle` - Pointer to the [`OH_ArkUI_TextStyle`](crate::styled_string::OH_ArkUI_TextStyle) object.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_TextStyle_Destroy(textStyle: *mut OH_ArkUI_TextStyle);
+    /// Sets text color for a text font style.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `textStyle` - Pointer to the [`OH_ArkUI_TextStyle`](crate::styled_string::OH_ArkUI_TextStyle) object.
+    ///
+    /// * `fontColor` - Font color, in 0xARGB format.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_TextStyle_SetFontColor(
+        textStyle: *mut OH_ArkUI_TextStyle,
+        fontColor: u32,
+    ) -> ArkUiResult;
+    /// Obtains the text color of a text font style.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `textStyle` - Pointer to the [`OH_ArkUI_TextStyle`](crate::styled_string::OH_ArkUI_TextStyle) object.
+    ///
+    /// * `fontColor` - Pointer to the font color, in 0xARGB format.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_TextStyle_GetFontColor(
+        textStyle: *const OH_ArkUI_TextStyle,
+        fontColor: *mut u32,
+    ) -> ArkUiResult;
+    /// Sets a font family for a text font style.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `textStyle` - Pointer to the [`OH_ArkUI_TextStyle`](crate::styled_string::OH_ArkUI_TextStyle) object.
+    ///
+    /// * `fontFamily` - Pointer to the font family, containing the font names to be set. Different font names are
+    /// separated by commas (,).
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_TextStyle_SetFontFamily(
+        textStyle: *mut OH_ArkUI_TextStyle,
+        fontFamily: *const ::core::ffi::c_char,
+    ) -> ArkUiResult;
+    /// Obtains the font family of a text font style.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `textStyle` - Pointer to the [`OH_ArkUI_TextStyle`](crate::styled_string::OH_ArkUI_TextStyle) object.
+    ///
+    /// * `buffer` - Pointer to the buffer for storing the font family in the memory. You need to allocate the memory.
+    ///
+    /// * `bufferSize` - Maximum number of characters that can be written to the buffer.
+    ///
+    /// * `writeLength` - Pointer to the length of the string actually written to the buffer if
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) is returned.
+    /// <br>Pointer to the minimum length required for writing the entire string to the buffer if
+    /// [`ARKUI_ERROR_CODE_BUFFER_SIZE_ERROR`](crate::error_code::ArkUiErrorCode::BUFFER_SIZE_ERROR) is returned.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    /// Returns [`ARKUI_ERROR_CODE_BUFFER_SIZE_ERROR`](crate::error_code::ArkUiErrorCode::BUFFER_SIZE_ERROR) If the buffer size is less than the minimum buffer size.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_TextStyle_GetFontFamily(
+        textStyle: *const OH_ArkUI_TextStyle,
+        buffer: *mut ::core::ffi::c_char,
+        bufferSize: i32,
+        writeLength: *mut i32,
+    ) -> ArkUiResult;
+    /// Sets font size for a text font style.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `textStyle` - Pointer to the [`OH_ArkUI_TextStyle`](crate::styled_string::OH_ArkUI_TextStyle) object.
+    ///
+    /// * `fontSize` - Font size, in vp.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_TextStyle_SetFontSize(
+        textStyle: *mut OH_ArkUI_TextStyle,
+        fontSize: f32,
+    ) -> ArkUiResult;
+    /// Obtains the font size of a text font style.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `textStyle` - Pointer to the [`OH_ArkUI_TextStyle`](crate::styled_string::OH_ArkUI_TextStyle) object.
+    ///
+    /// * `fontSize` - Pointer to the font size, in vp.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_TextStyle_GetFontSize(
+        textStyle: *const OH_ArkUI_TextStyle,
+        fontSize: *mut f32,
+    ) -> ArkUiResult;
+    /// Sets font weight for a text font style.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `textStyle` - Pointer to the [`OH_ArkUI_TextStyle`](crate::styled_string::OH_ArkUI_TextStyle) object.
+    ///
+    /// * `fontWeight` - Font weight. The value is an integer multiple of 100 within the \[100, 900\] range, for example, **
+    /// 100** or **900**.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_TextStyle_SetFontWeight(
+        textStyle: *mut OH_ArkUI_TextStyle,
+        fontWeight: u32,
+    ) -> ArkUiResult;
+    /// Obtains the font weight of a text font style.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `textStyle` - Pointer to the [`OH_ArkUI_TextStyle`](crate::styled_string::OH_ArkUI_TextStyle) object.
+    ///
+    /// * `fontWeight` - Pointer to the font weight. The value is an integer multiple of 100 within the \[100, 900\] range,
+    /// for example, **100** or **900**.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_TextStyle_GetFontWeight(
+        textStyle: *const OH_ArkUI_TextStyle,
+        fontWeight: *mut u32,
+    ) -> ArkUiResult;
+    /// Sets font style for a text font style.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `textStyle` - Pointer to the [`OH_ArkUI_TextStyle`](crate::styled_string::OH_ArkUI_TextStyle) object.
+    ///
+    /// * `fontStyle` - Font style. The value is an enumerated value of [`ArkUI_FontStyle`](crate::node_attributes::text::ArkUI_FontStyle).
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_TextStyle_SetFontStyle(
+        textStyle: *mut OH_ArkUI_TextStyle,
+        fontStyle: ArkUI_FontStyle,
+    ) -> ArkUiResult;
+    /// Obtains the font style of a text font style.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `textStyle` - Pointer to the [`OH_ArkUI_TextStyle`](crate::styled_string::OH_ArkUI_TextStyle) object.
+    ///
+    /// * `fontStyle` - Pointer to the font style. The value is an enumerated value of [`ArkUI_FontStyle`](crate::node_attributes::text::ArkUI_FontStyle).
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_TextStyle_GetFontStyle(
+        textStyle: *const OH_ArkUI_TextStyle,
+        fontStyle: *mut ArkUI_FontStyle,
+    ) -> ArkUiResult;
+    /// Sets stroke width for a text font style.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `textStyle` - Pointer to the [`OH_ArkUI_TextStyle`](crate::styled_string::OH_ArkUI_TextStyle) object.
+    ///
+    /// * `strokeWidth` - Stroke width, in vp.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_TextStyle_SetStrokeWidth(
+        textStyle: *mut OH_ArkUI_TextStyle,
+        strokeWidth: f32,
+    ) -> ArkUiResult;
+    /// Obtains the stroke width of a text font style.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `textStyle` - Pointer to the [`OH_ArkUI_TextStyle`](crate::styled_string::OH_ArkUI_TextStyle) object.
+    ///
+    /// * `strokeWidth` - Pointer to the stroke width, in vp.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_TextStyle_GetStrokeWidth(
+        textStyle: *const OH_ArkUI_TextStyle,
+        strokeWidth: *mut f32,
+    ) -> ArkUiResult;
+    /// Sets a stroke color for a text font style.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `textStyle` - Pointer to the [`OH_ArkUI_TextStyle`](crate::styled_string::OH_ArkUI_TextStyle) object.
+    ///
+    /// * `strokeColor` - Stroke color, in 0xARGB format.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_TextStyle_SetStrokeColor(
+        textStyle: *mut OH_ArkUI_TextStyle,
+        strokeColor: u32,
+    ) -> ArkUiResult;
+    /// Obtains the stroke color of a text font style.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `textStyle` - Pointer to the [`OH_ArkUI_TextStyle`](crate::styled_string::OH_ArkUI_TextStyle) object.
+    ///
+    /// * `strokeColor` - Pointer to the stroke color, in 0xARGB format.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_TextStyle_GetStrokeColor(
+        textStyle: *const OH_ArkUI_TextStyle,
+        strokeColor: *mut u32,
+    ) -> ArkUiResult;
+    /// Sets superscript and subscript styles for a text font style.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `textStyle` - Pointer to the [`OH_ArkUI_TextStyle`](crate::styled_string::OH_ArkUI_TextStyle) object.
+    ///
+    /// * `superscript` - Superscript and subscript styles. The value is an enumerated value of
+    /// [`OH_ArkUI_SuperscriptStyle`](crate::styled_string::OH_ArkUI_SuperscriptStyle).
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_TextStyle_SetSuperscript(
+        textStyle: *mut OH_ArkUI_TextStyle,
+        superscript: OH_ArkUI_SuperscriptStyle,
+    ) -> ArkUiResult;
+    /// Obtains the superscript and subscript styles of a text font style.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `textStyle` - Pointer to the [`OH_ArkUI_TextStyle`](crate::styled_string::OH_ArkUI_TextStyle) object.
+    ///
+    /// * `superscript` - Pointer to the superscript and subscript styles. The value is an enumerated value of
+    /// [`OH_ArkUI_SuperscriptStyle`](crate::styled_string::OH_ArkUI_SuperscriptStyle).
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_TextStyle_GetSuperscript(
+        textStyle: *const OH_ArkUI_TextStyle,
+        superscript: *mut OH_ArkUI_SuperscriptStyle,
+    ) -> ArkUiResult;
+    /// Creates an [`OH_ArkUI_SpanStyle`](crate::styled_string::OH_ArkUI_SpanStyle) object.
+    ///
+    ///
+    /// **Note:** When the object is no longer in use, invoke <b> OH_ArkUI_SpanStyle_Destroy </b> to destroy it.
+    ///
+    /// # Returns
+    ///
+    /// * Pointer to the <b>OH_ArkUI_SpanStyle</b> object.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_SpanStyle_Create() -> *mut OH_ArkUI_SpanStyle;
+    /// Releases the memory occupied by the [`OH_ArkUI_SpanStyle`](crate::styled_string::OH_ArkUI_SpanStyle) object.
+    ///
+    /// # Arguments
+    ///
+    /// * `spanStyle` - Pointer to the [`OH_ArkUI_SpanStyle`](crate::styled_string::OH_ArkUI_SpanStyle) object.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_SpanStyle_Destroy(spanStyle: *mut OH_ArkUI_SpanStyle);
+    /// Obtains the style of the styled string object.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `spanStyle` - Pointer to the [`OH_ArkUI_SpanStyle`](crate::styled_string::OH_ArkUI_SpanStyle) object.
+    ///
+    /// * `styledKey` - Pointer to the style type. The value is an enumerated value of [`OH_ArkUI_StyledStringKey`](crate::styled_string::OH_ArkUI_StyledStringKey).
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_SpanStyle_GetStyledKey(
+        spanStyle: *const OH_ArkUI_SpanStyle,
+        styledKey: *mut OH_ArkUI_StyledStringKey,
+    ) -> ArkUiResult;
+    /// Sets the start position for the styled string object.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `spanStyle` - Pointer to the [`OH_ArkUI_SpanStyle`](crate::styled_string::OH_ArkUI_SpanStyle) object.
+    ///
+    /// * `start` - Start position of the styled string style object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_SpanStyle_SetStart(
+        spanStyle: *mut OH_ArkUI_SpanStyle,
+        start: i32,
+    ) -> ArkUiResult;
+    /// Obtains the start position of the styled string object.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `spanStyle` - Pointer to the [`OH_ArkUI_SpanStyle`](crate::styled_string::OH_ArkUI_SpanStyle) object.
+    ///
+    /// * `start` - Pointer to the start position of the styled string style object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_SpanStyle_GetStart(
+        spanStyle: *const OH_ArkUI_SpanStyle,
+        start: *mut i32,
+    ) -> ArkUiResult;
+    /// Sets the length for the styled string object.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `spanStyle` - Pointer to the [`OH_ArkUI_SpanStyle`](crate::styled_string::OH_ArkUI_SpanStyle) object.
+    ///
+    /// * `length` - Length of the styled string style object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_SpanStyle_SetLength(
+        spanStyle: *mut OH_ArkUI_SpanStyle,
+        length: i32,
+    ) -> ArkUiResult;
+    /// Obtains the length of the styled string object.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `spanStyle` - Pointer to the [`OH_ArkUI_SpanStyle`](crate::styled_string::OH_ArkUI_SpanStyle) object.
+    ///
+    /// * `length` - Pointer to the length of the styled string style object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_SpanStyle_GetLength(
+        spanStyle: *const OH_ArkUI_SpanStyle,
+        length: *mut i32,
+    ) -> ArkUiResult;
+    /// Sets the text font style for the styled string object.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `spanStyle` - Pointer to the [`OH_ArkUI_SpanStyle`](crate::styled_string::OH_ArkUI_SpanStyle) object.
+    ///
+    /// * `textStyle` - Pointer to the [`OH_ArkUI_TextStyle`](crate::styled_string::OH_ArkUI_TextStyle) object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_SpanStyle_SetTextStyle(
+        spanStyle: *mut OH_ArkUI_SpanStyle,
+        textStyle: *const OH_ArkUI_TextStyle,
+    ) -> ArkUiResult;
+    /// Obtains the text font style of the styled string object.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `spanStyle` - Pointer to the [`OH_ArkUI_SpanStyle`](crate::styled_string::OH_ArkUI_SpanStyle) object.
+    ///
+    /// * `textStyle` - Pointer to the [`OH_ArkUI_TextStyle`](crate::styled_string::OH_ArkUI_TextStyle) object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_SpanStyle_GetTextStyle(
+        spanStyle: *const OH_ArkUI_SpanStyle,
+        textStyle: *mut OH_ArkUI_TextStyle,
+    ) -> ArkUiResult;
+    /// Sets the paragraph style for the styled string object.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `spanStyle` - Pointer to the [`OH_ArkUI_SpanStyle`](crate::styled_string::OH_ArkUI_SpanStyle) object.
+    ///
+    /// * `paragraphStyle` - Pointer to the [`OH_ArkUI_ParagraphStyle`](crate::styled_string::OH_ArkUI_ParagraphStyle) object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_SpanStyle_SetParagraphStyle(
+        spanStyle: *mut OH_ArkUI_SpanStyle,
+        paragraphStyle: *const OH_ArkUI_ParagraphStyle,
+    ) -> ArkUiResult;
+    /// Obtains the paragraph style of the styled string object.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `spanStyle` - Pointer to the [`OH_ArkUI_SpanStyle`](crate::styled_string::OH_ArkUI_SpanStyle) object.
+    ///
+    /// * `paragraphStyle` - Pointer to the [`OH_ArkUI_ParagraphStyle`](crate::styled_string::OH_ArkUI_ParagraphStyle) object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_SpanStyle_GetParagraphStyle(
+        spanStyle: *const OH_ArkUI_SpanStyle,
+        paragraphStyle: *mut OH_ArkUI_ParagraphStyle,
+    ) -> ArkUiResult;
+    /// Sets the gesture style for the styled string object.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `spanStyle` - Pointer to the [`OH_ArkUI_SpanStyle`](crate::styled_string::OH_ArkUI_SpanStyle) object.
+    ///
+    /// * `gestureStyle` - Pointer to the [`OH_ArkUI_GestureStyle`](crate::styled_string::OH_ArkUI_GestureStyle) object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_SpanStyle_SetGestureStyle(
+        spanStyle: *mut OH_ArkUI_SpanStyle,
+        gestureStyle: *const OH_ArkUI_GestureStyle,
+    ) -> ArkUiResult;
+    /// Obtains the gesture style of the styled string object.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `spanStyle` - Pointer to the [`OH_ArkUI_SpanStyle`](crate::styled_string::OH_ArkUI_SpanStyle) object.
+    ///
+    /// * `gestureStyle` - Pointer to the [`OH_ArkUI_GestureStyle`](crate::styled_string::OH_ArkUI_GestureStyle) object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_SpanStyle_GetGestureStyle(
+        spanStyle: *const OH_ArkUI_SpanStyle,
+        gestureStyle: *mut OH_ArkUI_GestureStyle,
+    ) -> ArkUiResult;
+    /// Sets the text shadow style for the styled string object.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `spanStyle` - Pointer to the [`OH_ArkUI_SpanStyle`](crate::styled_string::OH_ArkUI_SpanStyle) object.
+    ///
+    /// * `textShadowStyle` - Pointer to the [`OH_ArkUI_TextShadowStyle`](crate::styled_string::OH_ArkUI_TextShadowStyle) object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_SpanStyle_SetTextShadowStyle(
+        spanStyle: *mut OH_ArkUI_SpanStyle,
+        textShadowStyle: *const OH_ArkUI_TextShadowStyle,
+    ) -> ArkUiResult;
+    /// Obtains the text shadow style of the styled string style object.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `spanStyle` - Pointer to the [`OH_ArkUI_SpanStyle`](crate::styled_string::OH_ArkUI_SpanStyle) object.
+    ///
+    /// * `textShadowStyle` - Pointer to the [`OH_ArkUI_TextShadowStyle`](crate::styled_string::OH_ArkUI_TextShadowStyle) object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_SpanStyle_GetTextShadowStyle(
+        spanStyle: *const OH_ArkUI_SpanStyle,
+        textShadowStyle: *mut OH_ArkUI_TextShadowStyle,
+    ) -> ArkUiResult;
+    /// Sets the text decorative line style for the styled string style object.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `spanStyle` - Pointer to the [`OH_ArkUI_SpanStyle`](crate::styled_string::OH_ArkUI_SpanStyle) object.
+    ///
+    /// * `decorationStyle` - Pointer to the [`OH_ArkUI_DecorationStyle`](crate::styled_string::OH_ArkUI_DecorationStyle) object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_SpanStyle_SetDecorationStyle(
+        spanStyle: *mut OH_ArkUI_SpanStyle,
+        decorationStyle: *const OH_ArkUI_DecorationStyle,
+    ) -> ArkUiResult;
+    /// Obtains the text decorative line style of the styled string style object.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `spanStyle` - Pointer to the [`OH_ArkUI_SpanStyle`](crate::styled_string::OH_ArkUI_SpanStyle) object.
+    ///
+    /// * `decorationStyle` - Pointer to the [`OH_ArkUI_DecorationStyle`](crate::styled_string::OH_ArkUI_DecorationStyle) object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_SpanStyle_GetDecorationStyle(
+        spanStyle: *const OH_ArkUI_SpanStyle,
+        decorationStyle: *mut OH_ArkUI_DecorationStyle,
+    ) -> ArkUiResult;
+    /// Sets the baseline offset style for the styled string style object.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `spanStyle` - Pointer to the [`OH_ArkUI_SpanStyle`](crate::styled_string::OH_ArkUI_SpanStyle) object.
+    ///
+    /// * `baselineOffsetStyle` - Pointer to the [`OH_ArkUI_BaselineOffsetStyle`](crate::styled_string::OH_ArkUI_BaselineOffsetStyle) object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_SpanStyle_SetBaselineOffsetStyle(
+        spanStyle: *mut OH_ArkUI_SpanStyle,
+        baselineOffsetStyle: *const OH_ArkUI_BaselineOffsetStyle,
+    ) -> ArkUiResult;
+    /// Obtains the baseline offset style of the styled string style object.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `spanStyle` - Pointer to the [`OH_ArkUI_SpanStyle`](crate::styled_string::OH_ArkUI_SpanStyle) object.
+    ///
+    /// * `baselineOffsetStyle` - Pointer to the [`OH_ArkUI_BaselineOffsetStyle`](crate::styled_string::OH_ArkUI_BaselineOffsetStyle) object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_SpanStyle_GetBaselineOffsetStyle(
+        spanStyle: *const OH_ArkUI_SpanStyle,
+        baselineOffsetStyle: *mut OH_ArkUI_BaselineOffsetStyle,
+    ) -> ArkUiResult;
+    /// Sets the letter spacing style for the styled string style object.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `spanStyle` - Pointer to the [`OH_ArkUI_SpanStyle`](crate::styled_string::OH_ArkUI_SpanStyle) object.
+    ///
+    /// * `letterSpacingStyle` - Pointer to the [`OH_ArkUI_LetterSpacingStyle`](crate::styled_string::OH_ArkUI_LetterSpacingStyle) object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_SpanStyle_SetLetterSpacingStyle(
+        spanStyle: *mut OH_ArkUI_SpanStyle,
+        letterSpacingStyle: *const OH_ArkUI_LetterSpacingStyle,
+    ) -> ArkUiResult;
+    /// Obtains the letter spacing style of the styled string style object.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `spanStyle` - Pointer to the [`OH_ArkUI_SpanStyle`](crate::styled_string::OH_ArkUI_SpanStyle) object.
+    ///
+    /// * `letterSpacingStyle` - Pointer to the [`OH_ArkUI_LetterSpacingStyle`](crate::styled_string::OH_ArkUI_LetterSpacingStyle) object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_SpanStyle_GetLetterSpacingStyle(
+        spanStyle: *const OH_ArkUI_SpanStyle,
+        letterSpacingStyle: *mut OH_ArkUI_LetterSpacingStyle,
+    ) -> ArkUiResult;
+    /// Sets the line height style for the styled string style object.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `spanStyle` - Pointer to the [`OH_ArkUI_SpanStyle`](crate::styled_string::OH_ArkUI_SpanStyle) object.
+    ///
+    /// * `lineHeightStyle` - Pointer to the [`OH_ArkUI_LineHeightStyle`](crate::styled_string::OH_ArkUI_LineHeightStyle) object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_SpanStyle_SetLineHeightStyle(
+        spanStyle: *mut OH_ArkUI_SpanStyle,
+        lineHeightStyle: *const OH_ArkUI_LineHeightStyle,
+    ) -> ArkUiResult;
+    /// Obtains the line height style of the styled string style object.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `spanStyle` - Pointer to the [`OH_ArkUI_SpanStyle`](crate::styled_string::OH_ArkUI_SpanStyle) object.
+    ///
+    /// * `lineHeightStyle` - Pointer to the [`OH_ArkUI_LineHeightStyle`](crate::styled_string::OH_ArkUI_LineHeightStyle) object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_SpanStyle_GetLineHeightStyle(
+        spanStyle: *const OH_ArkUI_SpanStyle,
+        lineHeightStyle: *mut OH_ArkUI_LineHeightStyle,
+    ) -> ArkUiResult;
+    /// Sets the URL style for the styled string style object.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `spanStyle` - Pointer to the [`OH_ArkUI_SpanStyle`](crate::styled_string::OH_ArkUI_SpanStyle) object.
+    ///
+    /// * `urlStyle` - Pointer to the [`OH_ArkUI_UrlStyle`](crate::styled_string::OH_ArkUI_UrlStyle) object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_SpanStyle_SetUrlStyle(
+        spanStyle: *mut OH_ArkUI_SpanStyle,
+        urlStyle: *const OH_ArkUI_UrlStyle,
+    ) -> ArkUiResult;
+    /// Obtains the URL style of the styled string style object.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `spanStyle` - Pointer to the [`OH_ArkUI_SpanStyle`](crate::styled_string::OH_ArkUI_SpanStyle) object.
+    ///
+    /// * `urlStyle` - Pointer to the [`OH_ArkUI_UrlStyle`](crate::styled_string::OH_ArkUI_UrlStyle) object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_SpanStyle_GetUrlStyle(
+        spanStyle: *const OH_ArkUI_SpanStyle,
+        urlStyle: *mut OH_ArkUI_UrlStyle,
+    ) -> ArkUiResult;
+    /// Sets the background color style for the styled string style object.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `spanStyle` - Pointer to the [`OH_ArkUI_SpanStyle`](crate::styled_string::OH_ArkUI_SpanStyle) object.
+    ///
+    /// * `backgroundColorStyle` - Pointer to the [`OH_ArkUI_BackgroundColorStyle`](crate::styled_string::OH_ArkUI_BackgroundColorStyle) object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_SpanStyle_SetBackgroundColorStyle(
+        spanStyle: *mut OH_ArkUI_SpanStyle,
+        backgroundColorStyle: *const OH_ArkUI_BackgroundColorStyle,
+    ) -> ArkUiResult;
+    /// Obtains the background color style of the styled string style object.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `spanStyle` - Pointer to the [`OH_ArkUI_SpanStyle`](crate::styled_string::OH_ArkUI_SpanStyle) object.
+    ///
+    /// * `backgroundColorStyle` - Pointer to the [`OH_ArkUI_BackgroundColorStyle`](crate::styled_string::OH_ArkUI_BackgroundColorStyle) object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_SpanStyle_GetBackgroundColorStyle(
+        spanStyle: *const OH_ArkUI_SpanStyle,
+        backgroundColorStyle: *mut OH_ArkUI_BackgroundColorStyle,
+    ) -> ArkUiResult;
+    /// Sets the user data span style for the styled string style object.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `spanStyle` - Pointer to the [`OH_ArkUI_SpanStyle`](crate::styled_string::OH_ArkUI_SpanStyle) object.
+    ///
+    /// * `userDataSpan` - Pointer to the [`OH_ArkUI_UserDataSpan`](crate::styled_string::OH_ArkUI_UserDataSpan) object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_SpanStyle_SetUserDataSpan(
+        spanStyle: *mut OH_ArkUI_SpanStyle,
+        userDataSpan: *const OH_ArkUI_UserDataSpan,
+    ) -> ArkUiResult;
+    /// Obtains the user data span style of the styled string style object.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `spanStyle` - Pointer to the [`OH_ArkUI_SpanStyle`](crate::styled_string::OH_ArkUI_SpanStyle) object.
+    ///
+    /// * `userDataSpan` - Pointer to the [`OH_ArkUI_UserDataSpan`](crate::styled_string::OH_ArkUI_UserDataSpan) object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_SpanStyle_GetUserDataSpan(
+        spanStyle: *const OH_ArkUI_SpanStyle,
+        userDataSpan: *mut OH_ArkUI_UserDataSpan,
+    ) -> ArkUiResult;
+    /// Sets the custom span style for the styled string style object.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `spanStyle` - Pointer to the [`OH_ArkUI_SpanStyle`](crate::styled_string::OH_ArkUI_SpanStyle) object.
+    ///
+    /// * `customSpan` - Pointer to the [`OH_ArkUI_CustomSpan`](crate::styled_string::OH_ArkUI_CustomSpan) object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_SpanStyle_SetCustomSpan(
+        spanStyle: *mut OH_ArkUI_SpanStyle,
+        customSpan: *const OH_ArkUI_CustomSpan,
+    ) -> ArkUiResult;
+    /// Obtains the custom span style of the styled string style object.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `spanStyle` - Pointer to the [`OH_ArkUI_SpanStyle`](crate::styled_string::OH_ArkUI_SpanStyle) object.
+    ///
+    /// * `customSpan` - Pointer to the [`OH_ArkUI_CustomSpan`](crate::styled_string::OH_ArkUI_CustomSpan) object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_SpanStyle_GetCustomSpan(
+        spanStyle: *const OH_ArkUI_SpanStyle,
+        customSpan: *mut OH_ArkUI_CustomSpan,
+    ) -> ArkUiResult;
+    /// Sets the image style for the styled string style object.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `spanStyle` - Pointer to the [`OH_ArkUI_SpanStyle`](crate::styled_string::OH_ArkUI_SpanStyle) object.
+    ///
+    /// * `imageAttachment` - Pointer to the [`OH_ArkUI_ImageAttachment`](crate::styled_string::OH_ArkUI_ImageAttachment) object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_SpanStyle_SetImageAttachment(
+        spanStyle: *mut OH_ArkUI_SpanStyle,
+        imageAttachment: *const OH_ArkUI_ImageAttachment,
+    ) -> ArkUiResult;
+    /// Obtains the image style of the styled string style object.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `spanStyle` - Pointer to the [`OH_ArkUI_SpanStyle`](crate::styled_string::OH_ArkUI_SpanStyle) object.
+    ///
+    /// * `imageAttachment` - Pointer to the [`OH_ArkUI_ImageAttachment`](crate::styled_string::OH_ArkUI_ImageAttachment) object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_SpanStyle_GetImageAttachment(
+        spanStyle: *const OH_ArkUI_SpanStyle,
+        imageAttachment: *mut OH_ArkUI_ImageAttachment,
+    ) -> ArkUiResult;
+    /// Creates an [`OH_ArkUI_LeadingMarginSpanDrawInfo`](crate::styled_string::OH_ArkUI_LeadingMarginSpanDrawInfo) object.
+    ///
+    ///
+    /// **Note:** When the object is no longer in use, invoke <b> OH_ArkUI_LeadingMarginSpanDrawInfo_Destroy </b> to destroy it.
+    ///
+    /// # Returns
+    ///
+    /// * Pointer to the <b>OH_ArkUI_LeadingMarginSpanDrawInfo</b> object.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_LeadingMarginSpanDrawInfo_Create() -> *mut OH_ArkUI_LeadingMarginSpanDrawInfo;
+    /// Releases the memory occupied by the [`OH_ArkUI_LeadingMarginSpanDrawInfo`](crate::styled_string::OH_ArkUI_LeadingMarginSpanDrawInfo) object.
+    ///
+    /// # Arguments
+    ///
+    /// * `drawInfo` - Pointer to the [`OH_ArkUI_LeadingMarginSpanDrawInfo`](crate::styled_string::OH_ArkUI_LeadingMarginSpanDrawInfo) object.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_LeadingMarginSpanDrawInfo_Destroy(
+        drawInfo: *mut OH_ArkUI_LeadingMarginSpanDrawInfo,
+    );
+    /// Sets the horizontal offset of the current line relative to the component in the custom drawing information
+    /// object for paragraph indentation.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `drawInfo` - Pointer to the [`OH_ArkUI_LeadingMarginSpanDrawInfo`](crate::styled_string::OH_ArkUI_LeadingMarginSpanDrawInfo) object.
+    ///
+    /// * `x` - Horizontal offset of the current line relative to the component, in px.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_LeadingMarginSpanDrawInfo_SetX(
+        drawInfo: *mut OH_ArkUI_LeadingMarginSpanDrawInfo,
+        x: f32,
+    ) -> ArkUiResult;
+    /// Obtains the horizontal offset of the current line relative to the component in the custom drawing information
+    /// object for paragraph indentation.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `drawInfo` - Pointer to the [`OH_ArkUI_LeadingMarginSpanDrawInfo`](crate::styled_string::OH_ArkUI_LeadingMarginSpanDrawInfo) object.
+    ///
+    /// * `x` - Pointer to the horizontal offset of the current line relative to the component, in px.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_LeadingMarginSpanDrawInfo_GetX(
+        drawInfo: *const OH_ArkUI_LeadingMarginSpanDrawInfo,
+        x: *mut f32,
+    ) -> ArkUiResult;
+    /// Sets the distance between the top of a line and the top edge of the component in the custom drawing
+    /// information object for paragraph indentation.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `drawInfo` - Pointer to the [`OH_ArkUI_LeadingMarginSpanDrawInfo`](crate::styled_string::OH_ArkUI_LeadingMarginSpanDrawInfo) object.
+    ///
+    /// * `top` - Distance between the top of a line and the top edge of the component, in px.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_LeadingMarginSpanDrawInfo_SetTop(
+        drawInfo: *mut OH_ArkUI_LeadingMarginSpanDrawInfo,
+        top: f32,
+    ) -> ArkUiResult;
+    /// Obtains the distance between the top of a line and the top edge of the component in the custom drawing
+    /// information object for paragraph indentation.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `drawInfo` - Pointer to the [`OH_ArkUI_LeadingMarginSpanDrawInfo`](crate::styled_string::OH_ArkUI_LeadingMarginSpanDrawInfo) object.
+    ///
+    /// * `top` - Pointer to the distance between the top of a line and the top edge of the component, in px.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_LeadingMarginSpanDrawInfo_GetTop(
+        drawInfo: *const OH_ArkUI_LeadingMarginSpanDrawInfo,
+        top: *mut f32,
+    ) -> ArkUiResult;
+    /// Sets the distance between the bottom of a line and the top edge of the component in the custom drawing
+    /// information object for paragraph indentation.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `drawInfo` - Pointer to the [`OH_ArkUI_LeadingMarginSpanDrawInfo`](crate::styled_string::OH_ArkUI_LeadingMarginSpanDrawInfo) object.
+    ///
+    /// * `bottom` - Distance between the bottom of a line and the top edge of the component, in px.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_LeadingMarginSpanDrawInfo_SetBottom(
+        drawInfo: *mut OH_ArkUI_LeadingMarginSpanDrawInfo,
+        bottom: f32,
+    ) -> ArkUiResult;
+    /// Obtains the distance between the bottom of a line and the top edge of the component in the custom drawing
+    /// information object for paragraph indentation.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `drawInfo` - Pointer to the [`OH_ArkUI_LeadingMarginSpanDrawInfo`](crate::styled_string::OH_ArkUI_LeadingMarginSpanDrawInfo) object.
+    ///
+    /// * `bottom` - Pointer to the distance between the bottom of a line and the top edge of the component, in px.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_LeadingMarginSpanDrawInfo_GetBottom(
+        drawInfo: *const OH_ArkUI_LeadingMarginSpanDrawInfo,
+        bottom: *mut f32,
+    ) -> ArkUiResult;
+    /// Sets the distance between the baseline of the current line and the top edge of the component in the custom
+    /// drawing information object for paragraph indentation.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `drawInfo` - Pointer to the [`OH_ArkUI_LeadingMarginSpanDrawInfo`](crate::styled_string::OH_ArkUI_LeadingMarginSpanDrawInfo) object.
+    ///
+    /// * `baseline` - Distance between the baseline of the current line and the top edge of the component, in px.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_LeadingMarginSpanDrawInfo_SetBaseline(
+        drawInfo: *mut OH_ArkUI_LeadingMarginSpanDrawInfo,
+        baseline: f32,
+    ) -> ArkUiResult;
+    /// Obtains the distance between the baseline of the current line and the top edge of the component in the custom
+    /// drawing information object for paragraph indentation.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `drawInfo` - Pointer to the [`OH_ArkUI_LeadingMarginSpanDrawInfo`](crate::styled_string::OH_ArkUI_LeadingMarginSpanDrawInfo) object.
+    ///
+    /// * `baseline` - Pointer to the distance between the baseline of the current line and the top edge of the component,
+    /// in px.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_LeadingMarginSpanDrawInfo_GetBaseline(
+        drawInfo: *const OH_ArkUI_LeadingMarginSpanDrawInfo,
+        baseline: *mut f32,
+    ) -> ArkUiResult;
+    /// Sets the text direction in the custom drawing information object for paragraph indentation.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `drawInfo` - Pointer to the [`OH_ArkUI_LeadingMarginSpanDrawInfo`](crate::styled_string::OH_ArkUI_LeadingMarginSpanDrawInfo) object.
+    ///
+    /// * `direction` - Text direction. The value is an enumerated value of [`ArkUI_TextDirection`](crate::node_attributes::text_common::ArkUI_TextDirection).
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_LeadingMarginSpanDrawInfo_SetTextDirection(
+        drawInfo: *mut OH_ArkUI_LeadingMarginSpanDrawInfo,
+        direction: ArkUI_TextDirection,
+    ) -> ArkUiResult;
+    /// Obtains the text direction in the custom drawing information object for paragraph indentation.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `drawInfo` - Pointer to the [`OH_ArkUI_LeadingMarginSpanDrawInfo`](crate::styled_string::OH_ArkUI_LeadingMarginSpanDrawInfo) object.
+    ///
+    /// * `direction` - Pointer to the text direction. The value is an enumerated value of [`ArkUI_TextDirection`](crate::node_attributes::text_common::ArkUI_TextDirection).
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_LeadingMarginSpanDrawInfo_GetTextDirection(
+        drawInfo: *const OH_ArkUI_LeadingMarginSpanDrawInfo,
+        direction: *mut ArkUI_TextDirection,
+    ) -> ArkUiResult;
+    /// Sets the start index of the current line in the custom drawing information object for paragraph indentation.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `drawInfo` - Pointer to the [`OH_ArkUI_LeadingMarginSpanDrawInfo`](crate::styled_string::OH_ArkUI_LeadingMarginSpanDrawInfo) object.
+    ///
+    /// * `start` - Start index of the current line.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_LeadingMarginSpanDrawInfo_SetStart(
+        drawInfo: *mut OH_ArkUI_LeadingMarginSpanDrawInfo,
+        start: u32,
+    ) -> ArkUiResult;
+    /// Obtains the start index of the current line in the custom drawing information object for paragraph
+    /// indentation.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `drawInfo` - Pointer to the [`OH_ArkUI_LeadingMarginSpanDrawInfo`](crate::styled_string::OH_ArkUI_LeadingMarginSpanDrawInfo) object.
+    ///
+    /// * `start` - Pointer to the start index of the current line.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_LeadingMarginSpanDrawInfo_GetStart(
+        drawInfo: *const OH_ArkUI_LeadingMarginSpanDrawInfo,
+        start: *mut u32,
+    ) -> ArkUiResult;
+    /// Sets the end index of the current line in the custom drawing information object for paragraph indentation.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `drawInfo` - Pointer to the [`OH_ArkUI_LeadingMarginSpanDrawInfo`](crate::styled_string::OH_ArkUI_LeadingMarginSpanDrawInfo) object.
+    ///
+    /// * `end` - End index of the current line.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_LeadingMarginSpanDrawInfo_SetEnd(
+        drawInfo: *mut OH_ArkUI_LeadingMarginSpanDrawInfo,
+        end: u32,
+    ) -> ArkUiResult;
+    /// Obtains the end index of the current line in the custom drawing information object for paragraph indentation.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `drawInfo` - Pointer to the [`OH_ArkUI_LeadingMarginSpanDrawInfo`](crate::styled_string::OH_ArkUI_LeadingMarginSpanDrawInfo) object.
+    ///
+    /// * `end` - Pointer to the end index of the current line.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_LeadingMarginSpanDrawInfo_GetEnd(
+        drawInfo: *const OH_ArkUI_LeadingMarginSpanDrawInfo,
+        end: *mut u32,
+    ) -> ArkUiResult;
+    /// Sets whether the current line is the first line of the paragraph in the custom drawing information object for
+    /// paragraph indentation.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `drawInfo` - Pointer to the [`OH_ArkUI_LeadingMarginSpanDrawInfo`](crate::styled_string::OH_ArkUI_LeadingMarginSpanDrawInfo) object.
+    ///
+    /// * `first` - Whether the current line is the first line of the paragraph. **true** indicates the first line, and **
+    /// false** indicates the opposite.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_LeadingMarginSpanDrawInfo_SetFirst(
+        drawInfo: *mut OH_ArkUI_LeadingMarginSpanDrawInfo,
+        first: bool,
+    ) -> ArkUiResult;
+    /// Obtains whether the current line is the first line of the paragraph in the custom drawing information object
+    /// for paragraph indentation.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `drawInfo` - Pointer to the [`OH_ArkUI_LeadingMarginSpanDrawInfo`](crate::styled_string::OH_ArkUI_LeadingMarginSpanDrawInfo) object.
+    ///
+    /// * `first` - Pointer to the **first** parameter indicating whether the current line is the first line of the
+    /// paragraph. **true** indicates the first line, and **false** indicates the opposite.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_LeadingMarginSpanDrawInfo_GetFirst(
+        drawInfo: *const OH_ArkUI_LeadingMarginSpanDrawInfo,
+        first: *mut bool,
+    ) -> ArkUiResult;
+    /// Creates an [`OH_ArkUI_ParagraphStyle`](crate::styled_string::OH_ArkUI_ParagraphStyle) object.
+    ///
+    ///
+    /// **Note:** When the object is no longer in use, invoke <b> OH_ArkUI_ParagraphStyle_Destroy </b> to destroy it.
+    ///
+    /// # Returns
+    ///
+    /// * Pointer to the <b>OH_ArkUI_ParagraphStyle</b> object.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_ParagraphStyle_Create() -> *mut OH_ArkUI_ParagraphStyle;
+    /// Releases the memory occupied by the [`OH_ArkUI_ParagraphStyle`](crate::styled_string::OH_ArkUI_ParagraphStyle) object.
+    ///
+    /// # Arguments
+    ///
+    /// * `paragraphStyle` - Pointer to the [`OH_ArkUI_ParagraphStyle`](crate::styled_string::OH_ArkUI_ParagraphStyle) object.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_ParagraphStyle_Destroy(paragraphStyle: *mut OH_ArkUI_ParagraphStyle);
+    /// Sets the horizontal text alignment method in the paragraph style.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `paragraphStyle` - Pointer to the [`OH_ArkUI_ParagraphStyle`](crate::styled_string::OH_ArkUI_ParagraphStyle) object.
+    ///
+    /// * `align` - Horizontal text alignment method. The value is an enumerated value of [`ArkUI_TextAlignment`](crate::node_attributes::text_common::ArkUI_TextAlignment).
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_ParagraphStyle_SetTextAlign(
+        paragraphStyle: *mut OH_ArkUI_ParagraphStyle,
+        align: ArkUI_TextAlignment,
+    ) -> ArkUiResult;
+    /// Obtains the horizontal text alignment method in the paragraph style.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `paragraphStyle` - Pointer to the [`OH_ArkUI_ParagraphStyle`](crate::styled_string::OH_ArkUI_ParagraphStyle) object.
+    ///
+    /// * `align` - Pointer to the horizontal text alignment method. The value is an enumerated value of
+    /// [`ArkUI_TextAlignment`](crate::node_attributes::text_common::ArkUI_TextAlignment).
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_ParagraphStyle_GetTextAlign(
+        paragraphStyle: *const OH_ArkUI_ParagraphStyle,
+        align: *mut ArkUI_TextAlignment,
+    ) -> ArkUiResult;
+    /// Sets the first-line text indentation in the paragraph style.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `paragraphStyle` - Pointer to the [`OH_ArkUI_ParagraphStyle`](crate::styled_string::OH_ArkUI_ParagraphStyle) object.
+    ///
+    /// * `textIndent` - First-line indentation value, in vp.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_ParagraphStyle_SetTextIndent(
+        paragraphStyle: *mut OH_ArkUI_ParagraphStyle,
+        textIndent: f32,
+    ) -> ArkUiResult;
+    /// Obtains the first-line text indentation in the paragraph style.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `paragraphStyle` - Pointer to the [`OH_ArkUI_ParagraphStyle`](crate::styled_string::OH_ArkUI_ParagraphStyle) object.
+    ///
+    /// * `textIndent` - Pointer to the first-line indentation value, in vp.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_ParagraphStyle_GetTextIndent(
+        paragraphStyle: *const OH_ArkUI_ParagraphStyle,
+        textIndent: *mut f32,
+    ) -> ArkUiResult;
+    /// Sets the maximum number of lines in the paragraph style.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `paragraphStyle` - Pointer to the [`OH_ArkUI_ParagraphStyle`](crate::styled_string::OH_ArkUI_ParagraphStyle) object.
+    ///
+    /// * `maxLines` - Maximum number of lines.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_ParagraphStyle_SetMaxLines(
+        paragraphStyle: *mut OH_ArkUI_ParagraphStyle,
+        maxLines: i32,
+    ) -> ArkUiResult;
+    /// Obtains the maximum number of lines in the paragraph style.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `paragraphStyle` - Pointer to the [`OH_ArkUI_ParagraphStyle`](crate::styled_string::OH_ArkUI_ParagraphStyle) object.
+    ///
+    /// * `maxLines` - Pointer to the maximum number of lines.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_ParagraphStyle_GetMaxLines(
+        paragraphStyle: *const OH_ArkUI_ParagraphStyle,
+        maxLines: *mut i32,
+    ) -> ArkUiResult;
+    /// Sets the display mode when the paragraph is too long in the paragraph style.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `paragraphStyle` - Pointer to the [`OH_ArkUI_ParagraphStyle`](crate::styled_string::OH_ArkUI_ParagraphStyle) object.
+    ///
+    /// * `overflow` - Display mode when the paragraph is too long. The value is an enumerated value of
+    /// [`ArkUI_TextOverflow`](crate::node_attributes::text_common::ArkUI_TextOverflow).
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_ParagraphStyle_SetOverflow(
+        paragraphStyle: *mut OH_ArkUI_ParagraphStyle,
+        overflow: ArkUI_TextOverflow,
+    ) -> ArkUiResult;
+    /// Obtains the display mode when the paragraph is too long in the paragraph style.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `paragraphStyle` - Pointer to the [`OH_ArkUI_ParagraphStyle`](crate::styled_string::OH_ArkUI_ParagraphStyle) object.
+    ///
+    /// * `overflow` - Pointer to the display mode when the paragraph is too long. The value is an enumerated value of
+    /// [`ArkUI_TextOverflow`](crate::node_attributes::text_common::ArkUI_TextOverflow).
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_ParagraphStyle_GetOverflow(
+        paragraphStyle: *const OH_ArkUI_ParagraphStyle,
+        overflow: *mut ArkUI_TextOverflow,
+    ) -> ArkUiResult;
+    /// Sets the word breaking rule in the paragraph style.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `paragraphStyle` - Pointer to the [`OH_ArkUI_ParagraphStyle`](crate::styled_string::OH_ArkUI_ParagraphStyle) object.
+    ///
+    /// * `wordBreak` - Word breaking rule. The value is an enumerated value of [`ArkUI_WordBreak`](crate::node_attributes::text_common::ArkUI_WordBreak).
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_ParagraphStyle_SetWordBreak(
+        paragraphStyle: *mut OH_ArkUI_ParagraphStyle,
+        wordBreak: ArkUI_WordBreak,
+    ) -> ArkUiResult;
+    /// Obtains the word breaking rule in the paragraph style.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `paragraphStyle` - Pointer to the [`OH_ArkUI_ParagraphStyle`](crate::styled_string::OH_ArkUI_ParagraphStyle) object.
+    ///
+    /// * `wordBreak` - Pointer to the word breaking rule. The value is an enumerated value of [`ArkUI_WordBreak`](crate::node_attributes::text_common::ArkUI_WordBreak).
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_ParagraphStyle_GetWordBreak(
+        paragraphStyle: *const OH_ArkUI_ParagraphStyle,
+        wordBreak: *mut ArkUI_WordBreak,
+    ) -> ArkUiResult;
+    /// Sets the PixelMap for paragraph indentation in the paragraph style.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `paragraphStyle` - Pointer to the [`OH_ArkUI_ParagraphStyle`](crate::styled_string::OH_ArkUI_ParagraphStyle) object.
+    ///
+    /// * `pixelmap` - Pointer to the PixelMap for paragraph indentation.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_ParagraphStyle_SetLeadingMarginPixelMap(
+        paragraphStyle: *mut OH_ArkUI_ParagraphStyle,
+        pixelmap: *mut OH_PixelmapNative,
+    ) -> ArkUiResult;
+    /// Obtains the PixelMap for paragraph indentation in the paragraph style.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `paragraphStyle` - Pointer to the [`OH_ArkUI_ParagraphStyle`](crate::styled_string::OH_ArkUI_ParagraphStyle) object.
+    ///
+    /// * `pixelmap` - Double pointer to the PixelMap for paragraph indentation.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_ParagraphStyle_GetLeadingMarginPixelMap(
+        paragraphStyle: *const OH_ArkUI_ParagraphStyle,
+        pixelmap: *mut *mut OH_PixelmapNative,
+    ) -> ArkUiResult;
+    /// Sets the width for paragraph indentation in the paragraph style.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `paragraphStyle` - Pointer to the [`OH_ArkUI_ParagraphStyle`](crate::styled_string::OH_ArkUI_ParagraphStyle) object.
+    ///
+    /// * `width` - Width for paragraph indentation, in vp.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_ParagraphStyle_SetLeadingMarginWidth(
+        paragraphStyle: *mut OH_ArkUI_ParagraphStyle,
+        width: u32,
+    ) -> ArkUiResult;
+    /// Obtains the width for paragraph indentation in the paragraph style.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `paragraphStyle` - Pointer to the [`OH_ArkUI_ParagraphStyle`](crate::styled_string::OH_ArkUI_ParagraphStyle) object.
+    ///
+    /// * `width` - Pointer to the width for paragraph indentation, in vp.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_ParagraphStyle_GetLeadingMarginWidth(
+        paragraphStyle: *const OH_ArkUI_ParagraphStyle,
+        width: *mut u32,
+    ) -> ArkUiResult;
+    /// Sets the height for paragraph indentation in the paragraph style.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `paragraphStyle` - Pointer to the [`OH_ArkUI_ParagraphStyle`](crate::styled_string::OH_ArkUI_ParagraphStyle) object.
+    ///
+    /// * `height` - Height for paragraph indentation, in vp.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_ParagraphStyle_SetLeadingMarginHeight(
+        paragraphStyle: *mut OH_ArkUI_ParagraphStyle,
+        height: u32,
+    ) -> ArkUiResult;
+    /// Obtains the height for paragraph indentation in the paragraph style.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `paragraphStyle` - Pointer to the [`OH_ArkUI_ParagraphStyle`](crate::styled_string::OH_ArkUI_ParagraphStyle) object.
+    ///
+    /// * `height` - Pointer to the height for paragraph indentation, in vp.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_ParagraphStyle_GetLeadingMarginHeight(
+        paragraphStyle: *const OH_ArkUI_ParagraphStyle,
+        height: *mut u32,
+    ) -> ArkUiResult;
+    /// Sets the paragraph spacing in the paragraph style.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `paragraphStyle` - Pointer to the [`OH_ArkUI_ParagraphStyle`](crate::styled_string::OH_ArkUI_ParagraphStyle) object.
+    ///
+    /// * `paragraphSpacing` - Paragraph spacing, in vp.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_ParagraphStyle_SetParagraphSpacing(
+        paragraphStyle: *mut OH_ArkUI_ParagraphStyle,
+        paragraphSpacing: u32,
+    ) -> ArkUiResult;
+    /// Obtains the paragraph spacing in the paragraph style.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `paragraphStyle` - Pointer to the [`OH_ArkUI_ParagraphStyle`](crate::styled_string::OH_ArkUI_ParagraphStyle) object.
+    ///
+    /// * `paragraphSpacing` - Pointer to the paragraph spacing, in vp.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_ParagraphStyle_GetParagraphSpacing(
+        paragraphStyle: *const OH_ArkUI_ParagraphStyle,
+        paragraphSpacing: *mut u32,
+    ) -> ArkUiResult;
+    /// Sets the vertical text alignment method in the paragraph style.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `paragraphStyle` - Pointer to the [`OH_ArkUI_ParagraphStyle`](crate::styled_string::OH_ArkUI_ParagraphStyle) object.
+    ///
+    /// * `verticalAlignment` - Vertical text alignment method. The value is an enumerated value of
+    /// [`ArkUI_TextVerticalAlignment`](crate::node_attributes::text_common::ArkUI_TextVerticalAlignment).
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_ParagraphStyle_SetTextVerticalAlign(
+        paragraphStyle: *mut OH_ArkUI_ParagraphStyle,
+        verticalAlignment: ArkUI_TextVerticalAlignment,
+    ) -> ArkUiResult;
+    /// Obtains the vertical text alignment method in the paragraph style.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `paragraphStyle` - Pointer to the [`OH_ArkUI_ParagraphStyle`](crate::styled_string::OH_ArkUI_ParagraphStyle) object.
+    ///
+    /// * `verticalAlignment` - Pointer to the vertical text alignment method. The value is an enumerated value of
+    /// [`ArkUI_TextVerticalAlignment`](crate::node_attributes::text_common::ArkUI_TextVerticalAlignment).
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_ParagraphStyle_GetTextVerticalAlign(
+        paragraphStyle: *const OH_ArkUI_ParagraphStyle,
+        verticalAlignment: *mut ArkUI_TextVerticalAlignment,
+    ) -> ArkUiResult;
+    /// Sets the callback function triggered when the paragraph indentation is drawn in the paragraph style.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `paragraphStyle` - Pointer to the [`OH_ArkUI_ParagraphStyle`](crate::styled_string::OH_ArkUI_ParagraphStyle) object.
+    ///
+    /// * `onDraw` - The callback function for drawing leading margin.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_ParagraphStyle_RegisterOnDrawLeadingMarginCallback(
+        paragraphStyle: *mut OH_ArkUI_ParagraphStyle,
+        onDraw: ::core::option::Option<
+            unsafe extern "C" fn(
+                context: *mut ArkUI_DrawContext,
+                drawInfo: *mut OH_ArkUI_LeadingMarginSpanDrawInfo,
+            ),
+        >,
+    ) -> ArkUiResult;
+    /// Sets the callback function triggered when the paragraph indentation distance is obtained in the paragraph
+    /// style.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `paragraphStyle` - Pointer to the [`OH_ArkUI_ParagraphStyle`](crate::styled_string::OH_ArkUI_ParagraphStyle) object.
+    ///
+    /// * `leadingMargin` - The callback function for obtaining the indentation distance of a text paragraph.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_ParagraphStyle_RegisterOnGetLeadingMarginCallback(
+        paragraphStyle: *mut OH_ArkUI_ParagraphStyle,
+        leadingMargin: ::core::option::Option<unsafe extern "C" fn() -> f32>,
+    ) -> ArkUiResult;
+    /// Sets the text direction in the paragraph style.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `paragraphStyle` - Pointer to the [`OH_ArkUI_ParagraphStyle`](crate::styled_string::OH_ArkUI_ParagraphStyle) object.
+    ///
+    /// * `textDirection` - Text direction. The value is an enumerated value of [`ArkUI_TextDirection`](crate::node_attributes::text_common::ArkUI_TextDirection).
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_ParagraphStyle_SetTextDirection(
+        paragraphStyle: *mut OH_ArkUI_ParagraphStyle,
+        textDirection: ArkUI_TextDirection,
+    ) -> ArkUiResult;
+    /// Obtains the text direction in the paragraph style.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `paragraphStyle` - Pointer to the [`OH_ArkUI_ParagraphStyle`](crate::styled_string::OH_ArkUI_ParagraphStyle) object.
+    ///
+    /// * `textDirection` - Pointer to the text direction. The value is an enumerated value of [`ArkUI_TextDirection`](crate::node_attributes::text_common::ArkUI_TextDirection).
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_ParagraphStyle_GetTextDirection(
+        paragraphStyle: *const OH_ArkUI_ParagraphStyle,
+        textDirection: *mut ArkUI_TextDirection,
+    ) -> ArkUiResult;
+    /// Creates an [`OH_ArkUI_GestureStyle`](crate::styled_string::OH_ArkUI_GestureStyle) object.
+    ///
+    ///
+    /// **Note:** When the object is no longer in use, invoke <b> OH_ArkUI_GestureStyle_Destroy </b> to destroy it.
+    ///
+    /// # Returns
+    ///
+    /// * Pointer to the <b>OH_ArkUI_GestureStyle</b> object.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_GestureStyle_Create() -> *mut OH_ArkUI_GestureStyle;
+    /// Releases the memory occupied by the [`OH_ArkUI_GestureStyle`](crate::styled_string::OH_ArkUI_GestureStyle) object.
+    ///
+    /// # Arguments
+    ///
+    /// * `gestureStyle` - Pointer to the [`OH_ArkUI_GestureStyle`](crate::styled_string::OH_ArkUI_GestureStyle) object.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_GestureStyle_Destroy(gestureStyle: *mut OH_ArkUI_GestureStyle);
+    /// Sets the click event callback in the event gesture style.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `gestureStyle` - Pointer to the [`OH_ArkUI_GestureStyle`](crate::styled_string::OH_ArkUI_GestureStyle) object.
+    ///
+    /// * `onClick` - The callback of click event.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_GestureStyle_RegisterOnClickCallback(
+        gestureStyle: *mut OH_ArkUI_GestureStyle,
+        onClick: ::core::option::Option<unsafe extern "C" fn(arg1: *mut ArkUI_NodeEvent)>,
+    ) -> ArkUiResult;
+    /// Sets the long-pressing event callback in the event gesture style.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `gestureStyle` - Pointer to the [`OH_ArkUI_GestureStyle`](crate::styled_string::OH_ArkUI_GestureStyle) object.
+    ///
+    /// * `onLongPress` - The callback of long press event.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_GestureStyle_RegisterOnLongPressCallback(
+        gestureStyle: *mut OH_ArkUI_GestureStyle,
+        onLongPress: ::core::option::Option<unsafe extern "C" fn(arg1: *mut ArkUI_GestureEvent)>,
+    ) -> ArkUiResult;
+    /// Sets the touch event callback in the event gesture style.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `gestureStyle` - Pointer to the [`OH_ArkUI_GestureStyle`](crate::styled_string::OH_ArkUI_GestureStyle) object.
+    ///
+    /// * `onTouch` - The callback of touch event.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_GestureStyle_RegisterOnTouchCallback(
+        gestureStyle: *mut OH_ArkUI_GestureStyle,
+        onTouch: ::core::option::Option<unsafe extern "C" fn(arg1: *mut ArkUI_NodeEvent)>,
+    ) -> ArkUiResult;
+    /// Creates an [`OH_ArkUI_TextShadowStyle`](crate::styled_string::OH_ArkUI_TextShadowStyle) object.
+    ///
+    ///
+    /// **Note:** When the object is no longer in use, invoke <b> OH_ArkUI_TextShadowStyle_Destroy </b> to destroy it.
+    ///
+    /// # Returns
+    ///
+    /// * Pointer to the <b>OH_ArkUI_TextShadowStyle</b> object.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_TextShadowStyle_Create() -> *mut OH_ArkUI_TextShadowStyle;
+    /// Releases the memory occupied by the [`OH_ArkUI_TextShadowStyle`](crate::styled_string::OH_ArkUI_TextShadowStyle) object.
+    ///
+    /// # Arguments
+    ///
+    /// * `textShadowStyle` - Pointer to the [`OH_ArkUI_TextShadowStyle`](crate::styled_string::OH_ArkUI_TextShadowStyle) object.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_TextShadowStyle_Destroy(textShadowStyle: *mut OH_ArkUI_TextShadowStyle);
+    /// Sets the text shadow options for the text shadow style.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `textShadowStyle` - Pointer to the [`OH_ArkUI_TextShadowStyle`](crate::styled_string::OH_ArkUI_TextShadowStyle) object.
+    ///
+    /// * `options` - Double pointer to the text shadow options, which points to an array of the
+    /// [`OH_ArkUI_ShadowOptions`](crate::native_type_visual::OH_ArkUI_ShadowOptions) object.
+    ///
+    /// * `length` - Length of the text shadow options.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_TextShadowStyle_SetTextShadow(
+        textShadowStyle: *mut OH_ArkUI_TextShadowStyle,
+        options: *mut *const OH_ArkUI_ShadowOptions,
+        length: u32,
+    ) -> ArkUiResult;
+    /// Obtains the text shadow options of the text shadow style.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `textShadowStyle` - Pointer to the [`OH_ArkUI_TextShadowStyle`](crate::styled_string::OH_ArkUI_TextShadowStyle) object.
+    ///
+    /// * `shadowOptions` - Double pointer to the text shadow options, which points to an array of the
+    /// [`OH_ArkUI_ShadowOptions`](crate::native_type_visual::OH_ArkUI_ShadowOptions) object.
+    ///
+    /// * `shadowOptionsSize` - Size of the shadow option buffer.
+    ///
+    /// * `writeLength` - Pointer to the number of actual text shadow options in the text shadow style.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    /// Returns [`ARKUI_ERROR_CODE_BUFFER_SIZE_ERROR`](crate::error_code::ArkUiErrorCode::BUFFER_SIZE_ERROR) If the buffer size is less than the minimum buffer size.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_TextShadowStyle_GetTextShadow(
+        textShadowStyle: *const OH_ArkUI_TextShadowStyle,
+        shadowOptions: *mut *mut OH_ArkUI_ShadowOptions,
+        shadowOptionsSize: u32,
+        writeLength: *mut u32,
+    ) -> ArkUiResult;
+    /// Creates an [`OH_ArkUI_DecorationStyle`](crate::styled_string::OH_ArkUI_DecorationStyle) object.
+    ///
+    ///
+    /// **Note:** When the object is no longer in use, invoke <b> OH_ArkUI_DecorationStyle_Destroy </b> to destroy it.
+    ///
+    /// # Returns
+    ///
+    /// * Pointer to the <b>OH_ArkUI_DecorationStyle</b> object.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_DecorationStyle_Create() -> *mut OH_ArkUI_DecorationStyle;
+    /// Releases the memory occupied by the [`OH_ArkUI_DecorationStyle`](crate::styled_string::OH_ArkUI_DecorationStyle) object.
+    ///
+    /// # Arguments
+    ///
+    /// * `decorationStyle` - Pointer to the [`OH_ArkUI_DecorationStyle`](crate::styled_string::OH_ArkUI_DecorationStyle) object.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_DecorationStyle_Destroy(decorationStyle: *mut OH_ArkUI_DecorationStyle);
+    /// Sets the decoration type for the text decorative line style.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `decorationStyle` - Pointer to the [`OH_ArkUI_DecorationStyle`](crate::styled_string::OH_ArkUI_DecorationStyle) object.
+    ///
+    /// * `type` - Type of the text decorative line. The value is an enumerated value of [`ArkUI_TextDecorationType`](crate::node_attributes::text_common::ArkUI_TextDecorationType).
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_DecorationStyle_SetTextDecorationType(
+        decorationStyle: *mut OH_ArkUI_DecorationStyle,
+        type_: ArkUI_TextDecorationType,
+    ) -> ArkUiResult;
+    /// Obtains the decoration type of the text decorative line style.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `decorationStyle` - Pointer to the [`OH_ArkUI_DecorationStyle`](crate::styled_string::OH_ArkUI_DecorationStyle) object.
+    ///
+    /// * `type` - Pointer to the type of the text decorative line. The value is an enumerated value of
+    /// [`ArkUI_TextDecorationType`](crate::node_attributes::text_common::ArkUI_TextDecorationType).
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_DecorationStyle_GetTextDecorationType(
+        decorationStyle: *const OH_ArkUI_DecorationStyle,
+        type_: *mut ArkUI_TextDecorationType,
+    ) -> ArkUiResult;
+    /// Sets the decoration color for the text decorative line style.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `decorationStyle` - Pointer to the [`OH_ArkUI_DecorationStyle`](crate::styled_string::OH_ArkUI_DecorationStyle) object.
+    ///
+    /// * `color` - Decoration color, in 0xARGB format.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_DecorationStyle_SetColor(
+        decorationStyle: *mut OH_ArkUI_DecorationStyle,
+        color: u32,
+    ) -> ArkUiResult;
+    /// Obtains the decoration color of the text decorative line style.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `decorationStyle` - Pointer to the [`OH_ArkUI_DecorationStyle`](crate::styled_string::OH_ArkUI_DecorationStyle) object.
+    ///
+    /// * `color` - Pointer to the decoration color, in 0xARGB format.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_DecorationStyle_GetColor(
+        decorationStyle: *const OH_ArkUI_DecorationStyle,
+        color: *mut u32,
+    ) -> ArkUiResult;
+    /// Sets the decoration style for the text decorative line style.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `decorationStyle` - Pointer to the [`OH_ArkUI_DecorationStyle`](crate::styled_string::OH_ArkUI_DecorationStyle) object.
+    ///
+    /// * `style` - Style of the text decorative line. The value is an enumerated value of
+    /// [`ArkUI_TextDecorationStyle`](crate::node_attributes::text_common::ArkUI_TextDecorationStyle).
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_DecorationStyle_SetTextDecorationStyle(
+        decorationStyle: *mut OH_ArkUI_DecorationStyle,
+        style: ArkUI_TextDecorationStyle,
+    ) -> ArkUiResult;
+    /// Obtains the decoration style of the text decorative line style.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `decorationStyle` - Pointer to the [`OH_ArkUI_DecorationStyle`](crate::styled_string::OH_ArkUI_DecorationStyle) object.
+    ///
+    /// * `style` - Pointer to the style of the text decorative line. The value is an enumerated value of
+    /// [`ArkUI_TextDecorationStyle`](crate::node_attributes::text_common::ArkUI_TextDecorationStyle).
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_DecorationStyle_GetTextDecorationStyle(
+        decorationStyle: *const OH_ArkUI_DecorationStyle,
+        style: *mut ArkUI_TextDecorationStyle,
+    ) -> ArkUiResult;
+    /// Sets the thickness scaling factor of the text decorative line style.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `decorationStyle` - Pointer to the [`OH_ArkUI_DecorationStyle`](crate::styled_string::OH_ArkUI_DecorationStyle) object.
+    ///
+    /// * `thicknessScale` - Scaling factor of the decorative line thickness. The value range is [0, +∞).
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_DecorationStyle_SetThicknessScale(
+        decorationStyle: *mut OH_ArkUI_DecorationStyle,
+        thicknessScale: f32,
+    ) -> ArkUiResult;
+    /// Obtains the thickness scaling factor of the text decorative line style.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `decorationStyle` - Pointer to the [`OH_ArkUI_DecorationStyle`](crate::styled_string::OH_ArkUI_DecorationStyle) object.
+    ///
+    /// * `thicknessScale` - Pointer to the scaling factor of the decorative line thickness. The value range is [0, +∞).
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_DecorationStyle_GetThicknessScale(
+        decorationStyle: *const OH_ArkUI_DecorationStyle,
+        thicknessScale: *mut f32,
+    ) -> ArkUiResult;
+    /// Sets whether to enable the display of multiple decorative lines in the text decorative line style.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `decorationStyle` - Pointer to the [`OH_ArkUI_DecorationStyle`](crate::styled_string::OH_ArkUI_DecorationStyle) object.
+    ///
+    /// * `enableMultiType` - Whether to enable the display of multiple decorative lines. **true** to enable; **false**
+    /// otherwise.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_DecorationStyle_SetEnableMultiType(
+        decorationStyle: *mut OH_ArkUI_DecorationStyle,
+        enableMultiType: bool,
+    ) -> ArkUiResult;
+    /// Obtains whether the display of multiple decorative lines is enabled in the text decorative line style.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `decorationStyle` - Pointer to the [`OH_ArkUI_DecorationStyle`](crate::styled_string::OH_ArkUI_DecorationStyle) object.
+    ///
+    /// * `enableMultiType` - Pointer to the **enableMultiType** parameter indicating whether the display of multiple
+    /// decorative lines is enabled. **true** means the display is enabled; **false** otherwise.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_DecorationStyle_GetEnableMultiType(
+        decorationStyle: *const OH_ArkUI_DecorationStyle,
+        enableMultiType: *mut bool,
+    ) -> ArkUiResult;
+    /// Creates an [`OH_ArkUI_BaselineOffsetStyle`](crate::styled_string::OH_ArkUI_BaselineOffsetStyle) object.
+    ///
+    ///
+    /// **Note:** When the object is no longer in use, invoke <b> OH_ArkUI_BaselineOffsetStyle_Destroy </b> to destroy it.
+    ///
+    /// # Returns
+    ///
+    /// * Pointer to the <b>OH_ArkUI_BaselineOffsetStyle</b> object.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_BaselineOffsetStyle_Create() -> *mut OH_ArkUI_BaselineOffsetStyle;
+    /// Releases the memory occupied by the [`OH_ArkUI_BaselineOffsetStyle`](crate::styled_string::OH_ArkUI_BaselineOffsetStyle) object.
+    ///
+    /// # Arguments
+    ///
+    /// * `baselineOffsetStyle` - Pointer to the [`OH_ArkUI_BaselineOffsetStyle`](crate::styled_string::OH_ArkUI_BaselineOffsetStyle) object.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_BaselineOffsetStyle_Destroy(
+        baselineOffsetStyle: *mut OH_ArkUI_BaselineOffsetStyle,
+    );
+    /// Sets the baseline offset.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `baselineOffsetStyle` - Pointer to the [`OH_ArkUI_BaselineOffsetStyle`](crate::styled_string::OH_ArkUI_BaselineOffsetStyle) object.
+    ///
+    /// * `baselineOffset` - Baseline offset, in vp.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_BaselineOffsetStyle_SetBaselineOffset(
+        baselineOffsetStyle: *mut OH_ArkUI_BaselineOffsetStyle,
+        baselineOffset: f32,
+    ) -> ArkUiResult;
+    /// Obtains the baseline offset.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `baselineOffsetStyle` - Pointer to the [`OH_ArkUI_BaselineOffsetStyle`](crate::styled_string::OH_ArkUI_BaselineOffsetStyle) object.
+    ///
+    /// * `baselineOffset` - Pointer to the baseline offset, in vp.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_BaselineOffsetStyle_GetBaselineOffset(
+        baselineOffsetStyle: *const OH_ArkUI_BaselineOffsetStyle,
+        baselineOffset: *mut f32,
+    ) -> ArkUiResult;
+    /// Creates an [`OH_ArkUI_LetterSpacingStyle`](crate::styled_string::OH_ArkUI_LetterSpacingStyle) object.
+    ///
+    ///
+    /// **Note:** When the object is no longer in use, invoke <b> OH_ArkUI_LetterSpacingStyle_Destroy </b> to destroy it.
+    ///
+    /// # Returns
+    ///
+    /// * Pointer to the <b>OH_ArkUI_LetterSpacingStyle</b> object.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_LetterSpacingStyle_Create() -> *mut OH_ArkUI_LetterSpacingStyle;
+    /// Releases the memory occupied by the [`OH_ArkUI_LetterSpacingStyle`](crate::styled_string::OH_ArkUI_LetterSpacingStyle) object.
+    ///
+    /// # Arguments
+    ///
+    /// * `letterSpacingStyle` - Pointer to the [`OH_ArkUI_LetterSpacingStyle`](crate::styled_string::OH_ArkUI_LetterSpacingStyle) object.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_LetterSpacingStyle_Destroy(
+        letterSpacingStyle: *mut OH_ArkUI_LetterSpacingStyle,
+    );
+    /// Sets the letter spacing.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `letterSpacingStyle` - Pointer to the [`OH_ArkUI_LetterSpacingStyle`](crate::styled_string::OH_ArkUI_LetterSpacingStyle) object.
+    ///
+    /// * `letterSpacing` - Letter spacing value, in vp.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_LetterSpacingStyle_SetLetterSpacing(
+        letterSpacingStyle: *mut OH_ArkUI_LetterSpacingStyle,
+        letterSpacing: f32,
+    ) -> ArkUiResult;
+    /// Obtains the letter spacing.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `letterSpacingStyle` - Pointer to the [`OH_ArkUI_LetterSpacingStyle`](crate::styled_string::OH_ArkUI_LetterSpacingStyle) object.
+    ///
+    /// * `letterSpacing` - Pointer to the letter spacing value, in vp.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_LetterSpacingStyle_GetLetterSpacing(
+        letterSpacingStyle: *const OH_ArkUI_LetterSpacingStyle,
+        letterSpacing: *mut f32,
+    ) -> ArkUiResult;
+    /// Creates an [`OH_ArkUI_LineHeightStyle`](crate::styled_string::OH_ArkUI_LineHeightStyle) object.
+    ///
+    ///
+    /// **Note:** When the object is no longer in use, invoke <b> OH_ArkUI_LineHeightStyle_Destroy </b> to destroy it.
+    ///
+    /// # Returns
+    ///
+    /// * Pointer to the <b>OH_ArkUI_LineHeightStyle</b> object.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_LineHeightStyle_Create() -> *mut OH_ArkUI_LineHeightStyle;
+    /// Releases the memory occupied by the [`OH_ArkUI_LineHeightStyle`](crate::styled_string::OH_ArkUI_LineHeightStyle) object.
+    ///
+    /// # Arguments
+    ///
+    /// * `lineHeightStyle` - Pointer to the [`OH_ArkUI_LineHeightStyle`](crate::styled_string::OH_ArkUI_LineHeightStyle) object.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_LineHeightStyle_Destroy(lineHeightStyle: *mut OH_ArkUI_LineHeightStyle);
+    /// Sets the line height.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `lineHeightStyle` - Pointer to the [`OH_ArkUI_LineHeightStyle`](crate::styled_string::OH_ArkUI_LineHeightStyle) object.
+    ///
+    /// * `lineHeight` - Fixed line height, in vp.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_LineHeightStyle_SetLineHeight(
+        lineHeightStyle: *mut OH_ArkUI_LineHeightStyle,
+        lineHeight: f32,
+    ) -> ArkUiResult;
+    /// Obtains the line height.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `lineHeightStyle` - Pointer to the [`OH_ArkUI_LineHeightStyle`](crate::styled_string::OH_ArkUI_LineHeightStyle) object.
+    ///
+    /// * `lineHeight` - Pointer to the fixed line height, in vp.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_LineHeightStyle_GetLineHeight(
+        lineHeightStyle: *const OH_ArkUI_LineHeightStyle,
+        lineHeight: *mut f32,
+    ) -> ArkUiResult;
+    /// Sets a line height multiplier.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `lineHeightStyle` - Pointer to the [`OH_ArkUI_LineHeightStyle`](crate::styled_string::OH_ArkUI_LineHeightStyle) object.
+    ///
+    /// * `lineHeightMultiple` - Line height multiplier. The value range is [0, +∞).
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_ArkUI_LineHeightStyle_SetLineHeightMultiple(
+        lineHeightStyle: *mut OH_ArkUI_LineHeightStyle,
+        lineHeightMultiple: f32,
+    ) -> ArkUiResult;
+    /// Obtains the line height multiplier.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `lineHeightStyle` - Pointer to the [`OH_ArkUI_LineHeightStyle`](crate::styled_string::OH_ArkUI_LineHeightStyle) object.
+    ///
+    /// * `lineHeightMultiple` - Pointer to the line height multiplier. The value range is [0, +∞).
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_ArkUI_LineHeightStyle_GetLineHeightMultiple(
+        lineHeightStyle: *const OH_ArkUI_LineHeightStyle,
+        lineHeightMultiple: *mut f32,
+    ) -> ArkUiResult;
+    /// Sets a line spacing style for the styled string style object.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `spanStyle` - Pointer to the [`OH_ArkUI_SpanStyle`](crate::styled_string::OH_ArkUI_SpanStyle) object.
+    ///
+    /// * `lineSpacingStyle` - Pointer to the [`OH_ArkUI_LineSpacingStyle`](crate::styled_string::OH_ArkUI_LineSpacingStyle) object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_ArkUI_SpanStyle_SetLineSpacingStyle(
+        spanStyle: *mut OH_ArkUI_SpanStyle,
+        lineSpacingStyle: *const OH_ArkUI_LineSpacingStyle,
+    ) -> ArkUiResult;
+    /// Obtains the line spacing style of the styled string style object.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `spanStyle` - Pointer to the [`OH_ArkUI_SpanStyle`](crate::styled_string::OH_ArkUI_SpanStyle) object.
+    ///
+    /// * `lineSpacingStyle` - Pointer to the [`OH_ArkUI_LineSpacingStyle`](crate::styled_string::OH_ArkUI_LineSpacingStyle) object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_ArkUI_SpanStyle_GetLineSpacingStyle(
+        spanStyle: *const OH_ArkUI_SpanStyle,
+        lineSpacingStyle: *mut OH_ArkUI_LineSpacingStyle,
+    ) -> ArkUiResult;
+    /// Creates an [`OH_ArkUI_LineSpacingStyle`](crate::styled_string::OH_ArkUI_LineSpacingStyle) object.
+    ///
+    ///
+    /// **Note:** When the object is no longer in use, invoke <b> OH_ArkUI_LineSpacingStyle_Destroy </b> to destroy it.
+    ///
+    /// # Returns
+    ///
+    /// * Pointer to the <b>OH_ArkUI_LineSpacingStyle</b> object.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_ArkUI_LineSpacingStyle_Create() -> *mut OH_ArkUI_LineSpacingStyle;
+    /// Releases the memory occupied by the [`OH_ArkUI_LineSpacingStyle`](crate::styled_string::OH_ArkUI_LineSpacingStyle) object.
+    ///
+    /// # Arguments
+    ///
+    /// * `lineSpacingStyle` - Pointer to the [`OH_ArkUI_LineSpacingStyle`](crate::styled_string::OH_ArkUI_LineSpacingStyle) object.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_ArkUI_LineSpacingStyle_Destroy(lineSpacingStyle: *mut OH_ArkUI_LineSpacingStyle);
+    /// Sets line spacing.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `lineSpacingStyle` - Pointer to the [`OH_ArkUI_LineSpacingStyle`](crate::styled_string::OH_ArkUI_LineSpacingStyle) object.
+    ///
+    /// * `lineSpacing` - Line spacing value, in vp.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_ArkUI_LineSpacingStyle_SetLineSpacing(
+        lineSpacingStyle: *mut OH_ArkUI_LineSpacingStyle,
+        lineSpacing: f32,
+    ) -> ArkUiResult;
+    /// Queries the line spacing.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `lineSpacingStyle` - Pointer to the [`OH_ArkUI_LineSpacingStyle`](crate::styled_string::OH_ArkUI_LineSpacingStyle) object.
+    ///
+    /// * `lineSpacing` - Pointer to the line spacing value, in vp.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_ArkUI_LineSpacingStyle_GetLineSpacing(
+        lineSpacingStyle: *const OH_ArkUI_LineSpacingStyle,
+        lineSpacing: *mut f32,
+    ) -> ArkUiResult;
+    /// Sets whether the line spacing takes effect only between lines.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `lineSpacingStyle` - Pointer to the [`OH_ArkUI_LineSpacingStyle`](crate::styled_string::OH_ArkUI_LineSpacingStyle) object.
+    ///
+    /// * `onlyBetweenLines` - Whether the line spacing takes effect only between lines. **true** indicates that the
+    /// spacing is added only between lines, and no extra spacing is added above the first line or below the last line. *
+    /// *false** indicates that the complete line spacing is added between all lines, above the first line, and below
+    /// the last line.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_ArkUI_LineSpacingStyle_SetOnlyBetweenLines(
+        lineSpacingStyle: *mut OH_ArkUI_LineSpacingStyle,
+        onlyBetweenLines: bool,
+    ) -> ArkUiResult;
+    /// Checks whether the line spacing takes effect only between lines.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `lineSpacingStyle` - Pointer to the [`OH_ArkUI_LineSpacingStyle`](crate::styled_string::OH_ArkUI_LineSpacingStyle) object.
+    ///
+    /// * `onlyBetweenLines` - Pointer to the **onlyBetweenLines** parameter indicating whether the line spacing takes
+    /// effect only between lines. **true** indicates that the spacing is added only between lines, and no extra spacing
+    /// is added above the first line or below the last line. **false** indicates that the complete line spacing is
+    /// added between all lines, above the first line, and below the last line.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_ArkUI_LineSpacingStyle_GetOnlyBetweenLines(
+        lineSpacingStyle: *const OH_ArkUI_LineSpacingStyle,
+        onlyBetweenLines: *mut bool,
+    ) -> ArkUiResult;
+    /// Creates an [`OH_ArkUI_BackgroundColorStyle`](crate::styled_string::OH_ArkUI_BackgroundColorStyle) object.
+    ///
+    ///
+    /// **Note:** When the object is no longer in use, invoke <b> OH_ArkUI_BackgroundColorStyle_Destroy </b> to destroy it.
+    ///
+    /// # Returns
+    ///
+    /// * Pointer to the <b>OH_ArkUI_BackgroundColorStyle</b> object.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_BackgroundColorStyle_Create() -> *mut OH_ArkUI_BackgroundColorStyle;
+    /// Releases the memory occupied by the [`OH_ArkUI_BackgroundColorStyle`](crate::styled_string::OH_ArkUI_BackgroundColorStyle) object.
+    ///
+    /// # Arguments
+    ///
+    /// * `style` - Pointer to the [`OH_ArkUI_BackgroundColorStyle`](crate::styled_string::OH_ArkUI_BackgroundColorStyle) object.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_BackgroundColorStyle_Destroy(style: *mut OH_ArkUI_BackgroundColorStyle);
+    /// Sets the background color for the background color style.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `style` - Pointer to the [`OH_ArkUI_BackgroundColorStyle`](crate::styled_string::OH_ArkUI_BackgroundColorStyle) object.
+    ///
+    /// * `color` - Background color, in 0xARGB format.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_BackgroundColorStyle_SetColor(
+        style: *mut OH_ArkUI_BackgroundColorStyle,
+        color: u32,
+    ) -> ArkUiResult;
+    /// Obtains the background color of the background color style.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `style` - Pointer to the [`OH_ArkUI_BackgroundColorStyle`](crate::styled_string::OH_ArkUI_BackgroundColorStyle) object.
+    ///
+    /// * `color` - Pointer to the background color, in 0xARGB format.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_BackgroundColorStyle_GetColor(
+        style: *const OH_ArkUI_BackgroundColorStyle,
+        color: *mut u32,
+    ) -> ArkUiResult;
+    /// Sets the background radii for the background color style.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `style` - Pointer to the [`OH_ArkUI_BackgroundColorStyle`](crate::styled_string::OH_ArkUI_BackgroundColorStyle) object.
+    ///
+    /// * `topLeft` - Radius of the upper left corner, in vp.
+    ///
+    /// * `topRight` - Radius of the upper right corner, in vp.
+    ///
+    /// * `bottomLeft` - Radius of the lower left corner, in vp.
+    ///
+    /// * `bottomRight` - Radius of the lower right corner, in vp.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_BackgroundColorStyle_SetRadius(
+        style: *mut OH_ArkUI_BackgroundColorStyle,
+        topLeft: f32,
+        topRight: f32,
+        bottomLeft: f32,
+        bottomRight: f32,
+    ) -> ArkUiResult;
+    /// Obtains the background radii of the background color style.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `style` - Pointer to the [`OH_ArkUI_BackgroundColorStyle`](crate::styled_string::OH_ArkUI_BackgroundColorStyle) object.
+    ///
+    /// * `topLeft` - Pointer to the radius of the upper left corner, in vp.
+    ///
+    /// * `topRight` - Pointer to the radius of the upper right corner, in vp.
+    ///
+    /// * `bottomLeft` - Pointer to the radius of the lower left corner, in vp.
+    ///
+    /// * `bottomRight` - Pointer to the radius of the lower right corner, in vp.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_BackgroundColorStyle_GetRadius(
+        style: *const OH_ArkUI_BackgroundColorStyle,
+        topLeft: *mut f32,
+        topRight: *mut f32,
+        bottomLeft: *mut f32,
+        bottomRight: *mut f32,
+    ) -> ArkUiResult;
+    /// Creates an [`OH_ArkUI_UrlStyle`](crate::styled_string::OH_ArkUI_UrlStyle) object.
+    ///
+    ///
+    /// **Note:** When the object is no longer in use, invoke <b> OH_ArkUI_UrlStyle_Destroy </b> to destroy it.
+    ///
+    /// # Returns
+    ///
+    /// * Pointer to the <b>OH_ArkUI_UrlStyle</b> object.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_UrlStyle_Create() -> *mut OH_ArkUI_UrlStyle;
+    /// Releases the memory occupied by the [`OH_ArkUI_UrlStyle`](crate::styled_string::OH_ArkUI_UrlStyle) object.
+    ///
+    /// # Arguments
+    ///
+    /// * `style` - Pointer to the [`OH_ArkUI_UrlStyle`](crate::styled_string::OH_ArkUI_UrlStyle) object.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_UrlStyle_Destroy(style: *mut OH_ArkUI_UrlStyle);
+    /// Sets the URL content for the URL style.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `style` - Pointer to the [`OH_ArkUI_UrlStyle`](crate::styled_string::OH_ArkUI_UrlStyle) object.
+    ///
+    /// * `url` - Pointer to the URL content.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_UrlStyle_SetUrl(
+        style: *mut OH_ArkUI_UrlStyle,
+        url: *const ::core::ffi::c_char,
+    ) -> ArkUiResult;
+    /// Obtains the URL content of the URL style.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `style` - Pointer to the [`OH_ArkUI_UrlStyle`](crate::styled_string::OH_ArkUI_UrlStyle) object.
+    ///
+    /// * `buffer` - Pointer to the buffer for storing the URL content in the memory. You need to allocate the memory.
+    ///
+    /// * `bufferSize` - Maximum number of characters that can be written to the buffer.
+    ///
+    /// * `writeLength` - Pointer to the number of characters that are actually written to the buffer if
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) is returned.
+    /// <br>Pointer to the minimum length required for writing the entire string to the buffer if
+    /// [`ARKUI_ERROR_CODE_BUFFER_SIZE_ERROR`](crate::error_code::ArkUiErrorCode::BUFFER_SIZE_ERROR) is returned.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    /// Returns [`ARKUI_ERROR_CODE_BUFFER_SIZE_ERROR`](crate::error_code::ArkUiErrorCode::BUFFER_SIZE_ERROR) If the buffer size is less than the minimum buffer size.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_UrlStyle_GetUrl(
+        style: *const OH_ArkUI_UrlStyle,
+        buffer: *mut ::core::ffi::c_char,
+        bufferSize: i32,
+        writeLength: *mut i32,
+    ) -> ArkUiResult;
+    /// Creates an [`OH_ArkUI_UserDataSpan`](crate::styled_string::OH_ArkUI_UserDataSpan) object.
+    ///
+    ///
+    /// **Note:** When the object is no longer in use, invoke <b> OH_ArkUI_UserDataSpan_Destroy </b> to destroy it.
+    ///
+    /// # Returns
+    ///
+    /// * Pointer to the <b>OH_ArkUI_UserDataSpan</b> object.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_UserDataSpan_Create() -> *mut OH_ArkUI_UserDataSpan;
+    /// Releases the memory occupied by the [`OH_ArkUI_UserDataSpan`](crate::styled_string::OH_ArkUI_UserDataSpan) object.
+    ///
+    /// # Arguments
+    ///
+    /// * `userDataSpan` - Pointer to the [`OH_ArkUI_UserDataSpan`](crate::styled_string::OH_ArkUI_UserDataSpan) object.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_UserDataSpan_Destroy(userDataSpan: *mut OH_ArkUI_UserDataSpan);
+    /// Sets the user data in the user data span style.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `userDataSpan` - Pointer to the [`OH_ArkUI_UserDataSpan`](crate::styled_string::OH_ArkUI_UserDataSpan) object.
+    ///
+    /// * `userData` - Pointer to the user data. You need to manage the data lifecycle.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_UserDataSpan_SetUserData(
+        userDataSpan: *mut OH_ArkUI_UserDataSpan,
+        userData: *mut ::core::ffi::c_void,
+    ) -> ArkUiResult;
+    /// Obtains the user data in the user data span style.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `userDataSpan` - Pointer to the [`OH_ArkUI_UserDataSpan`](crate::styled_string::OH_ArkUI_UserDataSpan) object.
+    ///
+    /// * `userData` - Double pointer to the user data.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_UserDataSpan_GetUserData(
+        userDataSpan: *const OH_ArkUI_UserDataSpan,
+        userData: *mut *mut ::core::ffi::c_void,
+    ) -> ArkUiResult;
+    /// Creates an [`OH_ArkUI_CustomSpan`](crate::styled_string::OH_ArkUI_CustomSpan) object.
+    ///
+    ///
+    /// **Note:** When the object is no longer in use, invoke <b> OH_ArkUI_CustomSpan_Destroy </b> to destroy it.
+    ///
+    /// # Returns
+    ///
+    /// * Pointer to the <b>OH_ArkUI_CustomSpan</b> object.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_CustomSpan_Create() -> *mut OH_ArkUI_CustomSpan;
+    /// Releases the memory occupied by the [`OH_ArkUI_CustomSpan`](crate::styled_string::OH_ArkUI_CustomSpan) object.
+    ///
+    /// # Arguments
+    ///
+    /// * `customSpan` - Pointer to the [`OH_ArkUI_CustomSpan`](crate::styled_string::OH_ArkUI_CustomSpan) object.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_CustomSpan_Destroy(customSpan: *mut OH_ArkUI_CustomSpan);
+    /// Sets the callback function triggered when metrics are obtained for the custom span.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `customSpan` - Pointer to the [`OH_ArkUI_CustomSpan`](crate::styled_string::OH_ArkUI_CustomSpan) object.
+    ///
+    /// * `onMeasure` - The callback function for measuring the size of custom span.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_CustomSpan_RegisterOnMeasureCallback(
+        customSpan: *mut OH_ArkUI_CustomSpan,
+        onMeasure: ::core::option::Option<
+            unsafe extern "C" fn(arg1: f32) -> *mut ArkUI_CustomSpanMetrics,
+        >,
+    ) -> ArkUiResult;
+    /// Registers the callback function triggered when the custom span is drawn.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `customSpan` - Pointer to the [`OH_ArkUI_CustomSpan`](crate::styled_string::OH_ArkUI_CustomSpan) object.
+    ///
+    /// * `onDraw` - The callback function for drawing the custom span.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_CustomSpan_RegisterOnDrawCallback(
+        customSpan: *mut OH_ArkUI_CustomSpan,
+        onDraw: ::core::option::Option<
+            unsafe extern "C" fn(arg1: *mut ArkUI_DrawContext, arg2: *mut ArkUI_CustomSpanDrawInfo),
+        >,
+    ) -> ArkUiResult;
+    /// Creates an [`OH_ArkUI_ImageAttachment`](crate::styled_string::OH_ArkUI_ImageAttachment) object.
+    ///
+    ///
+    /// **Note:** When the object is no longer in use, invoke <b> OH_ArkUI_ImageAttachment_Destroy </b> to destroy it.
+    ///
+    /// # Returns
+    ///
+    /// * Pointer to the <b>OH_ArkUI_ImageAttachment</b> object.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_ImageAttachment_Create() -> *mut OH_ArkUI_ImageAttachment;
+    /// Releases the memory occupied by the [`OH_ArkUI_ImageAttachment`](crate::styled_string::OH_ArkUI_ImageAttachment) object.
+    ///
+    /// # Arguments
+    ///
+    /// * `imageAttachment` - Pointer to the [`OH_ArkUI_ImageAttachment`](crate::styled_string::OH_ArkUI_ImageAttachment) object.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_ImageAttachment_Destroy(imageAttachment: *mut OH_ArkUI_ImageAttachment);
+    /// Sets the image data source in the image style.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `imageAttachment` - Pointer to the [`OH_ArkUI_ImageAttachment`](crate::styled_string::OH_ArkUI_ImageAttachment) object.
+    ///
+    /// * `pixelmap` - Pointer to the image data source.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_ImageAttachment_SetPixelMap(
+        imageAttachment: *mut OH_ArkUI_ImageAttachment,
+        pixelmap: *mut OH_PixelmapNative,
+    ) -> ArkUiResult;
+    /// Obtains the image data source in the image style.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `imageAttachment` - Pointer to the [`OH_ArkUI_ImageAttachment`](crate::styled_string::OH_ArkUI_ImageAttachment) object.
+    ///
+    /// * `pixelmap` - Double pointer to the image data source.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_ImageAttachment_GetPixelMap(
+        imageAttachment: *const OH_ArkUI_ImageAttachment,
+        pixelmap: *mut *mut OH_PixelmapNative,
+    ) -> ArkUiResult;
+    /// Sets the image resource address in the image style.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `imageAttachment` - Pointer to the [`OH_ArkUI_ImageAttachment`](crate::styled_string::OH_ArkUI_ImageAttachment) object.
+    ///
+    /// * `resource` - Pointer to the image resource address.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_ImageAttachment_SetResource(
+        imageAttachment: *mut OH_ArkUI_ImageAttachment,
+        resource: *const ::core::ffi::c_char,
+    ) -> ArkUiResult;
+    /// Obtains the image resource address in the image style.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `imageAttachment` - Pointer to the [`OH_ArkUI_ImageAttachment`](crate::styled_string::OH_ArkUI_ImageAttachment) object.
+    ///
+    /// * `buffer` - Pointer to the buffer for storing the image resource address string in the memory. You need to
+    /// allocate the memory.
+    ///
+    /// * `bufferSize` - Buffer size.
+    ///
+    /// * `writeLength` - Pointer to the length of the string actually written to the buffer if
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) is returned.
+    /// <br>Pointer to the minimum length required for writing the entire string to the buffer if
+    /// [`ARKUI_ERROR_CODE_BUFFER_SIZE_ERROR`](crate::error_code::ArkUiErrorCode::BUFFER_SIZE_ERROR) is returned.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    /// Returns [`ARKUI_ERROR_CODE_BUFFER_SIZE_ERROR`](crate::error_code::ArkUiErrorCode::BUFFER_SIZE_ERROR) If the buffer size is less than the minimum buffer size.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_ImageAttachment_GetResource(
+        imageAttachment: *const OH_ArkUI_ImageAttachment,
+        buffer: *mut ::core::ffi::c_char,
+        bufferSize: i32,
+        writeLength: *mut i32,
+    ) -> ArkUiResult;
+    /// Sets the image width in the image style.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `imageAttachment` - Pointer to the [`OH_ArkUI_ImageAttachment`](crate::styled_string::OH_ArkUI_ImageAttachment) object.
+    ///
+    /// * `width` - Image width, in vp.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_ImageAttachment_SetSizeWidth(
+        imageAttachment: *mut OH_ArkUI_ImageAttachment,
+        width: f32,
+    ) -> ArkUiResult;
+    /// Obtains the image width in the image style.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `imageAttachment` - Pointer to the [`OH_ArkUI_ImageAttachment`](crate::styled_string::OH_ArkUI_ImageAttachment) object.
+    ///
+    /// * `width` - Pointer to the image width, in vp.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_ImageAttachment_GetSizeWidth(
+        imageAttachment: *const OH_ArkUI_ImageAttachment,
+        width: *mut f32,
+    ) -> ArkUiResult;
+    /// Sets the image height in the image style.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `imageAttachment` - Pointer to the [`OH_ArkUI_ImageAttachment`](crate::styled_string::OH_ArkUI_ImageAttachment) object.
+    ///
+    /// * `height` - Image height, in vp.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_ImageAttachment_SetSizeHeight(
+        imageAttachment: *mut OH_ArkUI_ImageAttachment,
+        height: f32,
+    ) -> ArkUiResult;
+    /// Obtains the image height in the image style.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `imageAttachment` - Pointer to the [`OH_ArkUI_ImageAttachment`](crate::styled_string::OH_ArkUI_ImageAttachment) object.
+    ///
+    /// * `height` - Pointer to the image height, in vp.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_ImageAttachment_GetSizeHeight(
+        imageAttachment: *const OH_ArkUI_ImageAttachment,
+        height: *mut f32,
+    ) -> ArkUiResult;
+    /// Sets the image alignment method in the image style.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `imageAttachment` - Pointer to the [`OH_ArkUI_ImageAttachment`](crate::styled_string::OH_ArkUI_ImageAttachment) object.
+    ///
+    /// * `verticalAlign` - Image alignment method. The value is an enumerated value of [`ArkUI_ImageSpanAlignment`](crate::node_attributes::image_span::ArkUI_ImageSpanAlignment).
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_ImageAttachment_SetVerticalAlign(
+        imageAttachment: *mut OH_ArkUI_ImageAttachment,
+        verticalAlign: ArkUI_ImageSpanAlignment,
+    ) -> ArkUiResult;
+    /// Obtains the image alignment method in the image style.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `imageAttachment` - Pointer to the [`OH_ArkUI_ImageAttachment`](crate::styled_string::OH_ArkUI_ImageAttachment) object.
+    ///
+    /// * `verticalAlign` - Pointer to the image alignment method. The value is an enumerated value of
+    /// [`ArkUI_ImageSpanAlignment`](crate::node_attributes::image_span::ArkUI_ImageSpanAlignment).
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_ImageAttachment_GetVerticalAlign(
+        imageAttachment: *const OH_ArkUI_ImageAttachment,
+        verticalAlign: *mut ArkUI_ImageSpanAlignment,
+    ) -> ArkUiResult;
+    /// Sets the image scaling type in the image style.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `imageAttachment` - Pointer to the [`OH_ArkUI_ImageAttachment`](crate::styled_string::OH_ArkUI_ImageAttachment) object.
+    ///
+    /// * `objectFit` - Image scaling type. The value is an enumerated value of [`ArkUI_ObjectFit`](crate::node_attributes::image::ArkUI_ObjectFit).
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_ImageAttachment_SetObjectFit(
+        imageAttachment: *mut OH_ArkUI_ImageAttachment,
+        objectFit: ArkUI_ObjectFit,
+    ) -> ArkUiResult;
+    /// Obtains the image scaling type in the image style.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `imageAttachment` - Pointer to the [`OH_ArkUI_ImageAttachment`](crate::styled_string::OH_ArkUI_ImageAttachment) object.
+    ///
+    /// * `objectFit` - Pointer to the image scaling type. The value is an enumerated value of [`ArkUI_ObjectFit`](crate::node_attributes::image::ArkUI_ObjectFit).
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_ImageAttachment_GetObjectFit(
+        imageAttachment: *const OH_ArkUI_ImageAttachment,
+        objectFit: *mut ArkUI_ObjectFit,
+    ) -> ArkUiResult;
+    /// Sets the image margin in the image style.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `imageAttachment` - Pointer to the [`OH_ArkUI_ImageAttachment`](crate::styled_string::OH_ArkUI_ImageAttachment) object.
+    ///
+    /// * `margin` - Image margin, in vp.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_ImageAttachment_SetMargin(
+        imageAttachment: *mut OH_ArkUI_ImageAttachment,
+        margin: ArkUI_Margin,
+    ) -> ArkUiResult;
+    /// Obtains the image margin in the image style.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `imageAttachment` - Pointer to the [`OH_ArkUI_ImageAttachment`](crate::styled_string::OH_ArkUI_ImageAttachment) object.
+    ///
+    /// * `margin` - Pointer to the image margin, in vp.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_ImageAttachment_GetMargin(
+        imageAttachment: *const OH_ArkUI_ImageAttachment,
+        margin: *mut ArkUI_Margin,
+    ) -> ArkUiResult;
+    /// Sets the image padding in the image style.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `imageAttachment` - Pointer to the [`OH_ArkUI_ImageAttachment`](crate::styled_string::OH_ArkUI_ImageAttachment) object.
+    ///
+    /// * `padding` - Image padding, in vp.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_ImageAttachment_SetPadding(
+        imageAttachment: *mut OH_ArkUI_ImageAttachment,
+        padding: ArkUI_Margin,
+    ) -> ArkUiResult;
+    /// Obtains the image padding in the image style.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `imageAttachment` - Pointer to the [`OH_ArkUI_ImageAttachment`](crate::styled_string::OH_ArkUI_ImageAttachment) object.
+    ///
+    /// * `padding` - Pointer to the image padding, in vp.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_ImageAttachment_GetPadding(
+        imageAttachment: *const OH_ArkUI_ImageAttachment,
+        padding: *mut ArkUI_Margin,
+    ) -> ArkUiResult;
+    /// Sets the image border radii in the image style.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `imageAttachment` - Pointer to the [`OH_ArkUI_ImageAttachment`](crate::styled_string::OH_ArkUI_ImageAttachment) object.
+    ///
+    /// * `topLeft` - Radius of the upper left corner, in vp.
+    ///
+    /// * `topRight` - Radius of the upper right corner, in vp.
+    ///
+    /// * `bottomLeft` - Radius of the lower left corner, in vp.
+    ///
+    /// * `bottomRight` - Radius of the lower right corner, in vp.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_ImageAttachment_SetBorderRadiuses(
+        imageAttachment: *mut OH_ArkUI_ImageAttachment,
+        topLeft: f32,
+        topRight: f32,
+        bottomLeft: f32,
+        bottomRight: f32,
+    ) -> ArkUiResult;
+    /// Obtains the image border radii in the image style.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `imageAttachment` - Pointer to the [`OH_ArkUI_ImageAttachment`](crate::styled_string::OH_ArkUI_ImageAttachment) object.
+    ///
+    /// * `topLeft` - Pointer to the radius of the upper left corner, in vp.
+    ///
+    /// * `topRight` - Pointer to the radius of the upper right corner, in vp.
+    ///
+    /// * `bottomLeft` - Pointer to the radius of the lower left corner, in vp.
+    ///
+    /// * `bottomRight` - Pointer to the radius of the lower right corner, in vp.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_ImageAttachment_GetBorderRadiuses(
+        imageAttachment: *const OH_ArkUI_ImageAttachment,
+        topLeft: *mut f32,
+        topRight: *mut f32,
+        bottomLeft: *mut f32,
+        bottomRight: *mut f32,
+    ) -> ArkUiResult;
+    /// Sets the image color filter in the image style.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `imageAttachment` - Pointer to the [`OH_ArkUI_ImageAttachment`](crate::styled_string::OH_ArkUI_ImageAttachment) object.
+    ///
+    /// * `colorFilter` - Pointer to the image color filter.
+    ///
+    /// * `size` - Size of the filter array.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_ImageAttachment_SetColorFilter(
+        imageAttachment: *mut OH_ArkUI_ImageAttachment,
+        colorFilter: *const f32,
+        size: u32,
+    ) -> ArkUiResult;
+    /// Obtains the image color filter in the image style.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `imageAttachment` - Pointer to the [`OH_ArkUI_ImageAttachment`](crate::styled_string::OH_ArkUI_ImageAttachment) object.
+    ///
+    /// * `colorFilter` - Double pointer to the buffer for storing the image color filter in the memory. You need to
+    /// allocate the memory.
+    ///
+    /// * `colorFilterSize` - Buffer size.
+    ///
+    /// * `writeLength` - Pointer to the actual size of the image color filter array.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    /// Returns [`ARKUI_ERROR_CODE_BUFFER_SIZE_ERROR`](crate::error_code::ArkUiErrorCode::BUFFER_SIZE_ERROR) If the buffer size is less than the minimum buffer size.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_ImageAttachment_GetColorFilter(
+        imageAttachment: *const OH_ArkUI_ImageAttachment,
+        colorFilter: *mut *mut f32,
+        colorFilterSize: u32,
+        writeLength: *mut u32,
+    ) -> ArkUiResult;
+    /// Sets whether to load the image synchronously in the image style.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `imageAttachment` - Pointer to the [`OH_ArkUI_ImageAttachment`](crate::styled_string::OH_ArkUI_ImageAttachment) object.
+    ///
+    /// * `syncLoad` - Whether to load images synchronously. **true** to load synchronously; **false** to load
+    /// asynchronously.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_ImageAttachment_SetSyncLoad(
+        imageAttachment: *mut OH_ArkUI_ImageAttachment,
+        syncLoad: bool,
+    ) -> ArkUiResult;
+    /// Obtains whether the image is loaded synchronously in the image style.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `imageAttachment` - Pointer to the [`OH_ArkUI_ImageAttachment`](crate::styled_string::OH_ArkUI_ImageAttachment) object.
+    ///
+    /// * `syncLoad` - Pointer to the **syncLoad** parameter indicating whether the image is loaded synchronously. **true**
+    /// indicates that the image is loaded synchronously; **false** indicates that the image is loaded asynchronously.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_ImageAttachment_GetSyncLoad(
+        imageAttachment: *const OH_ArkUI_ImageAttachment,
+        syncLoad: *mut bool,
+    ) -> ArkUiResult;
+    /// Sets whether to enable the enhanced SVG tag parsing feature in the image style.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `imageAttachment` - Pointer to the [`OH_ArkUI_ImageAttachment`](crate::styled_string::OH_ArkUI_ImageAttachment) object.
+    ///
+    /// * `supportSvg` - Whether to enable the enhanced SVG tag parsing feature. **true** to enable, **false** otherwise.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_ImageAttachment_SetSupportSvg(
+        imageAttachment: *mut OH_ArkUI_ImageAttachment,
+        supportSvg: bool,
+    ) -> ArkUiResult;
+    /// Obtains whether the enhanced SVG tag parsing feature is enabled in the image style.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `imageAttachment` - Pointer to the [`OH_ArkUI_ImageAttachment`](crate::styled_string::OH_ArkUI_ImageAttachment) object.
+    ///
+    /// * `supportSvg` - Pointer to the **supportSvg** parameter indicating whether the enhanced SVG tag parsing feature is
+    /// enabled. **true** means the enhanced SVG tag parsing feature is enabled, and **false** means the opposite.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_ImageAttachment_GetSupportSvg(
+        imageAttachment: *const OH_ArkUI_ImageAttachment,
+        supportSvg: *mut bool,
+    ) -> ArkUiResult;
+    /// Obtains the range of the content to be replaced in the text change information.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `event` - Pointer to the [`OH_ArkUI_TextEditorChangeEvent`](crate::native_node::OH_ArkUI_TextEditorChangeEvent) object.
+    ///
+    /// * `start` - Pointer to the start index of the range of the content to be replaced.
+    ///
+    /// * `end` - Pointer to the end index of the range of the content to be replaced.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) Function params is invalid.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_TextEditorChangeEvent_GetRangeBefore(
+        event: *const OH_ArkUI_TextEditorChangeEvent,
+        start: *mut u32,
+        end: *mut u32,
+    ) -> ArkUiResult;
+    /// Obtains the styled string used for replacement in the text change information.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `event` - Pointer to the [`OH_ArkUI_TextEditorChangeEvent`](crate::native_node::OH_ArkUI_TextEditorChangeEvent) object.
+    ///
+    /// * `descriptor` - Pointer to the [`ArkUI_StyledString_Descriptor`](crate::node_attributes::text_common::ArkUI_StyledString_Descriptor) object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) Function params is invalid.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_TextEditorChangeEvent_GetReplacementStyledString(
+        event: *const OH_ArkUI_TextEditorChangeEvent,
+        descriptor: *mut ArkUI_StyledString_Descriptor,
+    ) -> ArkUiResult;
+    /// Obtains the styled string of the previewed content in the text change information.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `event` - Pointer to the [`OH_ArkUI_TextEditorChangeEvent`](crate::native_node::OH_ArkUI_TextEditorChangeEvent) object.
+    ///
+    /// * `descriptor` - Pointer to the [`ArkUI_StyledString_Descriptor`](crate::node_attributes::text_common::ArkUI_StyledString_Descriptor) object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) Function params is invalid.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_TextEditorChangeEvent_GetPreviewStyledString(
+        event: *const OH_ArkUI_TextEditorChangeEvent,
+        descriptor: *mut ArkUI_StyledString_Descriptor,
+    ) -> ArkUiResult;
     /// Dispose an object of the text layout manager.
     ///
     /// # Arguments
@@ -172,8 +5155,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -181,5 +5164,155 @@ extern "C" {
     pub fn OH_ArkUI_TextLayoutManager_GetLineCount(
         layoutManager: *mut ArkUI_TextLayoutManager,
         outLineCount: *mut i32,
+    ) -> ArkUiResult;
+    /// Set linear gradient of paragraph style.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `paragraphStyle` - Pointer to the <b>OH_ArkUI_ParagraphStyle</b> object.
+    ///
+    /// * `linearGradient` - Pointer to the <b>OH_ArkUI_LinearGradientOptions</b> object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_ArkUI_ParagraphStyle_SetLinearGradient(
+        paragraphStyle: *mut OH_ArkUI_ParagraphStyle,
+        linearGradient: *const OH_ArkUI_LinearGradientOptions,
+    ) -> ArkUiResult;
+    /// Get linear gradient of paragraph style.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `paragraphStyle` - Pointer to the <b>OH_ArkUI_ParagraphStyle</b> object.
+    ///
+    /// * `linearGradient` - Pointer to the <b>OH_ArkUI_LinearGradientOptions</b> object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_ArkUI_ParagraphStyle_GetLinearGradient(
+        paragraphStyle: *const OH_ArkUI_ParagraphStyle,
+        linearGradient: *mut OH_ArkUI_LinearGradientOptions,
+    ) -> ArkUiResult;
+    /// Set radial gradient of paragraph style.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `paragraphStyle` - Pointer to the <b>OH_ArkUI_ParagraphStyle</b> object.
+    ///
+    /// * `radialGradient` - Pointer to the <b>OH_ArkUI_RadialGradientOptions</b> object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_ArkUI_ParagraphStyle_SetRadialGradient(
+        paragraphStyle: *mut OH_ArkUI_ParagraphStyle,
+        radialGradient: *const OH_ArkUI_RadialGradientOptions,
+    ) -> ArkUiResult;
+    /// Get radial gradient of paragraph style.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `paragraphStyle` - Pointer to the <b>OH_ArkUI_ParagraphStyle</b> object.
+    ///
+    /// * `radialGradient` - Pointer to the <b>OH_ArkUI_RadialGradientOptions</b> object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_ArkUI_ParagraphStyle_GetRadialGradient(
+        paragraphStyle: *const OH_ArkUI_ParagraphStyle,
+        radialGradient: *mut OH_ArkUI_RadialGradientOptions,
+    ) -> ArkUiResult;
+    /// Set tail indents of paragraph style.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `paragraphStyle` - Pointer to the <b>OH_ArkUI_ParagraphStyle</b> object.
+    ///
+    /// * `tailIndents` - The tail indent values, in fp. When size is 1, all lines share the same tail indent.
+    /// When size > 1, the i-th value specifies the tail indent for the i-th line. If the number of text
+    /// lines exceeds size, the last value is used for the remaining lines.
+    ///
+    /// * `size` - The number of tail indent values.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_ArkUI_ParagraphStyle_SetTailIndents(
+        paragraphStyle: *mut OH_ArkUI_ParagraphStyle,
+        tailIndents: *const f32,
+        size: u32,
+    ) -> ArkUiResult;
+    /// Get tail indents of paragraph style.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `paragraphStyle` - Pointer to the <b>OH_ArkUI_ParagraphStyle</b> object.
+    ///
+    /// * `tailIndents` - The tail indent values, in fp.
+    ///
+    /// * `tailIndentsSize` - The size of the tailIndents buffer provided by the caller.
+    ///
+    /// * `writeLength` - The actual number of tail indent values written to the buffer.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    /// Returns [`ARKUI_ERROR_CODE_BUFFER_SIZE_ERROR`](crate::error_code::ArkUiErrorCode::BUFFER_SIZE_ERROR) If the buffer size is less than the minimum buffer size.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_ArkUI_ParagraphStyle_GetTailIndents(
+        paragraphStyle: *const OH_ArkUI_ParagraphStyle,
+        tailIndents: *mut *mut f32,
+        tailIndentsSize: u32,
+        writeLength: *mut u32,
     ) -> ArkUiResult;
 }

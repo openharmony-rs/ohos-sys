@@ -11,32 +11,54 @@ use crate::common::{CryptoResult, Crypto_DataBlob};
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl CryptoSignature_ParamType {
-    /// Indicates the algorithm name of the message digest function.
+    /// Algorithm name of the message digest function.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const CRYPTO_PSS_MD_NAME_STR: CryptoSignature_ParamType = CryptoSignature_ParamType(100);
-    /// Indicates the algorithm name for the mask generation function.
+    /// Algorithm name of the mask generation function.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const CRYPTO_PSS_MGF_NAME_STR: CryptoSignature_ParamType = CryptoSignature_ParamType(101);
-    /// Indicates the message digest parameter for the MGF1 mask generation function.
+    /// Message digest parameter of the MGF1 mask generation function.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const CRYPTO_PSS_MGF1_NAME_STR: CryptoSignature_ParamType = CryptoSignature_ParamType(102);
-    /// Indicates the salt length in bits.
+    /// Byte length of the salt value.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const CRYPTO_PSS_SALT_LEN_INT: CryptoSignature_ParamType = CryptoSignature_ParamType(103);
-    /// Indicates the value for the trailer field.
+    /// Value of the trailer field.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const CRYPTO_PSS_TRAILER_FIELD_INT: CryptoSignature_ParamType =
         CryptoSignature_ParamType(104);
-    /// Indicates the value for user id.
+    /// User ID value for the SM2 algorithm.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const CRYPTO_SM2_USER_ID_DATABLOB: CryptoSignature_ParamType =
         CryptoSignature_ParamType(105);
 }
 #[repr(transparent)]
-/// Define the signature param type.
-///
+/// Defines signature parameter types.
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct CryptoSignature_ParamType(pub ::core::ffi::c_uint);
-/// Define the verify structure.
-///
+/// Verification structure, representing a verification context.
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
@@ -45,8 +67,7 @@ pub struct CryptoSignature_ParamType(pub ::core::ffi::c_uint);
 pub struct OH_CryptoVerify {
     _unused: [u8; 0],
 }
-/// Defines the sign structure.
-///
+/// Signing structure, representing a signing context.
 ///
 /// Available since API-level: 20
 #[cfg(feature = "api-20")]
@@ -55,8 +76,7 @@ pub struct OH_CryptoVerify {
 pub struct OH_CryptoSign {
     _unused: [u8; 0],
 }
-/// Defines the ECC signature spec.
-///
+/// ECC signature specification structure, representing an ECC signature specification.
 ///
 /// Available since API-level: 20
 #[cfg(feature = "api-20")]
@@ -66,100 +86,114 @@ pub struct OH_CryptoEccSignatureSpec {
     _unused: [u8; 0],
 }
 extern "C" {
-    /// Create a verify context according to the given algorithm name.
-    ///
+    /// Creates a verification context based on the given algorithm name.
     /// # Arguments
     ///
-    /// * `algoName` - Indicates the algorithm name for generating the verify context. Example RSA1024|PKCS1|SHA256.
+    /// * `algoName` - \[in\] Verification algorithm name. Cannot be NULL. Values:
+    /// - RSA PKCS1 mode: Format "RSA|PKCS1|Digest", e.g. "RSA|PKCS1|SHA256", "RSA|PKCS1|SHA512".
+    /// Digest supports "MD5", "SHA1", "SHA224", "SHA256", "SHA384", "SHA512".
+    /// - RSA PSS mode: Format "RSA|PSS|Digest|MGF1Digest", e.g. "RSA|PSS|SHA256|MGF1_SHA256".
+    /// Digest supports "MD5", "SHA1", "SHA224", "SHA256", "SHA384", "SHA512".
+    /// MGF1 digest supports "MGF1_MD5", "MGF1_SHA1", "MGF1_SHA224", "MGF1_SHA256", "MGF1_SHA384", "MGF1_SHA512".
+    /// - RSA verify recovery: Format "RSA|PKCS1|Digest|Recover", e.g. "RSA|PKCS1|SHA256|Recover",
+    /// "RSA|PKCS1|SHA512|Recover".
+    /// Digest supports "NoHash", "MD5", "SHA1", "SHA224", "SHA256", "SHA384", "SHA512".
+    /// - ECDSA algorithm: Format "ECC|Digest", e.g. "ECC|SHA256", "ECC|SHA384".
+    /// Digest supports "SHA1", "SHA224", "SHA256", "SHA384", "SHA512".
+    /// - DSA algorithm: Format "DSA|Digest", e.g. "DSA|SHA256", "DSA|SHA384".
+    /// Digest supports "NoHash", "SHA1", "SHA224", "SHA256", "SHA384", "SHA512".
+    /// - SM2 algorithm: "SM2|SM3".
+    /// - Ed25519 algorithm: "Ed25519".
     ///
-    /// * `verify` - Indicates the pointer to the verify context.
+    /// * `verify` - \[out\] Pointer to the verification context pointer. verify cannot be NULL,
+    /// *verify must be NULL.
     ///
     /// # Returns
     ///
-    /// * [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) 0 - If the operation is successful.
-    /// [`OH_Crypto_ErrCode#CRYPTO_INVALID_PARAMS`](crate::common::CryptoErrorCode::INVALID_PARAMS) 401 - If parameter is invalid.
-    /// [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) 801 - If the operation is not supported.
-    /// [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) 17620001 - If memory operation failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) 17630001 - If crypto opertion failed.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) if the operation succeeds.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_INVALID_PARAMS`](crate::common::CryptoErrorCode::INVALID_PARAMS) if verify or algoName is NULL.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) if the algorithm is not supported.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) if memory allocation fails.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) if crypto operation fails.
+    ///
+    /// **Note:** Release `verify` with [`OH_CryptoVerify_Destroy`](crate::signature::OH_CryptoVerify_Destroy).
     ///
     /// Available since API-level: 12
+    ///
+    /// **See also:** [`OH_CryptoVerify_Init`](crate::signature::OH_CryptoVerify_Init) Initializes the verification context with the given public key.
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_CryptoVerify_Create(
         algoName: *const ::core::ffi::c_char,
         verify: *mut *mut OH_CryptoVerify,
     ) -> CryptoResult;
-    /// Init verify context with given public Key.
-    ///
+    /// Initializes the verification context with the given public key.
     /// # Arguments
     ///
-    /// * `ctx` - Indicates the verify context.
+    /// * `ctx` - \[in\] Verification context. Cannot be NULL.
     ///
-    /// * `pubKey` - indicates the public Key
+    /// * `pubKey` - \[in\] Public key. Cannot be NULL.
     ///
     /// # Returns
     ///
-    /// * [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) 0 - If the operation is successful.
-    /// [`OH_Crypto_ErrCode#CRYPTO_INVALID_PARAMS`](crate::common::CryptoErrorCode::INVALID_PARAMS) 401 - If parameter is invalid.
-    /// [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) 801 - If the operation is not supported.
-    /// [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) 17620001 - If memory operation failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) 17630001 - If crypto opertion failed.
-    ///
-    /// **See also:** [`OH_CryptoVerify_Update`](crate::signature::OH_CryptoVerify_Update)
-    ///
-    /// **See also:** [`OH_CryptoVerify_Final`](crate::signature::OH_CryptoVerify_Final)
+    /// - [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) if the operation succeeds.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_INVALID_PARAMS`](crate::common::CryptoErrorCode::INVALID_PARAMS) if ctx or pubKey is NULL, or the key type does not match the signature algorithm.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) if unsupported operation or algorithm.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) if memory operation fails.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) if verify init fails.
     ///
     /// Available since API-level: 12
+    ///
+    /// **See also:** [`OH_CryptoVerify_Update`](crate::signature::OH_CryptoVerify_Update) Appends message data to be verified.
+    ///
+    /// **See also:** [`OH_CryptoVerify_Final`](crate::signature::OH_CryptoVerify_Final) Verifies message data.
+    ///
+    /// **See also:** [`OH_CryptoVerify_Recover`](crate::signature::OH_CryptoVerify_Recover) Recovers signature data.
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_CryptoVerify_Init(
         ctx: *mut OH_CryptoVerify,
         pubKey: *mut OH_CryptoPubKey,
     ) -> CryptoResult;
-    /// Used to append the message that needs to be verified.
-    ///
+    /// Appends message data to be verified.
     /// # Arguments
     ///
-    /// * `ctx` - Indicates the verify context.
+    /// * `ctx` - \[in\] Verification context. Cannot be NULL.
     ///
-    /// * `in` - Indicates the data need to be verified.
+    /// * `in` - \[in\] Data to be verified. Cannot be NULL.
     ///
     /// # Returns
     ///
-    /// * [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) 0 - If the operation is successful.
-    /// [`OH_Crypto_ErrCode#CRYPTO_INVALID_PARAMS`](crate::common::CryptoErrorCode::INVALID_PARAMS) 401 - If parameter is invalid.
-    /// [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) 801 - If the operation is not supported.
-    /// [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) 17620001 - If memory operation failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) 17630001 - If crypto opertion failed.
-    ///
-    /// **See also:** [`OH_CryptoVerify_Init`](crate::signature::OH_CryptoVerify_Init)
-    ///
-    /// **See also:** [`OH_CryptoVerify_Final`](crate::signature::OH_CryptoVerify_Final)
+    /// - [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) if the operation succeeds.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_INVALID_PARAMS`](crate::common::CryptoErrorCode::INVALID_PARAMS) if ctx or in is NULL.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) if unsupported operation or algorithm.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) if memory operation fails.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_INVALID_CALL`](crate::common::CryptoErrorCode::INVALID_CALL) if the function call is invalid. \[since 26.0.0\]
+    /// - [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) if verify update fails.
     ///
     /// Available since API-level: 12
+    ///
+    /// **See also:** [`OH_CryptoVerify_Final`](crate::signature::OH_CryptoVerify_Final) Verifies message data.
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_CryptoVerify_Update(
         ctx: *mut OH_CryptoVerify,
         in_: *mut Crypto_DataBlob,
     ) -> CryptoResult;
-    /// Used to verify the message.
-    ///
+    /// Verifies message data.
     /// # Arguments
     ///
-    /// * `ctx` - Indicates the verify context.
+    /// * `ctx` - \[in\] Verification context. Cannot be NULL.
     ///
-    /// * `in` - Indicates the data need to be verified.
+    /// * `in` - \[in\] Data to be verified. Can be NULL if all data has been updated via [`OH_CryptoVerify_Update`](crate::signature::OH_CryptoVerify_Update).
     ///
-    /// * `signData` - Indicates the signature data.
+    /// * `signData` - \[in\] Signature data. Cannot be NULL.
     ///
     /// # Returns
     ///
-    /// * Return result use bool value.
-    ///
-    /// **See also:** [`OH_CryptoVerify_Init`](crate::signature::OH_CryptoVerify_Init)
-    ///
-    /// **See also:** [`OH_CryptoVerify_Update`](crate::signature::OH_CryptoVerify_Update)
+    /// * Returns the boolean verification result. Returns true if verification succeeds, false if verification fails.
+    /// Possible causes: incorrect public key, corrupted signature data, mismatched hash algorithm,
+    /// mismatched padding mode, or the data does not match the original signed data.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -169,23 +203,26 @@ extern "C" {
         in_: *mut Crypto_DataBlob,
         signData: *mut Crypto_DataBlob,
     ) -> bool;
-    /// Used to recover signed data.
-    ///
+    /// Recovers signature data. Only RSA algorithm is supported.
     /// # Arguments
     ///
-    /// * `ctx` - Indicates the verify context.
+    /// * `ctx` - \[in\] Verification context. Cannot be NULL.
     ///
-    /// * `signData` - Indicates the signature data.
+    /// * `signData` - \[in\] Signature data. Cannot be NULL.
     ///
-    /// * `rawSignData` - Indicates the raw sign data.
+    /// * `rawSignData` - \[out\] Pointer to the Crypto_DataBlob structure for storing the raw signature data. Cannot be NULL.
+    /// Initialize rawSignData to {0} before calling. Do not pre-allocate rawSignData->data.
     ///
     /// # Returns
     ///
-    /// * [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) 0 - If the operation is successful.
-    /// [`OH_Crypto_ErrCode#CRYPTO_INVALID_PARAMS`](crate::common::CryptoErrorCode::INVALID_PARAMS) 401 - If parameter is invalid.
-    /// [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) 801 - If the operation is not supported.
-    /// [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) 17620001 - If memory operation failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) 17630001 - If crypto opertion failed.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) if the operation succeeds.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_INVALID_PARAMS`](crate::common::CryptoErrorCode::INVALID_PARAMS) if ctx, signData, or rawSignData is NULL.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) if unsupported operation or algorithm.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) if memory operation fails.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_INVALID_CALL`](crate::common::CryptoErrorCode::INVALID_CALL) if the function call is invalid. \[since 26.0.0\]
+    /// - [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) if recover fails. Possible causes: signature data length does not match the RSA key modulus size.
+    ///
+    /// **Note:** Release `rawSignData` with [`OH_Crypto_FreeDataBlob`](crate::common::OH_Crypto_FreeDataBlob).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -195,37 +232,37 @@ extern "C" {
         signData: *mut Crypto_DataBlob,
         rawSignData: *mut Crypto_DataBlob,
     ) -> CryptoResult;
-    /// Get the algorithm name of the verify context.
-    ///
+    /// Obtains the algorithm name of the verification context.
     /// # Arguments
     ///
-    /// * `ctx` - Indicates the verify context.
+    /// * `ctx` - \[in\] Verification context. Cannot be NULL.
     ///
     /// # Returns
     ///
-    /// * Return verify algorithm name.
+    /// * Returns the verification algorithm name. No need to free by the caller. Invalid after the context is
+    /// destroyed.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_CryptoVerify_GetAlgoName(ctx: *mut OH_CryptoVerify) -> *const ::core::ffi::c_char;
-    /// Set the specified parameter to the verify context.
-    ///
+    /// Sets the specified parameter of the verification context.
     /// # Arguments
     ///
-    /// * `ctx` - Indicates the verify context.
+    /// * `ctx` - \[in\] Verification context. Cannot be NULL.
     ///
-    /// * `type` - Indicates the verify parameter type.
+    /// * `type` - \[in\] Signature parameter type.
     ///
-    /// * `value` - Indicates the input data.
+    /// * `value` - \[in\] Input data. This function performs a deep copy of the data in value. The caller can release value
+    /// immediately after the function returns. Cannot be NULL.
     ///
     /// # Returns
     ///
-    /// * [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) 0 - If the operation is successful.
-    /// [`OH_Crypto_ErrCode#CRYPTO_INVALID_PARAMS`](crate::common::CryptoErrorCode::INVALID_PARAMS) 401 - If parameter is invalid.
-    /// [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) 801 - If the operation is not supported.
-    /// [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) 17620001 - If memory operation failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) 17630001 - If crypto opertion failed.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) if the operation succeeds.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_INVALID_PARAMS`](crate::common::CryptoErrorCode::INVALID_PARAMS) if ctx or value is NULL, value->data is NULL, value->len does not match the expected size for the type, or type is not a valid CryptoSignature_ParamType.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) if unsupported operation or algorithm.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) if memory operation fails.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) if setting parameter fails.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -235,23 +272,25 @@ extern "C" {
         type_: CryptoSignature_ParamType,
         value: *mut Crypto_DataBlob,
     ) -> CryptoResult;
-    /// Get the specified parameter from the verify context.
-    ///
+    /// Obtains the specified parameter of the verification context.
     /// # Arguments
     ///
-    /// * `ctx` - Indicates the verify context.
+    /// * `ctx` - \[in\] Verification context. Cannot be NULL.
     ///
-    /// * `type` - Indicates the verify parameter type.
+    /// * `type` - \[in\] Signature parameter type.
     ///
-    /// * `value` - Indicates the output data.
+    /// * `value` - \[out\] Pointer to the Crypto_DataBlob structure for storing the output data. Cannot be NULL.
+    /// Initialize value to {0} before calling. Do not pre-allocate value->data.
     ///
     /// # Returns
     ///
-    /// * [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) 0 - If the operation is successful.
-    /// [`OH_Crypto_ErrCode#CRYPTO_INVALID_PARAMS`](crate::common::CryptoErrorCode::INVALID_PARAMS) 401 - If parameter is invalid.
-    /// [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) 801 - If the operation is not supported.
-    /// [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) 17620001 - If memory operation failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) 17630001 - If crypto opertion failed.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) if the operation succeeds.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_INVALID_PARAMS`](crate::common::CryptoErrorCode::INVALID_PARAMS) if ctx or value is NULL, or type is not a valid CryptoSignature_ParamType.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) if unsupported operation or algorithm.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) if memory allocation for the output fails.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) if getting parameter fails.
+    ///
+    /// **Note:** Release `value` with [`OH_Crypto_FreeDataBlob`](crate::common::OH_Crypto_FreeDataBlob).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -261,114 +300,125 @@ extern "C" {
         type_: CryptoSignature_ParamType,
         value: *mut Crypto_DataBlob,
     ) -> CryptoResult;
-    /// Destroy the verify context.
-    ///
+    /// Destroys the verification context.
     /// # Arguments
     ///
-    /// * `ctx` - Indicates the verify context.
+    /// * `ctx` - \[in\] Verification context.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_CryptoVerify_Destroy(ctx: *mut OH_CryptoVerify);
-    /// Creates a sign context according to the given algorithm name.
-    ///
+    /// Creates a signing context based on the given algorithm name.
     /// # Arguments
     ///
-    /// * `algoName` - Indicates the algorithm name for generating the sign context. e.g. "RSA|PKCS1|SHA384", "ECC|SHA384".
+    /// * `algoName` - \[in\] Signing algorithm name. Cannot be NULL. Values:
+    /// - RSA PKCS1 mode: Format "RSA|PKCS1|Digest", e.g. "RSA|PKCS1|SHA256", "RSA|PKCS1|SHA512".
+    /// Digest supports "MD5", "SHA1", "SHA224", "SHA256", "SHA384", "SHA512".
+    /// - RSA PSS mode: Format "RSA|PSS|Digest|MGF1Digest", e.g. "RSA|PSS|SHA256|MGF1_SHA256".
+    /// Digest supports "MD5", "SHA1", "SHA224", "SHA256", "SHA384", "SHA512".
+    /// MGF1 digest supports "MGF1_MD5", "MGF1_SHA1", "MGF1_SHA224", "MGF1_SHA256", "MGF1_SHA384", "MGF1_SHA512".
+    /// - RSA sign only: Format "RSA|PKCS1|Digest|OnlySign", e.g. "RSA|PKCS1|SHA256|OnlySign",
+    /// "RSA|PKCS1|SHA512|OnlySign".
+    /// Digest supports "NoHash", "MD5", "SHA1", "SHA224", "SHA256", "SHA384", "SHA512".
+    /// - ECDSA algorithm: Format "ECC|Digest", e.g. "ECC|SHA256", "ECC|SHA384".
+    /// Digest supports "SHA1", "SHA224", "SHA256", "SHA384", "SHA512".
+    /// - DSA algorithm: Format "DSA|Digest", e.g. "DSA|SHA256", "DSA|SHA384".
+    /// Digest supports "NoHash", "SHA1", "SHA224", "SHA256", "SHA384", "SHA512".
+    /// - SM2 algorithm: "SM2|SM3".
+    /// - Ed25519 algorithm: "Ed25519".
     ///
-    /// * `sign` - Indicates the sign context.
+    /// * `sign` - \[out\] Pointer to the signing context pointer. sign cannot be NULL, *sign must be NULL.
     ///
     /// # Returns
     ///
-    /// * [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) 0 - If the operation is successful.
-    /// [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) 801 - If the operation is not supported.
-    /// [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) 17620001 - If memory operation failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) 17620003 - If parameter check failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) 17630001 - If crypto operation failed.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) if the operation succeeds.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) if sign or algoName is NULL.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) if the algorithm is not supported.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) if memory allocation fails.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) if crypto operation fails.
+    ///
+    /// **Note:** Release `sign` with [`OH_CryptoSign_Destroy`](crate::signature::OH_CryptoSign_Destroy).
     ///
     /// Available since API-level: 20
+    ///
+    /// **See also:** [`OH_CryptoSign_Init`](crate::signature::OH_CryptoSign_Init) Initializes the signing context.
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_CryptoSign_Create(
         algoName: *const ::core::ffi::c_char,
         sign: *mut *mut OH_CryptoSign,
     ) -> CryptoResult;
-    /// Initializes the sign context.
-    ///
+    /// Initializes the signing context.
     /// # Arguments
     ///
-    /// * `ctx` - Indicates the sign context.
+    /// * `ctx` - \[in\] Signing context. Cannot be NULL.
     ///
-    /// * `privKey` - Indicates the private key.
+    /// * `privKey` - \[in\] Private key. Cannot be NULL.
     ///
     /// # Returns
     ///
-    /// * [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) 0 - If the operation is successful.
-    /// [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) 801 - If the operation is not supported.
-    /// [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) 17620001 - If memory operation failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) 17620003 - If parameter check failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) 17630001 - If crypto operation failed.
-    ///
-    /// **See also:** [`OH_CryptoSign_Update`](crate::signature::OH_CryptoSign_Update)
-    ///
-    /// **See also:** [`OH_CryptoSign_Final`](crate::signature::OH_CryptoSign_Final)
+    /// - [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) if the operation succeeds.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) if ctx or privKey is NULL.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) if unsupported operation or algorithm.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) if memory operation fails.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) if sign init fails.
     ///
     /// Available since API-level: 20
+    ///
+    /// **See also:** [`OH_CryptoSign_Update`](crate::signature::OH_CryptoSign_Update) Updates data to be signed.
+    ///
+    /// **See also:** [`OH_CryptoSign_Final`](crate::signature::OH_CryptoSign_Final) Finishes the signing operation.
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_CryptoSign_Init(
         ctx: *mut OH_CryptoSign,
         privKey: *mut OH_CryptoPrivKey,
     ) -> CryptoResult;
-    /// Updates the data to be signed.
-    ///
+    /// Updates data to be signed.
     /// # Arguments
     ///
-    /// * `ctx` - Indicates the sign context.
+    /// * `ctx` - \[in\] Signing context. Cannot be NULL.
     ///
-    /// * `in` - Indicates the data to be signed.
+    /// * `in` - \[in\] Data to be signed. Cannot be NULL.
     ///
     /// # Returns
     ///
-    /// * [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) 0 - If the operation is successful.
-    /// [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) 801 - If the operation is not supported.
-    /// [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) 17620001 - If memory operation failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) 17620003 - If parameter check failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) 17630001 - If crypto operation failed.
-    ///
-    /// **See also:** [`OH_CryptoSign_Init`](crate::signature::OH_CryptoSign_Init)
-    ///
-    /// **See also:** [`OH_CryptoSign_Final`](crate::signature::OH_CryptoSign_Final)
+    /// - [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) if the operation succeeds.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) if ctx or in is NULL.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) if unsupported operation or algorithm.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) if memory operation fails.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_INVALID_CALL`](crate::common::CryptoErrorCode::INVALID_CALL) if the function call is invalid. \[since 26.0.0\]
+    /// - [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) if sign update fails.
     ///
     /// Available since API-level: 20
+    ///
+    /// **See also:** [`OH_CryptoSign_Final`](crate::signature::OH_CryptoSign_Final) Finishes the signing operation.
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_CryptoSign_Update(
         ctx: *mut OH_CryptoSign,
         in_: *const Crypto_DataBlob,
     ) -> CryptoResult;
-    /// Finalizes the sign operation.
-    ///
+    /// Finishes the signing operation.
     /// # Arguments
     ///
-    /// * `ctx` - Indicates the sign context.
+    /// * `ctx` - \[in\] Signing context. Cannot be NULL.
     ///
-    /// * `in` - Indicates the data to be signed, if OH_CryptoSign_Update has been called, this parameter can be NULL.
+    /// * `in` - \[in\] Data to be signed. Can be NULL if all data has been updated via [`OH_CryptoSign_Update`](crate::signature::OH_CryptoSign_Update).
     ///
-    /// * `out` - Indicates the sign result.
+    /// * `out` - \[out\] Pointer to the Crypto_DataBlob structure for storing the signature result. Cannot be NULL.
+    /// Initialize out to {0} before calling. Do not pre-allocate out->data.
     ///
     /// # Returns
     ///
-    /// * [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) 0 - If the operation is successful.
-    /// [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) 801 - If the operation is not supported.
-    /// [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) 17620001 - If memory operation failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) 17620003 - If parameter check failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) 17630001 - If crypto operation failed.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) if the operation succeeds.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) if ctx or out is NULL.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) if unsupported operation or algorithm.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) if memory operation fails.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) if signing fails.
     ///
-    /// **See also:** [`OH_CryptoSign_Init`](crate::signature::OH_CryptoSign_Init)
-    ///
-    /// **See also:** [`OH_CryptoSign_Update`](crate::signature::OH_CryptoSign_Update)
+    /// **Note:** Release `out` with [`OH_Crypto_FreeDataBlob`](crate::common::OH_Crypto_FreeDataBlob).
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -378,37 +428,36 @@ extern "C" {
         in_: *const Crypto_DataBlob,
         out: *mut Crypto_DataBlob,
     ) -> CryptoResult;
-    /// Gets the algorithm name of the sign context.
-    ///
+    /// Obtains the algorithm name of the signing context.
     /// # Arguments
     ///
-    /// * `ctx` - Indicates the sign context.
+    /// * `ctx` - \[in\] Signing context. Cannot be NULL.
     ///
     /// # Returns
     ///
-    /// * Return signature algorithm name.
+    /// * Returns the signing algorithm name. No need to free by the caller. Invalid after the context is destroyed.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_CryptoSign_GetAlgoName(ctx: *mut OH_CryptoSign) -> *const ::core::ffi::c_char;
-    /// Sets the specified parameter to the sign context.
-    ///
+    /// Sets the specified parameter for the signing context.
     /// # Arguments
     ///
-    /// * `ctx` - Indicates the sign context.
+    /// * `ctx` - \[in\] Signing context. Cannot be NULL.
     ///
-    /// * `type` - Indicates the signature parameter type.
+    /// * `type` - \[in\] Signing parameter type.
     ///
-    /// * `value` - Indicates the input data.
+    /// * `value` - \[in\] Input data. This function performs a deep copy of the data in value. The caller
+    /// can release value immediately after the function returns. Cannot be NULL.
     ///
     /// # Returns
     ///
-    /// * [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) 0 - If the operation is successful.
-    /// [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) 801 - If the operation is not supported.
-    /// [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) 17620001 - If memory operation failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) 17620003 - If parameter check failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) 17630001 - If crypto operation failed.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) if the operation succeeds.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) if ctx or value is NULL.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) if unsupported operation or algorithm.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) if memory operation fails.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) if crypto operation fails.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -418,23 +467,25 @@ extern "C" {
         type_: CryptoSignature_ParamType,
         value: *const Crypto_DataBlob,
     ) -> CryptoResult;
-    /// Gets the specified parameter from the sign context.
-    ///
+    /// Obtains the specified parameter from the signing context.
     /// # Arguments
     ///
-    /// * `ctx` - Indicates the sign context.
+    /// * `ctx` - \[in\] Signing context. Cannot be NULL.
     ///
-    /// * `type` - Indicates the signature parameter type.
+    /// * `type` - \[in\] Signing parameter type.
     ///
-    /// * `value` - Indicates the output data.
+    /// * `value` - \[out\] Pointer to the Crypto_DataBlob structure for storing the output data. Cannot be NULL. Initialize
+    /// value to {0} before calling. Do not pre-allocate value->data.
     ///
     /// # Returns
     ///
-    /// * [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) 0 - If the operation is successful.
-    /// [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) 801 - If the operation is not supported.
-    /// [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) 17620001 - If memory operation failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) 17620003 - If parameter check failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) 17630001 - If crypto operation failed.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) if the operation succeeds.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) if ctx or value is NULL.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) if unsupported operation or algorithm.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) if memory operation fails.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) if crypto operation fails.
+    ///
+    /// **Note:** Release `value` with [`OH_Crypto_FreeDataBlob`](crate::common::OH_Crypto_FreeDataBlob).
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -444,57 +495,65 @@ extern "C" {
         type_: CryptoSignature_ParamType,
         value: *mut Crypto_DataBlob,
     ) -> CryptoResult;
-    /// Destroys the sign context.
-    ///
+    /// Destroys the signing context.
     /// # Arguments
     ///
-    /// * `ctx` - Indicates the sign context.
+    /// * `ctx` - \[in\] Signing context.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_CryptoSign_Destroy(ctx: *mut OH_CryptoSign);
-    /// Creates the ECC signature spec, also support SM2 signature.
-    ///
+    /// Creates an ECC signature specification. Also supports SM2 signatures.
     /// # Arguments
     ///
-    /// * `eccSignature` - Indicates the ECC signature in DER format, if eccSignature parameter is NULL,
-    /// an empty ECC signature spec will be created.
+    /// * `eccSignature` - \[in\] ECC signature data in DER format. If NULL, an empty signature specification is created.
     ///
-    /// * `spec` - Indicates the output ECC signature spec.
+    /// * `spec` - \[out\] Pointer to the ECC signature specification pointer. spec cannot be NULL, *spec must be NULL.
     ///
     /// # Returns
     ///
-    /// * [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) 0 - If the operation is successful.
-    /// [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) 801 - If the operation is not supported.
-    /// [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) 17620001 - If memory operation failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) 17620003 - If parameter check failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) 17630001 - If crypto operation failed.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) if the operation succeeds.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) if spec is NULL or *spec is not NULL.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) if unsupported operation or algorithm.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) if memory operation fails.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) if parsing eccSignature fails or eccSignature contains an invalid DER-encoded ECDSA-Sig-Value.
+    ///
+    /// **Note:** Release `spec` with [`OH_CryptoEccSignatureSpec_Destroy`](crate::signature::OH_CryptoEccSignatureSpec_Destroy).
     ///
     /// Available since API-level: 20
+    ///
+    /// **See also:** [`OH_CryptoEccSignatureSpec_GetRAndS`](crate::signature::OH_CryptoEccSignatureSpec_GetRAndS) Gets the r and s values from the ECC signature specification.
+    ///
+    /// **See also:** [`OH_CryptoEccSignatureSpec_SetRAndS`](crate::signature::OH_CryptoEccSignatureSpec_SetRAndS) Sets the r and s values for the ECC signature specification.
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_CryptoEccSignatureSpec_Create(
         eccSignature: *mut Crypto_DataBlob,
         spec: *mut *mut OH_CryptoEccSignatureSpec,
     ) -> CryptoResult;
-    /// Gets the r and s value from the ECC signature spec.
-    ///
+    /// Gets the r and s values from the ECC signature specification.
     /// # Arguments
     ///
-    /// * `spec` - Indicates the ECC signature spec.
+    /// * `spec` - \[in\] ECC signature specification. Cannot be NULL.
     ///
-    /// * `r` - Indicates the output r value.
+    /// * `r` - \[out\] Pointer to the Crypto_DataBlob structure for storing the r value. Cannot be NULL.
+    /// Initialize r to {0} before calling. Do not pre-allocate r->data.
     ///
-    /// * `s` - Indicates the output s value.
+    /// * `s` - \[out\] Pointer to the Crypto_DataBlob structure for storing the s value. Cannot be NULL.
+    /// Initialize s to {0} before calling. Do not pre-allocate s->data.
     ///
     /// # Returns
     ///
-    /// * [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) 0 - If the operation is successful.
-    /// [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) 801 - If the operation is not supported.
-    /// [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) 17620001 - If memory operation failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) 17620003 - If parameter check failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) 17630001 - If crypto operation failed.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) if the operation succeeds.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) if spec, r, or s is NULL.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) if unsupported operation or algorithm.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) if memory operation fails.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) if crypto operation fails.
+    ///
+    /// **Note:** Release `s` with [`OH_Crypto_FreeDataBlob`](crate::common::OH_Crypto_FreeDataBlob).
+    ///
+    /// **Note:** Release `r` with [`OH_Crypto_FreeDataBlob`](crate::common::OH_Crypto_FreeDataBlob).
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -504,25 +563,27 @@ extern "C" {
         r: *mut Crypto_DataBlob,
         s: *mut Crypto_DataBlob,
     ) -> CryptoResult;
-    /// Sets the r and s value to the ECC signature spec.
-    ///
+    /// Sets the r and s values for the ECC signature specification.
     /// # Arguments
     ///
-    /// * `spec` - Indicates the ECC signature spec.
+    /// * `spec` - \[in\] ECC signature specification. Cannot be NULL.
     ///
-    /// * `r` - Indicates the input r value.
+    /// * `r` - \[in\] r value. This function performs a deep copy of the data in r and s. The caller can
+    /// release r and s immediately after the function returns. Cannot be NULL.
     ///
-    /// * `s` - Indicates the input s value.
+    /// * `s` - \[in\] s value. Cannot be NULL.
     ///
     /// # Returns
     ///
-    /// * [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) 0 - If the operation is successful.
-    /// [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) 801 - If the operation is not supported.
-    /// [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) 17620001 - If memory operation failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) 17620003 - If parameter check failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) 17630001 - If crypto operation failed.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) if the operation succeeds.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) if spec, r, or s is NULL.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) if unsupported operation or algorithm.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) if memory operation fails.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) if crypto operation fails.
     ///
     /// Available since API-level: 20
+    ///
+    /// **See also:** [`OH_CryptoEccSignatureSpec_Encode`](crate::signature::OH_CryptoEccSignatureSpec_Encode) Encodes the ECC signature specification into DER format signature data.
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_CryptoEccSignatureSpec_SetRAndS(
@@ -530,21 +591,23 @@ extern "C" {
         r: *mut Crypto_DataBlob,
         s: *mut Crypto_DataBlob,
     ) -> CryptoResult;
-    /// Encodes the ECC signature spec to signature data in DER format.
-    ///
+    /// Encodes the ECC signature specification into DER format signature data.
     /// # Arguments
     ///
-    /// * `spec` - Indicates the ECC signature spec.
+    /// * `spec` - \[in\] ECC signature specification. Cannot be NULL.
     ///
-    /// * `out` - Indicates the output data blob.
+    /// * `out` - \[out\] Pointer to the Crypto_DataBlob structure for storing the encoded signature. Cannot
+    /// be NULL. Initialize out to {0} before calling. Do not pre-allocate out->data.
     ///
     /// # Returns
     ///
-    /// * [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) 0 - If the operation is successful.
-    /// [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) 801 - If the operation is not supported.
-    /// [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) 17620001 - If memory operation failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) 17620003 - If parameter check failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) 17630001 - If crypto operation failed.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) if the operation succeeds.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) if spec or out is NULL, or r and s values have not been set via [`OH_CryptoEccSignatureSpec_SetRAndS`](crate::signature::OH_CryptoEccSignatureSpec_SetRAndS).
+    /// - [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) if unsupported operation or algorithm.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) if memory allocation fails.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) if encoding fails.
+    ///
+    /// **Note:** Release `out` with [`OH_Crypto_FreeDataBlob`](crate::common::OH_Crypto_FreeDataBlob).
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -553,11 +616,10 @@ extern "C" {
         spec: *mut OH_CryptoEccSignatureSpec,
         out: *mut Crypto_DataBlob,
     ) -> CryptoResult;
-    /// Destroys the ECC signature spec.
-    ///
+    /// Destroys the ECC signature specification.
     /// # Arguments
     ///
-    /// * `spec` - Indicates the ECC signature spec.
+    /// * `spec` - \[in\] ECC signature specification.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]

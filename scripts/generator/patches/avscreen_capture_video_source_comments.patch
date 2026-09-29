@@ -1,0 +1,14 @@
+--- a/components/multimedia/player_framework/src/avscreen_capture_base/avscreen_capture_base_ffi.rs
++++ b/components/multimedia/player_framework/src/avscreen_capture_base/avscreen_capture_base_ffi.rs
+@@ -108,11 +108,8 @@
+ impl OH_VideoSourceType {
+     /// RGBA format.
+     pub const OH_VIDEO_SOURCE_SURFACE_YUV: OH_VideoSourceType = OH_VideoSourceType(0);
+-    /// RGBA format.
+     pub const OH_VIDEO_SOURCE_SURFACE_ES: OH_VideoSourceType = OH_VideoSourceType(1);
+-    /// RGBA format.
+     pub const OH_VIDEO_SOURCE_SURFACE_RGBA: OH_VideoSourceType = OH_VideoSourceType(2);
+-    /// RGBA format.
+     pub const OH_VIDEO_SOURCE_BUTT: OH_VideoSourceType = OH_VideoSourceType(3);
+ }
+ #[repr(transparent)]

@@ -112,11 +112,23 @@ pub struct OH_Rdb_ConfigV2 {
 #[cfg(feature = "api-14")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
 impl Rdb_DBType {
-    /// Means using SQLITE as the db kernal
+    /// Means using SQLITE as the db kernel
+    ///
+    /// Available since API-level: 14
+    #[cfg(feature = "api-14")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
     pub const RDB_SQLITE: Rdb_DBType = Rdb_DBType(1);
-    /// Means using CARLEY_DB as the db kernal
+    /// Means using CAYLEY_DB as the db kernel
+    ///
+    /// Available since API-level: 14
+    #[cfg(feature = "api-14")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
     pub const RDB_CAYLEY: Rdb_DBType = Rdb_DBType(2);
     /// Means largest value for Rdb_DBType
+    ///
+    /// Available since API-level: 14
+    #[cfg(feature = "api-14")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
     pub const DBTYPE_BUTT: Rdb_DBType = Rdb_DBType(64);
 }
 #[repr(transparent)]
@@ -1197,7 +1209,7 @@ extern "C" {
     ///
     /// * `store` - Represents a pointer to an [`OH_Rdb_Store`](crate::relational_store::OH_Rdb_Store) instance.
     ///
-    /// * `valuesBucket` - Indicates the row of data `OH__VBucket` to be updated in the database
+    /// * `valuesBucket` - Indicates the row of data [`OH_VBucket`](crate::values_bucket::OH_VBucket) to be updated in the database
     ///
     /// * `predicates` - Represents a pointer to an [`OH_Predicates`](crate::predicates::OH_Predicates) instance.
     /// Indicates the specified update condition.
@@ -2064,7 +2076,7 @@ extern "C" {
     ///
     /// * `attachName` - Represents the alias of the database.
     ///
-    /// * `waitTime` - Represents the maximum time allowed for attaching the database, valid range is 1 to 300.
+    /// * `waitTime` - Represents the maximum time allowed for attaching the database, in seconds, valid range is 1 to 300.
     ///
     /// * `attachedNumber` - Represents the number of attached databases, It is an output parameter.
     ///
@@ -2107,7 +2119,7 @@ extern "C" {
     ///
     /// * `attachName` - Represents the alias of the database.
     ///
-    /// * `waitTime` - Represents the maximum time allowed for detaching the database, valid range is 1 to 300.
+    /// * `waitTime` - Represents the maximum time allowed for detaching the database, in seconds, valid range is 1 to 300.
     ///
     /// * `attachedNumber` - Represents the number of attached databases, It is an output parameter.
     ///
@@ -2154,13 +2166,13 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) if the execution is successful.
-    /// [`RDB_ERR`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_ERR) - Indicates that the function execution exception.
-    /// [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) - The error code for common invalid args.
-    /// [`RDB_E_ALREADY_CLOSED`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_ALREADY_CLOSED) database already closed.
-    /// [`RDB_E_SQLITE_BUSY`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_BUSY) SQLite: The database file is locked.
-    /// [`RDB_E_SQLITE_NOMEM`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_NOMEM) SQLite: The database is out of memory.
-    /// Specific error codes can be referenced [`OH_Rdb_ErrCode`](crate::relational_store_error_code::OH_Rdb_ErrCode).
+    /// <br>[`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) if the execution is successful.
+    /// <br>[`RDB_ERR`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_ERR) - Indicates that the function execution exception.
+    /// <br>[`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) - The error code for common invalid args.
+    /// <br>[`RDB_E_ALREADY_CLOSED`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_ALREADY_CLOSED) database already closed.
+    /// <br>[`RDB_E_SQLITE_BUSY`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_BUSY) SQLite: The database file is locked.
+    /// <br>[`RDB_E_SQLITE_NOMEM`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_NOMEM) SQLite: The database is out of memory.
+    /// <br>Specific error codes can be referenced [`OH_Rdb_ErrCode`](crate::relational_store_error_code::OH_Rdb_ErrCode).
     ///
     /// **See also:** [`OH_Rdb_Store`](crate::relational_store::OH_Rdb_Store).
     ///

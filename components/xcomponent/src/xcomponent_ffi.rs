@@ -357,7 +357,7 @@ impl OH_NativeXComponent_KeyCode {
     pub const KEY_BTN_9: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(3109);
 }
 #[repr(transparent)]
-/// Represents the key event code.
+/// Enumerates the key codes for key events.
 ///
 ///
 /// Available since API-level: 10
@@ -374,7 +374,7 @@ impl OH_NativeXComponent_KeyAction {
         OH_NativeXComponent_KeyAction(1);
 }
 #[repr(transparent)]
-/// Represents the key event action.
+/// Enumerates the key event actions.
 ///
 ///
 /// Available since API-level: 10
@@ -385,24 +385,34 @@ pub struct OH_NativeXComponent_KeyAction(pub ::core::ffi::c_int);
 pub const OH_XCOMPONENT_ID_LEN_MAX: u32 = 128;
 pub const OH_MAX_TOUCH_POINTS_NUMBER: u32 = 10;
 impl OH_NativeXComponent_TouchEventType {
-    /// Trigger a touch event when a finger is pressed.
+    /// The touch event is triggered when a finger is pressed.
+    ///
+    /// Available since API-level: 8
     pub const OH_NATIVEXCOMPONENT_DOWN: OH_NativeXComponent_TouchEventType =
         OH_NativeXComponent_TouchEventType(0);
-    /// Trigger a touch event when a finger is lifted.
+    /// The touch event is triggered when a finger is lifted.
+    ///
+    /// Available since API-level: 8
     pub const OH_NATIVEXCOMPONENT_UP: OH_NativeXComponent_TouchEventType =
         OH_NativeXComponent_TouchEventType(1);
-    /// Trigger a touch event when a finger moves on the screen in pressed state.
+    /// The touch event is triggered when a finger is moved on the screen.
+    ///
+    /// Available since API-level: 8
     pub const OH_NATIVEXCOMPONENT_MOVE: OH_NativeXComponent_TouchEventType =
         OH_NativeXComponent_TouchEventType(2);
-    /// Trigger an event when a touch event is canceled.
+    /// The event is triggered when a touch event is canceled.
+    ///
+    /// Available since API-level: 8
     pub const OH_NATIVEXCOMPONENT_CANCEL: OH_NativeXComponent_TouchEventType =
         OH_NativeXComponent_TouchEventType(3);
     /// Invalid touch type.
+    ///
+    /// Available since API-level: 8
     pub const OH_NATIVEXCOMPONENT_UNKNOWN: OH_NativeXComponent_TouchEventType =
         OH_NativeXComponent_TouchEventType(4);
 }
 #[repr(transparent)]
-/// Represents the type of touch event.
+/// Enumerates the touch event types.
 ///
 ///
 /// Available since API-level: 8
@@ -411,36 +421,54 @@ impl OH_NativeXComponent_TouchEventType {
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OH_NativeXComponent_TouchEventType(pub ::core::ffi::c_uint);
 impl OH_NativeXComponent_TouchPointToolType {
-    /// Indicates invalid tool type.
+    /// Unknown tool type.
+    ///
+    /// Available since API-level: 9
     pub const OH_NATIVEXCOMPONENT_TOOL_TYPE_UNKNOWN: OH_NativeXComponent_TouchPointToolType =
         OH_NativeXComponent_TouchPointToolType(0);
-    /// Indicates a finger.
+    /// Finger.
+    ///
+    /// Available since API-level: 9
     pub const OH_NATIVEXCOMPONENT_TOOL_TYPE_FINGER: OH_NativeXComponent_TouchPointToolType =
         OH_NativeXComponent_TouchPointToolType(1);
-    /// Indicates a stylus.
+    /// Stylus.
+    ///
+    /// Available since API-level: 9
     pub const OH_NATIVEXCOMPONENT_TOOL_TYPE_PEN: OH_NativeXComponent_TouchPointToolType =
         OH_NativeXComponent_TouchPointToolType(2);
-    /// Indicates a eraser.
+    /// Rubber.
+    ///
+    /// Available since API-level: 9
     pub const OH_NATIVEXCOMPONENT_TOOL_TYPE_RUBBER: OH_NativeXComponent_TouchPointToolType =
         OH_NativeXComponent_TouchPointToolType(3);
-    /// Indicates a brush.
+    /// Brush.
+    ///
+    /// Available since API-level: 9
     pub const OH_NATIVEXCOMPONENT_TOOL_TYPE_BRUSH: OH_NativeXComponent_TouchPointToolType =
         OH_NativeXComponent_TouchPointToolType(4);
-    /// Indicates a pencil.
+    /// Pencil.
+    ///
+    /// Available since API-level: 9
     pub const OH_NATIVEXCOMPONENT_TOOL_TYPE_PENCIL: OH_NativeXComponent_TouchPointToolType =
         OH_NativeXComponent_TouchPointToolType(5);
-    /// Indicates a brush.
+    /// Brush.
+    ///
+    /// Available since API-level: 9
     pub const OH_NATIVEXCOMPONENT_TOOL_TYPE_AIRBRUSH: OH_NativeXComponent_TouchPointToolType =
         OH_NativeXComponent_TouchPointToolType(6);
-    /// Indicates a mouse.
+    /// Mouse.
+    ///
+    /// Available since API-level: 9
     pub const OH_NATIVEXCOMPONENT_TOOL_TYPE_MOUSE: OH_NativeXComponent_TouchPointToolType =
         OH_NativeXComponent_TouchPointToolType(7);
-    /// Indicates a lens.
+    /// Lens.
+    ///
+    /// Available since API-level: 9
     pub const OH_NATIVEXCOMPONENT_TOOL_TYPE_LENS: OH_NativeXComponent_TouchPointToolType =
         OH_NativeXComponent_TouchPointToolType(8);
 }
 #[repr(transparent)]
-/// Represents the touch point tool type.
+/// Enumerates the touch point tool types.
 ///
 ///
 /// Available since API-level: 9
@@ -449,22 +477,32 @@ impl OH_NativeXComponent_TouchPointToolType {
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OH_NativeXComponent_TouchPointToolType(pub ::core::ffi::c_uint);
 impl OH_NativeXComponent_EventSourceType {
-    /// Indicates an unknown input source type.
+    /// Unknown source type.
+    ///
+    /// Available since API-level: 9
     pub const OH_NATIVEXCOMPONENT_SOURCE_TYPE_UNKNOWN: OH_NativeXComponent_EventSourceType =
         OH_NativeXComponent_EventSourceType(0);
-    /// Indicates that the input source generates a mouse multi-touch event.
+    /// Source that generates a mouse multi-click event.
+    ///
+    /// Available since API-level: 9
     pub const OH_NATIVEXCOMPONENT_SOURCE_TYPE_MOUSE: OH_NativeXComponent_EventSourceType =
         OH_NativeXComponent_EventSourceType(1);
-    /// Indicates that the input source generates a touchscreen multi-touch event.
+    /// Source that generates a touchscreen multitouch event.
+    ///
+    /// Available since API-level: 9
     pub const OH_NATIVEXCOMPONENT_SOURCE_TYPE_TOUCHSCREEN: OH_NativeXComponent_EventSourceType =
         OH_NativeXComponent_EventSourceType(2);
-    /// Indicates that the input source generates a touchpad multi-touch event.
+    /// Source that generates a touchpad multitouch event.
+    ///
+    /// Available since API-level: 9
     pub const OH_NATIVEXCOMPONENT_SOURCE_TYPE_TOUCHPAD: OH_NativeXComponent_EventSourceType =
         OH_NativeXComponent_EventSourceType(3);
-    /// Indicates that the input source generates a joystick multi-touch event.
+    /// Source that generates a joystick multitouch event.
+    ///
+    /// Available since API-level: 9
     pub const OH_NATIVEXCOMPONENT_SOURCE_TYPE_JOYSTICK: OH_NativeXComponent_EventSourceType =
         OH_NativeXComponent_EventSourceType(4);
-    /// Indicates that the input source generates a keyboard event.
+    /// Source that generates a key event.
     ///
     ///
     /// Available since API-level: 10
@@ -474,7 +512,7 @@ impl OH_NativeXComponent_EventSourceType {
         OH_NativeXComponent_EventSourceType(5);
 }
 #[repr(transparent)]
-/// Represents the touch event source type.
+/// Enumerates the touch event source types.
 ///
 ///
 /// Available since API-level: 9
@@ -491,7 +529,12 @@ impl OH_NativeXComponent_MouseEventAction {
         OH_NativeXComponent_MouseEventAction(2);
     pub const OH_NATIVEXCOMPONENT_MOUSE_MOVE: OH_NativeXComponent_MouseEventAction =
         OH_NativeXComponent_MouseEventAction(3);
-    /// Triggered when the mouse event is canceled.
+    /// Mouse button canceling.<br> Note: Mouse button canceling is typically triggered in the following scenarios:<br>1.
+    /// Component focus loss: A currently focused **XComponent** loses focus due to a system event (such as pop-up
+    /// interruption or app switching).<br> 2. Event interruption: During a mouse operation, a higher-priority event
+    /// occurs (such as a system-level gesture or forced event stream recycling), causing the current mouse operation to
+    /// be forcibly terminated.<br>3. Abnormal state exit: In scenarios such as component destruction or abnormal
+    /// rendering environment, unfinished mouse events are marked as canceled.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -500,7 +543,7 @@ impl OH_NativeXComponent_MouseEventAction {
         OH_NativeXComponent_MouseEventAction(4);
 }
 #[repr(transparent)]
-/// Represents the mouse event action.
+/// Enumerates the mouse event actions.
 ///
 ///
 /// Available since API-level: 9
@@ -523,7 +566,7 @@ impl OH_NativeXComponent_MouseEventButton {
         OH_NativeXComponent_MouseEventButton(16);
 }
 #[repr(transparent)]
-/// Represents the mouse event button.
+/// Enumerates the mouse event buttons.
 ///
 ///
 /// Available since API-level: 9
@@ -554,7 +597,7 @@ impl OH_NativeXComponent_TouchEvent_SourceTool {
         OH_NativeXComponent_TouchEvent_SourceTool(9);
 }
 #[repr(transparent)]
-/// Represents the source tool type of TouchEvent
+/// Enumerates the source tool types of touch events.
 ///
 ///
 /// Available since API-level: 10
@@ -562,7 +605,7 @@ impl OH_NativeXComponent_TouchEvent_SourceTool {
 /// Version: 1.0
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OH_NativeXComponent_TouchEvent_SourceTool(pub ::core::ffi::c_uint);
-/// Represents the historical point.
+/// Represents a historical touch point.
 ///
 ///
 /// Available since API-level: 10
@@ -571,32 +614,59 @@ pub struct OH_NativeXComponent_TouchEvent_SourceTool(pub ::core::ffi::c_uint);
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct OH_NativeXComponent_HistoricalPoint {
-    /// Unique identifier of a finger.
+    /// Unique identifier of the finger.
+    ///
+    /// Available since API-level: 10
     pub id: i32,
-    /// X coordinate of the touch point relative to the left edge of the screen.
+    /// X-coordinate of the touch point relative to the upper left corner of the application window where the XComponent
+    /// is located.
+    ///
+    /// Available since API-level: 10
     pub screenX: f32,
-    /// Y coordinate of the touch point relative to the upper edge of the screen.
+    /// Y-coordinate of the touch point relative to the upper left corner of the application window where the XComponent
+    /// is located.
+    ///
+    /// Available since API-level: 10
     pub screenY: f32,
-    /// X coordinate of the touch point relative to the left edge of the element to touch.
+    /// X-coordinate of the touch point relative to the left edge of the XComponent.
+    ///
+    /// Available since API-level: 10
     pub x: f32,
-    /// Y coordinate of the touch point relative to the upper edge of the element to touch.
+    /// Y-coordinate of the touch point relative to the upper edge of the XComponent.
+    ///
+    /// Available since API-level: 10
     pub y: f32,
     /// Touch type of the touch event.
+    ///
+    /// Available since API-level: 10
     pub type_: OH_NativeXComponent_TouchEventType,
     /// Contact area between the finger pad and the screen.
+    ///
+    /// Available since API-level: 10
     pub size: f64,
-    /// Pressure of the current touch event.
+    /// Pressure of the touch event.
+    ///
+    /// Available since API-level: 10
     pub force: f32,
-    /// Timestamp of the current touch event.
+    /// Timestamp of the touch event. It is interval between the time when the event is triggered and the time when the
+    /// system starts, in nanoseconds.
+    ///
+    /// Available since API-level: 10
     pub timeStamp: i64,
-    /// The angle betweenprojection on plane-X-Y and axis-Z of the current touch event.
+    /// Angle between the projection on the x-y plane and the z-axis of the touch event.
+    ///
+    /// Available since API-level: 10
     pub titlX: f32,
-    /// The angle betweenprojection on plane-Y-Z and axis-Z of the current touch event.
+    /// Angle between the projection on the y-z plane and the z-axis of the current touch event.
+    ///
+    /// Available since API-level: 10
     pub titlY: f32,
-    /// The sourceTool of the current touch event.
+    /// Source tool of the touch event.
+    ///
+    /// Available since API-level: 10
     pub sourceTool: OH_NativeXComponent_TouchEvent_SourceTool,
 }
-/// Represents the touch point information of touch event.
+/// Describes the touch point of the touch event.
 ///
 ///
 /// Available since API-level: 8
@@ -605,28 +675,51 @@ pub struct OH_NativeXComponent_HistoricalPoint {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct OH_NativeXComponent_TouchPoint {
-    /// Unique identifier of a finger.
+    /// Unique identifier of the finger.
+    ///
+    /// Available since API-level: 8
     pub id: i32,
-    /// X coordinate of the touch point relative to the left edge of the screen.
+    /// X-coordinate of the touch point relative to the upper left corner of the application window where the XComponent
+    /// is located.
+    ///
+    /// Available since API-level: 8
     pub screenX: f32,
-    /// Y coordinate of the touch point relative to the upper edge of the screen.
+    /// Y-coordinate of the touch point relative to the upper left corner of the application window where the XComponent
+    /// is located.
+    ///
+    /// Available since API-level: 8
     pub screenY: f32,
-    /// X coordinate of the touch point relative to the left edge of the element to touch.
+    /// X-coordinate of the touch point relative to the left edge of the XComponent.
+    ///
+    /// Available since API-level: 8
     pub x: f32,
-    /// Y coordinate of the touch point relative to the upper edge of the element to touch.
+    /// Y-coordinate of the touch point relative to the upper edge of the XComponent.
+    ///
+    /// Available since API-level: 8
     pub y: f32,
     /// Touch type of the touch event.
+    ///
+    /// Available since API-level: 8
     pub type_: OH_NativeXComponent_TouchEventType,
     /// Contact area between the finger pad and the screen.
+    ///
+    /// Available since API-level: 8
     pub size: f64,
-    /// Pressure of the current touch event.
+    /// Pressure of the touch event.
+    ///
+    /// Available since API-level: 8
     pub force: f32,
-    /// Timestamp of the current touch event.
+    /// Timestamp of the touch event. It is interval between the time when the event is triggered and the time when the
+    /// system starts, in nanoseconds.
+    ///
+    /// Available since API-level: 8
     pub timeStamp: i64,
-    /// Whether the current point is pressed.
+    /// Whether the current point is pressed. **true** when the point is pressed, **false** when it is released.
+    ///
+    /// Available since API-level: 8
     pub isPressed: bool,
 }
-/// Represents the touch event.
+/// Defines the touch event.
 ///
 ///
 /// Available since API-level: 8
@@ -635,32 +728,60 @@ pub struct OH_NativeXComponent_TouchPoint {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct OH_NativeXComponent_TouchEvent {
-    /// Unique identifier of a finger.
+    /// Unique identifier of the finger.
+    ///
+    /// Available since API-level: 8
     pub id: i32,
-    /// X coordinate of the touch point relative to the left edge of the screen.
+    /// X-coordinate of the touch point relative to the upper left corner of the application window where the XComponent
+    /// is located.
+    ///
+    /// Available since API-level: 8
     pub screenX: f32,
-    /// Y coordinate of the touch point relative to the upper edge of the screen.
+    /// Y-coordinate of the touch point relative to the upper left corner of the application window where the XComponent
+    /// is located.
+    ///
+    /// Available since API-level: 8
     pub screenY: f32,
-    /// X coordinate of the touch point relative to the left edge of the element to touch.
+    /// X-coordinate of the touch point relative to the left edge of the XComponent.
+    ///
+    /// Available since API-level: 8
     pub x: f32,
-    /// Y coordinate of the touch point relative to the upper edge of the element to touch.
+    /// Y-coordinate of the touch point relative to the upper edge of the XComponent.
+    ///
+    /// Available since API-level: 8
     pub y: f32,
     /// Touch type of the touch event.
+    ///
+    /// Available since API-level: 8
     pub type_: OH_NativeXComponent_TouchEventType,
     /// Contact area between the finger pad and the screen.
+    ///
+    /// Available since API-level: 8
     pub size: f64,
-    /// Pressure of the current touch event.
+    /// Pressure of the touch event.
+    ///
+    /// Available since API-level: 8
     pub force: f32,
-    /// ID of the device where the current touch event is generated.
+    /// ID of the device where the current touch event is triggered.
+    ///
+    /// Available since API-level: 8
     pub deviceId: i64,
-    /// Timestamp of the current touch event.
+    /// Timestamp of the touch event. It is interval between the time when the event is triggered and the time when the
+    /// system starts, in nanoseconds.
+    ///
+    /// Available since API-level: 8
     pub timeStamp: i64,
     /// Array of the current touch points.
+    ///
+    /// Available since API-level: 8
     pub touchPoints: [OH_NativeXComponent_TouchPoint; 10usize],
-    /// Number of current touch points.
+    /// Number of current touch points. The value **1** indicates single-finger touch, while a value greater than **1**
+    /// indicates multi-finger touch.
+    ///
+    /// Available since API-level: 8
     pub numPoints: u32,
 }
-/// Represents the mouse event information.
+/// Defines a mouse event.
 ///
 ///
 /// Available since API-level: 9
@@ -669,22 +790,39 @@ pub struct OH_NativeXComponent_TouchEvent {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct OH_NativeXComponent_MouseEvent {
-    /// X coordinate of the mouse point relative to the left edge of the element to mouse.
+    /// X coordinate of the clicked point relative to the upper left corner of the component. Unit: vp.
+    ///
+    /// Available since API-level: 9
     pub x: f32,
-    /// Y coordinate of the mouse point relative to the upper edge of the element to mouse.
+    /// Y coordinate of the clicked point relative to the upper left corner of the component. Unit: vp.
+    ///
+    /// Available since API-level: 9
     pub y: f32,
-    /// X coordinate of the mouse point relative to the left edge of the screen.
+    /// X coordinate of the click point relative to the upper left corner of the application screen where the XComponent
+    /// is located. Unit: vp.
+    ///
+    /// Available since API-level: 9
     pub screenX: f32,
-    /// Y coordinate of the mouse point relative to the upper edge of the screen.
+    /// Y coordinate of the click point relative to the upper left corner of the application screen where the XComponent
+    /// is located. Unit: vp.
+    ///
+    /// Available since API-level: 9
     pub screenY: f32,
-    /// Timestamp of the current mouse event.
+    /// Timestamp of the mouse event. It is interval between the time when the event is triggered and the time when the
+    /// system starts, in nanoseconds.
+    ///
+    /// Available since API-level: 9
     pub timestamp: i64,
-    /// Mouse event action.
+    /// Action of the mouse event.
+    ///
+    /// Available since API-level: 9
     pub action: OH_NativeXComponent_MouseEventAction,
-    /// Mouse event button.
+    /// Button of the mouse event.
+    ///
+    /// Available since API-level: 9
     pub button: OH_NativeXComponent_MouseEventButton,
 }
-/// Provides an encapsulated <b>OH_NativeXComponent</b> instance.
+/// Provides an encapsulated **OH_NativeXComponent** instance.
 ///
 ///
 /// Available since API-level: 8
@@ -694,7 +832,7 @@ pub struct OH_NativeXComponent_MouseEvent {
 pub struct OH_NativeXComponent {
     _unused: [u8; 0],
 }
-/// Registers the surface lifecycle and touch event callbacks.
+/// Registers callbacks for the surface lifecycle and touch event.
 ///
 ///
 /// Available since API-level: 8
@@ -703,24 +841,32 @@ pub struct OH_NativeXComponent {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct OH_NativeXComponent_Callback {
-    /// Called when the surface is created.
+    /// Invoked when a surface is created.
+    ///
+    /// Available since API-level: 8
     pub OnSurfaceCreated: ::core::option::Option<
         unsafe extern "C" fn(component: *mut OH_NativeXComponent, window: *mut ::core::ffi::c_void),
     >,
-    /// Called when the surface is changed.
+    /// Invoked when the surface changes.
+    ///
+    /// Available since API-level: 8
     pub OnSurfaceChanged: ::core::option::Option<
         unsafe extern "C" fn(component: *mut OH_NativeXComponent, window: *mut ::core::ffi::c_void),
     >,
-    /// Called when the surface is destroyed.
+    /// Invoked when the surface is destroyed.
+    ///
+    /// Available since API-level: 8
     pub OnSurfaceDestroyed: ::core::option::Option<
         unsafe extern "C" fn(component: *mut OH_NativeXComponent, window: *mut ::core::ffi::c_void),
     >,
-    /// Called when a touch event is triggered.
+    /// Invoked when a touch event is triggered.
+    ///
+    /// Available since API-level: 8
     pub DispatchTouchEvent: ::core::option::Option<
         unsafe extern "C" fn(component: *mut OH_NativeXComponent, window: *mut ::core::ffi::c_void),
     >,
 }
-/// Registers the mouse event callbacks.
+/// Registers callbacks for the mouse event.
 ///
 ///
 /// Available since API-level: 9
@@ -729,16 +875,20 @@ pub struct OH_NativeXComponent_Callback {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct OH_NativeXComponent_MouseEvent_Callback {
-    /// Called when a mouse event is triggered.
+    /// Invoked when a mouse event is triggered.
+    ///
+    /// Available since API-level: 9
     pub DispatchMouseEvent: ::core::option::Option<
         unsafe extern "C" fn(component: *mut OH_NativeXComponent, window: *mut ::core::ffi::c_void),
     >,
-    /// Called when a hover event is triggered.
+    /// Invoked when a hover event is triggered.
+    ///
+    /// Available since API-level: 9
     pub DispatchHoverEvent: ::core::option::Option<
         unsafe extern "C" fn(component: *mut OH_NativeXComponent, isHover: bool),
     >,
 }
-/// Provides an encapsulated <b>OH_NativeXComponent_KeyEvent</b> instance.
+/// Provides an encapsulated **OH_NativeXComponent_KeyEvent** instance.
 ///
 ///
 /// Available since API-level: 10
@@ -748,7 +898,7 @@ pub struct OH_NativeXComponent_MouseEvent_Callback {
 pub struct OH_NativeXComponent_KeyEvent {
     _unused: [u8; 0],
 }
-/// Defines the expected frame rate range struct.
+/// Defines the expected frame rate range.
 ///
 ///
 /// Available since API-level: 11
@@ -759,15 +909,20 @@ pub struct OH_NativeXComponent_KeyEvent {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct OH_NativeXComponent_ExpectedRateRange {
-    /// The minimum frame rate of dynamical callback rate range.
+    /// Minimum value of the expected frame rate range. The unit is frame/second.
+    ///
+    /// Available since API-level: 11
     pub min: i32,
-    /// The maximum frame rate of dynamical callback rate range.
+    /// Maximum value of the expected frame rate range. The unit is frame/second.
+    ///
+    /// Available since API-level: 11
     pub max: i32,
-    /// The expected frame rate of dynamical callback rate range.
+    /// Expected frame rate. The unit is frame/second.
+    ///
+    /// Available since API-level: 11
     pub expected: i32,
 }
-/// Provides an encapsulated <b>OH_NativeXComponent_ExtraMouseEventInfo</b>
-/// instance which has extra info compared to OH_NativeXComponent_MouseEvent.
+/// Provides an encapsulated instance of extended mouse event information.
 ///
 ///
 /// Available since API-level: 20
@@ -779,7 +934,7 @@ pub struct OH_NativeXComponent_ExpectedRateRange {
 pub struct OH_NativeXComponent_ExtraMouseEventInfo {
     _unused: [u8; 0],
 }
-/// Provides an encapsulated <b>OH_ArkUI_SurfaceHolder</b> instance.
+/// Provides an encapsulated **OH_ArkUI_SurfaceHolder** instance.
 ///
 ///
 /// Available since API-level: 19
@@ -789,7 +944,7 @@ pub struct OH_NativeXComponent_ExtraMouseEventInfo {
 pub struct OH_ArkUI_SurfaceHolder {
     _unused: [u8; 0],
 }
-/// Define the surface lifecycle callback.
+/// Defines surface lifecycle callbacks.
 ///
 ///
 /// Available since API-level: 19
@@ -800,25 +955,24 @@ pub struct OH_ArkUI_SurfaceCallback {
     _unused: [u8; 0],
 }
 extern "C" {
-    /// Obtains the ID of the ArkUI XComponent.
+    /// Obtains the ID of ArkUI XComponent.
     ///
     /// # Arguments
     ///
-    /// * `component` - Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
+    /// * `component` - Pointer to an [`OH_NativeXComponent`](crate::OH_NativeXComponent) instance.
     ///
-    /// * `id` - Indicates the char buffer to keep the ID of this <b>OH_NativeXComponent</b> instance.
+    /// * `id` - Pointer to the character buffer for storing the ID of the [`OH_NativeXComponent`](crate::OH_NativeXComponent) instance. Note that
+    /// null terminators will be attached to the character buffer, so the size of the character buffer should be at
+    /// least one unit greater than the length of the real ID. The recommended size is \[
+    /// [`OH_XCOMPONENT_ID_LEN_MAX`](crate::OH_XCOMPONENT_ID_LEN_MAX) + 1].
     ///
-    /// Notice that a null-terminator will be appended to the char buffer, so the size of the
-    ///
-    /// char buffer should be at least as large as the size of the real id length plus 1.
-    ///
-    /// It is recommended that the size of the char buffer be \[OH_XCOMPONENT_ID_LEN_MAX + 1\].
-    ///
-    /// * `size` - Indicates the pointer to the length of <b>id</b>, which you can receive.
+    /// * `size` - Pointer to the length of the ID, used to receive the length information of the ID.
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution.
+    /// * Result code.
+    ///  - [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
+    ///  - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 8
     ///
@@ -832,17 +986,19 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `component` - Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
+    /// * `component` - Pointer to an [`OH_NativeXComponent`](crate::OH_NativeXComponent) instance.
     ///
-    /// * `window` - Indicates the native window handler.
+    /// * `window` - Handle to the **NativeWindow** instance.
     ///
-    /// * `width` - Indicates the pointer to the width of the current surface.
+    /// * `width` - Pointer to the width of the current surface. Unit: vp.
     ///
-    /// * `height` - Indicates the pointer to the height of the current surface.
+    /// * `height` - Pointer to the height of the current surface. Unit: vp.
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution.
+    /// * Result code.
+    ///  - [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
+    ///  - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 8
     ///
@@ -853,21 +1009,26 @@ extern "C" {
         width: *mut u64,
         height: *mut u64,
     ) -> i32;
-    /// Obtains the offset of the surface held by the ArkUI XComponent.
+    /// Obtains the offset of the surface held by the XComponent relative to the upper left corner of its parent
+    /// component.
     ///
     /// # Arguments
     ///
-    /// * `component` - Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
+    /// * `component` - Pointer to an [`OH_NativeXComponent`](crate::OH_NativeXComponent) instance.
     ///
-    /// * `window` - Indicates the native window handler.
+    /// * `window` - Handle to the **NativeWindow** instance.
     ///
-    /// * `x` - Indicates the pointer to the x coordinate of the current surface.
+    /// * `x` - Pointer to the x-coordinate of the current surface relative to the upper left corner of the **XComponent**'
+    /// s parent component. Unit: vp.
     ///
-    /// * `y` - Indicates the pointer to the y coordinate of the current surface.
+    /// * `y` - Pointer to the y-coordinate of the current surface relative to the upper left corner of the **XComponent**'
+    /// s parent component. Unit: vp.
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution.
+    /// * Result code.
+    ///  - [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
+    ///  - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 8
     ///
@@ -878,19 +1039,21 @@ extern "C" {
         x: *mut f64,
         y: *mut f64,
     ) -> i32;
-    /// Obtains the touch event dispatched by the ArkUI XComponent.
+    /// Obtains the touch event scheduled by the ArkUI XComponent.
     ///
     /// # Arguments
     ///
-    /// * `component` - Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
+    /// * `component` - Pointer to an [`OH_NativeXComponent`](crate::OH_NativeXComponent) instance.
     ///
-    /// * `window` - Indicates the native window handler.
+    /// * `window` - Handle to the **NativeWindow** instance.
     ///
-    /// * `touchEvent` - Indicates the pointer to the current touch event.
+    /// * `touchEvent` - Pointer to the current touch event.
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution.
+    /// * Result code.
+    ///  - [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
+    ///  - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 8
     ///
@@ -900,19 +1063,21 @@ extern "C" {
         window: *const ::core::ffi::c_void,
         touchEvent: *mut OH_NativeXComponent_TouchEvent,
     ) -> i32;
-    /// Obtains the touch pointer tool type by the ArkUI XComponent.
+    /// Obtains the ArkUI XComponent touch point tool type.
     ///
     /// # Arguments
     ///
-    /// * `component` - Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
+    /// * `component` - Pointer to an [`OH_NativeXComponent`](crate::OH_NativeXComponent) instance.
     ///
-    /// * `pointIndex` - Indicates the pointer index in the touchPoints.
+    /// * `pointIndex` - Pointer to the index of the touch point.
     ///
-    /// * `toolType` - Indicates the tool Type of the pointer.
+    /// * `toolType` - Pointer to the tool type.
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution.
+    /// * Result code.
+    ///  - [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
+    ///  - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 9
     ///
@@ -922,19 +1087,21 @@ extern "C" {
         pointIndex: u32,
         toolType: *mut OH_NativeXComponent_TouchPointToolType,
     ) -> i32;
-    /// Obtains the touch pointer tiltX by the ArkUI XComponent.
+    /// Obtains the angle between the Y-Z plane of the ArkUI XComponent touch point and the x-axis.
     ///
     /// # Arguments
     ///
-    /// * `component` - Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
+    /// * `component` - Pointer to an [`OH_NativeXComponent`](crate::OH_NativeXComponent) instance.
     ///
-    /// * `pointIndex` - Indicates the pointer index in the touchPoints.
+    /// * `pointIndex` - Pointer to the index of the touch point.
     ///
-    /// * `tiltX` - Indicates the x tilt of the pointer.
+    /// * `tiltX` - Pointer to the angle between the Y-Z plane of the touch point and the x-axis.
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution.
+    /// * Result code.
+    ///  - [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
+    ///  - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 9
     ///
@@ -944,19 +1111,21 @@ extern "C" {
         pointIndex: u32,
         tiltX: *mut f32,
     ) -> i32;
-    /// Obtains the touch pointer tiltX by the ArkUI XComponent.
+    /// Obtains the angle between the X-Z plane of the ArkUI XComponent touch point and the y-axis.
     ///
     /// # Arguments
     ///
-    /// * `component` - Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
+    /// * `component` - Pointer to an [`OH_NativeXComponent`](crate::OH_NativeXComponent) instance.
     ///
-    /// * `pointIndex` - Indicates the pointer index in the touchPoints.
+    /// * `pointIndex` - Pointer to the index of the touch point.
     ///
-    /// * `tiltY` - Indicates the y tilt of the pointer.
+    /// * `tiltY` - Pointer to the angle between the X-Z plane of the touch point and the y-axis.
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution.
+    /// * Result code.
+    ///  - [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
+    ///  - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 9
     ///
@@ -966,27 +1135,23 @@ extern "C" {
         pointIndex: u32,
         tiltY: *mut f32,
     ) -> i32;
-    /// Obtains the x coordinate of a specific touch point relative to the upper left corner of
-    ///
-    /// the current application window from the ArkUI XComponent.
+    /// Obtains the x-coordinate of the touch point relative to the upper left corner of the application window where
+    /// the ArkUI XComponent is located.
     ///
     /// # Arguments
     ///
-    /// * `component` - Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
+    /// * `component` - Pointer to an [`OH_NativeXComponent`](crate::OH_NativeXComponent) instance.
     ///
-    /// * `pointIndex` - Indicates the pointer index in the touchPoints.
+    /// * `pointIndex` - Pointer to the index of the touch point.
     ///
-    /// * `windowX` - Indicates the x coordinate relative to the upper left corner of the current
-    ///
-    /// application window.
+    /// * `windowX` - Pointer to the x-coordinate of the touch point relative to the upper left corner of the application
+    /// window.
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution.
-    /// [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) get windowX success.
-    /// [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) component is NULL, windowX is NULL
-    ///
-    /// or native XComponent is NULL.
+    /// * Result code.
+    ///  - [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
+    ///  - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if the component, windowX, or native XComponent is a null pointer.
     ///
     /// Available since API-level: 12
     ///
@@ -998,27 +1163,23 @@ extern "C" {
         pointIndex: u32,
         windowX: *mut f32,
     ) -> i32;
-    /// Obtains the y coordinate of a specific touch point relative to the upper left corner of
-    ///
-    /// the current application window from the ArkUI XComponent.
+    /// Obtains the y-coordinate of the touch point relative to the upper left corner of the application window where
+    /// the ArkUI XComponent is located.
     ///
     /// # Arguments
     ///
-    /// * `component` - Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
+    /// * `component` - Pointer to an [`OH_NativeXComponent`](crate::OH_NativeXComponent) instance.
     ///
-    /// * `pointIndex` - Indicates the pointer index in the touchPoints.
+    /// * `pointIndex` - Pointer to the index of the touch point.
     ///
-    /// * `windowY` - Indicates the y coordinate relative to the upper left corner of the current
-    ///
-    /// application window.
+    /// * `windowY` - Pointer to the y-coordinate of the touch point relative to the upper left corner of the application
+    /// window.
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution.
-    /// [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) get windowY success.
-    /// [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) component is NULL, windowY is NULL
-    ///
-    /// or native XComponent is NULL.
+    /// * Result code.
+    ///  - [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
+    ///  - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if the component, windowY, or native XComponent is a null pointer.
     ///
     /// Available since API-level: 12
     ///
@@ -1030,27 +1191,22 @@ extern "C" {
         pointIndex: u32,
         windowY: *mut f32,
     ) -> i32;
-    /// Obtains the x coordinate of a specific touch point relative to the upper left corner of
-    ///
-    /// the current screen from the ArkUI XComponent.
+    /// Obtains the x-coordinate of the touch point relative to the upper left corner of the screen where the ArkUI
+    /// XComponent is located.
     ///
     /// # Arguments
     ///
-    /// * `component` - Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
+    /// * `component` - Pointer to an [`OH_NativeXComponent`](crate::OH_NativeXComponent) instance.
     ///
-    /// * `pointIndex` - Indicates the pointer index in the touchPoints.
+    /// * `pointIndex` - Pointer to the index of the touch point.
     ///
-    /// * `displayX` - Indicates the x coordinate relative to the upper left corner of the current
-    ///
-    /// screen.
+    /// * `displayX` - Pointer to the x-coordinate of the touch point relative to the upper left corner of the screen.
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution.
-    /// [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) get displayX success.
-    /// [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) component is NULL, displayX is NULL
-    ///
-    /// or native XComponent is NULL.
+    /// * Result code.
+    ///  - [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
+    ///  - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if the component, displayX, or native XComponent is a null pointer.
     ///
     /// Available since API-level: 12
     ///
@@ -1062,27 +1218,22 @@ extern "C" {
         pointIndex: u32,
         displayX: *mut f32,
     ) -> i32;
-    /// Obtains the y coordinate of a specific touch point relative to the upper left corner of
-    ///
-    /// the current screen from the ArkUI XComponent.
+    /// Obtains the y-coordinate of the touch point relative to the upper left corner of the screen where the ArkUI
+    /// XComponent is located.
     ///
     /// # Arguments
     ///
-    /// * `component` - Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
+    /// * `component` - Pointer to an [`OH_NativeXComponent`](crate::OH_NativeXComponent) instance.
     ///
-    /// * `pointIndex` - Indicates the pointer index in the touchPoints.
+    /// * `pointIndex` - Pointer to the index of the touch point.
     ///
-    /// * `displayY` - Indicates the y coordinate relative to the upper left corner of the current
-    ///
-    /// screen.
+    /// * `displayY` - Pointer to the y-coordinate of the touch point relative to the upper left corner of the screen.
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution.
-    /// [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) get displayY success.
-    /// [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) component is NULL, displayY is NULL
-    ///
-    /// or native XComponent is NULL.
+    /// * Result code.
+    ///  - [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
+    ///  - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if the component, displayY, or native XComponent is a null pointer.
     ///
     /// Available since API-level: 12
     ///
@@ -1094,13 +1245,17 @@ extern "C" {
         pointIndex: u32,
         displayY: *mut f32,
     ) -> i32;
-    /// Obtains the touch event dispatched by the ArkUI XComponent.
+    /// Obtains the historical touch point data for the touch event of an **OH_NativeXComponent** instance. Some
+    /// input devices report touch points at very high frequencies (up to 1 ms intervals). However, since UI updates
+    /// typically do not require such high-frequency updates, the system consolidates touch events and reports them once per
+    /// frame. All touch points collected during the current frame are preserved as historical touch points for applications
+    /// that need direct access to this raw data.
     ///
     /// # Arguments
     ///
-    /// * `component` - Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
+    /// * `component` - Pointer to an [`OH_NativeXComponent`](crate::OH_NativeXComponent) instance.
     ///
-    /// * `window` - Indicates the native window handler.
+    /// * `window` - Handle to the **NativeWindow** instance.
     ///
     /// * `size` - Length of the historical touch point array.
     ///
@@ -1108,7 +1263,9 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution.
+    /// * Result code.
+    ///  - [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
+    ///  - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 10
     ///
@@ -1119,19 +1276,21 @@ extern "C" {
         size: *mut i32,
         historicalPoints: *mut *mut OH_NativeXComponent_HistoricalPoint,
     ) -> i32;
-    /// Obtains the mouse event dispatched by the ArkUI XComponent.
+    /// Obtains the mouse event scheduled by the ArkUI XComponent.
     ///
     /// # Arguments
     ///
-    /// * `component` - Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
+    /// * `component` - Pointer to an [`OH_NativeXComponent`](crate::OH_NativeXComponent) instance.
     ///
-    /// * `window` - Indicates the native window handler.
+    /// * `window` - Handle to the **NativeWindow** instance.
     ///
-    /// * `mouseEvent` - Indicates the pointer to the current mouse event.
+    /// * `mouseEvent` - Pointer to the current mouse event.
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution.
+    /// * Result code.
+    ///  - [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
+    ///  - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 9
     ///
@@ -1141,17 +1300,19 @@ extern "C" {
         window: *const ::core::ffi::c_void,
         mouseEvent: *mut OH_NativeXComponent_MouseEvent,
     ) -> i32;
-    /// Registers a callback for this <b>OH_NativeXComponent</b> instance.
+    /// Registers a callback for this [`OH_NativeXComponent`](crate::OH_NativeXComponent) instance.
     ///
     /// # Arguments
     ///
-    /// * `component` - Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
+    /// * `component` - Pointer to an [`OH_NativeXComponent`](crate::OH_NativeXComponent) instance.
     ///
-    /// * `callback` - Indicates the pointer to a surface lifecycle and touch event callback.
+    /// * `callback` - Pointer to the surface lifecycle and touch event callback.
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution.
+    /// * Result code.
+    ///  - [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
+    ///  - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 8
     ///
@@ -1160,17 +1321,19 @@ extern "C" {
         component: *mut OH_NativeXComponent,
         callback: *mut OH_NativeXComponent_Callback,
     ) -> i32;
-    /// Registers a callback for this <b>OH_NativeXComponent</b> instance.
+    /// Registers a mouse event callback for this [`OH_NativeXComponent`](crate::OH_NativeXComponent) instance.
     ///
     /// # Arguments
     ///
-    /// * `component` - Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
+    /// * `component` - Pointer to an [`OH_NativeXComponent`](crate::OH_NativeXComponent) instance.
     ///
-    /// * `callback` - Indicates the pointer to a mouse event callback.
+    /// * `callback` - Pointer to the mouse event callback.
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution.
+    /// * Result code.
+    ///  - [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
+    ///  - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 9
     ///
@@ -1179,19 +1342,19 @@ extern "C" {
         component: *mut OH_NativeXComponent,
         callback: *mut OH_NativeXComponent_MouseEvent_Callback,
     ) -> i32;
-    /// Obtains the extra mouse event dispatched by the ArkUI XComponent.
+    /// Obtains extended mouse event information from this [`OH_NativeXComponent`](crate::OH_NativeXComponent) instance.
     ///
     /// # Arguments
     ///
-    /// * `component` - Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
+    /// * `component` - Pointer to an [`OH_NativeXComponent`](crate::OH_NativeXComponent) instance.
     ///
-    /// * `extraMouseEventInfo` - Indicates the pointer to pointer of <b>OH_NativeXComponent_ExtraMouseEventInfo</b> instance.
+    /// * `extraMouseEventInfo` - Address of a pointer to the [`OH_NativeXComponent_ExtraMouseEventInfo`](crate::OH_NativeXComponent_ExtraMouseEventInfo) type.
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::native_type::ArkUiResult) the execution is successful.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// * Result code.
+    ///  - [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::error_code::ArkUiResult) if the operation is successful.
+    ///  - [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 20
     ///
@@ -1202,21 +1365,19 @@ extern "C" {
         component: *mut OH_NativeXComponent,
         extraMouseEventInfo: *mut *mut OH_NativeXComponent_ExtraMouseEventInfo,
     ) -> i32;
-    /// Obtains the state of the modifier keys of the mouse event.
+    /// Obtains the state of modifier keys from an [`OH_NativeXComponent_ExtraMouseEventInfo`](crate::OH_NativeXComponent_ExtraMouseEventInfo) instance.
     ///
     /// # Arguments
     ///
-    /// * `extraMouseEventInfo` - Indicates the pointer to this <b>OH_NativeXComponent_ExtraMouseEventInfo</b> instance.
+    /// * `extraMouseEventInfo` - Pointer to the extended mouse event information instance.
     ///
-    /// * `keys` - Pointer to a variable where the current combination of pressed modifier keys will be returned.
-    /// The application can use bitwise operations to determine the state of each modifier key.
-    /// Modifier keys can be referred to [`ArkUI_ModifierKeyName`](arkui_sys::ui_input_event::ArkUI_ModifierKeyName).
+    /// * `keys` - Address of a 64-bit unsigned integer to receive the modifier key press state information.
     ///
     /// # Returns
     ///
-    /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// * Result code.
+    ///  - [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::error_code::ArkUiResult) if the operation is successful.
+    ///  - [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 20
     ///
@@ -1227,17 +1388,19 @@ extern "C" {
         extraMouseEventInfo: *mut OH_NativeXComponent_ExtraMouseEventInfo,
         keys: *mut u64,
     ) -> i32;
-    /// Registers a callback for this <b>OH_NativeXComponent</b> instance.
+    /// Registers a focus event callback for this [`OH_NativeXComponent`](crate::OH_NativeXComponent) instance.
     ///
     /// # Arguments
     ///
-    /// * `component` - Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
+    /// * `component` - Pointer to an [`OH_NativeXComponent`](crate::OH_NativeXComponent) instance.
     ///
     /// * `callback` - Indicates the pointer to a focus event callback.
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution.
+    /// * Result code.
+    ///  - [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
+    ///  - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 10
     ///
@@ -1251,17 +1414,19 @@ extern "C" {
             ),
         >,
     ) -> i32;
-    /// Registers a callback for this <b>OH_NativeXComponent</b> instance.
+    /// Registers a key event callback for this [`OH_NativeXComponent`](crate::OH_NativeXComponent) instance.
     ///
     /// # Arguments
     ///
-    /// * `component` - Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
+    /// * `component` - Pointer to an [`OH_NativeXComponent`](crate::OH_NativeXComponent) instance.
     ///
     /// * `callback` - Indicates the pointer to a key event callback.
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution.
+    /// * Result code.
+    ///  - [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
+    ///  - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 10
     ///
@@ -1275,17 +1440,52 @@ extern "C" {
             ),
         >,
     ) -> i32;
-    /// Registers a callback for this <b>OH_NativeXComponent</b> instance.
+    /// Registers a key event callback with a return value for this [`OH_NativeXComponent`](crate::OH_NativeXComponent) instance.
+    /// The callback must return a result (true or false). If the callback returns true, the event will not be
+    /// further propagated.
+    /// If it returns false, the event will continue to be processed according to the normal event handling flow.
     ///
     /// # Arguments
     ///
-    /// * `component` - Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
+    /// * `component` - Pointer to an [`OH_NativeXComponent`](crate::OH_NativeXComponent) instance.
+    ///
+    /// * `callback` - Indicates the pointer to a key event callback. The callback must return a result.
+    /// When the return value is true, the event will not be further propagated.
+    /// When the return value is false, the event will continue to be processed according to
+    /// the normal event handling flow.
+    ///
+    /// # Returns
+    ///
+    /// * Result code.
+    ///  - [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
+    ///  - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if a parameter error occurs.
+    ///  - [`OH_NATIVEXCOMPONENT_RESULT_FAILED`](crate::XcomponentResult::FAILED) if any other error occurs
+    ///
+    /// Available since API-level: 14
+    #[cfg(feature = "api-14")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
+    pub fn OH_NativeXComponent_RegisterKeyEventCallbackWithResult(
+        component: *mut OH_NativeXComponent,
+        callback: ::core::option::Option<
+            unsafe extern "C" fn(
+                component: *mut OH_NativeXComponent,
+                window: *mut ::core::ffi::c_void,
+            ) -> bool,
+        >,
+    ) -> i32;
+    /// Registers a blur event callback for this [`OH_NativeXComponent`](crate::OH_NativeXComponent) instance.
+    ///
+    /// # Arguments
+    ///
+    /// * `component` - Pointer to an [`OH_NativeXComponent`](crate::OH_NativeXComponent) instance.
     ///
     /// * `callback` - Indicates the pointer to a blur event callback.
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution.
+    /// * Result code.
+    ///  - [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
+    ///  - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 10
     ///
@@ -1299,17 +1499,19 @@ extern "C" {
             ),
         >,
     ) -> i32;
-    /// Obtains the key event dispatched by the ArkUI XComponent.
+    /// Obtains the key event scheduled by the ArkUI XComponent.
     ///
     /// # Arguments
     ///
-    /// * `component` - Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
+    /// * `component` - Pointer to an [`OH_NativeXComponent`](crate::OH_NativeXComponent) instance.
     ///
-    /// * `keyEvent` - Indicates the pointer to pointer of <b>OH_NativeXComponent_KeyEvent</b> instance.
+    /// * `keyEvent` - Pointer to the current key event.
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution.
+    /// * Result code.
+    ///  - [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
+    ///  - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 10
     ///
@@ -1318,17 +1520,19 @@ extern "C" {
         component: *mut OH_NativeXComponent,
         keyEvent: *mut *mut OH_NativeXComponent_KeyEvent,
     ) -> i32;
-    /// Obtains the action of the key event.
+    /// Obtains the action of the specified key event.
     ///
     /// # Arguments
     ///
-    /// * `keyEvent` - Indicates the pointer to this <b>OH_NativeXComponent_KeyEvent</b> instance.
+    /// * `keyEvent` - Pointer to an [`OH_NativeXComponent_KeyEvent`](crate::OH_NativeXComponent_KeyEvent) instance.
     ///
-    /// * `action` - Indicates the action of the <b>OH_NativeXComponent_KeyEvent</b> instance.
+    /// * `action` - Pointer to the key event action.
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution.
+    /// * Result code.
+    ///  - [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
+    ///  - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 10
     ///
@@ -1337,17 +1541,19 @@ extern "C" {
         keyEvent: *mut OH_NativeXComponent_KeyEvent,
         action: *mut OH_NativeXComponent_KeyAction,
     ) -> i32;
-    /// Obtains the keyCode of the key event.
+    /// Obtains the key code of the specified key event.
     ///
     /// # Arguments
     ///
-    /// * `keyEvent` - Indicates the pointer to this <b>OH_NativeXComponent_KeyEvent</b> instance.
+    /// * `keyEvent` - Pointer to an [`OH_NativeXComponent_KeyEvent`](crate::OH_NativeXComponent_KeyEvent) instance.
     ///
-    /// * `code` - Indicates the keyCode of the <b>OH_NativeXComponent_KeyEvent</b> instance.
+    /// * `code` - Pointer to the key code of the key event.
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution.
+    /// * Result code.
+    ///  - [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
+    ///  - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 10
     ///
@@ -1356,17 +1562,19 @@ extern "C" {
         keyEvent: *mut OH_NativeXComponent_KeyEvent,
         code: *mut OH_NativeXComponent_KeyCode,
     ) -> i32;
-    /// Obtains the sourceType of the key event.
+    /// Obtains the source type of the specified key event.
     ///
     /// # Arguments
     ///
-    /// * `keyEvent` - Indicates the pointer to this <b>OH_NativeXComponent_KeyEvent</b> instance.
+    /// * `keyEvent` - Pointer to an [`OH_NativeXComponent_KeyEvent`](crate::OH_NativeXComponent_KeyEvent) instance.
     ///
-    /// * `sourceType` - Indicates the sourceType of the <b>OH_NativeXComponent_KeyEvent</b> instance.
+    /// * `sourceType` - Pointer to the source type of the key event.
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution.
+    /// * Result code.
+    ///  - [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
+    ///  - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 10
     ///
@@ -1375,17 +1583,19 @@ extern "C" {
         keyEvent: *mut OH_NativeXComponent_KeyEvent,
         sourceType: *mut OH_NativeXComponent_EventSourceType,
     ) -> i32;
-    /// Obtains the deviceId of the key event.
+    /// Obtains the device ID of the specified key event.
     ///
     /// # Arguments
     ///
-    /// * `keyEvent` - Indicates the pointer to this <b>OH_NativeXComponent_KeyEvent</b> instance.
+    /// * `keyEvent` - Pointer to an [`OH_NativeXComponent_KeyEvent`](crate::OH_NativeXComponent_KeyEvent) instance.
     ///
-    /// * `deviceId` - Indicates the deviceId of the <b>OH_NativeXComponent_KeyEvent</b> instance.
+    /// * `deviceId` - Pointer to the device ID of the key event.
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution.
+    /// * Result code.
+    ///  - [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
+    ///  - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 10
     ///
@@ -1394,17 +1604,19 @@ extern "C" {
         keyEvent: *mut OH_NativeXComponent_KeyEvent,
         deviceId: *mut i64,
     ) -> i32;
-    /// Obtains the timestamp of the key event.
+    /// Obtains the timestamp of the specified key event.
     ///
     /// # Arguments
     ///
-    /// * `keyEvent` - Indicates the pointer to this <b>OH_NativeXComponent_KeyEvent</b> instance.
+    /// * `keyEvent` - Pointer to an [`OH_NativeXComponent_KeyEvent`](crate::OH_NativeXComponent_KeyEvent) instance.
     ///
-    /// * `timestamp` - Indicates the timestamp of the <b>OH_NativeXComponent_KeyEvent</b> instance.
+    /// * `timestamp` - Pointer to the timestamp of the key event.
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution.
+    /// * Result code.
+    ///  - [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
+    ///  - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 10
     ///
@@ -1413,21 +1625,19 @@ extern "C" {
         keyEvent: *mut OH_NativeXComponent_KeyEvent,
         timestamp: *mut i64,
     ) -> i32;
-    /// Obtains the state of the modifier keys of the key event.
+    /// Obtains the state of modifier keys from a key event.
     ///
     /// # Arguments
     ///
-    /// * `keyEvent` - Indicates the pointer to this <b>OH_NativeXComponent_KeyEvent</b> instance.
+    /// * `keyEvent` - Pointer to the key event.
     ///
-    /// * `keys` - Pointer to a variable where the current combination of pressed modifier keys will be returned.
-    /// The application can use bitwise operations to determine the state of each modifier key.
-    /// Modifier keys can be referred to [`ArkUI_ModifierKeyName`](arkui_sys::ui_input_event::ArkUI_ModifierKeyName).
+    /// * `keys` - Address of a 64-bit unsigned integer to receive the modifier key press state information.
     ///
     /// # Returns
     ///
-    /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// * Result code.
+    ///  - [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::error_code::ArkUiResult) if the operation is successful.
+    ///  - [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 20
     ///
@@ -1438,19 +1648,20 @@ extern "C" {
         keyEvent: *mut OH_NativeXComponent_KeyEvent,
         keys: *mut u64,
     ) -> i32;
-    /// Obtains the Num Lock state of the key event.
+    /// Obtains the state of the NumLock key from a key event.
     ///
     /// # Arguments
     ///
-    /// * `keyEvent` - Indicates the pointer to this <b>OH_NativeXComponent_KeyEvent</b> instance.
+    /// * `keyEvent` - Pointer to the key event.
     ///
-    /// * `isNumLockOn` - Return whether the Num Lock is on.
+    /// * `isNumLockOn` - Pointer to a boolean variable to receive the state of the NumLock key. **true**: NumLock is
+    /// enabled. **false**: NumLock is disabled.
     ///
     /// # Returns
     ///
-    /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// * Result code.
+    ///  - [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::error_code::ArkUiResult) if the operation is successful.
+    ///  - [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 20
     ///
@@ -1461,19 +1672,20 @@ extern "C" {
         keyEvent: *mut OH_NativeXComponent_KeyEvent,
         isNumLockOn: *mut bool,
     ) -> i32;
-    /// Obtains the Caps Lock state of the key event.
+    /// Obtains the state of the CapsLock key from a key event.
     ///
     /// # Arguments
     ///
-    /// * `keyEvent` - Indicates the pointer to this <b>OH_NativeXComponent_KeyEvent</b> instance.
+    /// * `keyEvent` - Pointer to the key event.
     ///
-    /// * `isCapsLockOn` - Return whether the Caps Lock is on.
+    /// * `isCapsLockOn` - Pointer to a boolean variable to receive the state of the CapsLock key. **true**: CapsLock is
+    /// enabled. **false**: CapsLock is disabled.
     ///
     /// # Returns
     ///
-    /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// * Result code.
+    ///  - [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::error_code::ArkUiResult) if the operation is successful.
+    ///  - [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 20
     ///
@@ -1484,19 +1696,20 @@ extern "C" {
         keyEvent: *mut OH_NativeXComponent_KeyEvent,
         isCapsLockOn: *mut bool,
     ) -> i32;
-    /// Obtains the Scroll Lock state of the key event.
+    /// Obtains the state of the ScrollLock key from a key event.
     ///
     /// # Arguments
     ///
-    /// * `keyEvent` - Indicates the pointer to this <b>OH_NativeXComponent_KeyEvent</b> instance.
+    /// * `keyEvent` - Pointer to the key event.
     ///
-    /// * `isScrollLockOn` - Return whether the Scroll Lock is on.
+    /// * `isScrollLockOn` - Pointer to a boolean variable to receive the state of the ScrollLock key. **true**: ScrollLock
+    /// is enabled. **false**: ScrollLock is disabled.
     ///
     /// # Returns
     ///
-    /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// * Result code.
+    ///  - [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::error_code::ArkUiResult) if the operation is successful.
+    ///  - [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 20
     ///
@@ -1507,17 +1720,20 @@ extern "C" {
         keyEvent: *mut OH_NativeXComponent_KeyEvent,
         isScrollLockOn: *mut bool,
     ) -> i32;
-    /// Set the Expected FrameRateRange.
+    /// Sets the expected frame rate range.
     ///
     /// # Arguments
     ///
-    /// * `component` - Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
+    /// * `component` - Pointer to an [`OH_NativeXComponent`](crate::OH_NativeXComponent) instance.
     ///
-    /// * `range` - Indicates the pointer to a expected rate range.
+    /// * `range` - Pointer to the expected frame rate information object of the
+    /// [`OH_NativeXComponent_ExpectedRateRange`](crate::OH_NativeXComponent_ExpectedRateRange) type.
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution.
+    /// * Result code.
+    ///  - [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
+    ///  - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 11
     ///
@@ -1528,17 +1744,20 @@ extern "C" {
         component: *mut OH_NativeXComponent,
         range: *mut OH_NativeXComponent_ExpectedRateRange,
     ) -> i32;
-    /// Registers a callback for this <b>OH_NativeXComponent</b> instance.
+    /// Registers the display update callback for this [`OH_NativeXComponent`](crate::OH_NativeXComponent) instance and enables the callback
+    /// for each frame.
     ///
     /// # Arguments
     ///
-    /// * `component` - Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
+    /// * `component` - Pointer to an [`OH_NativeXComponent`](crate::OH_NativeXComponent) instance.
     ///
     /// * `callback` - Indicates the pointer to a onFrame callback.
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution.
+    /// * Result code.
+    ///  - [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
+    ///  - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 11
     ///
@@ -1555,15 +1774,18 @@ extern "C" {
             ),
         >,
     ) -> i32;
-    /// UnRegister a callback for this <b>OH_NativeXComponent</b> instance.
+    /// Deregisters the display update callback for this [`OH_NativeXComponent`](crate::OH_NativeXComponent) instance and disables the
+    /// callback for each frame.
     ///
     /// # Arguments
     ///
-    /// * `component` - Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
+    /// * `component` - Pointer to an [`OH_NativeXComponent`](crate::OH_NativeXComponent) instance.
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution.
+    /// * Result code.
+    ///  - [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
+    ///  - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 11
     ///
@@ -1573,17 +1795,44 @@ extern "C" {
     pub fn OH_NativeXComponent_UnregisterOnFrameCallback(
         component: *mut OH_NativeXComponent,
     ) -> i32;
-    /// Registers a callback for this <b>OH_NativeXComponent</b> instance.
+    /// Sets whether the soft keyboard is required for this [`OH_NativeXComponent`](crate::OH_NativeXComponent) instance.
     ///
     /// # Arguments
     ///
-    /// * `component` - Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
+    /// * `component` - Pointer to an [`OH_NativeXComponent`](crate::OH_NativeXComponent) instance.
+    ///
+    /// * `needSoftKeyboard` - Whether the soft keyboard is required for the current [`OH_NativeXComponent`](crate::OH_NativeXComponent) instance. *
+    /// *true** if the soft keyboard is required, **false** otherwise. The default value is **false**.
+    ///
+    /// # Returns
+    ///
+    /// * Result code.
+    ///  - [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
+    ///  - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if a parameter error occurs.
+    ///
+    /// Available since API-level: 12
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
+    pub fn OH_NativeXComponent_SetNeedSoftKeyboard(
+        component: *mut OH_NativeXComponent,
+        needSoftKeyboard: bool,
+    ) -> i32;
+    /// Registers a surface display callback for this [`OH_NativeXComponent`](crate::OH_NativeXComponent) instance. This callback is invoked
+    /// after the application is switched to the foreground.
+    ///
+    /// # Arguments
+    ///
+    /// * `component` - Pointer to an [`OH_NativeXComponent`](crate::OH_NativeXComponent) instance.
     ///
     /// * `callback` - Indicates the pointer to a surface show event callback.
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution.
+    /// * Result code.
+    ///  - [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
+    ///  - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     ///
@@ -1599,17 +1848,20 @@ extern "C" {
             ),
         >,
     ) -> i32;
-    /// Registers a callback for this <b>OH_NativeXComponent</b> instance.
+    /// Registers a surface hiding callback for this [`OH_NativeXComponent`](crate::OH_NativeXComponent) instance. This callback is invoked
+    /// after the application is switched to the background.
     ///
     /// # Arguments
     ///
-    /// * `component` - Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
+    /// * `component` - Pointer to an [`OH_NativeXComponent`](crate::OH_NativeXComponent) instance.
     ///
     /// * `callback` - Indicates the pointer to a surface hide event callback.
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution.
+    /// * Result code.
+    ///  - [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
+    ///  - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     ///
@@ -1625,42 +1877,23 @@ extern "C" {
             ),
         >,
     ) -> i32;
-    /// Set whether the <b>OH_NativeXComponent</b> instance needs soft keyboard.
-    /// # Arguments
-    ///
-    /// * `component` - Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
-    ///
-    /// * `needSoftKeyboard` - Indicates whether the <b>OH_NativeXComponent</b> instance needs soft keyboard or not.
-    /// Default value is false.
-    ///
-    /// # Returns
-    ///
-    /// * Returns the status code of the execution.
-    ///
-    /// Available since API-level: 12
-    ///
-    /// Version: 1.0
-    #[cfg(feature = "api-12")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_NativeXComponent_SetNeedSoftKeyboard(
-        component: *mut OH_NativeXComponent,
-        needSoftKeyboard: bool,
-    ) -> i32;
-    /// Obtains the touch event's source type dispatched by the ArkUI XComponent.
+    /// Obtains the touch event source type of an ArkUI XComponent instance.
     ///
     /// # Arguments
     ///
-    /// * `component` - Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
+    /// * `component` - Pointer to an [`OH_NativeXComponent`](crate::OH_NativeXComponent) instance.
     ///
-    /// * `pointId` - Indicates the id of the touch point which triggers this touch event.
+    /// * `pointId` - ID of the touch point. The touch event source type can be correctly returned only when the ID passed
+    /// in is the ID of the touch point that triggers the touch event. Otherwise, **
+    /// OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER** is returned.
     ///
-    /// * `sourceType` - Indicates the source type of this touch event.
+    /// * `sourceType` - Pointer to the touch event source type.
     ///
     /// # Returns
     ///
-    /// * Returns OH_NATIVEXCOMPONENT_RESULT_SUCCESS if success.
-    /// Returns OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER if a parameter exception occurs.
-    /// Returns OH_NATIVEXCOMPONENT_RESULT_FAILED if other exceptions occur.
+    /// * Returns [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
+    ///  - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if a parameter error occurs.
+    ///  - [`OH_NATIVEXCOMPONENT_RESULT_FAILED`](crate::XcomponentResult::FAILED) if any other error occurs.
     ///
     /// Available since API-level: 12
     ///
@@ -1672,19 +1905,19 @@ extern "C" {
         pointId: i32,
         sourceType: *mut OH_NativeXComponent_EventSourceType,
     ) -> i32;
-    /// Obtains the pointer to the <b> ArkUI_AccessibilityProvider</b>
-    /// instance of this <b>OH_NativeXComponent</b> instance.
+    /// Obtains the accessibility provider handle for an ArkUI XComponent.
     ///
     /// # Arguments
     ///
-    /// * `component` - Indicates the pointer to the <b>OH_NativeXComponent</b> instance.
+    /// * `component` - Pointer to an [`OH_NativeXComponent`](crate::OH_NativeXComponent) instance.
     ///
-    /// * `handle` - Indicates the pointer to the <b>ArkUI_AccessibilityProvider</b> instance.
+    /// * `handle` - Pointer to an [`ArkUI_AccessibilityProvider`](ohos_sys_opaque_types::ArkUI_AccessibilityProvider) instance.
     ///
     /// # Returns
     ///
     /// * Returns [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
-    /// Returns [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if a parameter error occurs.
+    ///  - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if a parameter error occurs.
+    ///  - [`OH_NATIVEXCOMPONENT_RESULT_FAILED`](crate::XcomponentResult::FAILED) if any other error occurs.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -1693,74 +1926,43 @@ extern "C" {
         component: *mut OH_NativeXComponent,
         handle: *mut *mut ArkUI_AccessibilityProvider,
     ) -> i32;
-    /// Registers a callback for this <b>OH_NativeXComponent</b> instance.
+    /// Creates an [`OH_ArkUI_SurfaceHolder`](crate::OH_ArkUI_SurfaceHolder) object for an **XComponent**.
     ///
     /// # Arguments
     ///
-    /// * `component` - Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
-    ///
-    /// * `callback` - Indicates the pointer to a key event callback with result.
+    /// * `node` - Pointer to the XComponent instance created through the native API.
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution.
-    /// [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) the callback function is successfully registered.
-    ///
-    /// [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) component is nullptr or callback is nullptr.
-    ///
-    ///
-    /// Available since API-level: 14
-    ///
-    /// Version: 1.0
-    #[cfg(feature = "api-14")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
-    pub fn OH_NativeXComponent_RegisterKeyEventCallbackWithResult(
-        component: *mut OH_NativeXComponent,
-        callback: ::core::option::Option<
-            unsafe extern "C" fn(
-                component: *mut OH_NativeXComponent,
-                window: *mut ::core::ffi::c_void,
-            ) -> bool,
-        >,
-    ) -> i32;
-    /// Create a <b>OH_ArkUI_SurfaceHolder</b> object from an XComponent node.
-    ///
-    /// # Arguments
-    ///
-    /// * `node` - Indicates the pointer to the XComponent node.
-    ///
-    /// # Returns
-    ///
-    /// * Returns the created <b>OH_ArkUI_SurfaceHolder</b> object's pointer.
+    /// * Pointer to the created [`OH_ArkUI_SurfaceHolder`](crate::OH_ArkUI_SurfaceHolder) object.
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
     pub fn OH_ArkUI_SurfaceHolder_Create(node: ArkUI_NodeHandle) -> *mut OH_ArkUI_SurfaceHolder;
-    /// Disposes of a <b>OH_ArkUI_SurfaceHolder</b> object.
+    /// Disposes of an [`OH_ArkUI_SurfaceHolder`](crate::OH_ArkUI_SurfaceHolder) object.
     ///
     /// # Arguments
     ///
-    /// * `node` - Indicates the pointer to <b>OH_ArkUI_SurfaceHolder</b> object needed to dispose.
+    /// * `surfaceHolder` - Indicates the pointer to <b>OH_ArkUI_SurfaceHolder</b> object needed to dispose.
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
     pub fn OH_ArkUI_SurfaceHolder_Dispose(surfaceHolder: *mut OH_ArkUI_SurfaceHolder);
-    /// Saves custom data on the <b>OH_ArkUI_SurfaceHolder</b> instance.
+    /// Stores custom data in an [`OH_ArkUI_SurfaceHolder`](crate::OH_ArkUI_SurfaceHolder) instance.
     ///
     /// # Arguments
     ///
-    /// * `surfaceHolder` - Indicates the <b>OH_ArkUI_SurfaceHolder</b> instance
-    /// on which the custom data will be saved.
+    /// * `surfaceHolder` - Pointer to the target [`OH_ArkUI_SurfaceHolder`](crate::OH_ArkUI_SurfaceHolder) instance.
     ///
-    /// * `userData` - Indicates the custom data to be saved.
+    /// * `userData` - Pointer to the custom data to be stored.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// * Result code.
+    ///  - [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::error_code::ArkUiResult) if the operation is successful.
+    ///  - [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
@@ -1769,15 +1971,15 @@ extern "C" {
         surfaceHolder: *mut OH_ArkUI_SurfaceHolder,
         userData: *mut ::core::ffi::c_void,
     ) -> i32;
-    /// Obtains the custom data saved on the <b>OH_ArkUI_SurfaceHolder</b> instance.
+    /// Obtains the custom data stored in an [`OH_ArkUI_SurfaceHolder`](crate::OH_ArkUI_SurfaceHolder) instance.
     ///
     /// # Arguments
     ///
-    /// * `surfaceHolder` - Indicates the target <b>OH_ArkUI_SurfaceHolder</b> instance.
+    /// * `surfaceHolder` - Pointer to the target [`OH_ArkUI_SurfaceHolder`](crate::OH_ArkUI_SurfaceHolder) instance.
     ///
     /// # Returns
     ///
-    /// * Returns the custom data.
+    /// * Custom data.
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
@@ -1785,32 +1987,32 @@ extern "C" {
     pub fn OH_ArkUI_SurfaceHolder_GetUserData(
         surfaceHolder: *mut OH_ArkUI_SurfaceHolder,
     ) -> *mut ::core::ffi::c_void;
-    /// Create a <b>OH_ArkUI_SurfaceCallback</b> object.
+    /// Creates an [`OH_ArkUI_SurfaceCallback`](crate::OH_ArkUI_SurfaceCallback) object.
     ///
     ///
     /// # Returns
     ///
-    /// * Returns the created <b>OH_ArkUI_SurfaceCallback</b> object's pointer.
+    /// * Pointer to the created [`OH_ArkUI_SurfaceCallback`](crate::OH_ArkUI_SurfaceCallback) object.
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
     pub fn OH_ArkUI_SurfaceCallback_Create() -> *mut OH_ArkUI_SurfaceCallback;
-    /// Disposes of a <b>OH_ArkUI_SurfaceCallback</b> object.
+    /// Disposes of an [`OH_ArkUI_SurfaceCallback`](crate::OH_ArkUI_SurfaceCallback) object.
     ///
     /// # Arguments
     ///
-    /// * `callback` - Indicates the pointer to <b>OH_ArkUI_SurfaceCallback</b> object needed to dispose.
+    /// * `callback` - Pointer to the target [`OH_ArkUI_SurfaceCallback`](crate::OH_ArkUI_SurfaceCallback) instance.
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
     pub fn OH_ArkUI_SurfaceCallback_Dispose(callback: *mut OH_ArkUI_SurfaceCallback);
-    /// Set the surface created event of the surface callback.
+    /// Sets the creation callback event in the surface lifecycle callbacks.
     ///
     /// # Arguments
     ///
-    /// * `callback` - Indicated the pointer to the surface callback.
+    /// * `callback` - Pointer to the surface lifecycle callback.
     ///
     /// * `onSurfaceCreated` - Indicates the surface created callback event
     /// which will called when the surface is created.
@@ -1824,11 +2026,11 @@ extern "C" {
             unsafe extern "C" fn(surfaceHolder: *mut OH_ArkUI_SurfaceHolder),
         >,
     );
-    /// Set the surface changed event of the surface callback.
+    /// Sets the size change callback event in the surface lifecycle callbacks.
     ///
     /// # Arguments
     ///
-    /// * `callback` - Indicated the pointer to the surface callback.
+    /// * `callback` - Pointer to the surface lifecycle callback.
     ///
     /// * `onSurfaceChanged` - Indicates the surface changed callback event
     /// which will called when the surface is changed.
@@ -1846,11 +2048,11 @@ extern "C" {
             ),
         >,
     );
-    /// Set the surface destroyed event of the surface callback.
+    /// Sets the destruction callback event in the surface lifecycle callbacks.
     ///
     /// # Arguments
     ///
-    /// * `callback` - Indicated the pointer to the surface callback.
+    /// * `callback` - Pointer to the surface lifecycle callback.
     ///
     /// * `onSurfaceDestroyed` - Indicates the surface destroyed callback event
     /// which will called when the surface is destroyed.
@@ -1864,19 +2066,19 @@ extern "C" {
             unsafe extern "C" fn(surfaceHolder: *mut OH_ArkUI_SurfaceHolder),
         >,
     );
-    /// Adds a surface lifecycle callback for this <b>OH_ArkUI_SurfaceHolder</b> instance.
+    /// Adds a surface lifecycle callback to an [`OH_ArkUI_SurfaceHolder`](crate::OH_ArkUI_SurfaceHolder) instance.
     ///
     /// # Arguments
     ///
-    /// * `surfaceHolder` - Indicates the pointer to this <b>OH_ArkUI_SurfaceHolder</b> instance.
+    /// * `surfaceHolder` - Pointer to the target [`OH_ArkUI_SurfaceHolder`](crate::OH_ArkUI_SurfaceHolder) instance.
     ///
-    /// * `callback` - Indicates the pointer to this new callback.
+    /// * `callback` - Pointer to the new callback.
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::native_type::ArkUiResult) the execution is successful.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// * Result code.
+    ///  - [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::error_code::ArkUiResult) if the operation is successful.
+    ///  - [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
@@ -1885,20 +2087,19 @@ extern "C" {
         surfaceHolder: *mut OH_ArkUI_SurfaceHolder,
         callback: *mut OH_ArkUI_SurfaceCallback,
     ) -> i32;
-    /// Removes a previously added surface lifecycle callback
-    /// from this <b>OH_ArkUI_SurfaceHolder</b> instance.
+    /// Removes a previously added surface lifecycle callback from an [`OH_ArkUI_SurfaceHolder`](crate::OH_ArkUI_SurfaceHolder) instance.
     ///
     /// # Arguments
     ///
-    /// * `surfaceHolder` - Indicates the pointer to this <b>OH_ArkUI_SurfaceHolder</b> instance.
+    /// * `surfaceHolder` - Pointer to the target [`OH_ArkUI_SurfaceHolder`](crate::OH_ArkUI_SurfaceHolder) instance.
     ///
-    /// * `callback` - Indicates the pointer to the callback needed to remove.
+    /// * `callback` - Pointer to the callback to be removed.
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::native_type::ArkUiResult) the execution is successful.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// * Result code.
+    ///  - [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::error_code::ArkUiResult) if the operation is successful.
+    ///  - [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
@@ -1907,15 +2108,15 @@ extern "C" {
         surfaceHolder: *mut OH_ArkUI_SurfaceHolder,
         callback: *mut OH_ArkUI_SurfaceCallback,
     ) -> i32;
-    /// Obtains the nativeWindow associated with a <b>OH_ArkUI_SurfaceHolder</b> instance.
+    /// Obtains the **NativeWindow** instance associated with an [`OH_ArkUI_SurfaceHolder`](crate::OH_ArkUI_SurfaceHolder) instance.
     ///
     /// # Arguments
     ///
-    /// * `surfaceHolder` - Indicates the pointer to this <b>OH_ArkUI_SurfaceHolder</b> instance.
+    /// * `surfaceHolder` - Pointer to the target [`OH_ArkUI_SurfaceHolder`](crate::OH_ArkUI_SurfaceHolder) instance.
     ///
     /// # Returns
     ///
-    /// * Returns the nativeWindow associated with this <b>OH_ArkUI_SurfaceHolder</b> instance.
+    /// * **NativeWindow** instance associated with the [`OH_ArkUI_SurfaceHolder`](crate::OH_ArkUI_SurfaceHolder) instance.
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
@@ -1923,22 +2124,23 @@ extern "C" {
     pub fn OH_ArkUI_XComponent_GetNativeWindow(
         surfaceHolder: *mut OH_ArkUI_SurfaceHolder,
     ) -> *mut OHNativeWindow;
-    /// Set whether the XComponent node needs to initialize automatically.
+    /// Sets whether the **XComponent** component needs to automatically initialize the surface.
     ///
     /// # Arguments
     ///
-    /// * `node` - Indicates the pointer to the XComponent node.
+    /// * `node` - Pointer to the **XComponent** component instance.
     ///
-    /// * `autoInitialize` - Indicates whether the XComponent node needs to initialize automatically or not.
-    /// If the value is true, OnSurfaceCreated will be called when the node is mounted and
-    /// OnSurfaceDestroyed will be called when the node is unmounted.
-    /// Default value is true.
+    /// * `autoInitialize` - Whether the **XComponent** component needs to automatically initialize the surface. If **
+    /// autoInitialize** is **true**, the **OnSurfaceCreated** callback will be triggered when the component is attached
+    /// to the tree, and the **OnSurfaceDestroyed** callback will be triggered when the component is detached from the
+    /// tree. If the value is **false**, the component does not need to automatically initialize the surface.
+    /// <br>The default value of **autoInitialize** is **true**.
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::native_type::ArkUiResult) the execution is successful.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::native_type::ArkUiErrorCode::PARAM_INVALID) if the node is invalid.
+    /// * Result code.
+    ///  - [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::error_code::ArkUiResult) if the operation is successful.
+    ///  - [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
@@ -1947,53 +2149,54 @@ extern "C" {
         node: ArkUI_NodeHandle,
         autoInitialize: bool,
     ) -> i32;
-    /// Initialize the XComponent node.
+    /// Initializes the surface held by the **XComponent** component.
     ///
     /// # Arguments
     ///
-    /// * `node` - Indicates the pointer to the XComponent node.
+    /// * `node` - Pointer to the **XComponent** component instance.
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::native_type::ArkUiResult) the execution is successful.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::native_type::ArkUiErrorCode::PARAM_INVALID) if the node is invalid.
-    /// [`ARKUI_ERROR_CODE_XCOMPONENT_STATE_INVALID`](arkui_sys::native_type::ArkUiErrorCode::XCOMPONENT_STATE_INVALID) if the node has initialized.
+    /// * Result code.
+    ///  - [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::error_code::ArkUiResult) if the operation is successful.
+    ///  - [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///  - [`ARKUI_ERROR_CODE_XCOMPONENT_STATE_INVALID`](arkui_sys::error_code::ArkUiErrorCode::XCOMPONENT_STATE_INVALID) if the surface held by the **XComponent** component has been initialized.
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
     pub fn OH_ArkUI_XComponent_Initialize(node: ArkUI_NodeHandle) -> i32;
-    /// Finalize the XComponent node.
+    /// Destroys the surface held by the **XComponent** component.
     ///
     /// # Arguments
     ///
-    /// * `node` - Indicates the pointer to the XComponent node.
+    /// * `node` - Pointer to the **XComponent** component instance.
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::native_type::ArkUiResult) the execution is successful.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::native_type::ArkUiErrorCode::PARAM_INVALID) if the node is invalid.
-    /// [`ARKUI_ERROR_CODE_XCOMPONENT_STATE_INVALID`](arkui_sys::native_type::ArkUiErrorCode::XCOMPONENT_STATE_INVALID) if the node has finalized.
+    /// * Result code.
+    ///  - [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::error_code::ArkUiResult) if the operation is successful.
+    ///  - [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///  - [`ARKUI_ERROR_CODE_XCOMPONENT_STATE_INVALID`](arkui_sys::error_code::ArkUiErrorCode::XCOMPONENT_STATE_INVALID) if the surface held by the **XComponent** component has been destroyed.
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
     pub fn OH_ArkUI_XComponent_Finalize(node: ArkUI_NodeHandle) -> i32;
-    /// Obtains whether the XComponent node has initalized or not.
+    /// Checks whether the surface held by the **XComponent** component is initialized.
     ///
     /// # Arguments
     ///
-    /// * `node` - Indicates the pointer to the XComponent node.
+    /// * `node` - Pointer to the **XComponent** component instance.
     ///
-    /// * `isInitialized` - Indicates whether the XComponent node has initalized.
+    /// * `isInitialized` - Whether the surface held by the **XComponent** component is initialized. **true**: The surface
+    /// is initialized. **false**: The surface is not initialized.
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::native_type::ArkUiResult) the execution is successful.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::native_type::ArkUiErrorCode::PARAM_INVALID) if the node is invalid.
+    /// * Result code.
+    ///  - [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::error_code::ArkUiResult) if the operation is successful.
+    ///  - [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
@@ -2002,19 +2205,19 @@ extern "C" {
         node: ArkUI_NodeHandle,
         isInitialized: *mut bool,
     ) -> i32;
-    /// Set the Expected FrameRateRange for the XComponent node.
+    /// Sets the expected frame rate range for the XComponent.
     ///
     /// # Arguments
     ///
-    /// * `node` - Indicates the pointer to the XComponent node.
+    /// * `node` - XComponent instance.
     ///
-    /// * `range` - Indicates the expected rate range.
+    /// * `range` - Expected frame rate information object of the [`OH_NativeXComponent_ExpectedRateRange`](crate::OH_NativeXComponent_ExpectedRateRange) type.
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::native_type::ArkUiResult) the execution is successful.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// * Result code.
+    ///  - [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::error_code::ArkUiResult) if the operation is successful.
+    ///  - [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 20
     ///
@@ -2025,19 +2228,19 @@ extern "C" {
         node: ArkUI_NodeHandle,
         range: OH_NativeXComponent_ExpectedRateRange,
     ) -> i32;
-    /// Registers an onFrame callback for the XComponent node.
+    /// Registers a frame callback function for the XComponent.
     ///
     /// # Arguments
     ///
-    /// * `node` - Indicates the pointer to the XComponent node.
+    /// * `node` - XComponent instance.
     ///
     /// * `callback` - Indicates the pointer to an onFrame callback.
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::native_type::ArkUiResult) the execution is successful.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// * Result code.
+    ///  - [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::error_code::ArkUiResult) if the operation is successful.
+    ///  - [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 20
     ///
@@ -2050,17 +2253,17 @@ extern "C" {
             unsafe extern "C" fn(node: ArkUI_NodeHandle, timestamp: u64, targetTimestamp: u64),
         >,
     ) -> i32;
-    /// UnRegister the onFrame callback for the XComponent node.
+    /// Unregisters the frame callback function for the XComponent.
     ///
     /// # Arguments
     ///
-    /// * `node` - Indicates the pointer to the XComponent node.
+    /// * `node` - XComponent instance.
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::native_type::ArkUiResult) the execution is successful.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// * Result code.
+    ///  - [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::error_code::ArkUiResult) if the operation is successful.
+    ///  - [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 20
     ///
@@ -2068,19 +2271,20 @@ extern "C" {
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_ArkUI_XComponent_UnregisterOnFrameCallback(node: ArkUI_NodeHandle) -> i32;
-    /// Set whether the XComponent node needs soft keyboard when focused.
+    /// Sets whether the soft keyboard is required for the XComponent.
+    ///
     /// # Arguments
     ///
-    /// * `node` - Indicates the pointer to the XComponent node.
+    /// * `node` - XComponent instance.
     ///
-    /// * `needSoftKeyboard` - Indicates whether the XComponent node needs soft keyboard or not.
-    /// Default value is false.
+    /// * `needSoftKeyboard` - Whether the soft keyboard is required. **true** if the soft keyboard is required, **false**
+    /// otherwise. The default value is **false**.
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::native_type::ArkUiResult) the execution is successful.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// * Result code.
+    ///  - [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::error_code::ArkUiResult) if the operation is successful.
+    ///  - [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -2089,15 +2293,15 @@ extern "C" {
         node: ArkUI_NodeHandle,
         needSoftKeyboard: bool,
     ) -> i32;
-    /// Create a <b>ArkUI_AccessibilityProvider</b> object from an XComponent node.
+    /// Creates an [`ArkUI_AccessibilityProvider`](ohos_sys_opaque_types::ArkUI_AccessibilityProvider) instance for this **XComponent** instance.
     ///
     /// # Arguments
     ///
-    /// * `node` - Indicates the pointer to the XComponent node.
+    /// * `node` - XComponent instance.
     ///
     /// # Returns
     ///
-    /// * Returns the created <b>ArkUI_AccessibilityProvider</b> object's pointer.
+    /// * Pointer of the [`ArkUI_AccessibilityProvider`](ohos_sys_opaque_types::ArkUI_AccessibilityProvider) type.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -2105,23 +2309,27 @@ extern "C" {
     pub fn OH_ArkUI_AccessibilityProvider_Create(
         node: ArkUI_NodeHandle,
     ) -> *mut ArkUI_AccessibilityProvider;
-    /// Disposes of an <b>ArkUI_AccessibilityProvider</b> object.
+    /// Disposes of the [`ArkUI_AccessibilityProvider`](ohos_sys_opaque_types::ArkUI_AccessibilityProvider) instance created using
+    /// [`OH_ArkUI_AccessibilityProvider_Create`](crate::OH_ArkUI_AccessibilityProvider_Create).
     ///
     /// # Arguments
     ///
-    /// * `provider` - Indicates the pointer to <b>ArkUI_AccessibilityProvider</b> object needed to dispose.
+    /// * `provider` - [`ArkUI_AccessibilityProvider`](ohos_sys_opaque_types::ArkUI_AccessibilityProvider) instance created using
+    /// [`OH_ArkUI_AccessibilityProvider_Create`](crate::OH_ArkUI_AccessibilityProvider_Create).
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_ArkUI_AccessibilityProvider_Dispose(provider: *mut ArkUI_AccessibilityProvider);
-    /// Set the surface show event of the surface callback.
+    /// Sets a surface display callback for this [`OH_ArkUI_SurfaceCallback`](crate::OH_ArkUI_SurfaceCallback) instance. This callback is invoked
+    /// when the application window has moved from the background to the foreground.
     ///
     /// # Arguments
     ///
-    /// * `callback` - Indicated the pointer to the surface callback.
+    /// * `callback` - Pointer to the target [`OH_ArkUI_SurfaceCallback`](crate::OH_ArkUI_SurfaceCallback) instance.
     ///
-    /// * `onSurfaceShow` - Indicates the surface show callback event which will called when the surface is shown.
+    /// * `onSurfaceShow` - Pointer to the surface display callback. - **surfaceHolder**: pointer to the target
+    /// [`OH_ArkUI_SurfaceHolder`](crate::OH_ArkUI_SurfaceHolder) instance.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -2132,13 +2340,15 @@ extern "C" {
             unsafe extern "C" fn(surfaceHolder: *mut OH_ArkUI_SurfaceHolder),
         >,
     );
-    /// Set the surface hide event of the surface callback.
+    /// Sets a surface hiding callback for this [`OH_ArkUI_SurfaceCallback`](crate::OH_ArkUI_SurfaceCallback) instance. This callback is invoked
+    /// when the application window has moved from the foreground to the background.
     ///
     /// # Arguments
     ///
-    /// * `callback` - Indicated the pointer to the surface callback.
+    /// * `callback` - Pointer to the target [`OH_ArkUI_SurfaceCallback`](crate::OH_ArkUI_SurfaceCallback) instance.
     ///
-    /// * `onSurfaceHide` - Indicates the surface hide callback event which will called when the surface is hide.
+    /// * `onSurfaceHide` - Pointer to the surface hiding callback. - **surfaceHolder**: pointer to the target
+    /// [`OH_ArkUI_SurfaceHolder`](crate::OH_ArkUI_SurfaceHolder) instance.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -2149,36 +2359,37 @@ extern "C" {
             unsafe extern "C" fn(surfaceHolder: *mut OH_ArkUI_SurfaceHolder),
         >,
     );
-    /// Create an <b>ArkUI_XComponentSurfaceConfig</b> object.
+    /// Creates an [`ArkUI_XComponentSurfaceConfig`](ohos_sys_opaque_types::ArkUI_XComponentSurfaceConfig) object for an **XComponent**.
     ///
     ///
     /// # Returns
     ///
-    /// * A pointer to the object of the XComponent's surface config.
+    /// * Pointer to the created [`ArkUI_XComponentSurfaceConfig`](ohos_sys_opaque_types::ArkUI_XComponentSurfaceConfig) object.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub fn OH_ArkUI_XComponentSurfaceConfig_Create() -> *mut ArkUI_XComponentSurfaceConfig;
-    /// Dispose of an <b>ArkUI_XComponentSurfaceConfig</b> object.
+    /// Disposes of an [`ArkUI_XComponentSurfaceConfig`](ohos_sys_opaque_types::ArkUI_XComponentSurfaceConfig) object.
     ///
     /// # Arguments
     ///
-    /// * `config` - A pointer to the object of the XComponent's surface config to be destroyed.
+    /// * `config` - Pointer to the target [`ArkUI_XComponentSurfaceConfig`](ohos_sys_opaque_types::ArkUI_XComponentSurfaceConfig) object.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub fn OH_ArkUI_XComponentSurfaceConfig_Dispose(config: *mut ArkUI_XComponentSurfaceConfig);
-    /// Set whether the surface held by XComponent needs to be considered opaque,
-    /// even if the surface has translucent pixel.
+    /// Sets whether the surface held by the **XComponent** should be treated as opaque during rendering, regardless
+    /// of the actual pixel transparency.
     ///
     /// # Arguments
     ///
-    /// * `config` - A pointer to the object of the XComponent's surface config.
+    /// * `config` - Pointer to the target [`ArkUI_XComponentSurfaceConfig`](ohos_sys_opaque_types::ArkUI_XComponentSurfaceConfig) instance.
     ///
-    /// * `isOpaque` - Indicates whether the surface held by XComponent needs to be considered opaque,
-    /// True means needing to be considered opaque, false otherwise.
+    /// * `isOpaque` - Whether the surface held by the **XComponent** should be treated as opaque during rendering. **true**
+    /// if the surface should be treated as opaque, **false** otherwise. The default value is **false**, which means
+    /// pixel opacity of the surface content will be applied during rendering.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -2187,19 +2398,19 @@ extern "C" {
         config: *mut ArkUI_XComponentSurfaceConfig,
         isOpaque: bool,
     );
-    /// Set surface config for this <b>OH_ArkUI_SurfaceHolder</b> instance.
+    /// Sets the surface configuration for the [`OH_ArkUI_SurfaceHolder`](crate::OH_ArkUI_SurfaceHolder) instance.
     ///
     /// # Arguments
     ///
-    /// * `surfaceHolder` - Indicates the pointer to this <b>OH_ArkUI_SurfaceHolder</b> instance.
+    /// * `surfaceHolder` - Pointer to the target [`OH_ArkUI_SurfaceHolder`](crate::OH_ArkUI_SurfaceHolder) instance.
     ///
-    /// * `config` - Indicates the pointer to the XComponent's surface config.
+    /// * `config` - Pointer to the target [`ArkUI_XComponentSurfaceConfig`](ohos_sys_opaque_types::ArkUI_XComponentSurfaceConfig) instance.
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::native_type::ArkUiResult) the execution is successful.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// * Result code.
+    ///  - [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::error_code::ArkUiResult) if the operation is successful.
+    ///  - [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]

@@ -34,7 +34,7 @@ impl OH_AudioDevice_Role {
     pub const AUDIO_DEVICE_ROLE_OUTPUT: OH_AudioDevice_Role = OH_AudioDevice_Role(2);
 }
 #[repr(transparent)]
-/// Defines the audio device device role.
+/// Defines the audio device role.
 ///
 ///
 /// Available since API-level: 12
@@ -108,7 +108,7 @@ impl OH_AudioDevice_Type {
     pub const AUDIO_DEVICE_TYPE_DEFAULT: OH_AudioDevice_Type = OH_AudioDevice_Type(1000);
 }
 #[repr(transparent)]
-/// Defines the audio device device type.
+/// Defines the audio device type.
 ///
 ///
 /// Available since API-level: 12
@@ -140,7 +140,7 @@ pub struct OH_AudioDevice_Flag(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl OH_AudioDevice_Usage {
-    /// Device used for media ouput.
+    /// Device used for media output.
     ///
     ///
     /// Available since API-level: 12
@@ -236,7 +236,8 @@ impl OH_AudioDevice_BlockStatus {
     pub const AUDIO_DEVICE_BLOCKED: OH_AudioDevice_BlockStatus = OH_AudioDevice_BlockStatus(1);
 }
 #[repr(transparent)]
-/// Declaring the audio device blocked status. By default, the audio device is considered as unbloked.
+/// Declaring the audio device blocked status.
+/// By default, the audio device is considered as unblocked.
 ///
 ///
 /// Available since API-level: 13
@@ -252,7 +253,7 @@ extern "C" {
     /// * `audioDeviceDescriptor` - reference returned by [`OH_AudioRoutingManager_GetDevices`](crate::audio_routing_manager::OH_AudioRoutingManager_GetDevices) or
     /// `OH_AudioRouterManager_OnDeviceChangedCallback`.
     ///
-    /// * `deviceRole` - the pointer `OH_AudioDevice_DeviceRole` variable that will be set the device role value.
+    /// * `deviceRole` - the pointer [`OH_AudioDevice_Role`](crate::audio_device_base::OH_AudioDevice_Role) variable that will be set the device role value.
     ///
     /// # Returns
     ///
@@ -272,7 +273,7 @@ extern "C" {
     /// * `audioDeviceDescriptor` - reference returned by [`OH_AudioRoutingManager_GetDevices`](crate::audio_routing_manager::OH_AudioRoutingManager_GetDevices) or
     /// `OH_AudioRouterManager_OnDeviceChangedCallback`.
     ///
-    /// * `deviceType` - the pointer `OH_AudioDevice_DeviceType`
+    /// * `deviceType` - the pointer [`OH_AudioDevice_Type`](crate::audio_device_base::OH_AudioDevice_Type)
     /// pointer variable that will be set the device type value.
     ///
     /// # Returns

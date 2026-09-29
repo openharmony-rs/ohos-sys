@@ -9,7 +9,8 @@ use crate::avbuffer::OH_AVBuffer;
 #[allow(unused_imports)]
 use crate::averrors::OH_AVErrCode;
 
-/// Forward declaration of OH_AVSamplesBuffer.
+/// The struct describes the input data of the LowPowerAVSink. After receiving the DataNeeded callback, the
+/// application must pack data into an OH_AVSamplesBuffer instance and pass it to the corresponding LowPowerAVSink.
 ///
 ///
 /// Available since API-level: 20
@@ -30,21 +31,20 @@ pub struct OH_LowPowerAVSink_Capability {
     _unused: [u8; 0],
 }
 extern "C" {
-    /// Append one OH_AVBuffer data to framePacketBuffer instance.
+    /// Appends data from an OH_AVBuffer instance to an OH_AVSamplesBuffer instance.
     ///
     /// # Arguments
     ///
-    /// * `samplesBuffer` - OH_AVSamplesBuffer instance
+    /// * `samplesBuffer` - Pointer to an OH_AVSamplesBuffer instance.
     ///
-    /// * `avBuffer` - OH_AVBuffer buffer will be appended to
+    /// * `avBuffer` - Pointer to an OH_AVBuffer instance.
     ///
     /// # Returns
     ///
-    /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode).
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL), the samplesBuffer or the avBuffer or data pointer is nullptr or invalid.
-    /// [`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY), the framePacketBuffer has no enough remained capacity to append one OH_AVBuffer.
-    /// [`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN), unknown error.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
+    /// `AV_ERR_INVALID_VA`: An input parameter is nullptr or invalid.
+    /// **AV_ERR_NO_MEMORY**: The framePacketBuffer does not have sufficient remaining capacity to append an OH_AVBuffer.
+    /// **AV_ERR_UNKNOWN**: An unknown error occurs.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -53,33 +53,32 @@ extern "C" {
         samplesBuffer: *mut OH_AVSamplesBuffer,
         avBuffer: *mut OH_AVBuffer,
     ) -> OH_AVErrCode;
-    /// Get remained capacity of OH_AVSamplesBuffer instance.
+    /// Obtains the remaining capacity available in an OH_AVSamplesBuffer instance.
     ///
     /// # Arguments
     ///
-    /// {OH_AVSamplesBuffer} samplesBuffer OH_AVSamplesBuffer instance
+    /// * `samplesBuffer` - OH_AVSamplesBuffer instance
     ///
     /// # Returns
     ///
-    /// * Returns remained capacity of OH_AVSamplesBuffer instance,
-    /// return -1 if samplesBuffer or data poniter is is nullptr or invalid.
+    /// * Remaining capacity available in the OH_AVSamplesBuffer instance, in bytes. If **sampleBuffer** or data
+    /// pointer is nullptr or invalid, **3** is returned.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_AVSamplesBuffer_GetRemainedCapacity(samplesBuffer: *mut OH_AVSamplesBuffer) -> i32;
-    /// Query the supported capabilities of a lowpower audio/video sink.
-    ///
-    /// This function queries and returns the capability set supported by the current
-    /// lowpower audio/video sink, including but not limited to supported media formats, etc.
+    /// Obtains the capability of the low-power player. It mainly helps you find out what the low-power player can do,
+    /// including the media formats and features it supports.
+    /// When you call this function, you can learn about the device's capabilities in audio and video processing. For
+    /// example, you can find out which encoding and decoding formats are supported, as well as the range of bit rates that
+    /// the device can handle.
     ///
     ///
     /// # Returns
     ///
-    /// * {OH_LowPowerAVSink_Capability*}
-    /// - A pointer to the capability structure if the sink supports capability queries and the query is successful.
-    /// - nullptr if the sink does not support capability queries or the query fails.
-    ///
+    /// * **OH_LowPowerAVSink_Capability**: The low-power player is supported.
+    /// **nullptr**: The low-power player is not supported or the capability fails to be obtained.
     ///
     /// Available since API-level: 21
     #[cfg(feature = "api-21")]

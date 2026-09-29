@@ -5,8 +5,7 @@
 #![allow(non_snake_case)]
 use crate::common::{CryptoResult, Crypto_DataBlob};
 
-/// Defines the KDF structure.
-///
+/// KDF structure, representing a KDF context.
 ///
 /// Available since API-level: 20
 #[cfg(feature = "api-20")]
@@ -15,8 +14,7 @@ use crate::common::{CryptoResult, Crypto_DataBlob};
 pub struct OH_CryptoKdf {
     _unused: [u8; 0],
 }
-/// Defines the KDF params structure.
-///
+/// KDF parameters structure, representing KDF parameters.
 ///
 /// Available since API-level: 20
 #[cfg(feature = "api-20")]
@@ -28,26 +26,57 @@ pub struct OH_CryptoKdfParams {
 #[cfg(feature = "api-20")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
 impl CryptoKdf_ParamType {
-    /// Indicates the key or password for KDF.
+    /// Key or password for KDF.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const CRYPTO_KDF_KEY_DATABLOB: CryptoKdf_ParamType = CryptoKdf_ParamType(0);
-    /// Indicates the salt for KDF.
+    /// Salt value for KDF.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const CRYPTO_KDF_SALT_DATABLOB: CryptoKdf_ParamType = CryptoKdf_ParamType(1);
-    /// Indicates the info for KDF.
+    /// Info for KDF.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const CRYPTO_KDF_INFO_DATABLOB: CryptoKdf_ParamType = CryptoKdf_ParamType(2);
-    /// Indicates the iteration count for PBKDF2.
+    /// Iteration count for PBKDF2.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const CRYPTO_KDF_ITER_COUNT_INT: CryptoKdf_ParamType = CryptoKdf_ParamType(3);
-    /// Indicates the n for SCRYPT KDF.
+    /// n parameter for SCRYPT KDF.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const CRYPTO_KDF_SCRYPT_N_UINT64: CryptoKdf_ParamType = CryptoKdf_ParamType(4);
-    /// Indicates the r for SCRYPT KDF.
+    /// r parameter for SCRYPT KDF.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const CRYPTO_KDF_SCRYPT_R_UINT64: CryptoKdf_ParamType = CryptoKdf_ParamType(5);
-    /// Indicates the p for SCRYPT KDF.
+    /// p parameter for SCRYPT KDF.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const CRYPTO_KDF_SCRYPT_P_UINT64: CryptoKdf_ParamType = CryptoKdf_ParamType(6);
-    /// Indicates the max memory for SCRYPT KDF.
+    /// Maximum memory parameter for SCRYPT KDF.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const CRYPTO_KDF_SCRYPT_MAX_MEM_UINT64: CryptoKdf_ParamType = CryptoKdf_ParamType(7);
 }
 #[repr(transparent)]
-/// Defines the KDF param type.
-///
+/// Defines KDF parameter types.
 ///
 /// Available since API-level: 20
 #[cfg(feature = "api-20")]
@@ -55,46 +84,51 @@ impl CryptoKdf_ParamType {
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct CryptoKdf_ParamType(pub ::core::ffi::c_uint);
 extern "C" {
-    /// Creates KDF params.
-    ///
+    /// Creates KDF parameters.
     /// # Arguments
     ///
-    /// * `algoName` - Indicates the KDF algorithm name. e.g. "HKDF", "PBKDF2", "SCRYPT".
+    /// * `algoName` - \[in\] KDF parameter algorithm name. Cannot be NULL. Values:
+    /// - "HKDF", "PBKDF2", "SCRYPT" supported since API version 20.
+    /// - "X963KDF" supported since API version 22.
     ///
-    /// * `params` - Indicates the KDF params.
+    /// * `params` - \[out\] Pointer to the KDF parameters pointer. params cannot be NULL, *params must be NULL.
     ///
     /// # Returns
     ///
-    /// * [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) 0 - If the operation is successful.
-    /// [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) 801 - If the operation is not supported.
-    /// [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) 17620001 - If memory operation failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) 17620003 - If parameter check failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) 17630001 - If crypto operation failed.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) if the operation succeeds.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) if algoName or params is NULL, algoName is not a supported KDF type.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) if unsupported operation or algorithm.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) if memory allocation fails.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) if crypto operation fails.
+    ///
+    /// **Note:** Release `params` with [`OH_CryptoKdfParams_Destroy`](crate::kdf::OH_CryptoKdfParams_Destroy).
     ///
     /// Available since API-level: 20
+    ///
+    /// **See also:** [`OH_CryptoKdfParams_SetParam`](crate::kdf::OH_CryptoKdfParams_SetParam) Sets KDF parameters.
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_CryptoKdfParams_Create(
         algoName: *const ::core::ffi::c_char,
         params: *mut *mut OH_CryptoKdfParams,
     ) -> CryptoResult;
-    /// Sets a parameter to the KDF parameters.
-    ///
+    /// Sets KDF parameters.
     /// # Arguments
     ///
-    /// * `params` - Indicates the KDF parameters.
+    /// * `params` - \[in\] KDF parameters. Cannot be NULL.
     ///
-    /// * `type` - Indicates the KDF parameter type.
+    /// * `type` - \[in\] KDF parameter type.
     ///
-    /// * `value` - Indicates the KDF parameter value.
+    /// * `value` - \[in\] KDF parameter value. This function performs a deep copy of the data in value.
+    /// The caller can release value immediately after the function returns. Cannot be NULL.
     ///
     /// # Returns
     ///
-    /// * [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) 0 - If the operation is successful.
-    /// [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) 801 - If the operation is not supported.
-    /// [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) 17620001 - If memory operation failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) 17620003 - If parameter check failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) 17630001 - If crypto operation failed.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) if the operation succeeds.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) if params or value is NULL, value->data is NULL, or type is not valid for the KDF algorithm.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) if unsupported operation or algorithm.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) if memory allocation for param copy fails.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) if crypto operation fails.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -104,33 +138,46 @@ extern "C" {
         type_: CryptoKdf_ParamType,
         value: *mut Crypto_DataBlob,
     ) -> CryptoResult;
-    /// Destroys the KDF params.
-    ///
+    /// Destroys KDF parameters.
     /// # Arguments
     ///
-    /// * `params` - Indicates the KDF parameters.
+    /// * `params` - \[in\] KDF parameters.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_CryptoKdfParams_Destroy(params: *mut OH_CryptoKdfParams);
-    /// Creates a KDF context.
-    ///
+    /// Creates a KDF context based on the given algorithm name.
     /// # Arguments
     ///
-    /// * `algoName` - Indicates the KDF algorithm name. e.g. "HKDF|SHA384|EXTRACT_AND_EXPAND", "PBKDF2|SHA384", "SCRYPT".
+    /// * `algoName` - \[in\] KDF algorithm name. Cannot be NULL. Format: "KDFType|DigestAlgorithm". Values:
+    /// - "PBKDF2|SHA1", "PBKDF2|SHA224", "PBKDF2|SHA256", "PBKDF2|SHA384", "PBKDF2|SHA512",
+    /// "PBKDF2|SM3" supported since API version 20.
+    /// "PBKDF2|SHA3-256", "PBKDF2|SHA3-384", "PBKDF2|SHA3-512" supported since API version 26.0.0.
+    /// - "HKDF|SHA1", "HKDF|SHA224", "HKDF|SHA256", "HKDF|SHA384", "HKDF|SHA512", "HKDF|SM3"
+    /// supported since API version 20. HKDF supports an optional third parameter to specify the mode:
+    /// "EXTRACT_AND_EXPAND" (default), "EXTRACT_ONLY", "EXPAND_ONLY", e.g. "HKDF|SHA256|EXTRACT_ONLY".
+    /// "HKDF|SHA3-256", "HKDF|SHA3-384", "HKDF|SHA3-512" supported since API version 26.0.0.
+    /// - "SCRYPT" supported since API version 20.
+    /// - "X963KDF|SHA1", "X963KDF|SHA224", "X963KDF|SHA256", "X963KDF|SHA384", "X963KDF|SHA512"
+    /// supported since API version 22.
+    /// "X963KDF|SHA3-256", "X963KDF|SHA3-384", "X963KDF|SHA3-512" supported since API version 26.0.0.
     ///
-    /// * `ctx` - Indicates the KDF context.
+    /// * `ctx` - \[out\] Pointer to the KDF context pointer. ctx cannot be NULL, *ctx must be NULL.
     ///
     /// # Returns
     ///
-    /// * [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) 0 - If the operation is successful.
-    /// [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) 801 - If the operation is not supported.
-    /// [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) 17620001 - If memory operation failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) 17620003 - If parameter check failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) 17630001 - If crypto operation failed.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) if the operation succeeds.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) if algoName or ctx is NULL.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) if the algorithm is not supported.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) if memory allocation fails.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) if crypto operation fails.
+    ///
+    /// **Note:** Release `ctx` with [`OH_CryptoKdf_Destroy`](crate::kdf::OH_CryptoKdf_Destroy).
     ///
     /// Available since API-level: 20
+    ///
+    /// **See also:** [`OH_CryptoKdf_Derive`](crate::kdf::OH_CryptoKdf_Derive) Derives a key.
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_CryptoKdf_Create(
@@ -138,24 +185,26 @@ extern "C" {
         ctx: *mut *mut OH_CryptoKdf,
     ) -> CryptoResult;
     /// Derives a key.
-    ///
     /// # Arguments
     ///
-    /// * `ctx` - The KDF context.
+    /// * `ctx` - \[in\] KDF context. Cannot be NULL.
     ///
-    /// * `params` - Indicates the KDF parameters.
+    /// * `params` - \[in\] KDF parameters. Cannot be NULL.
     ///
-    /// * `keyLen` - Indicates the key derivation length.
+    /// * `keyLen` - \[in\] Byte length of the derived key.
     ///
-    /// * `key` - Indicates the derived key.
+    /// * `key` - \[out\] Pointer to the Crypto_DataBlob structure for storing the derived key. Cannot be NULL. Initialize key
+    /// to {0} before calling. Do not pre-allocate key->data.
     ///
     /// # Returns
     ///
-    /// * [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) 0 - If the operation is successful.
-    /// [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) 801 - If the operation is not supported.
-    /// [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) 17620001 - If memory operation failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) 17620003 - If parameter check failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) 17630001 - If crypto operation failed.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) if the operation succeeds.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) if ctx, params, or key is NULL, or keyLen is less than or equal to 0, or required parameters are missing (e.g. HKDF key, Scrypt password or salt).
+    /// - [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) if the algorithm is not supported.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) if memory allocation fails.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) if the key derivation fails.
+    ///
+    /// **Note:** Release `key` with [`OH_Crypto_FreeDataBlob`](crate::common::OH_Crypto_FreeDataBlob).
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -167,10 +216,9 @@ extern "C" {
         key: *mut Crypto_DataBlob,
     ) -> CryptoResult;
     /// Destroys the KDF context.
-    ///
     /// # Arguments
     ///
-    /// * `ctx` - The KDF context.
+    /// * `ctx` - \[in\] KDF context.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]

@@ -4,7 +4,7 @@
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
 
-/// Enumerated values of OpenHarmony key code.
+/// Enumerates the key codes.
 ///
 ///
 /// Available since API-level: 12
@@ -23,49 +23,50 @@ pub enum Input_KeyCode {
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     KEYCODE_HOME = 1,
-    /// Back key
+    /// Back button
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     KEYCODE_BACK = 2,
-    /// KEYCODE_SEARCH
+    /// Search key
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     KEYCODE_SEARCH = 9,
-    /// Play/Pause key
+    /// Media: Play/Pause key<br>Difference between this key and **KEYCODE_PLAYPAUSE**:<br>**KEYCODE_PLAYPAUSE** is an
+    /// earlier definition, while **KEYCODE_MEDIA_PLAY_PAUSE** is designed for modern media key devices.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     KEYCODE_MEDIA_PLAY_PAUSE = 10,
-    /// Stop key
+    /// Media: Stop Key
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     KEYCODE_MEDIA_STOP = 11,
-    /// Next key
+    /// Media: Next key
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     KEYCODE_MEDIA_NEXT = 12,
-    /// Previous key
+    /// Media: Previous key
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     KEYCODE_MEDIA_PREVIOUS = 13,
-    /// Rewind key
+    /// Media: Rewind key
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     KEYCODE_MEDIA_REWIND = 14,
-    /// Fast forward key
+    /// Media: Fast Forward key
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -73,11 +74,11 @@ pub enum Input_KeyCode {
     KEYCODE_MEDIA_FAST_FORWARD = 15,
     /// Volume Up key
     KEYCODE_VOLUME_UP = 16,
-    /// Volume Down button
+    /// Volume Down key
     KEYCODE_VOLUME_DOWN = 17,
     /// Power key
     KEYCODE_POWER = 18,
-    /// Shutter key
+    /// Camera key
     KEYCODE_CAMERA = 19,
     /// Speaker Mute key
     KEYCODE_VOLUME_MUTE = 22,
@@ -119,7 +120,7 @@ pub enum Input_KeyCode {
     KEYCODE_DPAD_LEFT = 2014,
     /// Right key on D-pad
     KEYCODE_DPAD_RIGHT = 2015,
-    /// OK key on D-pad
+    /// Center key on D-pad
     KEYCODE_DPAD_CENTER = 2016,
     /// Key A
     KEYCODE_A = 2017,
@@ -191,13 +192,13 @@ pub enum Input_KeyCode {
     KEYCODE_SPACE = 2050,
     /// Symbol key
     KEYCODE_SYM = 2051,
-    /// Explorer key, used to start the explorer application
+    /// Browser function key, used to launch the browser application.
     KEYCODE_EXPLORER = 2052,
-    /// Email key, used to start the email application
+    /// Email function key, used to launch the email application.
     KEYCODE_ENVELOPE = 2053,
     /// Enter key
     KEYCODE_ENTER = 2054,
-    /// Backspace key
+    /// Delete key
     KEYCODE_DEL = 2055,
     /// Key *
     KEYCODE_GRAVE = 2056,
@@ -209,7 +210,7 @@ pub enum Input_KeyCode {
     KEYCODE_LEFT_BRACKET = 2059,
     /// Key ]
     KEYCODE_RIGHT_BRACKET = 2060,
-    /// Key \
+    /// Key \|
     KEYCODE_BACKSLASH = 2061,
     /// Key ;
     KEYCODE_SEMICOLON = 2062,
@@ -227,9 +228,9 @@ pub enum Input_KeyCode {
     KEYCODE_PAGE_UP = 2068,
     /// Page Down key
     KEYCODE_PAGE_DOWN = 2069,
-    /// ESC key
+    /// Esc key
     KEYCODE_ESCAPE = 2070,
-    /// Delete key
+    /// Forward Delete key
     KEYCODE_FORWARD_DEL = 2071,
     /// Left Ctrl key
     KEYCODE_CTRL_LEFT = 2072,
@@ -257,15 +258,15 @@ pub enum Input_KeyCode {
     KEYCODE_INSERT = 2083,
     /// Forward key
     KEYCODE_FORWARD = 2084,
-    /// Play key
+    /// Media: Play key
     KEYCODE_MEDIA_PLAY = 2085,
-    /// Pause key
+    /// Media: Pause key
     KEYCODE_MEDIA_PAUSE = 2086,
-    /// Close key
+    /// Media: Close key
     KEYCODE_MEDIA_CLOSE = 2087,
-    /// Eject key
+    /// Media: Reject key
     KEYCODE_MEDIA_EJECT = 2088,
-    /// Record key
+    /// Media: Record key
     KEYCODE_MEDIA_RECORD = 2089,
     /// F1 key
     KEYCODE_F1 = 2090,
@@ -291,7 +292,7 @@ pub enum Input_KeyCode {
     KEYCODE_F11 = 2100,
     /// F12 key
     KEYCODE_F12 = 2101,
-    /// Number Lock key on numeric keypad
+    /// Number Lock key
     KEYCODE_NUM_LOCK = 2102,
     /// Key 0 on numeric keypad
     KEYCODE_NUMPAD_0 = 2103,
@@ -429,7 +430,7 @@ pub enum Input_KeyCode {
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     KEYCODE_ZENKAKU_HANKAKU = 2601,
-    /// 102nd key
+    /// International Keyboard Extension key
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -573,7 +574,7 @@ pub enum Input_KeyCode {
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     KEYCODE_HELP = 2625,
-    /// Calc key, which is used to start the calculator application
+    /// Calculator special function key, used to launch the calculator application.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -591,19 +592,20 @@ pub enum Input_KeyCode {
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     KEYCODE_BOOKMARKS = 2628,
-    /// Next key
+    /// Page Down key
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     KEYCODE_NEXT = 2629,
-    /// Play/Pause key
+    /// Media: Play/Pause key<br>Difference between this key and **KEYCODE_MEDIA_PLAY_PAUSE**:<br>**KEYCODE_PLAYPAUSE**
+    /// is an earlier definition, while **KEYCODE_MEDIA_PLAY_PAUSE** is designed for modern media key devices.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     KEYCODE_PLAYPAUSE = 2630,
-    /// Previous key
+    /// Page Up key
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -615,7 +617,7 @@ pub enum Input_KeyCode {
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     KEYCODE_STOPCD = 2632,
-    /// Config key
+    /// Configuration key
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -777,7 +779,7 @@ pub enum Input_KeyCode {
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     KEYCODE_BRIGHTNESS_ZERO = 2660,
-    /// Display Off key
+    /// Display Off Key
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -999,19 +1001,19 @@ pub enum Input_KeyCode {
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     KEYCODE_GAMES = 2697,
-    /// Zoom in
+    /// Zoom In key
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     KEYCODE_ZOOMIN = 2698,
-    /// Zoom out
+    /// Zoom Out key
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     KEYCODE_ZOOMOUT = 2699,
-    /// Zoom reset key
+    /// Zoom Reset key
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -1059,7 +1061,7 @@ pub enum Input_KeyCode {
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     KEYCODE_NEWS = 2707,
-    /// Voicemail key
+    /// Voice mailbox
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -1113,7 +1115,7 @@ pub enum Input_KeyCode {
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     KEYCODE_BUTTONCONFIG = 2716,
-    /// Task Manager key
+    /// Task Manager
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -1143,7 +1145,7 @@ pub enum Input_KeyCode {
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     KEYCODE_SCREENSAVER = 2721,
-    /// Smart key
+    /// Assistant key
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -1167,25 +1169,25 @@ pub enum Input_KeyCode {
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     KEYCODE_BRIGHTNESS_MAX = 2725,
-    /// Assist_Previous key, used to view historical inputs
+    /// Keyboard Input Assist_Previous, used to view input method input history.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     KEYCODE_KBDINPUTASSIST_PREV = 2726,
-    /// Assist_Next key, used to view predictive inputs
+    /// Keyboard Input Assist_Next, used to view input method input extensions.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     KEYCODE_KBDINPUTASSIST_NEXT = 2727,
-    /// Assist_Previous_Group key, used to switch to the previous input method in the input group
+    /// Keyboard Input Assist_Previous, used to switch to the previous input method in the input group.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     KEYCODE_KBDINPUTASSIST_PREVGROUP = 2728,
-    /// Assist_Next_Group key, used to switch to the next input method in the input group
+    /// Keyboard Input Assist_Next, used to switch to the next input method in the input group.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -1203,6 +1205,24 @@ pub enum Input_KeyCode {
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     KEYCODE_KBDINPUTASSIST_CANCEL = 2731,
+    /// Mouse AI Assistant key
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    KEYCODE_MOUSE_ASSISTANT = 2732,
+    /// Mouse Smart Selection key
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    KEYCODE_MOUSE_INTELLIGENCE_SELECTION = 2733,
+    /// Phone touchscreen single-click event, used in Always-On Display state.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    KEYCODE_AOD_SINGLE_CLICK = 2740,
     /// Front key, which is used to launch the windshield defogger
     ///
     /// Available since API-level: 22
@@ -1251,7 +1271,7 @@ pub enum Input_KeyCode {
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     KEYCODE_PROG2 = 2807,
-    /// MS-DOS key
+    /// DOS key
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -1269,13 +1289,13 @@ pub enum Input_KeyCode {
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     KEYCODE_DIRECTION_ROTATE_DISPLAY = 2810,
-    /// Windows Cycle key
+    /// Window Cycle key
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     KEYCODE_CYCLEWINDOWS = 2811,
-    /// Key
+    /// Computer key
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -1383,7 +1403,7 @@ pub enum Input_KeyCode {
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     KEYCODE_PROG4 = 2829,
-    /// Dashboard key
+    /// Dashboard
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -1431,13 +1451,13 @@ pub enum Input_KeyCode {
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     KEYCODE_SHOP = 2838,
-    /// Alterase key
+    /// Alternate key
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     KEYCODE_ALTERASE = 2839,
-    /// Switch Video Mode key (monitor, LCD, and TV, etc)
+    /// Cycle output between available videos (monitor/LCD/TV output/more)
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -1467,7 +1487,7 @@ pub enum Input_KeyCode {
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     KEYCODE_UWB = 2845,
-    /// WWAN WiMAX key
+    /// Mobile Network Control key
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -1563,10 +1583,28 @@ pub enum Input_KeyCode {
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     KEYCODE_DAGGER_LONG_PRESS = 3213,
-    /// Smart watch's left button
+    /// Left button of the smart watch
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     KEYCODE_DIV = 3220,
+    /// Custom Shortcut Keys
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    KEYCODE_XKEY = 3232,
+    /// Smart control Key slide-up
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    KEYCODE_FINGERPRINT_SLIDE_UP = 3233,
+    /// Smart control Key slide-down
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    KEYCODE_FINGERPRINT_SLIDE_DOWN = 3234,
 }

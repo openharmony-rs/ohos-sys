@@ -63,4 +63,14 @@ fn link_smoke() {
     unsafe {
         let _ = window::native_fence::OH_NativeFence_IsValid(-1);
     }
+
+    #[cfg(feature = "api-26")]
+    unsafe {
+        let _ = window::native_window::OH_NativeWindow_Set3DMetadataValue(
+            ptr::null_mut(),
+            core::mem::zeroed(),
+            0,
+            ptr::null_mut(),
+        );
+    }
 }

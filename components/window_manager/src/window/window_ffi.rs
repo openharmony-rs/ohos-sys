@@ -5,6 +5,12 @@
 #![allow(non_snake_case)]
 #[cfg(feature = "api-17")]
 use crate::window_comm::WindowManager_Rect;
+#[cfg(feature = "api-24")]
+use crate::window_comm::{OH_WindowManager_DensityInfo, OH_WindowManager_DensityInfoCallback};
+#[cfg(feature = "api-26")]
+use crate::window_comm::{
+    OH_WindowManager_FrameMetrics, OH_WindowManager_FrameMetricsMeasuredCallback,
+};
 use crate::window_comm::{
     WindowManager_AvoidArea, WindowManager_AvoidAreaType, WindowManager_WindowProperties,
 };
@@ -14,13 +20,13 @@ use crate::window_comm::{WindowManager_MainWindowInfo, WindowManager_WindowSnaps
 use ohos_sys_opaque_types::Input_TouchEvent;
 use ohos_sys_opaque_types::OH_PixelmapNative;
 
-/// Callback interface for getting main windows' snapshot.
+/// Defines the callback used for receiving the main window screenshot list.
 ///
 /// # Arguments
 ///
-/// * `snapshotPixelMapList` - List of windows' snapshot
+/// * `snapshotPixelMapList` - Double pointer to the list of window screenshots.
 ///
-/// * `snapshotListSize` - Size of snapshotPixelMapList
+/// * `snapshotListSize` - Size of the window screenshot list.
 ///
 /// Available since API-level: 21
 #[cfg(feature = "api-21")]
@@ -32,22 +38,21 @@ pub type OH_WindowManager_WindowSnapshotCallback = ::core::option::Option<
     ),
 >;
 extern "C" {
-    /// Set whether to show status bar.
+    /// Sets whether to display the status bar in a window.
     ///
     /// # Arguments
     ///
-    /// * `windowId` - WindowId when window is created.
+    /// * `windowId` - Window ID. The default value is **0**. The value is an integer.
     ///
-    /// * `enabled` - If true, the status bar is displayed. If false, the status bar is hidden.
+    /// * `enabled` - Whether to display the status bar. **true** to display, **false** otherwise.
     ///
-    /// * `enableAnimation` - If true, the status bar is displayed and hidden with animation.
-    /// If false, the status bar is displayed and hidden with no animation.
+    /// * `enableAnimation` - Whether to enable the show/hide animation of the status bar. **true** to enable, **false**
+    /// otherwise.
     ///
     /// # Returns
     ///
     /// * Returns the result code.
     /// [`OK`](crate::window_comm::WindowManagerResult) the function call is successful.
-    /// [`WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED) capability not supported.
     /// [`WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL) this window state is abnormal.
     /// [`WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL) the window manager service works abnormally.
     ///
@@ -59,19 +64,18 @@ extern "C" {
         enabled: bool,
         enableAnimation: bool,
     ) -> i32;
-    /// Set status bar content color.
+    /// Sets the color of the status bar in a window.
     ///
     /// # Arguments
     ///
-    /// * `windowId` - WindowId when window is created.
+    /// * `windowId` - Window ID. The default value is **0**. The value is an integer.
     ///
-    /// * `color` - The color value to set, the format is ARGB.
+    /// * `color` - Color to set, in ARGB format.
     ///
     /// # Returns
     ///
     /// * Returns the result code.
     /// [`OK`](crate::window_comm::WindowManagerResult) the function call is successful.
-    /// [`WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED) capability not supported.
     /// [`WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL) this window state is abnormal.
     /// [`WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL) the window manager service works abnormally.
     ///
@@ -79,22 +83,21 @@ extern "C" {
     #[cfg(feature = "api-15")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub fn OH_WindowManager_SetWindowStatusBarColor(windowId: i32, color: i32) -> i32;
-    /// Set whether to show navigation bar.
+    /// Sets whether to display the navigation bar in a window.
     ///
     /// # Arguments
     ///
-    /// * `windowId` - WindowId when window is created.
+    /// * `windowId` - Window ID. The default value is **0**. The value is an integer.
     ///
-    /// * `enabled` - If true, the navigation bar is displayed. If false, the navigation bar is hidden.
+    /// * `enabled` - Whether to display the navigation bar. **true** to display, **false** otherwise.
     ///
-    /// * `enableAnimation` - If true, the navigation bar is displayed and hidden with animation.
-    /// If false, the navigation bar is displayed and hidden with no animation.
+    /// * `enableAnimation` - Whether to enable the show/hide animation of the navigation bar. **true** to enable, **false**
+    /// otherwise.
     ///
     /// # Returns
     ///
     /// * Returns the result code.
     /// [`OK`](crate::window_comm::WindowManagerResult) the function call is successful.
-    /// [`WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED) capability not supported.
     /// [`WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL) this window state is abnormal.
     /// [`WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL) the window manager service works abnormally.
     ///
@@ -106,15 +109,15 @@ extern "C" {
         enabled: bool,
         enableAnimation: bool,
     ) -> i32;
-    /// Get the avoid area
+    /// Obtains the avoid area of a window.
     ///
     /// # Arguments
     ///
-    /// * `windowId` - WindowId when window is created.
+    /// * `windowId` - Window ID. The default value is **0**. The value is an integer.
     ///
     /// * `type` - Type of the avoid area.
     ///
-    /// * `avoidArea` - Indicates the pointer to a WindowManager_AvoidArea object.
+    /// * `avoidArea` - Pointer to the avoid area.
     ///
     /// # Returns
     ///
@@ -132,13 +135,14 @@ extern "C" {
         type_: WindowManager_AvoidAreaType,
         avoidArea: *mut WindowManager_AvoidArea,
     ) -> i32;
-    /// Checks whether the window is displayed.
+    /// Checks whether a window is displayed.
     ///
     /// # Arguments
     ///
-    /// * `windowId` - WindowId when window is created.
+    /// * `windowId` - Window ID. The default value is **0**. The value is an integer.
     ///
-    /// * `isShow` - Whether the window is displayed. The value true means that the window is displayed, and false means the opposite.
+    /// * `isShow` - Pointer to the check result for whether the window is displayed. **true** if displayed, **false**
+    /// otherwise.
     ///
     /// # Returns
     ///
@@ -151,11 +155,11 @@ extern "C" {
     #[cfg(feature = "api-15")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub fn OH_WindowManager_IsWindowShown(windowId: i32, isShow: *mut bool) -> i32;
-    /// Show window.
+    /// Shows a window.
     ///
     /// # Arguments
     ///
-    /// * `windowId` - WindowId when window is created.
+    /// * `windowId` - Window ID. The default value is **0**. The value is an integer.
     ///
     /// # Returns
     ///
@@ -168,13 +172,13 @@ extern "C" {
     #[cfg(feature = "api-15")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub fn OH_WindowManager_ShowWindow(windowId: i32) -> i32;
-    /// Set window touchable
+    /// Sets whether a window is touchable.
     ///
     /// # Arguments
     ///
-    /// * `windowId` - WindowId when window is created.
+    /// * `windowId` - Window ID. The default value is **0**. The value is an integer.
     ///
-    /// * `isTouchable` - Indicates whether the specified window can be touched.
+    /// * `isTouchable` - Whether the window is touchable. **true** if touchable, **false** otherwise.
     ///
     /// # Returns
     ///
@@ -187,13 +191,13 @@ extern "C" {
     #[cfg(feature = "api-15")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub fn OH_WindowManager_SetWindowTouchable(windowId: i32, isTouchable: bool) -> i32;
-    /// Set focusable property of window.
+    /// Sets whether a window is focusable.
     ///
     /// # Arguments
     ///
-    /// * `windowId` - WindowId when window is created.
+    /// * `windowId` - Window ID. The default value is **0**. The value is an integer.
     ///
-    /// * `isFocusable` - Window can be focused or not.
+    /// * `isFocusable` - Whether the window is focusable. **true** if focusable, **false** otherwise.
     ///
     /// # Returns
     ///
@@ -206,13 +210,13 @@ extern "C" {
     #[cfg(feature = "api-15")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub fn OH_WindowManager_SetWindowFocusable(windowId: i32, isFocusable: bool) -> i32;
-    /// Sets the background color of window.
+    /// Sets the background color of a window.
     ///
     /// # Arguments
     ///
-    /// * `windowId` - WindowId when window is created.
+    /// * `windowId` - Window ID. The default value is **0**. The value is an integer.
     ///
-    /// * `color` - the specified color.
+    /// * `color` - Pointer to the background color. The value is a string in hexadecimal RGB or ARGB color format.
     ///
     /// # Returns
     ///
@@ -228,13 +232,16 @@ extern "C" {
         windowId: i32,
         color: *const ::core::ffi::c_char,
     ) -> i32;
-    /// Sets the brightness of window.
+    /// Sets the window brightness for the main window. The window brightness takes effect only when the window is in
+    /// the foreground and has focus.
     ///
     /// # Arguments
     ///
-    /// * `windowId` - WindowId when window is created.
+    /// * `windowId` - Window ID. The default value is **0**. The value is an integer.
     ///
-    /// * `brightness` - the specified brightness value.
+    /// * `brightness` - Screen brightness. The value is a floating-point number in the range \[0.0, 1.0\] or is set to **-1.
+    /// 0**. The value **1.0** means the brightest, and **-1.0** means that the window brightness resets to the original
+    /// brightness set through Control Panel.
     ///
     /// # Returns
     ///
@@ -248,13 +255,14 @@ extern "C" {
     #[cfg(feature = "api-15")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub fn OH_WindowManager_SetWindowBrightness(windowId: i32, brightness: f32) -> i32;
-    /// Sets whether keep screen on or not.
+    /// Sets whether to always keep the screen on for a window.
     ///
     /// # Arguments
     ///
-    /// * `windowId` - WindowId when window is created.
+    /// * `windowId` - Window ID. The default value is **0**. The value is an integer.
     ///
-    /// * `isKeepScreenOn` - keep screen on if true, or not if false.
+    /// * `isKeepScreenOn` - Whether to always keep the screen on. **true** to always keep the screen on, **false**
+    /// otherwise.
     ///
     /// # Returns
     ///
@@ -267,15 +275,15 @@ extern "C" {
     #[cfg(feature = "api-15")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub fn OH_WindowManager_SetWindowKeepScreenOn(windowId: i32, isKeepScreenOn: bool) -> i32;
-    /// Sets whether is private mode or not.
+    /// Sets whether to enable privacy mode for a window.
     ///
     ///
     /// Required Permissions: ohos.permission.PRIVACY_WINDOW
     /// # Arguments
     ///
-    /// * `windowId` - WindowId when window is created.
+    /// * `windowId` - Window ID. The default value is **0**. The value is an integer.
     ///
-    /// * `isPrivacy` - In private mode if true, or not if false.
+    /// * `isPrivacy` - Whether to enable privacy mode. **true** to enable, **false** otherwise.
     ///
     /// # Returns
     ///
@@ -289,13 +297,13 @@ extern "C" {
     #[cfg(feature = "api-15")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub fn OH_WindowManager_SetWindowPrivacyMode(windowId: i32, isPrivacy: bool) -> i32;
-    /// Get the properties of current window.
+    /// Obtains the properties of a window.
     ///
     /// # Arguments
     ///
-    /// * `windowId` - WindowId when window is created.
+    /// * `windowId` - Window ID. The default value is **0**. The value is an integer.
     ///
-    /// * `windowProperties` - Properties of current window.
+    /// * `windowProperties` - Pointer to the properties.
     ///
     /// # Returns
     ///
@@ -311,13 +319,16 @@ extern "C" {
         windowId: i32,
         windowProperties: *mut WindowManager_WindowProperties,
     ) -> i32;
-    /// Obtains snapshot of window.
+    /// Obtains the snapshot of a window.
     ///
     /// # Arguments
     ///
-    /// * `windowId` - windowId when window is created.
+    /// * `windowId` - Window ID. The default value is **0**. The value is an integer.
+    /// If the window ID is invalid or the window has been destroyed, you cannot obtain the window snapshot. To
+    /// successfully obtain a snapshot, a valid window ID is required.
+    /// You can obtain a valid window ID by calling the ArkTS API `getWindowProperties()` on the window object
     ///
-    /// * `pixelMap` - snapshot of window.
+    /// * `pixelMap` - Pointer to the snapshot.
     ///
     /// # Returns
     ///
@@ -330,16 +341,19 @@ extern "C" {
     #[cfg(feature = "api-15")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub fn OH_WindowManager_Snapshot(windowId: i32, pixelMap: *mut OH_PixelmapNative) -> i32;
-    /// Get layout info of all windows on the selected display.
+    /// Obtains the layout information array of all windows visible on a display. The layout information is arranged
+    /// based on the current window stacking order, and the topmost window in the hierarchy is at index 0 of the array.
     ///
     /// # Arguments
     ///
-    /// * `displayId` - Indicate the id of display.
+    /// * `displayId` - ID of the display. You can obtain a valid display ID by calling the ArkTS API
+    /// `getWindowProperties()` on the window object
     ///
-    /// * `windowLayoutInfoList` - Pointer to the layout information of the visible windows on the specified screen.
+    /// * `windowLayoutInfoList` - Double pointer to the layout information array of all windows visible. This parameter is
+    /// used as an output parameter.
     ///
-    /// * `windowLayoutInfoSize` - Pointer to the size of the array of layout information of the visible windows on the
-    /// specified screen.
+    /// * `windowLayoutInfoSize` - Pointer to the length of the layout information array. This parameter is used as an
+    /// output parameter.
     ///
     /// # Returns
     ///
@@ -357,11 +371,12 @@ extern "C" {
         windowLayoutInfoList: *mut *mut WindowManager_Rect,
         windowLayoutInfoSize: *mut usize,
     ) -> i32;
-    /// Release the memory of window layout info list.
+    /// Releases the memory occupied by a window layout information array.
     ///
     /// # Arguments
     ///
-    /// * `windowLayoutInfoList` - Pointer to the layout information of the visible windows on the specified screen.
+    /// * `windowLayoutInfoList` - Pointer to the layout information array of all windows visible on the display. You can
+    /// obtain the array pointer by calling [`OH_WindowManager_GetAllWindowLayoutInfoList`](crate::window::OH_WindowManager_GetAllWindowLayoutInfoList).
     ///
     /// Available since API-level: 17
     #[cfg(feature = "api-17")]
@@ -369,17 +384,24 @@ extern "C" {
     pub fn OH_WindowManager_ReleaseAllWindowLayoutInfoList(
         windowLayoutInfoList: *mut WindowManager_Rect,
     );
-    /// app can inject a touchEvent to target window without Focus and zOrder changed, just send to ArkUI.
+    /// Injects a multimodal touch event into the target window. This function is limited to injecting events into
+    /// windows that belong to the same process. The injection does not affect window focus or stacking order, nor does it
+    /// start window dragging. The event is forwarded directly to ArkUI. This function must be called after the target
+    /// window has completed its UI loading.
     ///
     /// # Arguments
     ///
-    /// * `windowId` - windowId when window is created.
+    /// * `windowId` - Window ID. The default value is **0**. The value is an integer.
     ///
-    /// * `touchEvent` - multimodal touchEvent.
+    /// * `touchEvent` - Pointer to the multimodal touch event. For details, see [`Input_TouchEvent`](ohos_sys_opaque_types::Input_TouchEvent). The event is
+    /// defined in **oh_input_manager.h**. Certain fields in this parameter have specific constraints. Specifically, **
+    /// action** should be an integer in the range \[0, 3\]; **id**, **displayX**, **displayY**, and **actionTime** should
+    /// be an integer greater than or equal to 0. If these constraints are not met, the function returns **
+    /// WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL**, indicating that the window manager service is abnormal.
     ///
-    /// * `windowX` - The position of the event relative to the abscissa of the window.
+    /// * `windowX` - X coordinate of the event relative to the target window. The value is an integer.
     ///
-    /// * `windowY` - The position of the event relative to the ordinate of the window.
+    /// * `windowY` - Y coordinate of the event relative to the target window. The value is an integer.
     ///
     /// # Returns
     ///
@@ -397,15 +419,16 @@ extern "C" {
         windowX: i32,
         windowY: i32,
     ) -> i32;
-    /// Get all main window info on device.
+    /// Obtains the information about all main windows.
     ///
     ///
     /// Required Permissions: ohos.permission.CUSTOM_SCREEN_CAPTURE
     /// # Arguments
     ///
-    /// * `infoList` - Indicates the pointer to a main window info list.
+    /// * `infoList` - Double pointer to the main window information list. This parameter is used as an output parameter.
     ///
-    /// * `mainWindowInfoSize` - The size of main window info list.
+    /// * `mainWindowInfoSize` - Pointer to the size of the main window information list. This parameter is used as an
+    /// output parameter.
     ///
     /// # Returns
     ///
@@ -422,29 +445,30 @@ extern "C" {
         infoList: *mut *mut WindowManager_MainWindowInfo,
         mainWindowInfoSize: *mut usize,
     ) -> i32;
-    /// Release all main window info list.
+    /// Releases the memory used by the main window information list.
     ///
     /// # Arguments
     ///
-    /// * `infoList` - Pointer to the main window info list.
+    /// * `infoList` - Pointer to the main window information list.
     ///
     /// Available since API-level: 21
     #[cfg(feature = "api-21")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
     pub fn OH_WindowManager_ReleaseAllMainWindowInfo(infoList: *mut WindowManager_MainWindowInfo);
-    /// Get snapshot of the specified windows.
+    /// Obtains the screenshots of one or more main windows specified by **windowId**.
     ///
     ///
     /// Required Permissions: ohos.permission.CUSTOM_SCREEN_CAPTURE
     /// # Arguments
     ///
-    /// * `windowIdList` - Main window id list for getting snapshot.
+    /// * `windowIdList` - Pointer to the main window ID list.
     ///
-    /// * `windowIdListSize` - Size of main window id list.
+    /// * `windowIdListSize` - Size of the main window ID list.
     ///
-    /// * `config` - Configuration for getting snapshot.
+    /// * `config` - Configuration for obtaining the window screenshot.
     ///
-    /// * `callback` - Snapshot callback object.
+    /// * `callback` - Callback used to return the lists of window screenshots, in the order of the provided window ID
+    /// array.
     ///
     /// # Returns
     ///
@@ -463,11 +487,11 @@ extern "C" {
         config: WindowManager_WindowSnapshotConfig,
         callback: OH_WindowManager_WindowSnapshotCallback,
     ) -> i32;
-    /// Release main window snapshot list.
+    /// Releases the memory used by the main window screenshot list.
     ///
     /// # Arguments
     ///
-    /// * `snapshotPixelMapList` - Indicates the pointer of a windows' snapshot list.
+    /// * `snapshotPixelMapList` - Pointer to the list of window screenshots.
     ///
     /// Available since API-level: 21
     #[cfg(feature = "api-21")]
@@ -475,18 +499,19 @@ extern "C" {
     pub fn OH_WindowManager_ReleaseMainWindowSnapshot(
         snapshotPixelMapList: *const OH_PixelmapNative,
     );
-    /// Lock the mouse cursor restricting it to a specified window area, and also control whether the cursor follows
-    /// movement. Only supported by the focus window; the lock is automatically released when the window loses focus.
+    /// Locks the mouse cursor within the specified window area and controls whether the cursor follows mouse
+    /// movements. It is only supported by the window that currently has focus, and the lock is automatically released when
+    /// the window loses focus.
     ///
     ///
     /// Required Permissions: ohos.permission.LOCK_WINDOW_CURSOR
     /// # Arguments
     ///
-    /// * `windowId` - WindowId when window is created.
+    /// * `windowId` - Window ID. The value is an integer.
     ///
-    /// * `isCursorFollowMovement` - Set mouse cursor lock mode.
-    /// If true:the cursor follow the mouse movement.
-    /// If false:the cursor does not follow the mouse.
+    /// * `isCursorFollowMovement` - Behavior of the mouse cursor when locked. If it is set to **true**, the cursor moves
+    /// along with the mouse. If it is set to **false**, the cursor remains stationary and does not follow mouse
+    /// movements.
     ///
     /// # Returns
     ///
@@ -501,13 +526,13 @@ extern "C" {
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub fn OH_WindowManager_LockCursor(windowId: i32, isCursorFollowMovement: bool) -> i32;
-    /// Clear the window mouse cursor status. Revert to mouse cursor free movement mode.
+    /// Clears the mouse cursor mode previously set for the window.
     ///
     ///
     /// Required Permissions: ohos.permission.LOCK_WINDOW_CURSOR
     /// # Arguments
     ///
-    /// * `windowId` - WindowId when window is created.
+    /// * `windowId` - Window ID. The value is an integer.
     ///
     /// # Returns
     ///
@@ -522,4 +547,323 @@ extern "C" {
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub fn OH_WindowManager_UnlockCursor(windowId: i32) -> i32;
+    /// Check whether the current frame is the first frame.
+    ///
+    /// # Arguments
+    ///
+    /// * `metrics` - Frame metrics data object.
+    ///
+    /// * `isFirstDrawFrame` - This parameter is the return value of the function,
+    /// indicating whether the current frame is the first frame.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the status code of the execution.
+    /// `WS_OK` the function call is successful.
+    /// [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM) Parameter error. Possible cause:
+    /// 1. Invalid parameter range.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_WindowManager_FrameMetrics_IsFirstDrawFrame(
+        metrics: *const OH_WindowManager_FrameMetrics,
+        isFirstDrawFrame: *mut bool,
+    ) -> i32;
+    /// Get the time taken to process external input events in one frame.
+    ///
+    /// # Arguments
+    ///
+    /// * `metrics` - Frame metrics data object.
+    ///
+    /// * `duration` - This parameter is the return value of the function,
+    /// indicating the time taken to process external input events in one frame, in nanoseconds.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the status code of the execution.
+    /// `WS_OK` the function call is successful.
+    /// [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM) Parameter error. Possible cause:
+    /// 1. Invalid parameter range.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_WindowManager_FrameMetrics_GetInputHandlingDuration(
+        metrics: *const OH_WindowManager_FrameMetrics,
+        duration: *mut u64,
+    ) -> i32;
+    /// Get the time taken for layout measurement in one frame.
+    ///
+    /// # Arguments
+    ///
+    /// * `metrics` - Frame metrics data object.
+    ///
+    /// * `duration` - This parameter is the return value of the function,
+    /// indicating the time taken for layout measurement in one frame, in nanoseconds.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the status code of the execution.
+    /// `WS_OK` the function call is successful.
+    /// [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM) Parameter error. Possible cause:
+    /// 1. Invalid parameter range.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_WindowManager_FrameMetrics_GetLayoutMeasureDuration(
+        metrics: *const OH_WindowManager_FrameMetrics,
+        duration: *mut u64,
+    ) -> i32;
+    /// Get the start timestamp of the current frame.
+    ///
+    /// # Arguments
+    ///
+    /// * `metrics` - Frame metrics data object.
+    ///
+    /// * `timestamp` - This parameter is the return value of the function,
+    /// indicating the start timestamp of the current frame, in nanoseconds.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the status code of the execution.
+    /// `WS_OK` the function call is successful.
+    /// [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM) Parameter error. Possible cause:
+    /// 1. Invalid parameter range.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_WindowManager_FrameMetrics_GetVsyncTimestamp(
+        metrics: *const OH_WindowManager_FrameMetrics,
+        timestamp: *mut u64,
+    ) -> i32;
+    /// Registers a callback for window frame metric change events.
+    /// This API depends on the loading of the window page content. That is, this API can be called only after the **
+    /// loadContent()** or **setUIContent()** API in ArkTS takes effect.
+    /// The callback is triggered only when the client UI content is redrawn (for example, page switching, interaction with
+    /// responsive components, or background color and opacity setting).
+    /// To cancel the registration, call the [`OH_WindowManager_UnregisterFrameMetricsMeasuredCallback`](crate::window::OH_WindowManager_UnregisterFrameMetricsMeasuredCallback) API.
+    ///
+    /// # Arguments
+    ///
+    /// * `windowId` - Window ID.
+    ///
+    /// * `callback` - Callback used to return the result.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the status code of the execution.
+    /// `WS_OK` the function call is successful.
+    /// [`WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL) this window state is abnormal. Possible cause:
+    /// 1. The window is not created or destroyed;
+    /// 2. This window state is abnormal.
+    /// [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM) Parameter error. Possible cause:
+    /// 1. Invalid parameter range.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_WindowManager_RegisterFrameMetricsMeasuredCallback(
+        windowId: i32,
+        callback: OH_WindowManager_FrameMetricsMeasuredCallback,
+    ) -> i32;
+    /// Unregisters the callback for window frame metric change events.
+    /// This API depends on the loading of the window page content. That is, this API can be called only after the **
+    /// loadContent()** or **setUIContent()** API in ArkTS takes effect.
+    /// To register such a callback, call the [`OH_WindowManager_RegisterFrameMetricsMeasuredCallback`](crate::window::OH_WindowManager_RegisterFrameMetricsMeasuredCallback) API.
+    ///
+    /// # Arguments
+    ///
+    /// * `windowId` - Window ID.
+    ///
+    /// * `callback` - Callback used to return the result.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the status code of the execution.
+    /// `WS_OK` the function call is successful.
+    /// [`WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL) this window state is abnormal. Possible cause:
+    /// 1. The window is not created or destroyed;
+    /// 2. This window state is abnormal.
+    /// [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM) Parameter error. Possible cause:
+    /// 1. Invalid parameter range.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_WindowManager_UnregisterFrameMetricsMeasuredCallback(
+        windowId: i32,
+        callback: OH_WindowManager_FrameMetricsMeasuredCallback,
+    ) -> i32;
+    /// Gets the system default display size scaling factor of the screen where the window is located.
+    ///
+    /// # Arguments
+    ///
+    /// * `info` - Display size scaling factor information for the current window.
+    ///
+    /// * `density` - System default display size scaling factor
+    ///
+    /// # Returns
+    ///
+    /// * Returns the status code of the execution.
+    /// `WS_OK` the function call is successful.
+    /// [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM) Parameter error. Possible cause:
+    /// 1. Invalid parameter range.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_WindowManager_DensityInfo_GetDefaultDensity(
+        info: *const OH_WindowManager_DensityInfo,
+        density: *mut f32,
+    ) -> i32;
+    /// Gets the system display size scaling factor of the screen where the window is located.
+    ///
+    /// # Arguments
+    ///
+    /// * `info` - Display size scaling factor information for the current window.
+    ///
+    /// * `density` - System display size scaling factor
+    ///
+    /// # Returns
+    ///
+    /// * Returns the status code of the execution.
+    /// `WS_OK` the function call is successful.
+    /// [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM) Parameter error. Possible cause:
+    /// 1. Invalid parameter range.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_WindowManager_DensityInfo_GetSystemDensity(
+        info: *const OH_WindowManager_DensityInfo,
+        density: *mut f32,
+    ) -> i32;
+    /// Gets the custom display size scaling factor of the window.
+    ///
+    /// # Arguments
+    ///
+    /// * `info` - Display size scaling factor information for the current window.
+    ///
+    /// * `density` - Custom display size scaling factor of the window. A return value of -1 indicates that no custom
+    /// display size scaling factor has been set, or it has been reset.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the status code of the execution.
+    /// `WS_OK` the function call is successful.
+    /// [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM) Parameter error. Possible cause:
+    /// 1. Invalid parameter range.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_WindowManager_DensityInfo_GetCustomDensity(
+        info: *const OH_WindowManager_DensityInfo,
+        density: *mut f32,
+    ) -> i32;
+    /// Get the system display size scaling factor, the system default display size scaling factor,
+    /// and the custom display size scaling factor information of the screen where the current window is located.
+    ///
+    /// # Arguments
+    ///
+    /// * `windowId` - WindowId when window is created.
+    ///
+    /// * `info` - Display size scaling factor information for the current window.
+    /// A return value of NULL means this interface is not supported on the current device.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the status code of the execution.
+    /// `WS_OK` the function call is successful.
+    /// [`WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL) this window state is abnormal. Possible cause:
+    /// 1. The window is not created or destroyed;
+    /// 2. This window state is abnormal.
+    /// [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM) Parameter error. Possible cause:
+    /// 1. Invalid parameter range.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_WindowManager_GetDensityInfoCopy(
+        windowId: i32,
+        info: *mut *const OH_WindowManager_DensityInfo,
+    ) -> i32;
+    /// Listen for changes in the display size scaling factor information of the window. The callback function is
+    /// triggered when any of the system display size scaling factor, system default display size scaling factor, or
+    /// custom display size scaling factor of the screen where the window resides changes.
+    /// To unlisten for changes in the display size scaling factor information of the window, call
+    /// OH_WindowManager_UnregisterDensityInfoChangeCallback.
+    ///
+    /// # Arguments
+    ///
+    /// * `windowId` - WindowId when window is created.
+    ///
+    /// * `callback` - Callback used to return the result of density information.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the status code of the execution.
+    /// `WS_OK` the function call is successful.
+    /// [`WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL) this window state is abnormal. Possible cause:
+    /// 1. The window is not created or destroyed;
+    /// 2. This window state is abnormal.
+    /// [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM) Parameter error. Possible cause:
+    /// 1. Invalid parameter range.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_WindowManager_RegisterDensityInfoChangeCallback(
+        windowId: i32,
+        callback: OH_WindowManager_DensityInfoCallback,
+    ) -> i32;
+    /// Unlisten for changes in the display size scaling factor information of the window. The callback function is
+    /// triggered when any of the system display size scaling factor, system default display size scaling factor, or
+    /// custom display size scaling factor of the screen where the window resides changes.
+    /// To listen for changes in the display size scaling factor information of the window, call
+    /// OH_WindowManager_RegisterDensityInfoChangeCallback.
+    ///
+    /// # Arguments
+    ///
+    /// * `windowId` - WindowId when window is created.
+    ///
+    /// * `callback` - Callback used to return the result of density information.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the status code of the execution.
+    /// `WS_OK` the function call is successful.
+    /// [`WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL) this window state is abnormal. Possible cause:
+    /// 1. The window is not created or destroyed;
+    /// 2. This window state is abnormal.
+    /// [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM) Parameter error. Possible cause:
+    /// 1. Invalid parameter range.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_WindowManager_UnregisterDensityInfoChangeCallback(
+        windowId: i32,
+        callback: OH_WindowManager_DensityInfoCallback,
+    ) -> i32;
+    /// Releases the memory occupied by DensityInfo.
+    ///
+    /// # Arguments
+    ///
+    /// * `info` - Display size scaling factor information for the current window.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the status code of the execution.
+    /// `WS_OK` the function call is successful.
+    /// [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM) Parameter error. Possible cause:
+    /// 1. Invalid parameter range.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_WindowManager_DensityInfo_Release(info: *const OH_WindowManager_DensityInfo) -> i32;
 }

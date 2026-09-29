@@ -6,19 +6,17 @@
 use crate::types::*;
 
 extern "C" {
-    /// Creates an <b>OH_Drawing_ColorFilter</b> with a blend mode.
+    /// Creates an **OH_Drawing_ColorFilter** object with a given blend mode.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `color` - Indicates the color, which is a 32-bit (ARGB) variable.
+    /// * `color` - Color, which is a 32-bit (ARGB) variable.
     ///
-    /// * `blendMode` - Indicates the blend mode.
+    /// * `blendMode` - Blend mode. For details about the available options, see [`OH_Drawing_BlendMode`](crate::types::OH_Drawing_BlendMode).
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the <b>OH_Drawing_ColorFilter</b> object created.
+    /// * Returns the pointer to the **OH_Drawing_ColorFilter** object created.
     ///
     /// Available since API-level: 11
     ///
@@ -29,19 +27,19 @@ extern "C" {
         color: u32,
         blendMode: OH_Drawing_BlendMode,
     ) -> *mut OH_Drawing_ColorFilter;
-    /// Creates an <b>OH_Drawing_ColorFilter</b> applies the outerColorFilter and then applies innerColorFilter.
+    /// Creates an **OH_Drawing_ColorFilter** object by combining another two color filters.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If either **outerColorFilter** or **innerColorFilter** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `outerColorFilter` - Indicates the pointer to an <b>OH_Drawing_ColorFilter</b> object.
+    /// * `outerColorFilter` - Pointer to the first color filter.
     ///
-    /// * `innerColorFilter` - Indicates the pointer to an <b>OH_Drawing_ColorFilter</b> object.
+    /// * `innerColorFilter` - Pointer to the second color filter.
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the <b>OH_Drawing_ColorFilter</b> object created.
+    /// * Returns the pointer to the **OH_Drawing_ColorFilter** object created.
     ///
     /// Available since API-level: 11
     ///
@@ -52,17 +50,17 @@ extern "C" {
         outerColorFilter: *mut OH_Drawing_ColorFilter,
         innerColorFilter: *mut OH_Drawing_ColorFilter,
     ) -> *mut OH_Drawing_ColorFilter;
-    /// Creates an <b>OH_Drawing_ColorFilter</b> with a 5x4 color matrix.
+    /// Creates an **OH_Drawing_ColorFilter** object with a given 5x4 color matrix.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **matrix** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `matrix` - Indicates the matrix, which is represented as a float array of length 20.
+    /// * `matrix` - Matrix, which is represented by a floating-point array with a length of 20.
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the <b>OH_Drawing_ColorFilter</b> object created.
+    /// * Returns the pointer to the **OH_Drawing_ColorFilter** object created.
     ///
     /// Available since API-level: 11
     ///
@@ -70,14 +68,12 @@ extern "C" {
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn OH_Drawing_ColorFilterCreateMatrix(matrix: *const f32) -> *mut OH_Drawing_ColorFilter;
-    /// Creates an <b>OH_Drawing_ColorFilter</b> applies the gamma curve of SRGB to the RGB color channel.
+    /// Creates an **OH_Drawing_ColorFilter** object that applies the sRGB gamma curve to the RGB channels.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the <b>OH_Drawing_ColorFilter</b> object created.
+    /// * Returns the pointer to the **OH_Drawing_ColorFilter** object created.
     ///
     /// Available since API-level: 11
     ///
@@ -85,14 +81,12 @@ extern "C" {
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn OH_Drawing_ColorFilterCreateLinearToSrgbGamma() -> *mut OH_Drawing_ColorFilter;
-    /// Creates an <b>OH_Drawing_ColorFilter</b> applies the RGB color channel to the gamma curve of SRGB.
+    /// Creates an **OH_Drawing_ColorFilter** object that applies the RGB channels to the sRGB gamma curve.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the <b>OH_Drawing_ColorFilter</b> object created.
+    /// * Returns the pointer to the **OH_Drawing_ColorFilter** object created.
     ///
     /// Available since API-level: 11
     ///
@@ -100,15 +94,13 @@ extern "C" {
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn OH_Drawing_ColorFilterCreateSrgbGammaToLinear() -> *mut OH_Drawing_ColorFilter;
-    /// Creates an <b>OH_Drawing_ColorFilter</b> multiplies the luma of its input into the alpha channel,
-    /// and sets the red, green, and blue channels to zero.
+    /// Creates a **ColorFilter** object that multiplies the luma into the alpha channel and sets the RGB channels to
+    /// zero.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the <b>OH_Drawing_ColorFilter</b> object created.
+    /// * Returns the pointer to the **OH_Drawing_ColorFilter** object created.
     ///
     /// Available since API-level: 11
     ///
@@ -116,20 +108,18 @@ extern "C" {
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn OH_Drawing_ColorFilterCreateLuma() -> *mut OH_Drawing_ColorFilter;
-    /// Creates an <b>OH_Drawing_ColorFilter</b> with the given mutColor used to multiply source color and addColor
-    /// used to add to source color. The Alpha channel will not be affected.
+    /// Creates a lighting color filter. It multiplies the RGB channel values by one color and then adds another
+    /// color value. The final output stays between 0 and 255.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `mulColor` - Indicates the color, which is a 32-bit (ARGB) variable.
+    /// * `mulColor` - Color value used for multiplication.
     ///
-    /// * `addColor` - Indicates the color, which is a 32-bit (ARGB) variable.
+    /// * `addColor` - Color value used for addition.
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the <b>OH_Drawing_ColorFilter</b> object created.
+    /// * Returns the pointer to the **OH_Drawing_ColorFilter** object created.
     ///
     /// Available since API-level: 20
     ///
@@ -140,13 +130,11 @@ extern "C" {
         mulColor: u32,
         addColor: u32,
     ) -> *mut OH_Drawing_ColorFilter;
-    /// Destroys an <b>OH_Drawing_ColorFilter</b> object and reclaims the memory occupied by the object.
+    /// Destroys an **OH_Drawing_ColorFilter** object and reclaims the memory occupied by the object.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `colorFilter` - Indicates the pointer to an <b>OH_Drawing_ColorFilter</b> object.
+    /// * `colorFilter` - Pointer to an **OH_Drawing_ColorFilter** object.
     ///
     /// Available since API-level: 11
     ///

@@ -161,4 +161,52 @@ fn link_smoke() {
         let _ = arkui::native_node::OH_ArkUI_NativeModule_InvalidateAttributes(ptr::null_mut());
         let _ = arkui::native_type::OH_ArkUI_ContentTransitionEffect_Create(0);
     }
+
+    #[cfg(feature = "api-24")]
+    unsafe {
+        let _ = arkui::drag_and_drop::OH_ArkUI_NotifyDisableDefaultDropAnimation(0, false);
+        let _ = arkui::drawable_descriptor::OH_ArkUI_DrawableDescriptor_GetAnimationStopMode(
+            ptr::null(),
+            ptr::null_mut(),
+        );
+        let _ = arkui::native_interface_accessibility::OH_ArkUI_AccessibilityElementInfoSetComponentIdentifier(ptr::null_mut(), ptr::null());
+        let _ =
+            arkui::native_node::OH_ArkUI_NodeEvent_GetTextEditorOnWillChangeEvent(ptr::null_mut());
+        let _ = arkui::native_type::OH_ArkUI_TextEditorStyledStringController_StopEditing(
+            ptr::null_mut(),
+        );
+        let _ = arkui::native_type_visual::OH_ArkUI_ShadowOptions_Create();
+        let _ = arkui::node_attributes::rich_editor::OH_ArkUI_TextEditorPlaceholderOptions_Create();
+        let _ = arkui::node_attributes::text::OH_ArkUI_TextDataDetectorConfig_Create();
+        let _ = arkui::node_attributes::text_common::OH_ArkUI_DecorationStyleOptions_Create();
+        let _ = arkui::styled_string::OH_ArkUI_TextStyle_Create();
+        let _ = arkui::ui_input_event::OH_ArkUI_DigitalCrownEvent_GetEventTime(ptr::null());
+    }
+
+    #[cfg(feature = "api-26")]
+    unsafe {
+        let _ = arkui::native_animate::OH_ArkUI_CreateIdentityTransitionEffect();
+        let _ = arkui::native_dialog::OH_ArkUI_CustomDialog_SetDisplayModeInSubWindow(
+            ptr::null_mut(),
+            core::mem::zeroed(),
+        );
+        let _ = arkui::native_gesture::OH_ArkUI_GetGestureBindNodeUniqueId(
+            ptr::null(),
+            ptr::null_mut(),
+        );
+        let _ = arkui::native_interface::OH_ArkUI_NativeModule_GetErrorMessage();
+        let _ = arkui::native_material::OH_ArkUI_NativeModule_GetSystemMaterialSupported();
+        let _ =
+            arkui::native_node::OH_ArkUI_NodeEvent_GetGestureCollectInterceptInfo(ptr::null_mut());
+        let _ = arkui::native_node_napi::OH_ArkUI_EnableEventPassthrough(
+            core::mem::zeroed(),
+            false,
+            core::mem::zeroed(),
+        );
+        let _ = arkui::native_render::OH_ArkUI_RenderNodeUtils_CreateBlurStyleOption();
+        let _ = arkui::native_type::OH_ArkUI_LinearGradientOptions_Create();
+        let _ = arkui::node_attributes::text::OH_ArkUI_TextController_Create();
+        let _ = arkui::styled_string::OH_ArkUI_LineSpacingStyle_Create();
+        let _ = arkui::ui_input_event::OH_ArkUI_PointerEvent_GetCurrentLocalX(ptr::null());
+    }
 }

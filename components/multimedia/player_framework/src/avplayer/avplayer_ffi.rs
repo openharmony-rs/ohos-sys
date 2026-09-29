@@ -25,111 +25,118 @@ use crate::avplayer_base::{
 };
 #[cfg(feature = "api-12")]
 use crate::avplayer_base::{OH_AVPlayerOnErrorCallback, OH_AVPlayerOnInfoCallback};
+#[cfg(feature = "api-26")]
+use crate::avplayer_base::{
+    OH_AVPlayerPCMOutputCallback, OH_AVPlayerPCMProcessorCallback, OH_VideoOutputResult,
+};
 use ohos_sys_opaque_types::OHNativeWindow;
 
-/// MediaKeySession field.
+/// The MediaKeySession struct describes the media key session.
+///
 ///
 /// Available since API-level: 12
-///
-/// Version: 1.0
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[repr(C)]
 pub struct MediaKeySession {
     _unused: [u8; 0],
 }
-/// DRM_MediaKeySystemInfo field.
+/// The DRM_MediaKeySystemInfo struct describes the media key system information.
+///
 ///
 /// Available since API-level: 12
-///
-/// Version: 1.0
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[repr(C)]
 pub struct DRM_MediaKeySystemInfo {
     _unused: [u8; 0],
 }
-/// Call back will be invoked when updating DRM information.
+/// OH_AVPlayerVideoOutput field.
+///
+/// Available since API-level: 26
+#[cfg(feature = "api-26")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+#[repr(C)]
+pub struct OH_AVPlayerVideoOutput {
+    _unused: [u8; 0],
+}
+/// Called when media key system information of the AVPlayer is updated.
+///
 /// # Arguments
 ///
-/// * `player` - Player instance.
+/// * `player` - Pointer to the OH_AVPlayer instance.
 ///
-/// * `mediaKeySystemInfo` - DRM information.
+/// * `mediaKeySystemInfo` - Pointer to the media key system information.
 ///
 /// # Returns
 ///
 /// * void
 ///
 /// Available since API-level: 12
-///
-/// Version: 1.0
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub type Player_MediaKeySystemInfoCallback = ::core::option::Option<
     unsafe extern "C" fn(player: *mut OH_AVPlayer, mediaKeySystemInfo: *mut DRM_MediaKeySystemInfo),
 >;
 extern "C" {
-    /// Create a player
+    /// Creates an OH_AVPlayer instance.
+    /// You are advised to create a maximum of 16 AVPlayer instances for an application in both audio and video playback
+    /// scenarios.
+    /// <!--Del-->The actual number of instances that can be created may be different. It depends on the specifications of
+    /// the device chip in use. For example, in the case of RK3568, you are advised to create a maximum of 6 AVPlayer
+    /// instances for an application in audio and video playback scenarios.<!--DelEnd-->
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.AVPlayer
     ///
     /// # Returns
     ///
-    /// * Returns a pointer to an OH_AVPlayer instance for success, nullptr for failure
-    /// Possible failure causes: 1. failed to PlayerFactory::CreatePlayer. 2. failed to new PlayerObject.
+    /// * Pointer to the OH_AVPlayer instance created if the operation is successful; nullptr otherwise.
+    /// The possible causes of an operation failure are as follows:
+    /// 1. The execution of **PlayerFactory::CreatePlayer** fails.
+    /// 2. The execution of **new PlayerObject** fails.
     ///
     /// Available since API-level: 11
-    ///
-    /// Version: 1.0
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn OH_AVPlayer_Create() -> *mut OH_AVPlayer;
-    /// Sets the playback source for the player. The corresponding source can be http url
+    /// Sets the HTTP URL of a media source to be played by an AVPlayer.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.AVPlayer
     /// # Arguments
     ///
-    /// * `player` - Pointer to an OH_AVPlayer instance
+    /// * `player` - Pointer to the OH_AVPlayer instance.
     ///
-    /// * `url` - Indicates the playback source.
+    /// * `url` - URL of the media source.
     ///
     /// # Returns
     ///
-    /// * Function result code.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input player is nullptr, url is null or player setUrlSource failed.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The setting is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **player** is nullptr, the input parameter **url** is null, or the
+    /// execution of **player SetUrlSource** fails.
     ///
     /// Available since API-level: 11
-    ///
-    /// Version: 1.0
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn OH_AVPlayer_SetURLSource(
         player: *mut OH_AVPlayer,
         url: *const ::core::ffi::c_char,
     ) -> OH_AVErrCode;
-    /// Sets the playback media file descriptor source for the player.
+    /// Sets the file descriptor of a media source to be played by an AVPlayer.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.AVPlayer
     /// # Arguments
     ///
-    /// * `player` - Pointer to an OH_AVPlayer instance
+    /// * `player` - Pointer to the OH_AVPlayer instance.
     ///
-    /// * `fd` - Indicates the file descriptor of media source.
+    /// * `fd` - File descriptor of the media source.
     ///
-    /// * `offset` - Indicates the offset of media source in file descriptor.
+    /// * `offset` - Offset of the media source in the file descriptor.
     ///
-    /// * `size` - Indicates the size of media source.
+    /// * `size` - Size of the media source.
     ///
     /// # Returns
     ///
-    /// * Function result code.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input player is nullptr or player setFdSource failed.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The file descriptor is set successfully.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **player** is nullptr, or the execution of **player SetFdSource** fails.
     ///
     /// Available since API-level: 11
-    ///
-    /// Version: 1.0
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn OH_AVPlayer_SetFDSource(
@@ -138,821 +145,20 @@ extern "C" {
         offset: i64,
         size: i64,
     ) -> OH_AVErrCode;
-    /// Prepares the playback environment and buffers media data asynchronous.
+    /// Sets the media source of the AVPlayer. The data of this media source is provided by the application.
     ///
-    /// This function must be called after `SetSource`.
-    ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.AVPlayer
     /// # Arguments
     ///
     /// * `player` - Pointer to an OH_AVPlayer instance
     ///
-    /// # Returns
+    /// * `datasrc` - Pointer to an OH_AVDataSourceExt instance
     ///
-    /// * Function result code.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input player is nullptr or player Prepare failed.
-    ///
-    /// Available since API-level: 11
-    ///
-    /// Version: 1.0
-    #[cfg(feature = "api-11")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-    pub fn OH_AVPlayer_Prepare(player: *mut OH_AVPlayer) -> OH_AVErrCode;
-    /// Start playback.
-    ///
-    /// This function must be called after `Prepare`. If the player state is <b>Prepared</b>,
-    /// this function is called to start playback.
-    ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.AVPlayer
-    /// # Arguments
-    ///
-    /// * `player` - Pointer to an OH_AVPlayer instance
+    /// * `userData` - The handle passed in by the user is used to pass in the callback
     ///
     /// # Returns
     ///
-    /// * Function result code.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input player is nullptr or player Play failed.
-    ///
-    /// Available since API-level: 11
-    ///
-    /// Version: 1.0
-    #[cfg(feature = "api-11")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-    pub fn OH_AVPlayer_Play(player: *mut OH_AVPlayer) -> OH_AVErrCode;
-    /// Pauses playback.
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.AVPlayer
-    /// # Arguments
-    ///
-    /// * `player` - Pointer to an OH_AVPlayer instance
-    ///
-    /// # Returns
-    ///
-    /// * Function result code.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input player is nullptr or player Pause failed.
-    ///
-    /// Available since API-level: 11
-    ///
-    /// Version: 1.0
-    #[cfg(feature = "api-11")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-    pub fn OH_AVPlayer_Pause(player: *mut OH_AVPlayer) -> OH_AVErrCode;
-    /// Stop playback.
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.AVPlayer
-    /// # Arguments
-    ///
-    /// * `player` - Pointer to an OH_AVPlayer instance
-    ///
-    /// # Returns
-    ///
-    /// * Function result code.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input player is nullptr or player Stop failed.
-    ///
-    /// Available since API-level: 11
-    ///
-    /// Version: 1.0
-    #[cfg(feature = "api-11")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-    pub fn OH_AVPlayer_Stop(player: *mut OH_AVPlayer) -> OH_AVErrCode;
-    /// Restores the player to the initial state.
-    ///
-    /// After the function is called, add a playback source by calling `SetSource`,
-    /// call `Play` to start playback again after `Prepare` is called.
-    ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.AVPlayer
-    /// # Arguments
-    ///
-    /// * `player` - Pointer to an OH_AVPlayer instance
-    ///
-    /// # Returns
-    ///
-    /// * Function result code.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input player is nullptr or player Reset failed.
-    ///
-    /// Available since API-level: 11
-    ///
-    /// Version: 1.0
-    #[cfg(feature = "api-11")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-    pub fn OH_AVPlayer_Reset(player: *mut OH_AVPlayer) -> OH_AVErrCode;
-    /// Releases player resources async
-    ///
-    /// Asynchronous release guarantees the performance
-    /// but cannot ensure whether the surfacebuffer is released.
-    /// The caller needs to ensure the life cycle security of the surface
-    ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.AVPlayer
-    /// # Arguments
-    ///
-    /// * `player` - Pointer to an OH_AVPlayer instance
-    ///
-    /// # Returns
-    ///
-    /// * Function result code.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input player is nullptr or player Release failed.
-    ///
-    /// Available since API-level: 11
-    ///
-    /// Version: 1.0
-    #[cfg(feature = "api-11")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-    pub fn OH_AVPlayer_Release(player: *mut OH_AVPlayer) -> OH_AVErrCode;
-    /// Releases player resources sync
-    ///
-    /// Synchronous release ensures effective release of surfacebuffer
-    /// but this interface will take a long time (when the engine is not idle state)
-    /// requiring the caller to design an asynchronous mechanism by itself
-    ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.AVPlayer
-    /// # Arguments
-    ///
-    /// * `player` - Pointer to an OH_AVPlayer instance
-    ///
-    /// # Returns
-    ///
-    /// * Function result code.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input player is nullptr or player ReleaseSync failed.
-    ///
-    /// Available since API-level: 11
-    ///
-    /// Version: 1.0
-    #[cfg(feature = "api-11")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-    pub fn OH_AVPlayer_ReleaseSync(player: *mut OH_AVPlayer) -> OH_AVErrCode;
-    /// Sets the volume of the player.
-    ///
-    /// This function can be used during playback or pause. The value <b>0</b> indicates no sound,
-    /// and <b>1</b> indicates the original volume. If no audio device is started or no audio
-    /// stream exists, the value <b>-1</b> is returned.
-    ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.AVPlayer
-    /// # Arguments
-    ///
-    /// * `player` - Pointer to an OH_AVPlayer instance
-    ///
-    /// * `leftVolume` - Indicates the target volume of the left audio channel to set,
-    /// ranging from 0 to 1. each step is 0.01.
-    ///
-    /// * `rightVolume` - Indicates the target volume of the right audio channel to set,
-    /// ranging from 0 to 1. each step is 0.01.
-    ///
-    /// # Returns
-    ///
-    /// * Function result code.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input player is nullptr or player SetVolume failed.
-    ///
-    /// Available since API-level: 11
-    ///
-    /// Version: 1.0
-    #[cfg(feature = "api-11")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-    pub fn OH_AVPlayer_SetVolume(
-        player: *mut OH_AVPlayer,
-        leftVolume: f32,
-        rightVolume: f32,
-    ) -> OH_AVErrCode;
-    /// Changes the playback position.
-    ///
-    /// This function can be used during play or pause.
-    ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.AVPlayer
-    /// # Arguments
-    ///
-    /// * `player` - Pointer to an OH_AVPlayer instance
-    ///
-    /// * `mSeconds` - Indicates the target playback position, accurate to milliseconds.
-    ///
-    /// * `mode` - Indicates the player seek mode. For details, see [`AVPlayerSeekMode`](crate::avplayer_base::AVPlayerSeekMode).
-    ///
-    /// # Returns
-    ///
-    /// * Function result code.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input player is nullptr or player Seek failed.
-    ///
-    /// Available since API-level: 11
-    ///
-    /// Version: 1.0
-    #[cfg(feature = "api-11")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-    pub fn OH_AVPlayer_Seek(
-        player: *mut OH_AVPlayer,
-        mSeconds: i32,
-        mode: AVPlayerSeekMode,
-    ) -> OH_AVErrCode;
-    /// Obtains the playback position, accurate to millisecond.
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.AVPlayer
-    /// # Arguments
-    ///
-    /// * `player` - Pointer to an OH_AVPlayer instance
-    ///
-    /// * `currentTime` - Indicates the playback position.
-    ///
-    /// # Returns
-    ///
-    /// * Function result code.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input player is nullptr or player GetCurrentTime failed.
-    ///
-    /// Available since API-level: 11
-    ///
-    /// Version: 1.0
-    #[cfg(feature = "api-11")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-    pub fn OH_AVPlayer_GetCurrentTime(
-        player: *mut OH_AVPlayer,
-        currentTime: *mut i32,
-    ) -> OH_AVErrCode;
-    /// get the video width.
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.AVPlayer
-    /// # Arguments
-    ///
-    /// * `player` - Pointer to an OH_AVPlayer instance
-    ///
-    /// * `videoWidth` - The video width
-    ///
-    /// # Returns
-    ///
-    /// * Function result code.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input player is nullptr.
-    ///
-    /// Available since API-level: 11
-    ///
-    /// Version: 1.0
-    #[cfg(feature = "api-11")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-    pub fn OH_AVPlayer_GetVideoWidth(
-        player: *mut OH_AVPlayer,
-        videoWidth: *mut i32,
-    ) -> OH_AVErrCode;
-    /// get the video height.
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.AVPlayer
-    /// # Arguments
-    ///
-    /// * `player` - Pointer to an OH_AVPlayer instance
-    ///
-    /// * `videoHeight` - The video height
-    ///
-    /// # Returns
-    ///
-    /// * Function result code.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input player is nullptr.
-    ///
-    /// Available since API-level: 11
-    ///
-    /// Version: 1.0
-    #[cfg(feature = "api-11")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-    pub fn OH_AVPlayer_GetVideoHeight(
-        player: *mut OH_AVPlayer,
-        videoHeight: *mut i32,
-    ) -> OH_AVErrCode;
-    /// set the player playback rate
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.AVPlayer
-    /// # Arguments
-    ///
-    /// * `player` - Pointer to an OH_AVPlayer instance
-    ///
-    /// * `speed` - the rate mode [`AVPlaybackSpeed`](crate::avplayer_base::AVPlaybackSpeed) which can set.
-    ///
-    /// # Returns
-    ///
-    /// * Function result code.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input player is nullptr or player SetPlaybackSpeed failed.
-    ///
-    /// Available since API-level: 11
-    ///
-    /// Version: 1.0
-    #[cfg(feature = "api-11")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-    pub fn OH_AVPlayer_SetPlaybackSpeed(
-        player: *mut OH_AVPlayer,
-        speed: AVPlaybackSpeed,
-    ) -> OH_AVErrCode;
-    /// Sets playback rate.
-    /// Supported states: prepared/playing/paused/completed.
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.AVPlayer
-    /// # Arguments
-    ///
-    /// * `player` - Pointer to OH_AVPlayer instance
-    ///
-    /// * `rate` - Playback rate, valid range is 0.125 ~ 4.
-    ///
-    /// # Returns
-    ///
-    /// * OH_AVErrCode Operation result code
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) if called in unsupported state or during live streaming.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input player is nullptr, or rate is out of range.
-    ///
-    /// Available since API-level: 20
-    #[cfg(feature = "api-20")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
-    pub fn OH_AVPlayer_SetPlaybackRate(player: *mut OH_AVPlayer, rate: f32) -> OH_AVErrCode;
-    /// get the current player playback rate
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.AVPlayer
-    /// # Arguments
-    ///
-    /// * `player` - Pointer to an OH_AVPlayer instance
-    ///
-    /// * `speed` - the rate mode [`AVPlaybackSpeed`](crate::avplayer_base::AVPlaybackSpeed) which can get.
-    ///
-    /// # Returns
-    ///
-    /// * Function result code.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input player is nullptr or player GetPlaybackSpeed failed.
-    ///
-    /// Available since API-level: 11
-    ///
-    /// Version: 1.0
-    #[cfg(feature = "api-11")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-    pub fn OH_AVPlayer_GetPlaybackSpeed(
-        player: *mut OH_AVPlayer,
-        speed: *mut AVPlaybackSpeed,
-    ) -> OH_AVErrCode;
-    /// get the current player playback rate
-    /// # Arguments
-    ///
-    /// * `player` - Pointer to an OH_AVPlayer instance
-    ///
-    /// * `rate` - the playback rate which can get.
-    ///
-    /// # Returns
-    ///
-    /// * Returns [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the current player playback rate is get; returns an error code defined
-    /// in `native_averrors.h` otherwise.
-    ///
-    /// Available since API-level: 23
-    #[cfg(feature = "api-23")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
-    pub fn OH_AVPlayer_GetPlaybackRate(player: *mut OH_AVPlayer, rate: *mut f32) -> OH_AVErrCode;
-    /// set the bit rate use for hls player
-    ///
-    /// the playback bitrate expressed in bits per second, expressed in bits per second,
-    /// which is only valid for HLS protocol network flow. By default,
-    /// the player will select the appropriate bit rate and speed according to the network connection.
-    /// report the effective bit rate linked list by "INFO_TYPE_BITRATE_COLLECT"
-    /// set and select the specified bit rate, and select the bit rate that is less than and closest
-    /// to the specified bit rate for playback. When ready, read it to query the currently selected bit rate.
-    ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.AVPlayer
-    /// # Arguments
-    ///
-    /// * `player` - Pointer to an OH_AVPlayer instance
-    ///
-    /// * `bitRate` - the bit rate, The unit is bps.
-    ///
-    /// # Returns
-    ///
-    /// * Function result code.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input player is nullptr or player SelectBitRate failed.
-    ///
-    /// Available since API-level: 11
-    ///
-    /// Version: 1.0
-    #[cfg(feature = "api-11")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-    pub fn OH_AVPlayer_SelectBitRate(player: *mut OH_AVPlayer, bitRate: u32) -> OH_AVErrCode;
-    /// Method to set the surface.
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.AVPlayer
-    /// # Arguments
-    ///
-    /// * `player` - Pointer to an OH_AVPlayer instance
-    ///
-    /// * `window` - A pointer to a OHNativeWindow instance, see [`OHNativeWindow`](ohos_sys_opaque_types::OHNativeWindow)
-    ///
-    /// # Returns
-    ///
-    /// * Function result code.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input player is nullptr, input window is nullptr,
-    /// or player SetVideoSurface failed.
-    ///
-    /// Available since API-level: 11
-    ///
-    /// Version: 1.0
-    #[cfg(feature = "api-11")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-    pub fn OH_AVPlayer_SetVideoSurface(
-        player: *mut OH_AVPlayer,
-        window: *mut OHNativeWindow,
-    ) -> OH_AVErrCode;
-    /// Obtains the total duration of media files, accurate to milliseconds.
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.AVPlayer
-    /// # Arguments
-    ///
-    /// * `player` - Pointer to an OH_AVPlayer instance
-    ///
-    /// * `duration` - Indicates the total duration of media files.
-    ///
-    /// # Returns
-    ///
-    /// * Function result code.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input player is nullptr or player GetDuration failed.
-    ///
-    /// Available since API-level: 11
-    ///
-    /// Version: 1.0
-    #[cfg(feature = "api-11")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-    pub fn OH_AVPlayer_GetDuration(player: *mut OH_AVPlayer, duration: *mut i32) -> OH_AVErrCode;
-    /// get current playback state.
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.AVPlayer
-    /// # Arguments
-    ///
-    /// * `player` - Pointer to an OH_AVPlayer instance
-    ///
-    /// * `state` - the current playback state
-    ///
-    /// # Returns
-    ///
-    /// * Function result code.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input player is nullptr.
-    ///
-    /// Available since API-level: 11
-    ///
-    /// Version: 1.0
-    #[cfg(feature = "api-11")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-    pub fn OH_AVPlayer_GetState(
-        player: *mut OH_AVPlayer,
-        state: *mut AVPlayerState,
-    ) -> OH_AVErrCode;
-    /// Checks whether the player is playing.
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.AVPlayer
-    /// # Arguments
-    ///
-    /// * `player` - Pointer to an OH_AVPlayer instance
-    ///
-    /// # Returns
-    ///
-    /// * Returns true if the playback is playing; Return false if not or input player is nullptr.
-    ///
-    /// Available since API-level: 11
-    ///
-    /// Version: 1.0
-    #[cfg(feature = "api-11")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-    pub fn OH_AVPlayer_IsPlaying(player: *mut OH_AVPlayer) -> bool;
-    /// Returns the value whether single looping is enabled or not .
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.AVPlayer
-    /// # Arguments
-    ///
-    /// * `player` - Pointer to an OH_AVPlayer instance
-    ///
-    /// # Returns
-    ///
-    /// * Returns true if the playback is single looping; Return false if not or input player is nullptr.
-    ///
-    /// Available since API-level: 11
-    ///
-    /// Version: 1.0
-    #[cfg(feature = "api-11")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-    pub fn OH_AVPlayer_IsLooping(player: *mut OH_AVPlayer) -> bool;
-    /// Enables single looping of the media playback.
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.AVPlayer
-    /// # Arguments
-    ///
-    /// * `player` - Pointer to an OH_AVPlayer instance
-    ///
-    /// * `loop` - The switch to set loop
-    ///
-    /// # Returns
-    ///
-    /// * Function result code.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input player is nullptr or player SetLooping failed.
-    ///
-    /// Available since API-level: 11
-    ///
-    /// Version: 1.0
-    #[cfg(feature = "api-11")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-    pub fn OH_AVPlayer_SetLooping(player: *mut OH_AVPlayer, loop_: bool) -> OH_AVErrCode;
-    /// Method to set player callback.
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.AVPlayer
-    /// # Arguments
-    ///
-    /// * `player` - Pointer to an OH_AVPlayer instance
-    ///
-    /// * `callback` - object pointer.
-    ///
-    /// # Returns
-    ///
-    /// * Function result code.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input player is nullptr, callback.onInfo or callback.onError is null,
-    /// or player SetPlayerCallback failed.
-    ///
-    /// Available since API-level: 11
-    ///
-    /// **Deprecated** since 12
-    ///
-    /// **Use instead:** `OH_AVPlayer_SetPlayerOnInfoCallback` `OH_AVPlayer_SetPlayerOnErrorCallback`
-    ///
-    /// Version: 1.0
-    #[cfg(feature = "api-11")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-    #[deprecated(
-        since = "12",
-        note = "Use instead: OH_AVPlayer_SetPlayerOnInfoCallback OH_AVPlayer_SetPlayerOnErrorCallback"
-    )]
-    pub fn OH_AVPlayer_SetPlayerCallback(
-        player: *mut OH_AVPlayer,
-        callback: AVPlayerCallback,
-    ) -> OH_AVErrCode;
-    /// Select audio or subtitle track.
-    ///
-    /// By default, the first audio stream with data is played, and the subtitle track is not played.
-    /// After the settings take effect, the original track will become invalid. Please set subtitles
-    /// in prepared/playing/paused/completed state and set audio tracks in prepared state.
-    ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.AVPlayer
-    /// # Arguments
-    ///
-    /// * `player` - Pointer to an OH_AVPlayer instance
-    ///
-    /// * `index` - Track index
-    ///
-    /// # Returns
-    ///
-    /// * Function result code.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input player is nullptr or player SelectTrack failed.
-    ///
-    /// Available since API-level: 11
-    ///
-    /// Version: 1.0
-    #[cfg(feature = "api-11")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-    pub fn OH_AVPlayer_SelectTrack(player: *mut OH_AVPlayer, index: i32) -> OH_AVErrCode;
-    /// Deselect the current audio or subtitle track.
-    ///
-    /// After audio is deselected, the default track will be played, and after subtitles are deselected,
-    /// they will not be played. Please set subtitles in prepared/playing/paused/completed state and set
-    /// audio tracks in prepared state.
-    ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.AVPlayer
-    /// # Arguments
-    ///
-    /// * `player` - Pointer to an OH_AVPlayer instance
-    ///
-    /// * `index` - Track index
-    ///
-    /// # Returns
-    ///
-    /// * Function result code.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input player is nullptr or player DeselectTrack failed.
-    ///
-    /// Available since API-level: 11
-    ///
-    /// Version: 1.0
-    #[cfg(feature = "api-11")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-    pub fn OH_AVPlayer_DeselectTrack(player: *mut OH_AVPlayer, index: i32) -> OH_AVErrCode;
-    /// Obtain the currently effective track index.
-    ///
-    /// Please get it in the prepared/playing/paused/completed state.
-    ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.AVPlayer
-    /// # Arguments
-    ///
-    /// * `player` - Pointer to an OH_AVPlayer instance
-    ///
-    /// * `trackType` - Media type.
-    ///
-    /// * `index` - Track index
-    ///
-    /// # Returns
-    ///
-    /// * Function result code.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input player is nullptr or player GetCurrentTrack failed.
-    ///
-    /// Available since API-level: 11
-    ///
-    /// Version: 1.0
-    #[cfg(feature = "api-11")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-    pub fn OH_AVPlayer_GetCurrentTrack(
-        player: *mut OH_AVPlayer,
-        trackType: i32,
-        index: *mut i32,
-    ) -> OH_AVErrCode;
-    /// Method to set player media key system info callback.
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.AVPlayer
-    /// # Arguments
-    ///
-    /// * `player` - Pointer to an OH_AVPlayer instance
-    ///
-    /// * `callback` - object pointer.
-    ///
-    /// # Returns
-    ///
-    /// * Function result code.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input player is nullptr, MediaKeySystemInfoCallback is null
-    /// player SetDrmSystemInfoCallback failed, SetDrmSystemInfoCallback failed or SetDrmSystemInfoCallback failed.
-    ///
-    /// Available since API-level: 12
-    ///
-    /// Version: 1.0
-    #[cfg(feature = "api-12")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_AVPlayer_SetMediaKeySystemInfoCallback(
-        player: *mut OH_AVPlayer,
-        callback: Player_MediaKeySystemInfoCallback,
-    ) -> OH_AVErrCode;
-    /// Obtains media key system info to create media key session.
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.AVPlayer
-    /// # Arguments
-    ///
-    /// * `player` - Pointer to an OH_AVPlayer instance
-    ///
-    /// * `mediaKeySystemInfo` - Media key system info.
-    ///
-    /// # Returns
-    ///
-    /// * Function result code.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input player is nullptr or no memory.
-    ///
-    /// Available since API-level: 12
-    ///
-    /// Version: 1.0
-    #[cfg(feature = "api-12")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_AVPlayer_GetMediaKeySystemInfo(
-        player: *mut OH_AVPlayer,
-        mediaKeySystemInfo: *mut DRM_MediaKeySystemInfo,
-    ) -> OH_AVErrCode;
-    /// Set decryption info.
-    ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.AVPlayer
-    /// # Arguments
-    ///
-    /// * `player` - Pointer to an OH_AVPlayer instance
-    ///
-    /// * `mediaKeySession` - A media key session instance with decryption function.
-    ///
-    /// * `secureVideoPath` - Require secure decoder or not.
-    ///
-    /// # Returns
-    ///
-    /// * Function result code.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input player is nullptr or player SetDecryptConfig failed.
-    ///
-    /// Available since API-level: 12
-    ///
-    /// Version: 1.0
-    #[cfg(feature = "api-12")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_AVPlayer_SetDecryptionConfig(
-        player: *mut OH_AVPlayer,
-        mediaKeySession: *mut MediaKeySession,
-        secureVideoPath: bool,
-    ) -> OH_AVErrCode;
-    /// Method to set player information notify callback.
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.AVPlayer
-    /// # Arguments
-    ///
-    /// * `player` - Pointer to an OH_AVPlayer instance.
-    ///
-    /// * `callback` - Pointer to callback function, nullptr indicates unregister callback.
-    ///
-    /// * `userData` - Pointer to user specific data.
-    ///
-    /// # Returns
-    ///
-    /// * Function result code.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input player is null or player SetOnInfoCallback failed.
-    ///
-    /// Available since API-level: 12
-    #[cfg(feature = "api-12")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_AVPlayer_SetOnInfoCallback(
-        player: *mut OH_AVPlayer,
-        callback: OH_AVPlayerOnInfoCallback,
-        userData: *mut ::core::ffi::c_void,
-    ) -> OH_AVErrCode;
-    /// Method to set player error callback.
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.AVPlayer
-    /// # Arguments
-    ///
-    /// * `player` - Pointer to an OH_AVPlayer instance.
-    ///
-    /// * `callback` - Pointer to callback function, nullptr indicates unregister callback.
-    ///
-    /// * `userData` - Pointer to user specific data.
-    ///
-    /// # Returns
-    ///
-    /// * Function result code.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input player is null or player SetOnErrorCallback failed.
-    ///
-    /// Available since API-level: 12
-    #[cfg(feature = "api-12")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_AVPlayer_SetOnErrorCallback(
-        player: *mut OH_AVPlayer,
-        callback: OH_AVPlayerOnErrorCallback,
-        userData: *mut ::core::ffi::c_void,
-    ) -> OH_AVErrCode;
-    /// Sets the loudness gain of current media. The default gain is 0.0 dB.
-    /// This API can be called only when the AVPlayer is in the prepared, playing, paused completed or stopped state.
-    /// The default loudness gain is 0.0dB. The stream usage of the player must be
-    /// `OH_AudioStream_Usage#AUDIOSTREAM_USAGE_MUSIC`, `OH_AudioStream_Usage#AUDIOSTREAM_USAGE_MOVIE`
-    /// or `OH_AudioStream_Usage#AUDIOSTREAM_USAGE_AUDIOBOOK`.
-    /// The latency mode of the audio renderer must be `OH_AudioStream_LatencyMode#AUDIOSTREAM_LATENCY_MODE_NORMAL`.
-    /// If AudioRenderer is played through the high-resolution pipe, this operation is not supported.
-    ///
-    /// # Arguments
-    ///
-    /// * `player` - Pointer to an <b>OH_AVPlayer</b> instance.
-    ///
-    /// * `loudnessGain` - Loudness gain to set which changes from -90.0 to 24.0, expressing in dB.
-    ///
-    /// # Returns
-    ///
-    /// * Function result code:
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) If the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL):The value of <b>player</b> is a null pointer or
-    /// the value of <b>loudnessGain</b> is invalid.
-    /// [`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE): The function is called in an incorrect state. or the stream usage of
-    /// audioRendererInfo is not one of `StreamUsage#STREAM_USAGE_MUSIC`,
-    /// `StreamUsage#STREAM_USAGE_MOVIE` or `StreamUsage#STREAM_USAGE_AUDIOBOOK`.
-    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED): System errors such as media service breakdown.
-    ///
-    /// Available since API-level: 21
-    #[cfg(feature = "api-21")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
-    pub fn OH_AVPlayer_SetLoudnessGain(player: *mut OH_AVPlayer, loudnessGain: f32)
-        -> OH_AVErrCode;
-    /// Set the media source of the player. The data of this media source is provided by the application.
-    /// # Arguments
-    ///
-    /// {OH_AVPlayer*} player Pointer to an OH_AVPlayer instance
-    ///
-    /// {OH_AVDataSourceExt*} datasrc Pointer to an OH_AVDataSourceExt instance
-    ///
-    /// {void*} userData The handle passed in by the user is used to pass in the callback
-    ///
-    /// # Returns
-    ///
-    /// * Function result code.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input player is nullptr or datasrc is nullptr.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The setting is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The **player** or **datasrc** parameter is nullptr.
     ///
     /// Available since API-level: 21
     #[cfg(feature = "api-21")]
@@ -962,49 +168,157 @@ extern "C" {
         datasrc: *mut OH_AVDataSourceExt,
         userData: *mut ::core::ffi::c_void,
     ) -> OH_AVErrCode;
-    /// Get the player media source info.
-    ///
-    /// This function can be used after media source is set and player is in
-    /// initialized/prepared/playing/paused/completed/stopped state.
-    /// It should be noted that the life cycle of the OH_AVFormat instance pointed to by the return value * needs
-    /// to be manually released by the caller.
+    /// Prepares the playback environment and buffers media data.
+    /// This function must be called after **SetSource**.
     ///
     /// # Arguments
     ///
-    /// * `player` - Pointer to an OH_AVPlayer instance
+    /// * `player` - Pointer to the OH_AVPlayer instance.
     ///
     /// # Returns
     ///
-    /// * Returns the player's source media info if the execution is successful, otherwise returns nullptr.
-    /// Possible failure causes:
-    /// 1. player is invaild.
-    /// 2. player's media source is invalid.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **player** is nullptr, or the execution of **player Prepare** fails.
+    ///
+    /// Available since API-level: 11
+    #[cfg(feature = "api-11")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
+    pub fn OH_AVPlayer_Prepare(player: *mut OH_AVPlayer) -> OH_AVErrCode;
+    /// Starts playback.
+    /// This function must be called after [`OH_AVPlayer_Prepare`](crate::avplayer::OH_AVPlayer_Prepare).
+    /// In other words, you can call this function when the AVPlayer is in the prepared state.
+    ///
+    /// # Arguments
+    ///
+    /// * `player` - Pointer to the OH_AVPlayer instance.
+    ///
+    /// # Returns
+    ///
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **player** is nullptr, or the execution of **player Play** fails.
+    ///
+    /// Available since API-level: 11
+    #[cfg(feature = "api-11")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
+    pub fn OH_AVPlayer_Play(player: *mut OH_AVPlayer) -> OH_AVErrCode;
+    /// Pauses playback.
+    ///
+    /// # Arguments
+    ///
+    /// * `player` - Pointer to the OH_AVPlayer instance.
+    ///
+    /// # Returns
+    ///
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **player** is nullptr, or the execution of **player Pause** fails.
+    ///
+    /// Available since API-level: 11
+    #[cfg(feature = "api-11")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
+    pub fn OH_AVPlayer_Pause(player: *mut OH_AVPlayer) -> OH_AVErrCode;
+    /// Stops playback.
+    ///
+    /// # Arguments
+    ///
+    /// * `player` - Pointer to the OH_AVPlayer instance.
+    ///
+    /// # Returns
+    ///
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **player** is nullptr, or the execution of **player Stop** fails.
+    ///
+    /// Available since API-level: 11
+    #[cfg(feature = "api-11")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
+    pub fn OH_AVPlayer_Stop(player: *mut OH_AVPlayer) -> OH_AVErrCode;
+    /// Restores the AVPlayer to the initial state.
+    /// After the function is called, you can call **SetSource** to set the media source to play, and then call [`OH_AVPlayer_Prepare`](crate::avplayer::OH_AVPlayer_Prepare)
+    /// and [`OH_AVPlayer_Play`](crate::avplayer::OH_AVPlayer_Play) in sequence.
+    ///
+    /// # Arguments
+    ///
+    /// * `player` - Pointer to the OH_AVPlayer instance.
+    ///
+    /// # Returns
+    ///
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **player** is nullptr, or the execution of **player Reset** fails.
+    ///
+    /// Available since API-level: 11
+    #[cfg(feature = "api-11")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
+    pub fn OH_AVPlayer_Reset(player: *mut OH_AVPlayer) -> OH_AVErrCode;
+    /// Asynchronously releases an OH_AVPlayer instance.
+    /// The asynchronous function improves performance, but cannot ensure that the surface buffer of the playback window is
+    /// released. You must ensure the lifecycle of the playback window.
+    ///
+    /// # Arguments
+    ///
+    /// * `player` - Pointer to the OH_AVPlayer instance.
+    ///
+    /// # Returns
+    ///
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **player** is nullptr, or the execution of **player Release** fails.
+    ///
+    /// Available since API-level: 11
+    #[cfg(feature = "api-11")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
+    pub fn OH_AVPlayer_Release(player: *mut OH_AVPlayer) -> OH_AVErrCode;
+    /// Synchronously releases an OH_AVPlayer instance.
+    /// The synchronous function ensures that the display buffer of the playback window is released, with a long time.
+    /// Therefore, you need to design an asynchronous mechanism.
+    ///
+    /// # Arguments
+    ///
+    /// * `player` - Pointer to the OH_AVPlayer instance.
+    ///
+    /// # Returns
+    ///
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **player** is nullptr, or the execution of **player ReleaseSync** fails.
+    ///
+    /// Available since API-level: 11
+    #[cfg(feature = "api-11")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
+    pub fn OH_AVPlayer_ReleaseSync(player: *mut OH_AVPlayer) -> OH_AVErrCode;
+    /// Obtains the media source information for the AVPlayer. This function can be called when the playback resource
+    /// is configured and the AVPlayer is in the initialized, prepared, playing, paused, completed, or stopped state.
+    /// You must manually release the returned OH_AVFormat pointer object when it is no longer needed.
+    ///
+    /// # Arguments
+    ///
+    /// * `player` - Pointer to the OH_AVPlayer instance.
+    ///
+    /// # Returns
+    ///
+    /// * Media source information obtained. If the operation fails, nullptr is returned.
+    /// Possible cause:
+    /// 1. The **player** pointer is invalid.
+    /// 2. The playback resource is invalid.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub fn OH_AVPlayer_GetMediaDescription(player: *mut OH_AVPlayer) -> *mut OH_AVFormat;
-    /// Get the track info of player media source by the index.
-    ///
-    /// This function can be used after media source is set and player is in
-    /// initialized/prepared/playing/paused/completed/stopped state.
-    /// It should be noted that the life cycle of the OH_AVFormat instance pointed to by the return value * needs
-    /// to be manually released by the caller.
+    /// Obtains the media source track information for the AVPlayer by index. This function can be called when the
+    /// playback resource is configured and the AVPlayer is in the initialized, prepared, playing, paused, completed, or
+    /// stopped state.
+    /// You must manually release the returned OH_AVFormat pointer object when it is no longer needed.
     ///
     /// # Arguments
     ///
-    /// * `player` - Pointer to an OH_AVPlayer instance
+    /// * `player` - Pointer to the OH_AVPlayer instance.
     ///
-    /// * `index` - Indicates tracks array index.
+    /// * `index` - Index of the track.
     ///
     /// # Returns
     ///
-    /// * Returns one track info of player media source by the index if the execution is successful,
-    /// otherwise returns nullptr.
-    /// Possible failure causes:
-    /// 1. player is invaild.
-    /// 2. player's media source is invalid.
-    /// 3. index is out of tracks array's bounds.
+    /// * Track information obtained. If the operation fails, nullptr is returned.
+    /// Possible cause:
+    /// 1. The **player** pointer is invalid.
+    /// 2. The playback resource is invalid.
+    /// 3. The track index is out of the range for the playback source file array.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -1013,41 +327,597 @@ extern "C" {
         player: *mut OH_AVPlayer,
         index: u32,
     ) -> *mut OH_AVFormat;
-    /// Get the statistic metrics info of current player.
-    /// This API can be called only when the AVPlayer is in the prepared, playing, paused, completed, or stopped state.
-    /// It should be noted that the life cycle of the OH_AVFormat instance pointed to by the return value * needs
-    /// to be manually released by the caller.
+    /// Sets the volume for an AVPlayer.
+    /// This function can be used when the AVPlayer is in the playing or paused state. The value **0** means that the
+    /// AVPlayer is muted, and **1** means that the original volume is used.
+    ///
     /// # Arguments
     ///
-    /// {OH_AVPlayer*} player Pointer to an OH_AVPlayer instance
+    /// * `player` - Pointer to the OH_AVPlayer instance.
+    ///
+    /// * `leftVolume` - Target volume of the left channel.
+    ///
+    /// * `rightVolume` - Target volume of the right channel.
     ///
     /// # Returns
     ///
-    /// * Returns the player's statistic metrics info.
-    /// if the execution is successful, otherwise returns nullptr. Possible failure causes:
-    /// 1. player is invalid.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The volume is set successfully.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **player** is nullptr, or the execution of **player SetVolume** fails.
+    ///
+    /// Available since API-level: 11
+    #[cfg(feature = "api-11")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
+    pub fn OH_AVPlayer_SetVolume(
+        player: *mut OH_AVPlayer,
+        leftVolume: f32,
+        rightVolume: f32,
+    ) -> OH_AVErrCode;
+    /// Seeks to a playback position.
+    /// This function can be used when the AVPlayer is in the playing or paused state.
+    ///
+    /// # Arguments
+    ///
+    /// * `player` - Pointer to the OH_AVPlayer instance.
+    ///
+    /// * `mSeconds` - Position to seek to, in ms.
+    ///
+    /// * `mode` - Seek mode.
+    ///
+    /// # Returns
+    ///
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **player** is nullptr, or the execution of **player Seek** fails.
+    ///
+    /// Available since API-level: 11
+    #[cfg(feature = "api-11")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
+    pub fn OH_AVPlayer_Seek(
+        player: *mut OH_AVPlayer,
+        mSeconds: i32,
+        mode: AVPlayerSeekMode,
+    ) -> OH_AVErrCode;
+    /// Obtains the playback position, in milliseconds.
+    ///
+    /// # Arguments
+    ///
+    /// * `player` - Pointer to the OH_AVPlayer instance.
+    ///
+    /// * `currentTime` - Pointer to the playback position.
+    ///
+    /// # Returns
+    ///
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The playback position is obtained.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **player** is nullptr, or the execution of **player GetCurrentTime**
+    /// fails.
+    ///
+    /// Available since API-level: 11
+    #[cfg(feature = "api-11")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
+    pub fn OH_AVPlayer_GetCurrentTime(
+        player: *mut OH_AVPlayer,
+        currentTime: *mut i32,
+    ) -> OH_AVErrCode;
+    /// Obtains the video width.
+    ///
+    /// # Arguments
+    ///
+    /// * `player` - Pointer to the OH_AVPlayer instance.
+    ///
+    /// * `videoWidth` - Pointer to the video width.
+    ///
+    /// # Returns
+    ///
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The video width is obtained.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **player** is nullptr.
+    ///
+    /// Available since API-level: 11
+    #[cfg(feature = "api-11")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
+    pub fn OH_AVPlayer_GetVideoWidth(
+        player: *mut OH_AVPlayer,
+        videoWidth: *mut i32,
+    ) -> OH_AVErrCode;
+    /// Obtains the video height.
+    ///
+    /// # Arguments
+    ///
+    /// * `player` - Pointer to the OH_AVPlayer instance.
+    ///
+    /// * `videoHeight` - Pointer to the video height.
+    ///
+    /// # Returns
+    ///
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The video height is obtained.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **player** is nullptr.
+    ///
+    /// Available since API-level: 11
+    #[cfg(feature = "api-11")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
+    pub fn OH_AVPlayer_GetVideoHeight(
+        player: *mut OH_AVPlayer,
+        videoHeight: *mut i32,
+    ) -> OH_AVErrCode;
+    /// Sets the playback speed of the AVPlayer. For details about the playback speed, see [`AVPlaybackSpeed`](crate::avplayer_base::AVPlaybackSpeed).
+    ///
+    /// # Arguments
+    ///
+    /// * `player` - Pointer to the OH_AVPlayer instance.
+    ///
+    /// * `speed` - Playback speed.
+    ///
+    /// # Returns
+    ///
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The playback speed is set successfully.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **player** is nullptr.
+    ///
+    /// Available since API-level: 11
+    #[cfg(feature = "api-11")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
+    pub fn OH_AVPlayer_SetPlaybackSpeed(
+        player: *mut OH_AVPlayer,
+        speed: AVPlaybackSpeed,
+    ) -> OH_AVErrCode;
+    /// Obtains the playback speed of an AVPlayer.
+    ///
+    /// # Arguments
+    ///
+    /// * `player` - Pointer to the OH_AVPlayer instance.
+    ///
+    /// * `speed` - Pointer to the playback speed.
+    ///
+    /// # Returns
+    ///
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The playback rate is obtained.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **player** is nullptr, or the execution of **player GetPlaybackSpeed**
+    /// fails.
+    ///
+    /// Available since API-level: 11
+    #[cfg(feature = "api-11")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
+    pub fn OH_AVPlayer_GetPlaybackSpeed(
+        player: *mut OH_AVPlayer,
+        speed: *mut AVPlaybackSpeed,
+    ) -> OH_AVErrCode;
+    /// Obtains the playback rate of an AVPlayer.
+    ///
+    /// # Arguments
+    ///
+    /// * `player` - Pointer to the OH_AVPlayer instance.
+    ///
+    /// * `rate` - Pointer to the playback rate that can be obtained.
+    ///
+    /// # Returns
+    ///
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the playback rate of the AVPlayer is successfully obtained.
+    /// Otherwise, an error code defined in `native_averrors.h` is returned.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_AVPlayer_GetPlaybackRate(player: *mut OH_AVPlayer, rate: *mut f32) -> OH_AVErrCode;
+    /// Sets the bit rate used by an HLS player. This function is valid only for HLS network streams.
+    /// By default, the AVPlayer selects a proper bit rate and speed based on the network connection.
+    /// You can set a bit rate available in the valid bit rates reported in **INFO_TYPE_BITRATE_COLLECT**. The AVPlayer
+    /// selects a bit rate that is lower than and closest to the specified bit rate. When ready, you can query the selected
+    /// bit rate.
+    ///
+    /// # Arguments
+    ///
+    /// * `player` - Pointer to the OH_AVPlayer instance.
+    ///
+    /// * `bitRate` - Bit rate, in kbit/s.
+    ///
+    /// # Returns
+    ///
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The bit rate is set successfully.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **player** is nullptr, or the execution of **player SelectBitRate**
+    /// fails.
+    ///
+    /// Available since API-level: 11
+    #[cfg(feature = "api-11")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
+    pub fn OH_AVPlayer_SelectBitRate(player: *mut OH_AVPlayer, bitRate: u32) -> OH_AVErrCode;
+    /// Sets a playback window.
+    /// This function must be called after **SetSource** and before **Prepare**.
+    ///
+    /// # Arguments
+    ///
+    /// * `player` - Pointer to the OH_AVPlayer instance.
+    ///
+    /// * `window` - Pointer to the OHNativeWindow instance.
+    ///
+    /// # Returns
+    ///
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The playback window is set successfully.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **player** or **window** is nullptr, or the execution of **player
+    /// SetVideoSurface** fails.
+    ///
+    /// Available since API-level: 11
+    #[cfg(feature = "api-11")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
+    pub fn OH_AVPlayer_SetVideoSurface(
+        player: *mut OH_AVPlayer,
+        window: *mut OHNativeWindow,
+    ) -> OH_AVErrCode;
+    /// Obtains the total duration of a media file, in milliseconds.
+    ///
+    /// # Arguments
+    ///
+    /// * `player` - Pointer to the OH_AVPlayer instance.
+    ///
+    /// * `duration` - Pointer to the total duration.
+    ///
+    /// # Returns
+    ///
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The total duration is obtained.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **player** is nullptr, or the execution of **player GetDuration** fails.
+    ///
+    /// Available since API-level: 11
+    #[cfg(feature = "api-11")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
+    pub fn OH_AVPlayer_GetDuration(player: *mut OH_AVPlayer, duration: *mut i32) -> OH_AVErrCode;
+    /// Obtains the AVPlayer state.
+    ///
+    /// # Arguments
+    ///
+    /// * `player` - Pointer to the OH_AVPlayer instance.
+    ///
+    /// * `state` - Pointer to the state of the AVPlayer.
+    ///
+    /// # Returns
+    ///
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The AVPlayer state is obtained.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **player** is nullptr, or the execution of **player GetState** fails.
+    ///
+    /// Available since API-level: 11
+    #[cfg(feature = "api-11")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
+    pub fn OH_AVPlayer_GetState(
+        player: *mut OH_AVPlayer,
+        state: *mut AVPlayerState,
+    ) -> OH_AVErrCode;
+    /// Checks whether an AVPlayer is playing.
+    ///
+    /// # Arguments
+    ///
+    /// * `player` - Pointer to the OH_AVPlayer instance.
+    ///
+    /// # Returns
+    ///
+    /// * Check result for whether the AVPlayer is playing. **true** if yes, **false** if the AVPlayer is not playing
+    /// or the input parameter **player** is nullptr.
+    ///
+    /// Available since API-level: 11
+    #[cfg(feature = "api-11")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
+    pub fn OH_AVPlayer_IsPlaying(player: *mut OH_AVPlayer) -> bool;
+    /// Checks whether an AVPlayer is looping.
+    ///
+    /// # Arguments
+    ///
+    /// * `player` - Pointer to the OH_AVPlayer instance.
+    ///
+    /// # Returns
+    ///
+    /// * Check result for whether the AVPlayer is looping. **true** if yes, **false** if the AVPlayer is not looping
+    /// or the input parameter **player** is nullptr.
+    ///
+    /// Available since API-level: 11
+    #[cfg(feature = "api-11")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
+    pub fn OH_AVPlayer_IsLooping(player: *mut OH_AVPlayer) -> bool;
+    /// Enables loop playback.
+    ///
+    /// # Arguments
+    ///
+    /// * `player` - Pointer to the OH_AVPlayer instance.
+    ///
+    /// * `loop` - Whether to enable loop playback. **true** to play in a loop, **false** otherwise.
+    ///
+    /// # Returns
+    ///
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): Loop playback is enabled.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **player** is nullptr, or the execution of **player SetLooping** fails.
+    ///
+    /// Available since API-level: 11
+    #[cfg(feature = "api-11")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
+    pub fn OH_AVPlayer_SetLooping(player: *mut OH_AVPlayer, loop_: bool) -> OH_AVErrCode;
+    /// Sets an AVPlayer callback.
+    /// The callbacks [`OH_AVPlayerOnInfo`](crate::avplayer_base::OH_AVPlayerOnInfo) and [`OH_AVPlayerOnError`](crate::avplayer_base::OH_AVPlayerOnError) set by using this function can transfer
+    /// limited information. In addition, it is inconvenient for the application to distinguish between multiple AVPlayer
+    /// instances.
+    /// Starting from API version 12, [`OH_AVPlayer_SetOnInfoCallback`](crate::avplayer::OH_AVPlayer_SetOnInfoCallback) and [`OH_AVPlayer_SetOnErrorCallback`](crate::avplayer::OH_AVPlayer_SetOnErrorCallback) are provided to set the callbacks [`OH_AVPlayerOnInfoCallback`](crate::avplayer_base::OH_AVPlayerOnInfoCallback)
+    /// and [`OH_AVPlayerOnErrorCallback`](crate::avplayer_base::OH_AVPlayerOnErrorCallback), respectively.
+    ///
+    /// # Arguments
+    ///
+    /// * `player` - Pointer to the OH_AVPlayer instance.
+    ///
+    /// * `callback` - Callback used to return the result.
+    ///
+    /// # Returns
+    ///
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The callback is set successfully.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **player** is nullptr, the input parameter **callback.onInfo** or **
+    /// onError** is null, or the execution of **player SetPlayerCallback** fails.
+    ///
+    /// Available since API-level: 11
+    ///
+    /// **Deprecated** since 12
+    ///
+    /// **Use instead:** [`OH_AVPlayer_SetOnInfoCallback`](crate::avplayer::OH_AVPlayer_SetOnInfoCallback) [`OH_AVPlayer_SetOnErrorCallback`](crate::avplayer::OH_AVPlayer_SetOnErrorCallback)
+    #[cfg(feature = "api-11")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
+    #[deprecated(
+        since = "12",
+        note = "Use instead: OH_AVPlayer_SetOnInfoCallback OH_AVPlayer_SetOnErrorCallback"
+    )]
+    pub fn OH_AVPlayer_SetPlayerCallback(
+        player: *mut OH_AVPlayer,
+        callback: AVPlayerCallback,
+    ) -> OH_AVErrCode;
+    /// Selects an audio or subtitle track.
+    /// By default, the first audio track with data is played, and the subtitle track is not played.
+    /// After the setting takes effect, the original track becomes invalid. Set the subtitle track to the prepared, playing,
+    /// paused, or completed state, and set the audio track to the prepared state.
+    ///
+    /// # Arguments
+    ///
+    /// * `player` - Pointer to the OH_AVPlayer instance.
+    ///
+    /// * `index` - Index of the track.
+    ///
+    /// # Returns
+    ///
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **player** is nullptr, or the execution of **player SelectTrack** fails.
+    ///
+    /// Available since API-level: 11
+    #[cfg(feature = "api-11")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
+    pub fn OH_AVPlayer_SelectTrack(player: *mut OH_AVPlayer, index: i32) -> OH_AVErrCode;
+    /// Deselects an audio or subtitle track.
+    ///
+    /// # Arguments
+    ///
+    /// * `player` - Pointer to the OH_AVPlayer instance.
+    ///
+    /// * `index` - Index of the track.
+    ///
+    /// # Returns
+    ///
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **player** is nullptr, or the execution of **player DeselectTrack**
+    /// fails.
+    ///
+    /// Available since API-level: 11
+    #[cfg(feature = "api-11")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
+    pub fn OH_AVPlayer_DeselectTrack(player: *mut OH_AVPlayer, index: i32) -> OH_AVErrCode;
+    /// Obtains the currently valid track. You can set the track to the prepared, playing, paused, or completed state.
+    ///
+    /// # Arguments
+    ///
+    /// * `player` - Pointer to the OH_AVPlayer instance.
+    ///
+    /// * `trackType` - Media type. The value **0** means audio and **1** means video.
+    ///
+    /// * `index` - Pointer to the index of the track.
+    ///
+    /// # Returns
+    ///
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The track is obtained.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **player** is nullptr, or the execution of **player GetCurrentTrack**
+    /// fails.
+    ///
+    /// Available since API-level: 11
+    #[cfg(feature = "api-11")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
+    pub fn OH_AVPlayer_GetCurrentTrack(
+        player: *mut OH_AVPlayer,
+        trackType: i32,
+        index: *mut i32,
+    ) -> OH_AVErrCode;
+    /// Sets a callback to return the media key system information for an AVPlayer.
+    ///
+    /// # Arguments
+    ///
+    /// * `player` - Pointer to the OH_AVPlayer instance.
+    ///
+    /// * `callback` - Callback.
+    ///
+    /// # Returns
+    ///
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **player** or **callback** is a null pointer, or the execution of **
+    /// player SetDrmSystemInfoCallback**
+    /// **SetDrmSystemInfoCallback** or **SetDrmSystemInfoCallback** fails.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
+    pub fn OH_AVPlayer_SetMediaKeySystemInfoCallback(
+        player: *mut OH_AVPlayer,
+        callback: Player_MediaKeySystemInfoCallback,
+    ) -> OH_AVErrCode;
+    /// Obtains the media key system information to create a media key session.
+    ///
+    /// # Arguments
+    ///
+    /// * `player` - Pointer to the OH_AVPlayer instance.
+    ///
+    /// * `mediaKeySystemInfo` - Pointer to the media key system information.
+    ///
+    /// # Returns
+    ///
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **player** is nullptr, or the memory is insufficient.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
+    pub fn OH_AVPlayer_GetMediaKeySystemInfo(
+        player: *mut OH_AVPlayer,
+        mediaKeySystemInfo: *mut DRM_MediaKeySystemInfo,
+    ) -> OH_AVErrCode;
+    /// Sets the decryption information.
+    ///
+    /// # Arguments
+    ///
+    /// * `player` - Pointer to the OH_AVPlayer instance.
+    ///
+    /// * `mediaKeySession` - Pointer to the media key session with the decryption feature.
+    ///
+    /// * `secureVideoPath` - Whether a secure decoder is required. **true** if required, **false** otherwise.
+    ///
+    /// # Returns
+    ///
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **player** is nullptr, or the execution of **SetDecryptionConfig** fails.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
+    pub fn OH_AVPlayer_SetDecryptionConfig(
+        player: *mut OH_AVPlayer,
+        mediaKeySession: *mut MediaKeySession,
+        secureVideoPath: bool,
+    ) -> OH_AVErrCode;
+    /// Sets a callback for the event indicating that the AVPlayer receives a message.
+    ///
+    /// # Arguments
+    ///
+    /// * `player` - Pointer to the OH_AVPlayer instance.
+    ///
+    /// * `callback` - Pointer to the callback. If nullptr is passed in, the listening for AVPlayer messages is canceled.
+    ///
+    /// * `userData` - Pointer to the instance set by the caller.
+    ///
+    /// # Returns
+    ///
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
+    /// **AV_ERR_NO_MEMORY**: Memory allocation fails.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **player** is nullptr or the function fails to be executed.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
+    pub fn OH_AVPlayer_SetOnInfoCallback(
+        player: *mut OH_AVPlayer,
+        callback: OH_AVPlayerOnInfoCallback,
+        userData: *mut ::core::ffi::c_void,
+    ) -> OH_AVErrCode;
+    /// Sets a callback for the event indicating that an error occurs in the AVPlayer.
+    ///
+    /// # Arguments
+    ///
+    /// * `player` - Pointer to the OH_AVPlayer instance.
+    ///
+    /// * `callback` - Pointer to the callback. If nullptr is passed in, the listening for AVPlayer errors is canceled.
+    ///
+    /// * `userData` - Pointer to the instance set by the caller.
+    ///
+    /// # Returns
+    ///
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
+    /// **AV_ERR_NO_MEMORY**: Memory allocation fails.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **player** is nullptr or the function fails to be executed.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
+    pub fn OH_AVPlayer_SetOnErrorCallback(
+        player: *mut OH_AVPlayer,
+        callback: OH_AVPlayerOnErrorCallback,
+        userData: *mut ::core::ffi::c_void,
+    ) -> OH_AVErrCode;
+    /// Sets the playback rate of an AVPlayer within the valid range.
+    /// The supported states are prepared, playing, paused, and completed.
+    ///
+    /// # Arguments
+    ///
+    /// * `player` - Pointer to the OH_AVPlayer instance.
+    ///
+    /// * `rate` - Playback rate. The value ranges is \[0.125, 8.0\], on API 24 and below, the range is \[0.125, 4.0\].
+    ///
+    /// # Returns
+    ///
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The playback speed is set successfully.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The function is called when the AVPlayer is not in the allowed state, or it is called
+    /// during live streaming.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **player** is nullptr, or **rate** is out of range.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_AVPlayer_SetPlaybackRate(player: *mut OH_AVPlayer, rate: f32) -> OH_AVErrCode;
+    /// Sets the loudness of the AVPlayer. This function can be called when the AVPlayer is in the prepared, playing,
+    /// paused, completed, or stopped state.
+    /// The default loudness gain is 0.0 dB. The **usage** parameter of the AVPlayer stream must be `OH_AudioStream_Usage`.
+    /// AUDIOSTREAM_USAGE_MUSIC,
+    /// `OH_AudioStream_Usage`.AUDIOSTREAM_USAGE_MOVIE, or `OH_AudioStream_Usage`.AUDIOSTREAM_USAGE_AUDIOBOOK.
+    /// The latency mode of the audio renderer must be `OH_AudioStream_LatencyMode`.AUDIOSTREAM_LATENCY_MODE_NORMAL.
+    /// If the audio is played through the high-resolution pipeline, this operation is not supported.
+    ///
+    /// # Arguments
+    ///
+    /// * `player` - Pointer to the OH_AVPlayer instance.
+    ///
+    /// * `loudnessGain` - Loudness, in the range \[-90.0, 24.0\], in dB.
+    ///
+    /// # Returns
+    ///
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The loudness is set successfully.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The **player** parameter is nullptr, or the **loudnessGain** parameter is invalid.
+    /// **AV_ERR_INVALID_STATE**: The function is called in an abnormal state, or the **usage** parameter of **
+    /// audioRendererInfo** is not one of the following:
+    /// `OH_AudioStream_Usage`.AUDIOSTREAM_USAGE_MUSIC,
+    /// `OH_AudioStream_Usage`.AUDIOSTREAM_USAGE_MOVIE,
+    /// and `OH_AudioStream_Usage`.AUDIOSTREAM_USAGE_AUDIOBOOKs.
+    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED): A system error occurs.
+    ///
+    /// Available since API-level: 21
+    #[cfg(feature = "api-21")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+    pub fn OH_AVPlayer_SetLoudnessGain(player: *mut OH_AVPlayer, loudnessGain: f32)
+        -> OH_AVErrCode;
+    /// Obtains the statistic metrics of the current AVPlayer. This API can be called when the playback resource is
+    /// set and the AVPlayer is in the prepared, playing, paused, completed, or stopped state.
+    /// Note that you need to manually release the lifecycle of the [`OH_AVFormat`](ohos_sys_opaque_types::OH_AVFormat) pointer object.
+    ///
+    /// # Arguments
+    ///
+    /// * `player` - Pointer to an OH_AVPlayer instance
+    ///
+    /// # Returns
+    ///
+    /// * If the operation is successful, the statistic metric information of the AVPlayer is returned. (For details
+    /// about the key values, see statistic metric information). Otherwise, **nullptr** is returned.
+    /// Possible failure cause: The input **player** pointer is invalid.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub fn OH_AVPlayer_GetPlaybackStatisticMetrics(player: *mut OH_AVPlayer) -> *mut OH_AVFormat;
-    /// Add subtitle resource represented by FD to the player. Currently, the external subtitle must be set after
-    /// fdSrc of the video resource is set in an AVPlayer instance.
+    /// Adds the subtitle resource represented by the file descriptor to the player. Currently, the external subtitle
+    /// must be set after the **fdSrc** of the video resource is set in the AVPlayer.
+    ///
     /// # Arguments
     ///
-    /// {OH_AVPlayer} player Pointer to an OH_AVPlayer instance
+    /// * `player` - Pointer to an OH_AVPlayer instance
     ///
-    /// {int32_t} fd Indicates the file descriptor of subtitle source.
+    /// * `fd` - Indicates the file descriptor of subtitle source.
     ///
-    /// {int64_t} offset Indicates the offset of media source in file descriptor.
+    /// * `offset` - Indicates the offset of media source in file descriptor.
     ///
-    /// {int64_t} size Indicates the size of media source.
+    /// * `size` - Indicates the size of media source.
     ///
     /// # Returns
     ///
-    /// * Function result code.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input player is nullptr.
+    /// * Execution result of the function.
+    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input player is a null pointer.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -1058,19 +928,20 @@ extern "C" {
         offset: i64,
         size: i64,
     ) -> OH_AVErrCode;
-    /// Add subtitle resource represented by url to the player. The external subtitle must be set after
-    /// url is set in an AVPlayer instance.
+    /// Adds the subtitle resource represented by the URL to the player. The external subtitle must be set after the
+    /// URL is set for the AVPlayer.
+    ///
     /// # Arguments
     ///
-    /// * `player` - Pointer to an OH_AVPlayer instance
+    /// * `player` - Pointer to the OH_AVPlayer instance.
     ///
-    /// * `url` - Indicates the url of subtitle source.
+    /// * `url` - URL of the subtitle source.
     ///
     /// # Returns
     ///
-    /// * Function result code.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input player is nullptr.
+    /// * Execution result of the function.
+    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input player is a null pointer.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -1079,26 +950,28 @@ extern "C" {
         player: *mut OH_AVPlayer,
         url: *const ::core::ffi::c_char,
     ) -> OH_AVErrCode;
-    /// Set playback start position and end position. After the setting, only the content in the specified range of
-    /// the audio or video file is played. It can be used in the initialized, prepared, paused, stopped, or completed state.
+    /// Sets the start and end positions of the playback. After the setting, only the content within the specified
+    /// range of the audio and video file is played. This API can be called when the player is in the initialized, prepared,
+    /// paused, stopped, or completed state.
+    ///
     /// # Arguments
     ///
-    /// * `player` - Pointer to an OH_AVPlayer instance
+    /// * `player` - Pointer to the OH_AVPlayer instance.
     ///
-    /// * `mSecondsStart` - Playback start position, should be in [0, duration),
-    /// -1 means that the start position is not set, and the playback will start from 0.
+    /// * `mSecondsStart` - Start position of playback. The value must be in the range of [0, **duration**). The value **-1*
+    /// * indicates that the start position is not set, and the playback starts from 0.
     ///
-    /// * `mSecondsEnd` - Playback end position, which should usually be in (startTimeMs, duration],
-    /// -1 means that the end position is not set, and the playback will be ended at the end of the stream.
+    /// * `mSecondsEnd` - End position of playback. The value must be in the range of (**startTimeMs**, **duration**]. The
+    /// value **-1** indicates that the end position is not set, and the playback ends at the end of the stream.
     ///
-    /// * `closestRange` - Use closest seek policy or not.
+    /// * `closestRange` - Whether to seek to the frame closest to the specified position.
     ///
     /// # Returns
     ///
-    /// * Function result code.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input player is nullptr.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) if operation not allowed.
+    /// * Execution result of the function.
+    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input player is a null pointer.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -1113,18 +986,18 @@ extern "C" {
     /// paused, or completed state.
     /// # Arguments
     ///
-    /// * `player` - Pointer to an OH_AVPlayer instance
+    /// * `player` - Pointer to the OH_AVPlayer instance.
     ///
-    /// * `mediaType` - Specified media type, see [`OH_MediaType`](crate::avcodec_base::OH_MediaType) in `native_avcodec_base.h`
+    /// * `mediaType` - Media type. For details, see [`OH_MediaType`](crate::avcodec_base::OH_MediaType) in `native_avcodec_base.h`.
     ///
-    /// * `muted` - true for mute, false for unmute.
+    /// * `muted` - **true** indicates that the audio is muted, and **false** indicates that the audio is unmuted.
     ///
     /// # Returns
     ///
-    /// * Function result code.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input parameter is invalid.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) if operation not allowed.
+    /// * Execution result of the function.
+    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter is invalid.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -1134,53 +1007,57 @@ extern "C" {
         mediaType: OH_MediaType,
         muted: bool,
     ) -> OH_AVErrCode;
-    /// Get the playback position, accurate to millisecond. This API can be called only when the AVPlayer is in
-    /// the prepared, playing, paused, or completed state.
+    /// Obtains the playback position, in milliseconds. This API can be called only when the AVPlayer is in the
+    /// prepared, playing, paused, or completed state.
+    ///
     /// # Arguments
     ///
-    /// * `player` - Pointer to an OH_AVPlayer instance
+    /// * `player` - Pointer to the OH_AVPlayer instance.
     ///
     /// # Returns
     ///
-    /// * Returns the playback position in milliseconds.
-    /// Return -1 if the player is nullptr or invalid.
+    /// * Playback position, in milliseconds.
+    /// If **player** is a null pointer or invalid, **-1** is returned.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub fn OH_AVPlayer_GetPlaybackPosition(player: *mut OH_AVPlayer) -> i32;
-    /// Checks whether the media source supports continuous seek.
-    /// The actual value is returned when this API is called in the prepared, playing, paused, or completed state.
-    /// The value **false** is returned if it is called in other states. For devices that do not support the seek
-    /// operation in [`AV_SEEK_CONTINUOUS`](crate::avplayer_base::AVPlayerSeekMode::AV_SEEK_CONTINUOUS) mode, false is returned.
+    /// Checks whether the media source supports continuous seek. If this API is called when the AVPlayer is in the
+    /// prepared, playing, paused, or completed state, the actual value is returned. Other, **false** is returned. For
+    /// devices that do not support the [`AV_SEEK_CONTINUOUS`](crate::avplayer_base::AVPlayerSeekMode::AV_SEEK_CONTINUOUS) mode, **false** is returned.
+    ///
     /// # Arguments
     ///
-    /// * `player` - Pointer to an OH_AVPlayer instance.
+    /// * `player` - Pointer to the OH_AVPlayer instance.
     ///
     /// # Returns
     ///
-    /// * true - seek continuous is supported.
-    /// false - seek continuous is not supported or the support status is uncertain.
+    /// *
+    /// * **true** indicates that continuous seek is supported.
+    /// **false** indicates that continuous seek is not supported or is uncertain.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub fn OH_AVPlayer_IsSeekContinuousSupported(player: *mut OH_AVPlayer) -> bool;
-    /// Select track with switch mode when playing a resource with multiple audio and video tracks.
+    /// Selects a track in the specified switching mode when playing a resource that contains multiple audio and
+    /// video tracks.
+    ///
     /// # Arguments
     ///
-    /// * `player` - Pointer to an OH_AVPlayer instance
+    /// * `player` - Pointer to the OH_AVPlayer instance.
     ///
-    /// * `index` - The selected track index.
+    /// * `index` - Index of the selected track.
     ///
-    /// * `mode` - The switch mode.
+    /// * `mode` - Switching mode.
     ///
     /// # Returns
     ///
-    /// * Function result code.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input parameter is invalid.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) if operation not allowed.
+    /// * Execution result of the function.
+    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter is invalid.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -1190,21 +1067,22 @@ extern "C" {
         index: i32,
         mode: AVPlayerTrackSwitchMode,
     ) -> OH_AVErrCode;
-    /// Subscribes to update events of the maximum audio level value, which is periodically reported when audio
-    /// resources are played.
+    /// Subscribes to the maximum audio amplitude update event, which is reported periodically when audio resources
+    /// are played.
+    ///
     /// # Arguments
     ///
-    /// * `player` - Pointer to an OH_AVPlayer instance
+    /// * `player` - Pointer to the OH_AVPlayer instance.
     ///
-    /// * `callback` - Pointer to callback function, nullptr indicates unregister callback.
+    /// * `callback` - Pointer to the callback function. **nullptr** indicates that the callback is deregistered.
     ///
-    /// * `userData` - Pointer to user specific data.
+    /// * `userData` - Pointer to user-defined data.
     ///
     /// # Returns
     ///
-    /// * Function result code.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input player is nullptr.
+    /// * Execution result of the function.
+    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input player is a null pointer.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -1214,26 +1092,27 @@ extern "C" {
         callback: OH_AVPlayerOnAmplitudeUpdateCallback,
         userData: *mut ::core::ffi::c_void,
     ) -> OH_AVErrCode;
-    /// Subscribes to events indicating that a Supplemental Enhancement Information (SEI) message is received. This
-    /// applies only to HTTP-FLV live streaming and is triggered when SEI messages are present in the video stream.
-    /// You must initiate the subscription before calling prepare.
+    /// Subscribes to the SEI message reception event. This API applies only to HTTP-FLV live streams and is
+    /// triggered when an SEI message exists in a video stream. This subscription must be initiated before **prepare** is
+    /// called.
+    ///
     /// # Arguments
     ///
-    /// * `player` - Pointer to an OH_AVPlayer instance
+    /// * `player` - Pointer to the OH_AVPlayer instance.
     ///
-    /// * `payloadTypes` - playload types
+    /// * `payloadTypes` - Load type array.
     ///
-    /// * `typeNum` - The size of the playload types array.
+    /// * `typeNum` - Size of the load type array.
     ///
-    /// * `callback` - Pointer to callback function, nullptr indicates unregister callback.
+    /// * `callback` - Pointer to the callback function. **nullptr** indicates that the callback is deregistered.
     ///
-    /// * `userData` - Pointer to user specific data
+    /// * `userData` - Pointer to user-defined data.
     ///
     /// # Returns
     ///
-    /// * Function result code.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input player is nullptr.
+    /// * Execution result of the function.
+    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input player is a null pointer.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -1245,29 +1124,31 @@ extern "C" {
         callback: OH_AVPlayerOnSeiMessageReceivedCallback,
         userData: *mut ::core::ffi::c_void,
     ) -> OH_AVErrCode;
-    /// Get the number of message items in SEI message array.
+    /// Obtains the number of items in the SEI message array.
+    ///
     /// # Arguments
     ///
-    /// * `message` - Pointer to an OH_AVSeiMessageArray instance
+    /// * `message` - Pointer to the **OH_AVSeiMessageArray** instance.
     ///
     /// # Returns
     ///
-    /// * The number of message items in SEI message array
+    /// * Number of items in the SEI message array.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub fn OH_AVSeiMessage_GetSeiCount(message: *mut OH_AVSeiMessageArray) -> u32;
-    /// Get SEI of the message item by index in SEI message array.
+    /// Obtains an SEI message form the SEI message array by index.
+    ///
     /// # Arguments
     ///
-    /// * `message` - Pointer to an OH_AVSeiMessageArray instance
+    /// * `message` - Pointer to the **OH_AVSeiMessageArray** instance.
     ///
-    /// * `index` - The index of the message item
+    /// * `index` - Index of the message item.
     ///
     /// # Returns
     ///
-    /// * The SEI of the message item
+    /// * SEI of the message item.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -1276,25 +1157,26 @@ extern "C" {
         message: *mut OH_AVSeiMessageArray,
         index: u32,
     ) -> *mut OH_AVFormat;
-    /// Set video window size for super-resolution. This API can be called when the AVPlayer is in the initialized,
-    /// prepared, playing, paused, completed, or stopped state.The input parameter values must be in the range
-    /// of 320 x 320 to 1920 x 1080 (in px).
+    /// Sets the video window size for super resolution. This API can be called when the AVPlayer is in the
+    /// initialized, prepared, playing, paused, completed, or stopped state. The input parameter value must be in the range
+    /// of 320 × 320 to 1920 × 1080 (pixels).
+    ///
     /// # Arguments
     ///
-    /// * `player` - Pointer to an OH_AVPlayer instance
+    /// * `player` - Pointer to the OH_AVPlayer instance.
     ///
-    /// * `width` - Width of the window. The value range is \[320 - 1920\], in px.
+    /// * `width` - Window width, in pixels. The value range is \[320, 1920\].
     ///
-    /// * `height` - Height of the window. The value range is \[320 - 1080\], in px.
+    /// * `height` - Window height, in pixels. The value range is \[320, 1080\].
     ///
     /// # Returns
     ///
-    /// * Function result code.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input player is nullptr, or Parameter errord.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) if Operation not allowed.
-    /// [`AV_ERR_SUPER_RESOLUTION_UNSUPPORTED`](crate::averrors::OH_AVErrCode::AV_ERR_SUPER_RESOLUTION_UNSUPPORTED) if Super resolution is not supported.
-    /// [`AV_ERR_SUPER_RESOLUTION_NOT_ENABLED`](crate::averrors::OH_AVErrCode::AV_ERR_SUPER_RESOLUTION_NOT_ENABLED) if Missing enable super resolution feature in[`OH_AVPlaybackStrategy`](crate::avplayer_base::OH_AVPlaybackStrategy).
+    /// * Execution result of the function.
+    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input player is a null pointer or the parameter is incorrect.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
+    /// [`AV_ERR_SUPER_RESOLUTION_UNSUPPORTED`](crate::averrors::OH_AVErrCode::AV_ERR_SUPER_RESOLUTION_UNSUPPORTED): Super resolution is not supported.
+    /// [`AV_ERR_SUPER_RESOLUTION_NOT_ENABLED`](crate::averrors::OH_AVErrCode::AV_ERR_SUPER_RESOLUTION_NOT_ENABLED): Super resolution is not enabled in [`OH_AVPlaybackStrategy`](crate::avplayer_base::OH_AVPlaybackStrategy).
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -1304,23 +1186,24 @@ extern "C" {
         width: i32,
         height: i32,
     ) -> OH_AVErrCode;
-    /// Enable or disable super-resolution dynamically. This API can be called when the AVPlayer is in the
-    /// initialized, prepared, playing, paused, completed, or stopped state.
-    /// Must enable super-resolution feature in [`OH_AVPlaybackStrategy`](crate::avplayer_base::OH_AVPlaybackStrategy) before calling prepare.
+    /// Dynamically enables or disables super resolution. This API can be called when the AVPlayer is in the
+    /// initialized, prepared, playing, paused, completed, or stopped state. You must enable the super resolution feature in
+    /// [`OH_AVPlaybackStrategy`](crate::avplayer_base::OH_AVPlaybackStrategy) before calling **prepare**.
+    ///
     /// # Arguments
     ///
-    /// * `player` - Pointer to an OH_AVPlayer instance.
+    /// * `player` - Pointer to the OH_AVPlayer instance.
     ///
-    /// * `enabled` - true: super-resolution enabled; false: super-resolution disabled.
+    /// * `enabled` - **true** means to enable super resolution; **false** means the opposite.
     ///
     /// # Returns
     ///
-    /// * Function result code.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input player is nullptr, or Parameter error.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) if Operation not allowed.
-    /// [`AV_ERR_SUPER_RESOLUTION_UNSUPPORTED`](crate::averrors::OH_AVErrCode::AV_ERR_SUPER_RESOLUTION_UNSUPPORTED) if Super resolution is not supported.
-    /// [`AV_ERR_SUPER_RESOLUTION_NOT_ENABLED`](crate::averrors::OH_AVErrCode::AV_ERR_SUPER_RESOLUTION_NOT_ENABLED) if Missing enable super resolution feature in[`OH_AVPlaybackStrategy`](crate::avplayer_base::OH_AVPlaybackStrategy).
+    /// * Execution result of the function.
+    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input player is a null pointer or the parameter is incorrect.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
+    /// [`AV_ERR_SUPER_RESOLUTION_UNSUPPORTED`](crate::averrors::OH_AVErrCode::AV_ERR_SUPER_RESOLUTION_UNSUPPORTED): Super resolution is not supported.
+    /// [`AV_ERR_SUPER_RESOLUTION_NOT_ENABLED`](crate::averrors::OH_AVErrCode::AV_ERR_SUPER_RESOLUTION_NOT_ENABLED): Super resolution is not enabled in [`OH_AVPlaybackStrategy`](crate::avplayer_base::OH_AVPlaybackStrategy).
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -1329,43 +1212,46 @@ extern "C" {
         player: *mut OH_AVPlayer,
         enabled: bool,
     ) -> OH_AVErrCode;
-    /// Create a playback strategy instance
+    /// Creates a playback strategy instance.
+    ///
     ///
     /// # Returns
     ///
-    /// * a playback strategy instance, nullptr if fails.
+    /// * Playback strategy instance. If the operation fails, a null pointer is returned.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub fn OH_AVPlaybackStrategy_Create() -> *mut OH_AVPlaybackStrategy;
-    /// Release a playback strategy instance
+    /// Releases a playback strategy instance.
+    ///
     /// # Arguments
     ///
-    /// * `strategy` - The OH_AVPlaybackStrategy instance.
+    /// * `strategy` - **OH_AVPlaybackStrategy** instance.
     ///
     /// # Returns
     ///
-    /// * Function result code.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input strategy is nullptr.
+    /// * Execution result of the function.
+    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input strategy is a null pointer.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub fn OH_AVPlaybackStrategy_Destroy(strategy: *mut OH_AVPlaybackStrategy) -> OH_AVErrCode;
-    /// Choose a stream width close to it.
+    /// Selects a stream with width close to the specified value.
+    ///
     /// # Arguments
     ///
-    /// * `strategy` - The OH_AVPlaybackStrategy used by avplayer.
+    /// * `strategy` - **OH_AVPlaybackStrategy** used by the AVPlayer.
     ///
-    /// * `width` - the preferred width chosen to play by avplayer at start.
+    /// * `width` - Preferred width for playback when the AVPlayer is started.
     ///
     /// # Returns
     ///
-    /// * Function result code.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input strategy is nullptr.
+    /// * Execution result of the function.
+    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input strategy is a null pointer.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -1374,18 +1260,19 @@ extern "C" {
         strategy: *mut OH_AVPlaybackStrategy,
         width: i32,
     ) -> OH_AVErrCode;
-    /// Choose a stream height close to it.
+    /// Selects a stream with height close to the specified value.
+    ///
     /// # Arguments
     ///
-    /// * `strategy` - The OH_AVPlaybackStrategy used by avplayer.
+    /// * `strategy` - **OH_AVPlaybackStrategy** used by the AVPlayer.
     ///
-    /// * `height` - The preferred width chosen to play by avplayer at start.
+    /// * `height` - Preferred height for playback when the AVPlayer is started.
     ///
     /// # Returns
     ///
-    /// * Function result code.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input strategy is nullptr.
+    /// * Execution result of the function.
+    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input strategy is a null pointer.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -1394,18 +1281,19 @@ extern "C" {
         strategy: *mut OH_AVPlaybackStrategy,
         height: i32,
     ) -> OH_AVErrCode;
-    /// Choose a preferred buffer duration close to it.
+    /// Selects the preferred buffer duration that is close to the specified value.
+    ///
     /// # Arguments
     ///
-    /// * `strategy` - The OH_AVPlaybackStrategy used by avplayer.
+    /// * `strategy` - **OH_AVPlaybackStrategy** used by the AVPlayer.
     ///
-    /// * `ms` - The preferred buffer duration chosen to play by avplayer at start.
+    /// * `ms` - Preferred buffer duration for playback when the AVPlayer is started.
     ///
     /// # Returns
     ///
-    /// * Function result code.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input strategy is nullptr.
+    /// * Execution result of the function.
+    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input strategy is a null pointer.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -1414,19 +1302,19 @@ extern "C" {
         strategy: *mut OH_AVPlaybackStrategy,
         ms: i32,
     ) -> OH_AVErrCode;
-    /// Enable or disable preferred HDR mode.
+    /// Enables or disables the preferred HDR mode.
     ///
     /// # Arguments
     ///
-    /// * `strategy` - Pointer to OH_AVPlaybackStrategy.
+    /// * `strategy` - Pointer to **OH_AVPlaybackStrategy**.
     ///
-    /// * `enabled` - true to enable HDR, false to disable.
+    /// * `enabled` - The value **true** means to enable the preferred HDR mode, and the value **false** means the opposite.
     ///
     /// # Returns
     ///
-    /// * Function result code.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input strategy is nullptr.
+    /// * Execution result of the function.
+    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input strategy is a null pointer.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -1435,19 +1323,19 @@ extern "C" {
         strategy: *mut OH_AVPlaybackStrategy,
         enabled: bool,
     ) -> OH_AVErrCode;
-    /// Set preferred subtitle language.
+    /// Sets the preferred subtitle language.
     ///
     /// # Arguments
     ///
-    /// * `strategy` - Pointer to OH_AVPlaybackStrategy.
+    /// * `strategy` - Pointer to **OH_AVPlaybackStrategy**.
     ///
-    /// * `lang` - Subtitle language code (e.g., "zh").
+    /// * `lang` - Pointer to subtitle language code (for example, **zh**).
     ///
     /// # Returns
     ///
-    /// * Function result code.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input strategy is nullptr.
+    /// * Execution result of the function.
+    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input strategy is a null pointer.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -1456,19 +1344,19 @@ extern "C" {
         strategy: *mut OH_AVPlaybackStrategy,
         lang: *const ::core::ffi::c_char,
     ) -> OH_AVErrCode;
-    /// Set preferred audio language.
+    /// Sets the preferred audio language.
     ///
     /// # Arguments
     ///
-    /// * `strategy` - Pointer to OH_AVPlaybackStrategy.
+    /// * `strategy` - Pointer to **OH_AVPlaybackStrategy**.
     ///
-    /// * `lang` - Audio language code (e.g., "en").
+    /// * `lang` - Pointer to audio language code (for example, **en**).
     ///
     /// # Returns
     ///
-    /// * Function result code.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input strategy is nullptr.
+    /// * Execution result of the function.
+    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input strategy is a null pointer.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -1477,19 +1365,19 @@ extern "C" {
         strategy: *mut OH_AVPlaybackStrategy,
         lang: *const ::core::ffi::c_char,
     ) -> OH_AVErrCode;
-    /// Set muted media type for playback.
+    /// Sets the media type to be muted during playback.
     ///
     /// # Arguments
     ///
-    /// * `strategy` - Pointer to OH_AVPlaybackStrategy.
+    /// * `strategy` - Pointer to **OH_AVPlaybackStrategy**.
     ///
-    /// * `mediaType` - Media type to mute.
+    /// * `mediaType` - Type of the media to be muted.
     ///
     /// # Returns
     ///
-    /// * Function result code.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input strategy is nullptr.
+    /// * Execution result of the function.
+    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input strategy is a null pointer.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -1498,19 +1386,19 @@ extern "C" {
         strategy: *mut OH_AVPlaybackStrategy,
         mediaType: OH_MediaType,
     ) -> OH_AVErrCode;
-    /// Set whether to show the first frame on prepare.
+    /// Sets whether to display the first frame during the **prepare** state.
     ///
     /// # Arguments
     ///
-    /// * `strategy` - Pointer to OH_AVPlaybackStrategy.
+    /// * `strategy` - Pointer to **OH_AVPlaybackStrategy**.
     ///
-    /// * `enabled` - true to show, false otherwise.
+    /// * `enabled` - **true** to display, **false** otherwise.
     ///
     /// # Returns
     ///
-    /// * Function result code.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input strategy is nullptr.
+    /// * Execution result of the function.
+    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input strategy is a null pointer.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -1519,19 +1407,19 @@ extern "C" {
         strategy: *mut OH_AVPlaybackStrategy,
         enabled: bool,
     ) -> OH_AVErrCode;
-    /// Set the threshold for auto quick play.
+    /// Sets the threshold for automatic quick playback.
     ///
     /// # Arguments
     ///
-    /// * `strategy` - Pointer to OH_AVPlaybackStrategy.
+    /// * `strategy` - Pointer to **OH_AVPlaybackStrategy**.
     ///
-    /// * `seconds` - Threshold value.
+    /// * `seconds` - Threshold for automatic quick playback.
     ///
     /// # Returns
     ///
-    /// * Function result code.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input strategy is nullptr.
+    /// * Execution result of the function.
+    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input strategy is a null pointer.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -1540,19 +1428,19 @@ extern "C" {
         strategy: *mut OH_AVPlaybackStrategy,
         seconds: f64,
     ) -> OH_AVErrCode;
-    /// Enable or disable super resolution.
+    /// Sets whether to enable super resolution.
     ///
     /// # Arguments
     ///
-    /// * `strategy` - Pointer to OH_AVPlaybackStrategy.
+    /// * `strategy` - Pointer to **OH_AVPlaybackStrategy**.
     ///
-    /// * `enabled` - true to enable, false to disable.
+    /// * `enabled` - **true** to enable, **false** otherwise.
     ///
     /// # Returns
     ///
-    /// * Function result code.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input strategy is nullptr.
+    /// * Execution result of the function.
+    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input strategy is a null pointer.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -1561,19 +1449,19 @@ extern "C" {
         strategy: *mut OH_AVPlaybackStrategy,
         enabled: bool,
     ) -> OH_AVErrCode;
-    /// Set preferred buffer duration for playing in seconds (double).
+    /// Sets the preferred buffer duration during playback (double type, in seconds).
     ///
     /// # Arguments
     ///
-    /// * `strategy` - Pointer to OH_AVPlaybackStrategy.
+    /// * `strategy` - Pointer to **OH_AVPlaybackStrategy**.
     ///
-    /// * `seconds` - Buffer duration in seconds.
+    /// * `seconds` - Buffer duration, in seconds.
     ///
     /// # Returns
     ///
-    /// * Function result code.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input strategy is nullptr.
+    /// * Execution result of the function.
+    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input strategy is a null pointer.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -1582,19 +1470,20 @@ extern "C" {
         strategy: *mut OH_AVPlaybackStrategy,
         seconds: f64,
     ) -> OH_AVErrCode;
-    /// Set whether to keep decoding when muted.
+    /// Sets whether to continue decoding when the audio is muted.
     ///
     /// # Arguments
     ///
-    /// * `strategy` - Pointer to OH_AVPlaybackStrategy.
+    /// * `strategy` - Pointer to **OH_AVPlaybackStrategy**.
     ///
-    /// * `enabled` - true to keep decoding, false to pause decoding when muted.
+    /// * `enabled` - The value **true** means to continue decoding when the audio is muted, and **false** means the
+    /// opposite.
     ///
     /// # Returns
     ///
-    /// * Function result code.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input strategy is nullptr.
+    /// * Execution result of the function.
+    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input strategy is a null pointer.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -1603,19 +1492,21 @@ extern "C" {
         strategy: *mut OH_AVPlaybackStrategy,
         enabled: bool,
     ) -> OH_AVErrCode;
-    /// Set playback strategy to avplayer. This API can be called only when the avplayer is in the initialized state.
+    /// Sets the playback strategy for the AVPlayer. This API can be called only when the AVPlayer is in the
+    /// initialized state.
+    ///
     /// # Arguments
     ///
-    /// * `player` - Pointer to an OH_AVPlayer instance
+    /// * `player` - Pointer to the OH_AVPlayer instance.
     ///
-    /// * `strategy` - The playback strategy instance.
+    /// * `strategy` - Playback strategy instance.
     ///
     /// # Returns
     ///
-    /// * Function result code.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input player is nullptr.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) if operation not allowed.
+    /// * Execution result of the function.
+    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input player is a null pointer.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -1624,33 +1515,36 @@ extern "C" {
         player: *mut OH_AVPlayer,
         strategy: *mut OH_AVPlaybackStrategy,
     ) -> OH_AVErrCode;
-    /// Get statistic info of current player. This API can be called only when the avplayer is in the prepared,
-    /// playing, or paused state.
+    /// Obtains the statistics of the current AVPlayer. This API can be called only when the AVPlayer is in the
+    /// prepared, playing, or paused state.
+    ///
     /// # Arguments
     ///
-    /// {OH_AVPlayer*} player Pointer to an OH_AVPlayer instance
+    /// * `player` - Pointer to an OH_AVPlayer instance
     ///
     /// # Returns
     ///
-    /// * Returns a pointer to an OH_AVFormat instance.
-    /// Return nullptr if the player is nullptr or invalid.
+    /// * Pointer to the **OH_AVFormat** instance.
+    /// If the **player** is a null pointer or invalid, a null pointer is returned.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub fn OH_AVPlayer_GetPlaybackInfo(player: *mut OH_AVPlayer) -> *mut OH_AVFormat;
-    /// Sets an OH_AVMediaSource to the player.
+    /// Sets the **OH_AVMediaSource** to the AVPlayer.
+    ///
     /// # Arguments
     ///
-    /// * `player` - Pointer to an OH_AVPlayer instance.
+    /// * `player` - Pointer to the OH_AVPlayer instance.
     ///
-    /// * `source` - Indicates the media source.
+    /// * `source` - Media source.
     ///
     /// # Returns
     ///
-    /// * Function result code.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input player is nullptr, source is null or player setUrlSource failed.
+    /// * Execution result of the function.
+    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input **player** or **source** is a null pointer, or the **player** fails to set the URL
+    /// source.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -1659,31 +1553,32 @@ extern "C" {
         player: *mut OH_AVPlayer,
         source: *mut OH_AVMediaSource,
     ) -> OH_AVErrCode;
-    /// Get the track count of player media source.
+    /// Obtains the number of tracks of the media source of the AVPlayer.
+    ///
     /// # Arguments
     ///
-    /// * `player` - Pointer to an OH_AVPlayer instance
+    /// * `player` - Pointer to the OH_AVPlayer instance.
     ///
     /// # Returns
     ///
-    /// * Returns the track count.
+    /// * Number of tracks.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub fn OH_AVPlayer_GetTrackCount(player: *mut OH_AVPlayer) -> u32;
-    /// Get the player track info by the index.
+    /// Obtains the track information of the AVPlayer by index.
+    ///
     /// # Arguments
     ///
-    /// * `player` - Pointer to an OH_AVPlayer instance
+    /// * `player` - Pointer to the OH_AVPlayer instance.
     ///
-    /// * `trackIndex` - Indicates tracks array index.
+    /// * `trackIndex` - Index of the track array.
     ///
     /// # Returns
     ///
-    /// * Returns a pointer to an OH_AVFormat instance.
-    /// Return nullptr if the player is nullptr or invalid.
-    /// Return nullptr if the trackIndex is invalid.
+    /// * Pointer to the **OH_AVFormat** instance.
+    /// If **player** is a null pointer or invalid, or **trackIndex** is invalid, a null pointer is returned.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -1692,4 +1587,115 @@ extern "C" {
         player: *mut OH_AVPlayer,
         trackIndex: u32,
     ) -> *mut OH_AVFormat;
+    /// Method to set audio pcm data callback. This API can be called only
+    /// when the avplayer is in the idle or initialized state.
+    /// # Arguments
+    ///
+    /// * `player` - Pointer to an OH_AVPlayer instance.
+    ///
+    /// * `callback` - Pointer to callback function, nullptr indicates unregister callback.
+    ///
+    /// * `userData` - Pointer to user specific data.
+    ///
+    /// # Returns
+    ///
+    /// * Function result code.
+    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input player is null or player SetPCMOutputCallback failed.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) if called in unsupported state.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_AVPlayer_SetPCMOutputCallback(
+        player: *mut OH_AVPlayer,
+        callback: OH_AVPlayerPCMOutputCallback,
+        userData: *mut ::core::ffi::c_void,
+    ) -> OH_AVErrCode;
+    /// Method to set video decoded frame output callback. This API can be called only
+    /// when the avplayer is in the idle or initalized state.
+    /// # Arguments
+    ///
+    /// * `player` - Pointer to an OH_AVPlayer instance.
+    ///
+    /// * `window` - A pointer to a OHNativeWindow instance, see [`OHNativeWindow`](ohos_sys_opaque_types::OHNativeWindow)
+    ///
+    /// # Returns
+    ///
+    /// * Returns a pointer to an OH_AVPlayerVideoOutput instance, released by system when avplayer was
+    /// reset or release. nullptr means failed.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_AVPlayer_SetVideoSideOutput(
+        player: *mut OH_AVPlayer,
+        window: *mut OHNativeWindow,
+    ) -> *mut OH_AVPlayerVideoOutput;
+    /// Method to get one video decoded frame. This API can be called only when the avplayer is
+    /// in the paused or playing state.
+    /// # Arguments
+    ///
+    /// * `videoOutput` - Pointer to an OH_AVPlayerVideoOutput instance returned by OH_AVPlayer_SetVideoSideOutput.
+    ///
+    /// # Returns
+    ///
+    /// * Returns OH_VIDEO_OUTPUT_OK when got a frame.
+    /// Returns OH_VIDEO_OUTPUT_NO_IMAGE when there is no frame ready to render.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_AVPlayerVideoOutput_GetNewestVideoSample(
+        videoOutput: *mut OH_AVPlayerVideoOutput,
+    ) -> OH_VideoOutputResult;
+    /// Method to set audio pcm data process callback. This API can be called only
+    /// when the avplayer is in the idle or initialized state.
+    /// # Arguments
+    ///
+    /// * `player` - Pointer to an OH_AVPlayer instance.
+    ///
+    /// * `callback` - Pointer to callback function, nullptr indicates unregister callback.
+    ///
+    /// * `userData` - Pointer to user specific data.
+    ///
+    /// # Returns
+    ///
+    /// * Function result code.
+    /// <br>[`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
+    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input player is null or player SetPCMProcessorCallback failed.
+    /// <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) if called in unsupported state.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_AVPlayer_SetPCMProcessorCallback(
+        player: *mut OH_AVPlayer,
+        callback: OH_AVPlayerPCMProcessorCallback,
+        userData: *mut ::core::ffi::c_void,
+    ) -> OH_AVErrCode;
+    /// Sets the maximum amount of data that can be returned at a time during audio post-processing.
+    /// Allows some PCM data to be cached and returned with the next PCM data. This API can be called only
+    /// when the avplayer is in the idle or initialized state.
+    /// # Arguments
+    ///
+    /// * `player` - Pointer to an OH_AVPlayer instance.
+    ///
+    /// * `maxProcessedPCMLen` - the maximum amount of PCM data returned at one time, in the range (0, 5MB].
+    /// OH_AVPlayerPCMProcessorCallback ensures that the returned pcmBuffer's Capacity is not less than this value.
+    ///
+    /// # Returns
+    ///
+    /// * Function result code.
+    /// <br>[`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
+    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input player is null or maxProcessedPCMLen is error.
+    /// <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) if called in unsupported state.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_AVPlayer_SetPCMProcessorMaxLen(
+        player: *mut OH_AVPlayer,
+        maxProcessedPCMLen: i32,
+    ) -> OH_AVErrCode;
 }

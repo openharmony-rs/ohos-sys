@@ -6,23 +6,25 @@
 use crate::text_declaration::{OH_Drawing_Run, OH_Drawing_TextLine, OH_Drawing_Typography};
 use crate::types::*;
 
-/// User-defined callback functions for using offsets and indexes.
+/// Defines a custom callback used to receive the offset and index of each character in a text line object
+/// as its parameters.
 ///
 ///
 /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
 /// # Arguments
 ///
-/// * `offset` - Character offset is traversed as an argument to the callback function.
+/// * `offset` - Offset of each character in the text line object.
 ///
-/// * `index` - Character index is traversed as an argument to the callback function.
+/// * `index` - Index of each character in the text line object.
 ///
-/// * `leadingEdge` - Whether the current offset is at the character front, as an argument to the callback function.
+/// * `leadingEdge` - Whether the cursor is located at the leading edge of a character. **true** means that the
+/// cursor is located at the front of the character, that is, the offset does not contain the character width.
+/// **false** means that the cursor is located at the rear of the character, that is, the offset contains the
+/// character width.
 ///
 /// # Returns
 ///
-/// * The return value of the user-defined callback function.
-/// If false is returned, the traversal continues.
-/// If true is returned, the traversal stops.
+/// * Whether to stop calling the callback. **true** means to stop; **false** otherwise.
 ///
 /// Available since API-level: 18
 ///
@@ -33,17 +35,18 @@ pub type Drawing_CaretOffsetsCallback = ::core::option::Option<
     unsafe extern "C" fn(offset: f64, index: i32, leadingEdge: bool) -> bool,
 >;
 extern "C" {
-    /// Get text line information.
+    /// Obtains the array of text lines in a typography object. This array contains one or more text line objects.
+    /// Release this pointer by calling [`OH_Drawing_DestroyTextLines`](crate::text_line::OH_Drawing_DestroyTextLines) when this object is no longer needed.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `typography` - Indicates the pointer to a typography object <b>OH_Drawing_Typography</b>.
+    /// * `typography` - Pointer to the [`OH_Drawing_Typography`](crate::text_declaration::OH_Drawing_Typography) object.
     ///
     /// # Returns
     ///
-    /// * Indicates the pointer to a text line array object <b>OH_Drawing_Array</b>.
+    /// * Pointer to the text line array [`OH_Drawing_Array`](crate::types::OH_Drawing_Array). <br>Returns NULL when typography is NULL.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -51,13 +54,13 @@ extern "C" {
     pub fn OH_Drawing_TypographyGetTextLines(
         typography: *mut OH_Drawing_Typography,
     ) -> *mut OH_Drawing_Array;
-    /// Releases the memory occupied by the text line array object <b>OH_Drawing_Array</b>.
+    /// Releases the memory occupied by a text line array.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `lines` - Indicates the pointer to the text line array object <b>OH_Drawing_Array</b>.
+    /// * `lines` - Pointer to the [`OH_Drawing_Array`](crate::types::OH_Drawing_Array) object.
     ///
     /// Available since API-level: 18
     ///
@@ -65,13 +68,15 @@ extern "C" {
     #[cfg(feature = "api-18")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
     pub fn OH_Drawing_DestroyTextLines(lines: *mut OH_Drawing_Array);
-    /// Releases the memory occupied by the text line object <b>OH_Drawing_TextLine</b>.
+    /// Releases the memory of a single text line object. Only the memory of a text line object that is independently
+    /// allocated can be released. The memory of a text line object obtained from a line array through
+    /// [`OH_Drawing_GetTextLineByIndex`](crate::text_line::OH_Drawing_GetTextLineByIndex) cannot be released.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `line` - Indicates the pointer to the text line object <b>OH_Drawing_TextLine</b>.
+    /// * `line` - Pointer to the [`OH_Drawing_TextLine`](crate::text_declaration::OH_Drawing_TextLine) object.
     ///
     /// Available since API-level: 18
     ///
@@ -79,19 +84,20 @@ extern "C" {
     #[cfg(feature = "api-18")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
     pub fn OH_Drawing_DestroyTextLine(line: *mut OH_Drawing_TextLine);
-    /// Get the text line object by index.
+    /// Obtains the text line object with the specified index in a text line array.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `lines` - Indicates the pointer to the text line array object <b>OH_Drawing_Array</b>.
+    /// * `lines` - Pointer to the [`OH_Drawing_Array`](crate::types::OH_Drawing_Array) object.
     ///
-    /// * `index` - The text line object index.
+    /// * `index` - Index of the text line array.
     ///
     /// # Returns
     ///
-    /// * Indicates the pointer to a text line object <b>OH_Drawing_TextLine</b>.
+    /// * Pointer to the [`OH_Drawing_TextLine`](crate::text_declaration::OH_Drawing_TextLine) text line object at the specified index. <br>Returns NULL if
+    /// lines is NULL or the index is out of bounds.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -100,17 +106,17 @@ extern "C" {
         lines: *mut OH_Drawing_Array,
         index: usize,
     ) -> *mut OH_Drawing_TextLine;
-    /// Get the count of glyphs.
+    /// Obtains the number of glyphs in a text line object.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `line` - Indicates the pointer to an <b>OH_Drawing_TextLine</b> object.
+    /// * `line` - Pointer to the [`OH_Drawing_TextLine`](crate::text_declaration::OH_Drawing_TextLine) object.
     ///
     /// # Returns
     ///
-    /// * Returns the count of glyphs.
+    /// * Returns the number of glyphs in the text line object.
     ///
     /// Available since API-level: 18
     ///
@@ -118,17 +124,17 @@ extern "C" {
     #[cfg(feature = "api-18")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
     pub fn OH_Drawing_TextLineGetGlyphCount(line: *mut OH_Drawing_TextLine) -> f64;
-    /// Get the range of text line.
+    /// Obtains the range of the text in a text line object in the entire paragraph.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `line` - Indicates the pointer to an <b>OH_Drawing_TextLine</b> object.
+    /// * `line` - Pointer to the [`OH_Drawing_TextLine`](crate::text_declaration::OH_Drawing_TextLine) object.
     ///
-    /// * `start` - Indicates the pointer to text line start position.
+    /// * `start` - Pointer to the start of the range.
     ///
-    /// * `end` - Indicates the pointer to text line end position.
+    /// * `end` - Pointer to the end of the range.
     ///
     /// Available since API-level: 18
     ///
@@ -140,17 +146,19 @@ extern "C" {
         start: *mut usize,
         end: *mut usize,
     );
-    /// Get the glyph runs array of text line.
+    /// Obtains the array of text rendering units [`OH_Drawing_Run`](crate::text_declaration::OH_Drawing_Run) in the text line object.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `line` - Indicates the pointer to an <b>OH_Drawing_TextLine</b> object.
+    /// * `line` - Pointer to the [`OH_Drawing_TextLine`](crate::text_declaration::OH_Drawing_TextLine) object.
     ///
     /// # Returns
     ///
-    /// * Indicates the pointer to a glyph runs array object of text line <b>OH_Drawing_Array</b>.
+    /// * Pointer to the [`OH_Drawing_Array`](crate::types::OH_Drawing_Array) array of text rendering units [`OH_Drawing_Run`](crate::text_declaration::OH_Drawing_Run). When the
+    /// [`OH_Drawing_Array`](crate::types::OH_Drawing_Array) is no longer needed, please use the [`OH_Drawing_DestroyRuns`](crate::text_line::OH_Drawing_DestroyRuns) API to release the
+    /// pointer of the object.
     ///
     /// Available since API-level: 18
     ///
@@ -159,13 +167,13 @@ extern "C" {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
     pub fn OH_Drawing_TextLineGetGlyphRuns(line: *mut OH_Drawing_TextLine)
         -> *mut OH_Drawing_Array;
-    /// Releases the memory occupied by the run array object <b>OH_Drawing_Array</b>.
+    /// Releases the memory occupied by a glyph run array.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `runs` - Indicates the pointer to the run array object <b>OH_Drawing_Array</b>.
+    /// * `runs` - Pointer to the [`OH_Drawing_Array`](crate::types::OH_Drawing_Array) array, which holds multiple [`OH_Drawing_Run`](crate::text_declaration::OH_Drawing_Run) objects.
     ///
     /// Available since API-level: 18
     ///
@@ -173,19 +181,20 @@ extern "C" {
     #[cfg(feature = "api-18")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
     pub fn OH_Drawing_DestroyRuns(runs: *mut OH_Drawing_Array);
-    /// Get the run object by index.
+    /// Obtains the glyph run object with the specified index in a glyph run array.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `runs` - Indicates the pointer to the run array object <b>OH_Drawing_Array</b>.
+    /// * `runs` - Pointer to the [`OH_Drawing_Array`](crate::types::OH_Drawing_Array) array, which holds multiple [`OH_Drawing_Run`](crate::text_declaration::OH_Drawing_Run) objects.
     ///
-    /// * `index` - The run object index.
+    /// * `index` - Index of the glyph run array.
     ///
     /// # Returns
     ///
-    /// * Indicates the pointer to a run object <b>OH_Drawing_Run</b>.
+    /// * Pointer to the text rendering unit object [`OH_Drawing_Run`](crate::text_declaration::OH_Drawing_Run) at the specified index. <br>NULL is
+    /// returned if runs is NULL or the index is out of bounds.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -194,19 +203,19 @@ extern "C" {
         runs: *mut OH_Drawing_Array,
         index: usize,
     ) -> *mut OH_Drawing_Run;
-    /// Paint the range of text line.
+    /// Paints a text line on the canvas with the coordinate point (x, y) as the upper left corner.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `line` - Indicates the pointer to an <b>OH_Drawing_TextLine</b> object.
+    /// * `line` - Pointer to the [`OH_Drawing_TextLine`](crate::text_declaration::OH_Drawing_TextLine) object.
     ///
-    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Pointer to the target canvas for drawing, which is an [`OH_Drawing_Canvas`](crate::types::OH_Drawing_Canvas).
     ///
-    /// * `x` - Represents the X-axis position on the canvas.
+    /// * `x` - Horizontal coordinate of the upper left corner, in px.
     ///
-    /// * `y` - Represents the Y-axis position on the canvas.
+    /// * `y` - Vertical coordinate of the upper left corner, in px.
     ///
     /// Available since API-level: 18
     ///
@@ -219,24 +228,28 @@ extern "C" {
         x: f64,
         y: f64,
     );
-    /// Creates a truncated text line object.
+    /// Creates a truncated text line object. Truncates the original text line based on the specified width,
+    /// truncation type, and truncation mark string, inserts the specified mark string at the truncation position, and
+    /// generates and returns a new independent text line object. The original text is not affected.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `line` - Indicates the pointer to an <b>OH_Drawing_TextLine</b> object.
+    /// * `line` - Pointer to the [`OH_Drawing_TextLine`](crate::text_declaration::OH_Drawing_TextLine) object.
     ///
-    /// * `width` - Indicates the text line width to set.
+    /// * `width` - Width of the truncated line, in physical pixels (px).
     ///
-    /// * `mode` - Indicates the ellipsis model to set, EllipsisMode:MIDDLE is not supported.
-    /// For details, see the enum <b>OH_Drawing_EllipsisModal</b>.
+    /// * `mode` - Truncation type. The value is an enumerated value of [`OH_Drawing_EllipsisModal`](crate::text_typography::OH_Drawing_EllipsisModal). Currently, only **
+    /// ELLIPSIS_MODAL_HEAD** and **ELLIPSIS_MODAL_TAIL** are supported.
     ///
-    /// * `ellipsis` - Indicates the ellipsis string to set.
+    /// * `ellipsis` - Pointer to the string used to mark a truncation.
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the <b>OH_Drawing_TextLine</b> object created.
+    /// * Pointer to the truncated text line object [`OH_Drawing_TextLine`](crate::text_declaration::OH_Drawing_TextLine). <br>NULL is returned when line or
+    /// ellipsis is NULL. <br>Please use [`OH_Drawing_DestroyTextLine`](crate::text_line::OH_Drawing_DestroyTextLine) to release the object's memory when it is no
+    /// longer needed.
     ///
     /// Available since API-level: 18
     ///
@@ -249,23 +262,28 @@ extern "C" {
         mode: ::core::ffi::c_int,
         ellipsis: *const ::core::ffi::c_char,
     ) -> *mut OH_Drawing_TextLine;
-    /// Gets the text line typographic bounds.
+    /// Obtains the typographic bounds of the text line object. The typographic bounds of a text line are related to
+    /// the typographic font and typographic font size, and are independent of the characters themselves.
+    /// <br>For example, for the string " a b ", where there is one space before the 'a' character and one space after the '
+    /// b' character, the typographic bounds include the bounds of the leading and trailing spaces. For example, for the
+    /// string "j" or "E", the typographic bounds are the same, i.e., independent of the characters themselves.
+    /// <br>The text height can be calculated using height = ascent + descent + leading.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `line` - Indicates the pointer to an <b>OH_Drawing_TextLine</b> object.
+    /// * `line` - Pointer to the text line object [`OH_Drawing_TextLine`](crate::text_declaration::OH_Drawing_TextLine).
     ///
-    /// * `ascent` - Indicates the distance that the pointer points to remain above the baseline.
+    /// * `ascent` - Pointer to the ascent height of the text line object. The unit is physical pixel.
     ///
-    /// * `descent` - Indicates the pointer to the distance that remains below the baseline.
+    /// * `descent` - Pointer to the descent height of the text line object. The unit is physical pixel.
     ///
-    /// * `leading` - Indicates the pointer to the line Spacing.
+    /// * `leading` - Pointer to the leading of the text line object. The unit is physical pixel.
     ///
     /// # Returns
     ///
-    /// * Returns The total width of the typesetting border.
+    /// * Total width of the typographic bounds, in physical pixels.
     ///
     /// Available since API-level: 18
     ///
@@ -278,17 +296,26 @@ extern "C" {
         descent: *mut f64,
         leading: *mut f64,
     ) -> f64;
-    /// Gets the text line image bounds.
+    /// Obtains the image bounds of the text line object. The image bounds of a text line are related to the
+    /// typographic font, typographic font size, and the characters themselves, and are equivalent to the visual bounds.
+    /// <br>For example, for the string " a b ", where there is one space before the 'a' character and one space after the '
+    /// b' character, the user can only see "a b" on the UI, and the image bounds are the bounds excluding the leading and
+    /// trailing spaces.
+    /// <br>For example, for the string "j" or "E", the visual bounds are different, i.e., related to the characters
+    /// themselves. The visual bounds width of the string "j" is smaller than that of the string "E", and the visual bounds
+    /// height of the string "j" is greater than that of the string "E".
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `line` - Indicates the pointer to an <b>OH_Drawing_TextLine</b> object.
+    /// * `line` - Pointer to the [`OH_Drawing_TextLine`](crate::text_declaration::OH_Drawing_TextLine) object.
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the <b>OH_Drawing_Rect</b> struct created.
+    /// * Pointer to the image bounds [`OH_Drawing_Rect`](crate::types::OH_Drawing_Rect) of the text line object. <br>Returns NULL when the
+    /// passed-in line is NULL. <br>When the [`OH_Drawing_Rect`](crate::types::OH_Drawing_Rect) is no longer needed, please use the
+    /// [`OH_Drawing_RectDestroy`](crate::rect::OH_Drawing_RectDestroy) API to release the pointer of the object.
     ///
     /// Available since API-level: 18
     ///
@@ -298,17 +325,17 @@ extern "C" {
     pub fn OH_Drawing_TextLineGetImageBounds(
         line: *mut OH_Drawing_TextLine,
     ) -> *mut OH_Drawing_Rect;
-    /// Gets the tail space width.
+    /// Obtains the width of the spaces at the end of a text line object.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `line` - Indicates the pointer to an <b>OH_Drawing_TextLine</b> object.
+    /// * `line` - Pointer to the [`OH_Drawing_TextLine`](crate::text_declaration::OH_Drawing_TextLine) object.
     ///
     /// # Returns
     ///
-    /// * Returns the tail space width.
+    /// * Width of the trailing whitespace characters of the text line object, in physical pixels (px).
     ///
     /// Available since API-level: 18
     ///
@@ -316,19 +343,20 @@ extern "C" {
     #[cfg(feature = "api-18")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
     pub fn OH_Drawing_TextLineGetTrailingSpaceWidth(line: *mut OH_Drawing_TextLine) -> f64;
-    /// Gets the string index of the given position.
+    /// Obtains the string index at the specified position in the text line object.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `line` - Indicates the pointer to an <b>OH_Drawing_TextLine</b> object.
+    /// * `line` - Pointer to the [`OH_Drawing_TextLine`](crate::text_declaration::OH_Drawing_TextLine) object.
     ///
-    /// * `point` - Indicates the pointer to an <b>OH_Drawing_Point</b> object.
+    /// * `point` - Pointer to the position [`OH_Drawing_Point`](crate::types::OH_Drawing_Point) where the index is to be found.
     ///
     /// # Returns
     ///
-    /// * Returns the string index for a given position.
+    /// * Returns the index of the character. For example, for the string "abc", the index of "a" is 0, the index of "
+    /// b" is 1, and the index of "c" is 2. If the specified position is at "a", then **0** is returned.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -337,19 +365,19 @@ extern "C" {
         line: *mut OH_Drawing_TextLine,
         point: *mut OH_Drawing_Point,
     ) -> i32;
-    /// Gets the offset of the given string index.
+    /// Obtains the offset of a character with the specified index in a text line object.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `line` - Indicates the pointer to an <b>OH_Drawing_TextLine</b> object.
+    /// * `line` - Pointer to the [`OH_Drawing_TextLine`](crate::text_declaration::OH_Drawing_TextLine) object.
     ///
-    /// * `index` - The given string index.
+    /// * `index` - Index of the character.
     ///
     /// # Returns
     ///
-    /// * Returns the offset for a given string index.
+    /// * Offset at the specified string index, in physical pixels (px).
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -358,15 +386,16 @@ extern "C" {
         line: *mut OH_Drawing_TextLine,
         index: i32,
     ) -> f64;
-    /// Enumerate caret offset and index in text lines.
+    /// Enumerates the offset and index of each character in a text line object and passes them to a custom callback
+    /// function. You can use the offset and index array for other operations.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `line` - Indicates the pointer to an <b>OH_Drawing_TextLine</b> object.
+    /// * `line` - Pointer to the [`OH_Drawing_TextLine`](crate::text_declaration::OH_Drawing_TextLine) object.
     ///
-    /// * `callback` - User-defined callback functions, see <b>Drawing_CaretOffsetsCallback</b>.
+    /// * `callback` - User-defined function [`Drawing_CaretOffsetsCallback`](crate::text_line::Drawing_CaretOffsetsCallback).
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -375,24 +404,25 @@ extern "C" {
         line: *mut OH_Drawing_TextLine,
         callback: Drawing_CaretOffsetsCallback,
     );
-    /// Gets the text offset based on the given alignment factor and alignment width.
+    /// Obtains the offset of a text line object after alignment based on the alignment factor and alignment width.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `line` - Indicates the pointer to an <b>OH_Drawing_TextLine</b> object.
+    /// * `line` - Pointer to the [`OH_Drawing_TextLine`](crate::text_declaration::OH_Drawing_TextLine) object.
     ///
-    /// * `alignmentFactor` - The coefficients that text needs to be aligned.
-    /// Less than or equal to 0 is left justified, 0.5 is center justified,
-    /// and greater than or equal to 1 is right justified.
+    /// * `alignmentFactor` - Alignment factor. A value less than or equal to 0.0 indicates left alignment, greater than 0.
+    /// 0 and less than 0.5 indicates left-biased alignment, 0.5 indicates center alignment, greater than 0.5 and less
+    /// than 1.0 indicates right-biased alignment, and greater than or equal to 1.0 indicates right alignment.
     ///
-    /// * `alignmentWidth` - The width of the text to be aligned.
-    /// Returns 0 if it is less than the actual width of the text.
+    /// * `alignmentWidth` - Alignment width, i.e., the offset of the bottom-right corner of the text line object relative
+    /// to the starting position after final offset, in physical pixels (px). If the specified alignment width is less
+    /// than the actual width of the text line object, 0 is returned.
     ///
     /// # Returns
     ///
-    /// * Returns the offset of the aligned text.
+    /// * Calculated offset required for alignment. The unit is physical pixel (px).
     ///
     /// Available since API-level: 18
     ///

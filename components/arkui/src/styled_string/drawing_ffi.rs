@@ -6,6 +6,10 @@
 pub use super::ArkUI_StyledString;
 #[cfg(feature = "api-22")]
 use super::ArkUI_TextLayoutManager;
+#[cfg(feature = "api-24")]
+use super::OH_ArkUI_ImageAttachment;
+#[cfg(feature = "api-26")]
+use super::OH_ArkUI_TextEncoding;
 #[cfg(feature = "api-22")]
 use crate::native_type::ArkUiResult;
 pub use ohos_drawing_sys::text_declaration::{
@@ -17,6 +21,8 @@ pub use ohos_drawing_sys::text_typography::OH_Drawing_PlaceholderSpan;
 use ohos_drawing_sys::text_typography::{
     OH_Drawing_LineMetrics, OH_Drawing_RectHeightStyle, OH_Drawing_RectWidthStyle,
 };
+#[cfg(feature = "api-24")]
+use ohos_drawing_sys::{text_declaration::OH_Drawing_Range, types::OH_Drawing_ColorFilter};
 #[cfg(feature = "api-22")]
 use ohos_sys_opaque_types::{OH_Drawing_PositionAndAffinity, OH_Drawing_TextBox};
 
@@ -90,6 +96,52 @@ extern "C" {
         handle: *mut ArkUI_StyledString,
         placeholder: *mut OH_Drawing_PlaceholderSpan,
     );
+    /// Sets the image drawing color filter in the image style.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `imageAttachment` - Pointer to the [`OH_ArkUI_ImageAttachment`](crate::styled_string::OH_ArkUI_ImageAttachment) object.
+    ///
+    /// * `drawingColorFilter` - Pointer to the image drawing color filter.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_ImageAttachment_SetDrawingColorFilter(
+        imageAttachment: *mut OH_ArkUI_ImageAttachment,
+        drawingColorFilter: *const OH_Drawing_ColorFilter,
+    ) -> ArkUiResult;
+    /// Obtains the image drawing color filter in the image style.
+    ///
+    ///
+    /// **Note:** All input pointer parameters must be allocated, managed, and released by the caller.
+    /// # Arguments
+    ///
+    /// * `imageAttachment` - Pointer to the [`OH_ArkUI_ImageAttachment`](crate::styled_string::OH_ArkUI_ImageAttachment) object.
+    ///
+    /// * `drawingColorFilter` - Pointer to the image drawing color filter.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_ImageAttachment_GetDrawingColorFilter(
+        imageAttachment: *const OH_ArkUI_ImageAttachment,
+        drawingColorFilter: *mut OH_Drawing_ColorFilter,
+    ) -> ArkUiResult;
     /// Gets the rects for range.
     ///
     /// # Arguments
@@ -111,8 +163,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -140,8 +192,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -165,8 +217,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -175,5 +227,180 @@ extern "C" {
         layoutManager: *mut ArkUI_TextLayoutManager,
         lineNumber: i32,
         outMetrics: *mut OH_Drawing_LineMetrics,
+    ) -> ArkUiResult;
+    /// Gets the character position at coordinate.
+    ///
+    /// # Arguments
+    ///
+    /// * `layoutManager` - Indicates the pointer to an <b>ArkUI_TextLayoutManager</b> object.
+    ///
+    /// * `dx` - Indicates the positionX of typography to set.
+    ///
+    /// * `dy` - Indicates the positionY of typography to set.
+    ///
+    /// * `outPos` - Returns the character position at coordinate.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_TextLayoutManager_GetCharacterPositionAtCoordinate(
+        layoutManager: *mut ArkUI_TextLayoutManager,
+        dx: f64,
+        dy: f64,
+        outPos: *mut *mut OH_Drawing_PositionAndAffinity,
+    ) -> ArkUiResult;
+    /// Gets the character position at coordinate based on the specified encoding type.
+    ///
+    /// # Arguments
+    ///
+    /// * `layoutManager` - Indicates the pointer to an <b>ArkUI_TextLayoutManager</b> object.
+    ///
+    /// * `dx` - Indicates the positionX of typography to set.
+    ///
+    /// * `dy` - Indicates the positionY of typography to set.
+    ///
+    /// * `encoding` - Indicates the encoding type used for the returned character position.
+    ///
+    /// * `outPos` - Returns the character position at coordinate.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_ArkUI_TextLayoutManager_GetCharacterPositionAtCoordinateWithEncoding(
+        layoutManager: *mut ArkUI_TextLayoutManager,
+        dx: f64,
+        dy: f64,
+        encoding: OH_ArkUI_TextEncoding,
+        outPos: *mut *mut OH_Drawing_PositionAndAffinity,
+    ) -> ArkUiResult;
+    /// Get the glyph range produced by the specified range of characters.
+    ///
+    /// # Arguments
+    ///
+    /// * `layoutManager` - Indicates the pointer to an <b>ArkUI_TextLayoutManager</b> object.
+    ///
+    /// * `charRange` - The character range.
+    ///
+    /// * `outGlyphRange` - The range of glyphs generated by charRange.
+    ///
+    /// * `outActualCharRange` - If not null, specifies the actual character range that fully defines the returned
+    /// glyph range, which may match or slightly exceed the requested range.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_TextLayoutManager_GetGlyphRangeForCharacterRange(
+        layoutManager: *mut ArkUI_TextLayoutManager,
+        charRange: *mut OH_Drawing_Range,
+        outGlyphRange: *mut *mut OH_Drawing_Range,
+        outActualCharRange: *mut *mut OH_Drawing_Range,
+    ) -> ArkUiResult;
+    /// Get the glyph range produced by the specified range of characters based on the specified encoding type.
+    ///
+    /// # Arguments
+    ///
+    /// * `layoutManager` - Indicates the pointer to an <b>ArkUI_TextLayoutManager</b> object.
+    ///
+    /// * `charRange` - The character range.
+    ///
+    /// * `encoding` - Indicates the encoding type used for <b>charRange</b>.
+    ///
+    /// * `outGlyphRange` - The range of glyphs generated by charRange.
+    ///
+    /// * `outActualCharRange` - If not null, specifies the actual character range that fully defines the returned
+    /// glyph range, which may match or slightly exceed the requested range.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_ArkUI_TextLayoutManager_GetGlyphRangeForCharacterRangeWithEncoding(
+        layoutManager: *mut ArkUI_TextLayoutManager,
+        charRange: *mut OH_Drawing_Range,
+        encoding: OH_ArkUI_TextEncoding,
+        outGlyphRange: *mut *mut OH_Drawing_Range,
+        outActualCharRange: *mut *mut OH_Drawing_Range,
+    ) -> ArkUiResult;
+    /// Get the character range that maps to the glyphs in the given glyph range.
+    ///
+    /// # Arguments
+    ///
+    /// * `layoutManager` - Indicates the pointer to an <b>ArkUI_TextLayoutManager</b> object.
+    ///
+    /// * `glyphRange` - The glyph range.
+    ///
+    /// * `outCharRange` - The range of characters generated by glyphRange.
+    ///
+    /// * `outActualGlyphRange` - If not null, specifies the full glyph range generated by the returned character range,
+    /// which may match or slightly exceed the requested glyph range.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_TextLayoutManager_GetCharacterRangeForGlyphRange(
+        layoutManager: *mut ArkUI_TextLayoutManager,
+        glyphRange: *mut OH_Drawing_Range,
+        outCharRange: *mut *mut OH_Drawing_Range,
+        outActualGlyphRange: *mut *mut OH_Drawing_Range,
+    ) -> ArkUiResult;
+    /// Get the character range that maps to the glyphs in the given glyph range based on the specified encoding type.
+    ///
+    /// # Arguments
+    ///
+    /// * `layoutManager` - Indicates the pointer to an <b>ArkUI_TextLayoutManager</b> object.
+    ///
+    /// * `glyphRange` - The glyph range.
+    ///
+    /// * `encoding` - Indicates the encoding type used for the returned character range.
+    ///
+    /// * `outCharRange` - The range of characters generated by glyphRange.
+    ///
+    /// * `outActualGlyphRange` - If not null, specifies the full glyph range generated by the returned character range,
+    /// which may match or slightly exceed the requested glyph range.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_ArkUI_TextLayoutManager_GetCharacterRangeForGlyphRangeWithEncoding(
+        layoutManager: *mut ArkUI_TextLayoutManager,
+        glyphRange: *mut OH_Drawing_Range,
+        encoding: OH_ArkUI_TextEncoding,
+        outCharRange: *mut *mut OH_Drawing_Range,
+        outActualGlyphRange: *mut *mut OH_Drawing_Range,
     ) -> ArkUiResult;
 }

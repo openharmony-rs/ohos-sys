@@ -3,6 +3,8 @@
 #![allow(non_upper_case_globals)]
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
+#[cfg(feature = "api-26")]
+use crate::audiocapturer::OH_AudioCapturer_SensitiveRecordPermitCallback;
 #[cfg(feature = "api-20")]
 use crate::audiocapturer::{
     OH_AudioCapturer_OnDeviceChangeCallback, OH_AudioCapturer_OnErrorCallback,
@@ -17,7 +19,7 @@ use crate::audiorenderer::{
 use crate::audiostream_base::*;
 
 extern "C" {
-    /// Create a stremBuilder can be used to open a renderer or capturer client.
+    /// Create an audio stream builder that can be used to open a renderer or capturer client.
     ///
     /// OH_AudioStreamBuilder_Destroy() must be called when you are done using the builder.
     ///
@@ -38,7 +40,7 @@ extern "C" {
         builder: *mut *mut OH_AudioStreamBuilder,
         type_: OH_AudioStream_Type,
     ) -> OH_AudioStream_Result;
-    /// Destroy a streamBulder.
+    /// Destroy an audio stream builder.
     ///
     /// This function must be called when you are done using the builder.
     ///
@@ -58,16 +60,16 @@ extern "C" {
     pub fn OH_AudioStreamBuilder_Destroy(
         builder: *mut OH_AudioStreamBuilder,
     ) -> OH_AudioStream_Result;
-    /// Set the channel count of the capturer client
+    /// Set the sampling rate of the stream client.
     ///
     ///
     /// Available since API-level: 10
     ///
     /// # Arguments
     ///
-    /// * `builder` - Reference created by OH_AudioStreamBuilder
+    /// * `builder` - Reference created by OH_AudioStreamBuilder_Create().
     ///
-    /// * `rate` - Pointer to a variable that will be set for the channel count.
+    /// * `rate` - The target sampling rate.
     ///
     /// # Returns
     ///
@@ -396,7 +398,7 @@ extern "C" {
     ///
     /// * `builder` - Reference provided by OH_AudioStreamBuilder_Create()
     ///
-    /// * `audioCapturer` - Pointer to a viriable to receive the stream client.
+    /// * `audioCapturer` - Pointer to a variable to receive the stream client.
     ///
     /// # Returns
     ///
@@ -405,7 +407,7 @@ extern "C" {
     /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM):
     /// 1.The param of builder is nullptr;
     /// 2.StreamType invalid;
-    /// 3.Create OHAudioCapturer failed.
+    /// 3.Create OHAudioRenderer failed.
     pub fn OH_AudioStreamBuilder_GenerateCapturer(
         builder: *mut OH_AudioStreamBuilder,
         audioCapturer: *mut *mut OH_AudioCapturer,
@@ -797,13 +799,38 @@ extern "C" {
         callback: OH_AudioCapturer_OnFastStatusChange,
         userData: *mut ::core::ffi::c_void,
     ) -> OH_AudioStream_Result;
+    /// Sets if the audio capturer can capture the audio data affected by loopback effect.
+    /// When the same process enables reverb effect for audio loopback in hardware mode, and the
+    /// target audio capturer is in [`AUDIOSTREAM_LATENCY_MODE_FAST`](crate::audiostream_base::OH_AudioStream_LatencyMode::AUDIOSTREAM_LATENCY_MODE_FAST) mode, this function
+    /// will take effect.
+    ///
+    /// # Arguments
+    ///
+    /// * `builder` - reference provided by OH_AudioStreamBuilder_Create().
+    ///
+    /// * `enabled` - Whether application want to get audio data affected by loopback effect.
+    ///
+    /// # Returns
+    ///
+    /// * function result code:
+    /// [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) if the execution is successful.
+    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) the param of builder is nullptr.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_AudioStreamBuilder_SetCapturerLoopbackEffectEnabled(
+        builder: *mut OH_AudioStreamBuilder,
+        enabled: bool,
+    ) -> OH_AudioStream_Result;
     /// Sets target mode when using playback capture. Mode will decide what kind of streams to capture.
     /// This function is only available for [`AUDIOSTREAM_TYPE_CAPTURER`](crate::audiostream_base::OH_AudioStream_Type::AUDIOSTREAM_TYPE_CAPTURER) type.
     /// After setting playback capture mode, the [`OH_AudioStream_SourceType`](crate::audiostream_base::OH_AudioStream_SourceType) will be ignored, so
     /// caller do not need to use [`OH_AudioStreamBuilder_SetCapturerInfo`](crate::audiostreambuilder::OH_AudioStreamBuilder_SetCapturerInfo) if you only want to capture
     /// playback streams.
-    /// Note that playback capture is only available for specific system applications currently, others do
-    /// not have authorization.
+    ///
+    /// Note that playback capture is only available for specific system applications at first, others do
+    /// not have authorization. But since API version 26.0.0, this function supports the use of any application.
     ///
     /// # Arguments
     ///
@@ -814,10 +841,8 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Function result code:
-    /// [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
-    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) 1.The param of builder is nullptr;
-    /// 2.The param of mode is invalid.
+    /// - [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
+    /// - [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) 1.The param of builder is nullptr; 2.The param of mode is invalid.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -825,5 +850,69 @@ extern "C" {
     pub fn OH_AudioStreamBuilder_SetPlaybackCaptureMode(
         builder: *mut OH_AudioStreamBuilder,
         mode: u32,
+    ) -> OH_AudioStream_Result;
+    /// Sets the callback to receive when the sensitive warning message playback is finished for
+    /// voice downlink capturer stream.
+    /// This function is only needed when using [`AUDIOSTREAM_SOURCE_TYPE_VOICE_DOWNLINK`](crate::audiostream_base::OH_AudioStream_SourceType::AUDIOSTREAM_SOURCE_TYPE_VOICE_DOWNLINK) to record.
+    /// This callback must be successfully set, otherwise the capturer can not be created.
+    /// The sensitive warning message will be automatically added to the voice data sent to the other
+    /// end of the call right after the audio capturer is created.
+    /// The application should wait for the callback result before starting the capturer, otherwise an
+    /// error will be returned by [`OH_AudioCapturer_Start`](crate::audiocapturer::OH_AudioCapturer_Start).
+    /// Make sure the audio capturer is created after the voice call started, otherwise an
+    /// error will be returned by [`OH_AudioStreamBuilder_GenerateCapturer`](crate::audiostreambuilder::OH_AudioStreamBuilder_GenerateCapturer).
+    ///
+    /// # Arguments
+    ///
+    /// * `builder` - The pointer to the [`OH_AudioStreamBuilder`](crate::audiostream_base::OH_AudioStreamBuilder) object created
+    /// by [`OH_AudioStreamBuilder_Create`](crate::audiostreambuilder::OH_AudioStreamBuilder_Create).
+    ///
+    /// * `callback` - Callback to the functions that will process capturer stream, NULL value is not allowed.
+    ///
+    /// * `userData` - The pointer to user data, which will be passed back to the application in the callback.
+    /// If application does not need to pass any data, NULL value is also allowed. But if data is not NULL, the
+    /// caller should check whether the data is still valid when receive the callback.
+    ///
+    /// # Returns
+    ///
+    /// - [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
+    /// - [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) The param of builder or callback is nullptr.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_AudioStreamBuilder_SetSensitiveRecordPermitCallback(
+        builder: *mut OH_AudioStreamBuilder,
+        callback: OH_AudioCapturer_SensitiveRecordPermitCallback,
+        userData: *mut ::core::ffi::c_void,
+    ) -> OH_AudioStream_Result;
+    /// Sets phone number and token for voice downlink capturer stream.
+    /// This function is only needed when using [`AUDIOSTREAM_SOURCE_TYPE_VOICE_DOWNLINK`](crate::audiostream_base::OH_AudioStream_SourceType::AUDIOSTREAM_SOURCE_TYPE_VOICE_DOWNLINK) to record.
+    /// The phone number and token must be successfully set, otherwise the capturer can not be created. They
+    /// will be used to check whether the voice downlink capturer matches the cellular call.
+    ///
+    /// # Arguments
+    ///
+    /// * `builder` - The pointer to the [`OH_AudioStreamBuilder`](crate::audiostream_base::OH_AudioStreamBuilder) object created
+    /// by [`OH_AudioStreamBuilder_Create`](crate::audiostreambuilder::OH_AudioStreamBuilder_Create).
+    ///
+    /// * `cellularRecordPhoneNum` - The phone number for the target cellular call, which is used in makeCallWithToken(),
+    /// NULL value is not allowed.
+    ///
+    /// * `cellularRecordToken` - The token for the target cellular call, which can be obtained by makeCallWithToken()
+    /// function from call management, NULL value is not allowed.
+    ///
+    /// # Returns
+    ///
+    /// - [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
+    /// - [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) The param of builder, cellularRecordPhoneNum or cellularRecordToken is nullptr.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_AudioStreamBuilder_SetCellularRecordSecurityParams(
+        builder: *mut OH_AudioStreamBuilder,
+        cellularRecordPhoneNum: *const ::core::ffi::c_char,
+        cellularRecordToken: *const ::core::ffi::c_char,
     ) -> OH_AudioStream_Result;
 }

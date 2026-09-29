@@ -5,8 +5,7 @@
 #![allow(non_snake_case)]
 use crate::common::{CryptoResult, Crypto_DataBlob};
 
-/// Define the symmetric key structure.
-///
+/// Symmetric key structure, representing a symmetric key.
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
@@ -15,8 +14,7 @@ use crate::common::{CryptoResult, Crypto_DataBlob};
 pub struct OH_CryptoSymKey {
     _unused: [u8; 0],
 }
-/// Define the symmetric key generator structure.
-///
+/// Symmetric key generator structure, representing a symmetric key generator.
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
@@ -26,44 +24,59 @@ pub struct OH_CryptoSymKeyGenerator {
     _unused: [u8; 0],
 }
 extern "C" {
-    /// Create a symmetric key generator according to the given algorithm name. Example AES256.
-    ///
+    /// Creates a symmetric key generator based on the given algorithm name, e.g. AES256.
     /// # Arguments
     ///
-    /// * `algoName` - Indicates the algorithm name for generating the generator.
+    /// * `algoName` - \[in\] Symmetric key algorithm name. Cannot be NULL. Values:
+    /// - "AES128", "AES192", "AES256", "3DES192", "HMAC|SHA1", "HMAC|SHA224",
+    /// "HMAC|SHA256", "HMAC|SHA384", "HMAC|SHA512", "HMAC|SM3", "HMAC|MD5" supported since API version 12.
+    /// "HMAC|SHA3-256", "HMAC|SHA3-384", "HMAC|SHA3-512" supported since API version 26.0.0.
+    /// - "SM4_128" supported since API version 12.
+    /// - "DES64" supported since API version 20.
+    /// - "ChaCha20" supported since API version 22.
+    /// - "RC2", "RC4", "Blowfish", "CAST" supported since API version 26.0.0. Note: only key conversion
+    /// is supported, random generation is not.
     ///
-    /// * `ctx` - Indicates the pointer to the symmetric key generator context.
+    /// * `ctx` - \[out\] Pointer to the symmetric key generator pointer. ctx cannot be NULL, *ctx must be NULL.
     ///
     /// # Returns
     ///
-    /// * [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) 0 - If the operation is successful.
-    /// [`OH_Crypto_ErrCode#CRYPTO_INVALID_PARAMS`](crate::common::CryptoErrorCode::INVALID_PARAMS) 401 - If parameter is invalid.
-    /// [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) 801 - If the operation is not supported.
-    /// [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) 17620001 - If memory operation failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) 17630001 - If crypto opertion failed.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) if the operation succeeds.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_INVALID_PARAMS`](crate::common::CryptoErrorCode::INVALID_PARAMS) if ctx or algoName is NULL.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) if the algorithm is not supported.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) if memory allocation fails.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) if crypto operation fails.
+    ///
+    /// **Note:** Release `ctx` with [`OH_CryptoSymKeyGenerator_Destroy`](crate::sym_key::OH_CryptoSymKeyGenerator_Destroy).
     ///
     /// Available since API-level: 12
+    ///
+    /// **See also:** [`OH_CryptoSymKeyGenerator_Generate`](crate::sym_key::OH_CryptoSymKeyGenerator_Generate) Generates a symmetric key randomly.
+    ///
+    /// **See also:** [`OH_CryptoSymKeyGenerator_Convert`](crate::sym_key::OH_CryptoSymKeyGenerator_Convert) Converts symmetric key data to a symmetric key.
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_CryptoSymKeyGenerator_Create(
         algoName: *const ::core::ffi::c_char,
         ctx: *mut *mut OH_CryptoSymKeyGenerator,
     ) -> CryptoResult;
-    /// Generate a symmetric key.
-    ///
+    /// Generates a symmetric key randomly.
     /// # Arguments
     ///
-    /// * `ctx` - Indicates the Symmetric key generator context.
+    /// * `ctx` - \[in\] Symmetric key generator. Cannot be NULL.
     ///
-    /// * `keyCtx` - Indicates the pointer to the symmetric key context.
+    /// * `keyCtx` - \[out\] Pointer to the symmetric key pointer. keyCtx cannot be NULL, *keyCtx must be NULL.
     ///
     /// # Returns
     ///
-    /// * [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) 0 - If the operation is successful.
-    /// [`OH_Crypto_ErrCode#CRYPTO_INVALID_PARAMS`](crate::common::CryptoErrorCode::INVALID_PARAMS) 401 - If parameter is invalid.
-    /// [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) 801 - If the operation is not supported.
-    /// [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) 17620001 - If memory operation failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) 17630001 - If crypto opertion failed.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) if the operation succeeds.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_INVALID_PARAMS`](crate::common::CryptoErrorCode::INVALID_PARAMS) if ctx or keyCtx is NULL.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) if unsupported operation or algorithm.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) if memory operation fails.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_INVALID_CALL`](crate::common::CryptoErrorCode::INVALID_CALL) if the function call is invalid. Possible causes: the algorithm does not support random key generation (e.g. RC2, RC4, Blowfish, CAST), use OH_CryptoSymKeyGenerator_Convert interface instead.\[since 26.0.0\]
+    /// - [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) if crypto operation fails.
+    ///
+    /// **Note:** Release `keyCtx` with [`OH_CryptoSymKey_Destroy`](crate::sym_key::OH_CryptoSymKey_Destroy).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -72,23 +85,24 @@ extern "C" {
         ctx: *mut OH_CryptoSymKeyGenerator,
         keyCtx: *mut *mut OH_CryptoSymKey,
     ) -> CryptoResult;
-    /// Convert the symmetric key data to a key.
-    ///
+    /// Converts symmetric key data to a symmetric key.
     /// # Arguments
     ///
-    /// * `ctx` - Indicates the symmetric key generator context.
+    /// * `ctx` - \[in\] Symmetric key generator. Cannot be NULL.
     ///
-    /// * `keyData` - Indicates the data to generate the Symkey.
+    /// * `keyData` - \[in\] Data used to generate the symmetric key. Cannot be NULL.
     ///
-    /// * `keyCtx` - Indicates the pointer to the symmetric key context.
+    /// * `keyCtx` - \[out\] Pointer to the symmetric key pointer. keyCtx cannot be NULL, *keyCtx must be NULL.
     ///
     /// # Returns
     ///
-    /// * [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) 0 - If the operation is successful.
-    /// [`OH_Crypto_ErrCode#CRYPTO_INVALID_PARAMS`](crate::common::CryptoErrorCode::INVALID_PARAMS) 401 - If parameter is invalid.
-    /// [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) 801 - If the operation is not supported.
-    /// [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) 17620001 - If memory operation failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) 17630001 - If crypto opertion failed.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) if the operation succeeds.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_INVALID_PARAMS`](crate::common::CryptoErrorCode::INVALID_PARAMS) if ctx, keyData, or keyCtx is NULL.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) if unsupported operation or algorithm.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) if memory allocation fails.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) if crypto operation fails.
+    ///
+    /// **Note:** Release `keyCtx` with [`OH_CryptoSymKey_Destroy`](crate::sym_key::OH_CryptoSymKey_Destroy).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -98,15 +112,15 @@ extern "C" {
         keyData: *const Crypto_DataBlob,
         keyCtx: *mut *mut OH_CryptoSymKey,
     ) -> CryptoResult;
-    /// Get the algorithm name of the symmetric key generator.
-    ///
+    /// Obtains the algorithm name of the symmetric key generator.
     /// # Arguments
     ///
-    /// * `ctx` - Indicates the symmetric key generator context.
+    /// * `ctx` - \[in\] Symmetric key generator. Cannot be NULL.
     ///
     /// # Returns
     ///
-    /// * Return symmetric key algorithm name.
+    /// * Returns the symmetric key algorithm name. No need to free by the caller. Invalid after
+    /// the generator is destroyed.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -114,45 +128,45 @@ extern "C" {
     pub fn OH_CryptoSymKeyGenerator_GetAlgoName(
         ctx: *mut OH_CryptoSymKeyGenerator,
     ) -> *const ::core::ffi::c_char;
-    /// Destroy the symmetric key generator.
-    ///
+    /// Destroys the symmetric key generator.
     /// # Arguments
     ///
-    /// * `ctx` - Indicates the symmetric key generator context.
+    /// * `ctx` - \[in\] Symmetric key generator.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_CryptoSymKeyGenerator_Destroy(ctx: *mut OH_CryptoSymKeyGenerator);
-    /// Get the symmetric key algorithm name from a symmetric key.
-    ///
+    /// Obtains the symmetric key algorithm name from the symmetric key.
     /// # Arguments
     ///
-    /// * `keyCtx` - Indicates the symmetric key context.
+    /// * `keyCtx` - \[in\] Symmetric key. Cannot be NULL.
     ///
     /// # Returns
     ///
-    /// * Return algorithm name.
+    /// * Returns the algorithm name. No need to free by the caller. Invalid after the key is destroyed.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_CryptoSymKey_GetAlgoName(keyCtx: *mut OH_CryptoSymKey) -> *const ::core::ffi::c_char;
-    /// Get the symmetric key data from a symmetric key.
-    ///
+    /// Obtains the symmetric key data from the symmetric key.
     /// # Arguments
     ///
-    /// * `keyCtx` - Indicates the symmetric key context.
+    /// * `keyCtx` - \[in\] Symmetric key. Cannot be NULL.
     ///
-    /// * `out` - Indicate to obtain the result.
+    /// * `out` - \[out\] Pointer to the Crypto_DataBlob structure for storing the key data. Cannot be NULL.
+    /// Initialize out to {0} before calling. Do not pre-allocate out->data.
     ///
     /// # Returns
     ///
-    /// * [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) 0 - If the operation is successful.
-    /// [`OH_Crypto_ErrCode#CRYPTO_INVALID_PARAMS`](crate::common::CryptoErrorCode::INVALID_PARAMS) 401 - If parameter is invalid.
-    /// [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) 801 - If the operation is not supported.
-    /// [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) 17620001 - If memory operation failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) 17630001 - If crypto opertion failed.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) if the operation succeeds.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_INVALID_PARAMS`](crate::common::CryptoErrorCode::INVALID_PARAMS) if keyCtx or out is NULL.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) if unsupported operation or algorithm.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) if memory operation fails.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) if crypto operation fails.
+    ///
+    /// **Note:** Release `out` with [`OH_Crypto_FreeDataBlob`](crate::common::OH_Crypto_FreeDataBlob).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -161,11 +175,10 @@ extern "C" {
         keyCtx: *mut OH_CryptoSymKey,
         out: *mut Crypto_DataBlob,
     ) -> CryptoResult;
-    /// Destroy the symmetric key.
-    ///
+    /// Destroys the symmetric key.
     /// # Arguments
     ///
-    /// * `keyCtx` - Indicates the symmetric key context.
+    /// * `keyCtx` - \[in\] Symmetric key.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]

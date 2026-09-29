@@ -8,17 +8,17 @@ use crate::types::*;
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl OH_Drawing_ScaleToFit {
-    /// Scales in x and y to fill destination rect.
+    /// Scales the source rectangle both horizontally and vertically to exactly match the destination rectangle.
     pub const SCALE_TO_FIT_FILL: OH_Drawing_ScaleToFit = OH_Drawing_ScaleToFit(0);
-    /// Scales and aligns to left and top.
+    /// Scales the source rectangle and aligns it to the left and top edges of the destination rectangle.
     pub const SCALE_TO_FIT_START: OH_Drawing_ScaleToFit = OH_Drawing_ScaleToFit(1);
-    /// Scales and aligns to center.
+    /// Scales the source rectangle and aligns it to the center of the destination rectangle.
     pub const SCALE_TO_FIT_CENTER: OH_Drawing_ScaleToFit = OH_Drawing_ScaleToFit(2);
-    /// Scales and aligns to right and bottom.
+    /// Scales the source rectangle and aligns it to the right and bottom edges of the destination rectangle.
     pub const SCALE_TO_FIT_END: OH_Drawing_ScaleToFit = OH_Drawing_ScaleToFit(3);
 }
 #[repr(transparent)]
-/// Enumerates of scale to fit flags, how matrix is constructed to map one rect to another.
+/// Defines an enum for the matrix scaling modes.
 ///
 ///
 /// Available since API-level: 12
@@ -29,10 +29,8 @@ impl OH_Drawing_ScaleToFit {
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OH_Drawing_ScaleToFit(pub ::core::ffi::c_uint);
 extern "C" {
-    /// Creates an <b>OH_Drawing_Matrix</b> object.
+    /// Creates an **OH_Drawing_Matrix** object.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     ///
     /// # Returns
     ///
@@ -44,13 +42,11 @@ extern "C" {
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn OH_Drawing_MatrixCreate() -> *mut OH_Drawing_Matrix;
-    /// Creates an <b>OH_Drawing_Matrix</b> copy object.
+    /// Creates a copy of a matrix object.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    /// * `matrix` - Pointer to the [`OH_Drawing_Matrix`](crate::types::OH_Drawing_Matrix) object to be copied.
     ///
     /// # Returns
     ///
@@ -62,18 +58,21 @@ extern "C" {
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_Drawing_MatrixCopy(matrix: *const OH_Drawing_Matrix) -> *mut OH_Drawing_Matrix;
-    /// Creates an <b>OH_Drawing_Matrix</b> object with rotation. Sets matrix to
-    /// rotate by degrees about a pivot point at (px, py).
+    /// Creates an **OH_Drawing_Matrix** with the rotation attribute.
+    /// The matrix is obtained by rotating an identity matrix by a given degree around the rotation point (x, y).
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `deg` - angle of axes relative to upright axes
+    /// * `deg` - Angle to rotate, in degrees. A positive value indicates a clockwise rotation, and a negative value
+    /// indicates a counterclockwise rotation.
     ///
-    /// * `x` - pivot on x-axis.
+    /// * `x` - Coordinate point on the X axis.
     ///
-    /// * `y` - pivot on y-axis.
+    /// * `y` - Coordinate point on the Y axis.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the pointer to the <b>OH_Drawing_Matrix</b> object created.
     ///
     /// Available since API-level: 12
     ///
@@ -81,20 +80,20 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_MatrixCreateRotation(deg: f32, x: f32, y: f32) -> *mut OH_Drawing_Matrix;
-    /// Creates an <b>OH_Drawing_Matrix</b> object with scale. Sets matrix to scale
-    /// by sx and sy, about a pivot point at (px, py).
+    /// Creates an **OH_Drawing_Matrix** with the scale attribute.
+    /// The matrix is obtained by scaling an identity matrix with the factor (sx, sy) at the rotation point (px, py).
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `sx` - horizontal scale factor.
+    /// * `sx` - Scale factor on the X axis. If a negative number is passed in, the matrix is mirrored around y = px before
+    /// being scaled. The value is a floating point number.
     ///
-    /// * `sy` - vertical scale factor.
+    /// * `sy` - Scale factor on the Y axis. If a negative number is passed in, the matrix is mirrored around x = py before
+    /// being scaled. The value is a floating point number.
     ///
-    /// * `px` - pivot on x-axis.
+    /// * `px` - Coordinate point on the X axis.
     ///
-    /// * `py` - pivot on y-axis.
+    /// * `py` - Coordinate point on the Y axis.
     ///
     /// # Returns
     ///
@@ -111,15 +110,18 @@ extern "C" {
         px: f32,
         py: f32,
     ) -> *mut OH_Drawing_Matrix;
-    /// Creates an <b>OH_Drawing_Matrix</b> object with translation.
+    /// Creates an **OH_Drawing_Matrix** with the translation attribute.
+    /// The matrix is obtained by translating the identity matrix by the distance (dx, dy).
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `dx` - horizontal translation.
+    /// * `dx` - Distance to translate on the X axis. A positive number indicates a translation towards the positive
+    /// direction of the X axis, and a negative number indicates a translation towards the negative direction of the X axis.
+    /// The value is a floating point number.
     ///
-    /// * `dy` - vertical translation.
+    /// * `dy` - Distance to translate on the Y axis. A positive number indicates a translation towards the positive
+    /// direction of the Y axis, and a negative number indicates a translation towards the negative direction of the Y axis.
+    /// The value is a floating point number.
     ///
     /// # Returns
     ///
@@ -131,31 +133,31 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_MatrixCreateTranslation(dx: f32, dy: f32) -> *mut OH_Drawing_Matrix;
-    /// Sets the params for a matrix.
+    /// Sets matrix parameters for an **OH_Drawing_Matrix** object.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **OH_Drawing_Matrix** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    /// * `matrix` - Pointer to an **OH_Drawing_Matrix** object.
     ///
-    /// * `scaleX` - horizontal scale factor to store
+    /// * `scaleX` - Scale factor on the X axis.
     ///
-    /// * `skewX` - horizontal skew factor to store
+    /// * `skewX` - Skew factor on the X axis.
     ///
-    /// * `transX` - horizontal translation to store
+    /// * `transX` - Translation coefficient on the X axis.
     ///
-    /// * `skewY` - vertical skew factor to store
+    /// * `skewY` - Skew factor on the Y axis.
     ///
-    /// * `scaleY` - vertical scale factor to store
+    /// * `scaleY` - Scale factor on the Y axis.
     ///
-    /// * `transY` - vertical translation to store
+    /// * `transY` - Translation coefficient on the Y axis.
     ///
-    /// * `persp0` - input x-axis values perspective factor to store
+    /// * `persp0` - Perspective coefficient of the X axis.
     ///
-    /// * `persp1` - input y-axis values perspective factor to store
+    /// * `persp1` - Perspective coefficient of the Y axis.
     ///
-    /// * `persp2` - perspective scale factor to store
+    /// * `persp2` - Perspective scale coefficient.
     ///
     /// Available since API-level: 11
     ///
@@ -174,19 +176,19 @@ extern "C" {
         persp1: f32,
         persp2: f32,
     );
-    /// Sets matrix to scale and translate src rect to dst rect.
+    /// Scales a matrix to map a source rectangle to a destination rectangle.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If any of **matrix**, **src**, and **dst** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    /// * `matrix` - Pointer to the [`OH_Drawing_Matrix`](crate::types::OH_Drawing_Matrix) object.
     ///
-    /// * `src` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object rect to map from.
+    /// * `src` - Pointer to the [`OH_Drawing_Rect`](crate::types::OH_Drawing_Rect) object of the mapping source.
     ///
-    /// * `dst` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object rect to map to.
+    /// * `dst` - Pointer to the [`OH_Drawing_Rect`](crate::types::OH_Drawing_Rect) object of the mapping destination.
     ///
-    /// * `stf` - Scales to fit enum method.
+    /// * `stf` - Scaling mode. For details about the available options, see [`OH_Drawing_ScaleToFit`](crate::matrix::OH_Drawing_ScaleToFit).
     ///
     /// # Returns
     ///
@@ -207,38 +209,21 @@ extern "C" {
         dst: *const OH_Drawing_Rect,
         stf: OH_Drawing_ScaleToFit,
     ) -> bool;
-    /// Sets matrix to matrix multiplied by matrix constructed from rotating by degrees
-    /// about pivot point(px, py), positive degrees rotates clockwise.
-    /// Given:
+    /// Premultiplies this matrix by a matrix that is derived from an identity matrix after it has been rotated by a
+    /// given degree around the rotation point (px, py).
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **matrix** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    /// | A B C | | c -s dx |
-    /// Matrix = | D E F |, R(degrees, px, py) = | s c dy |
-    /// | G H I | | 0 0 1 |
-    ///
-    /// where:
-    ///
-    /// c = cos(degrees)
-    /// s = sin(degrees)
-    /// dx = s * py + (1 - c) * px
-    /// dy = -s * px + (1 - c) * py
-    ///
-    /// sets Matrix to:
-    ///
-    /// | A B C | | c -s dx | | Ac+Bs -As+Bc A*dx+B*dy+C |
-    /// Matrix * R(degrees, px, py) = | D E F | | s c dy | = | Dc+Es -Ds+Ec D*dx+E*dy+F |
-    /// | G H I | | 0 0 1 | | Gc+Hs -Gs+Hc G*dx+H*dy+I |
-    ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    /// * `matrix` - Pointer to the [`OH_Drawing_Matrix`](crate::types::OH_Drawing_Matrix) object.
     ///
-    /// * `degree` - Indicates the angle of axes relative to upright axes.
+    /// * `degree` - Angle to rotate, in degrees. A positive value indicates a clockwise rotation, and a negative value
+    /// indicates a counterclockwise rotation.
     ///
-    /// * `px` - Indicates the pivot on x-axis.
+    /// * `px` - X coordinate of the rotation point.
     ///
-    /// * `py` - Indicates the pivot on y-axis.
+    /// * `py` - Y coordinate of the rotation point.
     ///
     /// Available since API-level: 12
     ///
@@ -251,37 +236,21 @@ extern "C" {
         px: f32,
         py: f32,
     );
-    /// Sets matrix to forward scale by sx and sy, about a pivot point at (px, py).
-    /// Given:
+    /// Premultiplies a matrix by an identity matrix that scales with the factor (sx, sy) at the scale point (px, py).
     ///
-    /// | A B C | | sx 0 dx |
-    /// Matrix =| D E F |, S(sx, sy, px, py) = | 0 sy dy |
-    /// | G H I | | 0 0 1 |
-    ///
-    /// where:
-    ///
-    /// dx = px - sx * px
-    /// dy = py - sy * py
-    ///
-    /// sets Matrix to:
-    ///
-    /// | A B C | | sx 0 dx | | A*sx B*sy A*dx+B*dy+C |
-    /// Matrix * S(sx, sy, px, py) = | D E F | | 0 sy dy | = | D*sx E*sy D*dx+E*dy+F |
-    /// | G H I | | 0 0 1 | | G*sx H*sy G*dx+H*dy+I |
-    ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    /// * `matrix` - Pointer to the [`OH_Drawing_Matrix`](crate::types::OH_Drawing_Matrix) object.
     ///
-    /// * `sx` - Horizontal scale factor.
+    /// * `sx` - Scale factor on the X axis. If a negative number is passed in, the matrix is mirrored around y = px before
+    /// being scaled. The value is a floating point number.
     ///
-    /// * `sy` - Vertical scale factor.
+    /// * `sy` - Scale factor on the Y axis. If a negative number is passed in, the matrix is mirrored around x = py before
+    /// being scaled. The value is a floating point number.
     ///
-    /// * `px` - Pivot on x-axis.
+    /// * `px` - X coordinate of the scale point.
     ///
-    /// * `py` - Pivot on y-axis.
+    /// * `py` - Y coordinate of the scale point.
     ///
     /// Available since API-level: 12
     ///
@@ -295,25 +264,22 @@ extern "C" {
         px: f32,
         py: f32,
     );
-    /// Sets forward matrix to translate by dx and dy.
-    /// Given:
-    /// | A B C | | 1 0 dx |
-    /// Matrix = | D E F |, T(dx, dy) = | 0 1 dy |
-    /// | G H I | | 0 0 1 |
-    /// sets Matrix to:
-    /// | A B C | | 1 0 dx | | A B A*dx+B*dy+C |
-    /// Matrix * T(dx, dy) = | D E F | | 0 1 dy | = | D E D*dx+E*dy+F |
-    /// | G H I | | 0 0 1 | | G H G*dx+H*dy+I |
+    /// Premultiplies this matrix by a matrix that is derived from an identity matrix after it has been translated by
+    /// a given distance (dx, dy).
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **matrix** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    /// * `matrix` - Pointer to the [`OH_Drawing_Matrix`](crate::types::OH_Drawing_Matrix) object.
     ///
-    /// * `dx` - Indicates the horizontal translation.
+    /// * `dx` - Horizontal distance to translate. A positive number indicates a translation towards the positive direction
+    /// of the X axis, and a negative number indicates a translation towards the negative direction of the X axis. The value
+    /// is a floating point number.
     ///
-    /// * `dy` - Indicates the vertical translation.
+    /// * `dy` - Vertical distance to translate. A positive number indicates a translation towards the positive direction
+    /// of the Y axis, and a negative number indicates a translation towards the negative direction of the Y axis. The value
+    /// is a floating point number.
     ///
     /// Available since API-level: 12
     ///
@@ -321,38 +287,21 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_MatrixPreTranslate(matrix: *mut OH_Drawing_Matrix, dx: f32, dy: f32);
-    /// Sets matrix to matrix constructed from rotating by degrees about pivot point(px, py),
-    /// multiplied by matrix, positive degrees rotates clockwise.
-    /// Given:
+    /// Post multiplies this matrix by a matrix that is derived from an identity matrix after it has been rotated by
+    /// a given degree around the rotation point (px, py).
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **matrix** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    /// | J K L | | c -s dx |
-    /// Matrix = | M N O |, R(degrees, px, py) = | s c dy |
-    /// | P Q R | | 0 0 1 |
-    ///
-    /// where:
-    ///
-    /// c = cos(degrees)
-    /// s = sin(degrees)
-    /// dx = s * py + (1 - c) * px
-    /// dy = -s * px + (1 - c) * py
-    ///
-    /// sets Matrix to:
-    ///
-    /// |c -s dx| |J K L| |cJ-sM+dx*P cK-sN+dx*Q cL-sO+dx+R|
-    /// R(degrees, px, py) * Matrix = |s c dy| |M N O| = |sJ+cM+dy*P sK+cN+dy*Q sL+cO+dy*R|
-    /// |0 0 1| |P Q R| | P Q R|
-    ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    /// * `matrix` - Pointer to the [`OH_Drawing_Matrix`](crate::types::OH_Drawing_Matrix) object.
     ///
-    /// * `degree` - Indicates the angle of axes relative to upright axes.
+    /// * `degree` - Angle to rotate, in degrees. A positive value indicates a clockwise rotation, and a negative value
+    /// indicates a counterclockwise rotation.
     ///
-    /// * `px` - Indicates the pivot on x-axis.
+    /// * `px` - X coordinate of the rotation point.
     ///
-    /// * `py` - Indicates the pivot on y-axis.
+    /// * `py` - Y coordinate of the rotation point.
     ///
     /// Available since API-level: 12
     ///
@@ -365,32 +314,24 @@ extern "C" {
         px: f32,
         py: f32,
     );
-    /// Sets matrix to backward scale by sx and sy, about a pivot point at (px, py).
-    /// Given:
-    /// | J K L | | sx 0 dx |
-    /// Matrix = | M N O |, S(sx, sy, px, py) = | 0 sy dy |
-    /// | P Q R | | 0 0 1 |
-    /// where:
-    /// dx = px - sx * px
-    /// dy = py - sy * py
-    /// sets Matrix to:
-    /// | sx 0 dx | | J K L | | sx*J+dx*P sx*K+dx*Q sx*L+dx+R |
-    /// S(sx, sy, px, py) * Matrix = | 0 sy dy | | M N O | = | sy*M+dy*P sy*N+dy*Q sy*O+dy*R |
-    /// | 0 0 1 | | P Q R | | P Q R |
+    /// Post multiplies a matrix by an identity matrix that scales with the factor (sx, sy) at the scale point (px,
+    /// py).
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **matrix** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    /// * `matrix` - Pointer to the [`OH_Drawing_Matrix`](crate::types::OH_Drawing_Matrix) object.
     ///
-    /// * `sx` - Horizontal scale factor.
+    /// * `sx` - Scale factor on the X axis. If a negative number is passed in, the matrix is mirrored around y = px before
+    /// being scaled. The value is a floating point number.
     ///
-    /// * `sy` - Vertical scale factor.
+    /// * `sy` - Scale factor on the Y axis. If a negative number is passed in, the matrix is mirrored around x = py before
+    /// being scaled. The value is a floating point number.
     ///
-    /// * `px` - Pivot on x-axis.
+    /// * `px` - X coordinate of the scale point.
     ///
-    /// * `py` - Pivot on y-axis.
+    /// * `py` - Y coordinate of the scale point.
     ///
     /// Available since API-level: 12
     ///
@@ -404,28 +345,22 @@ extern "C" {
         px: f32,
         py: f32,
     );
-    /// Sets backward matrix to translate by (dx, dy).
-    /// Given:
+    /// Post multiplies this matrix by a matrix that is derived from an identity matrix after it has been translated
+    /// by a given distance (dx, dy).
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **matrix** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    /// | J K L | | 1 0 dx |
-    /// Matrix = | M N O |, T(dx, dy) = | 0 1 dy |
-    /// | P Q R | | 0 0 1 |
-    ///
-    /// sets Matrix to:
-    ///
-    /// | 1 0 dx | | J K L | | J+dx*P K+dx*Q L+dx*R |
-    /// T(dx, dy) * Matrix = | 0 1 dy | | M N O | = | M+dy*P N+dy*Q O+dy*R |
-    /// | 0 0 1 | | P Q R | | P Q R |
-    ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    /// * `matrix` - Pointer to the [`OH_Drawing_Matrix`](crate::types::OH_Drawing_Matrix) object.
     ///
-    /// * `dx` - Indicates the horizontal translation.
+    /// * `dx` - Horizontal distance to translate. A positive number indicates a translation towards the positive direction
+    /// of the X axis, and a negative number indicates a translation towards the negative direction of the X axis. The value
+    /// is a floating point number.
     ///
-    /// * `dy` - Indicates the vertical translation.
+    /// * `dy` - Vertical distance to translate. A positive number indicates a translation towards the positive direction
+    /// of the Y axis, and a negative number indicates a translation towards the negative direction of the Y axis. The value
+    /// is a floating point number.
     ///
     /// Available since API-level: 12
     ///
@@ -433,16 +368,13 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_MatrixPostTranslate(matrix: *mut OH_Drawing_Matrix, dx: f32, dy: f32);
-    /// Reset matrix to identity, which has no effect on mapped point, sets matrix to:
-    /// | 1 0 0 |
-    /// | 0 1 0 |
-    /// | 0 0 1 |
+    /// Resets a matrix to an identity matrix.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **matrix** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    /// * `matrix` - Pointer to the [`OH_Drawing_Matrix`](crate::types::OH_Drawing_Matrix) object.
     ///
     /// Available since API-level: 12
     ///
@@ -450,24 +382,17 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_MatrixReset(matrix: *mut OH_Drawing_Matrix);
-    /// Sets matrix total to matrix a multiplied by matrix b.
-    /// Given:
-    /// | A B C | | J K L |
-    /// a = | D E F |, b = | M N O |
-    /// | G H I | | P Q R |
-    /// sets Matrix total to:
-    /// | A B C | | J K L | | AJ+BM+CP AK+BN+CQ AL+BO+CR |
-    /// total = a * b = | D E F | * | M N O | = | DJ+EM+FP DK+EN+FQ DL+EO+FR |
-    /// | G H I | | P Q R | | GJ+HM+IP GK+HN+IQ GL+HO+IR |
+    /// Multiplies two matrices to produce a new matrix.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If any of **total**, **a**, and **b** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `total` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object that a * b.
+    /// * `total` - Pointer to the [`OH_Drawing_Matrix`](crate::types::OH_Drawing_Matrix) object.
     ///
-    /// * `a` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    /// * `a` - Pointer to [`OH_Drawing_Matrix`](crate::types::OH_Drawing_Matrix) object a.
     ///
-    /// * `b` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    /// * `b` - Pointer to [`OH_Drawing_Matrix`](crate::types::OH_Drawing_Matrix) object b.
     ///
     /// Available since API-level: 12
     ///
@@ -479,15 +404,13 @@ extern "C" {
         a: *const OH_Drawing_Matrix,
         b: *const OH_Drawing_Matrix,
     );
-    /// Gets nine matrix values contained by matrix into array.
+    /// Obtains all element values of a matrix.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    /// * `matrix` - Pointer to the [`OH_Drawing_Matrix`](crate::types::OH_Drawing_Matrix) object.
     ///
-    /// * `value` - Storages for nine matrix values.
+    /// * `value` - Array used to store the obtained element values.
     ///
     /// # Returns
     ///
@@ -504,20 +427,13 @@ extern "C" {
         matrix: *mut OH_Drawing_Matrix,
         value: *mut f32,
     ) -> crate::error_code::DrawingResult;
-    /// Matrix a left-multiplied by matrix b.
-    /// Given:
-    /// | A B C | | J K L |
-    /// a = | D E F |, b = | M N O |
-    /// | G H I | | P Q R |
-    /// Get:
-    /// | J K L | | A B C | | AJ+DK+GL BJ+EK+HL CJ+FK+IL |
-    /// b * a = | M N O | * | D E F | = | AM+DN+GO BM+EN+HO CM+FN+IO |
-    /// | P Q R | | G H I | | AP+DQ+GR BP+EQ+HR CP+FQ+IR |
+    /// Left-multiplies matrix a by matrix b.
+    ///
     /// # Arguments
     ///
-    /// * `a` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    /// * `a` - Pointer to the [`OH_Drawing_Matrix`](crate::types::OH_Drawing_Matrix) object.
     ///
-    /// * `b` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    /// * `b` - Pointer to the [`OH_Drawing_Matrix`](crate::types::OH_Drawing_Matrix) object.
     ///
     /// # Returns
     ///
@@ -534,14 +450,16 @@ extern "C" {
         a: *mut OH_Drawing_Matrix,
         b: *mut OH_Drawing_Matrix,
     ) -> crate::error_code::DrawingResult;
-    /// Get one matrix value. Index is between the range of 0-8.
+    /// Obtains a matrix value of a given index, which ranges from 0 to 8.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **matrix** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
+    /// If **index** is less than 0 or greater than 8, **OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE** is returned.
     ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    /// * `matrix` - Pointer to the [`OH_Drawing_Matrix`](crate::types::OH_Drawing_Matrix) object.
     ///
-    /// * `index` - one of 0-8.
+    /// * `index` - Index, which ranges from 0 to 8.
     ///
     /// # Returns
     ///
@@ -556,20 +474,20 @@ extern "C" {
         matrix: *mut OH_Drawing_Matrix,
         index: ::core::ffi::c_int,
     ) -> f32;
-    /// Sets matrix to rotate by degrees about a pivot point at (px, py). The pivot point is unchanged
-    /// when mapped with matrix. Positive degrees rotates clockwise.
+    /// Sets this matrix as an identity matrix and rotates it by a given degree around the rotation point (px, py).
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **matrix** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    /// * `matrix` - Pointer to the [`OH_Drawing_Matrix`](crate::types::OH_Drawing_Matrix) object.
     ///
-    /// * `degree` - Indicates the angle of axes relative to upright axes.
+    /// * `degree` - Angle to rotate, in degrees. A positive value indicates a clockwise rotation, and a negative value
+    /// indicates a counterclockwise rotation.
     ///
-    /// * `px` - Indicates the pivot on x-axis.
+    /// * `px` - Coordinate point on the X axis.
     ///
-    /// * `py` - Indicates the pivot on y-axis.
+    /// * `py` - Coordinate point on the Y axis.
     ///
     /// Available since API-level: 12
     ///
@@ -577,17 +495,21 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_MatrixRotate(matrix: *mut OH_Drawing_Matrix, degree: f32, px: f32, py: f32);
-    /// Sets matrix to translate by (dx, dy)
+    /// Sets a matrix as an identity matrix and translates it by a given distance (dx, dy).
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **matrix** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    /// * `matrix` - Pointer to the [`OH_Drawing_Matrix`](crate::types::OH_Drawing_Matrix) object.
     ///
-    /// * `dx` - Indicates the horizontal translation.
+    /// * `dx` - Distance to translate on the X axis. A positive number indicates a translation towards the positive
+    /// direction of the X axis, and a negative number indicates a translation towards the negative direction of the X axis.
+    /// The value is a floating point number.
     ///
-    /// * `dy` - Indicates the vertical translation.
+    /// * `dy` - Distance to translate on the Y axis. A positive number indicates a translation towards the positive
+    /// direction of the Y axis, and a negative number indicates a translation towards the negative direction of the Y axis.
+    /// The value is a floating point number.
     ///
     /// Available since API-level: 12
     ///
@@ -595,21 +517,23 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_MatrixTranslate(matrix: *mut OH_Drawing_Matrix, dx: f32, dy: f32);
-    /// Sets matrix to scale by sx and sy, about a pivot point at (px, py).
+    /// Sets a matrix as an identity matrix and scales it with the factor (sx, sy) at the rotation point (px, py).
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **matrix** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    /// * `matrix` - Pointer to the [`OH_Drawing_Matrix`](crate::types::OH_Drawing_Matrix) object.
     ///
-    /// * `sx` - Indicates the horizontal scale factor.
+    /// * `sx` - Scale factor on the X axis. If a negative number is passed in, the matrix is mirrored around y = px before
+    /// being scaled. The value is a floating point number.
     ///
-    /// * `sy` - Indicates the vertical scale factor.
+    /// * `sy` - Scale factor on the Y axis. If a negative number is passed in, the matrix is mirrored around x = py before
+    /// being scaled. The value is a floating point number.
     ///
-    /// * `px` - Indicates the pivot on x-axis.
+    /// * `px` - Coordinate point on the X axis.
     ///
-    /// * `py` - Indicates the pivot on y-axis.
+    /// * `py` - Coordinate point on the Y axis.
     ///
     /// Available since API-level: 12
     ///
@@ -623,15 +547,16 @@ extern "C" {
         px: f32,
         py: f32,
     );
-    /// Sets inverse to reciprocal matrix, returning true if matrix can be inverted.
+    /// Inverts a matrix and returns the result.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If either **matrix** or **inverse** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    /// * `matrix` - Pointer to the [`OH_Drawing_Matrix`](crate::types::OH_Drawing_Matrix) object.
     ///
-    /// * `inverse` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    /// * `inverse` - Pointer to the inverse [`OH_Drawing_Matrix`](crate::types::OH_Drawing_Matrix) object. You can call [`OH_Drawing_MatrixCreate`](crate::matrix::OH_Drawing_MatrixCreate)
+    /// to create an inverse matrix object.
     ///
     /// # Returns
     ///
@@ -647,20 +572,23 @@ extern "C" {
         matrix: *mut OH_Drawing_Matrix,
         inverse: *mut OH_Drawing_Matrix,
     ) -> bool;
-    /// Sets the params of matrix to map src to dst.
-    /// Count must greater than or equal to zero, and less than or equal to four.
+    /// Generates a transformation matrix by setting source points and destination points.
+    /// Both the number of source points and that of destination points must be in the range \[0, 4\]. This API may return an
+    /// error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **matrix** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
+    /// If **count** is less than 0 or greater than 4, **OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    /// * `matrix` - Pointer to the [`OH_Drawing_Matrix`](crate::types::OH_Drawing_Matrix) object.
     ///
-    /// * `src` - Points to map from.
+    /// * `src` - Array of source points. If NULL is passed in, **count** must be 0.
     ///
-    /// * `dst` - Points to map to.
+    /// * `dst` - Array of destination points. The number of destination points must be the same as that of source points.
+    /// If NULL is passed in, **count** must be 0.
     ///
-    /// * `count` - Number of point in src and dst.
+    /// * `count` - Number of source points or destination points. If 0 is passed in, the matrix is set to an identity
+    /// matrix.
     ///
     /// # Returns
     ///
@@ -677,19 +605,20 @@ extern "C" {
         dst: *const OH_Drawing_Point2D,
         count: u32,
     ) -> bool;
-    /// Maps the src point array to the dst point array by matrix transformation.
+    /// Maps a source point array to a destination point array by means of matrix transformation.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If any of **matrix**, **src**, and **dst** is NULL or **count** is less than or equal to 0, **
+    /// OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    /// * `matrix` - Pointer to the [`OH_Drawing_Matrix`](crate::types::OH_Drawing_Matrix) object.
     ///
-    /// * `src` - Points to map from.
+    /// * `src` - Array of source points.
     ///
-    /// * `dst` - Points to map to.
+    /// * `dst` - Array of destination points. The number of destination points must be the same as that of source points.
     ///
-    /// * `count` - Number of point in src and dst.
+    /// * `count` - Number of source points or destination points.
     ///
     /// Available since API-level: 12
     ///
@@ -702,17 +631,18 @@ extern "C" {
         dst: *mut OH_Drawing_Point2D,
         count: ::core::ffi::c_int,
     );
-    /// Sets dst to bounds of src corners mapped by matrix transformation.
+    /// Maps a rectangle to the smallest rectangle that can enclose the vertices to which the four source vertices
+    /// are mapped by means of matrix transformation.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If any of **matrix**, **src**, and **dst** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    /// * `matrix` - Pointer to the [`OH_Drawing_Matrix`](crate::types::OH_Drawing_Matrix) object.
     ///
-    /// * `src` - Rect to map from.
+    /// * `src` - Source rectangle.
     ///
-    /// * `dst` - Rect to map to.
+    /// * `dst` - Destination rectangle.
     ///
     /// # Returns
     ///
@@ -728,15 +658,15 @@ extern "C" {
         src: *const OH_Drawing_Rect,
         dst: *mut OH_Drawing_Rect,
     ) -> bool;
-    /// Returns true if the first matrix equals the second matrix.
+    /// Checks whether two **OH_Drawing_Matrix** objects are equal.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If either **matrix** or **other** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    /// * `matrix` - Pointer to one [`OH_Drawing_Matrix`](crate::types::OH_Drawing_Matrix) object.
     ///
-    /// * `other` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    /// * `other` - Pointer to the other [`OH_Drawing_Matrix`](crate::types::OH_Drawing_Matrix) object.
     ///
     /// # Returns
     ///
@@ -751,16 +681,15 @@ extern "C" {
         matrix: *mut OH_Drawing_Matrix,
         other: *mut OH_Drawing_Matrix,
     ) -> bool;
-    /// Returns true if matrix is identity.
-    /// Identity matrix is : | 1 0 0 |
-    /// | 0 1 0 |
-    /// | 0 0 1 |
+    /// Checks whether an **OH_Drawing_Matrix** object is an identity matrix.
+    /// An identity matrix is as follows: | 1 0 0 || 0 1 0 || 0 0 1 |. This API may return an error code. For details, see
+    /// [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet)
+    /// .
+    /// If **matrix** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    /// * `matrix` - Pointer to the [`OH_Drawing_Matrix`](crate::types::OH_Drawing_Matrix) object.
     ///
     /// # Returns
     ///
@@ -772,13 +701,15 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_MatrixIsIdentity(matrix: *mut OH_Drawing_Matrix) -> bool;
-    /// Checks if the matrix is affine. An affine matrix preserves straight lines and has no perspective.
+    /// Checks whether the existing matrix is an affine matrix, which includes transformations such as translation,
+    /// rotation, and scaling.
     ///
     /// # Arguments
     ///
-    /// * `matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    /// * `matrix` - Pointer to the [`OH_Drawing_Matrix`](crate::types::OH_Drawing_Matrix) object.
     ///
-    /// * `isAffine` - Indicates if the matrix is affine.
+    /// * `isAffine` - Whether the existing matrix is an affine matrix. It is used as an output parameter. **true** means
+    /// yes; **false** otherwise.
     ///
     /// # Returns
     ///
@@ -793,19 +724,19 @@ extern "C" {
         matrix: *const OH_Drawing_Matrix,
         isAffine: *mut bool,
     ) -> crate::error_code::DrawingResult;
-    /// Sets matrix to matrix multiplied by matrix constructed from skewing by (kx, ky) about pivot point (px, py).
+    /// Left multiplies the current matrix by a matrix constructed based on (px, py) and (kx, ky).
     ///
     /// # Arguments
     ///
-    /// * `matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    /// * `matrix` - Pointer to the [`OH_Drawing_Matrix`](crate::types::OH_Drawing_Matrix) object.
     ///
-    /// * `kx` - Indicates the horizontal skew factor.
+    /// * `kx` - Tilt on the X axis.
     ///
-    /// * `ky` - Indicates the vertical skew factor.
+    /// * `ky` - Tilt on the Y axis.
     ///
-    /// * `px` - Indicates the pivot on x-axis.
+    /// * `px` - X-coordinate of the tilt center.
     ///
-    /// * `py` - Indicates the pivot on y-axis.
+    /// * `py` - Y-coordinate of the tilt center.
     ///
     /// # Returns
     ///
@@ -823,13 +754,17 @@ extern "C" {
         px: f32,
         py: f32,
     ) -> crate::error_code::DrawingResult;
-    /// Checks if a rectangle will map to another rectangle after applying this matrix.
+    /// Checks whether the rectangle remains rectangular after being mapped by the current matrix. This condition is
+    /// met when the matrix is an identity matrix or contains only affine transformations such as translation, scaling, and
+    /// rotation by 90 degrees.
     ///
     /// # Arguments
     ///
-    /// * `matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    /// * `matrix` - Pointer to the [`OH_Drawing_Matrix`](crate::types::OH_Drawing_Matrix) object.
     ///
-    /// * `isRectStaysRect` - Indicates if the transformation keeps rectangles as rectangles.
+    /// * `isRectStaysRect` - Whether a rectangle stays a rectangle after being mapped by a matrix. It is used as an output
+    /// parameter.
+    /// **true** means yes; **false** otherwise.
     ///
     /// # Returns
     ///
@@ -844,19 +779,19 @@ extern "C" {
         matrix: *const OH_Drawing_Matrix,
         isRectStaysRect: *mut bool,
     ) -> crate::error_code::DrawingResult;
-    /// Sets the sine and cosine values for a rotation transformation around a point.
+    /// Sets the matrix to rotate around the rotation center (px, py) with the specified sine and cosine values.
     ///
     /// # Arguments
     ///
-    /// * `matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    /// * `matrix` - Pointer to the [`OH_Drawing_Matrix`](crate::types::OH_Drawing_Matrix) object.
     ///
-    /// * `sinValue` - Indicates the sine of the angle of rotation.
+    /// * `sinValue` - Sine value of the rotation angle.
     ///
-    /// * `cosValue` - Indicates the cosine of the angle of rotation.
+    /// * `cosValue` - Cosine value of the rotation angle.
     ///
-    /// * `px` - Indicates the x-coordinate of the point around which to rotate.
+    /// * `px` - X-axis coordinate of the rotation center.
     ///
-    /// * `py` - Indicates the y-coordinate of the point around which to rotate.
+    /// * `py` - Y-axis coordinate of the rotation center.
     ///
     /// # Returns
     ///
@@ -874,13 +809,11 @@ extern "C" {
         px: f32,
         py: f32,
     ) -> crate::error_code::DrawingResult;
-    /// Destroys an <b>OH_Drawing_Matrix</b> object and reclaims the memory occupied by the object.
+    /// Destroys an **OH_Drawing_Matrix** object and reclaims the memory occupied by the object.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    /// * `matrix` - Pointer to an **OH_Drawing_Matrix** object.
     ///
     /// Available since API-level: 11
     ///
