@@ -15,6 +15,8 @@
 - Add the `native_material` module (API-26).
 - The new `styled_string` functions using `ohos-drawing-sys` types are available with the
   `drawing` feature.
+- With the `drawing` feature, the `api-*` features now also enable the same API level in
+  `ohos-drawing-sys`.
 - Add `MouseEventButton`, and `InputEventSourceType::KEY` and `InputEventSourceType::JOYSTICK`
   (API-22), which were missing.
 - The API-22 `OH_ArkUI_TextLayoutManager_*` functions using `ohos-drawing-sys` types, which
