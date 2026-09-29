@@ -26,35 +26,35 @@ default = []
 ## Enables bindings for OpenHarmony API-level 12.
 api-12 = ["ohos-drawing-sys?/api-12"]
 ## Enables bindings for OpenHarmony API-level 13.
-api-13 = ["api-12"]
+api-13 = ["api-12", "ohos-drawing-sys?/api-13"]
 ## Enables bindings for OpenHarmony API-level 14.
-api-14 = ["api-13"]
+api-14 = ["api-13", "ohos-drawing-sys?/api-14"]
 ## Enables bindings for OpenHarmony API-level 15.
-api-15 = ["api-14"]
+api-15 = ["api-14", "ohos-drawing-sys?/api-15"]
 ## Enables bindings for OpenHarmony API-level 16.
-api-16 = ["api-15"]
+api-16 = ["api-15", "ohos-drawing-sys?/api-16"]
 ## Enables bindings for OpenHarmony API-level 17.
-api-17 = ["api-16"]
+api-17 = ["api-16", "ohos-drawing-sys?/api-17"]
 ## Enables bindings for OpenHarmony API-level 18 (5.1.0).
-api-18 = ["api-17"]
+api-18 = ["api-17", "ohos-drawing-sys?/api-18"]
 ## Enables bindings for OpenHarmony API-level 19.
-api-19 = ["api-18"]
+api-19 = ["api-18", "ohos-drawing-sys?/api-19"]
 ## Enables bindings for OpenHarmony API-level 20.
-api-20 = ["api-19"]
+api-20 = ["api-19", "ohos-drawing-sys?/api-20"]
 ## Enables bindings for OpenHarmony API-level 21.
-api-21 = ["api-20"]
+api-21 = ["api-20", "ohos-drawing-sys?/api-21"]
 ## Enables bindings for OpenHarmony API-level 22.
-api-22 = ["api-21"]
+api-22 = ["api-21", "ohos-drawing-sys?/api-22"]
 ## Enables bindings for OpenHarmony API-level 23.
-api-23 = ["api-22"]
+api-23 = ["api-22", "ohos-drawing-sys?/api-23"]
 ## Enables bindings for OpenHarmony API-level 24.
-api-24 = ["api-23"]
+api-24 = ["api-23", "ohos-drawing-sys?/api-24"]
 ## Enables bindings for OpenHarmony API-level 25 (No changes).
-api-25 = ["api-24"]
+api-25 = ["api-24", "ohos-drawing-sys?/api-25"]
 ## Enables bindings for OpenHarmony API-level 26.
 ##
 ## Adds the `native_material` module.
-api-26 = ["api-25"]
+api-26 = ["api-25", "ohos-drawing-sys?/api-26"]
 ## Enables bindings for Functions that interact with the `drawing` module
 drawing = ["dep:ohos-drawing-sys"]
 
