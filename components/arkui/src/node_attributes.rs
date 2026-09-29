@@ -18,7 +18,8 @@ pub mod image_animator;
 pub mod image_span;
 pub mod layout;
 pub mod list;
-pub mod list_item;
+// Not public, since newer SDKs merge `list_item.h` back into `native_type.h`.
+pub(crate) mod list_item;
 pub mod navigation_router;
 pub mod picker;
 pub mod progress;

@@ -41,7 +41,7 @@ api-23 = ["api-22"]
 api-24 = ["api-23"]
 ## Enables bindings for OpenHarmony API-level 25 (No changes).
 api-25 = ["api-24"]
-## Enables bindings for OpenHarmony API-level 26.
+## Enables bindings for OpenHarmony API-level 26 (No changes).
 api-26 = ["api-25"]
 ## Document available features when building the documentation
 document-features = ["dep:document-features"]

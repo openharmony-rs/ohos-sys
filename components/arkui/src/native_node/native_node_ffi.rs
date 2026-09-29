@@ -9091,7 +9091,7 @@ impl ArkUI_NodeAttributeType {
     /// through APIs.
     ///
     /// **Format of the [`ArkUI_AttributeItem`](crate::common_type::ArkUI_AttributeItem) parameter for setting the attribute:**
-    /// - .object: use [`ArkUI_ListItemSwipeActionOption`](crate::node_attributes::list_item::ArkUI_ListItemSwipeActionOption) object to construct.
+    /// - .object: use [`ArkUI_ListItemSwipeActionOption`](crate::native_type::ArkUI_ListItemSwipeActionOption) object to construct.
     ///
     ///
     /// Available since API-level: 26

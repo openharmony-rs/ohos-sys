@@ -52,6 +52,9 @@ pub(crate) fn resolve_doc_links(
                 for reexport in named_reexports(&module.ast) {
                     index.add_reexport(krate, &module.path, &reexport);
                 }
+                for source in crate_glob_reexports(&module.ast) {
+                    index.add_glob_reexport(krate, &module.path, &source);
+                }
             }
             modules.insert(module.file, (krate, module.path));
         }
@@ -339,6 +342,37 @@ fn named_reexports(ast: &syn::File) -> Vec<Reexport> {
     reexports
 }
 
+/// Paths of the modules glob re-exported with `pub use crate::path::*;`.
+fn crate_glob_reexports(ast: &syn::File) -> Vec<Vec<String>> {
+    fn collect(tree: &syn::UseTree, path: &mut Vec<String>, globs: &mut Vec<Vec<String>>) {
+        match tree {
+            syn::UseTree::Path(p) => {
+                path.push(p.ident.to_string());
+                collect(&p.tree, path, globs);
+                path.pop();
+            }
+            syn::UseTree::Group(g) => {
+                for tree in &g.items {
+                    collect(tree, path, globs);
+                }
+            }
+            syn::UseTree::Glob(_) => globs.push(path.clone()),
+            _ => {}
+        }
+    }
+    let mut globs = vec![];
+    for item in &ast.items {
+        let syn::Item::Use(u) = item else { continue };
+        match &u.tree {
+            syn::UseTree::Path(p) if is_pub(&u.vis) && p.ident == "crate" => {
+                collect(&p.tree, &mut vec![], &mut globs);
+            }
+            _ => {}
+        }
+    }
+    globs
+}
+
 fn path_attribute(attrs: &[syn::Attribute]) -> anyhow::Result<Option<String>> {
     let Some(attr) = attrs.iter().find(|a| a.path().is_ident("path")) else {
         return Ok(None);
@@ -415,6 +449,23 @@ impl Index {
             {
                 let key = format!("{}{member}", reexport.alias);
                 reexported.push((key, target.result_error.clone()));
+            }
+        }
+        for (key, result_error) in reexported {
+            self.add(krate, module, true, key, result_error);
+        }
+    }
+
+    /// Make the non-public items of `source`, which `module` glob re-exports,
+    /// public in `module`.
+    fn add_glob_reexport(&mut self, krate: usize, module: &[String], source: &[String]) {
+        let mut reexported = vec![];
+        for (key, targets) in &self.items {
+            for target in targets
+                .iter()
+                .filter(|t| t.krate == krate && t.module == source && !t.is_public)
+            {
+                reexported.push((key.clone(), target.result_error.clone()));
             }
         }
         for (key, result_error) in reexported {
@@ -746,6 +797,39 @@ name = []
             Some("crate::Udmf_ErrCode::E_OK")
         );
         assert_eq!(resolve("Udmf_ErrCodeOther"), None);
+    }
+
+    #[test]
+    fn resolves_crate_glob_reexports_of_private_modules() {
+        let ast = syn::parse_file(
+            "pub use crate::a::*; pub use crate::m::{public::*, private::*}; use crate::x::*;",
+        )
+        .unwrap();
+        assert_eq!(
+            crate_glob_reexports(&ast),
+            [vec!["a"], vec!["m", "public"], vec!["m", "private"]]
+        );
+
+        let mut index = Index::default();
+        add_items(&mut index, 0, "m::public", "pub struct Public;");
+        let private = syn::parse_file("pub struct Private(pub u32);").unwrap();
+        let private_path = ["m".to_string(), "private".to_string()];
+        index.add_items(0, &private_path, false, &private.items);
+        for source in crate_glob_reexports(&ast) {
+            index.add_glob_reexport(0, &["types".to_string()], &source);
+        }
+        let crates = crates();
+        let resolver = Resolver {
+            crates: &crates,
+            index: &index,
+            c_names: &CNames::default(),
+        };
+        let resolve = |name| resolver.resolve(name, 0, &["other".to_string()]);
+        assert_eq!(
+            resolve("Public").as_deref(),
+            Some("crate::m::public::Public")
+        );
+        assert_eq!(resolve("Private").as_deref(), Some("crate::types::Private"));
     }
 
     fn add_items(index: &mut Index, krate: usize, module: &str, source: &str) {
