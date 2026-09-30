@@ -1,0 +1,147 @@
+name: Release
+
+permissions:
+  contents: read
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+concurrency:
+  group: release
+  cancel-in-progress: false
+
+jobs:
+  # Decides with a read-only token whether any crate version needs to be published, so that
+  # the privileged `release` job only runs (and asks for approval) when it does.
+  check:
+    name: Check release state
+    if: github.repository_owner == 'openharmony-rs' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    outputs:
+      crates: ${{ steps.check.outputs.crates }}
+      sha: ${{ steps.check.outputs.sha }}
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - uses: dtolnay/rust-toolchain@stable
+      - name: Find unpublished crate versions
+        id: check
+        run: |
+          crates=$(scripts/unpublished_crates.sh)
+          if [[ -z "$crates" ]]; then
+            echo "All crate versions are on crates.io, nothing to release"
+            exit 0
+          fi
+          sha=$(git rev-parse HEAD)
+          remote_tags=$(git ls-remote --tags origin)
+          while read -r name version; do
+            tag=$(scripts/release_tag.sh "$name" "$version")
+            echo "${name} ${version} (tag ${tag})"
+            tag_sha=$(awk -v ref="refs/tags/${tag}" '$2 == ref || $2 == ref "^{}" { sha = $1 } END { print sha }' <<< "$remote_tags")
+            if [[ -n "$tag_sha" && "$tag_sha" != "$sha" ]]; then
+              echo "::error::Tag ${tag} points to ${tag_sha}, not ${sha}"
+              exit 1
+            fi
+          done <<< "$crates"
+          {
+            echo "crates<<EOF"
+            echo "$crates"
+            echo "EOF"
+            echo "sha=${sha}"
+          } >> "$GITHUB_OUTPUT"
+
+  # The privileged job publishes with `--no-verify`, so the packages are verified here. This
+  # also catches dependency requirements that published versions can't satisfy yet.
+  package:
+    name: Verify crate packages
+    needs: check
+    if: needs.check.outputs.crates
+    runs-on: ubuntu-latest
+    env:
+      CRATES: ${{ needs.check.outputs.crates }}
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: ${{ needs.check.outputs.sha }}
+          persist-credentials: false
+      - uses: dtolnay/rust-toolchain@stable
+      - run: |
+          packages=()
+          while read -r name _; do
+            packages+=(-p "$name")
+          done <<< "$CRATES"
+          cargo package --locked "${packages[@]}"
+
+  # The only job with write access. It builds nothing and only runs in the `release` environment.
+  # Every step is idempotent, so a failed run can be re-run.
+  release:
+    name: Release
+    needs: [check, package]
+    runs-on: ubuntu-latest
+    environment: release
+    permissions:
+      contents: write
+      # crates.io trusted publishing
+      id-token: write
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+      CRATES: ${{ needs.check.outputs.crates }}
+      SHA: ${{ needs.check.outputs.sha }}
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: ${{ env.SHA }}
+          persist-credentials: false
+      - id: auth
+        uses: rust-lang/crates-io-auth-action@v1
+      # Uses the runner's preinstalled cargo instead of a toolchain action, to keep this job's actions minimal.
+      # `CRATES` is in dependency order, and `cargo publish` waits until the version is in the index,
+      # so each crate's dependencies are available when it is published. A crate is tagged once it is published.
+      - name: Publish to crates.io and tag
+        env:
+          CARGO_REGISTRY_TOKEN: ${{ steps.auth.outputs.token }}
+        run: |
+          unpublished=$(scripts/unpublished_crates.sh)
+          while read -r name version; do
+            if grep -qxF "${name} ${version}" <<< "$unpublished"; then
+              cargo publish --locked --no-verify -p "$name"
+            else
+              echo "${name} ${version} is already on crates.io"
+            fi
+            tag=$(scripts/release_tag.sh "$name" "$version")
+            if tag_sha=$(gh api "repos/${GH_REPO}/commits/tags/${tag}" --jq .sha 2>/dev/null); then
+              if [[ "$tag_sha" != "$SHA" ]]; then
+                echo "::error::Tag ${tag} points to ${tag_sha}, not ${SHA}"
+                exit 1
+              fi
+            else
+              gh api "repos/${GH_REPO}/git/refs" -f ref="refs/tags/${tag}" -f sha="${SHA}" --silent
+            fi
+          done <<< "$CRATES"
+      - name: Publish GitHub release
+        run: |
+          version=$(awk '$1 == "ohos-sys" { print $2 }' <<< "$CRATES")
+          if [[ -z "$version" ]]; then
+            echo "ohos-sys wasn't released, skipping the GitHub release"
+            exit 0
+          fi
+          tag=$(scripts/release_tag.sh ohos-sys "$version")
+          if gh release view "$tag" > /dev/null 2>&1; then
+            echo "::notice::Release ${tag} already exists"
+            exit 0
+          fi
+          awk -v heading="## ${tag}" '
+            /^## / { if (found) exit; found = ($0 == heading || index($0, heading " ") == 1); next }
+            found
+          ' CHANGELOG.md > notes.md
+          if [[ -s notes.md ]]; then
+            gh release create "$tag" --verify-tag --title "$tag" --notes-file notes.md
+          else
+            echo "::warning::CHANGELOG.md has no section for ${tag}"
+            gh release create "$tag" --verify-tag --title "$tag" --generate-notes
+          fi
