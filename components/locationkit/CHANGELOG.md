@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 0.1.2
 
 - Add `api-24`, `api-25` and `api-26` feature flags (no new symbols).
 

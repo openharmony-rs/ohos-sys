@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 0.1.7
 
 - Add API-24, API-25 and API-26 bindings.
 - Add the `runtime::context` and `runtime::extension_ability` modules (API-24) and the

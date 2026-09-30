@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 0.1.8
 
 - Add API-24, API-25 and API-26 bindings.
 - `NATIVEBUFFER_PIXEL_FMT_RGB_565` and `NATIVEBUFFER_PIXEL_FMT_BUTT` no longer require the

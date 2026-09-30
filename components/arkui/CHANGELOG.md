@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 0.3.5
 
 - Add API-24, API-25 and API-26 bindings.
 - API-26 split `native_type.h` into `common_type.h`, `error_code.h`, `native_type_visual.h` and
@@ -21,9 +21,6 @@
   (API-22), which were missing.
 - The API-22 `OH_ArkUI_TextLayoutManager_*` functions using `ohos-drawing-sys` types, which
   were previously not bound, are now available with the `drawing` feature.
-
-## 0.3.5
-
 - `ArkUI_DrawableDescriptor` is now re-exported from `ohos-sys-opaque-types`.
   The public path `arkui_sys::drawable_descriptor::ArkUI_DrawableDescriptor` is
   unchanged.
