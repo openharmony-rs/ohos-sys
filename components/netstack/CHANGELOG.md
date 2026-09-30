@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 0.1.2
 
 - Add API-24, API-25 and API-26 bindings.
 - Add the `http_interceptor` and `http_interceptor_type` modules (API-24).

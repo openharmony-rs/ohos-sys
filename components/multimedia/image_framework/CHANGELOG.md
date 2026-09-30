@@ -1,10 +1,10 @@
 # Changelog
 
-## Unreleased
+## 0.4.0
 
 - Add API-24, API-25 and API-26 bindings.
-- `ImageResult::SOURCE_UNSUPPORTED_OPTIONS` now requires the `api-15` feature, matching its
-  `@since` in the SDK. It was previously available with `api-12`.
+- Breaking: `ImageResult::SOURCE_UNSUPPORTED_OPTIONS` now requires the `api-15` feature,
+  matching its `@since` in the SDK. It was previously available with `api-12`.
 
 ## 0.3.6
 

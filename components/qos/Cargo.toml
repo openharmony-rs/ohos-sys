@@ -1,6 +1,6 @@
 [package]
 name = "ohos-libqos-sys"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 description = "Raw bindings to the QoS (thread priority scheduling) API and Gewu on-device LLM inference APIs of OpenHarmony"
 license = "Apache-2.0"

@@ -13,7 +13,7 @@ dependencies = [
 
 [[package]]
 name = "arkweb-sys"
-version = "0.1.1"
+version = "0.1.2"
 dependencies = [
  "document-features",
 ]
@@ -35,7 +35,7 @@ dependencies = [
 
 [[package]]
 name = "hilog-sys"
-version = "0.1.8"
+version = "0.1.9"
 dependencies = [
  "document-features",
  "log",
@@ -43,7 +43,7 @@ dependencies = [
 
 [[package]]
 name = "hitrace-sys"
-version = "0.1.10"
+version = "0.1.11"
 dependencies = [
  "document-features",
 ]
@@ -79,7 +79,7 @@ checksum = "a7a70ba024b9dc04c27ea2f0c0548feb474ec5c54bba33a7f72f873a39d07b24"
 
 [[package]]
 name = "ohaudio-sys"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "document-features",
  "libc",
@@ -87,7 +87,7 @@ dependencies = [
 
 [[package]]
 name = "ohos-abilitykit-sys"
-version = "0.1.6"
+version = "0.1.7"
 dependencies = [
  "document-features",
  "ohos-sys-opaque-types",
@@ -95,42 +95,42 @@ dependencies = [
 
 [[package]]
 name = "ohos-accesstoken-sys"
-version = "0.1.1"
+version = "0.1.2"
 dependencies = [
  "document-features",
 ]
 
 [[package]]
 name = "ohos-asset-store-sys"
-version = "0.1.1"
+version = "0.1.2"
 dependencies = [
  "document-features",
 ]
 
 [[package]]
 name = "ohos-basic-services-kit-sys"
-version = "0.1.0"
-dependencies = [
- "document-features",
-]
-
-[[package]]
-name = "ohos-crypto-sys"
 version = "0.1.1"
 dependencies = [
  "document-features",
 ]
 
 [[package]]
+name = "ohos-crypto-sys"
+version = "0.1.2"
+dependencies = [
+ "document-features",
+]
+
+[[package]]
 name = "ohos-deviceinfo-sys"
-version = "0.1.7"
+version = "0.1.8"
 dependencies = [
  "document-features",
 ]
 
 [[package]]
 name = "ohos-drawing-sys"
-version = "0.3.4"
+version = "0.3.5"
 dependencies = [
  "document-features",
  "ohos-sys-opaque-types",
@@ -138,14 +138,14 @@ dependencies = [
 
 [[package]]
 name = "ohos-huks-sys"
-version = "0.1.1"
+version = "0.1.2"
 dependencies = [
  "document-features",
 ]
 
 [[package]]
 name = "ohos-image-kit-sys"
-version = "0.3.6"
+version = "0.4.0"
 dependencies = [
  "document-features",
  "ohos-rawfile-sys",
@@ -154,7 +154,7 @@ dependencies = [
 
 [[package]]
 name = "ohos-ime-sys"
-version = "0.2.4"
+version = "0.2.5"
 dependencies = [
  "document-features",
  "ohos-sys-opaque-types",
@@ -170,7 +170,7 @@ dependencies = [
 
 [[package]]
 name = "ohos-ipckit-sys"
-version = "0.1.1"
+version = "0.1.2"
 dependencies = [
  "document-features",
  "ohos-sys-opaque-types",
@@ -178,7 +178,7 @@ dependencies = [
 
 [[package]]
 name = "ohos-libbundle-sys"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "document-features",
  "ohos-sys-opaque-types",
@@ -186,21 +186,21 @@ dependencies = [
 
 [[package]]
 name = "ohos-libqos-sys"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "document-features",
 ]
 
 [[package]]
 name = "ohos-locationkit-sys"
-version = "0.1.1"
+version = "0.1.2"
 dependencies = [
  "document-features",
 ]
 
 [[package]]
 name = "ohos-media-sys"
-version = "0.1.1"
+version = "0.1.2"
 dependencies = [
  "document-features",
  "ohos-sys-opaque-types",
@@ -208,14 +208,14 @@ dependencies = [
 
 [[package]]
 name = "ohos-net-ssl-sys"
-version = "0.1.1"
+version = "0.1.2"
 dependencies = [
  "document-features",
 ]
 
 [[package]]
 name = "ohos-netmanager-sys"
-version = "0.1.1"
+version = "0.1.2"
 dependencies = [
  "document-features",
  "libc",
@@ -223,14 +223,14 @@ dependencies = [
 
 [[package]]
 name = "ohos-netstack-sys"
-version = "0.1.1"
+version = "0.1.2"
 dependencies = [
  "document-features",
 ]
 
 [[package]]
 name = "ohos-pasteboard-sys"
-version = "0.1.5"
+version = "0.1.6"
 dependencies = [
  "document-features",
  "ohos-sys-opaque-types",
@@ -238,7 +238,7 @@ dependencies = [
 
 [[package]]
 name = "ohos-rawfile-sys"
-version = "0.1.4"
+version = "0.1.5"
 dependencies = [
  "document-features",
  "ohos-sys-opaque-types",
@@ -246,7 +246,7 @@ dependencies = [
 
 [[package]]
 name = "ohos-rdb-sys"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "document-features",
  "ohos-sys-opaque-types",
@@ -254,7 +254,7 @@ dependencies = [
 
 [[package]]
 name = "ohos-sensors-sys"
-version = "0.1.1"
+version = "0.1.2"
 dependencies = [
  "document-features",
 ]
@@ -307,7 +307,7 @@ version = "0.1.12"
 
 [[package]]
 name = "ohos-video-processing-engine-sys"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "document-features",
  "ohos-sys-opaque-types",
@@ -315,14 +315,14 @@ dependencies = [
 
 [[package]]
 name = "ohos-vsync-sys"
-version = "0.1.6"
+version = "0.1.7"
 dependencies = [
  "document-features",
 ]
 
 [[package]]
 name = "ohos-window-manager-sys"
-version = "0.1.4"
+version = "0.1.5"
 dependencies = [
  "document-features",
  "ohos-sys-opaque-types",
@@ -330,7 +330,7 @@ dependencies = [
 
 [[package]]
 name = "ohos-window-sys"
-version = "0.1.7"
+version = "0.1.8"
 dependencies = [
  "document-features",
  "ohos-sys-opaque-types",
@@ -387,7 +387,7 @@ dependencies = [
 
 [[package]]
 name = "udmf-sys"
-version = "0.1.4"
+version = "0.1.5"
 dependencies = [
  "document-features",
  "ohos-sys-opaque-types",
@@ -407,7 +407,7 @@ checksum = "c6f5d3c3b1bf09027a88a6bc961fc00497d651009560b5463668dc81b0fa87a8"
 
 [[package]]
 name = "xcomponent-sys"
-version = "0.4.0"
+version = "0.4.1"
 dependencies = [
  "arkui-sys",
  "document-features",

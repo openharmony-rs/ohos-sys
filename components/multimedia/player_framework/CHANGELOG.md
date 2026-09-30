@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 0.1.2
 
 - Add API-24, API-25 and API-26 bindings.
 - Add the `audio_vivid` and `avcodec_videobase` modules (API-26).
