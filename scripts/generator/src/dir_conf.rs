@@ -916,13 +916,6 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                                  .raw_line("#[cfg(feature = \"api-22\")]")
                                  .raw_line("use ohos_sys_opaque_types::OH_PixelmapNative;")
                     }
-                    "key_code" => {
-                        builder
-                            // Input_KeyCode is not directly exposed via FFI, instead a
-                            // raw integer is used there. Hence, we can use a rust enum here
-                            // which is much nicer to use.
-                            .rustified_enum("Input_KeyCode")
-                    }
                     _ => builder,
                 }
             }),

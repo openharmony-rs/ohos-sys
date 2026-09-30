@@ -1,8 +1,13 @@
 # Changelog
 
-## Unreleased
+## 0.4.0
 
 - Add API-24, API-25 and API-26 bindings.
+- Breaking: `Input_KeyCode` is now a newtype over `i32` instead of a Rust enum, like the other
+  enums. Key codes are associated constants with the same paths. Values returned by the system,
+  e.g. from `OH_Input_GetKeyEventKeyCode`, can be converted with `Input_KeyCode(code)`, including
+  key codes unknown to the enabled API level. Matches need a wildcard arm, and `as i32` casts
+  become `.0`.
 
 ## 0.3.4
 

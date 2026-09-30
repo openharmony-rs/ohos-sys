@@ -4,6 +4,1605 @@
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
 
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
+impl Input_KeyCode {
+    /// Unknown key
+    pub const KEYCODE_UNKNOWN: Input_KeyCode = Input_KeyCode(-1);
+    /// Function (Fn) key
+    pub const KEYCODE_FN: Input_KeyCode = Input_KeyCode(0);
+    /// Function (Home) key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_HOME: Input_KeyCode = Input_KeyCode(1);
+    /// Back button
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_BACK: Input_KeyCode = Input_KeyCode(2);
+    /// Search key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_SEARCH: Input_KeyCode = Input_KeyCode(9);
+    /// Media: Play/Pause key<br>Difference between this key and **KEYCODE_PLAYPAUSE**:<br>**KEYCODE_PLAYPAUSE** is an
+    /// earlier definition, while **KEYCODE_MEDIA_PLAY_PAUSE** is designed for modern media key devices.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_MEDIA_PLAY_PAUSE: Input_KeyCode = Input_KeyCode(10);
+    /// Media: Stop Key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_MEDIA_STOP: Input_KeyCode = Input_KeyCode(11);
+    /// Media: Next key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_MEDIA_NEXT: Input_KeyCode = Input_KeyCode(12);
+    /// Media: Previous key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_MEDIA_PREVIOUS: Input_KeyCode = Input_KeyCode(13);
+    /// Media: Rewind key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_MEDIA_REWIND: Input_KeyCode = Input_KeyCode(14);
+    /// Media: Fast Forward key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_MEDIA_FAST_FORWARD: Input_KeyCode = Input_KeyCode(15);
+    /// Volume Up key
+    pub const KEYCODE_VOLUME_UP: Input_KeyCode = Input_KeyCode(16);
+    /// Volume Down key
+    pub const KEYCODE_VOLUME_DOWN: Input_KeyCode = Input_KeyCode(17);
+    /// Power key
+    pub const KEYCODE_POWER: Input_KeyCode = Input_KeyCode(18);
+    /// Camera key
+    pub const KEYCODE_CAMERA: Input_KeyCode = Input_KeyCode(19);
+    /// Speaker Mute key
+    pub const KEYCODE_VOLUME_MUTE: Input_KeyCode = Input_KeyCode(22);
+    /// Mute key
+    pub const KEYCODE_MUTE: Input_KeyCode = Input_KeyCode(23);
+    /// Brightness Up key
+    pub const KEYCODE_BRIGHTNESS_UP: Input_KeyCode = Input_KeyCode(40);
+    /// Brightness Down key
+    pub const KEYCODE_BRIGHTNESS_DOWN: Input_KeyCode = Input_KeyCode(41);
+    /// Key 0
+    pub const KEYCODE_0: Input_KeyCode = Input_KeyCode(2000);
+    /// Key 1
+    pub const KEYCODE_1: Input_KeyCode = Input_KeyCode(2001);
+    /// Key 2
+    pub const KEYCODE_2: Input_KeyCode = Input_KeyCode(2002);
+    /// Key 3
+    pub const KEYCODE_3: Input_KeyCode = Input_KeyCode(2003);
+    /// Key 4
+    pub const KEYCODE_4: Input_KeyCode = Input_KeyCode(2004);
+    /// Key 5
+    pub const KEYCODE_5: Input_KeyCode = Input_KeyCode(2005);
+    /// Key 6
+    pub const KEYCODE_6: Input_KeyCode = Input_KeyCode(2006);
+    /// Key 7
+    pub const KEYCODE_7: Input_KeyCode = Input_KeyCode(2007);
+    /// Key 8
+    pub const KEYCODE_8: Input_KeyCode = Input_KeyCode(2008);
+    /// Key 9
+    pub const KEYCODE_9: Input_KeyCode = Input_KeyCode(2009);
+    /// Key *
+    pub const KEYCODE_STAR: Input_KeyCode = Input_KeyCode(2010);
+    /// Key #
+    pub const KEYCODE_POUND: Input_KeyCode = Input_KeyCode(2011);
+    /// Up key on D-pad
+    pub const KEYCODE_DPAD_UP: Input_KeyCode = Input_KeyCode(2012);
+    /// Down key on D-pad
+    pub const KEYCODE_DPAD_DOWN: Input_KeyCode = Input_KeyCode(2013);
+    /// Left key on D-pad
+    pub const KEYCODE_DPAD_LEFT: Input_KeyCode = Input_KeyCode(2014);
+    /// Right key on D-pad
+    pub const KEYCODE_DPAD_RIGHT: Input_KeyCode = Input_KeyCode(2015);
+    /// Center key on D-pad
+    pub const KEYCODE_DPAD_CENTER: Input_KeyCode = Input_KeyCode(2016);
+    /// Key A
+    pub const KEYCODE_A: Input_KeyCode = Input_KeyCode(2017);
+    /// Key B
+    pub const KEYCODE_B: Input_KeyCode = Input_KeyCode(2018);
+    /// Key C
+    pub const KEYCODE_C: Input_KeyCode = Input_KeyCode(2019);
+    /// Key D
+    pub const KEYCODE_D: Input_KeyCode = Input_KeyCode(2020);
+    /// Key E
+    pub const KEYCODE_E: Input_KeyCode = Input_KeyCode(2021);
+    /// Key F
+    pub const KEYCODE_F: Input_KeyCode = Input_KeyCode(2022);
+    /// Key G
+    pub const KEYCODE_G: Input_KeyCode = Input_KeyCode(2023);
+    /// Key H
+    pub const KEYCODE_H: Input_KeyCode = Input_KeyCode(2024);
+    /// Key I
+    pub const KEYCODE_I: Input_KeyCode = Input_KeyCode(2025);
+    /// Key J
+    pub const KEYCODE_J: Input_KeyCode = Input_KeyCode(2026);
+    /// Key K
+    pub const KEYCODE_K: Input_KeyCode = Input_KeyCode(2027);
+    /// Key L
+    pub const KEYCODE_L: Input_KeyCode = Input_KeyCode(2028);
+    /// Key M
+    pub const KEYCODE_M: Input_KeyCode = Input_KeyCode(2029);
+    /// Key N
+    pub const KEYCODE_N: Input_KeyCode = Input_KeyCode(2030);
+    /// Key O
+    pub const KEYCODE_O: Input_KeyCode = Input_KeyCode(2031);
+    /// Key P
+    pub const KEYCODE_P: Input_KeyCode = Input_KeyCode(2032);
+    /// Key Q
+    pub const KEYCODE_Q: Input_KeyCode = Input_KeyCode(2033);
+    /// Key R
+    pub const KEYCODE_R: Input_KeyCode = Input_KeyCode(2034);
+    /// Key S
+    pub const KEYCODE_S: Input_KeyCode = Input_KeyCode(2035);
+    /// Key T
+    pub const KEYCODE_T: Input_KeyCode = Input_KeyCode(2036);
+    /// Key U
+    pub const KEYCODE_U: Input_KeyCode = Input_KeyCode(2037);
+    /// Key V
+    pub const KEYCODE_V: Input_KeyCode = Input_KeyCode(2038);
+    /// Key W
+    pub const KEYCODE_W: Input_KeyCode = Input_KeyCode(2039);
+    /// Key X
+    pub const KEYCODE_X: Input_KeyCode = Input_KeyCode(2040);
+    /// Key Y
+    pub const KEYCODE_Y: Input_KeyCode = Input_KeyCode(2041);
+    /// Key Z
+    pub const KEYCODE_Z: Input_KeyCode = Input_KeyCode(2042);
+    /// Key ,
+    pub const KEYCODE_COMMA: Input_KeyCode = Input_KeyCode(2043);
+    /// Key .
+    pub const KEYCODE_PERIOD: Input_KeyCode = Input_KeyCode(2044);
+    /// Left Alt key
+    pub const KEYCODE_ALT_LEFT: Input_KeyCode = Input_KeyCode(2045);
+    /// Right Alt key
+    pub const KEYCODE_ALT_RIGHT: Input_KeyCode = Input_KeyCode(2046);
+    /// Left Shift key
+    pub const KEYCODE_SHIFT_LEFT: Input_KeyCode = Input_KeyCode(2047);
+    /// Right Shift key
+    pub const KEYCODE_SHIFT_RIGHT: Input_KeyCode = Input_KeyCode(2048);
+    /// Tab key
+    pub const KEYCODE_TAB: Input_KeyCode = Input_KeyCode(2049);
+    /// Space key
+    pub const KEYCODE_SPACE: Input_KeyCode = Input_KeyCode(2050);
+    /// Symbol key
+    pub const KEYCODE_SYM: Input_KeyCode = Input_KeyCode(2051);
+    /// Browser function key, used to launch the browser application.
+    pub const KEYCODE_EXPLORER: Input_KeyCode = Input_KeyCode(2052);
+    /// Email function key, used to launch the email application.
+    pub const KEYCODE_ENVELOPE: Input_KeyCode = Input_KeyCode(2053);
+    /// Enter key
+    pub const KEYCODE_ENTER: Input_KeyCode = Input_KeyCode(2054);
+    /// Delete key
+    pub const KEYCODE_DEL: Input_KeyCode = Input_KeyCode(2055);
+    /// Key *
+    pub const KEYCODE_GRAVE: Input_KeyCode = Input_KeyCode(2056);
+    /// Key -
+    pub const KEYCODE_MINUS: Input_KeyCode = Input_KeyCode(2057);
+    /// Key =
+    pub const KEYCODE_EQUALS: Input_KeyCode = Input_KeyCode(2058);
+    /// Key [
+    pub const KEYCODE_LEFT_BRACKET: Input_KeyCode = Input_KeyCode(2059);
+    /// Key ]
+    pub const KEYCODE_RIGHT_BRACKET: Input_KeyCode = Input_KeyCode(2060);
+    /// Key \|
+    pub const KEYCODE_BACKSLASH: Input_KeyCode = Input_KeyCode(2061);
+    /// Key ;
+    pub const KEYCODE_SEMICOLON: Input_KeyCode = Input_KeyCode(2062);
+    /// Key '
+    pub const KEYCODE_APOSTROPHE: Input_KeyCode = Input_KeyCode(2063);
+    /// Key /
+    pub const KEYCODE_SLASH: Input_KeyCode = Input_KeyCode(2064);
+    /// Key @
+    pub const KEYCODE_AT: Input_KeyCode = Input_KeyCode(2065);
+    /// Key +
+    pub const KEYCODE_PLUS: Input_KeyCode = Input_KeyCode(2066);
+    /// Menu key
+    pub const KEYCODE_MENU: Input_KeyCode = Input_KeyCode(2067);
+    /// Page Up key
+    pub const KEYCODE_PAGE_UP: Input_KeyCode = Input_KeyCode(2068);
+    /// Page Down key
+    pub const KEYCODE_PAGE_DOWN: Input_KeyCode = Input_KeyCode(2069);
+    /// Esc key
+    pub const KEYCODE_ESCAPE: Input_KeyCode = Input_KeyCode(2070);
+    /// Forward Delete key
+    pub const KEYCODE_FORWARD_DEL: Input_KeyCode = Input_KeyCode(2071);
+    /// Left Ctrl key
+    pub const KEYCODE_CTRL_LEFT: Input_KeyCode = Input_KeyCode(2072);
+    /// Right Ctrl key
+    pub const KEYCODE_CTRL_RIGHT: Input_KeyCode = Input_KeyCode(2073);
+    /// Caps Lock key
+    pub const KEYCODE_CAPS_LOCK: Input_KeyCode = Input_KeyCode(2074);
+    /// Scroll Lock key
+    pub const KEYCODE_SCROLL_LOCK: Input_KeyCode = Input_KeyCode(2075);
+    /// Left Meta key
+    pub const KEYCODE_META_LEFT: Input_KeyCode = Input_KeyCode(2076);
+    /// Right Meta key
+    pub const KEYCODE_META_RIGHT: Input_KeyCode = Input_KeyCode(2077);
+    /// Function key
+    pub const KEYCODE_FUNCTION: Input_KeyCode = Input_KeyCode(2078);
+    /// System Request/Print Screen key
+    pub const KEYCODE_SYSRQ: Input_KeyCode = Input_KeyCode(2079);
+    /// Break/Pause key
+    pub const KEYCODE_BREAK: Input_KeyCode = Input_KeyCode(2080);
+    /// Move to Home key
+    pub const KEYCODE_MOVE_HOME: Input_KeyCode = Input_KeyCode(2081);
+    /// Move to End key
+    pub const KEYCODE_MOVE_END: Input_KeyCode = Input_KeyCode(2082);
+    /// Insert key
+    pub const KEYCODE_INSERT: Input_KeyCode = Input_KeyCode(2083);
+    /// Forward key
+    pub const KEYCODE_FORWARD: Input_KeyCode = Input_KeyCode(2084);
+    /// Media: Play key
+    pub const KEYCODE_MEDIA_PLAY: Input_KeyCode = Input_KeyCode(2085);
+    /// Media: Pause key
+    pub const KEYCODE_MEDIA_PAUSE: Input_KeyCode = Input_KeyCode(2086);
+    /// Media: Close key
+    pub const KEYCODE_MEDIA_CLOSE: Input_KeyCode = Input_KeyCode(2087);
+    /// Media: Reject key
+    pub const KEYCODE_MEDIA_EJECT: Input_KeyCode = Input_KeyCode(2088);
+    /// Media: Record key
+    pub const KEYCODE_MEDIA_RECORD: Input_KeyCode = Input_KeyCode(2089);
+    /// F1 key
+    pub const KEYCODE_F1: Input_KeyCode = Input_KeyCode(2090);
+    /// F2 key
+    pub const KEYCODE_F2: Input_KeyCode = Input_KeyCode(2091);
+    /// F3 key
+    pub const KEYCODE_F3: Input_KeyCode = Input_KeyCode(2092);
+    /// F4 key
+    pub const KEYCODE_F4: Input_KeyCode = Input_KeyCode(2093);
+    /// F5 key
+    pub const KEYCODE_F5: Input_KeyCode = Input_KeyCode(2094);
+    /// F6 key
+    pub const KEYCODE_F6: Input_KeyCode = Input_KeyCode(2095);
+    /// F7 key
+    pub const KEYCODE_F7: Input_KeyCode = Input_KeyCode(2096);
+    /// F8 key
+    pub const KEYCODE_F8: Input_KeyCode = Input_KeyCode(2097);
+    /// F9 key
+    pub const KEYCODE_F9: Input_KeyCode = Input_KeyCode(2098);
+    /// F10 key
+    pub const KEYCODE_F10: Input_KeyCode = Input_KeyCode(2099);
+    /// F11 key
+    pub const KEYCODE_F11: Input_KeyCode = Input_KeyCode(2100);
+    /// F12 key
+    pub const KEYCODE_F12: Input_KeyCode = Input_KeyCode(2101);
+    /// Number Lock key
+    pub const KEYCODE_NUM_LOCK: Input_KeyCode = Input_KeyCode(2102);
+    /// Key 0 on numeric keypad
+    pub const KEYCODE_NUMPAD_0: Input_KeyCode = Input_KeyCode(2103);
+    /// Key 1 on numeric keypad
+    pub const KEYCODE_NUMPAD_1: Input_KeyCode = Input_KeyCode(2104);
+    /// Key 2 on numeric keypad
+    pub const KEYCODE_NUMPAD_2: Input_KeyCode = Input_KeyCode(2105);
+    /// Key 3 on numeric keypad
+    pub const KEYCODE_NUMPAD_3: Input_KeyCode = Input_KeyCode(2106);
+    /// Key 4 on numeric keypad
+    pub const KEYCODE_NUMPAD_4: Input_KeyCode = Input_KeyCode(2107);
+    /// Key 5 on numeric keypad
+    pub const KEYCODE_NUMPAD_5: Input_KeyCode = Input_KeyCode(2108);
+    /// Key 6 on numeric keypad
+    pub const KEYCODE_NUMPAD_6: Input_KeyCode = Input_KeyCode(2109);
+    /// Key 7 on numeric keypad
+    pub const KEYCODE_NUMPAD_7: Input_KeyCode = Input_KeyCode(2110);
+    /// Key 8 on numeric keypad
+    pub const KEYCODE_NUMPAD_8: Input_KeyCode = Input_KeyCode(2111);
+    /// Key 9 on numeric keypad
+    pub const KEYCODE_NUMPAD_9: Input_KeyCode = Input_KeyCode(2112);
+    /// Key / on numeric keypad
+    pub const KEYCODE_NUMPAD_DIVIDE: Input_KeyCode = Input_KeyCode(2113);
+    /// Key * on numeric keypad
+    pub const KEYCODE_NUMPAD_MULTIPLY: Input_KeyCode = Input_KeyCode(2114);
+    /// Key - on numeric keypad
+    pub const KEYCODE_NUMPAD_SUBTRACT: Input_KeyCode = Input_KeyCode(2115);
+    /// Key + on numeric keypad
+    pub const KEYCODE_NUMPAD_ADD: Input_KeyCode = Input_KeyCode(2116);
+    /// Key . on numeric keypad
+    pub const KEYCODE_NUMPAD_DOT: Input_KeyCode = Input_KeyCode(2117);
+    /// Key , on numeric keypad
+    pub const KEYCODE_NUMPAD_COMMA: Input_KeyCode = Input_KeyCode(2118);
+    /// Enter key on numeric keypad
+    pub const KEYCODE_NUMPAD_ENTER: Input_KeyCode = Input_KeyCode(2119);
+    /// Key = on numeric keypad
+    pub const KEYCODE_NUMPAD_EQUALS: Input_KeyCode = Input_KeyCode(2120);
+    /// Key ( on numeric keypad
+    pub const KEYCODE_NUMPAD_LEFT_PAREN: Input_KeyCode = Input_KeyCode(2121);
+    /// Key ) on numeric keypad
+    pub const KEYCODE_NUMPAD_RIGHT_PAREN: Input_KeyCode = Input_KeyCode(2122);
+    /// Multi-task key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_VIRTUAL_MULTITASK: Input_KeyCode = Input_KeyCode(2210);
+    /// Joystick key A
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_BUTTON_A: Input_KeyCode = Input_KeyCode(2301);
+    /// Joystick key B
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_BUTTON_B: Input_KeyCode = Input_KeyCode(2302);
+    /// Joystick key X
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_BUTTON_X: Input_KeyCode = Input_KeyCode(2304);
+    /// Joystick key Y
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_BUTTON_Y: Input_KeyCode = Input_KeyCode(2305);
+    /// Joystick key L1
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_BUTTON_L1: Input_KeyCode = Input_KeyCode(2307);
+    /// Joystick key R1
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_BUTTON_R1: Input_KeyCode = Input_KeyCode(2308);
+    /// Joystick key L2
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_BUTTON_L2: Input_KeyCode = Input_KeyCode(2309);
+    /// Joystick key R2
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_BUTTON_R2: Input_KeyCode = Input_KeyCode(2310);
+    /// Joystick key Select
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_BUTTON_SELECT: Input_KeyCode = Input_KeyCode(2311);
+    /// Joystick key Start
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_BUTTON_START: Input_KeyCode = Input_KeyCode(2312);
+    /// Joystick key Mode
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_BUTTON_MODE: Input_KeyCode = Input_KeyCode(2313);
+    /// Joystick key THUMBL
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_BUTTON_THUMBL: Input_KeyCode = Input_KeyCode(2314);
+    /// Joystick key THUMBR
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_BUTTON_THUMBR: Input_KeyCode = Input_KeyCode(2315);
+    /// Sleep key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_SLEEP: Input_KeyCode = Input_KeyCode(2600);
+    /// Zenkaku/Hankaku key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_ZENKAKU_HANKAKU: Input_KeyCode = Input_KeyCode(2601);
+    /// International Keyboard Extension key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_102ND: Input_KeyCode = Input_KeyCode(2602);
+    /// Ro key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_RO: Input_KeyCode = Input_KeyCode(2603);
+    /// Katakana key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_KATAKANA: Input_KeyCode = Input_KeyCode(2604);
+    /// Hiragana key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_HIRAGANA: Input_KeyCode = Input_KeyCode(2605);
+    /// Henkan key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_HENKAN: Input_KeyCode = Input_KeyCode(2606);
+    /// Katakana/Hiragana key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_KATAKANA_HIRAGANA: Input_KeyCode = Input_KeyCode(2607);
+    /// Muhenkan key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_MUHENKAN: Input_KeyCode = Input_KeyCode(2608);
+    /// Linefeed key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_LINEFEED: Input_KeyCode = Input_KeyCode(2609);
+    /// Macro key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_MACRO: Input_KeyCode = Input_KeyCode(2610);
+    /// Plus/Minus key on the numeric keypad
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_NUMPAD_PLUSMINUS: Input_KeyCode = Input_KeyCode(2611);
+    /// Scale key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_SCALE: Input_KeyCode = Input_KeyCode(2612);
+    /// Hanguel key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_HANGUEL: Input_KeyCode = Input_KeyCode(2613);
+    /// Hanja key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_HANJA: Input_KeyCode = Input_KeyCode(2614);
+    /// Yen key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_YEN: Input_KeyCode = Input_KeyCode(2615);
+    /// Stop key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_STOP: Input_KeyCode = Input_KeyCode(2616);
+    /// Again key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_AGAIN: Input_KeyCode = Input_KeyCode(2617);
+    /// Props key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_PROPS: Input_KeyCode = Input_KeyCode(2618);
+    /// Undo key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_UNDO: Input_KeyCode = Input_KeyCode(2619);
+    /// Copy key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_COPY: Input_KeyCode = Input_KeyCode(2620);
+    /// Open key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_OPEN: Input_KeyCode = Input_KeyCode(2621);
+    /// Paste key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_PASTE: Input_KeyCode = Input_KeyCode(2622);
+    /// Find key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_FIND: Input_KeyCode = Input_KeyCode(2623);
+    /// Cut key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_CUT: Input_KeyCode = Input_KeyCode(2624);
+    /// Help key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_HELP: Input_KeyCode = Input_KeyCode(2625);
+    /// Calculator special function key, used to launch the calculator application.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_CALC: Input_KeyCode = Input_KeyCode(2626);
+    /// File key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_FILE: Input_KeyCode = Input_KeyCode(2627);
+    /// Bookmarks key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_BOOKMARKS: Input_KeyCode = Input_KeyCode(2628);
+    /// Page Down key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_NEXT: Input_KeyCode = Input_KeyCode(2629);
+    /// Media: Play/Pause key<br>Difference between this key and **KEYCODE_MEDIA_PLAY_PAUSE**:<br>**KEYCODE_PLAYPAUSE**
+    /// is an earlier definition, while **KEYCODE_MEDIA_PLAY_PAUSE** is designed for modern media key devices.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_PLAYPAUSE: Input_KeyCode = Input_KeyCode(2630);
+    /// Page Up key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_PREVIOUS: Input_KeyCode = Input_KeyCode(2631);
+    /// Stop CD key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_STOPCD: Input_KeyCode = Input_KeyCode(2632);
+    /// Configuration key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_CONFIG: Input_KeyCode = Input_KeyCode(2634);
+    /// Refresh key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_REFRESH: Input_KeyCode = Input_KeyCode(2635);
+    /// Exit key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_EXIT: Input_KeyCode = Input_KeyCode(2636);
+    /// Edit key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_EDIT: Input_KeyCode = Input_KeyCode(2637);
+    /// Scroll Up key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_SCROLLUP: Input_KeyCode = Input_KeyCode(2638);
+    /// Scroll Down key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_SCROLLDOWN: Input_KeyCode = Input_KeyCode(2639);
+    /// New key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_NEW: Input_KeyCode = Input_KeyCode(2640);
+    /// Redo key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_REDO: Input_KeyCode = Input_KeyCode(2641);
+    /// Close key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_CLOSE: Input_KeyCode = Input_KeyCode(2642);
+    /// Play key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_PLAY: Input_KeyCode = Input_KeyCode(2643);
+    /// Bass Boost key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_BASSBOOST: Input_KeyCode = Input_KeyCode(2644);
+    /// Print key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_PRINT: Input_KeyCode = Input_KeyCode(2645);
+    /// Chat key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_CHAT: Input_KeyCode = Input_KeyCode(2646);
+    /// Finance key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_FINANCE: Input_KeyCode = Input_KeyCode(2647);
+    /// Cancel key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_CANCEL: Input_KeyCode = Input_KeyCode(2648);
+    /// Keyboard Illumination Toggle key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_KBDILLUM_TOGGLE: Input_KeyCode = Input_KeyCode(2649);
+    /// Keyboard Illumination Down key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_KBDILLUM_DOWN: Input_KeyCode = Input_KeyCode(2650);
+    /// Keyboard Illumination Up key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_KBDILLUM_UP: Input_KeyCode = Input_KeyCode(2651);
+    /// Send key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_SEND: Input_KeyCode = Input_KeyCode(2652);
+    /// Reply key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_REPLY: Input_KeyCode = Input_KeyCode(2653);
+    /// Forward Mail key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_FORWARDMAIL: Input_KeyCode = Input_KeyCode(2654);
+    /// Save key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_SAVE: Input_KeyCode = Input_KeyCode(2655);
+    /// Documents key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_DOCUMENTS: Input_KeyCode = Input_KeyCode(2656);
+    /// Next Video key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_VIDEO_NEXT: Input_KeyCode = Input_KeyCode(2657);
+    /// Previous Video key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_VIDEO_PREV: Input_KeyCode = Input_KeyCode(2658);
+    /// Brightness Cycle key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_BRIGHTNESS_CYCLE: Input_KeyCode = Input_KeyCode(2659);
+    /// Brightness Zero key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_BRIGHTNESS_ZERO: Input_KeyCode = Input_KeyCode(2660);
+    /// Display Off Key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_DISPLAY_OFF: Input_KeyCode = Input_KeyCode(2661);
+    /// Misc Button key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_BTN_MISC: Input_KeyCode = Input_KeyCode(2662);
+    /// Goto key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_GOTO: Input_KeyCode = Input_KeyCode(2663);
+    /// Info key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_INFO: Input_KeyCode = Input_KeyCode(2664);
+    /// Program key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_PROGRAM: Input_KeyCode = Input_KeyCode(2665);
+    /// PVR key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_PVR: Input_KeyCode = Input_KeyCode(2666);
+    /// Subtitle key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_SUBTITLE: Input_KeyCode = Input_KeyCode(2667);
+    /// Full Screen key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_FULL_SCREEN: Input_KeyCode = Input_KeyCode(2668);
+    /// Keyboard
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_KEYBOARD: Input_KeyCode = Input_KeyCode(2669);
+    /// Aspect Ratio key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_ASPECT_RATIO: Input_KeyCode = Input_KeyCode(2670);
+    /// Port Control key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_PC: Input_KeyCode = Input_KeyCode(2671);
+    /// TV key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_TV: Input_KeyCode = Input_KeyCode(2672);
+    /// TV key 2
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_TV2: Input_KeyCode = Input_KeyCode(2673);
+    /// VCR key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_VCR: Input_KeyCode = Input_KeyCode(2674);
+    /// VCR key 2
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_VCR2: Input_KeyCode = Input_KeyCode(2675);
+    /// SAT key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_SAT: Input_KeyCode = Input_KeyCode(2676);
+    /// CD key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_CD: Input_KeyCode = Input_KeyCode(2677);
+    /// Tape key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_TAPE: Input_KeyCode = Input_KeyCode(2678);
+    /// Tuner key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_TUNER: Input_KeyCode = Input_KeyCode(2679);
+    /// Player key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_PLAYER: Input_KeyCode = Input_KeyCode(2680);
+    /// DVD key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_DVD: Input_KeyCode = Input_KeyCode(2681);
+    /// Audio key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_AUDIO: Input_KeyCode = Input_KeyCode(2682);
+    /// Video key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_VIDEO: Input_KeyCode = Input_KeyCode(2683);
+    /// Memo key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_MEMO: Input_KeyCode = Input_KeyCode(2684);
+    /// Calendar key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_CALENDAR: Input_KeyCode = Input_KeyCode(2685);
+    /// Red indicator
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_RED: Input_KeyCode = Input_KeyCode(2686);
+    /// Green indicator
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_GREEN: Input_KeyCode = Input_KeyCode(2687);
+    /// Yellow indicator
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_YELLOW: Input_KeyCode = Input_KeyCode(2688);
+    /// Blue indicator
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_BLUE: Input_KeyCode = Input_KeyCode(2689);
+    /// Channel Up key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_CHANNELUP: Input_KeyCode = Input_KeyCode(2690);
+    /// Channel Down key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_CHANNELDOWN: Input_KeyCode = Input_KeyCode(2691);
+    /// Last key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_LAST: Input_KeyCode = Input_KeyCode(2692);
+    /// Restart key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_RESTART: Input_KeyCode = Input_KeyCode(2693);
+    /// Slow key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_SLOW: Input_KeyCode = Input_KeyCode(2694);
+    /// Shuffle key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_SHUFFLE: Input_KeyCode = Input_KeyCode(2695);
+    /// Videophone key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_VIDEOPHONE: Input_KeyCode = Input_KeyCode(2696);
+    /// Games key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_GAMES: Input_KeyCode = Input_KeyCode(2697);
+    /// Zoom In key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_ZOOMIN: Input_KeyCode = Input_KeyCode(2698);
+    /// Zoom Out key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_ZOOMOUT: Input_KeyCode = Input_KeyCode(2699);
+    /// Zoom Reset key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_ZOOMRESET: Input_KeyCode = Input_KeyCode(2700);
+    /// Word Processor key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_WORDPROCESSOR: Input_KeyCode = Input_KeyCode(2701);
+    /// Editor key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_EDITOR: Input_KeyCode = Input_KeyCode(2702);
+    /// Spreadsheet key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_SPREADSHEET: Input_KeyCode = Input_KeyCode(2703);
+    /// Graphics Editor key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_GRAPHICSEDITOR: Input_KeyCode = Input_KeyCode(2704);
+    /// Presentation key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_PRESENTATION: Input_KeyCode = Input_KeyCode(2705);
+    /// Database key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_DATABASE: Input_KeyCode = Input_KeyCode(2706);
+    /// News key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_NEWS: Input_KeyCode = Input_KeyCode(2707);
+    /// Voice mailbox
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_VOICEMAIL: Input_KeyCode = Input_KeyCode(2708);
+    /// Address book key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_ADDRESSBOOK: Input_KeyCode = Input_KeyCode(2709);
+    /// Messenger key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_MESSENGER: Input_KeyCode = Input_KeyCode(2710);
+    /// Brightness Toggle key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_BRIGHTNESS_TOGGLE: Input_KeyCode = Input_KeyCode(2711);
+    /// Spell Check key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_SPELLCHECK: Input_KeyCode = Input_KeyCode(2712);
+    /// Coffee key, which is used to launch screen lock or screen saver
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_COFFEE: Input_KeyCode = Input_KeyCode(2713);
+    /// Media Repeat key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_MEDIA_REPEAT: Input_KeyCode = Input_KeyCode(2714);
+    /// Images key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_IMAGES: Input_KeyCode = Input_KeyCode(2715);
+    /// Button Configuration key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_BUTTONCONFIG: Input_KeyCode = Input_KeyCode(2716);
+    /// Task Manager
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_TASKMANAGER: Input_KeyCode = Input_KeyCode(2717);
+    /// Log key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_JOURNAL: Input_KeyCode = Input_KeyCode(2718);
+    /// Control Panel key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_CONTROLPANEL: Input_KeyCode = Input_KeyCode(2719);
+    /// App Select key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_APPSELECT: Input_KeyCode = Input_KeyCode(2720);
+    /// Screen Saver key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_SCREENSAVER: Input_KeyCode = Input_KeyCode(2721);
+    /// Assistant key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_ASSISTANT: Input_KeyCode = Input_KeyCode(2722);
+    /// Next Keyboard Layout key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_KBD_LAYOUT_NEXT: Input_KeyCode = Input_KeyCode(2723);
+    /// Min Brightness key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_BRIGHTNESS_MIN: Input_KeyCode = Input_KeyCode(2724);
+    /// Max Brightness key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_BRIGHTNESS_MAX: Input_KeyCode = Input_KeyCode(2725);
+    /// Keyboard Input Assist_Previous, used to view input method input history.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_KBDINPUTASSIST_PREV: Input_KeyCode = Input_KeyCode(2726);
+    /// Keyboard Input Assist_Next, used to view input method input extensions.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_KBDINPUTASSIST_NEXT: Input_KeyCode = Input_KeyCode(2727);
+    /// Keyboard Input Assist_Previous, used to switch to the previous input method in the input group.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_KBDINPUTASSIST_PREVGROUP: Input_KeyCode = Input_KeyCode(2728);
+    /// Keyboard Input Assist_Next, used to switch to the next input method in the input group.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_KBDINPUTASSIST_NEXTGROUP: Input_KeyCode = Input_KeyCode(2729);
+    /// Keyboard Input-assisted Accept key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_KBDINPUTASSIST_ACCEPT: Input_KeyCode = Input_KeyCode(2730);
+    /// Keyboard Input-assisted Cancel key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_KBDINPUTASSIST_CANCEL: Input_KeyCode = Input_KeyCode(2731);
+    /// Mouse AI Assistant key
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub const KEYCODE_MOUSE_ASSISTANT: Input_KeyCode = Input_KeyCode(2732);
+    /// Mouse Smart Selection key
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub const KEYCODE_MOUSE_INTELLIGENCE_SELECTION: Input_KeyCode = Input_KeyCode(2733);
+    /// Phone touchscreen single-click event, used in Always-On Display state.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub const KEYCODE_AOD_SINGLE_CLICK: Input_KeyCode = Input_KeyCode(2740);
+    /// Front key, which is used to launch the windshield defogger
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_FRONT: Input_KeyCode = Input_KeyCode(2800);
+    /// Setup key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_SETUP: Input_KeyCode = Input_KeyCode(2801);
+    /// Wakeup key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_WAKEUP: Input_KeyCode = Input_KeyCode(2802);
+    /// Send File key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_SENDFILE: Input_KeyCode = Input_KeyCode(2803);
+    /// Delete File key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_DELETEFILE: Input_KeyCode = Input_KeyCode(2804);
+    /// XFER key, which is used to start file transfer
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_XFER: Input_KeyCode = Input_KeyCode(2805);
+    /// Program key 1
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_PROG1: Input_KeyCode = Input_KeyCode(2806);
+    /// Program key 2
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_PROG2: Input_KeyCode = Input_KeyCode(2807);
+    /// DOS key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_MSDOS: Input_KeyCode = Input_KeyCode(2808);
+    /// Screen Lock key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_SCREENLOCK: Input_KeyCode = Input_KeyCode(2809);
+    /// Directional Rotation Display key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_DIRECTION_ROTATE_DISPLAY: Input_KeyCode = Input_KeyCode(2810);
+    /// Window Cycle key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_CYCLEWINDOWS: Input_KeyCode = Input_KeyCode(2811);
+    /// Computer key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_COMPUTER: Input_KeyCode = Input_KeyCode(2812);
+    /// Eject CD key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_EJECTCLOSECD: Input_KeyCode = Input_KeyCode(2813);
+    /// ISO key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_ISO: Input_KeyCode = Input_KeyCode(2814);
+    /// Move key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_MOVE: Input_KeyCode = Input_KeyCode(2815);
+    /// F13 key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_F13: Input_KeyCode = Input_KeyCode(2816);
+    /// F14 key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_F14: Input_KeyCode = Input_KeyCode(2817);
+    /// F15 key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_F15: Input_KeyCode = Input_KeyCode(2818);
+    /// F16 key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_F16: Input_KeyCode = Input_KeyCode(2819);
+    /// F17 key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_F17: Input_KeyCode = Input_KeyCode(2820);
+    /// F18 key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_F18: Input_KeyCode = Input_KeyCode(2821);
+    /// F19 key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_F19: Input_KeyCode = Input_KeyCode(2822);
+    /// F20 key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_F20: Input_KeyCode = Input_KeyCode(2823);
+    /// F21 key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_F21: Input_KeyCode = Input_KeyCode(2824);
+    /// F22 key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_F22: Input_KeyCode = Input_KeyCode(2825);
+    /// F23 key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_F23: Input_KeyCode = Input_KeyCode(2826);
+    /// F24 key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_F24: Input_KeyCode = Input_KeyCode(2827);
+    /// Program key 3
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_PROG3: Input_KeyCode = Input_KeyCode(2828);
+    /// Program key 4
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_PROG4: Input_KeyCode = Input_KeyCode(2829);
+    /// Dashboard
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_DASHBOARD: Input_KeyCode = Input_KeyCode(2830);
+    /// Suspend key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_SUSPEND: Input_KeyCode = Input_KeyCode(2831);
+    /// HP key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_HP: Input_KeyCode = Input_KeyCode(2832);
+    /// Sound key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_SOUND: Input_KeyCode = Input_KeyCode(2833);
+    /// Question key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_QUESTION: Input_KeyCode = Input_KeyCode(2834);
+    /// Connect key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_CONNECT: Input_KeyCode = Input_KeyCode(2836);
+    /// Sport key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_SPORT: Input_KeyCode = Input_KeyCode(2837);
+    /// Shop key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_SHOP: Input_KeyCode = Input_KeyCode(2838);
+    /// Alternate key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_ALTERASE: Input_KeyCode = Input_KeyCode(2839);
+    /// Cycle output between available videos (monitor/LCD/TV output/more)
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_SWITCHVIDEOMODE: Input_KeyCode = Input_KeyCode(2841);
+    /// Battery key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_BATTERY: Input_KeyCode = Input_KeyCode(2842);
+    /// Bluetooth key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_BLUETOOTH: Input_KeyCode = Input_KeyCode(2843);
+    /// WLAN key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_WLAN: Input_KeyCode = Input_KeyCode(2844);
+    /// Ultra-wideband key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_UWB: Input_KeyCode = Input_KeyCode(2845);
+    /// Mobile Network Control key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_WWAN_WIMAX: Input_KeyCode = Input_KeyCode(2846);
+    /// RF Kill key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_RFKILL: Input_KeyCode = Input_KeyCode(2847);
+    /// Channel key
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_CHANNEL: Input_KeyCode = Input_KeyCode(3001);
+    /// Button 0
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_BTN_0: Input_KeyCode = Input_KeyCode(3100);
+    /// Button 1
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_BTN_1: Input_KeyCode = Input_KeyCode(3101);
+    /// Button 2
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_BTN_2: Input_KeyCode = Input_KeyCode(3102);
+    /// Button 3
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_BTN_3: Input_KeyCode = Input_KeyCode(3103);
+    /// Button 4
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_BTN_4: Input_KeyCode = Input_KeyCode(3104);
+    /// Button 5
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_BTN_5: Input_KeyCode = Input_KeyCode(3105);
+    /// Button 6
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_BTN_6: Input_KeyCode = Input_KeyCode(3106);
+    /// Button 7
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_BTN_7: Input_KeyCode = Input_KeyCode(3107);
+    /// Button 8
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_BTN_8: Input_KeyCode = Input_KeyCode(3108);
+    /// Button 9
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_BTN_9: Input_KeyCode = Input_KeyCode(3109);
+    /// Single tapping the smart watch's X-TAP sensor
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_DAGGER_CLICK: Input_KeyCode = Input_KeyCode(3211);
+    /// Double tapping the smart watch's X-TAP sensor
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_DAGGER_DOUBLE_CLICK: Input_KeyCode = Input_KeyCode(3212);
+    /// Long-pressing the smart watch's X-TAP sensor
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_DAGGER_LONG_PRESS: Input_KeyCode = Input_KeyCode(3213);
+    /// Left button of the smart watch
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const KEYCODE_DIV: Input_KeyCode = Input_KeyCode(3220);
+    /// Custom Shortcut Keys
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub const KEYCODE_XKEY: Input_KeyCode = Input_KeyCode(3232);
+    /// Smart control Key slide-up
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub const KEYCODE_FINGERPRINT_SLIDE_UP: Input_KeyCode = Input_KeyCode(3233);
+    /// Smart control Key slide-down
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub const KEYCODE_FINGERPRINT_SLIDE_DOWN: Input_KeyCode = Input_KeyCode(3234);
+}
+#[repr(transparent)]
 /// Enumerates the key codes.
 ///
 ///
@@ -11,1600 +1610,4 @@
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
-#[repr(i32)]
-pub enum Input_KeyCode {
-    /// Unknown key
-    KEYCODE_UNKNOWN = -1,
-    /// Function (Fn) key
-    KEYCODE_FN = 0,
-    /// Function (Home) key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_HOME = 1,
-    /// Back button
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_BACK = 2,
-    /// Search key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_SEARCH = 9,
-    /// Media: Play/Pause key<br>Difference between this key and **KEYCODE_PLAYPAUSE**:<br>**KEYCODE_PLAYPAUSE** is an
-    /// earlier definition, while **KEYCODE_MEDIA_PLAY_PAUSE** is designed for modern media key devices.
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_MEDIA_PLAY_PAUSE = 10,
-    /// Media: Stop Key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_MEDIA_STOP = 11,
-    /// Media: Next key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_MEDIA_NEXT = 12,
-    /// Media: Previous key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_MEDIA_PREVIOUS = 13,
-    /// Media: Rewind key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_MEDIA_REWIND = 14,
-    /// Media: Fast Forward key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_MEDIA_FAST_FORWARD = 15,
-    /// Volume Up key
-    KEYCODE_VOLUME_UP = 16,
-    /// Volume Down key
-    KEYCODE_VOLUME_DOWN = 17,
-    /// Power key
-    KEYCODE_POWER = 18,
-    /// Camera key
-    KEYCODE_CAMERA = 19,
-    /// Speaker Mute key
-    KEYCODE_VOLUME_MUTE = 22,
-    /// Mute key
-    KEYCODE_MUTE = 23,
-    /// Brightness Up key
-    KEYCODE_BRIGHTNESS_UP = 40,
-    /// Brightness Down key
-    KEYCODE_BRIGHTNESS_DOWN = 41,
-    /// Key 0
-    KEYCODE_0 = 2000,
-    /// Key 1
-    KEYCODE_1 = 2001,
-    /// Key 2
-    KEYCODE_2 = 2002,
-    /// Key 3
-    KEYCODE_3 = 2003,
-    /// Key 4
-    KEYCODE_4 = 2004,
-    /// Key 5
-    KEYCODE_5 = 2005,
-    /// Key 6
-    KEYCODE_6 = 2006,
-    /// Key 7
-    KEYCODE_7 = 2007,
-    /// Key 8
-    KEYCODE_8 = 2008,
-    /// Key 9
-    KEYCODE_9 = 2009,
-    /// Key *
-    KEYCODE_STAR = 2010,
-    /// Key #
-    KEYCODE_POUND = 2011,
-    /// Up key on D-pad
-    KEYCODE_DPAD_UP = 2012,
-    /// Down key on D-pad
-    KEYCODE_DPAD_DOWN = 2013,
-    /// Left key on D-pad
-    KEYCODE_DPAD_LEFT = 2014,
-    /// Right key on D-pad
-    KEYCODE_DPAD_RIGHT = 2015,
-    /// Center key on D-pad
-    KEYCODE_DPAD_CENTER = 2016,
-    /// Key A
-    KEYCODE_A = 2017,
-    /// Key B
-    KEYCODE_B = 2018,
-    /// Key C
-    KEYCODE_C = 2019,
-    /// Key D
-    KEYCODE_D = 2020,
-    /// Key E
-    KEYCODE_E = 2021,
-    /// Key F
-    KEYCODE_F = 2022,
-    /// Key G
-    KEYCODE_G = 2023,
-    /// Key H
-    KEYCODE_H = 2024,
-    /// Key I
-    KEYCODE_I = 2025,
-    /// Key J
-    KEYCODE_J = 2026,
-    /// Key K
-    KEYCODE_K = 2027,
-    /// Key L
-    KEYCODE_L = 2028,
-    /// Key M
-    KEYCODE_M = 2029,
-    /// Key N
-    KEYCODE_N = 2030,
-    /// Key O
-    KEYCODE_O = 2031,
-    /// Key P
-    KEYCODE_P = 2032,
-    /// Key Q
-    KEYCODE_Q = 2033,
-    /// Key R
-    KEYCODE_R = 2034,
-    /// Key S
-    KEYCODE_S = 2035,
-    /// Key T
-    KEYCODE_T = 2036,
-    /// Key U
-    KEYCODE_U = 2037,
-    /// Key V
-    KEYCODE_V = 2038,
-    /// Key W
-    KEYCODE_W = 2039,
-    /// Key X
-    KEYCODE_X = 2040,
-    /// Key Y
-    KEYCODE_Y = 2041,
-    /// Key Z
-    KEYCODE_Z = 2042,
-    /// Key ,
-    KEYCODE_COMMA = 2043,
-    /// Key .
-    KEYCODE_PERIOD = 2044,
-    /// Left Alt key
-    KEYCODE_ALT_LEFT = 2045,
-    /// Right Alt key
-    KEYCODE_ALT_RIGHT = 2046,
-    /// Left Shift key
-    KEYCODE_SHIFT_LEFT = 2047,
-    /// Right Shift key
-    KEYCODE_SHIFT_RIGHT = 2048,
-    /// Tab key
-    KEYCODE_TAB = 2049,
-    /// Space key
-    KEYCODE_SPACE = 2050,
-    /// Symbol key
-    KEYCODE_SYM = 2051,
-    /// Browser function key, used to launch the browser application.
-    KEYCODE_EXPLORER = 2052,
-    /// Email function key, used to launch the email application.
-    KEYCODE_ENVELOPE = 2053,
-    /// Enter key
-    KEYCODE_ENTER = 2054,
-    /// Delete key
-    KEYCODE_DEL = 2055,
-    /// Key *
-    KEYCODE_GRAVE = 2056,
-    /// Key -
-    KEYCODE_MINUS = 2057,
-    /// Key =
-    KEYCODE_EQUALS = 2058,
-    /// Key [
-    KEYCODE_LEFT_BRACKET = 2059,
-    /// Key ]
-    KEYCODE_RIGHT_BRACKET = 2060,
-    /// Key \|
-    KEYCODE_BACKSLASH = 2061,
-    /// Key ;
-    KEYCODE_SEMICOLON = 2062,
-    /// Key '
-    KEYCODE_APOSTROPHE = 2063,
-    /// Key /
-    KEYCODE_SLASH = 2064,
-    /// Key @
-    KEYCODE_AT = 2065,
-    /// Key +
-    KEYCODE_PLUS = 2066,
-    /// Menu key
-    KEYCODE_MENU = 2067,
-    /// Page Up key
-    KEYCODE_PAGE_UP = 2068,
-    /// Page Down key
-    KEYCODE_PAGE_DOWN = 2069,
-    /// Esc key
-    KEYCODE_ESCAPE = 2070,
-    /// Forward Delete key
-    KEYCODE_FORWARD_DEL = 2071,
-    /// Left Ctrl key
-    KEYCODE_CTRL_LEFT = 2072,
-    /// Right Ctrl key
-    KEYCODE_CTRL_RIGHT = 2073,
-    /// Caps Lock key
-    KEYCODE_CAPS_LOCK = 2074,
-    /// Scroll Lock key
-    KEYCODE_SCROLL_LOCK = 2075,
-    /// Left Meta key
-    KEYCODE_META_LEFT = 2076,
-    /// Right Meta key
-    KEYCODE_META_RIGHT = 2077,
-    /// Function key
-    KEYCODE_FUNCTION = 2078,
-    /// System Request/Print Screen key
-    KEYCODE_SYSRQ = 2079,
-    /// Break/Pause key
-    KEYCODE_BREAK = 2080,
-    /// Move to Home key
-    KEYCODE_MOVE_HOME = 2081,
-    /// Move to End key
-    KEYCODE_MOVE_END = 2082,
-    /// Insert key
-    KEYCODE_INSERT = 2083,
-    /// Forward key
-    KEYCODE_FORWARD = 2084,
-    /// Media: Play key
-    KEYCODE_MEDIA_PLAY = 2085,
-    /// Media: Pause key
-    KEYCODE_MEDIA_PAUSE = 2086,
-    /// Media: Close key
-    KEYCODE_MEDIA_CLOSE = 2087,
-    /// Media: Reject key
-    KEYCODE_MEDIA_EJECT = 2088,
-    /// Media: Record key
-    KEYCODE_MEDIA_RECORD = 2089,
-    /// F1 key
-    KEYCODE_F1 = 2090,
-    /// F2 key
-    KEYCODE_F2 = 2091,
-    /// F3 key
-    KEYCODE_F3 = 2092,
-    /// F4 key
-    KEYCODE_F4 = 2093,
-    /// F5 key
-    KEYCODE_F5 = 2094,
-    /// F6 key
-    KEYCODE_F6 = 2095,
-    /// F7 key
-    KEYCODE_F7 = 2096,
-    /// F8 key
-    KEYCODE_F8 = 2097,
-    /// F9 key
-    KEYCODE_F9 = 2098,
-    /// F10 key
-    KEYCODE_F10 = 2099,
-    /// F11 key
-    KEYCODE_F11 = 2100,
-    /// F12 key
-    KEYCODE_F12 = 2101,
-    /// Number Lock key
-    KEYCODE_NUM_LOCK = 2102,
-    /// Key 0 on numeric keypad
-    KEYCODE_NUMPAD_0 = 2103,
-    /// Key 1 on numeric keypad
-    KEYCODE_NUMPAD_1 = 2104,
-    /// Key 2 on numeric keypad
-    KEYCODE_NUMPAD_2 = 2105,
-    /// Key 3 on numeric keypad
-    KEYCODE_NUMPAD_3 = 2106,
-    /// Key 4 on numeric keypad
-    KEYCODE_NUMPAD_4 = 2107,
-    /// Key 5 on numeric keypad
-    KEYCODE_NUMPAD_5 = 2108,
-    /// Key 6 on numeric keypad
-    KEYCODE_NUMPAD_6 = 2109,
-    /// Key 7 on numeric keypad
-    KEYCODE_NUMPAD_7 = 2110,
-    /// Key 8 on numeric keypad
-    KEYCODE_NUMPAD_8 = 2111,
-    /// Key 9 on numeric keypad
-    KEYCODE_NUMPAD_9 = 2112,
-    /// Key / on numeric keypad
-    KEYCODE_NUMPAD_DIVIDE = 2113,
-    /// Key * on numeric keypad
-    KEYCODE_NUMPAD_MULTIPLY = 2114,
-    /// Key - on numeric keypad
-    KEYCODE_NUMPAD_SUBTRACT = 2115,
-    /// Key + on numeric keypad
-    KEYCODE_NUMPAD_ADD = 2116,
-    /// Key . on numeric keypad
-    KEYCODE_NUMPAD_DOT = 2117,
-    /// Key , on numeric keypad
-    KEYCODE_NUMPAD_COMMA = 2118,
-    /// Enter key on numeric keypad
-    KEYCODE_NUMPAD_ENTER = 2119,
-    /// Key = on numeric keypad
-    KEYCODE_NUMPAD_EQUALS = 2120,
-    /// Key ( on numeric keypad
-    KEYCODE_NUMPAD_LEFT_PAREN = 2121,
-    /// Key ) on numeric keypad
-    KEYCODE_NUMPAD_RIGHT_PAREN = 2122,
-    /// Multi-task key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_VIRTUAL_MULTITASK = 2210,
-    /// Joystick key A
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_BUTTON_A = 2301,
-    /// Joystick key B
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_BUTTON_B = 2302,
-    /// Joystick key X
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_BUTTON_X = 2304,
-    /// Joystick key Y
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_BUTTON_Y = 2305,
-    /// Joystick key L1
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_BUTTON_L1 = 2307,
-    /// Joystick key R1
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_BUTTON_R1 = 2308,
-    /// Joystick key L2
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_BUTTON_L2 = 2309,
-    /// Joystick key R2
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_BUTTON_R2 = 2310,
-    /// Joystick key Select
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_BUTTON_SELECT = 2311,
-    /// Joystick key Start
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_BUTTON_START = 2312,
-    /// Joystick key Mode
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_BUTTON_MODE = 2313,
-    /// Joystick key THUMBL
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_BUTTON_THUMBL = 2314,
-    /// Joystick key THUMBR
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_BUTTON_THUMBR = 2315,
-    /// Sleep key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_SLEEP = 2600,
-    /// Zenkaku/Hankaku key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_ZENKAKU_HANKAKU = 2601,
-    /// International Keyboard Extension key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_102ND = 2602,
-    /// Ro key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_RO = 2603,
-    /// Katakana key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_KATAKANA = 2604,
-    /// Hiragana key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_HIRAGANA = 2605,
-    /// Henkan key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_HENKAN = 2606,
-    /// Katakana/Hiragana key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_KATAKANA_HIRAGANA = 2607,
-    /// Muhenkan key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_MUHENKAN = 2608,
-    /// Linefeed key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_LINEFEED = 2609,
-    /// Macro key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_MACRO = 2610,
-    /// Plus/Minus key on the numeric keypad
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_NUMPAD_PLUSMINUS = 2611,
-    /// Scale key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_SCALE = 2612,
-    /// Hanguel key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_HANGUEL = 2613,
-    /// Hanja key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_HANJA = 2614,
-    /// Yen key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_YEN = 2615,
-    /// Stop key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_STOP = 2616,
-    /// Again key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_AGAIN = 2617,
-    /// Props key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_PROPS = 2618,
-    /// Undo key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_UNDO = 2619,
-    /// Copy key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_COPY = 2620,
-    /// Open key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_OPEN = 2621,
-    /// Paste key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_PASTE = 2622,
-    /// Find key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_FIND = 2623,
-    /// Cut key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_CUT = 2624,
-    /// Help key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_HELP = 2625,
-    /// Calculator special function key, used to launch the calculator application.
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_CALC = 2626,
-    /// File key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_FILE = 2627,
-    /// Bookmarks key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_BOOKMARKS = 2628,
-    /// Page Down key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_NEXT = 2629,
-    /// Media: Play/Pause key<br>Difference between this key and **KEYCODE_MEDIA_PLAY_PAUSE**:<br>**KEYCODE_PLAYPAUSE**
-    /// is an earlier definition, while **KEYCODE_MEDIA_PLAY_PAUSE** is designed for modern media key devices.
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_PLAYPAUSE = 2630,
-    /// Page Up key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_PREVIOUS = 2631,
-    /// Stop CD key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_STOPCD = 2632,
-    /// Configuration key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_CONFIG = 2634,
-    /// Refresh key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_REFRESH = 2635,
-    /// Exit key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_EXIT = 2636,
-    /// Edit key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_EDIT = 2637,
-    /// Scroll Up key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_SCROLLUP = 2638,
-    /// Scroll Down key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_SCROLLDOWN = 2639,
-    /// New key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_NEW = 2640,
-    /// Redo key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_REDO = 2641,
-    /// Close key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_CLOSE = 2642,
-    /// Play key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_PLAY = 2643,
-    /// Bass Boost key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_BASSBOOST = 2644,
-    /// Print key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_PRINT = 2645,
-    /// Chat key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_CHAT = 2646,
-    /// Finance key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_FINANCE = 2647,
-    /// Cancel key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_CANCEL = 2648,
-    /// Keyboard Illumination Toggle key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_KBDILLUM_TOGGLE = 2649,
-    /// Keyboard Illumination Down key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_KBDILLUM_DOWN = 2650,
-    /// Keyboard Illumination Up key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_KBDILLUM_UP = 2651,
-    /// Send key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_SEND = 2652,
-    /// Reply key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_REPLY = 2653,
-    /// Forward Mail key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_FORWARDMAIL = 2654,
-    /// Save key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_SAVE = 2655,
-    /// Documents key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_DOCUMENTS = 2656,
-    /// Next Video key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_VIDEO_NEXT = 2657,
-    /// Previous Video key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_VIDEO_PREV = 2658,
-    /// Brightness Cycle key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_BRIGHTNESS_CYCLE = 2659,
-    /// Brightness Zero key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_BRIGHTNESS_ZERO = 2660,
-    /// Display Off Key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_DISPLAY_OFF = 2661,
-    /// Misc Button key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_BTN_MISC = 2662,
-    /// Goto key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_GOTO = 2663,
-    /// Info key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_INFO = 2664,
-    /// Program key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_PROGRAM = 2665,
-    /// PVR key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_PVR = 2666,
-    /// Subtitle key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_SUBTITLE = 2667,
-    /// Full Screen key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_FULL_SCREEN = 2668,
-    /// Keyboard
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_KEYBOARD = 2669,
-    /// Aspect Ratio key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_ASPECT_RATIO = 2670,
-    /// Port Control key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_PC = 2671,
-    /// TV key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_TV = 2672,
-    /// TV key 2
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_TV2 = 2673,
-    /// VCR key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_VCR = 2674,
-    /// VCR key 2
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_VCR2 = 2675,
-    /// SAT key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_SAT = 2676,
-    /// CD key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_CD = 2677,
-    /// Tape key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_TAPE = 2678,
-    /// Tuner key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_TUNER = 2679,
-    /// Player key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_PLAYER = 2680,
-    /// DVD key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_DVD = 2681,
-    /// Audio key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_AUDIO = 2682,
-    /// Video key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_VIDEO = 2683,
-    /// Memo key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_MEMO = 2684,
-    /// Calendar key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_CALENDAR = 2685,
-    /// Red indicator
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_RED = 2686,
-    /// Green indicator
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_GREEN = 2687,
-    /// Yellow indicator
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_YELLOW = 2688,
-    /// Blue indicator
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_BLUE = 2689,
-    /// Channel Up key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_CHANNELUP = 2690,
-    /// Channel Down key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_CHANNELDOWN = 2691,
-    /// Last key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_LAST = 2692,
-    /// Restart key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_RESTART = 2693,
-    /// Slow key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_SLOW = 2694,
-    /// Shuffle key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_SHUFFLE = 2695,
-    /// Videophone key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_VIDEOPHONE = 2696,
-    /// Games key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_GAMES = 2697,
-    /// Zoom In key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_ZOOMIN = 2698,
-    /// Zoom Out key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_ZOOMOUT = 2699,
-    /// Zoom Reset key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_ZOOMRESET = 2700,
-    /// Word Processor key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_WORDPROCESSOR = 2701,
-    /// Editor key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_EDITOR = 2702,
-    /// Spreadsheet key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_SPREADSHEET = 2703,
-    /// Graphics Editor key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_GRAPHICSEDITOR = 2704,
-    /// Presentation key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_PRESENTATION = 2705,
-    /// Database key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_DATABASE = 2706,
-    /// News key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_NEWS = 2707,
-    /// Voice mailbox
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_VOICEMAIL = 2708,
-    /// Address book key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_ADDRESSBOOK = 2709,
-    /// Messenger key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_MESSENGER = 2710,
-    /// Brightness Toggle key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_BRIGHTNESS_TOGGLE = 2711,
-    /// Spell Check key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_SPELLCHECK = 2712,
-    /// Coffee key, which is used to launch screen lock or screen saver
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_COFFEE = 2713,
-    /// Media Repeat key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_MEDIA_REPEAT = 2714,
-    /// Images key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_IMAGES = 2715,
-    /// Button Configuration key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_BUTTONCONFIG = 2716,
-    /// Task Manager
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_TASKMANAGER = 2717,
-    /// Log key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_JOURNAL = 2718,
-    /// Control Panel key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_CONTROLPANEL = 2719,
-    /// App Select key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_APPSELECT = 2720,
-    /// Screen Saver key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_SCREENSAVER = 2721,
-    /// Assistant key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_ASSISTANT = 2722,
-    /// Next Keyboard Layout key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_KBD_LAYOUT_NEXT = 2723,
-    /// Min Brightness key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_BRIGHTNESS_MIN = 2724,
-    /// Max Brightness key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_BRIGHTNESS_MAX = 2725,
-    /// Keyboard Input Assist_Previous, used to view input method input history.
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_KBDINPUTASSIST_PREV = 2726,
-    /// Keyboard Input Assist_Next, used to view input method input extensions.
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_KBDINPUTASSIST_NEXT = 2727,
-    /// Keyboard Input Assist_Previous, used to switch to the previous input method in the input group.
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_KBDINPUTASSIST_PREVGROUP = 2728,
-    /// Keyboard Input Assist_Next, used to switch to the next input method in the input group.
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_KBDINPUTASSIST_NEXTGROUP = 2729,
-    /// Keyboard Input-assisted Accept key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_KBDINPUTASSIST_ACCEPT = 2730,
-    /// Keyboard Input-assisted Cancel key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_KBDINPUTASSIST_CANCEL = 2731,
-    /// Mouse AI Assistant key
-    ///
-    /// Available since API-level: 26
-    #[cfg(feature = "api-26")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
-    KEYCODE_MOUSE_ASSISTANT = 2732,
-    /// Mouse Smart Selection key
-    ///
-    /// Available since API-level: 26
-    #[cfg(feature = "api-26")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
-    KEYCODE_MOUSE_INTELLIGENCE_SELECTION = 2733,
-    /// Phone touchscreen single-click event, used in Always-On Display state.
-    ///
-    /// Available since API-level: 26
-    #[cfg(feature = "api-26")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
-    KEYCODE_AOD_SINGLE_CLICK = 2740,
-    /// Front key, which is used to launch the windshield defogger
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_FRONT = 2800,
-    /// Setup key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_SETUP = 2801,
-    /// Wakeup key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_WAKEUP = 2802,
-    /// Send File key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_SENDFILE = 2803,
-    /// Delete File key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_DELETEFILE = 2804,
-    /// XFER key, which is used to start file transfer
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_XFER = 2805,
-    /// Program key 1
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_PROG1 = 2806,
-    /// Program key 2
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_PROG2 = 2807,
-    /// DOS key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_MSDOS = 2808,
-    /// Screen Lock key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_SCREENLOCK = 2809,
-    /// Directional Rotation Display key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_DIRECTION_ROTATE_DISPLAY = 2810,
-    /// Window Cycle key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_CYCLEWINDOWS = 2811,
-    /// Computer key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_COMPUTER = 2812,
-    /// Eject CD key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_EJECTCLOSECD = 2813,
-    /// ISO key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_ISO = 2814,
-    /// Move key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_MOVE = 2815,
-    /// F13 key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_F13 = 2816,
-    /// F14 key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_F14 = 2817,
-    /// F15 key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_F15 = 2818,
-    /// F16 key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_F16 = 2819,
-    /// F17 key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_F17 = 2820,
-    /// F18 key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_F18 = 2821,
-    /// F19 key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_F19 = 2822,
-    /// F20 key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_F20 = 2823,
-    /// F21 key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_F21 = 2824,
-    /// F22 key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_F22 = 2825,
-    /// F23 key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_F23 = 2826,
-    /// F24 key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_F24 = 2827,
-    /// Program key 3
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_PROG3 = 2828,
-    /// Program key 4
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_PROG4 = 2829,
-    /// Dashboard
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_DASHBOARD = 2830,
-    /// Suspend key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_SUSPEND = 2831,
-    /// HP key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_HP = 2832,
-    /// Sound key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_SOUND = 2833,
-    /// Question key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_QUESTION = 2834,
-    /// Connect key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_CONNECT = 2836,
-    /// Sport key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_SPORT = 2837,
-    /// Shop key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_SHOP = 2838,
-    /// Alternate key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_ALTERASE = 2839,
-    /// Cycle output between available videos (monitor/LCD/TV output/more)
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_SWITCHVIDEOMODE = 2841,
-    /// Battery key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_BATTERY = 2842,
-    /// Bluetooth key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_BLUETOOTH = 2843,
-    /// WLAN key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_WLAN = 2844,
-    /// Ultra-wideband key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_UWB = 2845,
-    /// Mobile Network Control key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_WWAN_WIMAX = 2846,
-    /// RF Kill key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_RFKILL = 2847,
-    /// Channel key
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_CHANNEL = 3001,
-    /// Button 0
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_BTN_0 = 3100,
-    /// Button 1
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_BTN_1 = 3101,
-    /// Button 2
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_BTN_2 = 3102,
-    /// Button 3
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_BTN_3 = 3103,
-    /// Button 4
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_BTN_4 = 3104,
-    /// Button 5
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_BTN_5 = 3105,
-    /// Button 6
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_BTN_6 = 3106,
-    /// Button 7
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_BTN_7 = 3107,
-    /// Button 8
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_BTN_8 = 3108,
-    /// Button 9
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_BTN_9 = 3109,
-    /// Single tapping the smart watch's X-TAP sensor
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_DAGGER_CLICK = 3211,
-    /// Double tapping the smart watch's X-TAP sensor
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_DAGGER_DOUBLE_CLICK = 3212,
-    /// Long-pressing the smart watch's X-TAP sensor
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_DAGGER_LONG_PRESS = 3213,
-    /// Left button of the smart watch
-    ///
-    /// Available since API-level: 22
-    #[cfg(feature = "api-22")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
-    KEYCODE_DIV = 3220,
-    /// Custom Shortcut Keys
-    ///
-    /// Available since API-level: 26
-    #[cfg(feature = "api-26")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
-    KEYCODE_XKEY = 3232,
-    /// Smart control Key slide-up
-    ///
-    /// Available since API-level: 26
-    #[cfg(feature = "api-26")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
-    KEYCODE_FINGERPRINT_SLIDE_UP = 3233,
-    /// Smart control Key slide-down
-    ///
-    /// Available since API-level: 26
-    #[cfg(feature = "api-26")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
-    KEYCODE_FINGERPRINT_SLIDE_DOWN = 3234,
-}
+pub struct Input_KeyCode(pub ::core::ffi::c_int);
