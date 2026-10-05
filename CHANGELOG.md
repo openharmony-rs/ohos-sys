@@ -11,6 +11,9 @@
   `OH_AudioSession_ConcurrencyMode` and `OH_AudioSession_Strategy` moved to `audio_session_base`
   and are re-exported from `audio_session_manager`.
 - `ohos-sys-opaque-types`: `OHIPCRemoteStub`.
+- `transient-task` — `ohos-transient-task-sys` (BackgroundTasksKit, `libtransient_task.so`):
+  request, query and cancel transient tasks (suspend delays), plus
+  `OH_BackgroundTaskManager_GetTransientTaskInfo` at API-20.
 - `bundle` — `ohos-libbundle-sys` (BundleManager / native bundle NDK,
   `libbundle_ndk.z.so`): application identity (`bundleName`, `appId`,
   `appIdentifier`, fingerprint, compatible device type, debug-mode flag),

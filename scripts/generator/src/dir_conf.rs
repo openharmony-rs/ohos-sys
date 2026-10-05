@@ -1498,5 +1498,18 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
             }),
             ..Default::default()
         },
+        DirBindingsConf {
+            directory: "transient_task".to_string(),
+            output_dir: "components/transient_task/src".to_string(),
+            rename_output_file: None,
+            set_builder_opts: Box::new(|file_stem, header_path, builder| {
+                let builder = builder.allowlist_file(header_path.to_str().unwrap());
+                match file_stem {
+                    "transient_task_api" => builder.raw_line("use crate::transient_task_type::*;"),
+                    _ => builder,
+                }
+            }),
+            ..Default::default()
+        },
     ]
 }

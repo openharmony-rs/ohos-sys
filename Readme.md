@@ -77,7 +77,7 @@ already been generated.
 | sensors                                 | ✅      | 26        | [ohos-sensors-sys]        |
 | SCSI Peripherals                        |        |           |                           |
 | telephony                               |        |           |                           |
-| transient_task                          |        |           |                           |
+| transient_task                          | ✅      | 26        | [ohos-transient-task-sys] |
 | Unified Data Management Framework(UDMF) | ✅      | 26        | [udmf-sys]                |
 | usb                                     |        |           |                           |
 | usb serial                              |        |           |                           |
@@ -118,6 +118,7 @@ already been generated.
 [ohos-huks-sys]: https://docs.rs/ohos-huks-sys/latest/ohos_huks_sys/
 [ohos-accesstoken-sys]: https://docs.rs/ohos-accesstoken-sys/latest/ohos_accesstoken_sys/
 [ohos-deviceinfo-sys]: https://docs.rs/ohos-deviceinfo-sys/latest/ohos_deviceinfo_sys/
+[ohos-transient-task-sys]: https://docs.rs/ohos-transient-task-sys/latest/ohos_transient_task_sys/
 
 
 ## Development

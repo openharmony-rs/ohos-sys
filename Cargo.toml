@@ -53,6 +53,7 @@ ohos-libqos-sys = { version = "0.1.1", optional = true, path = "components/qos" 
 ohos-rawfile-sys = { version = "0.1.5", optional = true, path = "components/rawfile" }
 ohos-rdb-sys = { version = "0.1.1", optional = true, path = "components/rdb" }
 ohos-sensors-sys = { version = "0.1.2", optional = true, path = "components/sensors" }
+ohos-transient-task-sys = { version = "0.1.0", optional = true, path = "components/transient_task" }
 ohos-sys-opaque-types = { workspace = true }
 ohos-window-sys = { version = "0.1.8", optional = true, path = "components/window" }
 ohos-vsync-sys = { version = "0.1.7", optional = true, path = "components/vsync" }
@@ -150,6 +151,8 @@ rawfile = ['ohos-rawfile-sys']
 rdb = ["dep:ohos-rdb-sys"]
 ## Enables bindings to the sensors module.
 sensors = ["dep:ohos-sensors-sys"]
+## Enables bindings to the transient task API (BackgroundTasksKit). Requires `api-13`.
+transient-task = ["dep:ohos-transient-task-sys"]
 ## Enables bindings to the Unified Data Management Framework (UDMF)
 udmf = ['dep:udmf-sys']
 ## Enables bindings to `native_vsync`
@@ -206,6 +209,7 @@ all-components = [
     "rawfile",
     "rdb",
     "sensors",
+    "transient-task",
     "xcomponent",
     "udmf",
     "vsync",
@@ -323,6 +327,7 @@ api-13 = [
     "ohos-window-manager-sys?/api-13",
     "udmf-sys?/api-13",
     "xcomponent-sys?/api-13",
+    "ohos-transient-task-sys?/api-13",
 ]
 
 ## Enables bindings for OpenHarmony API-level 14
@@ -362,6 +367,7 @@ api-14 = [
     "ohos-window-sys?/api-14",
     "udmf-sys?/api-14",
     "xcomponent-sys?/api-14",
+    "ohos-transient-task-sys?/api-14",
 ]
 
 ## Enables bindings for OpenHarmony API-level 15
@@ -401,6 +407,7 @@ api-15 = [
     "ohos-window-sys?/api-15",
     "udmf-sys?/api-15",
     "xcomponent-sys?/api-15",
+    "ohos-transient-task-sys?/api-15",
 ]
 
 ## Enables bindings for OpenHarmony API-level 16.
@@ -439,6 +446,7 @@ api-16 = ["api-15",
     "ohos-window-sys?/api-16",
     "udmf-sys?/api-16",
     "xcomponent-sys?/api-16",
+    "ohos-transient-task-sys?/api-16",
 ]
 ## Enables bindings for OpenHarmony API-level 17.
 api-17 = ["api-16",
@@ -476,6 +484,7 @@ api-17 = ["api-16",
     "ohos-window-sys?/api-17",
     "udmf-sys?/api-17",
     "xcomponent-sys?/api-17",
+    "ohos-transient-task-sys?/api-17",
 ]
 ## Enables bindings for OpenHarmony API-level 18 (5.1.0).
 api-18 = ["api-17",
@@ -513,6 +522,7 @@ api-18 = ["api-17",
     "ohos-window-sys?/api-18",
     "udmf-sys?/api-18",
     "xcomponent-sys?/api-18",
+    "ohos-transient-task-sys?/api-18",
 ]
 ## Enables bindings for OpenHarmony API-level 19
 api-19 = ["api-18",
@@ -550,6 +560,7 @@ api-19 = ["api-18",
     "ohos-window-sys?/api-19",
     "udmf-sys?/api-19",
     "xcomponent-sys?/api-19",
+    "ohos-transient-task-sys?/api-19",
 ]
 ## Enables bindings for OpenHarmony API-level 20
 api-20 = ["api-19",
@@ -587,6 +598,7 @@ api-20 = ["api-19",
     "ohos-window-sys?/api-20",
     "udmf-sys?/api-20",
     "xcomponent-sys?/api-20",
+    "ohos-transient-task-sys?/api-20",
 ]
 ## Enables bindings for OpenHarmony API-level 21
 api-21 = ["api-20",
@@ -624,6 +636,7 @@ api-21 = ["api-20",
     "ohos-window-sys?/api-21",
     "udmf-sys?/api-21",
     "xcomponent-sys?/api-21",
+    "ohos-transient-task-sys?/api-21",
 ]
 ## Enables bindings for OpenHarmony API-level 22
 api-22 = ["api-21",
@@ -661,6 +674,7 @@ api-22 = ["api-21",
     "ohos-window-sys?/api-22",
     "udmf-sys?/api-22",
     "xcomponent-sys?/api-22",
+    "ohos-transient-task-sys?/api-22",
 ]
 ## Enables bindings for OpenHarmony API-level 23
 api-23 = ["api-22",
@@ -698,6 +712,7 @@ api-23 = ["api-22",
     "ohos-window-sys?/api-23",
     "udmf-sys?/api-23",
     "xcomponent-sys?/api-23",
+    "ohos-transient-task-sys?/api-23",
 ]
 ## Enables bindings for OpenHarmony API-level 24
 api-24 = ["api-23",
@@ -735,6 +750,7 @@ api-24 = ["api-23",
     "ohos-window-sys?/api-24",
     "udmf-sys?/api-24",
     "xcomponent-sys?/api-24",
+    "ohos-transient-task-sys?/api-24",
 ]
 ## Enables bindings for OpenHarmony API-level 25
 api-25 = ["api-24",
@@ -772,6 +788,7 @@ api-25 = ["api-24",
     "ohos-window-sys?/api-25",
     "udmf-sys?/api-25",
     "xcomponent-sys?/api-25",
+    "ohos-transient-task-sys?/api-25",
 ]
 ## Enables bindings for OpenHarmony API-level 26
 api-26 = ["api-25",
@@ -809,6 +826,7 @@ api-26 = ["api-25",
     "ohos-window-sys?/api-26",
     "udmf-sys?/api-26",
     "xcomponent-sys?/api-26",
+    "ohos-transient-task-sys?/api-26",
 ]
 
 #! ### Features of dependencies
