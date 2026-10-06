@@ -166,6 +166,7 @@ jobs:
           - rawfile
           - rdb
           - sensors
+          - transient-task
           - udmf
           - vsync
           - web

@@ -293,6 +293,7 @@ dependencies = [
  "ohos-rdb-sys",
  "ohos-sensors-sys",
  "ohos-sys-opaque-types",
+ "ohos-transient-task-sys",
  "ohos-video-processing-engine-sys",
  "ohos-vsync-sys",
  "ohos-window-manager-sys",
@@ -304,6 +305,13 @@ dependencies = [
 [[package]]
 name = "ohos-sys-opaque-types"
 version = "0.1.12"
+
+[[package]]
+name = "ohos-transient-task-sys"
+version = "0.1.0"
+dependencies = [
+ "document-features",
+]
 
 [[package]]
 name = "ohos-video-processing-engine-sys"

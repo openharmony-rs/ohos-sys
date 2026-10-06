@@ -112,6 +112,10 @@ pub use ohos_rdb_sys as rdb;
 #[cfg_attr(docsrs, doc(cfg(feature = "sensors")))]
 pub use ohos_sensors_sys as sensors;
 
+#[cfg(feature = "transient-task")]
+#[cfg_attr(docsrs, doc(cfg(feature = "transient-task")))]
+pub use ohos_transient_task_sys as transient_task;
+
 #[cfg(feature = "udmf")]
 #[cfg_attr(docsrs, doc(cfg(feature = "udmf")))]
 pub use udmf_sys as udmf;
