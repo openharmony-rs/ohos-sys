@@ -48,9 +48,9 @@ impl Debug for ResultEnumParseCallbacks {
 }
 
 impl bindgen::callbacks::ParseCallbacks for ResultEnumParseCallbacks {
-    fn item_name(&self, original_item_name: &str) -> Option<String> {
-        let new_name = (self.rename_item)(original_item_name)?;
-        record_type_rename(original_item_name, &new_name);
+    fn item_name(&self, item_info: bindgen::callbacks::ItemInfo) -> Option<String> {
+        let new_name = (self.rename_item)(item_info.name)?;
+        record_type_rename(item_info.name, &new_name);
         Some(new_name)
     }
 }

@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Breaking: `OH_Huks_ExternalCryptoParam__bindgen_ty_1::bindgen_union_field` is now a `__BindgenOpaqueArray8<[u8; 8]>`.
+
 ## 0.1.2
 
 - Update bindings to API-24, API-25 and API-26 (no new symbols).

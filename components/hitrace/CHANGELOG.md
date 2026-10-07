@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Breaking: `HiTraceId` no longer has the `_bitfield_align_1` field (it uses `repr(align(8))` instead).
+
 ## 0.1.11
 
 - Update bindings to API-24, API-25 and API-26 (no new symbols).

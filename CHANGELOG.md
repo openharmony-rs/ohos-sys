@@ -22,6 +22,8 @@
 
 ### Changed 
 
+- Bindings are generated with bindgen 0.73: forward-declared types derive `Debug`, and `Result`
+  type aliases are behind the same `api-*` feature as their error type.
 - xcomponent 0.4.0: the `keyboard-types` feature now covers the full key-event
   translation (`Code`, `NamedKey`, `Location`, US-layout characters and a
   stateful `KeyEventConverter`), and linking `ace_ndk.z` is limited to
