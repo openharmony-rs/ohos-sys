@@ -2,6 +2,7 @@
 name = "ohos-drawing-sys"
 version = "0.3.5"
 edition = "2021"
+rust-version.workspace = true
 description = "Bindings to the `native_drawing` API of OpenHarmony OS"
 license = "Apache-2.0"
 repository = "https://github.com/openharmony-rs/ohos-sys"

@@ -2,6 +2,7 @@
 name = "ohos-netmanager-sys"
 version = "0.1.2"
 edition = "2021"
+rust-version.workspace = true
 description = "Raw bindings to the OpenHarmony NetworkKit (netmanager) native APIs"
 license = "Apache-2.0"
 repository = "https://github.com/openharmony-rs/ohos-sys"

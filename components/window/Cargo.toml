@@ -2,6 +2,7 @@
 name = "ohos-window-sys"
 version = "0.1.8"
 edition = "2021"
+rust-version.workspace = true
 description = "Raw Bindings to the OpenHarmony native window"
 license = "Apache-2.0"
 repository = "https://github.com/openharmony-rs/ohos-sys"

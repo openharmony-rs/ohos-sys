@@ -2,6 +2,7 @@
 name = "ohos-sys-opaque-types"
 version = "0.1.12"
 edition = "2021"
+rust-version.workspace = true
 keywords = ["OpenHarmony", "HarmonyOS"]
 description = "Internal helper cratefor opaque type bindings that are used in multiple ohos-sys crates"
 repository = "https://github.com/openharmony-rs/ohos-sys"

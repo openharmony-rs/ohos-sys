@@ -2,6 +2,7 @@
 name = "ohos-libqos-sys"
 version = "0.1.1"
 edition = "2021"
+rust-version.workspace = true
 description = "Raw bindings to the QoS (thread priority scheduling) API and Gewu on-device LLM inference APIs of OpenHarmony"
 license = "Apache-2.0"
 repository = "https://github.com/openharmony-rs/ohos-sys"

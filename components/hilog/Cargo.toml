@@ -2,6 +2,7 @@
 name = "hilog-sys"
 version = "0.1.9"
 edition = "2021"
+rust-version.workspace = true
 keywords = ["OpenHarmony", "HarmonyOS", "hilog", "log"]
 description = "Rust bindings to the HiLog logging system of OpenHarmony"
 repository = "https://github.com/openharmony-rs/ohos-sys"

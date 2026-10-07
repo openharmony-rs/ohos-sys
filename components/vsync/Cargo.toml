@@ -2,6 +2,7 @@
 name = "ohos-vsync-sys"
 version = "0.1.7"
 edition = "2021"
+rust-version.workspace = true
 description = "Raw Bindings to the vsync (Vertical Synchroization) API of OpenHarmony"
 license = "Apache-2.0"
 repository = "https://github.com/openharmony-rs/ohos-sys"
