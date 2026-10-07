@@ -1,8 +1,8 @@
 --- a/components/window/src/native_buffer/native_buffer/native_buffer_ffi.rs
 +++ b/components/window/src/native_buffer/native_buffer/native_buffer_ffi.rs
-@@ -38,42 +38,40 @@
-     }
- }
+@@ -14,42 +14,40 @@
+ use ohos_sys_opaque_types::OH_NativeBuffer;
+ 
  impl OH_NativeBuffer_Usage {
 +    /// CPU read buffer
      pub const NATIVEBUFFER_USAGE_CPU_READ: OH_NativeBuffer_Usage = OH_NativeBuffer_Usage(1);
