@@ -97,6 +97,19 @@ jobs:
         name: Build default features
       - run: cargo build --all-features
         name: Build all features
+  msrv:
+    name: Build with MSRV
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - name: Read MSRV
+        id: msrv
+        run: echo "rust-version=$(sed -ne 's/^rust-version *= *"\(.*\)"/\1/p' Cargo.toml)" >> "$GITHUB_OUTPUT"
+      - uses: dtolnay/rust-toolchain@master
+        with:
+          toolchain: ${{ steps.msrv.outputs.rust-version }}
+      - run: cargo build --workspace --all-features
+        name: Build all crates with all features
   api_feature_levels:
     strategy:
       matrix:
@@ -280,6 +293,7 @@ jobs:
       - format
       - clippy
       - build-toolchains
+      - msrv
       - api_feature_levels
       - api_minimal_features
       - link-smoke
