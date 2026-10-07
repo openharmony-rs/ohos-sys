@@ -2,6 +2,7 @@
 name = "ohos-net-ssl-sys"
 version = "0.1.2"
 edition = "2021"
+rust-version.workspace = true
 description = "Raw bindings to the OpenHarmony NetworkKit (net_ssl) native APIs"
 license = "Apache-2.0"
 repository = "https://github.com/openharmony-rs/ohos-sys"

@@ -8,7 +8,7 @@ repository = "https://github.com/openharmony-rs/ohos-sys"
 keywords = ["OpenHarmony", "HarmonyOS", "ffi"]
 readme = "Readme.md"
 resolver = "2"
-rust-version = "1.78.0"
+rust-version.workspace = true
 
 [workspace]
 members = [
@@ -18,6 +18,9 @@ members = [
     "components/multimedia/video_processing_engine",
 ]
 exclude = ["components/multimedia", "scripts"]
+
+[workspace.package]
+rust-version = "1.85"
 
 [workspace.dependencies]
 ohos-sys-opaque-types = { version = "0.1.12", path = "components/opaque-types" }

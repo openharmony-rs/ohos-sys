@@ -2,6 +2,7 @@
 name = "hitrace-sys"
 version = "0.1.11"
 edition = "2021"
+rust-version.workspace = true
 keywords = ["OpenHarmony", "HarmonyOS", "hitrace", "tracing"]
 license = "Apache-2.0"
 description = "Bindings to the HiTrace tracing system of OpenHarmony"

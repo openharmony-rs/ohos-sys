@@ -2,6 +2,7 @@
 name = "ohos-sensors-sys"
 version = "0.1.2"
 edition = "2021"
+rust-version.workspace = true
 keywords = ["OpenHarmony", "HarmonyOS", "sensors", "vibrator"]
 description = "Rust bindings to the sensors and vibrator modules of OpenHarmony"
 repository = "https://github.com/openharmony-rs/ohos-sys"

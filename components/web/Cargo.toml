@@ -2,6 +2,7 @@
 name = "arkweb-sys"
 version = "0.1.2"
 edition = "2021"
+rust-version.workspace = true
 description = "Raw Bindings to the Web module of OpenHarmony"
 license = "Apache-2.0"
 repository = "https://github.com/openharmony-rs/ohos-sys"
