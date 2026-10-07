@@ -32,9 +32,9 @@ ohos-accesstoken-sys = { version = "0.1.2", optional = true, path = "components/
 ohos-asset-store-sys = { version = "0.1.2", optional = true, path = "components/asset" }
 ohos-basic-services-kit-sys = { version = "0.1.1", optional = true, path = "components/basic-services-kit" }
 ohos-crypto-sys = { version = "0.1.2", optional = true, path = "components/crypto" }
-ohos-huks-sys = { version = "0.1.2", optional = true, path = "components/huks" }
+ohos-huks-sys = { version = "0.2.0", optional = true, path = "components/huks" }
 hilog-sys = { version = "0.1.9", optional = true, path = "components/hilog" }
-hitrace-sys = { version = "0.1.11", optional = true, path = "components/hitrace" }
+hitrace-sys = { version = "0.2.0", optional = true, path = "components/hitrace" }
 ohos-abilitykit-sys = { version = "0.1.7", optional = true, path = "components/abilitykit" }
 ohos-deviceinfo-sys = { version = "0.1.8", optional = true, path = "components/deviceinfo" }
 ohos-drawing-sys = { path = "components/drawing", version = "0.3.5", optional = true }

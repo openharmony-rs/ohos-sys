@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 0.2.0
 
 - Breaking: `OH_Huks_ExternalCryptoParam__bindgen_ty_1::bindgen_union_field` is now a `__BindgenOpaqueArray8<[u8; 8]>`.
 
