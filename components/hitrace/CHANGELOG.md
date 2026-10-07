@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 0.2.0
 
 - Breaking: `HiTraceId` no longer has the `_bitfield_align_1` field (it uses `repr(align(8))` instead).
 
