@@ -137,6 +137,13 @@ dependencies = [
 ]
 
 [[package]]
+name = "ohos-hiappevent-sys"
+version = "0.1.0"
+dependencies = [
+ "document-features",
+]
+
+[[package]]
 name = "ohos-huks-sys"
 version = "0.2.0"
 dependencies = [
@@ -290,6 +297,7 @@ dependencies = [
  "ohos-crypto-sys",
  "ohos-deviceinfo-sys",
  "ohos-drawing-sys",
+ "ohos-hiappevent-sys",
  "ohos-huks-sys",
  "ohos-image-kit-sys",
  "ohos-ime-sys",

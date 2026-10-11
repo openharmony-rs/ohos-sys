@@ -1511,5 +1511,14 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
             }),
             ..Default::default()
         },
+        DirBindingsConf {
+            directory: "hiappevent".to_string(),
+            output_dir: "components/hiappevent/src".to_string(),
+            rename_output_file: None,
+            set_builder_opts: Box::new(|_file_stem, header_path, builder| {
+                builder.allowlist_file(header_path.to_str().unwrap())
+            }),
+            ..Default::default()
+        },
     ]
 }
