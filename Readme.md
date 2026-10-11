@@ -34,7 +34,7 @@ already been generated.
 | distributedhardware                     |        |           |                           |
 | ffrt                                    |        |           |                           |
 | filemanagement                          |        |           |                           |
-| hiappevent                              |        |           |                           |
+| hiappevent                              | ✅      | 26        | [ohos-hiappevent-sys]     |
 | hicollie                                |        |           |                           |
 | hid                                     |        |           |                           |
 | hidebug                                 |        |           |                           |
@@ -119,6 +119,7 @@ already been generated.
 [ohos-accesstoken-sys]: https://docs.rs/ohos-accesstoken-sys/latest/ohos_accesstoken_sys/
 [ohos-deviceinfo-sys]: https://docs.rs/ohos-deviceinfo-sys/latest/ohos_deviceinfo_sys/
 [ohos-transient-task-sys]: https://docs.rs/ohos-transient-task-sys/latest/ohos_transient_task_sys/
+[ohos-hiappevent-sys]: https://docs.rs/ohos-hiappevent-sys/latest/ohos_hiappevent_sys/
 
 
 ## Development

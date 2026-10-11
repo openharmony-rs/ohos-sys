@@ -19,6 +19,9 @@
   `appIdentifier`, fingerprint, compatible device type, debug-mode flag),
   main-element discovery, module metadata, and the API-21 file-type intent
   discovery flow (`OH_NativeBundle_GetAbilityResourceInfo`).
+- `hiappevent` — `ohos-hiappevent-sys` (HiAppEvent, `libhiappevent_ndk.z.so`):
+  application event logging, event watchers, configuration and data processors,
+  plus framework memory-anomaly reporting at API-26.
 
 ### Changed 
 
