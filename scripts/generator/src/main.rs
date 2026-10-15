@@ -794,16 +794,26 @@ fn main() -> anyhow::Result<()> {
         ));
     }
 
-    let libclang_path = sdk_native_dir.join("llvm/lib");
-    let clang_path = sdk_native_dir.join("llvm/bin/clang");
+    let libclang_path = std::env::var_os("LIBCLANG_PATH")
+        .map(PathBuf::from)
+        .unwrap_or_else(|| {
+            let path = sdk_native_dir.join("llvm/lib");
+            std::env::set_var("LIBCLANG_PATH", &path);
+            path
+        });
+    let clang_path = std::env::var_os("CLANG_PATH")
+        .map(PathBuf::from)
+        .unwrap_or_else(|| {
+            let path = sdk_native_dir.join("llvm/bin/clang");
+            std::env::set_var("CLANG_PATH", &path);
+            path
+        });
     let api_version = parse_api_version(&sdk_native_dir)?;
     debug!(
         "Libclang: {}, clang: {}",
         libclang_path.display(),
         clang_path.display()
     );
-    std::env::set_var("LIBCLANG_PATH", libclang_path);
-    std::env::set_var("CLANG_PATH", clang_path);
     let written = generate_bindings(&sdk_native_dir, api_version)?;
 
     let manifest_dir = PathBuf::from(env!("CARGO_MANIFEST_DIR"));
