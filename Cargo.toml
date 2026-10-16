@@ -37,6 +37,7 @@ hilog-sys = { version = "0.1.9", optional = true, path = "components/hilog" }
 hitrace-sys = { version = "0.2.0", optional = true, path = "components/hitrace" }
 ohos-abilitykit-sys = { version = "0.1.7", optional = true, path = "components/abilitykit" }
 ohos-deviceinfo-sys = { version = "0.1.8", optional = true, path = "components/deviceinfo" }
+ohos-native-display-soloist-sys = { version = "0.1.0", optional = true, path = "components/display_soloist" }
 ohos-drawing-sys = { path = "components/drawing", version = "0.3.5", optional = true }
 ohos-image-kit-sys = { version = "0.4.0", optional = true, path = "components/multimedia/image_framework" }
 ohos-media-sys = { version = "0.1.2", optional = true, path = "components/multimedia/player_framework" }
@@ -154,6 +155,8 @@ rawfile = ['ohos-rawfile-sys']
 rdb = ["dep:ohos-rdb-sys"]
 ## Enables bindings to the sensors module.
 sensors = ["dep:ohos-sensors-sys"]
+## Enables bindings to `native_display_soloist`. Its APIs require `api-12`.
+display-soloist = ["dep:ohos-native-display-soloist-sys"]
 ## Enables bindings to the transient task API (BackgroundTasksKit). Requires `api-13`.
 transient-task = ["dep:ohos-transient-task-sys"]
 ## Enables bindings to the Unified Data Management Framework (UDMF)
@@ -182,6 +185,7 @@ all-components = [
     "crypto",
     "huks",
     "deviceinfo",
+    "display-soloist",
     "drawing",
     "hilog",
     "hitrace",
@@ -257,6 +261,7 @@ api-11 = [
 ## Enables bindings for OpenHarmony API-level 12
 api-12 = [
     "api-11",
+    "ohos-native-display-soloist-sys?/api-12",
     "arkui-sys?/api-12",
     "ohos-accesstoken-sys?/api-12",
     "ohos-asset-store-sys?/api-12",
@@ -296,6 +301,7 @@ api-12 = [
 ## Enables bindings for OpenHarmony API-level 13
 api-13 = [
     "api-12",
+    "ohos-native-display-soloist-sys?/api-13",
     "arkui-sys?/api-13",
     "ohos-accesstoken-sys?/api-13",
     "ohos-asset-store-sys?/api-13",
@@ -336,6 +342,7 @@ api-13 = [
 ## Enables bindings for OpenHarmony API-level 14
 api-14 = [
     "api-13",
+    "ohos-native-display-soloist-sys?/api-14",
     "arkui-sys?/api-14",
     "ohos-accesstoken-sys?/api-14",
     "ohos-asset-store-sys?/api-14",
@@ -376,6 +383,7 @@ api-14 = [
 ## Enables bindings for OpenHarmony API-level 15
 api-15 = [
     "api-14",
+    "ohos-native-display-soloist-sys?/api-15",
     "arkui-sys?/api-15",
     "ohos-accesstoken-sys?/api-15",
     "ohos-asset-store-sys?/api-15",
@@ -415,6 +423,7 @@ api-15 = [
 
 ## Enables bindings for OpenHarmony API-level 16.
 api-16 = ["api-15",
+    "ohos-native-display-soloist-sys?/api-16",
     "arkui-sys?/api-16",
     "ohos-accesstoken-sys?/api-16",
     "ohos-asset-store-sys?/api-16",
@@ -453,6 +462,7 @@ api-16 = ["api-15",
 ]
 ## Enables bindings for OpenHarmony API-level 17.
 api-17 = ["api-16",
+    "ohos-native-display-soloist-sys?/api-17",
     "arkui-sys?/api-17",
     "ohos-accesstoken-sys?/api-17",
     "ohos-asset-store-sys?/api-17",
@@ -491,6 +501,7 @@ api-17 = ["api-16",
 ]
 ## Enables bindings for OpenHarmony API-level 18 (5.1.0).
 api-18 = ["api-17",
+    "ohos-native-display-soloist-sys?/api-18",
     "arkui-sys?/api-18",
     "ohos-accesstoken-sys?/api-18",
     "ohos-asset-store-sys?/api-18",
@@ -529,6 +540,7 @@ api-18 = ["api-17",
 ]
 ## Enables bindings for OpenHarmony API-level 19
 api-19 = ["api-18",
+    "ohos-native-display-soloist-sys?/api-19",
     "arkui-sys?/api-19",
     "ohos-accesstoken-sys?/api-19",
     "ohos-asset-store-sys?/api-19",
@@ -567,6 +579,7 @@ api-19 = ["api-18",
 ]
 ## Enables bindings for OpenHarmony API-level 20
 api-20 = ["api-19",
+    "ohos-native-display-soloist-sys?/api-20",
     "arkui-sys?/api-20",
     "ohos-accesstoken-sys?/api-20",
     "ohos-asset-store-sys?/api-20",
@@ -605,6 +618,7 @@ api-20 = ["api-19",
 ]
 ## Enables bindings for OpenHarmony API-level 21
 api-21 = ["api-20",
+    "ohos-native-display-soloist-sys?/api-21",
     "arkui-sys?/api-21",
     "ohos-accesstoken-sys?/api-21",
     "ohos-asset-store-sys?/api-21",
@@ -643,6 +657,7 @@ api-21 = ["api-20",
 ]
 ## Enables bindings for OpenHarmony API-level 22
 api-22 = ["api-21",
+    "ohos-native-display-soloist-sys?/api-22",
     "arkui-sys?/api-22",
     "ohos-accesstoken-sys?/api-22",
     "ohos-asset-store-sys?/api-22",
@@ -681,6 +696,7 @@ api-22 = ["api-21",
 ]
 ## Enables bindings for OpenHarmony API-level 23
 api-23 = ["api-22",
+    "ohos-native-display-soloist-sys?/api-23",
     "arkui-sys?/api-23",
     "ohos-accesstoken-sys?/api-23",
     "ohos-asset-store-sys?/api-23",
@@ -719,6 +735,7 @@ api-23 = ["api-22",
 ]
 ## Enables bindings for OpenHarmony API-level 24
 api-24 = ["api-23",
+    "ohos-native-display-soloist-sys?/api-24",
     "arkui-sys?/api-24",
     "ohos-accesstoken-sys?/api-24",
     "ohos-asset-store-sys?/api-24",
@@ -757,6 +774,7 @@ api-24 = ["api-23",
 ]
 ## Enables bindings for OpenHarmony API-level 25
 api-25 = ["api-24",
+    "ohos-native-display-soloist-sys?/api-25",
     "arkui-sys?/api-25",
     "ohos-accesstoken-sys?/api-25",
     "ohos-asset-store-sys?/api-25",
@@ -795,6 +813,7 @@ api-25 = ["api-24",
 ]
 ## Enables bindings for OpenHarmony API-level 26
 api-26 = ["api-25",
+    "ohos-native-display-soloist-sys?/api-26",
     "arkui-sys?/api-26",
     "ohos-accesstoken-sys?/api-26",
     "ohos-asset-store-sys?/api-26",

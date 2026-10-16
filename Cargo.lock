@@ -207,6 +207,13 @@ dependencies = [
 ]
 
 [[package]]
+name = "ohos-native-display-soloist-sys"
+version = "0.1.0"
+dependencies = [
+ "document-features",
+]
+
+[[package]]
 name = "ohos-net-ssl-sys"
 version = "0.1.2"
 dependencies = [
@@ -285,6 +292,7 @@ dependencies = [
  "ohos-libqos-sys",
  "ohos-locationkit-sys",
  "ohos-media-sys",
+ "ohos-native-display-soloist-sys",
  "ohos-net-ssl-sys",
  "ohos-netmanager-sys",
  "ohos-netstack-sys",
