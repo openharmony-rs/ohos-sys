@@ -176,6 +176,7 @@ jobs:
           - netstack
           - ohaudio
           - pasteboard
+          - purgeable-memory
           - rawfile
           - rdb
           - sensors
