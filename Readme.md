@@ -70,7 +70,7 @@ already been generated.
 | ohcamera                                |        |           |                           |
 | ohmidi                                  |        |           |                           |
 | Pasteboard                              | ✅      | 26        | [ohos-pasteboard-sys]     |
-| purgeable_memory                        |        |           |                           |
+| purgeable_memory                        | ✅      | 26        | [ohos-purgeable-memory-sys] |
 | qos                                     | ✅      | 26        | [ohos-libqos-sys]         |
 | rawfile                                 | ✅      | 26        | [ohos-rawfile-sys]        |
 | resourcemanager                         |        |           |                           |
@@ -100,6 +100,7 @@ already been generated.
 [ohos-video-processing-engine-sys]: https://docs.rs/ohos-video-processing-engine-sys/latest/ohos_video_processing_engine_sys/
 [ohaudio-sys]: https://docs.rs/ohaudio-sys/latest/ohaudio_sys/
 [ohos-pasteboard-sys]: https://docs.rs/ohos-pasteboard-sys/latest/ohos_pasteboard_sys/
+[ohos-purgeable-memory-sys]: https://docs.rs/ohos-purgeable-memory-sys/latest/ohos_purgeable_memory_sys/
 [ohos-rawfile-sys]: https://docs.rs/ohos-rawfile-sys/latest/ohos_rawfile_sys/
 [rdb-sys]: https://docs.rs/ohos-rdb-sys/latest/ohos-rdb_sys/
 [ohos-window-manager-sys]: https://docs.rs/ohos-window-manager-sys/latest/ohos_window_manager_sys/

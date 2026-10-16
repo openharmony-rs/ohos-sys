@@ -52,6 +52,7 @@ ohos-net-ssl-sys = { version = "0.1.2", optional = true, path = "components/net_
 ohos-netstack-sys = { version = "0.1.2", optional = true, path = "components/netstack" }
 ohos-input-sys = { version = "0.4.0", optional = true, path = "components/multimodal-input" }
 ohos-pasteboard-sys = { version = "0.1.6", optional = true, path = "components/pasteboard" }
+ohos-purgeable-memory-sys = { version = "0.1.0", optional = true, path = "components/purgeable_memory" }
 ohos-libbundle-sys = { version = "0.1.1", optional = true, path = "components/bundle" }
 ohos-libqos-sys = { version = "0.1.1", optional = true, path = "components/qos" }
 ohos-rawfile-sys = { version = "0.1.5", optional = true, path = "components/rawfile" }
@@ -146,6 +147,8 @@ native_window = ['dep:ohos-window-sys']
 bundle = ['dep:ohos-libbundle-sys']
 ## Enables to the ohos pasteboard (clipboard)
 pasteboard = ['dep:ohos-pasteboard-sys']
+## Enables bindings to `purgeable_memory` (available since API level 10).
+purgeable-memory = ["dep:ohos-purgeable-memory-sys"]
 ## Enables bindings to the QoS thread scheduling APIs (and at api-20+ the Gewu
 ## on-device LLM inference APIs that share `libqos.so`).
 qos = ['dep:ohos-libqos-sys']
@@ -212,6 +215,7 @@ all-components = [
     "native_image",
     "native_window",
     "pasteboard",
+    "purgeable-memory",
     "qos",
     "rawfile",
     "rdb",
@@ -231,11 +235,13 @@ all-components = [
 
 ## No effect. API-10 bindings can't be deselected. The feature exists for internal purposes.
 api-10 = [
+    "ohos-purgeable-memory-sys?/api-10",
     "ohos-libbundle-sys?/api-10",
     "ohos-media-sys?/api-10",
 ]
 ## Enables bindings for OpenHarmony API-level 11
 api-11 = [
+    "ohos-purgeable-memory-sys?/api-11",
     "api-10",
     "ohos-asset-store-sys?/api-11",
     "ohos-libbundle-sys?/api-11",
@@ -260,6 +266,7 @@ api-11 = [
 ]
 ## Enables bindings for OpenHarmony API-level 12
 api-12 = [
+    "ohos-purgeable-memory-sys?/api-12",
     "api-11",
     "ohos-native-display-soloist-sys?/api-12",
     "arkui-sys?/api-12",
@@ -300,6 +307,7 @@ api-12 = [
 
 ## Enables bindings for OpenHarmony API-level 13
 api-13 = [
+    "ohos-purgeable-memory-sys?/api-13",
     "api-12",
     "ohos-native-display-soloist-sys?/api-13",
     "arkui-sys?/api-13",
@@ -341,6 +349,7 @@ api-13 = [
 
 ## Enables bindings for OpenHarmony API-level 14
 api-14 = [
+    "ohos-purgeable-memory-sys?/api-14",
     "api-13",
     "ohos-native-display-soloist-sys?/api-14",
     "arkui-sys?/api-14",
@@ -382,6 +391,7 @@ api-14 = [
 
 ## Enables bindings for OpenHarmony API-level 15
 api-15 = [
+    "ohos-purgeable-memory-sys?/api-15",
     "api-14",
     "ohos-native-display-soloist-sys?/api-15",
     "arkui-sys?/api-15",
@@ -423,6 +433,7 @@ api-15 = [
 
 ## Enables bindings for OpenHarmony API-level 16.
 api-16 = ["api-15",
+    "ohos-purgeable-memory-sys?/api-16",
     "ohos-native-display-soloist-sys?/api-16",
     "arkui-sys?/api-16",
     "ohos-accesstoken-sys?/api-16",
@@ -462,6 +473,7 @@ api-16 = ["api-15",
 ]
 ## Enables bindings for OpenHarmony API-level 17.
 api-17 = ["api-16",
+    "ohos-purgeable-memory-sys?/api-17",
     "ohos-native-display-soloist-sys?/api-17",
     "arkui-sys?/api-17",
     "ohos-accesstoken-sys?/api-17",
@@ -501,6 +513,7 @@ api-17 = ["api-16",
 ]
 ## Enables bindings for OpenHarmony API-level 18 (5.1.0).
 api-18 = ["api-17",
+    "ohos-purgeable-memory-sys?/api-18",
     "ohos-native-display-soloist-sys?/api-18",
     "arkui-sys?/api-18",
     "ohos-accesstoken-sys?/api-18",
@@ -540,6 +553,7 @@ api-18 = ["api-17",
 ]
 ## Enables bindings for OpenHarmony API-level 19
 api-19 = ["api-18",
+    "ohos-purgeable-memory-sys?/api-19",
     "ohos-native-display-soloist-sys?/api-19",
     "arkui-sys?/api-19",
     "ohos-accesstoken-sys?/api-19",
@@ -579,6 +593,7 @@ api-19 = ["api-18",
 ]
 ## Enables bindings for OpenHarmony API-level 20
 api-20 = ["api-19",
+    "ohos-purgeable-memory-sys?/api-20",
     "ohos-native-display-soloist-sys?/api-20",
     "arkui-sys?/api-20",
     "ohos-accesstoken-sys?/api-20",
@@ -618,6 +633,7 @@ api-20 = ["api-19",
 ]
 ## Enables bindings for OpenHarmony API-level 21
 api-21 = ["api-20",
+    "ohos-purgeable-memory-sys?/api-21",
     "ohos-native-display-soloist-sys?/api-21",
     "arkui-sys?/api-21",
     "ohos-accesstoken-sys?/api-21",
@@ -657,6 +673,7 @@ api-21 = ["api-20",
 ]
 ## Enables bindings for OpenHarmony API-level 22
 api-22 = ["api-21",
+    "ohos-purgeable-memory-sys?/api-22",
     "ohos-native-display-soloist-sys?/api-22",
     "arkui-sys?/api-22",
     "ohos-accesstoken-sys?/api-22",
@@ -696,6 +713,7 @@ api-22 = ["api-21",
 ]
 ## Enables bindings for OpenHarmony API-level 23
 api-23 = ["api-22",
+    "ohos-purgeable-memory-sys?/api-23",
     "ohos-native-display-soloist-sys?/api-23",
     "arkui-sys?/api-23",
     "ohos-accesstoken-sys?/api-23",
@@ -735,6 +753,7 @@ api-23 = ["api-22",
 ]
 ## Enables bindings for OpenHarmony API-level 24
 api-24 = ["api-23",
+    "ohos-purgeable-memory-sys?/api-24",
     "ohos-native-display-soloist-sys?/api-24",
     "arkui-sys?/api-24",
     "ohos-accesstoken-sys?/api-24",
@@ -774,6 +793,7 @@ api-24 = ["api-23",
 ]
 ## Enables bindings for OpenHarmony API-level 25
 api-25 = ["api-24",
+    "ohos-purgeable-memory-sys?/api-25",
     "ohos-native-display-soloist-sys?/api-25",
     "arkui-sys?/api-25",
     "ohos-accesstoken-sys?/api-25",
@@ -813,6 +833,7 @@ api-25 = ["api-24",
 ]
 ## Enables bindings for OpenHarmony API-level 26
 api-26 = ["api-25",
+    "ohos-purgeable-memory-sys?/api-26",
     "ohos-native-display-soloist-sys?/api-26",
     "arkui-sys?/api-26",
     "ohos-accesstoken-sys?/api-26",
