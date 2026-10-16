@@ -14,10 +14,8 @@ document-features = { version = "0.2", optional = true }
 
 [features]
 default = []
-api-10 = []
-api-11 = ["api-10"]
 ## Enables the NativeDisplaySoloist API. Available since OpenHarmony API level 12.
-api-12 = ["api-11"]
+api-12 = []
 api-13 = ["api-12"]
 api-14 = ["api-13"]
 api-15 = ["api-14"]
