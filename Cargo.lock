@@ -244,6 +244,13 @@ dependencies = [
 ]
 
 [[package]]
+name = "ohos-purgeable-memory-sys"
+version = "0.1.0"
+dependencies = [
+ "document-features",
+]
+
+[[package]]
 name = "ohos-rawfile-sys"
 version = "0.1.5"
 dependencies = [
@@ -297,6 +304,7 @@ dependencies = [
  "ohos-netmanager-sys",
  "ohos-netstack-sys",
  "ohos-pasteboard-sys",
+ "ohos-purgeable-memory-sys",
  "ohos-rawfile-sys",
  "ohos-rdb-sys",
  "ohos-sensors-sys",

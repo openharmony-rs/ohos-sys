@@ -104,6 +104,10 @@ pub use ohos_abilitykit_sys as abilitykit;
 #[cfg_attr(docsrs, doc(cfg(feature = "pasteboard")))]
 pub use ohos_pasteboard_sys as pasteboard;
 
+#[cfg(feature = "purgeable-memory")]
+#[cfg_attr(docsrs, doc(cfg(feature = "purgeable-memory")))]
+pub use ohos_purgeable_memory_sys as purgeable_memory;
+
 #[cfg(feature = "rawfile")]
 #[cfg_attr(docsrs, doc(cfg(feature = "rawfile")))]
 pub use ohos_rawfile_sys as rawfile;

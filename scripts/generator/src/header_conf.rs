@@ -118,6 +118,11 @@ pub(crate) fn get_bindings_config(_api_version: u32) -> Vec<BindingConf> {
             set_builder_opts: Box::new(|builder| builder),
         },
         BindingConf {
+            include_filename: "purgeable_memory/purgeable_memory.h".to_string(),
+            output_prefix: "components/purgeable_memory/src/purgeable_memory".to_string(),
+            set_builder_opts: Box::new(|builder| builder),
+        },
+        BindingConf {
             include_filename: "native_vsync/native_vsync.h".to_string(),
             output_prefix: "components/vsync/src/vsync".to_string(),
             set_builder_opts: Box::new(move |builder| {
