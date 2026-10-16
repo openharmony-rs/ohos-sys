@@ -55,7 +55,7 @@ already been generated.
 | napi                                    | ✅      | 26        |                           |
 | native_buffer                           | ✅      | 26        | [ohos-window-sys]         |
 | native_color_space_manager              |        |           |                           |
-| native_display_soloist                  |        |           |                           |
+| native_display_soloist                  | ✅      | 26        | [ohos-native-display-soloist-sys] |
 | native_drawing                          | ✅      | 26        | [ohos-drawing-sys]        |
 | native_effect                           |        |           |                           |
 | native_fence                            | ✅      | 26        | [ohos-window-sys]         |
@@ -107,6 +107,7 @@ already been generated.
 [arkweb-sys]: https://docs.rs/arkweb-sys/latest/arkweb_sys/
 [ohos-abilitykit-sys]: https://docs.rs/ohos-abilitykit-sys/latest/ohos_abilitykit_sys/
 [ohos-vsync-sys]: https://docs.rs/ohos-vsync-sys/latest/ohos_vsync_sys/
+[ohos-native-display-soloist-sys]: https://docs.rs/ohos-native-display-soloist-sys/latest/ohos_native_display_soloist_sys/
 [ohos-libbundle-sys]: https://docs.rs/ohos-libbundle-sys/latest/ohos_libbundle_sys/
 [ohos-libqos-sys]: https://docs.rs/ohos-libqos-sys/latest/ohos_libqos_sys/
 [udmf-sys]: https://docs.rs/udmf-sys/latest/udmf_sys/

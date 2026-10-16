@@ -113,6 +113,11 @@ pub(crate) fn get_bindings_config(_api_version: u32) -> Vec<BindingConf> {
             }),
         },
         BindingConf {
+            include_filename: "native_display_soloist/native_display_soloist.h".to_string(),
+            output_prefix: "components/display_soloist/src/display_soloist".to_string(),
+            set_builder_opts: Box::new(|builder| builder),
+        },
+        BindingConf {
             include_filename: "native_vsync/native_vsync.h".to_string(),
             output_prefix: "components/vsync/src/vsync".to_string(),
             set_builder_opts: Box::new(move |builder| {

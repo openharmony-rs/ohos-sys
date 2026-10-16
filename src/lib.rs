@@ -38,6 +38,10 @@ pub use ohos_deviceinfo_sys as deviceinfo;
 #[cfg_attr(docsrs, doc(cfg(feature = "drawing")))]
 pub use ohos_drawing_sys as drawing;
 
+#[cfg(feature = "display-soloist")]
+#[cfg_attr(docsrs, doc(cfg(feature = "display-soloist")))]
+pub use ohos_native_display_soloist_sys as display_soloist;
+
 #[cfg(feature = "hilog")]
 #[cfg_attr(docsrs, doc(cfg(feature = "hilog")))]
 pub use hilog_sys as hilog;
