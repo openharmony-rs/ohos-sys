@@ -1,0 +1,43 @@
+[package]
+name = "ohos-ohcamera-sys"
+version = "0.1.0"
+edition = "2021"
+rust-version.workspace = true
+description = "Raw bindings to the OpenHarmony Camera NDK"
+license = "Apache-2.0"
+repository = "https://github.com/openharmony-rs/ohos-sys"
+keywords = ["OpenHarmony", "HarmonyOS", "ffi", "camera"]
+readme = "README.md"
+
+[dependencies]
+document-features = { version = "0.2", optional = true }
+ohos-sys-opaque-types = { workspace = true }
+ohos-image-kit-sys = { version = "0.4.0", default-features = false, optional = true, path = "../multimedia/image_framework" }
+ohos-window-sys = { version = "0.1.8", default-features = false, optional = true, path = "../window" }
+
+[features]
+default = []
+## Enables Camera NDK APIs available since OpenHarmony API level 11.
+api-11 = []
+api-12 = ["api-11", "dep:ohos-image-kit-sys", "ohos-image-kit-sys/api-12", "dep:ohos-window-sys", "ohos-window-sys/api-12"]
+api-13 = ["api-12", "ohos-image-kit-sys/api-13", "ohos-window-sys/api-13"]
+api-14 = ["api-13", "ohos-image-kit-sys/api-14", "ohos-window-sys/api-14"]
+api-15 = ["api-14", "ohos-image-kit-sys/api-15", "ohos-window-sys/api-15"]
+api-16 = ["api-15", "ohos-image-kit-sys/api-16", "ohos-window-sys/api-16"]
+api-17 = ["api-16", "ohos-image-kit-sys/api-17", "ohos-window-sys/api-17"]
+api-18 = ["api-17", "ohos-image-kit-sys/api-18", "ohos-window-sys/api-18"]
+api-19 = ["api-18", "ohos-image-kit-sys/api-19", "ohos-window-sys/api-19"]
+api-20 = ["api-19", "ohos-image-kit-sys/api-20", "ohos-window-sys/api-20"]
+api-21 = ["api-20", "ohos-image-kit-sys/api-21", "ohos-window-sys/api-21"]
+api-22 = ["api-21", "ohos-image-kit-sys/api-22", "ohos-window-sys/api-22"]
+api-23 = ["api-22", "ohos-image-kit-sys/api-23", "ohos-window-sys/api-23"]
+api-24 = ["api-23", "ohos-image-kit-sys/api-24", "ohos-window-sys/api-24"]
+api-25 = ["api-24", "ohos-image-kit-sys/api-25", "ohos-window-sys/api-25"]
+api-26 = ["api-25", "ohos-image-kit-sys/api-26", "ohos-window-sys/api-26"]
+## Document available features when building the documentation.
+document-features = ["dep:document-features"]
+
+[package.metadata.docs.rs]
+features = ["document-features"]
+targets = ["aarch64-unknown-linux-ohos", "armv7-unknown-linux-ohos", "x86_64-unknown-linux-ohos"]
+all-features = true

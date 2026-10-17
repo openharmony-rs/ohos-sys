@@ -62,6 +62,10 @@ pub use ohos_ime_sys as inputmethod;
 #[cfg_attr(docsrs, doc(cfg(feature = "ohaudio")))]
 pub use ohaudio_sys as ohaudio;
 
+#[cfg(feature = "ohcamera")]
+#[cfg_attr(docsrs, doc(cfg(feature = "ohcamera")))]
+pub use ohos_ohcamera_sys as ohcamera;
+
 #[cfg(feature = "web")]
 #[cfg_attr(docsrs, doc(cfg(feature = "web")))]
 pub use arkweb_sys as web;
