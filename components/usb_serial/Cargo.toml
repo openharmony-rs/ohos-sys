@@ -1,0 +1,34 @@
+[package]
+name = "ohos-usb-serial-sys"
+version = "0.1.0"
+edition = "2021"
+rust-version.workspace = true
+description = "Raw bindings to the OpenHarmony USB Serial DDK"
+license = "Apache-2.0"
+repository = "https://github.com/openharmony-rs/ohos-sys"
+keywords = ["OpenHarmony", "HarmonyOS", "ffi", "usb", "serial"]
+readme = "README.md"
+
+[dependencies]
+document-features = { version = "0.2", optional = true }
+
+[features]
+default = []
+## Enables the USB Serial DDK, available since OpenHarmony API level 18.
+api-18 = []
+api-19 = ["api-18"]
+api-20 = ["api-19"]
+api-21 = ["api-20"]
+api-22 = ["api-21"]
+api-23 = ["api-22"]
+api-24 = ["api-23"]
+api-25 = ["api-24"]
+## Enables OpenHarmony API level 26 (no new USB Serial APIs).
+api-26 = ["api-25"]
+## Document available features when building the documentation.
+document-features = ["dep:document-features"]
+
+[package.metadata.docs.rs]
+features = ["document-features"]
+targets = ["aarch64-unknown-linux-ohos", "armv7-unknown-linux-ohos", "x86_64-unknown-linux-ohos"]
+all-features = true

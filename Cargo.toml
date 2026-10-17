@@ -53,6 +53,7 @@ ohos-netstack-sys = { version = "0.1.2", optional = true, path = "components/net
 ohos-input-sys = { version = "0.4.0", optional = true, path = "components/multimodal-input" }
 ohos-pasteboard-sys = { version = "0.1.6", optional = true, path = "components/pasteboard" }
 ohos-purgeable-memory-sys = { version = "0.1.0", optional = true, path = "components/purgeable_memory" }
+ohos-usb-serial-sys = { version = "0.1.0", optional = true, path = "components/usb_serial" }
 ohos-libbundle-sys = { version = "0.1.1", optional = true, path = "components/bundle" }
 ohos-libqos-sys = { version = "0.1.1", optional = true, path = "components/qos" }
 ohos-rawfile-sys = { version = "0.1.5", optional = true, path = "components/rawfile" }
@@ -149,6 +150,8 @@ bundle = ['dep:ohos-libbundle-sys']
 pasteboard = ['dep:ohos-pasteboard-sys']
 ## Enables bindings to `purgeable_memory` (available since API level 10).
 purgeable-memory = ["dep:ohos-purgeable-memory-sys"]
+## Enables USB Serial DDK bindings, available since API level 18.
+usb-serial = ["dep:ohos-usb-serial-sys"]
 ## Enables bindings to the QoS thread scheduling APIs (and at api-20+ the Gewu
 ## on-device LLM inference APIs that share `libqos.so`).
 qos = ['dep:ohos-libqos-sys']
@@ -216,6 +219,7 @@ all-components = [
     "native_window",
     "pasteboard",
     "purgeable-memory",
+    "usb-serial",
     "qos",
     "rawfile",
     "rdb",
@@ -514,6 +518,7 @@ api-17 = ["api-16",
 ## Enables bindings for OpenHarmony API-level 18 (5.1.0).
 api-18 = ["api-17",
     "ohos-purgeable-memory-sys?/api-18",
+    "ohos-usb-serial-sys?/api-18",
     "ohos-native-display-soloist-sys?/api-18",
     "arkui-sys?/api-18",
     "ohos-accesstoken-sys?/api-18",
@@ -554,6 +559,7 @@ api-18 = ["api-17",
 ## Enables bindings for OpenHarmony API-level 19
 api-19 = ["api-18",
     "ohos-purgeable-memory-sys?/api-19",
+    "ohos-usb-serial-sys?/api-19",
     "ohos-native-display-soloist-sys?/api-19",
     "arkui-sys?/api-19",
     "ohos-accesstoken-sys?/api-19",
@@ -594,6 +600,7 @@ api-19 = ["api-18",
 ## Enables bindings for OpenHarmony API-level 20
 api-20 = ["api-19",
     "ohos-purgeable-memory-sys?/api-20",
+    "ohos-usb-serial-sys?/api-20",
     "ohos-native-display-soloist-sys?/api-20",
     "arkui-sys?/api-20",
     "ohos-accesstoken-sys?/api-20",
@@ -634,6 +641,7 @@ api-20 = ["api-19",
 ## Enables bindings for OpenHarmony API-level 21
 api-21 = ["api-20",
     "ohos-purgeable-memory-sys?/api-21",
+    "ohos-usb-serial-sys?/api-21",
     "ohos-native-display-soloist-sys?/api-21",
     "arkui-sys?/api-21",
     "ohos-accesstoken-sys?/api-21",
@@ -674,6 +682,7 @@ api-21 = ["api-20",
 ## Enables bindings for OpenHarmony API-level 22
 api-22 = ["api-21",
     "ohos-purgeable-memory-sys?/api-22",
+    "ohos-usb-serial-sys?/api-22",
     "ohos-native-display-soloist-sys?/api-22",
     "arkui-sys?/api-22",
     "ohos-accesstoken-sys?/api-22",
@@ -714,6 +723,7 @@ api-22 = ["api-21",
 ## Enables bindings for OpenHarmony API-level 23
 api-23 = ["api-22",
     "ohos-purgeable-memory-sys?/api-23",
+    "ohos-usb-serial-sys?/api-23",
     "ohos-native-display-soloist-sys?/api-23",
     "arkui-sys?/api-23",
     "ohos-accesstoken-sys?/api-23",
@@ -754,6 +764,7 @@ api-23 = ["api-22",
 ## Enables bindings for OpenHarmony API-level 24
 api-24 = ["api-23",
     "ohos-purgeable-memory-sys?/api-24",
+    "ohos-usb-serial-sys?/api-24",
     "ohos-native-display-soloist-sys?/api-24",
     "arkui-sys?/api-24",
     "ohos-accesstoken-sys?/api-24",
@@ -794,6 +805,7 @@ api-24 = ["api-23",
 ## Enables bindings for OpenHarmony API-level 25
 api-25 = ["api-24",
     "ohos-purgeable-memory-sys?/api-25",
+    "ohos-usb-serial-sys?/api-25",
     "ohos-native-display-soloist-sys?/api-25",
     "arkui-sys?/api-25",
     "ohos-accesstoken-sys?/api-25",
@@ -834,6 +846,7 @@ api-25 = ["api-24",
 ## Enables bindings for OpenHarmony API-level 26
 api-26 = ["api-25",
     "ohos-purgeable-memory-sys?/api-26",
+    "ohos-usb-serial-sys?/api-26",
     "ohos-native-display-soloist-sys?/api-26",
     "arkui-sys?/api-26",
     "ohos-accesstoken-sys?/api-26",

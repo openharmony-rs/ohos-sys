@@ -123,6 +123,13 @@ pub(crate) fn get_bindings_config(_api_version: u32) -> Vec<BindingConf> {
             set_builder_opts: Box::new(|builder| builder),
         },
         BindingConf {
+            include_filename: "usb_serial/usb_serial_api.h".to_string(),
+            output_prefix: "components/usb_serial/src/usb_serial".to_string(),
+            set_builder_opts: Box::new(|builder| {
+                builder.allowlist_file(r".*/usb_serial/usb_serial_(api|types)\.h")
+            }),
+        },
+        BindingConf {
             include_filename: "native_vsync/native_vsync.h".to_string(),
             output_prefix: "components/vsync/src/vsync".to_string(),
             set_builder_opts: Box::new(move |builder| {
