@@ -310,6 +310,7 @@ dependencies = [
  "ohos-sensors-sys",
  "ohos-sys-opaque-types",
  "ohos-transient-task-sys",
+ "ohos-usb-serial-sys",
  "ohos-video-processing-engine-sys",
  "ohos-vsync-sys",
  "ohos-window-manager-sys",
@@ -324,6 +325,13 @@ version = "0.1.12"
 
 [[package]]
 name = "ohos-transient-task-sys"
+version = "0.1.0"
+dependencies = [
+ "document-features",
+]
+
+[[package]]
+name = "ohos-usb-serial-sys"
 version = "0.1.0"
 dependencies = [
  "document-features",
