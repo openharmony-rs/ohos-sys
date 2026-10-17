@@ -4,6 +4,8 @@
 
 ### Added
 
+- `ohmidi` — `ohos-ohmidi-sys` raw MIDI NDK bindings for API 24–26,
+  available through the top-level `ohmidi` feature.
 - Bindings for API-24, API-25 and API-26 (OpenHarmony 7.0), behind the new `api-24`,
   `api-25` and `api-26` features. See the changelogs of the individual crates for details.
 - `ohaudio-sys`: the `audio_session_base` module, and the `audio_accessory_*`,
