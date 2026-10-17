@@ -108,6 +108,10 @@ pub use ohos_pasteboard_sys as pasteboard;
 #[cfg_attr(docsrs, doc(cfg(feature = "purgeable-memory")))]
 pub use ohos_purgeable_memory_sys as purgeable_memory;
 
+#[cfg(feature = "usb")]
+#[cfg_attr(docsrs, doc(cfg(feature = "usb")))]
+pub use ohos_usb_sys as usb;
+
 #[cfg(feature = "rawfile")]
 #[cfg_attr(docsrs, doc(cfg(feature = "rawfile")))]
 pub use ohos_rawfile_sys as rawfile;
