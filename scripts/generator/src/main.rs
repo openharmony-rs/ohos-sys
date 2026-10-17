@@ -386,6 +386,31 @@ impl bindgen::callbacks::ParseCallbacks for DoxygenCommentCb {
         let comment = comment.strip_prefix('<').unwrap_or(comment);
         // Replace manual linebreaks in doxygen with double linebreaks for markdown.
         let comment = comment.replace("\\n", "\n");
+        // The SDK's Camera header links an ArkTS method from a C API comment.
+        // Point it at the equivalent C function so rustdoc can resolve it.
+        let comment = comment.replace(
+            "camera.PreviewOutput.isLogViewAssistSupported",
+            "OH_PreviewOutput_IsLogViewAssistSupported",
+        );
+        // Legacy camera enum values mention API-23 replacements. Keep those
+        // names as code because the replacement items are absent at API-11.
+        let mut comment = comment;
+        for name in [
+            "CAMERA_IMAGE_ROTATION_0",
+            "CAMERA_IMAGE_ROTATION_90",
+            "CAMERA_IMAGE_ROTATION_180",
+            "CAMERA_IMAGE_ROTATION_270",
+            "CAMERA_METADATA_OBJECT_TYPE_FACE_DETECTION",
+            "CAMERA_TORCH_MODE_OFF",
+            "CAMERA_TORCH_MODE_ON",
+            "CAMERA_TORCH_MODE_AUTO",
+            "CAMERA_SMOOTH_ZOOM_MODE_NORMAL",
+            "CAMERA_FOLD_STATUS_NON_FOLDABLE",
+            "CAMERA_FOLD_STATUS_EXPANDED",
+            "CAMERA_FOLD_STATUS_FOLDED",
+        ] {
+            comment = comment.replace(&format!("{{@link {name}}}"), &format!("`{name}`"));
+        }
         Some(doxygen_rs::transform(comment.trim_end_matches("\n")))
     }
 
