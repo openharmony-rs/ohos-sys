@@ -123,6 +123,18 @@ pub(crate) fn get_bindings_config(_api_version: u32) -> Vec<BindingConf> {
             set_builder_opts: Box::new(|builder| builder),
         },
         BindingConf {
+            include_filename: "usb/usb_ddk_api.h".to_string(),
+            output_prefix: "components/usb/src/usb".to_string(),
+            set_builder_opts: Box::new(|builder| {
+                builder
+                    .allowlist_file(r".*/usb/usb_ddk_(api|types)\.h")
+                    .allowlist_type("DDK_Ashmem")
+                    // The numeric values changed in API 16, so a single enum generated
+                    // from the API 26 SDK would be wrong for API 10–15 builds.
+                    .blocklist_type("UsbDdkErrCode")
+            }),
+        },
+        BindingConf {
             include_filename: "native_vsync/native_vsync.h".to_string(),
             output_prefix: "components/vsync/src/vsync".to_string(),
             set_builder_opts: Box::new(move |builder| {

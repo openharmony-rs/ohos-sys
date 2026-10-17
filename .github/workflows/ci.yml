@@ -177,6 +177,7 @@ jobs:
           - ohaudio
           - pasteboard
           - purgeable-memory
+          - usb
           - rawfile
           - rdb
           - sensors
