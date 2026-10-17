@@ -123,6 +123,22 @@ pub(crate) fn get_bindings_config(_api_version: u32) -> Vec<BindingConf> {
             set_builder_opts: Box::new(|builder| builder),
         },
         BindingConf {
+            include_filename: "ohmidi/native_midi.h".to_string(),
+            output_prefix: "components/ohmidi/src/ohmidi".to_string(),
+            set_builder_opts: Box::new(|builder| {
+                builder
+                    .allowlist_file(r".*/ohmidi/native_midi(_base)?\.h")
+                    .result_error_enum("OH_MIDIStatusCode")
+                    .parse_callbacks(Box::new(ResultEnumParseCallbacks {
+                        rename_item: Box::new(|name| match name {
+                            "OH_MIDIStatusCode" => Some("OH_MIDIResult".to_string()),
+                            _ => None,
+                        }),
+                        ..Default::default()
+                    }))
+            }),
+        },
+        BindingConf {
             include_filename: "native_vsync/native_vsync.h".to_string(),
             output_prefix: "components/vsync/src/vsync".to_string(),
             set_builder_opts: Box::new(move |builder| {

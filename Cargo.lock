@@ -236,6 +236,13 @@ dependencies = [
 ]
 
 [[package]]
+name = "ohos-ohmidi-sys"
+version = "0.1.0"
+dependencies = [
+ "document-features",
+]
+
+[[package]]
 name = "ohos-pasteboard-sys"
 version = "0.1.6"
 dependencies = [
@@ -303,6 +310,7 @@ dependencies = [
  "ohos-net-ssl-sys",
  "ohos-netmanager-sys",
  "ohos-netstack-sys",
+ "ohos-ohmidi-sys",
  "ohos-pasteboard-sys",
  "ohos-purgeable-memory-sys",
  "ohos-rawfile-sys",
