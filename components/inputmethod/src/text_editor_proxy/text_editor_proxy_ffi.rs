@@ -34,8 +34,8 @@ pub struct InputMethod_TextEditorProxy {
 /// * `textEditorProxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy) instance.
 ///
 /// * `config` - Represents a pointer to an [`InputMethod_TextConfig`](crate::text_config::InputMethod_TextConfig) instance. You can only access the memory when
-/// this callback is called. After this callback returns, the memory will be released and you should not access this
-/// memory again.
+///   this callback is called. After this callback returns, the memory will be released and you should not access this
+///   memory again.
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
@@ -55,10 +55,10 @@ pub type OH_TextEditorProxy_GetTextConfigFunc = ::core::option::Option<
 /// # Arguments
 ///
 /// * `textEditorProxy` - Represents a pointer to the [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy) instance which will be set
-/// in.
+///   in.
 ///
 /// * `text` - Represents a pointer to the text to be inserted. You can only access the memory when this callback
-/// is called. After this callback returns, the memory will be released and you should not access this memory again.
+///   is called. After this callback returns, the memory will be released and you should not access this memory again.
 ///
 /// * `length` - Represents the length of the text to be inserted.
 ///
@@ -81,7 +81,7 @@ pub type OH_TextEditorProxy_InsertTextFunc = ::core::option::Option<
 /// # Arguments
 ///
 /// * `textEditorProxy` - Represents a pointer to the [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy) instance which will be set
-/// in.
+///   in.
 ///
 /// * `length` - Represents the length of the text to be deleted.
 ///
@@ -100,7 +100,7 @@ pub type OH_TextEditorProxy_DeleteForwardFunc = ::core::option::Option<
 /// # Arguments
 ///
 /// * `textEditorProxy` - Represents a pointer to the [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy) instance which will be set
-/// in.
+///   in.
 ///
 /// * `length` - Represents the length of the text to be deleted.
 ///
@@ -227,8 +227,8 @@ pub type OH_TextEditorProxy_HandleExtendActionFunc = ::core::option::Option<
 /// * `number` - Represents the number of characters to be get.
 ///
 /// * `text` - Represents the left text of cursor, you need to assing this parameter. You can only access the memory
-/// when this callback is called. After this callback returns, the memory will be released and you should not access this
-/// memory again.
+///   when this callback is called. After this callback returns, the memory will be released and you should not access this
+///   memory again.
 ///
 /// * `length` - Represents the length of the left text of cursor, you need to assing this parameter.
 ///
@@ -256,8 +256,8 @@ pub type OH_TextEditorProxy_GetLeftTextOfCursorFunc = ::core::option::Option<
 /// * `number` - Represents the number of characters to be get.
 ///
 /// * `text` - Represents the right text of cursor, you need to assing this parameter. You can only access the memory
-/// when this callback is called. After this callback returns, the memory will be released and you should not access this
-/// memory again.
+///   when this callback is called. After this callback returns, the memory will be released and you should not access this
+///   memory again.
 ///
 /// * `length` - Represents the length of the right text of cursor.
 ///
@@ -303,7 +303,7 @@ pub type OH_TextEditorProxy_GetTextIndexAtCursorFunc = ::core::option::Option<
 /// * `textEditorProxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy) instance which will be set in.
 ///
 /// * `privateCommand` - Private command from input method. You can only access the memory when this callback is called.
-/// After this callback returns, the memory will be released and you should not access this memory again.
+///   After this callback returns, the memory will be released and you should not access this memory again.
 ///
 /// * `size` - Size of private command.
 ///
@@ -332,7 +332,7 @@ pub type OH_TextEditorProxy_ReceivePrivateCommandFunc = ::core::option::Option<
 /// * `textEditorProxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy) instance which will be set in.
 ///
 /// * `text` - Represents text to be previewd. You can only access the memory when this callback is called.
-/// After this callback returns, the memory will be released and you should not access this memory again.
+///   After this callback returns, the memory will be released and you should not access this memory again.
 ///
 /// * `length` - Length of preview text.
 ///
@@ -378,7 +378,7 @@ extern "C" {
     /// # Returns
     ///
     /// * If the creation succeeds, a pointer to the newly created [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy)
-    /// instance is returned. If the creation fails, NULL is returned, possible cause is insufficient memory.
+    ///   instance is returned. If the creation fails, NULL is returned, possible cause is insufficient memory.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -405,9 +405,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
-    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
+    ///   [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    ///   [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    ///   Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -427,9 +427,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
-    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
+    ///   [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    ///   [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    ///   Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -449,9 +449,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
-    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
+    ///   [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    ///   [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    ///   Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -471,9 +471,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
-    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
+    ///   [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    ///   [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    ///   Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -489,14 +489,14 @@ extern "C" {
     /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy) instance which will be set function in.
     ///
     /// * `sendKeyboardStatusFunc` - Represents function [`OH_TextEditorProxy_SendKeyboardStatusFunc`](crate::text_editor_proxy::OH_TextEditorProxy_SendKeyboardStatusFunc) which will be
-    /// set.
+    ///   set.
     ///
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
-    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
+    ///   [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    ///   [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    ///   Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -516,9 +516,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
-    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
+    ///   [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    ///   [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    ///   Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -538,9 +538,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
-    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
+    ///   [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    ///   [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    ///   Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -556,14 +556,14 @@ extern "C" {
     /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy) instance which will be set function in.
     ///
     /// * `handleSetSelectionFunc` - Represents function [`OH_TextEditorProxy_HandleSetSelectionFunc`](crate::text_editor_proxy::OH_TextEditorProxy_HandleSetSelectionFunc) which will be
-    /// set.
+    ///   set.
     ///
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
-    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
+    ///   [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    ///   [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    ///   Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -579,14 +579,14 @@ extern "C" {
     /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy) instance which will be set function in.
     ///
     /// * `handleExtendActionFunc` - Represents function [`OH_TextEditorProxy_HandleExtendActionFunc`](crate::text_editor_proxy::OH_TextEditorProxy_HandleExtendActionFunc) which will be
-    /// set.
+    ///   set.
     ///
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
-    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
+    ///   [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    ///   [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    ///   Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -602,14 +602,14 @@ extern "C" {
     /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy) instance which will be set function in.
     ///
     /// * `getLeftTextOfCursorFunc` - Represents function [`OH_TextEditorProxy_GetLeftTextOfCursorFunc`](crate::text_editor_proxy::OH_TextEditorProxy_GetLeftTextOfCursorFunc) which will
-    /// be set.
+    ///   be set.
     ///
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
-    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
+    ///   [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    ///   [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    ///   Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -625,14 +625,14 @@ extern "C" {
     /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy) instance which will be set function in.
     ///
     /// * `getRightTextOfCursorFunc` - Represents function [`OH_TextEditorProxy_GetRightTextOfCursorFunc`](crate::text_editor_proxy::OH_TextEditorProxy_GetRightTextOfCursorFunc) which
-    /// will be set.
+    ///   will be set.
     ///
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
-    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
+    ///   [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    ///   [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    ///   Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -648,14 +648,14 @@ extern "C" {
     /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy) instance which will be set function in.
     ///
     /// * `getTextIndexAtCursorFunc` - Represents function [`OH_TextEditorProxy_GetTextIndexAtCursorFunc`](crate::text_editor_proxy::OH_TextEditorProxy_GetTextIndexAtCursorFunc) which
-    /// will be set.
+    ///   will be set.
     ///
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
-    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
+    ///   [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    ///   [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    ///   Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -671,14 +671,14 @@ extern "C" {
     /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy) instance which will be set function in.
     ///
     /// * `receivePrivateCommandFunc` - Represents function [`OH_TextEditorProxy_ReceivePrivateCommandFunc`](crate::text_editor_proxy::OH_TextEditorProxy_ReceivePrivateCommandFunc) which
-    /// will be set.
+    ///   will be set.
     ///
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
-    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
+    ///   [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    ///   [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    ///   Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -698,9 +698,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
-    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
+    ///   [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    ///   [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    ///   Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -716,14 +716,14 @@ extern "C" {
     /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy) instance which will be set function in.
     ///
     /// * `finishTextPreviewFunc` - Represents function [`OH_TextEditorProxy_FinishTextPreviewFunc`](crate::text_editor_proxy::OH_TextEditorProxy_FinishTextPreviewFunc) which will be
-    /// set.
+    ///   set.
     ///
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
-    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
+    ///   [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    ///   [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    ///   Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -737,16 +737,16 @@ extern "C" {
     /// # Arguments
     ///
     /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy) instance which will be get function
-    /// from.
+    ///   from.
     ///
     /// * `getTextConfigFunc` - Represents function [`OH_TextEditorProxy_GetTextConfigFunc`](crate::text_editor_proxy::OH_TextEditorProxy_GetTextConfigFunc) which will be get.
     ///
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
-    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
+    ///   [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    ///   [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    ///   Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -760,16 +760,16 @@ extern "C" {
     /// # Arguments
     ///
     /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy) instance which will be get function
-    /// from.
+    ///   from.
     ///
     /// * `insertTextFunc` - Represents function [`OH_TextEditorProxy_InsertTextFunc`](crate::text_editor_proxy::OH_TextEditorProxy_InsertTextFunc) which will be get.
     ///
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
-    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
+    ///   [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    ///   [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    ///   Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -783,16 +783,16 @@ extern "C" {
     /// # Arguments
     ///
     /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy) instance which will be get function
-    /// from.
+    ///   from.
     ///
     /// * `deleteForwardFunc` - Represents function [`OH_TextEditorProxy_DeleteForwardFunc`](crate::text_editor_proxy::OH_TextEditorProxy_DeleteForwardFunc) which will be get.
     ///
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
-    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
+    ///   [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    ///   [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    ///   Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -806,16 +806,16 @@ extern "C" {
     /// # Arguments
     ///
     /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy) instance which will be get function
-    /// from.
+    ///   from.
     ///
     /// * `deleteBackwardFunc` - Represents function [`OH_TextEditorProxy_DeleteBackwardFunc`](crate::text_editor_proxy::OH_TextEditorProxy_DeleteBackwardFunc) which will be get.
     ///
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
-    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
+    ///   [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    ///   [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    ///   Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -829,17 +829,17 @@ extern "C" {
     /// # Arguments
     ///
     /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy) instance which will be get function
-    /// from.
+    ///   from.
     ///
     /// * `sendKeyboardStatusFunc` - Represents function [`OH_TextEditorProxy_SendKeyboardStatusFunc`](crate::text_editor_proxy::OH_TextEditorProxy_SendKeyboardStatusFunc) which will be
-    /// get.
+    ///   get.
     ///
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
-    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
+    ///   [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    ///   [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    ///   Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -853,16 +853,16 @@ extern "C" {
     /// # Arguments
     ///
     /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy) instance which will be get function
-    /// from.
+    ///   from.
     ///
     /// * `sendEnterKeyFunc` - Represents function [`OH_TextEditorProxy_SendEnterKeyFunc`](crate::text_editor_proxy::OH_TextEditorProxy_SendEnterKeyFunc) which will be get.
     ///
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
-    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
+    ///   [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    ///   [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    ///   Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -876,16 +876,16 @@ extern "C" {
     /// # Arguments
     ///
     /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy) instance which will be get function
-    /// from.
+    ///   from.
     ///
     /// * `moveCursorFunc` - Represents function [`OH_TextEditorProxy_MoveCursorFunc`](crate::text_editor_proxy::OH_TextEditorProxy_MoveCursorFunc) which will be get.
     ///
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
-    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
+    ///   [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    ///   [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    ///   Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -899,17 +899,17 @@ extern "C" {
     /// # Arguments
     ///
     /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy) instance which will be get function
-    /// from.
+    ///   from.
     ///
     /// * `handleSetSelectionFunc` - Represents function [`OH_TextEditorProxy_HandleSetSelectionFunc`](crate::text_editor_proxy::OH_TextEditorProxy_HandleSetSelectionFunc) which will be
-    /// get.
+    ///   get.
     ///
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
-    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
+    ///   [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    ///   [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    ///   Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -923,17 +923,17 @@ extern "C" {
     /// # Arguments
     ///
     /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy) instance which will be get function
-    /// from.
+    ///   from.
     ///
     /// * `handleExtendActionFunc` - Represents function [`OH_TextEditorProxy_HandleExtendActionFunc`](crate::text_editor_proxy::OH_TextEditorProxy_HandleExtendActionFunc) which will be
-    /// get.
+    ///   get.
     ///
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
-    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
+    ///   [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    ///   [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    ///   Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -947,17 +947,17 @@ extern "C" {
     /// # Arguments
     ///
     /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy) instance which will be get function
-    /// from.
+    ///   from.
     ///
     /// * `getLeftTextOfCursorFunc` - Represents function [`OH_TextEditorProxy_GetLeftTextOfCursorFunc`](crate::text_editor_proxy::OH_TextEditorProxy_GetLeftTextOfCursorFunc) which will
-    /// be get.
+    ///   be get.
     ///
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
-    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
+    ///   [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    ///   [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    ///   Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -971,17 +971,17 @@ extern "C" {
     /// # Arguments
     ///
     /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy) instance which will be get function
-    /// from.
+    ///   from.
     ///
     /// * `getRightTextOfCursorFunc` - Represents function [`OH_TextEditorProxy_GetRightTextOfCursorFunc`](crate::text_editor_proxy::OH_TextEditorProxy_GetRightTextOfCursorFunc) which
-    /// will be get.
+    ///   will be get.
     ///
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
-    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
+    ///   [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    ///   [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    ///   Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -995,17 +995,17 @@ extern "C" {
     /// # Arguments
     ///
     /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy) instance which will be get function
-    /// from.
+    ///   from.
     ///
     /// * `getTextIndexAtCursorFunc` - Represents function [`OH_TextEditorProxy_GetTextIndexAtCursorFunc`](crate::text_editor_proxy::OH_TextEditorProxy_GetTextIndexAtCursorFunc) which
-    /// will be get.
+    ///   will be get.
     ///
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
-    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
+    ///   [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    ///   [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    ///   Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1019,17 +1019,17 @@ extern "C" {
     /// # Arguments
     ///
     /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy) instance which will be get function
-    /// from.
+    ///   from.
     ///
     /// * `receivePrivateCommandFunc` - Represents function [`OH_TextEditorProxy_ReceivePrivateCommandFunc`](crate::text_editor_proxy::OH_TextEditorProxy_ReceivePrivateCommandFunc) which
-    /// will be get.
+    ///   will be get.
     ///
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
-    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
+    ///   [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    ///   [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    ///   Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1043,16 +1043,16 @@ extern "C" {
     /// # Arguments
     ///
     /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy) instance which will be get function
-    /// from.
+    ///   from.
     ///
     /// * `setPreviewTextFunc` - Represents function [`OH_TextEditorProxy_SetPreviewTextFunc`](crate::text_editor_proxy::OH_TextEditorProxy_SetPreviewTextFunc) which will be get.
     ///
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
-    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
+    ///   [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    ///   [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    ///   Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1066,17 +1066,17 @@ extern "C" {
     /// # Arguments
     ///
     /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy) instance which will be get function
-    /// from.
+    ///   from.
     ///
     /// * `finishTextPreviewFunc` - Represents function [`OH_TextEditorProxy_FinishTextPreviewFunc`](crate::text_editor_proxy::OH_TextEditorProxy_FinishTextPreviewFunc) which will be
-    /// get.
+    ///   get.
     ///
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
-    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
+    ///   [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    ///   [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    ///   Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1098,15 +1098,15 @@ extern "C" {
     ///
     /// * `isCallbackInMainThread` - Thread execution strategy
     /// - true: The callback function is switched to the main thread for execution (to avoid
-    /// multi-thread concurrency)
+    ///   multi-thread concurrency)
     /// - false: The callback function is executed in the IPC thread (there may be multi-thread
-    /// concurrency)
+    ///   concurrency)
     ///
     /// # Returns
     ///
     /// * Execution result.
-    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - Configuration succeeded.
-    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - Returned when proxy is NULL.
+    ///   [`IME_ERR_OK`](crate::types::InputMethodResult) - Configuration succeeded.
+    ///   [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - Returned when proxy is NULL.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]

@@ -156,8 +156,8 @@ pub struct ArkUI_NativeAnimateAPI_1 {
     /// * `option` - Defines the animation configuration.
     ///
     /// * `update` - Closure function for the animation. The system automatically inserts the transition animation if
-    /// the state changes in the closure function.
-    /// <br>Note: Make sure the component attributes to be set in the closure function have been set before.
+    ///   the state changes in the closure function.
+    ///   <br>Note: Make sure the component attributes to be set in the closure function have been set before.
     ///
     /// * `complete` - Callback invoked when the animation playback is complete.
     ///
@@ -233,7 +233,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `option` - Pointer to an animation configuration.
-    /// <br>If **option** is set to **NULL**, the operation is invalid.
+    ///   <br>If **option** is set to **NULL**, the operation is invalid.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -244,7 +244,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `option` - Pointer to an animation configuration.
-    /// <br>If **option** is set to **NULL**, **0** is returned.
+    ///   <br>If **option** is set to **NULL**, **0** is returned.
     ///
     /// # Returns
     ///
@@ -259,7 +259,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `option` - Pointer to an animation configuration.
-    /// <br>If **option** is set to **NULL**, **0.0** is returned.
+    ///   <br>If **option** is set to **NULL**, **0.0** is returned.
     ///
     /// # Returns
     ///
@@ -274,7 +274,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `option` - Pointer to an animation configuration.
-    /// <br>If **option** is set to **NULL**, **-1** is returned.
+    ///   <br>If **option** is set to **NULL**, **-1** is returned.
     ///
     /// # Returns
     ///
@@ -291,7 +291,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `option` - Pointer to an animation configuration.
-    /// <br>If **option** is set to **NULL**, **0** is returned.
+    ///   <br>If **option** is set to **NULL**, **0** is returned.
     ///
     /// # Returns
     ///
@@ -306,7 +306,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `option` - Pointer to an animation configuration.
-    /// <br>If **option** is set to **NULL**, **0** is returned.
+    ///   <br>If **option** is set to **NULL**, **0** is returned.
     ///
     /// # Returns
     ///
@@ -321,7 +321,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `option` - Pointer to an animation configuration.
-    /// <br>If **option** is set to **NULL**, **-1** is returned.
+    ///   <br>If **option** is set to **NULL**, **-1** is returned.
     ///
     /// # Returns
     ///
@@ -338,7 +338,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `option` - Pointer to an animation configuration.
-    /// <br>If **option** is set to **NULL**, **NULL** is returned.
+    ///   <br>If **option** is set to **NULL**, **NULL** is returned.
     ///
     /// # Returns
     ///
@@ -355,10 +355,10 @@ extern "C" {
     /// # Arguments
     ///
     /// * `option` - Pointer to an animation configuration.
-    /// <br>If **option** is set to **NULL**, the operation is invalid.
+    ///   <br>If **option** is set to **NULL**, the operation is invalid.
     ///
     /// * `value` - Animation duration, in milliseconds. Value range: [0, +∞).
-    /// <br>If the value is less than 0, **0** is used.
+    ///   <br>If the value is less than 0, **0** is used.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -369,11 +369,11 @@ extern "C" {
     /// # Arguments
     ///
     /// * `option` - Pointer to an animation configuration.
-    /// <br>If **option** is set to **NULL**, the operation is invalid.
+    ///   <br>If **option** is set to **NULL**, the operation is invalid.
     ///
     /// * `value` - Animation playback speed. Value range: [0, +∞).
-    /// <br>**NOTE**
-    /// <br>If the value is less than 0, the default value **1** is used.
+    ///   <br>**NOTE**
+    ///   <br>If the value is less than 0, the default value **1** is used.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -384,11 +384,11 @@ extern "C" {
     /// # Arguments
     ///
     /// * `option` - Pointer to an animation configuration.
-    /// <br>If **option** is set to **NULL**, the operation is invalid.
+    ///   <br>If **option** is set to **NULL**, the operation is invalid.
     ///
     /// * `value` - Animation curve. Default value: [`ARKUI_CURVE_LINEAR`](crate::native_type_visual::ArkUI_AnimationCurve::ARKUI_CURVE_LINEAR). You are advised to use
-    /// [`ARKUI_CURVE_EASE_IN_OUT`](crate::native_type_visual::ArkUI_AnimationCurve::ARKUI_CURVE_EASE_IN_OUT) to obtain a smoother animation effect.
-    /// <br>If the value is abnormal, the setting is invalid.
+    ///   [`ARKUI_CURVE_EASE_IN_OUT`](crate::native_type_visual::ArkUI_AnimationCurve::ARKUI_CURVE_EASE_IN_OUT) to obtain a smoother animation effect.
+    ///   <br>If the value is abnormal, the setting is invalid.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -402,15 +402,15 @@ extern "C" {
     /// # Arguments
     ///
     /// * `option` - Pointer to an animation configuration.
-    /// <br>If **option** is set to **NULL**, the operation is invalid.
+    ///   <br>If **option** is set to **NULL**, the operation is invalid.
     ///
     /// * `value` - Animation delay, in milliseconds. Value range: (-∞, +∞). Default value: **0**, indicating no animation
-    /// delay. A value greater than 0 means to begin the animation after the specified amount of time has elapsed. A
-    /// value less than 0 means to begin the animation in advance. If **value** is less than **0** and the absolute value
-    /// of **value** is less than the actual animation duration, the animation starts its first frame from the state at
-    /// the absolute value. If the absolute value of **value** is greater than or equal to the actual animation duration,
-    /// the animation starts its first frame from the end state. The actual animation duration is equal to the duration
-    /// of a single animation multiplied by the number of animation playback times.
+    ///   delay. A value greater than 0 means to begin the animation after the specified amount of time has elapsed. A
+    ///   value less than 0 means to begin the animation in advance. If **value** is less than **0** and the absolute value
+    ///   of **value** is less than the actual animation duration, the animation starts its first frame from the state at
+    ///   the absolute value. If the absolute value of **value** is greater than or equal to the actual animation duration,
+    ///   the animation starts its first frame from the end state. The actual animation duration is equal to the duration
+    ///   of a single animation multiplied by the number of animation playback times.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -421,12 +421,12 @@ extern "C" {
     /// # Arguments
     ///
     /// * `option` - Pointer to an animation configuration.
-    /// <br>If **option** is set to **NULL**, the operation is invalid.
+    ///   <br>If **option** is set to **NULL**, the operation is invalid.
     ///
     /// * `value` - Number of times that the animation is played. Value range: [-1, +∞). If this parameter is set to **0**,
-    /// the animation is not played. If this parameter is set to **-1**, the animation is played for an infinite number
-    /// of times. Default value: **1** (played once).
-    /// <br>If the value is less than -1, the operation is invalid.
+    ///   the animation is not played. If this parameter is set to **-1**, the animation is played for an infinite number
+    ///   of times. Default value: **1** (played once).
+    ///   <br>If the value is less than -1, the operation is invalid.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -437,10 +437,10 @@ extern "C" {
     /// # Arguments
     ///
     /// * `option` - Pointer to an animation configuration.
-    /// <br>If **option** is set to **NULL**, the operation is invalid.
+    ///   <br>If **option** is set to **NULL**, the operation is invalid.
     ///
     /// * `value` - Animation playback mode. Default value: [`ARKUI_ANIMATION_PLAY_MODE_NORMAL`](crate::native_type_visual::ArkUI_AnimationPlayMode::ARKUI_ANIMATION_PLAY_MODE_NORMAL).
-    /// <br>If the value is abnormal, the operation is invalid.
+    ///   <br>If the value is abnormal, the operation is invalid.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -454,10 +454,10 @@ extern "C" {
     /// # Arguments
     ///
     /// * `option` - Pointer to an animation configuration.
-    /// <br>If **option** is set to **NULL**, the operation is invalid.
+    ///   <br>If **option** is set to **NULL**, the operation is invalid.
     ///
     /// * `value` - Expected frame rate range of the animation, in fps.
-    /// <br>If **value** is set to **NULL**, the operation is invalid.
+    ///   <br>If **value** is set to **NULL**, the operation is invalid.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -473,10 +473,10 @@ extern "C" {
     /// # Arguments
     ///
     /// * `option` - Animator animation parameters.
-    /// <br>If **option** is set to **NULL**, the operation is invalid.
+    ///   <br>If **option** is set to **NULL**, the operation is invalid.
     ///
     /// * `value` - Animation curve parameters.
-    /// <br>If **value** is set to **NULL**, the operation is invalid.
+    ///   <br>If **value** is set to **NULL**, the operation is invalid.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -490,7 +490,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `option` - Animator animation parameters.
-    /// <br>If **option** is set to **NULL**, **NULL** is returned.
+    ///   <br>If **option** is set to **NULL**, **NULL** is returned.
     ///
     /// # Returns
     ///
@@ -505,12 +505,12 @@ extern "C" {
     /// # Arguments
     ///
     /// * `size` - Number of keyframe animation states.
-    /// <br>Returns **NULL** if the value of **size** is less than 0.
+    ///   <br>Returns **NULL** if the value of **size** is less than 0.
     ///
     /// # Returns
     ///
     /// * Keyframe animation parameter object. If the value of **size** is less than 0 or if **option** is abnormal, **
-    /// NULL** is returned.
+    ///   NULL** is returned.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -521,7 +521,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `option` - Keyframe animation parameter object.
-    /// <br>If **option** is set to **NULL**, the operation is invalid.
+    ///   <br>If **option** is set to **NULL**, the operation is invalid.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -533,15 +533,15 @@ extern "C" {
     /// # Arguments
     ///
     /// * `option` - Keyframe animation parameters.
-    /// <br>If **option** is set to **NULL**, the error code [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) is returned.
+    ///   <br>If **option** is set to **NULL**, the error code [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) is returned.
     ///
     /// * `value` - Animation delay, in milliseconds. Value range: (-∞, +∞). Default value: **0**, indicating no animation
-    /// delay. A value greater than 0 means to begin the animation after the specified amount of time has elapsed. A
-    /// value less than 0 means to begin the animation in advance. If **value** is less than **0** and the absolute
-    /// value of **value** is less than the actual animation duration, the animation starts its first frame from the
-    /// state at the absolute value. If the absolute value of **value** is greater than or equal to the actual animation
-    /// duration, the animation starts its first frame from the end state. The actual animation duration is equal to the
-    /// duration of a single animation multiplied by the number of animation playback times.
+    ///   delay. A value greater than 0 means to begin the animation after the specified amount of time has elapsed. A
+    ///   value less than 0 means to begin the animation in advance. If **value** is less than **0** and the absolute
+    ///   value of **value** is less than the actual animation duration, the animation starts its first frame from the
+    ///   state at the absolute value. If the absolute value of **value** is greater than or equal to the actual animation
+    ///   duration, the animation starts its first frame from the end state. The actual animation duration is equal to the
+    ///   duration of a single animation multiplied by the number of animation playback times.
     ///
     /// # Returns
     ///
@@ -562,13 +562,13 @@ extern "C" {
     /// # Arguments
     ///
     /// * `option` - Keyframe animation parameters.
-    /// <br>If **option** is set to **NULL**, the error code [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) is returned.
+    ///   <br>If **option** is set to **NULL**, the error code [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) is returned.
     ///
     /// * `value` - Number of times that the animation is played. Value range: [-1, +∞). If this parameter is set to **0**,
-    /// the animation is not played. If this parameter is set to **-1**, the animation is played for an infinite number
-    /// of times. Default value: **1**, indicating that the animation is played once.
-    /// <br>If the value is less than **-1**, the operation is invalid, and the error code
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) is returned.
+    ///   the animation is not played. If this parameter is set to **-1**, the animation is played for an infinite number
+    ///   of times. Default value: **1**, indicating that the animation is played once.
+    ///   <br>If the value is less than **-1**, the operation is invalid, and the error code
+    ///   [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) is returned.
     ///
     /// # Returns
     ///
@@ -588,10 +588,10 @@ extern "C" {
     /// # Arguments
     ///
     /// * `option` - Keyframe animation parameters.
-    /// <br>If **option** is set to **NULL**, the error code [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) is returned.
+    ///   <br>If **option** is set to **NULL**, the error code [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) is returned.
     ///
     /// * `userData` - Pointer to a custom object.
-    /// <br>Abnormal value processing is not involved.
+    ///   <br>Abnormal value processing is not involved.
     ///
     /// * `onFinish` - Indicates the callback.
     ///
@@ -613,10 +613,10 @@ extern "C" {
     /// # Arguments
     ///
     /// * `option` - Keyframe animation parameters.
-    /// <br>If **option** is set to **NULL**, the error code [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) is returned.
+    ///   <br>If **option** is set to **NULL**, the error code [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) is returned.
     ///
     /// * `frameRate` - Expected frame rate for the keyframe animation.
-    /// <br>If **frameRate** is set to **NULL**, the error code [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) is returned.
+    ///   <br>If **frameRate** is set to **NULL**, the error code [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) is returned.
     ///
     /// # Returns
     ///
@@ -635,13 +635,13 @@ extern "C" {
     /// # Arguments
     ///
     /// * `option` - Keyframe animation parameters.
-    /// <br>If **option** is set to **NULL**, the error code [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) is returned.
+    ///   <br>If **option** is set to **NULL**, the error code [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) is returned.
     ///
     /// * `value` - Keyframe animation duration, in ms. The default value is 1000 ms. Value range: [0, +∞).
-    /// <br>If the value is less than 0, **0** is used.
+    ///   <br>If the value is less than 0, **0** is used.
     ///
     /// * `index` - Index of the keyframe state segment.
-    /// <br>If the value of **index** is less than 0, the error code [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) is returned.
+    ///   <br>If the value of **index** is less than 0, the error code [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) is returned.
     ///
     /// # Returns
     ///
@@ -664,14 +664,14 @@ extern "C" {
     /// # Arguments
     ///
     /// * `option` - Keyframe animation parameters.
-    /// <br>If **option** is set to **NULL**, the error code [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) is returned.
+    ///   <br>If **option** is set to **NULL**, the error code [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) is returned.
     ///
     /// * `value` - Animation curve to set. Default value: [`ARKUI_CURVE_EASE_IN_OUT`](crate::native_type_visual::ArkUI_AnimationCurve::ARKUI_CURVE_EASE_IN_OUT).
     ///
     /// * `index` - Index of the keyframe state segment. Value range: \[0, size – 1\], where **size** indicates the number of
-    /// keyframe animation states.
-    /// <br>If the value of **index** is less than 0 or out of range, the error code
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) is returned.
+    ///   keyframe animation states.
+    ///   <br>If the value of **index** is less than 0 or out of range, the error code
+    ///   [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) is returned.
     ///
     /// # Returns
     ///
@@ -692,17 +692,17 @@ extern "C" {
     /// # Arguments
     ///
     /// * `option` - Keyframe animation parameters.
-    /// <br>If **option** is set to **NULL**, the error code [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) is returned.
+    ///   <br>If **option** is set to **NULL**, the error code [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) is returned.
     ///
     /// * `event` - Indicates a closure function.
     ///
     /// * `userData` - Pointer to a user-defined object.
-    /// <br>Abnormal value processing is not involved.
+    ///   <br>Abnormal value processing is not involved.
     ///
     /// * `index` - Index of the keyframe state segment. Value range: \[0, size – 1\], where **size** indicates the number of
-    /// keyframe animation states.
-    /// <br>If the value of **index** is less than 0 or out of range, the error code
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) is returned.
+    ///   keyframe animation states.
+    ///   <br>If the value of **index** is less than 0 or out of range, the error code
+    ///   [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) is returned.
     ///
     /// # Returns
     ///
@@ -723,7 +723,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `option` - Keyframe animation parameters.
-    /// <br>If **option** is set to **NULL**, **0** is returned.
+    ///   <br>If **option** is set to **NULL**, **0** is returned.
     ///
     /// # Returns
     ///
@@ -739,7 +739,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `option` - Keyframe animation parameters.
-    /// <br>If **option** is set to **NULL**, **0** is returned.
+    ///   <br>If **option** is set to **NULL**, **0** is returned.
     ///
     /// # Returns
     ///
@@ -756,7 +756,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `option` - Keyframe animation parameters.
-    /// <br>If **option** is set to **NULL**, **NULL** is returned.
+    ///   <br>If **option** is set to **NULL**, **NULL** is returned.
     ///
     /// # Returns
     ///
@@ -773,10 +773,10 @@ extern "C" {
     /// # Arguments
     ///
     /// * `option` - Keyframe animation parameters.
-    /// <br>If **option** is set to **NULL**, **0** is returned.
+    ///   <br>If **option** is set to **NULL**, **0** is returned.
     ///
     /// * `index` - Index of the keyframe state segment.
-    /// <br>If the value of **index** is less than 0, **0** is returned.
+    ///   <br>If the value of **index** is less than 0, **0** is returned.
     ///
     /// # Returns
     ///
@@ -794,10 +794,10 @@ extern "C" {
     /// # Arguments
     ///
     /// * `option` - Keyframe animation parameters.
-    /// <br>If **option** is set to **NULL**, **NULL** is returned.
+    ///   <br>If **option** is set to **NULL**, **NULL** is returned.
     ///
     /// * `index` - Index of the keyframe state segment.
-    /// <br>If the value of **index** is less than 0, **NULL** is returned.
+    ///   <br>If the value of **index** is less than 0, **NULL** is returned.
     ///
     /// # Returns
     ///
@@ -818,12 +818,12 @@ extern "C" {
     /// # Arguments
     ///
     /// * `keyframeSize` - Number of keyframes.
-    /// <br>If the value of **keyframeSize** is less than 0, **NULL** is returned.
+    ///   <br>If the value of **keyframeSize** is less than 0, **NULL** is returned.
     ///
     /// # Returns
     ///
     /// * Pointer to the animator parameter object. If the value of **size** is less than 0 or if **option** is
-    /// abnormal, **NULL** is returned.
+    ///   abnormal, **NULL** is returned.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -834,7 +834,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `option` - Animator parameters.
-    /// <br>If **option** is set to **NULL**, the operation is invalid.
+    ///   <br>If **option** is set to **NULL**, the operation is invalid.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -845,10 +845,10 @@ extern "C" {
     /// # Arguments
     ///
     /// * `option` - Animator parameters.
-    /// <br>If **option** is set to **NULL**, the error code [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) is returned.
+    ///   <br>If **option** is set to **NULL**, the error code [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) is returned.
     ///
     /// * `value` - Playback duration, in ms. The default value is 0 ms. Value range: [0, +∞).
-    /// <br>If the value is less than 0, the error code [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) is returned.
+    ///   <br>If the value is less than 0, the error code [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) is returned.
     ///
     /// # Returns
     ///
@@ -867,15 +867,15 @@ extern "C" {
     /// # Arguments
     ///
     /// * `option` - Animator parameters.
-    /// <br>If **option** is set to **NULL**, the error code [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) is returned.
+    ///   <br>If **option** is set to **NULL**, the error code [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) is returned.
     ///
     /// * `value` - Animation delay, in milliseconds. Value range: (-∞, +∞). Default value: **0**, indicating no animation
-    /// delay. A value greater than 0 means to begin the animation after the specified amount of time has elapsed. A
-    /// value less than 0 means to begin the animation in advance. If **value** is less than **0** and the absolute
-    /// value of **value** is less than the actual animation duration, the animation starts its first frame from the
-    /// state at the absolute value. If the absolute value of **value** is greater than or equal to the actual animation
-    /// duration, the animation starts its first frame from the end state. The actual animation duration is equal to the
-    /// duration of a single animation multiplied by the number of animation playback times.
+    ///   delay. A value greater than 0 means to begin the animation after the specified amount of time has elapsed. A
+    ///   value less than 0 means to begin the animation in advance. If **value** is less than **0** and the absolute
+    ///   value of **value** is less than the actual animation duration, the animation starts its first frame from the
+    ///   state at the absolute value. If the absolute value of **value** is greater than or equal to the actual animation
+    ///   duration, the animation starts its first frame from the end state. The actual animation duration is equal to the
+    ///   duration of a single animation multiplied by the number of animation playback times.
     ///
     /// # Returns
     ///
@@ -896,12 +896,12 @@ extern "C" {
     /// # Arguments
     ///
     /// * `option` - Animator parameters.
-    /// <br>If **option** is set to **NULL**, the error code [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) is returned.
+    ///   <br>If **option** is set to **NULL**, the error code [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) is returned.
     ///
     /// * `value` - Value range: [-1, +∞). If this parameter is set to **0**, the animation is not played. If this
-    /// parameter is set to **-1**, the animation is played for an infinite number of times. Default value: **1** (
-    /// played once).
-    /// <br>If the value is less than -1, the operation is invalid.
+    ///   parameter is set to **-1**, the animation is played for an infinite number of times. Default value: **1** (
+    ///   played once).
+    ///   <br>If the value is less than -1, the operation is invalid.
     ///
     /// # Returns
     ///
@@ -920,11 +920,11 @@ extern "C" {
     /// # Arguments
     ///
     /// * `option` - Animator parameters.
-    /// <br>If **option** is set to **NULL**, the error code [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) is returned.
+    ///   <br>If **option** is set to **NULL**, the error code [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) is returned.
     ///
     /// * `value` - Status of the component before and after the animator animation execution. Default value:
-    /// [`ARKUI_ANIMATION_FILL_MODE_FORWARDS`](crate::native_type_visual::ArkUI_AnimationFillMode::ARKUI_ANIMATION_FILL_MODE_FORWARDS).
-    /// <br>If the value is less than 0, the error code [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) is returned.
+    ///   [`ARKUI_ANIMATION_FILL_MODE_FORWARDS`](crate::native_type_visual::ArkUI_AnimationFillMode::ARKUI_ANIMATION_FILL_MODE_FORWARDS).
+    ///   <br>If the value is less than 0, the error code [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) is returned.
     ///
     /// # Returns
     ///
@@ -943,10 +943,10 @@ extern "C" {
     /// # Arguments
     ///
     /// * `option` - Animator parameters.
-    /// <br>If **option** is set to **NULL**, the error code [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) is returned.
+    ///   <br>If **option** is set to **NULL**, the error code [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) is returned.
     ///
     /// * `value` - Animation playback direction.
-    /// <br>If the value is less than 0, the error code [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) is returned.
+    ///   <br>If the value is less than 0, the error code [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) is returned.
     ///
     /// # Returns
     ///
@@ -969,11 +969,11 @@ extern "C" {
     /// # Arguments
     ///
     /// * `option` - Animator parameters.
-    /// <br>If **option** is set to **NULL**, the error code [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) is returned.
+    ///   <br>If **option** is set to **NULL**, the error code [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) is returned.
     ///
     /// * `value` - Interpolation curve. Default value: [`ARKUI_CURVE_LINEAR`](crate::native_type_visual::ArkUI_AnimationCurve::ARKUI_CURVE_LINEAR). You are advised to use
-    /// [`ARKUI_CURVE_EASE_IN_OUT`](crate::native_type_visual::ArkUI_AnimationCurve::ARKUI_CURVE_EASE_IN_OUT) to obtain a smoother animation effect.
-    /// <br>If **value** is set to **NULL**, the default curve [`ARKUI_CURVE_LINEAR`](crate::native_type_visual::ArkUI_AnimationCurve::ARKUI_CURVE_LINEAR) is used.
+    ///   [`ARKUI_CURVE_EASE_IN_OUT`](crate::native_type_visual::ArkUI_AnimationCurve::ARKUI_CURVE_EASE_IN_OUT) to obtain a smoother animation effect.
+    ///   <br>If **value** is set to **NULL**, the default curve [`ARKUI_CURVE_LINEAR`](crate::native_type_visual::ArkUI_AnimationCurve::ARKUI_CURVE_LINEAR) is used.
     ///
     /// # Returns
     ///
@@ -995,7 +995,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `option` - Animator parameters.
-    /// <br>If **option** is set to **NULL**, the error code [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) is returned.
+    ///   <br>If **option** is set to **NULL**, the error code [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) is returned.
     ///
     /// * `value` - Interpolation start point of the animation. Value range: (-∞, +∞).
     ///
@@ -1016,7 +1016,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `option` - Animator parameters.
-    /// <br>If **option** is set to **NULL**, the error code [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) is returned.
+    ///   <br>If **option** is set to **NULL**, the error code [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) is returned.
     ///
     /// * `value` - Interpolation end point of the animation. Value range: (-∞, +∞).
     ///
@@ -1034,10 +1034,10 @@ extern "C" {
     /// # Arguments
     ///
     /// * `option` - Animator parameters.
-    /// <br>If **option** is set to **NULL**, the error code [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) is returned.
+    ///   <br>If **option** is set to **NULL**, the error code [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) is returned.
     ///
     /// * `value` - Expected frame rate range.
-    /// <br>If **value** is set to **NULL**, the error code [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) is returned.
+    ///   <br>If **value** is set to **NULL**, the error code [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) is returned.
     ///
     /// # Returns
     ///
@@ -1056,18 +1056,18 @@ extern "C" {
     /// # Arguments
     ///
     /// * `option` - Animator parameters.
-    /// <br>If **option** is set to **NULL**, the error code [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) is returned.
+    ///   <br>If **option** is set to **NULL**, the error code [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) is returned.
     ///
     /// * `time` - Keyframe time. Value range: \[0, 1\]. The value must be in ascending order. Default value: evenly
-    /// distributed by index (for example, **0.0** for the first frame, **0.5** for the second frame, and **1.0** for
-    /// the third frame).
-    /// <br>If the value of **time** is less than 0 or greater than 1, the error code
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) is returned.
+    ///   distributed by index (for example, **0.0** for the first frame, **0.5** for the second frame, and **1.0** for
+    ///   the third frame).
+    ///   <br>If the value of **time** is less than 0 or greater than 1, the error code
+    ///   [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) is returned.
     ///
     /// * `value` - Keyframe value. Value range: (-∞, +∞).
     ///
     /// * `index` - Keyframe index.
-    /// <br>If the value of **index** is less than 0, the error code [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) is returned.
+    ///   <br>If the value of **index** is less than 0, the error code [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) is returned.
     ///
     /// # Returns
     ///
@@ -1092,12 +1092,12 @@ extern "C" {
     /// # Arguments
     ///
     /// * `option` - Animator parameters.
-    /// <br>If **option** is set to **NULL**, the error code [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) is returned.
+    ///   <br>If **option** is set to **NULL**, the error code [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) is returned.
     ///
     /// * `value` - Interpolation curve. Default value: **NULL**, indicating linear interpolation.
     ///
     /// * `index` - Keyframe index.
-    /// <br>If the value of **index** is less than 0, the error code [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) is returned.
+    ///   <br>If the value of **index** is less than 0, the error code [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) is returned.
     ///
     /// # Returns
     ///
@@ -1117,7 +1117,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `option` - Animator animation parameters.
-    /// <br>If **option** is set to **NULL**, **0** is returned.
+    ///   <br>If **option** is set to **NULL**, **0** is returned.
     ///
     /// # Returns
     ///
@@ -1164,7 +1164,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Status of the component before and after the animator animation execution. If **option** is invalid,**-1**
-    /// is returned.
+    ///   is returned.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1345,10 +1345,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Animation interpolation result.
-    /// <br>**NOTE**
-    /// <br>During the animation, the interpolation result changes between the interpolation start point
-    /// [`OH_ArkUI_AnimatorOption_SetBegin`](crate::native_animate::OH_ArkUI_AnimatorOption_SetBegin) and the interpolation end point [`OH_ArkUI_AnimatorOption_SetEnd`](crate::native_animate::OH_ArkUI_AnimatorOption_SetEnd)
-    /// based on the animation parameters.
+    ///   <br>**NOTE**
+    ///   <br>During the animation, the interpolation result changes between the interpolation start point
+    ///   [`OH_ArkUI_AnimatorOption_SetBegin`](crate::native_animate::OH_ArkUI_AnimatorOption_SetBegin) and the interpolation end point [`OH_ArkUI_AnimatorOption_SetEnd`](crate::native_animate::OH_ArkUI_AnimatorOption_SetEnd)
+    ///   based on the animation parameters.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1563,10 +1563,10 @@ extern "C" {
     /// # Arguments
     ///
     /// * `count` - Number of steps. The value must be a positive integer. Value range: [1, +∞).
-    /// <br>If the value of **count** is abnormal, the operation is invalid.
+    ///   <br>If the value of **count** is abnormal, the operation is invalid.
     ///
     /// * `end` - Whether the step change occurs at the start or end of each interval. **true**: The step change occurs at
-    /// the end of each interval. **false**: The step change occurs at the start of each interval.
+    ///   the end of each interval. **false**: The step change occurs at the start of each interval.
     ///
     /// # Returns
     ///
@@ -1581,12 +1581,12 @@ extern "C" {
     /// # Arguments
     ///
     /// * `x1` - X-coordinate of the first point on the Bezier curve. Value range: \[0, 1\]. A value less than 0 is treated
-    /// as **0**. A value greater than 1 is treated as **1**.
+    ///   as **0**. A value greater than 1 is treated as **1**.
     ///
     /// * `y1` - Y-coordinate of the first point on the Bezier curve.
     ///
     /// * `x2` - X-coordinate of the second point on the Bezier curve. Value range: \[0, 1\]. A value less than 0 is treated
-    /// as **0**. A value greater than 1 is treated as **1**.
+    ///   as **0**. A value greater than 1 is treated as **1**.
     ///
     /// * `y2` - Y-coordinate of the second point on the Bezier curve.
     ///
@@ -1609,24 +1609,24 @@ extern "C" {
     /// # Arguments
     ///
     /// * `velocity` - Initial velocity. It is applied by external factors to the spring animation, designed to help
-    /// ensure the smooth transition from the previous motion state. The velocity is the normalized velocity, and its
-    /// value is equal to the actual velocity at the beginning of the animation divided by the animation attribute
-    /// change value.
+    ///   ensure the smooth transition from the previous motion state. The velocity is the normalized velocity, and its
+    ///   value is equal to the actual velocity at the beginning of the animation divided by the animation attribute
+    ///   change value.
     ///
     /// * `mass` - Mass. It describes the inertia of the object in the elastic system, affecting the amplitude of
-    /// oscillation and the speed of return to equilibrium. The greater the mass, the greater the amplitude of the
-    /// oscillation, and the slower the speed of restoring to the equilibrium position. Value range: [0, +∞).
-    /// <br>If the value is less than or equal to 0, **1** is used.
+    ///   oscillation and the speed of return to equilibrium. The greater the mass, the greater the amplitude of the
+    ///   oscillation, and the slower the speed of restoring to the equilibrium position. Value range: [0, +∞).
+    ///   <br>If the value is less than or equal to 0, **1** is used.
     ///
     /// * `stiffness` - Stiffness. It is the degree to which an object deforms by resisting the force applied. In an
-    /// elastic system, the greater the stiffness, the stronger the ability to resist deformation, and the faster the
-    /// speed of restoring to the equilibrium position. Value range: [0, +∞).
-    /// <br>If the value is less than or equal to 0, **1** is used.
+    ///   elastic system, the greater the stiffness, the stronger the ability to resist deformation, and the faster the
+    ///   speed of restoring to the equilibrium position. Value range: [0, +∞).
+    ///   <br>If the value is less than or equal to 0, **1** is used.
     ///
     /// * `damping` - Damping. It is used to describe the oscillation and attenuation of the system after being disturbed.
-    /// The larger the damping, the smaller the number of oscillations of elastic motion, and the smaller the
-    /// oscillation amplitude. Value range: [0, +∞).
-    /// <br>If the value is less than or equal to 0, **1** is used.
+    ///   The larger the damping, the smaller the number of oscillations of elastic motion, and the smaller the
+    ///   oscillation amplitude. Value range: [0, +∞).
+    ///   <br>If the value is less than or equal to 0, **1** is used.
     ///
     /// # Returns
     ///
@@ -1651,16 +1651,16 @@ extern "C" {
     /// # Arguments
     ///
     /// * `response` - Duration of one complete oscillation. Value range: (0, +∞).
-    /// <br>If the value is less than or equal to 0, **0.55** is used.
+    ///   <br>If the value is less than or equal to 0, **0.55** is used.
     ///
     /// * `dampingFraction` - Damping coefficient. > 0 and < 1: underdamped. In this case, the spring overshoots the
-    /// equilibrium position. **1**: critically damped. > 1: overdamped. In this case, the spring approaches equilibrium
-    /// gradually. Value range: (0, +∞).
-    /// <br>If the value is less than or equal to 0, **0.825** is used.
+    ///   equilibrium position. **1**: critically damped. > 1: overdamped. In this case, the spring approaches equilibrium
+    ///   gradually. Value range: (0, +∞).
+    ///   <br>If the value is less than or equal to 0, **0.825** is used.
     ///
     /// * `overlapDuration` - Duration for animations to overlap, in seconds. When animations overlap, the **response**
-    /// values of these animations will transit smoothly over this duration if they are different. Value range: [0, +∞).
-    /// <br>If the value is less than 0, **0** is used.
+    ///   values of these animations will transit smoothly over this duration if they are different. Value range: [0, +∞).
+    ///   <br>If the value is less than 0, **0** is used.
     ///
     /// # Returns
     ///
@@ -1684,16 +1684,16 @@ extern "C" {
     /// # Arguments
     ///
     /// * `response` - Duration of one complete oscillation. Value range: (0, +∞).
-    /// <br>If the value is less than or equal to 0, **0.15** is used.
+    ///   <br>If the value is less than or equal to 0, **0.15** is used.
     ///
     /// * `dampingFraction` - Damping coefficient. > 0 and < 1: underdamped. In this case, the spring overshoots the
-    /// equilibrium position. **1**: critically damped. > 1: overdamped. In this case, the spring approaches equilibrium
-    /// gradually. Value range: [0, +∞).
-    /// <br>If the value is less than 0, **0.86** is used.
+    ///   equilibrium position. **1**: critically damped. > 1: overdamped. In this case, the spring approaches equilibrium
+    ///   gradually. Value range: [0, +∞).
+    ///   <br>If the value is less than 0, **0.86** is used.
     ///
     /// * `overlapDuration` - Duration for animations to overlap, in seconds. When animations overlap, the **response**
-    /// values of these animations will transit smoothly over this duration if they are different. Value range: [0, +∞).
-    /// <br>If the value is less than 0, **0.25** is used.
+    ///   values of these animations will transit smoothly over this duration if they are different. Value range: [0, +∞).
+    ///   <br>If the value is less than 0, **0.25** is used.
     ///
     /// # Returns
     ///
@@ -1718,24 +1718,24 @@ extern "C" {
     /// # Arguments
     ///
     /// * `velocity` - Initial velocity. It is applied by external factors to the spring animation, designed to help
-    /// ensure the smooth transition from the previous motion state. The velocity is the normalized velocity, and its
-    /// value is equal to the actual velocity at the beginning of the animation divided by the animation attribute
-    /// change value.
+    ///   ensure the smooth transition from the previous motion state. The velocity is the normalized velocity, and its
+    ///   value is equal to the actual velocity at the beginning of the animation divided by the animation attribute
+    ///   change value.
     ///
     /// * `mass` - Mass. It describes the inertia of the object in the elastic system, affecting the amplitude of
-    /// oscillation and the speed of return to equilibrium. The greater the mass, the greater the amplitude of the
-    /// oscillation, and the slower the speed of restoring to the equilibrium position. Value range: [0, +∞).
-    /// <br>If the value is less than or equal to 0, **1** is used.
+    ///   oscillation and the speed of return to equilibrium. The greater the mass, the greater the amplitude of the
+    ///   oscillation, and the slower the speed of restoring to the equilibrium position. Value range: [0, +∞).
+    ///   <br>If the value is less than or equal to 0, **1** is used.
     ///
     /// * `stiffness` - Stiffness. It is the degree to which an object deforms by resisting the force applied. The greater
-    /// the stiffness, the stronger the ability to resist deformation, and the faster the speed of restoring to the
-    /// equilibrium position. Value range: [0, +∞).
-    /// <br>If the value is less than or equal to 0, **1** is used.
+    ///   the stiffness, the stronger the ability to resist deformation, and the faster the speed of restoring to the
+    ///   equilibrium position. Value range: [0, +∞).
+    ///   <br>If the value is less than or equal to 0, **1** is used.
     ///
     /// * `damping` - Damping. It is used to describe the oscillation and attenuation of the system after being disturbed.
-    /// The larger the damping, the smaller the number of oscillations of elastic motion, and the smaller the
-    /// oscillation amplitude. Value range: [0, +∞).
-    /// <br>If the value is less than or equal to 0, **1** is used.
+    ///   The larger the damping, the smaller the number of oscillations of elastic motion, and the smaller the
+    ///   oscillation amplitude. Value range: [0, +∞).
+    ///   <br>If the value is less than or equal to 0, **1** is used.
     ///
     /// # Returns
     ///
@@ -1757,15 +1757,15 @@ extern "C" {
     /// * `userData` - Pointer to user-defined data.
     ///
     /// * `interpolate` - Indicates the custom interpolation callback. <b>fraction</b> indicates the input x value for
-    /// interpolation when the animation starts; value range: \[0,1\].
-    /// The return value is the y value of the curve; value range: \[0,1\].
-    /// If <b>fraction</b> is <b>0</b>, the return value <b>0</b> corresponds to the animation start point; any other
-    /// return
-    /// value means that the animation jumps at the start point.
-    /// If <b>fraction</b> is <b>1</b>, the return value <b>1</b> corresponds to the animation end point; any other
-    /// return
-    /// value means that the end value of the animation is not the value of the state variable,
-    /// which will result in an effect of transition from that end value to the value of the state variable.
+    ///   interpolation when the animation starts; value range: \[0,1\].
+    ///   The return value is the y value of the curve; value range: \[0,1\].
+    ///   If <b>fraction</b> is <b>0</b>, the return value <b>0</b> corresponds to the animation start point; any other
+    ///   return
+    ///   value means that the animation jumps at the start point.
+    ///   If <b>fraction</b> is <b>1</b>, the return value <b>1</b> corresponds to the animation end point; any other
+    ///   return
+    ///   value means that the end value of the animation is not the value of the state variable,
+    ///   which will result in an effect of transition from that end value to the value of the state variable.
     ///
     /// # Returns
     ///
@@ -1798,7 +1798,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `opacity` - Opacity. Value range: \[0, 1\]. The default value is **1**. A value less than 0 is treated as 0. A
-    /// value greater than 1 is treated as 1. The value **1** means fully opaque, and **0** means fully transparent.
+    ///   value greater than 1 is treated as 1. The value **1** means fully opaque, and **0** means fully transparent.
     ///
     /// # Returns
     ///

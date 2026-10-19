@@ -182,8 +182,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) - success.
-    /// [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) - The error code for common invalid args.
+    ///   [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) - success.
+    ///   [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) - The error code for common invalid args.
     ///
     /// **See also:** [`OH_VBucket`](crate::values_bucket::OH_VBucket).
     ///
@@ -210,8 +210,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) - success.
-    /// [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) - The error code for common invalid args.
+    ///   [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) - success.
+    ///   [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) - The error code for common invalid args.
     ///
     /// **See also:** [`OH_VBucket`](crate::values_bucket::OH_VBucket).
     ///
@@ -239,8 +239,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) - success.
-    /// [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) - The error code for common invalid args.
+    ///   [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) - success.
+    ///   [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) - The error code for common invalid args.
     ///
     /// **See also:** [`OH_VBucket`](crate::values_bucket::OH_VBucket).
     ///
@@ -270,8 +270,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) - success.
-    /// [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) - The error code for common invalid args.
+    ///   [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) - success.
+    ///   [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) - The error code for common invalid args.
     ///
     /// **See also:** [`OH_VBucket`](crate::values_bucket::OH_VBucket).
     ///

@@ -56,8 +56,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a pointer to the created [`OH_Drawing_Typeface`](crate::types::OH_Drawing_Typeface) object.
-    /// If a null pointer is returned, the creation fails. Possible causes are that no memory is available, the passed-in **
-    /// path** or **fontArguments** is NULL, or the path is invalid.
+    ///   If a null pointer is returned, the creation fails. Possible causes are that no memory is available, the passed-in **
+    ///   path** or **fontArguments** is NULL, or the path is invalid.
     ///
     /// Available since API-level: 13
     ///
@@ -80,9 +80,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a pointer to the created [`OH_Drawing_Typeface`](crate::types::OH_Drawing_Typeface) object.
-    /// If a null pointer is returned, the creation fails. Possible causes are that no memory is available, the passed-in **
-    /// path** or **fontArguments** is NULL, or the existing **OH_Drawing_FontArguments** object does not support the
-    /// variation described in the font arguments.
+    ///   If a null pointer is returned, the creation fails. Possible causes are that no memory is available, the passed-in **
+    ///   path** or **fontArguments** is NULL, or the existing **OH_Drawing_FontArguments** object does not support the
+    ///   variation described in the font arguments.
     ///
     /// Available since API-level: 13
     ///
@@ -151,16 +151,16 @@ extern "C" {
     /// * `fontArguments` - Pointer to an [`OH_Drawing_FontArguments`](crate::types::OH_Drawing_FontArguments) object.
     ///
     /// * `axis` - Pointer to the label of the variation. The value must contain four ASCII characters. The supported
-    /// labels depend on the loaded font file. For example, **'wght'** is the font weight label.
+    ///   labels depend on the loaded font file. For example, **'wght'** is the font weight label.
     ///
     /// * `value` - Value of the variation label.
     ///
     /// # Returns
     ///
     /// * Returns one of the following result codes:
-    /// **OH_DRAWING_SUCCESS** if the operation is successful.
-    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if either **fontArguments** or **axis** is NULL or the length of **axis** is
-    /// not 4.
+    ///   **OH_DRAWING_SUCCESS** if the operation is successful.
+    ///   **OH_DRAWING_ERROR_INVALID_PARAMETER** if either **fontArguments** or **axis** is NULL or the length of **axis** is
+    ///   not 4.
     ///
     /// Available since API-level: 13
     ///
@@ -181,8 +181,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns one of the following result codes:
-    /// **OH_DRAWING_SUCCESS** if the operation is successful.
-    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if **fontArguments** is NULL.
+    ///   **OH_DRAWING_SUCCESS** if the operation is successful.
+    ///   **OH_DRAWING_ERROR_INVALID_PARAMETER** if **fontArguments** is NULL.
     ///
     /// Available since API-level: 13
     ///
@@ -199,13 +199,13 @@ extern "C" {
     /// * `typeface` - Pointer to the [`OH_Drawing_Typeface`](crate::types::OH_Drawing_Typeface) object.
     ///
     /// * `isBold` - Whether the typeface is bold. It is used as an output parameter. **true** if the typeface is bold; **
-    /// false** otherwise.
+    ///   false** otherwise.
     ///
     /// # Returns
     ///
     /// * Execution result.
-    /// **OH_DRAWING_SUCCESS** if the operation is successful.
-    /// **OH_DRAWING_ERROR_INCORRECT_PARAMETER** if **typeface** or **isBold** is a null pointer.
+    ///   **OH_DRAWING_SUCCESS** if the operation is successful.
+    ///   **OH_DRAWING_ERROR_INCORRECT_PARAMETER** if **typeface** or **isBold** is a null pointer.
     ///
     /// Available since API-level: 23
     ///
@@ -223,13 +223,13 @@ extern "C" {
     /// * `typeface` - Pointer to the [`OH_Drawing_Typeface`](crate::types::OH_Drawing_Typeface) object.
     ///
     /// * `isItalic` - Whether the typeface is italic. It is used as an output parameter. **true** if the typeface is
-    /// italic; **false** otherwise.
+    ///   italic; **false** otherwise.
     ///
     /// # Returns
     ///
     /// * Execution result.
-    /// **OH_DRAWING_SUCCESS** if the operation is successful.
-    /// **OH_DRAWING_ERROR_INCORRECT_PARAMETER** if **typeface** or **isItalic** is a null pointer.
+    ///   **OH_DRAWING_SUCCESS** if the operation is successful.
+    ///   **OH_DRAWING_ERROR_INCORRECT_PARAMETER** if **typeface** or **isItalic** is a null pointer.
     ///
     /// Available since API-level: 23
     ///

@@ -177,7 +177,7 @@ extern "C" {
     /// * `userData` - Pointer to the data that the developer needs to retrieve when the callback function is executed.
     ///
     /// * `callback` - Callback function triggered when the image AI analysis status changes.
-    /// statusCode: One of the parameters of the callback function, indicating the current image analysis status.
+    ///   statusCode: One of the parameters of the callback function, indicating the current image analysis status.
     ///
     /// # Returns
     ///

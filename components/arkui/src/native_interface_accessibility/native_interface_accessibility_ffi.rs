@@ -631,7 +631,7 @@ pub struct ArkUI_AccessibilityProviderCallbacks {
     /// # Returns
     ///
     /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
+    ///   [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 13
     pub findAccessibilityNodeInfosById: ::core::option::Option<
@@ -658,7 +658,7 @@ pub struct ArkUI_AccessibilityProviderCallbacks {
     /// # Returns
     ///
     /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
+    ///   [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     pub findAccessibilityNodeInfosByText: ::core::option::Option<
         unsafe extern "C" fn(
             elementId: i64,
@@ -683,7 +683,7 @@ pub struct ArkUI_AccessibilityProviderCallbacks {
     /// # Returns
     ///
     /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
+    ///   [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     pub findFocusedAccessibilityNode: ::core::option::Option<
         unsafe extern "C" fn(
             elementId: i64,
@@ -707,7 +707,7 @@ pub struct ArkUI_AccessibilityProviderCallbacks {
     /// # Returns
     ///
     /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
+    ///   [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     pub findNextFocusAccessibilityNode: ::core::option::Option<
         unsafe extern "C" fn(
             elementId: i64,
@@ -731,7 +731,7 @@ pub struct ArkUI_AccessibilityProviderCallbacks {
     /// # Returns
     ///
     /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
+    ///   [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     pub executeAccessibilityAction: ::core::option::Option<
         unsafe extern "C" fn(
             elementId: i64,
@@ -746,7 +746,7 @@ pub struct ArkUI_AccessibilityProviderCallbacks {
     /// # Returns
     ///
     /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
+    ///   [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     pub clearFocusedFocusAccessibilityNode: ::core::option::Option<unsafe extern "C" fn() -> i32>,
     /// Called to query the current cursor position of the specified node.
     ///
@@ -761,7 +761,7 @@ pub struct ArkUI_AccessibilityProviderCallbacks {
     /// # Returns
     ///
     /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
+    ///   [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     pub getAccessibilityNodeCursorPosition: ::core::option::Option<
         unsafe extern "C" fn(elementId: i64, requestId: i32, index: *mut i32) -> i32,
     >,
@@ -794,7 +794,7 @@ pub struct ArkUI_AccessibilityProviderCallbacksWithInstance {
     /// # Returns
     ///
     /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
+    ///   [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 15
     pub findAccessibilityNodeInfosById: ::core::option::Option<
@@ -823,7 +823,7 @@ pub struct ArkUI_AccessibilityProviderCallbacksWithInstance {
     /// # Returns
     ///
     /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
+    ///   [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     pub findAccessibilityNodeInfosByText: ::core::option::Option<
         unsafe extern "C" fn(
             instanceId: *const ::core::ffi::c_char,
@@ -850,7 +850,7 @@ pub struct ArkUI_AccessibilityProviderCallbacksWithInstance {
     /// # Returns
     ///
     /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
+    ///   [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     pub findFocusedAccessibilityNode: ::core::option::Option<
         unsafe extern "C" fn(
             instanceId: *const ::core::ffi::c_char,
@@ -877,7 +877,7 @@ pub struct ArkUI_AccessibilityProviderCallbacksWithInstance {
     /// # Returns
     ///
     /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
+    ///   [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     pub findNextFocusAccessibilityNode: ::core::option::Option<
         unsafe extern "C" fn(
             instanceId: *const ::core::ffi::c_char,
@@ -904,7 +904,7 @@ pub struct ArkUI_AccessibilityProviderCallbacksWithInstance {
     /// # Returns
     ///
     /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
+    ///   [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     pub executeAccessibilityAction: ::core::option::Option<
         unsafe extern "C" fn(
             instanceId: *const ::core::ffi::c_char,
@@ -923,7 +923,7 @@ pub struct ArkUI_AccessibilityProviderCallbacksWithInstance {
     /// # Returns
     ///
     /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_FAILED`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_FAILED) if the operation fails.
+    ///   [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_FAILED`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_FAILED) if the operation fails.
     pub clearFocusedFocusAccessibilityNode:
         ::core::option::Option<unsafe extern "C" fn(instanceId: *const ::core::ffi::c_char) -> i32>,
     /// Queries the current cursor position of the specified node with instance ID.
@@ -941,7 +941,7 @@ pub struct ArkUI_AccessibilityProviderCallbacksWithInstance {
     /// # Returns
     ///
     /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
+    ///   [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     pub getAccessibilityNodeCursorPosition: ::core::option::Option<
         unsafe extern "C" fn(
             instanceId: *const ::core::ffi::c_char,
@@ -961,12 +961,12 @@ extern "C" {
     /// * `provider` - Pointer to an **ArkUI_AccessibilityProvider** instance.
     ///
     /// * `callbacks` - Pointer to an **ArkUI_AccessibilityProviderCallbacks** struct that contains the set of callback
-    /// functions implemented by the third-party platform.
+    ///   functions implemented by the third-party platform.
     ///
     /// # Returns
     ///
     /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
+    ///   [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -984,12 +984,12 @@ extern "C" {
     /// * `provider` - Pointer to an [`ArkUI_AccessibilityProvider`](ohos_sys_opaque_types::ArkUI_AccessibilityProvider) instance.
     ///
     /// * `callbacks` - Pointer to an [`ArkUI_AccessibilityProviderCallbacksWithInstance`](crate::native_interface_accessibility::ArkUI_AccessibilityProviderCallbacksWithInstance) struct that contains
-    /// the set of callback functions implemented by the third-party platform.
+    ///   the set of callback functions implemented by the third-party platform.
     ///
     /// # Returns
     ///
     /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
+    ///   [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
@@ -1023,7 +1023,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `list` - **ArkUI_AccessibilityElementInfoList** struct to which the newly created **
-    /// ArkUI_AccessibilityElementInfo** member is added and then returned to the function caller.
+    ///   ArkUI_AccessibilityElementInfo** member is added and then returned to the function caller.
     ///
     /// # Returns
     ///
@@ -1046,7 +1046,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
+    ///   [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -1066,7 +1066,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
+    ///   [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -1086,7 +1086,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
+    ///   [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -1106,7 +1106,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
+    ///   [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -1126,7 +1126,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
+    ///   [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -1146,7 +1146,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
+    ///   [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -1166,7 +1166,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
+    ///   [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -1188,7 +1188,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
+    ///   [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -1211,7 +1211,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
+    ///   [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -1232,7 +1232,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
+    ///   [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -1248,12 +1248,12 @@ extern "C" {
     /// * `elementInfo` - Pointer to the target **ArkUI_AccessibilityElementInfo** object.
     ///
     /// * `checkable` - Whether the object is checkable. **true**: checkable; **false**: not checkable. The default value is
-    /// **false**.
+    ///   **false**.
     ///
     /// # Returns
     ///
     /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
+    ///   [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -1269,12 +1269,12 @@ extern "C" {
     /// * `elementInfo` - Pointer to the target **ArkUI_AccessibilityElementInfo** object.
     ///
     /// * `checked` - Whether the object is checked. **true**: checked; **false**: unchecked.
-    /// The default value is **false**.
+    ///   The default value is **false**.
     ///
     /// # Returns
     ///
     /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
+    ///   [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -1290,12 +1290,12 @@ extern "C" {
     /// * `elementInfo` - Pointer to the target **ArkUI_AccessibilityElementInfo** object.
     ///
     /// * `focusable` - Whether the object is focusable. **true**: focusable; **false**: not focusable. The default value is
-    /// **false**.
+    ///   **false**.
     ///
     /// # Returns
     ///
     /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
+    ///   [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -1311,12 +1311,12 @@ extern "C" {
     /// * `elementInfo` - Pointer to the target **ArkUI_AccessibilityElementInfo** object.
     ///
     /// * `isFocused` - Whether the object is focused. **true**: focused; **false**: not focused. The default value is **
-    /// false**.
+    ///   false**.
     ///
     /// # Returns
     ///
     /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
+    ///   [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -1332,12 +1332,12 @@ extern "C" {
     /// * `elementInfo` - Pointer to the target **ArkUI_AccessibilityElementInfo** object.
     ///
     /// * `isVisible` - Whether the element is visible. **true**: visible; **false**: not visible. The default value is **
-    /// false**.
+    ///   false**.
     ///
     /// # Returns
     ///
     /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
+    ///   [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -1354,12 +1354,12 @@ extern "C" {
     /// * `elementInfo` - Pointer to the target **ArkUI_AccessibilityElementInfo** object.
     ///
     /// * `accessibilityFocused` - Accessibility focus state. **true**: Accessibility focus is set. **false**: Accessibility
-    /// focus is not set. The default value is **false**.
+    ///   focus is not set. The default value is **false**.
     ///
     /// # Returns
     ///
     /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
+    ///   [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -1375,12 +1375,12 @@ extern "C" {
     /// * `elementInfo` - Pointer to the target **ArkUI_AccessibilityElementInfo** object.
     ///
     /// * `selected` - Whether the object is selected. **true**: selected; **false**: not selected. The default value is **
-    /// false**.
+    ///   false**.
     ///
     /// # Returns
     ///
     /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
+    ///   [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -1396,12 +1396,12 @@ extern "C" {
     /// * `elementInfo` - Pointer to the target **ArkUI_AccessibilityElementInfo** object.
     ///
     /// * `clickable` - Whether the object is clickable. **true**: supported; **false**: not supported. The default value is
-    /// **false**.
+    ///   **false**.
     ///
     /// # Returns
     ///
     /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
+    ///   [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -1417,12 +1417,12 @@ extern "C" {
     /// * `elementInfo` - Pointer to the target **ArkUI_AccessibilityElementInfo** object.
     ///
     /// * `longClickable` - Whether long-press gestures are supported. **true**: supported; **false**: not supported. The
-    /// default value is **false**.
+    ///   default value is **false**.
     ///
     /// # Returns
     ///
     /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
+    ///   [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -1438,12 +1438,12 @@ extern "C" {
     /// * `elementInfo` - Pointer to the target **ArkUI_AccessibilityElementInfo** object.
     ///
     /// * `isEnabled` - Whether the object is enabled. **true**: enabled; **false**: not enabled. The default value is **
-    /// false**.
+    ///   false**.
     ///
     /// # Returns
     ///
     /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
+    ///   [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -1459,12 +1459,12 @@ extern "C" {
     /// * `elementInfo` - Pointer to the target **ArkUI_AccessibilityElementInfo** object.
     ///
     /// * `isPassword` - Whether the object is a password. **true**: The object is a password. **false**: The object is not
-    /// a password. The default value is **false**.
+    ///   a password. The default value is **false**.
     ///
     /// # Returns
     ///
     /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
+    ///   [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -1480,12 +1480,12 @@ extern "C" {
     /// * `elementInfo` - Pointer to the target **ArkUI_AccessibilityElementInfo** object.
     ///
     /// * `scrollable` - Whether scrolling is supported. **true**: supported; **false**: not supported. The default value is
-    /// **false**.
+    ///   **false**.
     ///
     /// # Returns
     ///
     /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
+    ///   [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -1501,12 +1501,12 @@ extern "C" {
     /// * `elementInfo` - Pointer to the target **ArkUI_AccessibilityElementInfo** object.
     ///
     /// * `editable` - Whether editing is supported. **true**: supported; **false**: not supported. The default value is **
-    /// false**.
+    ///   false**.
     ///
     /// # Returns
     ///
     /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
+    ///   [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -1522,12 +1522,12 @@ extern "C" {
     /// * `elementInfo` - Pointer to the target **ArkUI_AccessibilityElementInfo** object.
     ///
     /// * `isHint` - Whether the object represents a hint. **true** if the object represents a hint, **false** otherwise.
-    /// The **hintText** information is obtained only when the object is in the hint state.
+    ///   The **hintText** information is obtained only when the object is in the hint state.
     ///
     /// # Returns
     ///
     /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
+    ///   [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -1547,7 +1547,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
+    ///   [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -1567,7 +1567,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
+    ///   [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -1587,7 +1587,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
+    ///   [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -1607,7 +1607,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
+    ///   [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -1627,7 +1627,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
+    ///   [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -1648,7 +1648,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
+    ///   [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -1665,12 +1665,12 @@ extern "C" {
     /// * `elementInfo` - Pointer to the target **ArkUI_AccessibilityElementInfo** object.
     ///
     /// * `startItemIndex` - Index of the first item displayed on the current screen. Applicable to components such as **
-    /// List**, **Select**, **Swiper**, and **Tab_Bar**.
+    ///   List**, **Select**, **Swiper**, and **Tab_Bar**.
     ///
     /// # Returns
     ///
     /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
+    ///   [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -1687,12 +1687,12 @@ extern "C" {
     /// * `elementInfo` - Pointer to the target **ArkUI_AccessibilityElementInfo** object.
     ///
     /// * `endItemIndex` - Index of the last item displayed on the current screen.
-    /// Applicable to components such as **List**, **Select**, **Swiper**, and **Tab_Bar**.
+    ///   Applicable to components such as **List**, **Select**, **Swiper**, and **Tab_Bar**.
     ///
     /// # Returns
     ///
     /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
+    ///   [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -1708,12 +1708,12 @@ extern "C" {
     /// * `elementInfo` - Pointer to the target **ArkUI_AccessibilityElementInfo** object.
     ///
     /// * `itemCount` - Total count of items of the specific component.
-    /// Applicable to components such as **List**, **Select**, **Swiper**, and **Tab_Bar**.
+    ///   Applicable to components such as **List**, **Select**, **Swiper**, and **Tab_Bar**.
     ///
     /// # Returns
     ///
     /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
+    ///   [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -1730,12 +1730,12 @@ extern "C" {
     /// * `elementInfo` - Pointer to the target **ArkUI_AccessibilityElementInfo** object.
     ///
     /// * `offset` - Scrolling pixel offset of the content area relative to the top coordinate of the element for scrollable
-    /// controls, such as `List` and `Grid`.
+    ///   controls, such as `List` and `Grid`.
     ///
     /// # Returns
     ///
     /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
+    ///   [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -1751,12 +1751,12 @@ extern "C" {
     /// * `elementInfo` - Pointer to the target **ArkUI_AccessibilityElementInfo** object.
     ///
     /// * `accessibilityGroup` - Whether to enable accessibility group behavior for the object. **true**: enable; **false**:
-    /// disable.
+    ///   disable.
     ///
     /// # Returns
     ///
     /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
+    ///   [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -1772,18 +1772,18 @@ extern "C" {
     /// * `elementInfo` - Pointer to the target **ArkUI_AccessibilityElementInfo** object.
     ///
     /// * `accessibilityLevel` - Pointer to the accessibility level of the component, which is used to decide whether the
-    /// component is recognized by accessibility services.
-    /// <br>- **auto**: The system automatically determines the component's importance based on its attributes and
-    /// decides whether to allow accessibility services to recognize it.
-    /// <br>- **yes**: The component is important and allows recognition by accessibility services.
-    /// <br>- **no**: The component is not important and prohibits recognition by accessibility services.
-    /// <br>- **no-hide-descendants**: The component and its descendant nodes are not important, and prohibits
-    /// recognition of the component and its descendants by accessibility services.
+    ///   component is recognized by accessibility services.
+    ///   <br>- **auto**: The system automatically determines the component's importance based on its attributes and
+    ///   decides whether to allow accessibility services to recognize it.
+    ///   <br>- **yes**: The component is important and allows recognition by accessibility services.
+    ///   <br>- **no**: The component is not important and prohibits recognition by accessibility services.
+    ///   <br>- **no-hide-descendants**: The component and its descendant nodes are not important, and prohibits
+    ///   recognition of the component and its descendants by accessibility services.
     ///
     /// # Returns
     ///
     /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
+    ///   [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -1799,12 +1799,12 @@ extern "C" {
     /// * `elementInfo` - Pointer to the target **ArkUI_AccessibilityElementInfo** object.
     ///
     /// * `zIndex` - Z-order of the component, used to control the position of the component along the z-axis perpendicular
-    /// to the screen. This parameter is required for `UiTest`.
+    ///   to the screen. This parameter is required for `UiTest`.
     ///
     /// # Returns
     ///
     /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
+    ///   [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -1820,12 +1820,12 @@ extern "C" {
     /// * `elementInfo` - Pointer to the target **ArkUI_AccessibilityElementInfo** object.
     ///
     /// * `opacity` - Opacity. The value ranges from 0 to 1, where **1** indicates opaque and **0** indicates completely
-    /// transparent. This parameter is required for `UiTest`.
+    ///   transparent. This parameter is required for `UiTest`.
     ///
     /// # Returns
     ///
     /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
+    ///   [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -1841,12 +1841,12 @@ extern "C" {
     /// * `elementInfo` - Pointer to the target **ArkUI_AccessibilityElementInfo** object.
     ///
     /// * `backgroundColor` - Pointer to the background color. The value is in the **#ARGB** format. For example, the value
-    /// for non-transparent white is **"#FFFFFFFF"**. This parameter is required for `UiTest`.
+    ///   for non-transparent white is **"#FFFFFFFF"**. This parameter is required for `UiTest`.
     ///
     /// # Returns
     ///
     /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
+    ///   [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -1866,7 +1866,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
+    ///   [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -1907,7 +1907,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
+    ///   [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -1924,13 +1924,13 @@ extern "C" {
     /// * `elementInfo` - Pointer to the element information of an accessibility node.
     ///
     /// * `identifier` - Pointer to the unique identifier of a component.
-    /// <br>Ensure that the component identifier in the reported component tree is unique and the character string
-    /// contains a maximum of 1024 characters. If the character string exceeds 1024 characters, it will be truncated.
+    ///   <br>Ensure that the component identifier in the reported component tree is unique and the character string
+    ///   contains a maximum of 1024 characters. If the character string exceeds 1024 characters, it will be truncated.
     ///
     /// # Returns
     ///
     /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
+    ///   [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -2000,7 +2000,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
+    ///   [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -2020,7 +2020,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
+    ///   [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -2040,7 +2040,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
+    ///   [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -2060,7 +2060,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
+    ///   [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -2082,7 +2082,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
+    ///   [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -2099,7 +2099,7 @@ extern "C" {
     /// * `node` - Pointer to an **ArkUI_NodeHandle** object.
     ///
     /// * `provider` - Double pointer to an object of the **ArkUI_AccessibilityProvider** type. **provider** is used to
-    /// register an accessibility callback function.
+    ///   register an accessibility callback function.
     ///
     /// # Returns
     ///

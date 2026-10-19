@@ -112,14 +112,14 @@ extern "C" {
     /// # Arguments
     ///
     /// * `maxThreadNum` - Maximum number of worker threads.
-    /// Value range: \[1, 32\]
-    /// Default value: **16**
+    ///   Value range: \[1, 32\]
+    ///   Default value: **16**
     ///
     /// # Returns
     ///
     /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_SUCCESS) if the operation is successful.
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_CHECK_PARAM_ERROR) if the parameters are incorrect.
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_INNER_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_INNER_ERROR) in other cases.
+    ///   Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_CHECK_PARAM_ERROR) if the parameters are incorrect.
+    ///   Returns [`OH_IPC_ErrorCode#OH_IPC_INNER_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_INNER_ERROR) in other cases.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -136,7 +136,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `identity` - Double pointer to the address of the memory for holding the caller identity information. The memory
-    /// is allocated by the allocator provided by the user and needs to be released. This pointer cannot be NULL.
+    ///   is allocated by the allocator provided by the user and needs to be released. This pointer cannot be NULL.
     ///
     /// * `len` - Pointer to the length of the data written to the identity. It cannot be NULL.
     ///
@@ -145,9 +145,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_SUCCESS) if the operation is successful.
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_CHECK_PARAM_ERROR) if the parameters are incorrect.
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_MEM_ALLOCATOR_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_MEM_ALLOCATOR_ERROR) if the memory allocation fails.
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_INNER_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_INNER_ERROR) in other cases.
+    ///   Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_CHECK_PARAM_ERROR) if the parameters are incorrect.
+    ///   Returns [`OH_IPC_ErrorCode#OH_IPC_MEM_ALLOCATOR_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_MEM_ALLOCATOR_ERROR) if the memory allocation fails.
+    ///   Returns [`OH_IPC_ErrorCode#OH_IPC_INNER_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_INNER_ERROR) in other cases.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -164,13 +164,13 @@ extern "C" {
     /// # Arguments
     ///
     /// * `identity` - Pointer to the caller credential, which cannot be NULL. The value is returned by
-    /// **OH_IPCSkeleton_ResetCallingIdentity**.
+    ///   **OH_IPCSkeleton_ResetCallingIdentity**.
     ///
     /// # Returns
     ///
     /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_SUCCESS) if the operation is successful.
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_CHECK_PARAM_ERROR) if the parameters are incorrect.
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_INNER_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_INNER_ERROR) in other cases.
+    ///   Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_CHECK_PARAM_ERROR) if the parameters are incorrect.
+    ///   Returns [`OH_IPC_ErrorCode#OH_IPC_INNER_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_INNER_ERROR) in other cases.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]

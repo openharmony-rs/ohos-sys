@@ -456,7 +456,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Pointer to the [`ArkUI_PickerIndicatorStyle`](crate::node_attributes::picker::ArkUI_PickerIndicatorStyle) instance. If a null pointer is returned, the creation
-    /// fails. The possible cause is that the address space is full or the type is not supported.
+    ///   fails. The possible cause is that the address space is full or the type is not supported.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]

@@ -18,7 +18,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `handler` - Pointer to the [`OH_Drawing_TypographyCreate`](crate::text_declaration::OH_Drawing_TypographyCreate) object, which is obtained from
-    /// [`OH_Drawing_CreateTypographyHandler`](crate::text_typography::OH_Drawing_CreateTypographyHandler).
+    ///   [`OH_Drawing_CreateTypographyHandler`](crate::text_typography::OH_Drawing_CreateTypographyHandler).
     ///
     /// # Returns
     ///
@@ -37,7 +37,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `lineTypography` - Pointer to the [`OH_Drawing_LineTypography`](crate::text_declaration::OH_Drawing_LineTypography) object, which is obtained from
-    /// [`OH_Drawing_CreateLineTypography`](crate::text_line_typography::OH_Drawing_CreateLineTypography).
+    ///   [`OH_Drawing_CreateLineTypography`](crate::text_line_typography::OH_Drawing_CreateLineTypography).
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -51,10 +51,10 @@ extern "C" {
     /// # Arguments
     ///
     /// * `lineTypography` - Pointer to the [`OH_Drawing_LineTypography`](crate::text_declaration::OH_Drawing_LineTypography) object, which is obtained from
-    /// [`OH_Drawing_CreateLineTypography`](crate::text_line_typography::OH_Drawing_CreateLineTypography).
+    ///   [`OH_Drawing_CreateLineTypography`](crate::text_line_typography::OH_Drawing_CreateLineTypography).
     ///
     /// * `startIndex` - Start position (inclusive) for calculating the typography. The value is an integer in the range [0,
-    /// total count of text characters).
+    ///   total count of text characters).
     ///
     /// * `width` - Layout width. The value is a floating point number greater than 0, in px.
     ///
@@ -77,17 +77,17 @@ extern "C" {
     /// # Arguments
     ///
     /// * `lineTypography` - Pointer to the [`OH_Drawing_LineTypography`](crate::text_declaration::OH_Drawing_LineTypography) object, which is obtained from
-    /// [`OH_Drawing_CreateLineTypography`](crate::text_line_typography::OH_Drawing_CreateLineTypography).
+    ///   [`OH_Drawing_CreateLineTypography`](crate::text_line_typography::OH_Drawing_CreateLineTypography).
     ///
     /// * `startIndex` - Start position for layout calculation. The value is an integer in the range [0, total number of
-    /// text characters).
+    ///   text characters).
     ///
     /// * `count` - Number of characters to be typeset from the specified typography start position. The value is an
-    /// integer in the range [0, total count of text characters), and the sum of startIndex and count cannot exceed the
-    /// total count of text characters.
-    /// <br>You can first use [`OH_Drawing_LineTypographyGetLineBreak`](crate::text_line_typography::OH_Drawing_LineTypographyGetLineBreak) to obtain a reasonable total count of
-    /// characters that can be typeset. If this value is set to 0, the content from startIndex to the end of the text is
-    /// returned.
+    ///   integer in the range [0, total count of text characters), and the sum of startIndex and count cannot exceed the
+    ///   total count of text characters.
+    ///   <br>You can first use [`OH_Drawing_LineTypographyGetLineBreak`](crate::text_line_typography::OH_Drawing_LineTypographyGetLineBreak) to obtain a reasonable total count of
+    ///   characters that can be typeset. If this value is set to 0, the content from startIndex to the end of the text is
+    ///   returned.
     ///
     /// # Returns
     ///

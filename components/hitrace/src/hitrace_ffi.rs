@@ -837,7 +837,7 @@ impl HiTraceId {
 /// # Arguments
 ///
 /// * `traceStatus` - Whether the trace capture is enabled for the current application.
-/// The value **true** indicates that the trace capture is enabled, and **false** indicates the opposite.
+///   The value **true** indicates that the trace capture is enabled, and **false** indicates the opposite.
 ///
 /// Available since API-level: 22
 #[cfg(feature = "api-22")]
@@ -995,7 +995,7 @@ extern "C" {
     /// # Returns
     ///
     /// * The value **true** indicates that the flag is enabled for the [`HiTraceId`](crate::HiTraceId), and **false** indicates the
-    /// opposite.
+    ///   opposite.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1174,8 +1174,8 @@ extern "C" {
     /// * `name` - Name of the asynchronous trace.
     ///
     /// * `taskId` - ID of the asynchronous trace. The start and end of an asynchronous trace do not occur in sequence.
-    /// Therefore, the start and end of an asynchronous trace need to be matched based on the task name and the unique task
-    /// ID together.
+    ///   Therefore, the start and end of an asynchronous trace need to be matched based on the task name and the unique task
+    ///   ID together.
     ///
     /// Available since API-level: 10
     pub fn OH_HiTrace_StartAsyncTrace(name: *const ::core::ffi::c_char, taskId: i32);
@@ -1191,8 +1191,8 @@ extern "C" {
     /// * `name` - Name of the asynchronous trace.
     ///
     /// * `taskId` - ID of the asynchronous trace. The start and end of an asynchronous trace do not occur in sequence.
-    /// Therefore, the start and end of an asynchronous trace need to be matched based on the task name and the unique task
-    /// ID together.
+    ///   Therefore, the start and end of an asynchronous trace need to be matched based on the task name and the unique task
+    ///   ID together.
     ///
     /// Available since API-level: 10
     pub fn OH_HiTrace_FinishAsyncTrace(name: *const ::core::ffi::c_char, taskId: i32);
@@ -1220,7 +1220,7 @@ extern "C" {
     /// * `name` - Name of a synchronous trace.
     ///
     /// * `customArgs` - Key-value pair. Use commas (,) to separate multiple key-value pairs, for example, **"key1=value1,
-    /// key2=value2"**.
+    ///   key2=value2"**.
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
@@ -1264,7 +1264,7 @@ extern "C" {
     /// * `customCategory` - Custom category name, which is used to collect asynchronous trace data of the same type.
     ///
     /// * `customArgs` - Key-value pair. Use commas (,) to separate multiple key-value pairs, for example, **"key1=value1,
-    /// key2=value2"**.
+    ///   key2=value2"**.
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
@@ -1321,8 +1321,8 @@ extern "C" {
     /// # Returns
     ///
     /// * When it is enabled, **true** is returned;
-    /// when it is disabled or stopped, **false** is returned. In this case,
-    /// calling the HiTraceMeter API does not take effect.
+    ///   when it is disabled or stopped, **false** is returned. In this case,
+    ///   calling the HiTraceMeter API does not take effect.
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
@@ -1358,9 +1358,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Callback unregistration status.
-    /// **0**: Unregistration succeeded.
-    /// **-1**: The callback corresponding to the index is not registered.
-    /// **-2**: Invalid index. The index value is not within the range of 0 to 9.
+    ///   **0**: Unregistration succeeded.
+    ///   **-1**: The callback corresponding to the index is not registered.
+    ///   **-2**: Invalid index. The index value is not within the range of 0 to 9.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]

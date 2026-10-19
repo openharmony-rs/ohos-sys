@@ -142,7 +142,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Pointer to the created canvas object [`OH_Drawing_Canvas`](crate::types::OH_Drawing_Canvas). If the returned object is NULL, the creation
-    /// fails due to insufficient memory or an empty pixel map object.
+    ///   fails due to insufficient memory or an empty pixel map object.
     ///
     /// Available since API-level: 20
     ///
@@ -262,10 +262,10 @@ extern "C" {
     /// * `canvas` - Pointer to the [`OH_Drawing_Canvas`](crate::types::OH_Drawing_Canvas) object.
     ///
     /// * `rect` - Pointer to the [`OH_Drawing_Rect`](crate::types::OH_Drawing_Rect) object, which is used to limit the layer size. A null pointer
-    /// means no limit.
+    ///   means no limit.
     ///
     /// * `brush` - Pointer to an [`OH_Drawing_Brush`](crate::types::OH_Drawing_Brush) object. The alpha value, filter effect, and blend mode of the
-    /// brush are applied when the bitmap is drawn. If NULL is passed in, no effect is applied.
+    ///   brush are applied when the bitmap is drawn. If NULL is passed in, no effect is applied.
     ///
     /// Available since API-level: 12
     ///
@@ -300,7 +300,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a 32-bit value that describes the number of canvas statuses (canvas matrices). The initial number is
-    /// **1**.
+    ///   **1**.
     ///
     /// Available since API-level: 11
     ///
@@ -317,8 +317,8 @@ extern "C" {
     /// * `canvas` - Pointer to an **OH_Drawing_Canvas** object.
     ///
     /// * `saveCount` - Number of canvas statuses (canvas matrices). If the value is less than or equal to 1, the canvas is
-    /// restored to the initial state. If the value is greater than the number of canvas statuses that have been saved, no
-    /// operation is performed.
+    ///   restored to the initial state. If the value is greater than the number of canvas statuses that have been saved, no
+    ///   operation is performed.
     ///
     /// Available since API-level: 11
     ///
@@ -382,7 +382,7 @@ extern "C" {
     /// * `vertices` - Pointer to the mesh vertex array.
     ///
     /// * `verticesSize` - Size of the mesh vertex array. The value must be ((meshWidth + 1) * (meshHeight + 1) +
-    /// vertoffset) * 2.
+    ///   vertoffset) * 2.
     ///
     /// * `vertOffset` - Number of vertices to skip before drawing. The value is an integer greater than or equal to 0.
     ///
@@ -396,9 +396,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns one of the following result codes:
-    /// **OH_DRAWING_SUCCESS** if the operation is successful.
-    /// **OH_DRAWING_ERROR_INCORRECT_PARAMETER** if any of the parameters, such as **cCanvas**, **pixelMap**, and **vertices*
-    /// *, is empty or the input parameter does not meet the value rule.
+    ///   **OH_DRAWING_SUCCESS** if the operation is successful.
+    ///   **OH_DRAWING_ERROR_INCORRECT_PARAMETER** if any of the parameters, such as **cCanvas**, **pixelMap**, and **vertices*
+    ///   *, is empty or the input parameter does not meet the value rule.
     ///
     /// Available since API-level: 23
     ///
@@ -431,7 +431,7 @@ extern "C" {
     /// * `pixelMap` - Pointer to the [`OH_Drawing_PixelMap`](crate::types::OH_Drawing_PixelMap) object.
     ///
     /// * `center` - Pointer to the [`OH_Drawing_Rect`](crate::types::OH_Drawing_Rect) object, which indicates the central rectangle splitting the
-    /// pixel map. It divides the image into nine sections by extending its four edges.
+    ///   pixel map. It divides the image into nine sections by extending its four edges.
     ///
     /// * `dst` - Pointer to the [`OH_Drawing_Rect`](crate::types::OH_Drawing_Rect) object, which indicates the target region on the canvas.
     ///
@@ -440,8 +440,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns one of the following result codes:
-    /// **OH_DRAWING_SUCCESS** if the operation is successful.
-    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if **canvas**, **pixelMap**, or **dst** is NULL.
+    ///   **OH_DRAWING_SUCCESS** if the operation is successful.
+    ///   **OH_DRAWING_ERROR_INVALID_PARAMETER** if **canvas**, **pixelMap**, or **dst** is NULL.
     ///
     /// Available since API-level: 18
     ///
@@ -470,7 +470,7 @@ extern "C" {
     /// * `dst` - Pointer to a rectangle on the canvas.
     ///
     /// * `samplingOptions` - Pointer to the [`OH_Drawing_SamplingOptions`](crate::types::OH_Drawing_SamplingOptions) object. A null pointer means that the
-    /// default sampling options are used.
+    ///   default sampling options are used.
     ///
     /// Available since API-level: 12
     ///
@@ -497,15 +497,15 @@ extern "C" {
     /// * `dst` - Pointer to a rectangle on the canvas.
     ///
     /// * `samplingOptions` - Pointer to the [`OH_Drawing_SamplingOptions`](crate::types::OH_Drawing_SamplingOptions) object. A null pointer means that the
-    /// default sampling options are used.
+    ///   default sampling options are used.
     ///
     /// * `constraint` - Constraint type. For details about the available options, see [`OH_Drawing_SrcRectConstraint`](crate::canvas::OH_Drawing_SrcRectConstraint).
     ///
     /// # Returns
     ///
     /// * Execution result.
-    /// **OH_DRAWING_SUCCESS** if the operation is successful.
-    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if **canvas**, **pixelMap**, or **dst** is NULL.
+    ///   **OH_DRAWING_SUCCESS** if the operation is successful.
+    ///   **OH_DRAWING_ERROR_INVALID_PARAMETER** if **canvas**, **pixelMap**, or **dst** is NULL.
     ///
     /// Available since API-level: 20
     ///
@@ -569,8 +569,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns one of the following result codes:
-    /// **OH_DRAWING_SUCCESS** if the operation is successful.
-    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if either **canvas** or **point** is NULL.
+    ///   **OH_DRAWING_SUCCESS** if the operation is successful.
+    ///   **OH_DRAWING_ERROR_INVALID_PARAMETER** if either **canvas** or **point** is NULL.
     ///
     /// Available since API-level: 12
     ///
@@ -648,7 +648,7 @@ extern "C" {
     /// * `dst` - Pointer to a rectangle on the canvas.
     ///
     /// * `samplingOptions` - Pointer to the [`OH_Drawing_SamplingOptions`](crate::types::OH_Drawing_SamplingOptions) object. A null pointer means that the
-    /// default sampling options are used.
+    ///   default sampling options are used.
     ///
     /// Available since API-level: 12
     ///
@@ -713,9 +713,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns one of the following result codes:
-    /// **OH_DRAWING_SUCCESS** if the operation is successful.
-    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if **canvas** is NULL.
-    /// **OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE** if **blendMode** is not set to one of the enumerated values.
+    ///   **OH_DRAWING_SUCCESS** if the operation is successful.
+    ///   **OH_DRAWING_ERROR_INVALID_PARAMETER** if **canvas** is NULL.
+    ///   **OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE** if **blendMode** is not set to one of the enumerated values.
     ///
     /// Available since API-level: 12
     ///
@@ -753,12 +753,12 @@ extern "C" {
     /// * `rect` - Pointer to an **OH_Drawing_Rect** object.
     ///
     /// * `startAngle` - Start angle. When the degree is 0, the start point is located at the right end of the oval. A
-    /// positive number indicates that the start point is placed clockwise, and a negative number indicates that the start
-    /// point is placed counterclockwise.
+    ///   positive number indicates that the start point is placed clockwise, and a negative number indicates that the start
+    ///   point is placed counterclockwise.
     ///
     /// * `sweepAngle` - Angle to sweep, in degrees. A positive number indicates a clockwise sweep, and a negative value
-    /// indicates a counterclockwise swipe. The valid range is from -360 degrees to 360 degrees. If the absolute value of
-    /// the sweep angle exceeds 360 degrees, an ellipse is drawn.
+    ///   indicates a counterclockwise swipe. The valid range is from -360 degrees to 360 degrees. If the absolute value of
+    ///   the sweep angle exceeds 360 degrees, an ellipse is drawn.
     ///
     /// Available since API-level: 11
     ///
@@ -781,21 +781,21 @@ extern "C" {
     /// * `rect` - Pointer to the [`OH_Drawing_Rect`](crate::types::OH_Drawing_Rect) object.
     ///
     /// * `startAngle` - Start angle, in degrees. The value is a floating point number. When the degree is 0, the start
-    /// point is located at the right end of the oval. A positive number indicates that the start point is placed clockwise,
-    /// and a negative number indicates that the start point is placed counterclockwise.
+    ///   point is located at the right end of the oval. A positive number indicates that the start point is placed clockwise,
+    ///   and a negative number indicates that the start point is placed counterclockwise.
     ///
     /// * `sweepAngle` - Angle to sweep, in degrees. The value is a floating point number. A positive number indicates a
-    /// clockwise sweep, and a negative value indicates a counterclockwise swipe. The swipe angle can exceed 360 degrees,
-    /// and a complete ellipse is drawn.
+    ///   clockwise sweep, and a negative value indicates a counterclockwise swipe. The swipe angle can exceed 360 degrees,
+    ///   and a complete ellipse is drawn.
     ///
     /// * `useCenter` - Whether the start point and end point of the arc are connected to its center. The value **true**
-    /// means that they are connected to the center; the value **false** means the opposite.
+    ///   means that they are connected to the center; the value **false** means the opposite.
     ///
     /// # Returns
     ///
     /// * Returns one of the following result codes:
-    /// **OH_DRAWING_SUCCESS** if the operation is successful.
-    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if either **canvas** or **rect** is NULL.
+    ///   **OH_DRAWING_SUCCESS** if the operation is successful.
+    ///   **OH_DRAWING_ERROR_INVALID_PARAMETER** if either **canvas** or **rect** is NULL.
     ///
     /// Available since API-level: 18
     ///
@@ -842,8 +842,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns one of the following result codes:
-    /// **OH_DRAWING_SUCCESS** if the operation is successful.
-    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if **canvas**, **outer**, or **inner** is NULL.
+    ///   **OH_DRAWING_SUCCESS** if the operation is successful.
+    ///   **OH_DRAWING_ERROR_INVALID_PARAMETER** if **canvas**, **outer**, or **inner** is NULL.
     ///
     /// Available since API-level: 18
     ///
@@ -863,7 +863,7 @@ extern "C" {
     /// * `canvas` - Pointer to the [`OH_Drawing_Canvas`](crate::types::OH_Drawing_Canvas) object.
     ///
     /// * `str` - Pointer to the single character to draw. A string can be passed in, but only the first character in the
-    /// string is parsed and drawn in UTF-8 encoding.
+    ///   string is parsed and drawn in UTF-8 encoding.
     ///
     /// * `font` - Pointer to the [`OH_Drawing_Font`](crate::types::OH_Drawing_Font) object.
     ///
@@ -874,9 +874,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns one of the following result codes:
-    /// **OH_DRAWING_SUCCESS** if the operation is successful.
-    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if at least one of the parameters **canvas**, **str**, or **font** is NULL,
-    /// or the length of **str** is **0**.
+    ///   **OH_DRAWING_SUCCESS** if the operation is successful.
+    ///   **OH_DRAWING_ERROR_INVALID_PARAMETER** if at least one of the parameters **canvas**, **str**, or **font** is NULL,
+    ///   or the length of **str** is **0**.
     ///
     /// Available since API-level: 12
     ///
@@ -898,7 +898,7 @@ extern "C" {
     /// * `canvas` - Pointer to the [`OH_Drawing_Canvas`](crate::types::OH_Drawing_Canvas) object.
     ///
     /// * `str` - Pointer to the single character to draw. A string can be passed in, but only the first character in the
-    /// string is parsed and drawn in UTF-8 encoding.
+    ///   string is parsed and drawn in UTF-8 encoding.
     ///
     /// * `font` - Pointer to the [`OH_Drawing_Font`](crate::types::OH_Drawing_Font) object.
     ///
@@ -907,14 +907,14 @@ extern "C" {
     /// * `y` - Y coordinate of the left point of the character baseline.
     ///
     /// * `fontFeatures` - Pointer to the [`OH_Drawing_FontFeatures`](crate::types::OH_Drawing_FontFeatures) object. If no font feature is set, the preset
-    /// font feature in the TrueType fonts (TTF) file is used.
+    ///   font feature in the TrueType fonts (TTF) file is used.
     ///
     /// # Returns
     ///
     /// * Execution result.
-    /// **OH_DRAWING_SUCCESS** if the operation is successful.
-    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if at least one of the parameters **canvas**, **str**, **font**, or **
-    /// fontFeatures** is NULL, or the length of **str** is **0**.
+    ///   **OH_DRAWING_SUCCESS** if the operation is successful.
+    ///   **OH_DRAWING_ERROR_INVALID_PARAMETER** if at least one of the parameters **canvas**, **str**, **font**, or **
+    ///   fontFeatures** is NULL, or the length of **str** is **0**.
     ///
     /// Available since API-level: 20
     ///
@@ -980,10 +980,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`](crate::error_code::DrawingErrorCode::INCORRECT_PARAMETER) if any of canvas, glyphIds, positions and font is nullptr.
-    /// Returns [`OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE`](crate::error_code::DrawingErrorCode::PARAMETER_OUT_OF_RANGE) if glyphIdOffset or positionOffset is less than 0, or if
-    /// glyphIdCount is less than (glyphIdOffset + glyphCount) or positionCount is less than (positionOffset + glyphCount).
+    ///   Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
+    ///   Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`](crate::error_code::DrawingErrorCode::INCORRECT_PARAMETER) if any of canvas, glyphIds, positions and font is nullptr.
+    ///   Returns [`OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE`](crate::error_code::DrawingErrorCode::PARAMETER_OUT_OF_RANGE) if glyphIdOffset or positionOffset is less than 0, or if
+    ///   glyphIdCount is less than (glyphIdOffset + glyphCount) or positionCount is less than (positionOffset + glyphCount).
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]
@@ -1013,7 +1013,7 @@ extern "C" {
     /// * `clipOp` - Clip mode. For details about the available options, see [`OH_Drawing_CanvasClipOp`](crate::canvas::OH_Drawing_CanvasClipOp).
     ///
     /// * `doAntiAlias` - Whether to enable anti-aliasing. The value **true** means to enable anti-aliasing, and **false**
-    /// means the opposite.
+    ///   means the opposite.
     ///
     /// Available since API-level: 11
     ///
@@ -1040,7 +1040,7 @@ extern "C" {
     /// * `clipOp` - Clip mode. For details about the available options, see [`OH_Drawing_CanvasClipOp`](crate::canvas::OH_Drawing_CanvasClipOp).
     ///
     /// * `doAntiAlias` - Whether to perform anti-aliasing. The value **true** means to perform anti-aliasing, and **false**
-    /// means the opposite.
+    ///   means the opposite.
     ///
     /// Available since API-level: 12
     ///
@@ -1067,7 +1067,7 @@ extern "C" {
     /// * `clipOp` - Clip mode. For details about the available options, see [`OH_Drawing_CanvasClipOp`](crate::canvas::OH_Drawing_CanvasClipOp).
     ///
     /// * `doAntiAlias` - Whether to enable anti-aliasing. The value **true** means to enable anti-aliasing, and **false**
-    /// means the opposite.
+    ///   means the opposite.
     ///
     /// Available since API-level: 11
     ///
@@ -1093,9 +1093,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns one of the following result codes:
-    /// **OH_DRAWING_SUCCESS** if the operation is successful.
-    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if either **canvas** or **region** is NULL.
-    /// **OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE** if **clipOp** is not set to one of the enumerated values.
+    ///   **OH_DRAWING_SUCCESS** if the operation is successful.
+    ///   **OH_DRAWING_ERROR_INVALID_PARAMETER** if either **canvas** or **region** is NULL.
+    ///   **OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE** if **clipOp** is not set to one of the enumerated values.
     ///
     /// Available since API-level: 12
     ///
@@ -1177,10 +1177,10 @@ extern "C" {
     /// * `canvas` - Pointer to an **OH_Drawing_Canvas** object.
     ///
     /// * `sx` - Amount of tilt on the X axis. A positive number tilts the drawing rightwards along the positive direction
-    /// of the Y axis, and a negative number tilts the drawing leftwards along the positive direction of the Y axis.
+    ///   of the Y axis, and a negative number tilts the drawing leftwards along the positive direction of the Y axis.
     ///
     /// * `sy` - Amount of tilt on the Y axis. A positive number tilts the drawing downwards along the positive direction
-    /// of the X axis, and a negative number tilts the drawing upwards along the positive direction of the X axis.
+    ///   of the X axis, and a negative number tilts the drawing upwards along the positive direction of the X axis.
     ///
     /// Available since API-level: 12
     ///
@@ -1234,7 +1234,7 @@ extern "C" {
     /// * `canvas` - Pointer to the [`OH_Drawing_Canvas`](crate::types::OH_Drawing_Canvas) object.
     ///
     /// * `rect` - Pointer to the [`OH_Drawing_Rect`](crate::types::OH_Drawing_Rect) object. You can call [`OH_Drawing_RectCreate`](crate::rect::OH_Drawing_RectCreate) to create a
-    /// rectangle object.
+    ///   rectangle object.
     ///
     /// Available since API-level: 12
     ///
@@ -1254,7 +1254,7 @@ extern "C" {
     /// * `canvas` - Pointer to the [`OH_Drawing_Canvas`](crate::types::OH_Drawing_Canvas) object.
     ///
     /// * `matrix` - Pointer to the [`OH_Drawing_Matrix`](crate::types::OH_Drawing_Matrix) object. You can call [`OH_Drawing_MatrixCreate`](crate::matrix::OH_Drawing_MatrixCreate) to
-    /// create a matrix object.
+    ///   create a matrix object.
     ///
     /// Available since API-level: 12
     ///
@@ -1346,7 +1346,7 @@ extern "C" {
     /// * `canvas` - Pointer to the [`OH_Drawing_Canvas`](crate::types::OH_Drawing_Canvas) object.
     ///
     /// * `matrix` - Pointer to the [`OH_Drawing_Matrix`](crate::types::OH_Drawing_Matrix) object. You can call [`OH_Drawing_MatrixCreate`](crate::matrix::OH_Drawing_MatrixCreate) to
-    /// create a matrix object.
+    ///   create a matrix object.
     ///
     /// Available since API-level: 12
     ///
@@ -1380,8 +1380,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`](crate::error_code::DrawingErrorCode::INVALID_PARAMETER) if canvas is nullptr.
+    ///   Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
+    ///   Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`](crate::error_code::DrawingErrorCode::INVALID_PARAMETER) if canvas is nullptr.
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]
@@ -1405,10 +1405,10 @@ extern "C" {
     /// * `dst` - Pointer to the [`OH_Drawing_Rect`](crate::types::OH_Drawing_Rect) object.
     ///
     /// * `samplingOptions` - Pointer to the [`OH_Drawing_SamplingOptions`](crate::types::OH_Drawing_SamplingOptions) object. A null pointer means that the
-    /// default sampling options are used.
+    ///   default sampling options are used.
     ///
     /// * `srcRectConstraint` - Constraint type. For details about the available options, see
-    /// [`OH_Drawing_SrcRectConstraint`](crate::canvas::OH_Drawing_SrcRectConstraint).
+    ///   [`OH_Drawing_SrcRectConstraint`](crate::canvas::OH_Drawing_SrcRectConstraint).
     ///
     /// Available since API-level: 12
     ///
@@ -1436,7 +1436,7 @@ extern "C" {
     /// * `rect` - Pointer to the [`OH_Drawing_Rect`](crate::types::OH_Drawing_Rect) object.
     ///
     /// * `samplingOptions` - Pointer to the [`OH_Drawing_SamplingOptions`](crate::types::OH_Drawing_SamplingOptions) object. A null pointer means that the
-    /// default sampling options are used.
+    ///   default sampling options are used.
     ///
     /// Available since API-level: 12
     ///
@@ -1461,24 +1461,24 @@ extern "C" {
     /// * `canvas` - Pointer to an **OH_Drawing_Canvas** object.
     ///
     /// * `vertexMmode` - Mode for drawing vertices. For details about the available options, see
-    /// [`OH_Drawing_VertexMode`](crate::canvas::OH_Drawing_VertexMode).
+    ///   [`OH_Drawing_VertexMode`](crate::canvas::OH_Drawing_VertexMode).
     ///
     /// * `vertexCount` - Number of elements in the vertex array. The value must be greater than or equal to 3.
     ///
     /// * `positions` - Pointer to the array that holds the position of every vertex. The array cannot be null and its
-    /// length must be equal to the value of **vertexCount**.
+    ///   length must be equal to the value of **vertexCount**.
     ///
     /// * `texs` - Pointer to the array that holds the texture space coordinate corresponding to each vertex. The array can
-    /// be null. If the array is not null, its length must be equal to the value of **vertexCount**.
+    ///   be null. If the array is not null, its length must be equal to the value of **vertexCount**.
     ///
     /// * `colors` - Pointer to the array that holds the color corresponding to each vertex. It is used for interpolation
-    /// in a triangle. The array can be null. If the array is not null, its length must be equal to the value of **
-    /// vertexCount**.
+    ///   in a triangle. The array can be null. If the array is not null, its length must be equal to the value of **
+    ///   vertexCount**.
     ///
     /// * `indexCount` - Number of indices. The value can be 0 or a value greater than or equal to 3.
     ///
     /// * `indices` - Pointer to the array that holds the index of each vertex. The array can be null. If the array is not
-    /// null, its length must be equal to the value of **indexCount**.
+    ///   null, its length must be equal to the value of **indexCount**.
     ///
     /// * `mode` - Enumeration of blend modes. For details about the available options, see [`OH_Drawing_BlendMode`](crate::types::OH_Drawing_BlendMode).
     ///
@@ -1520,7 +1520,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns **true** if the pixel data is copied to the start address of the storage; returns **false**
-    /// otherwise.
+    ///   otherwise.
     ///
     /// Available since API-level: 12
     ///
@@ -1571,13 +1571,13 @@ extern "C" {
     /// * `canvas` - Pointer to the [`OH_Drawing_Canvas`](crate::types::OH_Drawing_Canvas) object.
     ///
     /// * `isClipEmpty` - Pointer to the variable that specifies whether the region is empty. The value **true** means that
-    /// the region is empty, and **false** means the opposite.
+    ///   the region is empty, and **false** means the opposite.
     ///
     /// # Returns
     ///
     /// * Returns one of the following result codes:
-    /// **OH_DRAWING_SUCCESS** if the operation is successful.
-    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if either **canvas** or **isClipEmpty** is NULL.
+    ///   **OH_DRAWING_SUCCESS** if the operation is successful.
+    ///   **OH_DRAWING_ERROR_INVALID_PARAMETER** if either **canvas** or **isClipEmpty** is NULL.
     ///
     /// Available since API-level: 12
     ///
@@ -1599,8 +1599,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns one of the following result codes:
-    /// **OH_DRAWING_SUCCESS** if the operation is successful.
-    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if either **canvas** or **imageInfo** is NULL.
+    ///   **OH_DRAWING_SUCCESS** if the operation is successful.
+    ///   **OH_DRAWING_ERROR_INVALID_PARAMETER** if either **canvas** or **imageInfo** is NULL.
     ///
     /// Available since API-level: 12
     ///
@@ -1622,8 +1622,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns one of the following result codes:
-    /// **OH_DRAWING_SUCCESS** if the operation is successful.
-    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if either **canvas** or **recordCmd** is NULL.
+    ///   **OH_DRAWING_SUCCESS** if the operation is successful.
+    ///   **OH_DRAWING_ERROR_INVALID_PARAMETER** if either **canvas** or **recordCmd** is NULL.
     ///
     /// Available since API-level: 13
     ///
@@ -1645,8 +1645,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Operation code.
-    /// **OH_DRAWING_SUCCESS** if the operation is successful.
-    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if either **canvas** or **recordCmd** is NULL.
+    ///   **OH_DRAWING_SUCCESS** if the operation is successful.
+    ///   **OH_DRAWING_ERROR_INVALID_PARAMETER** if either **canvas** or **recordCmd** is NULL.
     ///
     /// Available since API-level: 19
     ///
@@ -1666,13 +1666,13 @@ extern "C" {
     /// * `path` - Pointer to the [`OH_Drawing_Path`](crate::types::OH_Drawing_Path) object.
     ///
     /// * `quickReject` - Pointer to the check result. The value **true** means that the path is not intersecting with the
-    /// canvas area, and **false** means the opposite.
+    ///   canvas area, and **false** means the opposite.
     ///
     /// # Returns
     ///
     /// * Returns one of the following result codes:
-    /// **OH_DRAWING_SUCCESS** if the operation is successful.
-    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if **canvas**, **path**, or **quickReject** is NULL.
+    ///   **OH_DRAWING_SUCCESS** if the operation is successful.
+    ///   **OH_DRAWING_ERROR_INVALID_PARAMETER** if **canvas**, **path**, or **quickReject** is NULL.
     ///
     /// Available since API-level: 18
     ///
@@ -1694,13 +1694,13 @@ extern "C" {
     /// * `rect` - Pointer to the [`OH_Drawing_Rect`](crate::types::OH_Drawing_Rect) object.
     ///
     /// * `quickReject` - Pointer to the check result. The value **true** means that the rectangle is not intersecting with
-    /// the canvas area, and **false** means the opposite.
+    ///   the canvas area, and **false** means the opposite.
     ///
     /// # Returns
     ///
     /// * Returns one of the following result codes:
-    /// **OH_DRAWING_SUCCESS** if the operation is successful.
-    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if **canvas**, **rect**, or **quickReject** is NULL.
+    ///   **OH_DRAWING_SUCCESS** if the operation is successful.
+    ///   **OH_DRAWING_ERROR_INVALID_PARAMETER** if **canvas**, **rect**, or **quickReject** is NULL.
     ///
     /// Available since API-level: 18
     ///
@@ -1723,8 +1723,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`](crate::error_code::DrawingErrorCode::INCORRECT_PARAMETER) if canvas or isOpaque is nullptr.
+    ///   Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
+    ///   Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`](crate::error_code::DrawingErrorCode::INCORRECT_PARAMETER) if canvas or isOpaque is nullptr.
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]

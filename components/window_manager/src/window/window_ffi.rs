@@ -47,14 +47,14 @@ extern "C" {
     /// * `enabled` - Whether to display the status bar. **true** to display, **false** otherwise.
     ///
     /// * `enableAnimation` - Whether to enable the show/hide animation of the status bar. **true** to enable, **false**
-    /// otherwise.
+    ///   otherwise.
     ///
     /// # Returns
     ///
     /// * Returns the result code.
-    /// [`OK`](crate::window_comm::WindowManagerResult) the function call is successful.
-    /// [`WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL) this window state is abnormal.
-    /// [`WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL) the window manager service works abnormally.
+    ///   [`OK`](crate::window_comm::WindowManagerResult) the function call is successful.
+    ///   [`WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL) this window state is abnormal.
+    ///   [`WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL) the window manager service works abnormally.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
@@ -75,9 +75,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// [`OK`](crate::window_comm::WindowManagerResult) the function call is successful.
-    /// [`WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL) this window state is abnormal.
-    /// [`WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL) the window manager service works abnormally.
+    ///   [`OK`](crate::window_comm::WindowManagerResult) the function call is successful.
+    ///   [`WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL) this window state is abnormal.
+    ///   [`WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL) the window manager service works abnormally.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
@@ -92,14 +92,14 @@ extern "C" {
     /// * `enabled` - Whether to display the navigation bar. **true** to display, **false** otherwise.
     ///
     /// * `enableAnimation` - Whether to enable the show/hide animation of the navigation bar. **true** to enable, **false**
-    /// otherwise.
+    ///   otherwise.
     ///
     /// # Returns
     ///
     /// * Returns the result code.
-    /// [`OK`](crate::window_comm::WindowManagerResult) the function call is successful.
-    /// [`WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL) this window state is abnormal.
-    /// [`WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL) the window manager service works abnormally.
+    ///   [`OK`](crate::window_comm::WindowManagerResult) the function call is successful.
+    ///   [`WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL) this window state is abnormal.
+    ///   [`WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL) the window manager service works abnormally.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
@@ -122,10 +122,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// [`OK`](crate::window_comm::WindowManagerResult) the function call is successful, return avoid area ptr in avoidArea.
-    /// [`WINDOW_MANAGER_ERRORCODE_INVALID_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INVALID_PARAM) parameter error.
-    /// [`WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL) this window state is abnormal.
-    /// [`WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL) the window manager service works abnormally.
+    ///   [`OK`](crate::window_comm::WindowManagerResult) the function call is successful, return avoid area ptr in avoidArea.
+    ///   [`WINDOW_MANAGER_ERRORCODE_INVALID_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INVALID_PARAM) parameter error.
+    ///   [`WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL) this window state is abnormal.
+    ///   [`WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL) the window manager service works abnormally.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
@@ -142,14 +142,14 @@ extern "C" {
     /// * `windowId` - Window ID. The default value is **0**. The value is an integer.
     ///
     /// * `isShow` - Pointer to the check result for whether the window is displayed. **true** if displayed, **false**
-    /// otherwise.
+    ///   otherwise.
     ///
     /// # Returns
     ///
     /// * Returns the result code.
-    /// [`OK`](crate::window_comm::WindowManagerResult) the function call is successful.
-    /// [`WINDOW_MANAGER_ERRORCODE_INVALID_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INVALID_PARAM) parameter error.
-    /// [`WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL) this window state is abnormal.
+    ///   [`OK`](crate::window_comm::WindowManagerResult) the function call is successful.
+    ///   [`WINDOW_MANAGER_ERRORCODE_INVALID_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INVALID_PARAM) parameter error.
+    ///   [`WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL) this window state is abnormal.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
@@ -164,9 +164,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// [`OK`](crate::window_comm::WindowManagerResult) the function call is successful.
-    /// [`WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL) this window state is abnormal.
-    /// [`WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL) the window manager service works abnormally.
+    ///   [`OK`](crate::window_comm::WindowManagerResult) the function call is successful.
+    ///   [`WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL) this window state is abnormal.
+    ///   [`WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL) the window manager service works abnormally.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
@@ -183,9 +183,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// [`OK`](crate::window_comm::WindowManagerResult) the function call is successful.
-    /// [`WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL) this window state is abnormal.
-    /// [`WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL) the window manager service works abnormally.
+    ///   [`OK`](crate::window_comm::WindowManagerResult) the function call is successful.
+    ///   [`WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL) this window state is abnormal.
+    ///   [`WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL) the window manager service works abnormally.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
@@ -202,9 +202,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// [`OK`](crate::window_comm::WindowManagerResult) the function call is successful.
-    /// [`WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL) this window state is abnormal.
-    /// [`WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL) the window manager service works abnormally.
+    ///   [`OK`](crate::window_comm::WindowManagerResult) the function call is successful.
+    ///   [`WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL) this window state is abnormal.
+    ///   [`WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL) the window manager service works abnormally.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
@@ -221,9 +221,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// [`OK`](crate::window_comm::WindowManagerResult) the function call is successful.
-    /// [`WINDOW_MANAGER_ERRORCODE_INVALID_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INVALID_PARAM) parameter error.
-    /// [`WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL) this window state is abnormal.
+    ///   [`OK`](crate::window_comm::WindowManagerResult) the function call is successful.
+    ///   [`WINDOW_MANAGER_ERRORCODE_INVALID_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INVALID_PARAM) parameter error.
+    ///   [`WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL) this window state is abnormal.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
@@ -240,16 +240,16 @@ extern "C" {
     /// * `windowId` - Window ID. The default value is **0**. The value is an integer.
     ///
     /// * `brightness` - Screen brightness. The value is a floating-point number in the range \[0.0, 1.0\] or is set to **-1.
-    /// 0**. The value **1.0** means the brightest, and **-1.0** means that the window brightness resets to the original
-    /// brightness set through Control Panel.
+    ///   0**. The value **1.0** means the brightest, and **-1.0** means that the window brightness resets to the original
+    ///   brightness set through Control Panel.
     ///
     /// # Returns
     ///
     /// * Returns the result code.
-    /// [`OK`](crate::window_comm::WindowManagerResult) the function call is successful.
-    /// [`WINDOW_MANAGER_ERRORCODE_INVALID_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INVALID_PARAM) parameter error.
-    /// [`WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL) this window state is abnormal.
-    /// [`WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL) the window manager service works abnormally.
+    ///   [`OK`](crate::window_comm::WindowManagerResult) the function call is successful.
+    ///   [`WINDOW_MANAGER_ERRORCODE_INVALID_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INVALID_PARAM) parameter error.
+    ///   [`WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL) this window state is abnormal.
+    ///   [`WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL) the window manager service works abnormally.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
@@ -262,14 +262,14 @@ extern "C" {
     /// * `windowId` - Window ID. The default value is **0**. The value is an integer.
     ///
     /// * `isKeepScreenOn` - Whether to always keep the screen on. **true** to always keep the screen on, **false**
-    /// otherwise.
+    ///   otherwise.
     ///
     /// # Returns
     ///
     /// * Returns the result code.
-    /// [`OK`](crate::window_comm::WindowManagerResult) the function call is successful.
-    /// [`WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL) this window state is abnormal.
-    /// [`WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL) the window manager service works abnormally.
+    ///   [`OK`](crate::window_comm::WindowManagerResult) the function call is successful.
+    ///   [`WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL) this window state is abnormal.
+    ///   [`WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL) the window manager service works abnormally.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
@@ -288,10 +288,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// [`OK`](crate::window_comm::WindowManagerResult) the function call is successful.
-    /// [`WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL) this window state is abnormal.
-    /// [`WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL) the window manager service works abnormally.
-    /// [`WINDOW_MANAGER_ERRORCODE_NO_PERMISSION`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_NO_PERMISSION) permission verification failed.
+    ///   [`OK`](crate::window_comm::WindowManagerResult) the function call is successful.
+    ///   [`WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL) this window state is abnormal.
+    ///   [`WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL) the window manager service works abnormally.
+    ///   [`WINDOW_MANAGER_ERRORCODE_NO_PERMISSION`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_NO_PERMISSION) permission verification failed.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
@@ -308,9 +308,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// [`OK`](crate::window_comm::WindowManagerResult) the function call is successful, return window properties ptr in windowProperties.
-    /// [`WINDOW_MANAGER_ERRORCODE_INVALID_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INVALID_PARAM) parameter error.
-    /// [`WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL) this window state is abnormal.
+    ///   [`OK`](crate::window_comm::WindowManagerResult) the function call is successful, return window properties ptr in windowProperties.
+    ///   [`WINDOW_MANAGER_ERRORCODE_INVALID_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INVALID_PARAM) parameter error.
+    ///   [`WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL) this window state is abnormal.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
@@ -324,18 +324,18 @@ extern "C" {
     /// # Arguments
     ///
     /// * `windowId` - Window ID. The default value is **0**. The value is an integer.
-    /// If the window ID is invalid or the window has been destroyed, you cannot obtain the window snapshot. To
-    /// successfully obtain a snapshot, a valid window ID is required.
-    /// You can obtain a valid window ID by calling the ArkTS API `getWindowProperties()` on the window object
+    ///   If the window ID is invalid or the window has been destroyed, you cannot obtain the window snapshot. To
+    ///   successfully obtain a snapshot, a valid window ID is required.
+    ///   You can obtain a valid window ID by calling the ArkTS API `getWindowProperties()` on the window object
     ///
     /// * `pixelMap` - Pointer to the snapshot.
     ///
     /// # Returns
     ///
     /// * Returns the result code.
-    /// [`OK`](crate::window_comm::WindowManagerResult) the function call is successful, return pixel map ptr in pixelMap.
-    /// [`WINDOW_MANAGER_ERRORCODE_INVALID_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INVALID_PARAM) parameter error.
-    /// [`WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL) the window manager service works abnormally.
+    ///   [`OK`](crate::window_comm::WindowManagerResult) the function call is successful, return pixel map ptr in pixelMap.
+    ///   [`WINDOW_MANAGER_ERRORCODE_INVALID_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INVALID_PARAM) parameter error.
+    ///   [`WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL) the window manager service works abnormally.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
@@ -347,21 +347,21 @@ extern "C" {
     /// # Arguments
     ///
     /// * `displayId` - ID of the display. You can obtain a valid display ID by calling the ArkTS API
-    /// `getWindowProperties()` on the window object
+    ///   `getWindowProperties()` on the window object
     ///
     /// * `windowLayoutInfoList` - Double pointer to the layout information array of all windows visible. This parameter is
-    /// used as an output parameter.
+    ///   used as an output parameter.
     ///
     /// * `windowLayoutInfoSize` - Pointer to the length of the layout information array. This parameter is used as an
-    /// output parameter.
+    ///   output parameter.
     ///
     /// # Returns
     ///
     /// * Returns the result code.
-    /// [`OK`](crate::window_comm::WindowManagerResult) the function call is successful, return Window layout info list.
-    /// [`WINDOW_MANAGER_ERRORCODE_INVALID_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INVALID_PARAM) parameter error.
-    /// [`WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED) capability not supported.
-    /// [`WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL) the window manager service works abnormally.
+    ///   [`OK`](crate::window_comm::WindowManagerResult) the function call is successful, return Window layout info list.
+    ///   [`WINDOW_MANAGER_ERRORCODE_INVALID_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INVALID_PARAM) parameter error.
+    ///   [`WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED) capability not supported.
+    ///   [`WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL) the window manager service works abnormally.
     ///
     /// Available since API-level: 17
     #[cfg(feature = "api-17")]
@@ -376,7 +376,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `windowLayoutInfoList` - Pointer to the layout information array of all windows visible on the display. You can
-    /// obtain the array pointer by calling [`OH_WindowManager_GetAllWindowLayoutInfoList`](crate::window::OH_WindowManager_GetAllWindowLayoutInfoList).
+    ///   obtain the array pointer by calling [`OH_WindowManager_GetAllWindowLayoutInfoList`](crate::window::OH_WindowManager_GetAllWindowLayoutInfoList).
     ///
     /// Available since API-level: 17
     #[cfg(feature = "api-17")]
@@ -394,10 +394,10 @@ extern "C" {
     /// * `windowId` - Window ID. The default value is **0**. The value is an integer.
     ///
     /// * `touchEvent` - Pointer to the multimodal touch event. For details, see [`Input_TouchEvent`](ohos_sys_opaque_types::Input_TouchEvent). The event is
-    /// defined in **oh_input_manager.h**. Certain fields in this parameter have specific constraints. Specifically, **
-    /// action** should be an integer in the range \[0, 3\]; **id**, **displayX**, **displayY**, and **actionTime** should
-    /// be an integer greater than or equal to 0. If these constraints are not met, the function returns **
-    /// WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL**, indicating that the window manager service is abnormal.
+    ///   defined in **oh_input_manager.h**. Certain fields in this parameter have specific constraints. Specifically, **
+    ///   action** should be an integer in the range \[0, 3\]; **id**, **displayX**, **displayY**, and **actionTime** should
+    ///   be an integer greater than or equal to 0. If these constraints are not met, the function returns **
+    ///   WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL**, indicating that the window manager service is abnormal.
     ///
     /// * `windowX` - X coordinate of the event relative to the target window. The value is an integer.
     ///
@@ -406,9 +406,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// [`OK`](crate::window_comm::WindowManagerResult) the function call is successful.
-    /// [`WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL) this window state is abnormal.
-    /// [`WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL) the window manager service works abnormally.
+    ///   [`OK`](crate::window_comm::WindowManagerResult) the function call is successful.
+    ///   [`WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL) this window state is abnormal.
+    ///   [`WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL) the window manager service works abnormally.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -428,15 +428,15 @@ extern "C" {
     /// * `infoList` - Double pointer to the main window information list. This parameter is used as an output parameter.
     ///
     /// * `mainWindowInfoSize` - Pointer to the size of the main window information list. This parameter is used as an
-    /// output parameter.
+    ///   output parameter.
     ///
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// `WS_OK` the function call is successful.
-    /// [`WINDOW_MANAGER_ERRORCODE_NO_PERMISSION`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_NO_PERMISSION) permission verification failed.
-    /// [`WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED) capability not supported.
-    /// [`WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL) the window manager service works abnormally.
+    ///   `WS_OK` the function call is successful.
+    ///   [`WINDOW_MANAGER_ERRORCODE_NO_PERMISSION`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_NO_PERMISSION) permission verification failed.
+    ///   [`WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED) capability not supported.
+    ///   [`WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL) the window manager service works abnormally.
     ///
     /// Available since API-level: 21
     #[cfg(feature = "api-21")]
@@ -468,15 +468,15 @@ extern "C" {
     /// * `config` - Configuration for obtaining the window screenshot.
     ///
     /// * `callback` - Callback used to return the lists of window screenshots, in the order of the provided window ID
-    /// array.
+    ///   array.
     ///
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// `WS_OK` the function call is successful.
-    /// [`WINDOW_MANAGER_ERRORCODE_NO_PERMISSION`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_NO_PERMISSION) permission verification failed.
-    /// [`WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED) capability not supported.
-    /// [`WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL) the window manager service works abnormally.
+    ///   `WS_OK` the function call is successful.
+    ///   [`WINDOW_MANAGER_ERRORCODE_NO_PERMISSION`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_NO_PERMISSION) permission verification failed.
+    ///   [`WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED) capability not supported.
+    ///   [`WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL) the window manager service works abnormally.
     ///
     /// Available since API-level: 21
     #[cfg(feature = "api-21")]
@@ -510,17 +510,17 @@ extern "C" {
     /// * `windowId` - Window ID. The value is an integer.
     ///
     /// * `isCursorFollowMovement` - Behavior of the mouse cursor when locked. If it is set to **true**, the cursor moves
-    /// along with the mouse. If it is set to **false**, the cursor remains stationary and does not follow mouse
-    /// movements.
+    ///   along with the mouse. If it is set to **false**, the cursor remains stationary and does not follow mouse
+    ///   movements.
     ///
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// `WS_OK` the function call is successful.
-    /// [`WINDOW_MANAGER_ERRORCODE_NO_PERMISSION`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_NO_PERMISSION) permission verification failed.
-    /// [`WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED) capability not supported.
-    /// [`WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL) this window state is abnormal.
-    /// [`WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL) the window manager service works abnormally.
+    ///   `WS_OK` the function call is successful.
+    ///   [`WINDOW_MANAGER_ERRORCODE_NO_PERMISSION`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_NO_PERMISSION) permission verification failed.
+    ///   [`WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED) capability not supported.
+    ///   [`WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL) this window state is abnormal.
+    ///   [`WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL) the window manager service works abnormally.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -537,11 +537,11 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// `WS_OK` the function call is successful.
-    /// [`WINDOW_MANAGER_ERRORCODE_NO_PERMISSION`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_NO_PERMISSION) permission verification failed.
-    /// [`WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED) capability not supported.
-    /// [`WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL) this window state is abnormal.
-    /// [`WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL) the window manager service works abnormally.
+    ///   `WS_OK` the function call is successful.
+    ///   [`WINDOW_MANAGER_ERRORCODE_NO_PERMISSION`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_NO_PERMISSION) permission verification failed.
+    ///   [`WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED) capability not supported.
+    ///   [`WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL) this window state is abnormal.
+    ///   [`WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL) the window manager service works abnormally.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -554,13 +554,13 @@ extern "C" {
     /// * `metrics` - Frame metrics data object.
     ///
     /// * `isFirstDrawFrame` - This parameter is the return value of the function,
-    /// indicating whether the current frame is the first frame.
+    ///   indicating whether the current frame is the first frame.
     ///
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// `WS_OK` the function call is successful.
-    /// [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM) Parameter error. Possible cause:
+    ///   `WS_OK` the function call is successful.
+    ///   [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM) Parameter error. Possible cause:
     /// 1. Invalid parameter range.
     ///
     /// Available since API-level: 26
@@ -577,13 +577,13 @@ extern "C" {
     /// * `metrics` - Frame metrics data object.
     ///
     /// * `duration` - This parameter is the return value of the function,
-    /// indicating the time taken to process external input events in one frame, in nanoseconds.
+    ///   indicating the time taken to process external input events in one frame, in nanoseconds.
     ///
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// `WS_OK` the function call is successful.
-    /// [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM) Parameter error. Possible cause:
+    ///   `WS_OK` the function call is successful.
+    ///   [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM) Parameter error. Possible cause:
     /// 1. Invalid parameter range.
     ///
     /// Available since API-level: 26
@@ -600,13 +600,13 @@ extern "C" {
     /// * `metrics` - Frame metrics data object.
     ///
     /// * `duration` - This parameter is the return value of the function,
-    /// indicating the time taken for layout measurement in one frame, in nanoseconds.
+    ///   indicating the time taken for layout measurement in one frame, in nanoseconds.
     ///
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// `WS_OK` the function call is successful.
-    /// [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM) Parameter error. Possible cause:
+    ///   `WS_OK` the function call is successful.
+    ///   [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM) Parameter error. Possible cause:
     /// 1. Invalid parameter range.
     ///
     /// Available since API-level: 26
@@ -623,13 +623,13 @@ extern "C" {
     /// * `metrics` - Frame metrics data object.
     ///
     /// * `timestamp` - This parameter is the return value of the function,
-    /// indicating the start timestamp of the current frame, in nanoseconds.
+    ///   indicating the start timestamp of the current frame, in nanoseconds.
     ///
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// `WS_OK` the function call is successful.
-    /// [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM) Parameter error. Possible cause:
+    ///   `WS_OK` the function call is successful.
+    ///   [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM) Parameter error. Possible cause:
     /// 1. Invalid parameter range.
     ///
     /// Available since API-level: 26
@@ -655,11 +655,11 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// `WS_OK` the function call is successful.
-    /// [`WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL) this window state is abnormal. Possible cause:
+    ///   `WS_OK` the function call is successful.
+    ///   [`WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL) this window state is abnormal. Possible cause:
     /// 1. The window is not created or destroyed;
     /// 2. This window state is abnormal.
-    /// [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM) Parameter error. Possible cause:
+    ///    [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM) Parameter error. Possible cause:
     /// 1. Invalid parameter range.
     ///
     /// Available since API-level: 26
@@ -683,11 +683,11 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// `WS_OK` the function call is successful.
-    /// [`WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL) this window state is abnormal. Possible cause:
+    ///   `WS_OK` the function call is successful.
+    ///   [`WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL) this window state is abnormal. Possible cause:
     /// 1. The window is not created or destroyed;
     /// 2. This window state is abnormal.
-    /// [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM) Parameter error. Possible cause:
+    ///    [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM) Parameter error. Possible cause:
     /// 1. Invalid parameter range.
     ///
     /// Available since API-level: 26
@@ -708,8 +708,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// `WS_OK` the function call is successful.
-    /// [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM) Parameter error. Possible cause:
+    ///   `WS_OK` the function call is successful.
+    ///   [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM) Parameter error. Possible cause:
     /// 1. Invalid parameter range.
     ///
     /// Available since API-level: 24
@@ -730,8 +730,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// `WS_OK` the function call is successful.
-    /// [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM) Parameter error. Possible cause:
+    ///   `WS_OK` the function call is successful.
+    ///   [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM) Parameter error. Possible cause:
     /// 1. Invalid parameter range.
     ///
     /// Available since API-level: 24
@@ -748,13 +748,13 @@ extern "C" {
     /// * `info` - Display size scaling factor information for the current window.
     ///
     /// * `density` - Custom display size scaling factor of the window. A return value of -1 indicates that no custom
-    /// display size scaling factor has been set, or it has been reset.
+    ///   display size scaling factor has been set, or it has been reset.
     ///
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// `WS_OK` the function call is successful.
-    /// [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM) Parameter error. Possible cause:
+    ///   `WS_OK` the function call is successful.
+    ///   [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM) Parameter error. Possible cause:
     /// 1. Invalid parameter range.
     ///
     /// Available since API-level: 24
@@ -772,16 +772,16 @@ extern "C" {
     /// * `windowId` - WindowId when window is created.
     ///
     /// * `info` - Display size scaling factor information for the current window.
-    /// A return value of NULL means this interface is not supported on the current device.
+    ///   A return value of NULL means this interface is not supported on the current device.
     ///
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// `WS_OK` the function call is successful.
-    /// [`WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL) this window state is abnormal. Possible cause:
+    ///   `WS_OK` the function call is successful.
+    ///   [`WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL) this window state is abnormal. Possible cause:
     /// 1. The window is not created or destroyed;
     /// 2. This window state is abnormal.
-    /// [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM) Parameter error. Possible cause:
+    ///    [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM) Parameter error. Possible cause:
     /// 1. Invalid parameter range.
     ///
     /// Available since API-level: 24
@@ -806,11 +806,11 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// `WS_OK` the function call is successful.
-    /// [`WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL) this window state is abnormal. Possible cause:
+    ///   `WS_OK` the function call is successful.
+    ///   [`WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL) this window state is abnormal. Possible cause:
     /// 1. The window is not created or destroyed;
     /// 2. This window state is abnormal.
-    /// [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM) Parameter error. Possible cause:
+    ///    [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM) Parameter error. Possible cause:
     /// 1. Invalid parameter range.
     ///
     /// Available since API-level: 24
@@ -835,11 +835,11 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// `WS_OK` the function call is successful.
-    /// [`WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL) this window state is abnormal. Possible cause:
+    ///   `WS_OK` the function call is successful.
+    ///   [`WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL) this window state is abnormal. Possible cause:
     /// 1. The window is not created or destroyed;
     /// 2. This window state is abnormal.
-    /// [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM) Parameter error. Possible cause:
+    ///    [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM) Parameter error. Possible cause:
     /// 1. Invalid parameter range.
     ///
     /// Available since API-level: 24
@@ -858,8 +858,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// `WS_OK` the function call is successful.
-    /// [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM) Parameter error. Possible cause:
+    ///   `WS_OK` the function call is successful.
+    ///   [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM) Parameter error. Possible cause:
     /// 1. Invalid parameter range.
     ///
     /// Available since API-level: 24

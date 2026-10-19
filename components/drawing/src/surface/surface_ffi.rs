@@ -40,8 +40,8 @@ extern "C" {
     /// # Arguments
     ///
     /// * `gpuContext` - Pointer to an [`OH_Drawing_GpuContext`](crate::types::OH_Drawing_GpuContext) object.
-    /// This object must be created by [`OH_Drawing_GpuContextCreate`](crate::gpu_context::OH_Drawing_GpuContextCreate). Otherwise, the **OH_Drawing_Surface** object
-    /// fails to be created.
+    ///   This object must be created by [`OH_Drawing_GpuContextCreate`](crate::gpu_context::OH_Drawing_GpuContextCreate). Otherwise, the **OH_Drawing_Surface** object
+    ///   fails to be created.
     ///
     /// * `imageInfo` - Image information struct.
     ///
@@ -72,7 +72,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a pointer to the created [`OH_Drawing_Canvas`](crate::types::OH_Drawing_Canvas) object. The pointer returned does not need to be
-    /// managed by the caller.
+    ///   managed by the caller.
     ///
     /// Available since API-level: 12
     ///
@@ -85,14 +85,14 @@ extern "C" {
     /// # Arguments
     ///
     /// * `surface` - Pointer to the created [`OH_Drawing_Surface`](crate::types::OH_Drawing_Surface) object. This object must be created by calling
-    /// [`OH_Drawing_SurfaceCreateOnScreen`](crate::surface::OH_Drawing_SurfaceCreateOnScreen)
-    /// . Otherwise, calling the current API has no effect.
+    ///   [`OH_Drawing_SurfaceCreateOnScreen`](crate::surface::OH_Drawing_SurfaceCreateOnScreen)
+    ///   . Otherwise, calling the current API has no effect.
     ///
     /// # Returns
     ///
     /// * Returns one of the following result codes:
-    /// **OH_DRAWING_SUCCESS** if the operation is successful.
-    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if **surface** is NULL.
+    ///   **OH_DRAWING_SUCCESS** if the operation is successful.
+    ///   **OH_DRAWING_ERROR_INVALID_PARAMETER** if **surface** is NULL.
     ///
     /// Available since API-level: 16
     ///

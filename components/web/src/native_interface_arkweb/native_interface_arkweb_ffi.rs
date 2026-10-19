@@ -50,8 +50,8 @@ pub type NativeArkWeb_OnDestroyCallback =
 /// # Arguments
 ///
 /// * `errorCode` - [`ARKWEB_SUCCESS`](crate::arkweb_error_code::ArkWeb_ErrorCode) Save cookie success.
-/// [`ARKWEB_COOKIE_MANAGER_INITIALIZE_FAILED`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::COOKIE_MANAGER_INITIALIZE_FAILED) Cookie manager initialize failed.
-/// [`ARKWEB_COOKIE_SAVE_FAILED`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::COOKIE_SAVE_FAILED) Save cookie failed.
+///   [`ARKWEB_COOKIE_MANAGER_INITIALIZE_FAILED`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::COOKIE_MANAGER_INITIALIZE_FAILED) Cookie manager initialize failed.
+///   [`ARKWEB_COOKIE_SAVE_FAILED`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::COOKIE_SAVE_FAILED) Save cookie failed.
 ///
 /// Available since API-level: 20
 #[cfg(feature = "api-20")]
@@ -63,13 +63,13 @@ pub type OH_ArkWeb_OnCookieSaveCallback =
 /// # Arguments
 ///
 /// * `errorCode` - The result code of the cookie fetching operation.
-/// [`ARKWEB_SUCCESS`](crate::arkweb_error_code::ArkWeb_ErrorCode) fetch cookie success.
-/// [`ARKWEB_INVALID_URL`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::INVALID_URL) invalid url.
-/// [`ARKWEB_LIBRARY_OPEN_FAILURE`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::LIBRARY_OPEN_FAILURE) Failed to open the library.
-/// [`ARKWEB_LIBRARY_SYMBOL_NOT_FOUND`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::LIBRARY_SYMBOL_NOT_FOUND) The required symbol was not found in the library.
+///   [`ARKWEB_SUCCESS`](crate::arkweb_error_code::ArkWeb_ErrorCode) fetch cookie success.
+///   [`ARKWEB_INVALID_URL`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::INVALID_URL) invalid url.
+///   [`ARKWEB_LIBRARY_OPEN_FAILURE`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::LIBRARY_OPEN_FAILURE) Failed to open the library.
+///   [`ARKWEB_LIBRARY_SYMBOL_NOT_FOUND`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::LIBRARY_SYMBOL_NOT_FOUND) The required symbol was not found in the library.
 ///
 /// * `cookieValue` - Get the cookie value corresponding to the URL. This function will allocate memory for the
-/// cookieValue string and caller must release the string by [`OH_ArkWeb_ReleaseString`](crate::arkweb_scheme_handler::OH_ArkWeb_ReleaseString).
+///   cookieValue string and caller must release the string by [`OH_ArkWeb_ReleaseString`](crate::arkweb_scheme_handler::OH_ArkWeb_ReleaseString).
 ///
 /// Available since API-level: 26
 #[cfg(feature = "api-26")]
@@ -251,7 +251,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Return the valid callback function registered. If the valid callback function
-    /// specified by the parameter webTag is not set, a null pointer is returned.
+    ///   specified by the parameter webTag is not set, a null pointer is returned.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Web.Webview.Core
@@ -289,8 +289,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Return the destroy callback function registered. If the destroy callback
-    /// function specified by the parameter webTag is not set,
-    /// a null pointer is returned.
+    ///   function specified by the parameter webTag is not set,
+    ///   a null pointer is returned.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Web.Webview.Core
@@ -315,20 +315,20 @@ extern "C" {
     /// * `encoding` - Encoding type. For example: "UTF-8", should not be NULL.
     ///
     /// * `baseUrl` - A specified URL path ("http"/"https"/"data" protocol),
-    /// which is assigned to window.origin by the Web component.
+    ///   which is assigned to window.origin by the Web component.
     ///
     /// * `historyUrl` - History URL. When it is not empty, it can be managed by
-    /// history records to realize the back and forth function.
+    ///   history records to realize the back and forth function.
     ///
     /// # Returns
     ///
     /// * LoadData result code.
-    /// [`ARKWEB_SUCCESS`](crate::arkweb_error_code::ArkWeb_ErrorCode) load data success.
-    /// [`ARKWEB_INVALID_PARAM`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::INVALID_PARAM) Mandatory parameters are left unspecified or
-    /// Incorrect parameter types or Parameter verification failed.
-    /// [`ARKWEB_INIT_ERROR`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::INIT_ERROR) Initialization error, can't get a valid Web for the webTag.
-    /// [`ARKWEB_LIBRARY_OPEN_FAILURE`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::LIBRARY_OPEN_FAILURE) Failed to open the library.
-    /// [`ARKWEB_LIBRARY_SYMBOL_NOT_FOUND`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::LIBRARY_SYMBOL_NOT_FOUND) The required symbol was not found in the library.
+    ///   [`ARKWEB_SUCCESS`](crate::arkweb_error_code::ArkWeb_ErrorCode) load data success.
+    ///   [`ARKWEB_INVALID_PARAM`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::INVALID_PARAM) Mandatory parameters are left unspecified or
+    ///   Incorrect parameter types or Parameter verification failed.
+    ///   [`ARKWEB_INIT_ERROR`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::INIT_ERROR) Initialization error, can't get a valid Web for the webTag.
+    ///   [`ARKWEB_LIBRARY_OPEN_FAILURE`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::LIBRARY_OPEN_FAILURE) Failed to open the library.
+    ///   [`ARKWEB_LIBRARY_SYMBOL_NOT_FOUND`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::LIBRARY_SYMBOL_NOT_FOUND) The required symbol was not found in the library.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Web.Webview.Core
@@ -357,7 +357,7 @@ extern "C" {
     /// * `proxyObject` - JavaScript object to register, the object has callback functions with return value.
     ///
     /// * `permission` - Optional JSON string(default is null) for JSBridge permission control,
-    /// allowing URL whitelist configuration at object-level and method-level.
+    ///   allowing URL whitelist configuration at object-level and method-level.
     ///
     /// Required System Capabilities: SystemCapability.Web.Webview.Core
     ///
@@ -379,14 +379,14 @@ extern "C" {
     /// * `webTag` - Name of the **Web** component.
     ///
     /// * `key` - Key value that uniquely identifies the page. The value must be the same as the key value of the [`OH_NativeArkWeb_GetBlanklessInfoWithKey`](crate::native_interface_arkweb::OH_NativeArkWeb_GetBlanklessInfoWithKey)
-    /// API.
-    /// The value cannot be empty and can contain a maximum of 2048 characters.
-    /// When an invalid value is set, the error code [`ArkWeb_BlanklessErrorCode`](crate::arkweb_error_code::ArkWeb_BlanklessErrorCode) is returned and the frame insertion
-    /// does not take effect.
+    ///   API.
+    ///   The value cannot be empty and can contain a maximum of 2048 characters.
+    ///   When an invalid value is set, the error code [`ArkWeb_BlanklessErrorCode`](crate::arkweb_error_code::ArkWeb_BlanklessErrorCode) is returned and the frame insertion
+    ///   does not take effect.
     ///
     /// * `isStarted` - Whether to enable frame insertion. The value **true** indicates to enable frame insertion, and **
-    /// false** indicates the opposite.
-    /// The default value is **false**.
+    ///   false** indicates the opposite.
+    ///   The default value is **false**.
     ///
     /// # Returns
     ///
@@ -405,7 +405,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `key` - The list of key values of pages cached in the blankless loading solution. These key values are
-    /// specified in OH_NativeArkWeb_GetBlanklessInfoWithKey.
+    ///   specified in OH_NativeArkWeb_GetBlanklessInfoWithKey.
     ///
     /// The default value is the list of key values of all pages cached in the blankless loading solution.
     ///
@@ -417,9 +417,9 @@ extern "C" {
     ///
     ///
     /// * `size` - Size of the key array.
-    /// The default value is **0**.
-    /// The value ranges from 0 to 100. If the size exceeds 100, the first 100 keys are used.
-    /// When an invalid value is set, the value **0** is used.
+    ///   The default value is **0**.
+    ///   The value ranges from 0 to 100. If the size exceeds 100, the first 100 keys are used.
+    ///   When an invalid value is set, the value **0** is used.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -440,13 +440,13 @@ extern "C" {
     /// * `webTag` - Name of the **Web** component.
     ///
     /// * `key` - Key value that uniquely identifies the page.
-    /// The value cannot be empty and can contain a maximum of 2048 characters.
-    /// Invalid values do not take effect.
+    ///   The value cannot be empty and can contain a maximum of 2048 characters.
+    ///   Invalid values do not take effect.
     ///
     /// # Returns
     ///
     /// * Prediction information about blankless loading, including the first screen similarity and first screen
-    /// loading duration. The application determines whether to enable blankless loading based on the prediction information.
+    ///   loading duration. The application determines whether to enable blankless loading based on the prediction information.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -462,16 +462,16 @@ extern "C" {
     /// # Arguments
     ///
     /// * `capacity` - Persistent cache capacity, in MB. The maximum value is 100 MB.
-    /// The default value is 30 MB.
-    /// The value ranges from 0 to 100. If this parameter is set to **0**, no cache capacity is available and the
-    /// functionality is disabled globally.
-    /// When a value less than 0 is set, the value **0** takes effect. When a value greater than 100 is set, the value **100*
+    ///   The default value is 30 MB.
+    ///   The value ranges from 0 to 100. If this parameter is set to **0**, no cache capacity is available and the
+    ///   functionality is disabled globally.
+    ///   When a value less than 0 is set, the value **0** takes effect. When a value greater than 100 is set, the value **100*
     /// * takes effect.
     ///
     /// # Returns
     ///
     /// * The effective value that ranges from 0 MB to 100 MB.
-    /// When a value less than 0 is set, the value **0** takes effect. When a value greater than 100 is set, the value **100*
+    ///   When a value less than 0 is set, the value **0** takes effect. When a value greater than 100 is set, the value **100*
     /// * takes effect.
     ///
     /// Available since API-level: 20
@@ -485,13 +485,13 @@ extern "C" {
     /// # Returns
     ///
     /// * Save cookie result code.
-    /// [`ARKWEB_SUCCESS`](crate::arkweb_error_code::ArkWeb_ErrorCode) Save cookie success.
-    /// [`ARKWEB_COOKIE_SAVE_FAILED`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::COOKIE_SAVE_FAILED) Save cookie failed.
-    /// [`ARKWEB_COOKIE_MANAGER_INITIALIZE_FAILED`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::COOKIE_MANAGER_INITIALIZE_FAILED) The CookieManager initialize failed.
-    /// [`ARKWEB_COOKIE_MANAGER_NOT_INITIALIZED`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::COOKIE_MANAGER_NOT_INITIALIZED) It is not allowed to call on a non-UI thread without
-    /// initializing the CookieManager interface. please
-    /// initialize the CookieManager interface using
-    /// OH_ArkWeb_GetNativeAPI first.
+    ///   [`ARKWEB_SUCCESS`](crate::arkweb_error_code::ArkWeb_ErrorCode) Save cookie success.
+    ///   [`ARKWEB_COOKIE_SAVE_FAILED`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::COOKIE_SAVE_FAILED) Save cookie failed.
+    ///   [`ARKWEB_COOKIE_MANAGER_INITIALIZE_FAILED`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::COOKIE_MANAGER_INITIALIZE_FAILED) The CookieManager initialize failed.
+    ///   [`ARKWEB_COOKIE_MANAGER_NOT_INITIALIZED`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::COOKIE_MANAGER_NOT_INITIALIZED) It is not allowed to call on a non-UI thread without
+    ///   initializing the CookieManager interface. please
+    ///   initialize the CookieManager interface using
+    ///   OH_ArkWeb_GetNativeAPI first.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -550,7 +550,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Whether the kernel used by the application is the evergreen kernel. The value **true** indicates that the
-    /// kernel used by the application is the evergreen kernel, and **false** indicates the opposite.
+    ///   kernel used by the application is the evergreen kernel, and **false** indicates the opposite.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -563,14 +563,14 @@ extern "C" {
     /// * `url` - URL to which the cookie to be obtained belongs. A complete URL is recommended.
     ///
     /// * `incognito` - True indicates that the memory cookies of the webview in privacy mode are obtained,
-    /// and false indicates that cookies in non-privacy mode are obtained.
+    ///   and false indicates that cookies in non-privacy mode are obtained.
     ///
     /// * `includeHttpOnly` - If true HTTP-only cookies will also be included in the cookieValue.
     ///
     /// * `includePartitionedCookies` - If true, allows fetching first-party partitioned cookies.
     ///
     /// * `cookieValue` - Get the cookie value corresponding to the URL. This function will allocate memory for the
-    /// *cookieValue string and caller must release the string by [`OH_ArkWeb_ReleaseString`](crate::arkweb_scheme_handler::OH_ArkWeb_ReleaseString).
+    ///   *cookieValue string and caller must release the string by [`OH_ArkWeb_ReleaseString`](crate::arkweb_scheme_handler::OH_ArkWeb_ReleaseString).
     ///
     /// # Returns
     ///
@@ -599,7 +599,7 @@ extern "C" {
     /// * `url` - URL to which the cookie to be obtained belongs. A complete URL is recommended.
     ///
     /// * `incognito` - True indicates that the memory cookies of the webview in privacy mode are obtained,
-    /// and false indicates that cookies in non-privacy mode are obtained.
+    ///   and false indicates that cookies in non-privacy mode are obtained.
     ///
     /// * `includeHttpOnly` - If true HTTP-only cookies will also be included in the cookieValue.
     ///

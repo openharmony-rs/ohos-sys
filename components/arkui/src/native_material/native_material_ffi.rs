@@ -169,7 +169,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the pointer to the created immersive material object.
-    /// If creation fails or the style is invalid, returns NULL.
+    ///   If creation fails or the style is invalid, returns NULL.
     ///
     /// **Note:** Release the returned object with [`OH_ArkUI_NativeModule_ImmersiveMaterial_Destroy`](crate::native_material::OH_ArkUI_NativeModule_ImmersiveMaterial_Destroy).
     ///
@@ -184,7 +184,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `material` - Pointer to material object.
-    /// The type is [`ArkUI_ImmersiveMaterialHandle`](crate::native_material::ArkUI_ImmersiveMaterialHandle).
+    ///   The type is [`ArkUI_ImmersiveMaterialHandle`](crate::native_material::ArkUI_ImmersiveMaterialHandle).
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]
@@ -240,7 +240,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `material` - The pointer to the immersive material object. The parameter
-    /// type is [`ArkUI_ImmersiveMaterialHandle`](crate::native_material::ArkUI_ImmersiveMaterialHandle).
+    ///   type is [`ArkUI_ImmersiveMaterialHandle`](crate::native_material::ArkUI_ImmersiveMaterialHandle).
     ///
     /// * `color` - The material color in 0xAARRGGBB format.
     ///
@@ -306,7 +306,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `material` - The pointer to the immersive material object. The parameter type is
-    /// [`ArkUI_ImmersiveMaterialHandle`](crate::native_material::ArkUI_ImmersiveMaterialHandle).
+    ///   [`ArkUI_ImmersiveMaterialHandle`](crate::native_material::ArkUI_ImmersiveMaterialHandle).
     ///
     /// * `applyShadow` - Pointer to the variable that receives whether to apply shadow. Default value is true.
     ///
@@ -329,7 +329,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `material` - The pointer to the immersive material object. The parameter type is
-    /// [`ArkUI_ImmersiveMaterialHandle`](crate::native_material::ArkUI_ImmersiveMaterialHandle).
+    ///   [`ArkUI_ImmersiveMaterialHandle`](crate::native_material::ArkUI_ImmersiveMaterialHandle).
     ///
     /// * `interactive` - Whether the material is interactive.
     ///
@@ -351,7 +351,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `material` - The pointer to the immersive material object. The parameter type is
-    /// [`ArkUI_ImmersiveMaterialHandle`](crate::native_material::ArkUI_ImmersiveMaterialHandle).
+    ///   [`ArkUI_ImmersiveMaterialHandle`](crate::native_material::ArkUI_ImmersiveMaterialHandle).
     ///
     /// * `interactive` - Pointer to the variable that receives whether the material is interactive.
     ///
@@ -421,7 +421,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `material` - The pointer to the immersive material object. The parameter type is
-    /// [`ArkUI_ImmersiveMaterialHandle`](crate::native_material::ArkUI_ImmersiveMaterialHandle).
+    ///   [`ArkUI_ImmersiveMaterialHandle`](crate::native_material::ArkUI_ImmersiveMaterialHandle).
     ///
     /// * `options` - The light effect options. Pass NULL to disable.
     ///
@@ -444,7 +444,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `material` - The pointer to the immersive material object. The parameter type is
-    /// [`ArkUI_ImmersiveMaterialHandle`](crate::native_material::ArkUI_ImmersiveMaterialHandle).
+    ///   [`ArkUI_ImmersiveMaterialHandle`](crate::native_material::ArkUI_ImmersiveMaterialHandle).
     ///
     /// * `color` - Pointer to the variable that receives the light effect color.
     ///

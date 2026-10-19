@@ -101,8 +101,8 @@ extern "C" {
     /// * `image` - Pointer to the [`OH_Drawing_Image`](crate::types::OH_Drawing_Image) object.
     ///
     /// * `imageInfo` - Pointer to an [`OH_Drawing_Image_Info`](crate::types::OH_Drawing_Image_Info) object, which can be created by calling
-    /// [`OH_Drawing_Image_Info`](crate::types::OH_Drawing_Image_Info)
-    /// .
+    ///   [`OH_Drawing_Image_Info`](crate::types::OH_Drawing_Image_Info)
+    ///   .
     ///
     /// Available since API-level: 12
     ///

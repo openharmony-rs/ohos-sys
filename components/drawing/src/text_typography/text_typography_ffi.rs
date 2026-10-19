@@ -976,7 +976,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `typography` - Pointer to the typography object [`OH_Drawing_Typography`](crate::text_declaration::OH_Drawing_Typography), which is obtained from
-    /// [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
+    ///   [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
     ///
     /// * `id` - Typography style attribute ID.
     ///
@@ -985,11 +985,11 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns OH_DRAWING_SUCCESS, indicating that the execution is successful.
-    /// <br>Returns OH_DRAWING_ERROR_INCORRECT_PARAMETER, indicating that the typography or value parameter is a null
-    /// pointer.
-    /// <br>Returns OH_DRAWING_ERROR_ATTRIBUTE_ID_MISMATCH, indicating that the attribute ID passed in does not match
-    /// the called function.
+    ///   <br>Returns OH_DRAWING_SUCCESS, indicating that the execution is successful.
+    ///   <br>Returns OH_DRAWING_ERROR_INCORRECT_PARAMETER, indicating that the typography or value parameter is a null
+    ///   pointer.
+    ///   <br>Returns OH_DRAWING_ERROR_ATTRIBUTE_ID_MISMATCH, indicating that the attribute ID passed in does not match
+    ///   the called function.
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]
@@ -1004,7 +1004,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `typography` - Pointer to the typography object [`OH_Drawing_Typography`](crate::text_declaration::OH_Drawing_Typography), which is obtained from
-    /// [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
+    ///   [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
     ///
     /// * `id` - Typography attribute ID, which specifies the bool-type attribute to set.
     ///
@@ -1013,10 +1013,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns OH_DRAWING_SUCCESS, indicating that the execution is successful.
-    /// <br>Returns OH_DRAWING_ERROR_INCORRECT_PARAMETER, indicating that the typography parameter is a null pointer.
-    /// <br>Returns OH_DRAWING_ERROR_ATTRIBUTE_ID_MISMATCH, indicating that the attribute ID passed in does not match
-    /// the called function.
+    ///   <br>Returns OH_DRAWING_SUCCESS, indicating that the execution is successful.
+    ///   <br>Returns OH_DRAWING_ERROR_INCORRECT_PARAMETER, indicating that the typography parameter is a null pointer.
+    ///   <br>Returns OH_DRAWING_ERROR_ATTRIBUTE_ID_MISMATCH, indicating that the attribute ID passed in does not match
+    ///   the called function.
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]
@@ -1039,11 +1039,11 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the execution result.
-    /// <br>**OH_DRAWING_SUCCESS** if the operation is successful.
-    /// <br>**OH_DRAWING_ERROR_INVALID_PARAMETER** if **style** is NULL.
-    /// <br>**OH_DRAWING_ERROR_ATTRIBUTE_ID_MISMATCH** if the input attribute ID does not match the called function.
-    /// <br>**OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE** if the value corresponding to the attribute id exceeds the
-    /// allowable range.
+    ///   <br>**OH_DRAWING_SUCCESS** if the operation is successful.
+    ///   <br>**OH_DRAWING_ERROR_INVALID_PARAMETER** if **style** is NULL.
+    ///   <br>**OH_DRAWING_ERROR_ATTRIBUTE_ID_MISMATCH** if the input attribute ID does not match the called function.
+    ///   <br>**OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE** if the value corresponding to the attribute id exceeds the
+    ///   allowable range.
     ///
     /// Available since API-level: 21
     #[cfg(feature = "api-21")]
@@ -1066,9 +1066,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the execution result.
-    /// <br>**OH_DRAWING_SUCCESS** if the operation is successful.
-    /// <br>**OH_DRAWING_ERROR_INVALID_PARAMETER** if **style** is NULL.
-    /// <br>**OH_DRAWING_ERROR_ATTRIBUTE_ID_MISMATCH** if the input attribute ID does not match the called function.
+    ///   <br>**OH_DRAWING_SUCCESS** if the operation is successful.
+    ///   <br>**OH_DRAWING_ERROR_INVALID_PARAMETER** if **style** is NULL.
+    ///   <br>**OH_DRAWING_ERROR_ATTRIBUTE_ID_MISMATCH** if the input attribute ID does not match the called function.
     ///
     /// Available since API-level: 21
     #[cfg(feature = "api-21")]
@@ -1091,11 +1091,11 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the execution result.
-    /// <br>**OH_DRAWING_SUCCESS** if the operation is successful.
-    /// <br>**OH_DRAWING_ERROR_INVALID_PARAMETER** if **style** is NULL.
-    /// <br>**OH_DRAWING_ERROR_ATTRIBUTE_ID_MISMATCH** if the input attribute ID does not match the called function.
-    /// <br>**OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE** if the input value exceeds the value range of the attribute to
-    /// be set.
+    ///   <br>**OH_DRAWING_SUCCESS** if the operation is successful.
+    ///   <br>**OH_DRAWING_ERROR_INVALID_PARAMETER** if **style** is NULL.
+    ///   <br>**OH_DRAWING_ERROR_ATTRIBUTE_ID_MISMATCH** if the input attribute ID does not match the called function.
+    ///   <br>**OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE** if the input value exceeds the value range of the attribute to
+    ///   be set.
     ///
     /// Available since API-level: 21
     #[cfg(feature = "api-21")]
@@ -1118,9 +1118,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the execution result.
-    /// <br>**OH_DRAWING_SUCCESS** if the operation is successful.
-    /// <br>**OH_DRAWING_ERROR_INVALID_PARAMETER** if **style** is NULL.
-    /// <br>**OH_DRAWING_ERROR_ATTRIBUTE_ID_MISMATCH** if the input attribute ID does not match the called function.
+    ///   <br>**OH_DRAWING_SUCCESS** if the operation is successful.
+    ///   <br>**OH_DRAWING_ERROR_INVALID_PARAMETER** if **style** is NULL.
+    ///   <br>**OH_DRAWING_ERROR_ATTRIBUTE_ID_MISMATCH** if the input attribute ID does not match the called function.
     ///
     /// Available since API-level: 21
     #[cfg(feature = "api-21")]
@@ -1143,11 +1143,11 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the execution result.
-    /// <br>**OH_DRAWING_SUCCESS** if the operation is successful.
-    /// <br>**OH_DRAWING_ERROR_INVALID_PARAMETER** if **style** is NULL.
-    /// <br>**OH_DRAWING_ERROR_ATTRIBUTE_ID_MISMATCH** if the input attribute ID does not match the called function.
-    /// <br>**OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE** if the value corresponding to the attribute id
-    /// exceeds the allowable range.
+    ///   <br>**OH_DRAWING_SUCCESS** if the operation is successful.
+    ///   <br>**OH_DRAWING_ERROR_INVALID_PARAMETER** if **style** is NULL.
+    ///   <br>**OH_DRAWING_ERROR_ATTRIBUTE_ID_MISMATCH** if the input attribute ID does not match the called function.
+    ///   <br>**OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE** if the value corresponding to the attribute id
+    ///   exceeds the allowable range.
     ///
     /// Available since API-level: 21
     #[cfg(feature = "api-21")]
@@ -1170,9 +1170,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the execution result.
-    /// <br>**OH_DRAWING_SUCCESS** if the operation is successful.
-    /// <br>**OH_DRAWING_ERROR_INVALID_PARAMETER** if **style** is NULL.
-    /// <br>**OH_DRAWING_ERROR_ATTRIBUTE_ID_MISMATCH** if the input attribute ID does not match the called function.
+    ///   <br>**OH_DRAWING_SUCCESS** if the operation is successful.
+    ///   <br>**OH_DRAWING_ERROR_INVALID_PARAMETER** if **style** is NULL.
+    ///   <br>**OH_DRAWING_ERROR_ATTRIBUTE_ID_MISMATCH** if the input attribute ID does not match the called function.
     ///
     /// Available since API-level: 21
     #[cfg(feature = "api-21")]
@@ -1195,11 +1195,11 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the execution result.
-    /// <br>**OH_DRAWING_SUCCESS** if the operation is successful.
-    /// <br>**OH_DRAWING_ERROR_INVALID_PARAMETER** if **style** is NULL.
-    /// <br>**OH_DRAWING_ERROR_ATTRIBUTE_ID_MISMATCH** if the input attribute ID does not match the called function.
-    /// <br>**OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE** if the input value exceeds the value range of the attribute to
-    /// be set.
+    ///   <br>**OH_DRAWING_SUCCESS** if the operation is successful.
+    ///   <br>**OH_DRAWING_ERROR_INVALID_PARAMETER** if **style** is NULL.
+    ///   <br>**OH_DRAWING_ERROR_ATTRIBUTE_ID_MISMATCH** if the input attribute ID does not match the called function.
+    ///   <br>**OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE** if the input value exceeds the value range of the attribute to
+    ///   be set.
     ///
     /// Available since API-level: 21
     #[cfg(feature = "api-21")]
@@ -1222,9 +1222,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the execution result.
-    /// <br>**OH_DRAWING_SUCCESS** if the operation is successful.
-    /// <br>**OH_DRAWING_ERROR_INVALID_PARAMETER** if **style** is NULL.
-    /// <br>**OH_DRAWING_ERROR_ATTRIBUTE_ID_MISMATCH** if the input attribute ID does not match the called function.
+    ///   <br>**OH_DRAWING_SUCCESS** if the operation is successful.
+    ///   <br>**OH_DRAWING_ERROR_INVALID_PARAMETER** if **style** is NULL.
+    ///   <br>**OH_DRAWING_ERROR_ATTRIBUTE_ID_MISMATCH** if the input attribute ID does not match the called function.
     ///
     /// Available since API-level: 21
     #[cfg(feature = "api-21")]
@@ -1247,9 +1247,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the execution result.
-    /// <br>**OH_DRAWING_SUCCESS** if the operation is successful.
-    /// <br>**OH_DRAWING_ERROR_INCORRECT_PARAMETER** if **style** is NULL.
-    /// <br>**OH_DRAWING_ERROR_ATTRIBUTE_ID_MISMATCH** if the input attribute ID does not match the called function.
+    ///   <br>**OH_DRAWING_SUCCESS** if the operation is successful.
+    ///   <br>**OH_DRAWING_ERROR_INCORRECT_PARAMETER** if **style** is NULL.
+    ///   <br>**OH_DRAWING_ERROR_ATTRIBUTE_ID_MISMATCH** if the input attribute ID does not match the called function.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -1272,9 +1272,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the execution result.
-    /// <br>**OH_DRAWING_SUCCESS** if the operation is successful.
-    /// <br>**OH_DRAWING_ERROR_INCORRECT_PARAMETER** if **style** or **value** is NULL.
-    /// <br>**OH_DRAWING_ERROR_ATTRIBUTE_ID_MISMATCH** if the input attribute ID does not match the called function.
+    ///   <br>**OH_DRAWING_SUCCESS** if the operation is successful.
+    ///   <br>**OH_DRAWING_ERROR_INCORRECT_PARAMETER** if **style** or **value** is NULL.
+    ///   <br>**OH_DRAWING_ERROR_ATTRIBUTE_ID_MISMATCH** if the input attribute ID does not match the called function.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -1299,10 +1299,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the execution result.
-    /// <br>**OH_DRAWING_SUCCESS** if the operation is successful.
-    /// <br>**OH_DRAWING_ERROR_INCORRECT_PARAMETER** if the parameter **style** or **arrayValue** is a null pointer or
-    /// **arrayLength** is 0.
-    /// <br>**OH_DRAWING_ERROR_ATTRIBUTE_ID_MISMATCH** if the input attribute ID does not match the called function.
+    ///   <br>**OH_DRAWING_SUCCESS** if the operation is successful.
+    ///   <br>**OH_DRAWING_ERROR_INCORRECT_PARAMETER** if the parameter **style** or **arrayValue** is a null pointer or
+    ///   **arrayLength** is 0.
+    ///   <br>**OH_DRAWING_ERROR_ATTRIBUTE_ID_MISMATCH** if the input attribute ID does not match the called function.
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]
@@ -1328,10 +1328,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the execution result.
-    /// <br>**OH_DRAWING_SUCCESS** if the operation is successful.
-    /// <br>**OH_DRAWING_ERROR_INCORRECT_PARAMETER** if the parameter **style** or **arrayValue** is a null pointer or **
-    /// arrayLength** is 0.
-    /// <br>**OH_DRAWING_ERROR_ATTRIBUTE_ID_MISMATCH** if the input attribute ID does not match the called function.
+    ///   <br>**OH_DRAWING_SUCCESS** if the operation is successful.
+    ///   <br>**OH_DRAWING_ERROR_INCORRECT_PARAMETER** if the parameter **style** or **arrayValue** is a null pointer or **
+    ///   arrayLength** is 0.
+    ///   <br>**OH_DRAWING_ERROR_ATTRIBUTE_ID_MISMATCH** if the input attribute ID does not match the called function.
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]
@@ -1363,7 +1363,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle) object, which is obtained from
-    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
+    ///   [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
     /// Available since API-level: 8
     ///
@@ -1376,7 +1376,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle) object, which is obtained from
-    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
+    ///   [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
     /// * `direction` - Text direction. For details about the available options, see [`OH_Drawing_TextDirection`](crate::text_typography::OH_Drawing_TextDirection).
     ///
@@ -1394,7 +1394,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle) object, which is obtained from
-    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
+    ///   [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
     /// * `align` - Text alignment mode. For details about the available options, see [`OH_Drawing_TextAlign`](crate::text_typography::OH_Drawing_TextAlign).
     ///
@@ -1412,7 +1412,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle) object, which is obtained from
-    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
+    ///   [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
     /// * `lineNumber` - Max lines, which is an integer. If 0 or a negative number is passed, no text is displayed.
     ///
@@ -1444,7 +1444,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the **OH_Drawing_TextStyle** object, which is obtained from
-    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
+    ///   [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
     /// Available since API-level: 8
     ///
@@ -1457,7 +1457,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the [`OH_Drawing_TextStyle`](crate::text_declaration::OH_Drawing_TextStyle) object, which is obtained from
-    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
+    ///   [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
     /// * `color` - Text color in ARGB format. For example, an input parameter of 0xFFFF0000 indicates opaque red.
     ///
@@ -1472,7 +1472,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the [`OH_Drawing_TextStyle`](crate::text_declaration::OH_Drawing_TextStyle) object, which is obtained from
-    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
+    ///   [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
     /// * `fontSize` - Font size, in physical pixels (px).
     ///
@@ -1491,10 +1491,10 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the **OH_Drawing_TextStyle** object, which is obtained from
-    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
+    ///   [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
     /// * `fontWeight` - Font weight.
-    /// <br>For details about the available options, see [`OH_Drawing_FontWeight`](crate::text_typography::OH_Drawing_FontWeight).
+    ///   <br>For details about the available options, see [`OH_Drawing_FontWeight`](crate::text_typography::OH_Drawing_FontWeight).
     ///
     /// Available since API-level: 8
     ///
@@ -1510,7 +1510,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the **OH_Drawing_TextStyle** object, which is obtained from
-    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
+    ///   [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
     /// * `baseline` - Text baseline. For details about the available options, see [`OH_Drawing_TextBaseline`](crate::text_typography::OH_Drawing_TextBaseline).
     ///
@@ -1529,7 +1529,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the **OH_Drawing_TextStyle** object, which is obtained from
-    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
+    ///   [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
     /// * `decoration` - Text decoration. For details about the available options, see [`OH_Drawing_TextDecoration`](crate::text_typography::OH_Drawing_TextDecoration).
     ///
@@ -1547,12 +1547,12 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the [`OH_Drawing_TextStyle`](crate::text_declaration::OH_Drawing_TextStyle) object, which is obtained from
-    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
+    ///   [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
     /// * `decoration` - Decoration to add. The value **1** means to add an underline, **2** means to add an overline, and *
-    /// *4** means to add a strikethrough. You can add various decoration lines at a time via bitwise OR operations.
-    /// <br>If a decoration style that is not in the [`OH_Drawing_TextDecoration`](crate::text_typography::OH_Drawing_TextDecoration) enumeration is set, the original
-    /// decoration is retained.
+    ///   *4** means to add a strikethrough. You can add various decoration lines at a time via bitwise OR operations.
+    ///   <br>If a decoration style that is not in the [`OH_Drawing_TextDecoration`](crate::text_typography::OH_Drawing_TextDecoration) enumeration is set, the original
+    ///   decoration is retained.
     ///
     /// Available since API-level: 18
     ///
@@ -1570,13 +1570,13 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the [`OH_Drawing_TextStyle`](crate::text_declaration::OH_Drawing_TextStyle) object, which is obtained from
-    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
+    ///   [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
     /// * `decoration` - Decoration to remove. The value **1** means to remove an underline, **2** means to remove an
-    /// overline, and **4** means to remove a strikethrough. You can remove various text decorations at a time via
-    /// bitwise OR operations.
-    /// <br>If a decoration style that is not in the [`OH_Drawing_TextDecoration`](crate::text_typography::OH_Drawing_TextDecoration) enumeration is set, the original
-    /// decoration is retained.
+    ///   overline, and **4** means to remove a strikethrough. You can remove various text decorations at a time via
+    ///   bitwise OR operations.
+    ///   <br>If a decoration style that is not in the [`OH_Drawing_TextDecoration`](crate::text_typography::OH_Drawing_TextDecoration) enumeration is set, the original
+    ///   decoration is retained.
     ///
     /// Available since API-level: 18
     ///
@@ -1595,10 +1595,10 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the **OH_Drawing_TextStyle** object, which is obtained from
-    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
+    ///   [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
     /// * `color` - Color of the decoration line, in ARGB format. For example, 0xFFFF0000 indicates opaque red. If this API
-    /// is not called or color is set to 0, the decoration line color follows the text color.
+    ///   is not called or color is set to 0, the decoration line color follows the text color.
     ///
     /// Available since API-level: 8
     ///
@@ -1611,7 +1611,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the **OH_Drawing_TextStyle** object, which is obtained from
-    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
+    ///   [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
     /// * `fontHeight` - Multiple of the font size.
     ///
@@ -1626,7 +1626,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the **OH_Drawing_TextStyle** object, which is obtained from
-    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
+    ///   [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
     /// * `fontFamiliesNumber` - Number of font families. A negative number is not allowed.
     ///
@@ -1647,10 +1647,10 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the **OH_Drawing_TextStyle** object, which is obtained from
-    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
+    ///   [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
     /// * `fontStyle` - Font style. The value **1** indicates italic, **2** indicates oblique, and **0** or other values
-    /// indicate non-italic. For details, see the [`OH_Drawing_FontStyle`](crate::text_typography::OH_Drawing_FontStyle) enum.
+    ///   indicate non-italic. For details, see the [`OH_Drawing_FontStyle`](crate::text_typography::OH_Drawing_FontStyle) enum.
     ///
     /// Available since API-level: 8
     ///
@@ -1666,11 +1666,11 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the **OH_Drawing_TextStyle** object, which is obtained from
-    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
+    ///   [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
     /// * `locale` - Language type. The data type is a pointer to char. The format follows the BCP 47 language tag standard.
-    /// For example, 'en' represents English, 'zh-Hans' represents Simplified Chinese, and 'zh-Hant' represents
-    /// Traditional Chinese. If not specified, the default locale is 'zh-Hans'.
+    ///   For example, 'en' represents English, 'zh-Hans' represents Simplified Chinese, and 'zh-Hant' represents
+    ///   Traditional Chinese. If not specified, the default locale is 'zh-Hans'.
     ///
     /// Available since API-level: 8
     ///
@@ -1686,10 +1686,10 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the [`OH_Drawing_TextStyle`](crate::text_declaration::OH_Drawing_TextStyle) object, which is obtained from
-    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
+    ///   [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
     /// * `foregroundBrush` - Pointer to the [`OH_Drawing_Brush`](crate::types::OH_Drawing_Brush) object, which is obtained from
-    /// [`OH_Drawing_BrushCreate`](crate::brush::OH_Drawing_BrushCreate).
+    ///   [`OH_Drawing_BrushCreate`](crate::brush::OH_Drawing_BrushCreate).
     ///
     /// Available since API-level: 12
     ///
@@ -1707,10 +1707,10 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the [`OH_Drawing_TextStyle`](crate::text_declaration::OH_Drawing_TextStyle) object, which is obtained from
-    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
+    ///   [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
     /// * `foregroundBrush` - Pointer to the [`OH_Drawing_Brush`](crate::types::OH_Drawing_Brush) object, which is obtained from
-    /// [`OH_Drawing_BrushCreate`](crate::brush::OH_Drawing_BrushCreate).
+    ///   [`OH_Drawing_BrushCreate`](crate::brush::OH_Drawing_BrushCreate).
     ///
     /// Available since API-level: 12
     ///
@@ -1728,10 +1728,10 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the [`OH_Drawing_TextStyle`](crate::text_declaration::OH_Drawing_TextStyle) object, which is obtained from
-    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
+    ///   [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
     /// * `foregroundPen` - Pointer to the [`OH_Drawing_Pen`](crate::types::OH_Drawing_Pen) object, which is obtained from
-    /// [`OH_Drawing_PenCreate`](crate::pen::OH_Drawing_PenCreate).
+    ///   [`OH_Drawing_PenCreate`](crate::pen::OH_Drawing_PenCreate).
     ///
     /// Available since API-level: 12
     ///
@@ -1749,10 +1749,10 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the [`OH_Drawing_TextStyle`](crate::text_declaration::OH_Drawing_TextStyle) object, which is obtained from
-    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
+    ///   [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
     /// * `foregroundPen` - Pointer to the [`OH_Drawing_Pen`](crate::types::OH_Drawing_Pen) object, which is obtained from
-    /// [`OH_Drawing_PenCreate`](crate::pen::OH_Drawing_PenCreate).
+    ///   [`OH_Drawing_PenCreate`](crate::pen::OH_Drawing_PenCreate).
     ///
     /// Available since API-level: 12
     ///
@@ -1770,10 +1770,10 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the [`OH_Drawing_TextStyle`](crate::text_declaration::OH_Drawing_TextStyle) object, which is obtained from
-    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
+    ///   [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
     /// * `backgroundBrush` - Pointer to the [`OH_Drawing_Brush`](crate::types::OH_Drawing_Brush) object, which is obtained from
-    /// [`OH_Drawing_BrushCreate`](crate::brush::OH_Drawing_BrushCreate).
+    ///   [`OH_Drawing_BrushCreate`](crate::brush::OH_Drawing_BrushCreate).
     ///
     /// Available since API-level: 12
     ///
@@ -1791,10 +1791,10 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the [`OH_Drawing_TextStyle`](crate::text_declaration::OH_Drawing_TextStyle) object, which is obtained from
-    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
+    ///   [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
     /// * `backgroundBrush` - Pointer to the [`OH_Drawing_Brush`](crate::types::OH_Drawing_Brush) object, which is obtained from
-    /// [`OH_Drawing_BrushCreate`](crate::brush::OH_Drawing_BrushCreate).
+    ///   [`OH_Drawing_BrushCreate`](crate::brush::OH_Drawing_BrushCreate).
     ///
     /// Available since API-level: 12
     ///
@@ -1812,10 +1812,10 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the [`OH_Drawing_TextStyle`](crate::text_declaration::OH_Drawing_TextStyle) object, which is obtained from
-    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
+    ///   [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
     /// * `backgroundPen` - Pointer to the [`OH_Drawing_Pen`](crate::types::OH_Drawing_Pen) object, which is obtained from
-    /// [`OH_Drawing_PenCreate`](crate::pen::OH_Drawing_PenCreate).
+    ///   [`OH_Drawing_PenCreate`](crate::pen::OH_Drawing_PenCreate).
     ///
     /// Available since API-level: 12
     ///
@@ -1833,10 +1833,10 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the [`OH_Drawing_TextStyle`](crate::text_declaration::OH_Drawing_TextStyle) object, which is obtained from
-    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
+    ///   [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
     /// * `backgroundPen` - Pointer to the [`OH_Drawing_Pen`](crate::types::OH_Drawing_Pen) object, which is obtained from
-    /// [`OH_Drawing_PenCreate`](crate::pen::OH_Drawing_PenCreate).
+    ///   [`OH_Drawing_PenCreate`](crate::pen::OH_Drawing_PenCreate).
     ///
     /// Available since API-level: 12
     ///
@@ -1856,10 +1856,10 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle) object, which is obtained from
-    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
+    ///   [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
     /// * `fontCollection` - Pointer to the [`OH_Drawing_FontCollection`](crate::text_declaration::OH_Drawing_FontCollection) object, which is obtained from
-    /// [`OH_Drawing_CreateFontCollection`](crate::font_collection::OH_Drawing_CreateFontCollection).
+    ///   [`OH_Drawing_CreateFontCollection`](crate::font_collection::OH_Drawing_CreateFontCollection).
     ///
     /// # Returns
     ///
@@ -1879,7 +1879,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `handler` - Pointer to the [`OH_Drawing_TypographyCreate`](crate::text_declaration::OH_Drawing_TypographyCreate) object, which is obtained from
-    /// [`OH_Drawing_CreateTypographyHandler`](crate::text_typography::OH_Drawing_CreateTypographyHandler).
+    ///   [`OH_Drawing_CreateTypographyHandler`](crate::text_typography::OH_Drawing_CreateTypographyHandler).
     ///
     /// Available since API-level: 8
     ///
@@ -1893,10 +1893,10 @@ extern "C" {
     /// # Arguments
     ///
     /// * `handler` - Pointer to the [`OH_Drawing_TypographyCreate`](crate::text_declaration::OH_Drawing_TypographyCreate) object, which is obtained from
-    /// [`OH_Drawing_CreateTypographyHandler`](crate::text_typography::OH_Drawing_CreateTypographyHandler).
+    ///   [`OH_Drawing_CreateTypographyHandler`](crate::text_typography::OH_Drawing_CreateTypographyHandler).
     ///
     /// * `style` - Pointer to the [`OH_Drawing_TextStyle`](crate::text_declaration::OH_Drawing_TextStyle) object, which is obtained from
-    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
+    ///   [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
     /// Available since API-level: 8
     ///
@@ -1912,7 +1912,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `handler` - Pointer to the [`OH_Drawing_TypographyCreate`](crate::text_declaration::OH_Drawing_TypographyCreate) object, which is obtained from
-    /// [`OH_Drawing_CreateTypographyHandler`](crate::text_typography::OH_Drawing_CreateTypographyHandler).
+    ///   [`OH_Drawing_CreateTypographyHandler`](crate::text_typography::OH_Drawing_CreateTypographyHandler).
     ///
     /// * `text` - Pointer to the text content.
     ///
@@ -1930,7 +1930,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `handler` - Pointer to the [`OH_Drawing_TypographyCreate`](crate::text_declaration::OH_Drawing_TypographyCreate) object, which is obtained from
-    /// [`OH_Drawing_CreateTypographyHandler`](crate::text_typography::OH_Drawing_CreateTypographyHandler).
+    ///   [`OH_Drawing_CreateTypographyHandler`](crate::text_typography::OH_Drawing_CreateTypographyHandler).
     ///
     /// Available since API-level: 8
     ///
@@ -1944,7 +1944,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `handler` - Pointer to the [`OH_Drawing_TypographyCreate`](crate::text_declaration::OH_Drawing_TypographyCreate) object, which is obtained from
-    /// [`OH_Drawing_CreateTypographyHandler`](crate::text_typography::OH_Drawing_CreateTypographyHandler).
+    ///   [`OH_Drawing_CreateTypographyHandler`](crate::text_typography::OH_Drawing_CreateTypographyHandler).
     ///
     /// # Returns
     ///
@@ -1963,7 +1963,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `typography` - Pointer to the [`OH_Drawing_Typography`](crate::text_declaration::OH_Drawing_Typography) object, which is obtained from
-    /// [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
+    ///   [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
     ///
     /// Available since API-level: 8
     ///
@@ -1977,10 +1977,10 @@ extern "C" {
     /// # Arguments
     ///
     /// * `typography` - Pointer to the [`OH_Drawing_Typography`](crate::text_declaration::OH_Drawing_Typography) object, which is obtained from
-    /// [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
+    ///   [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
     ///
     /// * `maxWidth` - Maximum width of a single line in text typography, in physical pixels (px). The value must be
-    /// greater than 0.
+    ///   greater than 0.
     ///
     /// Available since API-level: 8
     ///
@@ -1994,17 +1994,17 @@ extern "C" {
     /// # Arguments
     ///
     /// * `typography` - Pointer to the **OH_Drawing_Typography** object, which is obtained from
-    /// [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
+    ///   [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
     ///
     /// * `canvas` - Pointer to the **OH_Drawing_Canvas** object, which is obtained from [`OH_Drawing_CanvasCreate`](crate::canvas::OH_Drawing_CanvasCreate).
     ///
     /// * `positionX` - Horizontal coordinate of the starting position for text drawing (that is, the x-coordinate of the
-    /// upper left corner of the text area), in physical pixels (px). The upper left corner of the canvas serves as the
-    /// coordinate origin, with the positive direction to the right.
+    ///   upper left corner of the text area), in physical pixels (px). The upper left corner of the canvas serves as the
+    ///   coordinate origin, with the positive direction to the right.
     ///
     /// * `positionY` - Vertical coordinate of the starting position for text drawing (that is, the y-coordinate of the
-    /// upper left corner of the text area), in physical pixels (px). The upper left corner of the canvas serves as the
-    /// coordinate origin, with the positive direction downward.
+    ///   upper left corner of the text area), in physical pixels (px). The upper left corner of the canvas serves as the
+    ///   coordinate origin, with the positive direction downward.
     ///
     /// Available since API-level: 8
     ///
@@ -2024,17 +2024,17 @@ extern "C" {
     /// # Arguments
     ///
     /// * `typography` - Pointer to the **OH_Drawing_Typography** object, which is obtained from
-    /// [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
+    ///   [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
     ///
     /// * `canvas` - Pointer to the **OH_Drawing_Canvas** object, which is obtained from [`OH_Drawing_CanvasCreate`](crate::canvas::OH_Drawing_CanvasCreate).
     ///
     /// * `path` - Pointer to the **OH_Drawing_Path** object, which is obtained from [`OH_Drawing_PathCreate`](crate::path::OH_Drawing_PathCreate).
     ///
     /// * `hOffset` - Horizontal offset, in physical pixels (px). The horizontal offset of the text along the path (X-axis),
-    /// positive to the right and negative to the left.
+    ///   positive to the right and negative to the left.
     ///
     /// * `vOffset` - Vertical offset, in physical pixels (px). The vertical offset of the text along the path (Y-axis),
-    /// positive downward and negative upward.
+    ///   positive downward and negative upward.
     ///
     /// Available since API-level: 12
     ///
@@ -2053,13 +2053,13 @@ extern "C" {
     /// # Arguments
     ///
     /// * `typography` - Pointer to the [`OH_Drawing_Typography`](crate::text_declaration::OH_Drawing_Typography) object, which is obtained from
-    /// [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
+    ///   [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
     ///
     /// * `constraintsRect` - Height and width of the constrained layout.
     ///
     /// * `fitStrRangeArr` - As an output parameter, it contains the character range of the paragraph text that is actually
-    /// contained. Pointer to array object [`OH_Drawing_Array`](crate::types::OH_Drawing_Array).
-    /// <br>Releases the memory through [`OH_Drawing_ReleaseArrayBuffer`](crate::text_typography::OH_Drawing_ReleaseArrayBuffer).
+    ///   contained. Pointer to array object [`OH_Drawing_Array`](crate::types::OH_Drawing_Array).
+    ///   <br>Releases the memory through [`OH_Drawing_ReleaseArrayBuffer`](crate::text_typography::OH_Drawing_ReleaseArrayBuffer).
     ///
     /// * `fitStrRangeArrayLen` - As an output parameter, it indicates the size of the contained string array.
     ///
@@ -2100,22 +2100,22 @@ extern "C" {
     /// # Arguments
     ///
     /// * `array` - Pointer to array object [`OH_Drawing_Array`](crate::types::OH_Drawing_Array).
-    /// <br>Supported array types:
-    /// <br>Array of full font names, which is obtained through [`OH_Drawing_GetSystemFontFullNamesByType`](crate::text_font_descriptor::OH_Drawing_GetSystemFontFullNamesByType).
-    /// <br>Array of text lines, which is obtained through [`OH_Drawing_TypographyGetTextLines`](crate::text_line::OH_Drawing_TypographyGetTextLines).
-    /// <br>Array of string indexes, which is obtained through [`OH_Drawing_GetRunStringIndices`](crate::text_run::OH_Drawing_GetRunStringIndices).
-    /// <br>Array of rectangles, which is obtained through [`OH_Drawing_RectCreateArray`](crate::rect::OH_Drawing_RectCreateArray).
-    /// <br>Array of font descriptors, which is obtained through [`OH_Drawing_GetFontFullDescriptorsFromStream`](crate::text_font_descriptor::OH_Drawing_GetFontFullDescriptorsFromStream) or
-    /// [`OH_Drawing_GetFontFullDescriptorsFromPath`](crate::text_font_descriptor::OH_Drawing_GetFontFullDescriptorsFromPath).
-    /// <br>Array of text ranges, which is obtained through [`OH_Drawing_TypographyLayoutWithConstraintsWithBuffer`](crate::text_typography::OH_Drawing_TypographyLayoutWithConstraintsWithBuffer).
-    /// OH_Drawing_GetFontFullDescriptorsFromPath}.
-    /// <br>Array of text ranges, which is obtained through [`OH_Drawing_TypographyLayoutWithConstraintsWithBuffer`](crate::text_typography::OH_Drawing_TypographyLayoutWithConstraintsWithBuffer).
+    ///   <br>Supported array types:
+    ///   <br>Array of full font names, which is obtained through [`OH_Drawing_GetSystemFontFullNamesByType`](crate::text_font_descriptor::OH_Drawing_GetSystemFontFullNamesByType).
+    ///   <br>Array of text lines, which is obtained through [`OH_Drawing_TypographyGetTextLines`](crate::text_line::OH_Drawing_TypographyGetTextLines).
+    ///   <br>Array of string indexes, which is obtained through [`OH_Drawing_GetRunStringIndices`](crate::text_run::OH_Drawing_GetRunStringIndices).
+    ///   <br>Array of rectangles, which is obtained through [`OH_Drawing_RectCreateArray`](crate::rect::OH_Drawing_RectCreateArray).
+    ///   <br>Array of font descriptors, which is obtained through [`OH_Drawing_GetFontFullDescriptorsFromStream`](crate::text_font_descriptor::OH_Drawing_GetFontFullDescriptorsFromStream) or
+    ///   [`OH_Drawing_GetFontFullDescriptorsFromPath`](crate::text_font_descriptor::OH_Drawing_GetFontFullDescriptorsFromPath).
+    ///   <br>Array of text ranges, which is obtained through [`OH_Drawing_TypographyLayoutWithConstraintsWithBuffer`](crate::text_typography::OH_Drawing_TypographyLayoutWithConstraintsWithBuffer).
+    ///   OH_Drawing_GetFontFullDescriptorsFromPath}.
+    ///   <br>Array of text ranges, which is obtained through [`OH_Drawing_TypographyLayoutWithConstraintsWithBuffer`](crate::text_typography::OH_Drawing_TypographyLayoutWithConstraintsWithBuffer).
     ///
     /// # Returns
     ///
     /// * Returns the execution result.
-    /// <br>**OH_DRAWING_SUCCESS** if the operation is successful.
-    /// <br>**OH_DRAWING_ERROR_INCORRECT_PARAMETER** if array is a null pointer or the type is not supported.
+    ///   <br>**OH_DRAWING_SUCCESS** if the operation is successful.
+    ///   <br>**OH_DRAWING_ERROR_INCORRECT_PARAMETER** if array is a null pointer or the type is not supported.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -2131,7 +2131,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `typography` - Pointer to the **OH_Drawing_Typography** object, which is obtained from
-    /// [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
+    ///   [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
     ///
     /// # Returns
     ///
@@ -2149,7 +2149,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `typography` - Pointer to the **OH_Drawing_Typography** object, which is obtained from
-    /// [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
+    ///   [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
     ///
     /// # Returns
     ///
@@ -2168,7 +2168,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `typography` - Pointer to the **OH_Drawing_Typography** object, which is obtained from
-    /// [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
+    ///   [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
     ///
     /// # Returns
     ///
@@ -2187,7 +2187,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `typography` - Pointer to the [`OH_Drawing_Typography`](crate::text_declaration::OH_Drawing_Typography) object, which is obtained from
-    /// [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
+    ///   [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
     ///
     /// # Returns
     ///
@@ -2209,7 +2209,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `typography` - Pointer to the **OH_Drawing_Typography** object, which is obtained from
-    /// [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
+    ///   [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
     ///
     /// # Returns
     ///
@@ -2228,7 +2228,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `typography` - Pointer to the **OH_Drawing_Typography** object, which is obtained from
-    /// [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
+    ///   [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
     ///
     /// # Returns
     ///
@@ -2247,7 +2247,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `typography` - Pointer to the **OH_Drawing_Typography** object, which is obtained from
-    /// [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
+    ///   [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
     ///
     /// # Returns
     ///
@@ -2267,7 +2267,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `typography` - Pointer to the **OH_Drawing_Typography** object, which is obtained from
-    /// [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
+    ///   [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
     ///
     /// # Returns
     ///
@@ -2286,7 +2286,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `handler` - Pointer to the [`OH_Drawing_TypographyCreate`](crate::text_declaration::OH_Drawing_TypographyCreate) object, which is obtained from
-    /// [`OH_Drawing_CreateTypographyHandler`](crate::text_typography::OH_Drawing_CreateTypographyHandler).
+    ///   [`OH_Drawing_CreateTypographyHandler`](crate::text_typography::OH_Drawing_CreateTypographyHandler).
     ///
     /// * `span` - Pointer to the [`OH_Drawing_PlaceholderSpan`](crate::text_typography::OH_Drawing_PlaceholderSpan) object.
     ///
@@ -2308,7 +2308,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `typography` - Pointer to the **OH_Drawing_Typography** object, which is obtained from
-    /// [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
+    ///   [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
     ///
     /// # Returns
     ///
@@ -2329,13 +2329,13 @@ extern "C" {
     /// # Arguments
     ///
     /// * `typography` - Pointer to the **OH_Drawing_Typography** object, which is obtained from
-    /// [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
+    ///   [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
     ///
     /// * `start` - Start position. The value ranges from 0 to the text length, counted in UTF-16 code units. Must be less
-    /// than end; otherwise, an empty result is returned.
+    ///   than end; otherwise, an empty result is returned.
     ///
     /// * `end` - End position. The value ranges from 0 to the text length, counted in UTF-16 code units. If the value
-    /// exceeds the text length, the text length is used. If the value is 0, an empty result is returned.
+    ///   exceeds the text length, the text length is used. If the value is 0, an empty result is returned.
     ///
     /// * `heightStyle` - Height style. For details about the available options, see [`OH_Drawing_RectHeightStyle`](crate::text_typography::OH_Drawing_RectHeightStyle).
     ///
@@ -2366,7 +2366,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `typography` - Pointer to the **OH_Drawing_Typography** object, which is obtained from
-    /// [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
+    ///   [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
     ///
     /// # Returns
     ///
@@ -2387,11 +2387,11 @@ extern "C" {
     /// # Arguments
     ///
     /// * `textbox` - Pointer to the **OH_Drawing_TextBox** object, which is obtained from
-    /// [`OH_Drawing_TypographyGetRectsForRange`](crate::text_typography::OH_Drawing_TypographyGetRectsForRange) or [`OH_Drawing_TypographyGetRectsForPlaceholders`](crate::text_typography::OH_Drawing_TypographyGetRectsForPlaceholders).
+    ///   [`OH_Drawing_TypographyGetRectsForRange`](crate::text_typography::OH_Drawing_TypographyGetRectsForRange) or [`OH_Drawing_TypographyGetRectsForPlaceholders`](crate::text_typography::OH_Drawing_TypographyGetRectsForPlaceholders).
     ///
     /// * `index` - Index of the text box. The value ranges from 0 to the number of text boxes minus 1. The number of text
-    /// boxes can be obtained through [`OH_Drawing_GetSizeOfTextBox`](crate::text_typography::OH_Drawing_GetSizeOfTextBox). 0.0 is returned when the index is out of
-    /// range.
+    ///   boxes can be obtained through [`OH_Drawing_GetSizeOfTextBox`](crate::text_typography::OH_Drawing_GetSizeOfTextBox). 0.0 is returned when the index is out of
+    ///   range.
     ///
     /// # Returns
     ///
@@ -2413,11 +2413,11 @@ extern "C" {
     /// # Arguments
     ///
     /// * `textbox` - Pointer to the **OH_Drawing_TextBox** object, which is obtained from
-    /// [`OH_Drawing_TypographyGetRectsForRange`](crate::text_typography::OH_Drawing_TypographyGetRectsForRange) or [`OH_Drawing_TypographyGetRectsForPlaceholders`](crate::text_typography::OH_Drawing_TypographyGetRectsForPlaceholders).
+    ///   [`OH_Drawing_TypographyGetRectsForRange`](crate::text_typography::OH_Drawing_TypographyGetRectsForRange) or [`OH_Drawing_TypographyGetRectsForPlaceholders`](crate::text_typography::OH_Drawing_TypographyGetRectsForPlaceholders).
     ///
     /// * `index` - Index of the text box. The value ranges from 0 to the number of text boxes minus 1. The number of text
-    /// boxes can be obtained through [`OH_Drawing_GetSizeOfTextBox`](crate::text_typography::OH_Drawing_GetSizeOfTextBox). 0.0 is returned when the value is out of
-    /// range.
+    ///   boxes can be obtained through [`OH_Drawing_GetSizeOfTextBox`](crate::text_typography::OH_Drawing_GetSizeOfTextBox). 0.0 is returned when the value is out of
+    ///   range.
     ///
     /// # Returns
     ///
@@ -2439,11 +2439,11 @@ extern "C" {
     /// # Arguments
     ///
     /// * `textbox` - Pointer to the **OH_Drawing_TextBox** object, which is obtained from
-    /// [`OH_Drawing_TypographyGetRectsForRange`](crate::text_typography::OH_Drawing_TypographyGetRectsForRange) or [`OH_Drawing_TypographyGetRectsForPlaceholders`](crate::text_typography::OH_Drawing_TypographyGetRectsForPlaceholders).
+    ///   [`OH_Drawing_TypographyGetRectsForRange`](crate::text_typography::OH_Drawing_TypographyGetRectsForRange) or [`OH_Drawing_TypographyGetRectsForPlaceholders`](crate::text_typography::OH_Drawing_TypographyGetRectsForPlaceholders).
     ///
     /// * `index` - Index of the text box. The value ranges from 0 to the number of text boxes minus 1. The number of text
-    /// boxes can be obtained through [`OH_Drawing_GetSizeOfTextBox`](crate::text_typography::OH_Drawing_GetSizeOfTextBox). 0.0 is returned when the value is out of
-    /// range.
+    ///   boxes can be obtained through [`OH_Drawing_GetSizeOfTextBox`](crate::text_typography::OH_Drawing_GetSizeOfTextBox). 0.0 is returned when the value is out of
+    ///   range.
     ///
     /// # Returns
     ///
@@ -2465,11 +2465,11 @@ extern "C" {
     /// # Arguments
     ///
     /// * `textbox` - Pointer to the **OH_Drawing_TextBox** object, which is obtained from
-    /// [`OH_Drawing_TypographyGetRectsForRange`](crate::text_typography::OH_Drawing_TypographyGetRectsForRange) or [`OH_Drawing_TypographyGetRectsForPlaceholders`](crate::text_typography::OH_Drawing_TypographyGetRectsForPlaceholders).
+    ///   [`OH_Drawing_TypographyGetRectsForRange`](crate::text_typography::OH_Drawing_TypographyGetRectsForRange) or [`OH_Drawing_TypographyGetRectsForPlaceholders`](crate::text_typography::OH_Drawing_TypographyGetRectsForPlaceholders).
     ///
     /// * `index` - Index of the text box. The value ranges from 0 to the number of text boxes minus 1. The number of text
-    /// boxes can be obtained through [`OH_Drawing_GetSizeOfTextBox`](crate::text_typography::OH_Drawing_GetSizeOfTextBox). 0.0 is returned when the value is out of
-    /// range.
+    ///   boxes can be obtained through [`OH_Drawing_GetSizeOfTextBox`](crate::text_typography::OH_Drawing_GetSizeOfTextBox). 0.0 is returned when the value is out of
+    ///   range.
     ///
     /// # Returns
     ///
@@ -2491,10 +2491,10 @@ extern "C" {
     /// # Arguments
     ///
     /// * `textbox` - Pointer to the [`OH_Drawing_TextBox`](ohos_sys_opaque_types::OH_Drawing_TextBox) object, which is obtained from
-    /// [`OH_Drawing_TypographyGetRectsForRange`](crate::text_typography::OH_Drawing_TypographyGetRectsForRange) or [`OH_Drawing_TypographyGetRectsForPlaceholders`](crate::text_typography::OH_Drawing_TypographyGetRectsForPlaceholders).
+    ///   [`OH_Drawing_TypographyGetRectsForRange`](crate::text_typography::OH_Drawing_TypographyGetRectsForRange) or [`OH_Drawing_TypographyGetRectsForPlaceholders`](crate::text_typography::OH_Drawing_TypographyGetRectsForPlaceholders).
     ///
     /// * `index` - Index of the text box. The value ranges from 0 to the number of text boxes minus 1. The number of text
-    /// boxes can be obtained through [`OH_Drawing_GetSizeOfTextBox`](crate::text_typography::OH_Drawing_GetSizeOfTextBox). If the index is out of range, 0 is returned.
+    ///   boxes can be obtained through [`OH_Drawing_GetSizeOfTextBox`](crate::text_typography::OH_Drawing_GetSizeOfTextBox). If the index is out of range, 0 is returned.
     ///
     /// # Returns
     ///
@@ -2516,7 +2516,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `textBox` - Pointer to the **OH_Drawing_TextBox** object, which is obtained from
-    /// [`OH_Drawing_TypographyGetRectsForRange`](crate::text_typography::OH_Drawing_TypographyGetRectsForRange) or [`OH_Drawing_TypographyGetRectsForPlaceholders`](crate::text_typography::OH_Drawing_TypographyGetRectsForPlaceholders).
+    ///   [`OH_Drawing_TypographyGetRectsForRange`](crate::text_typography::OH_Drawing_TypographyGetRectsForRange) or [`OH_Drawing_TypographyGetRectsForPlaceholders`](crate::text_typography::OH_Drawing_TypographyGetRectsForPlaceholders).
     ///
     /// # Returns
     ///
@@ -2535,7 +2535,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `typography` - Pointer to the **OH_Drawing_Typography** object, which is obtained from
-    /// [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
+    ///   [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
     ///
     /// * `dx` - X coordinate.
     ///
@@ -2572,7 +2572,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `typography` - Pointer to the **OH_Drawing_Typography** object, which is obtained from
-    /// [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
+    ///   [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
     ///
     /// * `dx` - X coordinate of the cursor, in px.
     ///
@@ -2599,7 +2599,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `positionAndAffinity` - Pointer to the OH_Drawing_PositionAndAffinity object, obtained by
-    /// [`OH_Drawing_TypographyGetGlyphPositionAtCoordinateWithCluster`](crate::text_typography::OH_Drawing_TypographyGetGlyphPositionAtCoordinateWithCluster).
+    ///   [`OH_Drawing_TypographyGetGlyphPositionAtCoordinateWithCluster`](crate::text_typography::OH_Drawing_TypographyGetGlyphPositionAtCoordinateWithCluster).
     ///
     /// # Returns
     ///
@@ -2621,7 +2621,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `positionAndAffinity` - Pointer to the OH_Drawing_PositionAndAffinity object, obtained by
-    /// [`OH_Drawing_TypographyGetGlyphPositionAtCoordinateWithCluster`](crate::text_typography::OH_Drawing_TypographyGetGlyphPositionAtCoordinateWithCluster).
+    ///   [`OH_Drawing_TypographyGetGlyphPositionAtCoordinateWithCluster`](crate::text_typography::OH_Drawing_TypographyGetGlyphPositionAtCoordinateWithCluster).
     ///
     /// # Returns
     ///
@@ -2643,10 +2643,10 @@ extern "C" {
     /// # Arguments
     ///
     /// * `typography` - Pointer to the **OH_Drawing_Typography** object, which is obtained from
-    /// [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
+    ///   [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
     ///
     /// * `offset` - Word index. The value ranges from 0 to n-1, where n is the text length. If the value is out of range,
-    /// the default value is returned or an exception is thrown.
+    ///   the default value is returned or an exception is thrown.
     ///
     /// # Returns
     ///
@@ -2668,7 +2668,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `range` - Pointer to the **OH_Drawing_Range** object, which is obtained from
-    /// [`OH_Drawing_TypographyGetWordBoundary`](crate::text_typography::OH_Drawing_TypographyGetWordBoundary).
+    ///   [`OH_Drawing_TypographyGetWordBoundary`](crate::text_typography::OH_Drawing_TypographyGetWordBoundary).
     ///
     /// # Returns
     ///
@@ -2687,7 +2687,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `range` - Pointer to the **OH_Drawing_Range** object, which is obtained from
-    /// [`OH_Drawing_TypographyGetWordBoundary`](crate::text_typography::OH_Drawing_TypographyGetWordBoundary).
+    ///   [`OH_Drawing_TypographyGetWordBoundary`](crate::text_typography::OH_Drawing_TypographyGetWordBoundary).
     ///
     /// # Returns
     ///
@@ -2707,7 +2707,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `typography` - Pointer to the **OH_Drawing_Typography** object, which is obtained from
-    /// [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
+    ///   [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
     ///
     /// # Returns
     ///
@@ -2726,10 +2726,10 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the **OH_Drawing_TextStyle** object, which is obtained from
-    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
+    ///   [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
     /// * `decorationStyle` - Text decoration style. For details about the available options, see
-    /// [`OH_Drawing_TextDecorationStyle`](crate::text_typography::OH_Drawing_TextDecorationStyle).
+    ///   [`OH_Drawing_TextDecorationStyle`](crate::text_typography::OH_Drawing_TextDecorationStyle).
     ///
     /// Available since API-level: 11
     ///
@@ -2747,10 +2747,10 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the **OH_Drawing_TextStyle** object, which is obtained from
-    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
+    ///   [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
     /// * `decorationThicknessScale` - Thickness scaling ratio. The default value is **1**. If the value is less than or
-    /// equal to 0, no decoration line is drawn.
+    ///   equal to 0, no decoration line is drawn.
     ///
     /// Available since API-level: 11
     ///
@@ -2768,10 +2768,10 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the **OH_Drawing_TextStyle** object, which is obtained from
-    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
+    ///   [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
     /// * `letterSpacing` - Letter spacing value. A positive value increases the spacing, a negative value decreases it.
-    /// The default value is **0**, in px.
+    ///   The default value is **0**, in px.
     ///
     /// Available since API-level: 11
     ///
@@ -2789,10 +2789,10 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the **OH_Drawing_TextStyle** object, which is obtained from
-    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
+    ///   [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
     /// * `wordSpacing` - Spacing size. A positive value increases the spacing, and a negative value decreases the spacing.
-    /// The default value is **0**, in px.
+    ///   The default value is **0**, in px.
     ///
     /// Available since API-level: 11
     ///
@@ -2807,7 +2807,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the **OH_Drawing_TextStyle** object, which is obtained from
-    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
+    ///   [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
     /// * `halfLeading` - Whether the half leading takes effect. **true** means yes; **false** otherwise.
     ///
@@ -2824,7 +2824,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the **OH_Drawing_TextStyle** object, which is obtained from
-    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
+    ///   [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
     /// * `ellipsis` - Pointer to the ellipsis content. The data type is a pointer pointing to char.
     ///
@@ -2852,7 +2852,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the **OH_Drawing_TextStyle** object, which is obtained from
-    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
+    ///   [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
     /// * `ellipsisModal` - Ellipsis style. For details about the available options, see [`OH_Drawing_EllipsisModal`](crate::text_typography::OH_Drawing_EllipsisModal).
     ///
@@ -2880,7 +2880,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle) object, which is obtained from
-    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
+    ///   [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
     /// * `breakStrategy` - Break strategy. For details about the available options, see [`OH_Drawing_BreakStrategy`](crate::text_typography::OH_Drawing_BreakStrategy).
     ///
@@ -2900,7 +2900,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle) object, which is obtained from
-    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
+    ///   [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
     /// * `wordBreakType` - Word break type. For details about the available options, see [`OH_Drawing_WordBreakType`](crate::text_typography::OH_Drawing_WordBreakType).
     ///
@@ -2920,7 +2920,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the **OH_Drawing_TypographyStyle** object, which is obtained from
-    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
+    ///   [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
     /// * `ellipsisModal` - Ellipsis style. For details about the available options, see [`OH_Drawing_EllipsisModal`](crate::text_typography::OH_Drawing_EllipsisModal).
     ///
@@ -2941,10 +2941,10 @@ extern "C" {
     /// # Arguments
     ///
     /// * `typography` - Pointer to the **OH_Drawing_Typography** object, which is obtained from
-    /// [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
+    ///   [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
     ///
     /// * `lineNumber` - Index of the line number to obtain, starting from 0, with a maximum value of
-    /// [`OH_Drawing_TypographyGetLineCount`](crate::text_typography::OH_Drawing_TypographyGetLineCount) - 1. 0.0 is returned when the index is out of range.
+    ///   [`OH_Drawing_TypographyGetLineCount`](crate::text_typography::OH_Drawing_TypographyGetLineCount) - 1. 0.0 is returned when the index is out of range.
     ///
     /// # Returns
     ///
@@ -2967,10 +2967,10 @@ extern "C" {
     /// # Arguments
     ///
     /// * `typography` - Pointer to the **OH_Drawing_Typography** object, which is obtained from
-    /// [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
+    ///   [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
     ///
     /// * `lineNumber` - Index of the line to obtain, starting from 0. The maximum value is
-    /// [`OH_Drawing_TypographyGetLineCount`](crate::text_typography::OH_Drawing_TypographyGetLineCount) - 1. Returns 0.0 when the index is out of range.
+    ///   [`OH_Drawing_TypographyGetLineCount`](crate::text_typography::OH_Drawing_TypographyGetLineCount) - 1. Returns 0.0 when the index is out of range.
     ///
     /// # Returns
     ///
@@ -2994,17 +2994,17 @@ extern "C" {
     /// # Arguments
     ///
     /// * `typography` - Pointer to the [`OH_Drawing_Typography`](crate::text_declaration::OH_Drawing_Typography) object, which is obtained from
-    /// [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
+    ///   [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
     ///
     /// * `lineNumber` - Row index.
     ///
     /// * `includeSpaces` - Whether the returned bounds contain spaces. The value **true** means that the bounds contain
-    /// spaces, and **false** means the opposite.
+    ///   spaces, and **false** means the opposite.
     ///
     /// # Returns
     ///
     /// * Pointer to the [`OH_Drawing_Range`](crate::text_declaration::OH_Drawing_Range) object. If the line index is invalid, **start** and **end** in the
-    /// result value are both **0**.
+    ///   result value are both **0**.
     ///
     /// Available since API-level: 12
     ///
@@ -3040,7 +3040,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `descriptor` - Pointer to the [`OH_Drawing_FontDescriptor`](crate::text_typography::OH_Drawing_FontDescriptor) object, which is obtained from
-    /// [`OH_Drawing_CreateFontDescriptor`](crate::text_typography::OH_Drawing_CreateFontDescriptor).
+    ///   [`OH_Drawing_CreateFontDescriptor`](crate::text_typography::OH_Drawing_CreateFontDescriptor).
     ///
     /// Available since API-level: 12
     ///
@@ -3071,7 +3071,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `parser` - Pointer to the [`OH_Drawing_FontParser`](crate::text_declaration::OH_Drawing_FontParser) object, which is obtained from
-    /// [`OH_Drawing_CreateFontParser`](crate::text_typography::OH_Drawing_CreateFontParser).
+    ///   [`OH_Drawing_CreateFontParser`](crate::text_typography::OH_Drawing_CreateFontParser).
     ///
     /// Available since API-level: 12
     ///
@@ -3088,7 +3088,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `fontParser` - Pointer to the [`OH_Drawing_FontParser`](crate::text_declaration::OH_Drawing_FontParser) object, which is obtained from
-    /// [`OH_Drawing_CreateFontParser`](crate::text_typography::OH_Drawing_CreateFontParser).
+    ///   [`OH_Drawing_CreateFontParser`](crate::text_typography::OH_Drawing_CreateFontParser).
     ///
     /// * `num` - Pointer to the number of system font names.
     ///
@@ -3129,15 +3129,15 @@ extern "C" {
     /// # Arguments
     ///
     /// * `fontParser` - Pointer to the [`OH_Drawing_FontParser`](crate::text_declaration::OH_Drawing_FontParser) object, which is obtained from
-    /// [`OH_Drawing_CreateFontParser`](crate::text_typography::OH_Drawing_CreateFontParser).
+    ///   [`OH_Drawing_CreateFontParser`](crate::text_typography::OH_Drawing_CreateFontParser).
     ///
     /// * `name` - Name of the system font. For details about valid system font names, see
-    /// [`OH_Drawing_FontParserGetSystemFontList`](crate::text_typography::OH_Drawing_FontParserGetSystemFontList).
+    ///   [`OH_Drawing_FontParserGetSystemFontList`](crate::text_typography::OH_Drawing_FontParserGetSystemFontList).
     ///
     /// # Returns
     ///
     /// * Pointer to the system font descriptor object. When no longer needed, use
-    /// [`OH_Drawing_DestroyFontDescriptor`](crate::text_typography::OH_Drawing_DestroyFontDescriptor) to release the pointer.
+    ///   [`OH_Drawing_DestroyFontDescriptor`](crate::text_typography::OH_Drawing_DestroyFontDescriptor) to release the pointer.
     ///
     /// Available since API-level: 12
     ///
@@ -3157,7 +3157,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `typography` - Pointer to the [`OH_Drawing_Typography`](crate::text_declaration::OH_Drawing_Typography) object, which is obtained from
-    /// [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
+    ///   [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
     ///
     /// # Returns
     ///
@@ -3178,7 +3178,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `lineMetrics` - Pointer to the [`OH_Drawing_LineMetrics`](crate::text_typography::OH_Drawing_LineMetrics) object, which is obtained from
-    /// [`OH_Drawing_LineMetrics`](crate::text_typography::OH_Drawing_LineMetrics).
+    ///   [`OH_Drawing_LineMetrics`](crate::text_typography::OH_Drawing_LineMetrics).
     ///
     /// # Returns
     ///
@@ -3197,7 +3197,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `lineMetrics` - Pointer to the [`OH_Drawing_LineMetrics`](crate::text_typography::OH_Drawing_LineMetrics) object, which is obtained from
-    /// [`OH_Drawing_LineMetrics`](crate::text_typography::OH_Drawing_LineMetrics).
+    ///   [`OH_Drawing_LineMetrics`](crate::text_typography::OH_Drawing_LineMetrics).
     ///
     /// Available since API-level: 12
     ///
@@ -3213,7 +3213,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `typography` - Pointer to the [`OH_Drawing_Typography`](crate::text_declaration::OH_Drawing_Typography) object, which is obtained from
-    /// [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
+    ///   [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
     ///
     /// * `lineNumber` - Index of the line to obtain, starting from 0 and up to [`OH_Drawing_TypographyGetLineCount`](crate::text_typography::OH_Drawing_TypographyGetLineCount) -
     /// 1. Returns false when the index is out of range.
@@ -3241,7 +3241,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle) object, which is obtained from
-    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
+    ///   [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
     /// * `ellipsis` - Ellipsis text.
     ///
@@ -3261,11 +3261,11 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle) object, which is obtained from
-    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
+    ///   [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
     /// * `locale` - Locale. The data type is a pointer to char. The format follows the BCP 47 language tag standard, for
-    /// example, 'en' for English, 'zh-Hans' for Simplified Chinese, and 'zh-Hant' for Traditional Chinese. If not
-    /// specified, the default locale is 'zh-Hans'.
+    ///   example, 'en' for English, 'zh-Hans' for Simplified Chinese, and 'zh-Hant' for Traditional Chinese. If not
+    ///   specified, the default locale is 'zh-Hans'.
     ///
     /// Available since API-level: 12
     ///
@@ -3284,12 +3284,12 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle) object, which is obtained from
-    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
+    ///   [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
     /// * `textSplitRatio` - Text split ratio. The value range is \[0, 1\], and the default value is 0.5. When mapping click
-    /// coordinates to character positions, this is the threshold within a glyph for determining whether the position
-    /// belongs to the current character or the next character. A larger value favors the current character, and a
-    /// smaller value favors the next character.
+    ///   coordinates to character positions, this is the threshold within a glyph for determining whether the position
+    ///   belongs to the current character or the next character. A larger value favors the current character, and a
+    ///   smaller value favors the next character.
     ///
     /// Available since API-level: 12
     ///
@@ -3307,12 +3307,12 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle) object, which is obtained from
-    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
+    ///   [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
     /// # Returns
     ///
     /// * Pointer to the [`OH_Drawing_TextStyle`](crate::text_declaration::OH_Drawing_TextStyle) object. Release this pointer by calling
-    /// [`OH_Drawing_DestroyTextStyle`](crate::text_typography::OH_Drawing_DestroyTextStyle) when this object is no longer needed.
+    ///   [`OH_Drawing_DestroyTextStyle`](crate::text_typography::OH_Drawing_DestroyTextStyle) when this object is no longer needed.
     ///
     /// Available since API-level: 12
     ///
@@ -3329,7 +3329,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle) object, which is obtained from
-    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
+    ///   [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
     /// # Returns
     ///
@@ -3358,12 +3358,12 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle) object, which is obtained from
-    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
+    ///   [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
     /// # Returns
     ///
     /// * Whether the text has a maximum line limit. The value **true** means there is no maximum line limit, and **
-    /// false** means there is a maximum line limit.
+    ///   false** means there is a maximum line limit.
     ///
     /// Available since API-level: 12
     ///
@@ -3378,7 +3378,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle) object, which is obtained from
-    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
+    ///   [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
     /// # Returns
     ///
@@ -3397,10 +3397,10 @@ extern "C" {
     /// # Arguments
     ///
     /// * `handler` - Pointer to the [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle) object, which is obtained from
-    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
+    ///   [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
     /// * `style` - Pointer to the [`OH_Drawing_TextStyle`](crate::text_declaration::OH_Drawing_TextStyle) object, which is obtained from
-    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
+    ///   [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
     /// Available since API-level: 12
     ///
@@ -3418,13 +3418,13 @@ extern "C" {
     /// # Arguments
     ///
     /// * `typography` - Pointer to the [`OH_Drawing_Typography`](crate::text_declaration::OH_Drawing_Typography) object, which is obtained from
-    /// [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
+    ///   [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
     ///
     /// * `style` - Pointer to the [`OH_Drawing_TextStyle`](crate::text_declaration::OH_Drawing_TextStyle) object, which is obtained from
-    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
+    ///   [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
     /// * `fontmetrics` - Pointer to the [`OH_Drawing_Font_Metrics`](crate::font::OH_Drawing_Font_Metrics) object, which is obtained from
-    /// [`OH_Drawing_Font_Metrics`](crate::font::OH_Drawing_Font_Metrics).
+    ///   [`OH_Drawing_Font_Metrics`](crate::font::OH_Drawing_Font_Metrics).
     ///
     /// # Returns
     ///
@@ -3448,24 +3448,24 @@ extern "C" {
     /// # Arguments
     ///
     /// * `typography` - Pointer to the [`OH_Drawing_Typography`](crate::text_declaration::OH_Drawing_Typography) object, which is obtained from
-    /// [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
+    ///   [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
     ///
     /// * `lineNumber` - Index of the line number to obtain, starting from 0 and up to
-    /// [`OH_Drawing_TypographyGetLineCount`](crate::text_typography::OH_Drawing_TypographyGetLineCount) - 1. Returns false when out of range.
+    ///   [`OH_Drawing_TypographyGetLineCount`](crate::text_typography::OH_Drawing_TypographyGetLineCount) - 1. Returns false when out of range.
     ///
     /// * `oneLine` - Whether to obtain the metrics of the entire line. The value **true** means to obtain the metrics of
-    /// the entire line, and **false** means to obtain the metrics of the first character in the line.
+    ///   the entire line, and **false** means to obtain the metrics of the first character in the line.
     ///
     /// * `includeWhitespace` - Whether the text width includes whitespace. The value true means whitespace is included,
-    /// and false means whitespace is not included.
+    ///   and false means whitespace is not included.
     ///
     /// * `drawingLineMetrics` - Pointer to the [`OH_Drawing_LineMetrics`](crate::text_typography::OH_Drawing_LineMetrics) object, which is obtained from
-    /// [`OH_Drawing_LineMetrics`](crate::text_typography::OH_Drawing_LineMetrics).
+    ///   [`OH_Drawing_LineMetrics`](crate::text_typography::OH_Drawing_LineMetrics).
     ///
     /// # Returns
     ///
     /// * Returns **true** if the metrics of the given line or the metrics of the first character in the given line is
-    /// obtained; returns **false** otherwise.
+    ///   obtained; returns **false** otherwise.
     ///
     /// Available since API-level: 12
     ///
@@ -3490,10 +3490,10 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle) object, which is obtained from
-    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
+    ///   [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
     /// * `weight` - Font weight.
-    /// <br>For details about the available options, see [`OH_Drawing_FontWeight`](crate::text_typography::OH_Drawing_FontWeight).
+    ///   <br>For details about the available options, see [`OH_Drawing_FontWeight`](crate::text_typography::OH_Drawing_FontWeight).
     ///
     /// Available since API-level: 12
     ///
@@ -3511,10 +3511,10 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the typography style object [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle), obtained by
-    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
+    ///   [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
     /// * `fontStyle` - Font style. The value **1** indicates italic, and **0** or other values indicate non-italic. For
-    /// details about the available options, see [`OH_Drawing_FontStyle`](crate::text_typography::OH_Drawing_FontStyle).
+    ///   details about the available options, see [`OH_Drawing_FontStyle`](crate::text_typography::OH_Drawing_FontStyle).
     ///
     /// Available since API-level: 12
     ///
@@ -3532,7 +3532,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle) object, which is obtained from
-    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
+    ///   [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
     /// * `fontFamily` - Pointer to the name of the font family.
     ///
@@ -3552,7 +3552,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the typography style [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle), which is obtained from
-    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
+    ///   [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
     /// * `fontSize` - Font size (greater than 0), in px.
     ///
@@ -3572,10 +3572,10 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle) object, which is obtained from
-    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
+    ///   [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
     /// * `fontHeight` - Font height, which is a multiple of the current font size. If the value is less than 0, it is
-    /// treated as 0.
+    ///   treated as 0.
     ///
     /// Available since API-level: 12
     ///
@@ -3593,10 +3593,10 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle) object, which is obtained from
-    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
+    ///   [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
     /// * `halfLeading` - Whether to enable half leading. The value **true** means to enable half leading, and **false**
-    /// means the opposite.
+    ///   means the opposite.
     ///
     /// Available since API-level: 12
     ///
@@ -3614,7 +3614,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the typography style object [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle), obtained by
-    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
+    ///   [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
     /// * `useLineStyle` - Whether to enable the line style. The value **true** means to enable the line style, and **false*
     /// * means the opposite.
@@ -3639,7 +3639,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle) object, which is obtained from
-    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
+    ///   [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
     /// * `weight` - Font weight. For details about the available options, see [`OH_Drawing_FontWeight`](crate::text_typography::OH_Drawing_FontWeight).
     ///
@@ -3659,7 +3659,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the typography style object [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle), obtained by
-    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
+    ///   [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
     /// * `fontStyle` - Font style. For details about the available options, see [`OH_Drawing_FontStyle`](crate::text_typography::OH_Drawing_FontStyle).
     ///
@@ -3679,7 +3679,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to a typography style object [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle), obtained by
-    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
+    ///   [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
     /// * `fontFamiliesNumber` - Number of font family names. Negative values are not allowed.
     ///
@@ -3702,7 +3702,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the typography style object [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle), obtained by
-    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
+    ///   [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
     /// * `lineStyleFontSize` - Font size (greater than 0), in physical pixels (px).
     ///
@@ -3722,7 +3722,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the typography style object [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle), obtained by
-    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
+    ///   [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
     /// * `lineStyleFontHeight` - Font height. The value must be greater than 0.
     ///
@@ -3742,7 +3742,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the typography style object [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle), obtained by
-    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
+    ///   [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
     /// * `lineStyleHalfLeading` - Whether the half leading takes effect. **true** means yes; **false** otherwise.
     ///
@@ -3762,10 +3762,10 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the typography style object [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle), obtained by
-    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
+    ///   [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
     /// * `spacingScale` - Line style spacing scale for scaling line spacing. A value greater than 1.0 increases the line
-    /// spacing, a value less than 1.0 decreases it, and 1.0 indicates the original spacing.
+    ///   spacing, a value less than 1.0 decreases it, and 1.0 indicates the original spacing.
     ///
     /// Available since API-level: 12
     ///
@@ -3783,7 +3783,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the typography style object [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle), obtained by
-    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
+    ///   [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
     /// * `lineStyleOnly` - Whether to enable the line style only. **true** means yes; **false** otherwise.
     ///
@@ -3819,7 +3819,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `shadow` - Pointer to the text shadow object [`OH_Drawing_TextShadow`](crate::text_declaration::OH_Drawing_TextShadow), obtained by
-    /// [`OH_Drawing_CreateTextShadow`](crate::text_typography::OH_Drawing_CreateTextShadow).
+    ///   [`OH_Drawing_CreateTextShadow`](crate::text_typography::OH_Drawing_CreateTextShadow).
     ///
     /// Available since API-level: 12
     ///
@@ -3835,7 +3835,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the [`OH_Drawing_TextStyle`](crate::text_declaration::OH_Drawing_TextStyle) object, which is obtained from
-    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
+    ///   [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
     /// # Returns
     ///
@@ -3856,7 +3856,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the [`OH_Drawing_TextStyle`](crate::text_declaration::OH_Drawing_TextStyle) object, which is obtained from
-    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
+    ///   [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
     /// # Returns
     ///
@@ -3877,10 +3877,10 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the [`OH_Drawing_TextStyle`](crate::text_declaration::OH_Drawing_TextStyle) object, which is obtained from
-    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
+    ///   [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
     /// * `shadow` - Pointer to the text shadow object [`OH_Drawing_TextShadow`](crate::text_declaration::OH_Drawing_TextShadow), created by
-    /// [`OH_Drawing_CreateTextShadow`](crate::text_typography::OH_Drawing_CreateTextShadow).
+    ///   [`OH_Drawing_CreateTextShadow`](crate::text_typography::OH_Drawing_CreateTextShadow).
     ///
     /// Available since API-level: 12
     ///
@@ -3898,7 +3898,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the [`OH_Drawing_TextStyle`](crate::text_declaration::OH_Drawing_TextStyle) object, which is obtained from
-    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
+    ///   [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
     /// Available since API-level: 12
     ///
@@ -3913,10 +3913,10 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the [`OH_Drawing_TextStyle`](crate::text_declaration::OH_Drawing_TextStyle) object, which is obtained from
-    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
+    ///   [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
     /// * `index` - Subscript index, ranging from 0 to the number of shadows minus 1. The number of shadows can be obtained
-    /// via [`OH_Drawing_TextStyleGetShadowCount`](crate::text_typography::OH_Drawing_TextStyleGetShadowCount).
+    ///   via [`OH_Drawing_TextStyleGetShadowCount`](crate::text_typography::OH_Drawing_TextStyleGetShadowCount).
     ///
     /// # Returns
     ///
@@ -3938,13 +3938,13 @@ extern "C" {
     /// # Arguments
     ///
     /// * `typography` - Pointer to the [`OH_Drawing_Typography`](crate::text_declaration::OH_Drawing_Typography) object, which is obtained from
-    /// [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
+    ///   [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
     ///
     /// * `indentsNumber` - Number of indents. The value must be less than or equal to the length of the indents array to
-    /// avoid display exceptions caused by access to the out-of-bounds array.
+    ///   avoid display exceptions caused by access to the out-of-bounds array.
     ///
     /// * `indents` - Pointer to a floating-point array, in which each element indicates an indentation width, in px.
-    /// Before calling [`OH_Drawing_Typography`](crate::text_declaration::OH_Drawing_Typography) API, you need to declare and initialize the floating-point array.
+    ///   Before calling [`OH_Drawing_Typography`](crate::text_declaration::OH_Drawing_Typography) API, you need to declare and initialize the floating-point array.
     ///
     /// Available since API-level: 12
     ///
@@ -3963,10 +3963,10 @@ extern "C" {
     /// # Arguments
     ///
     /// * `typography` - Pointer to the [`OH_Drawing_Typography`](crate::text_declaration::OH_Drawing_Typography) object, which is obtained from
-    /// [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
+    ///   [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
     ///
     /// * `index` - Subscript index of the indentation value. Returns 0.0 if index is less than 0. Returns the last
-    /// indentation value if index is greater than or equal to the number of indentation values.
+    ///   indentation value if index is greater than or equal to the number of indentation values.
     ///
     /// # Returns
     ///
@@ -3988,7 +3988,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `shadow` - Pointer to the text shadow object [`OH_Drawing_TextShadow`](crate::text_declaration::OH_Drawing_TextShadow), obtained by
-    /// [`OH_Drawing_CreateTextShadow`](crate::text_typography::OH_Drawing_CreateTextShadow).
+    ///   [`OH_Drawing_CreateTextShadow`](crate::text_typography::OH_Drawing_CreateTextShadow).
     ///
     /// Available since API-level: 12
     ///
@@ -4003,10 +4003,10 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle) object, which is obtained from
-    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
+    ///   [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
     /// * `heightMode` - Text height modifier mode. The value is an enumerated value of the
-    /// [`OH_Drawing_TextHeightBehavior`](crate::text_typography::OH_Drawing_TextHeightBehavior) type.
+    ///   [`OH_Drawing_TextHeightBehavior`](crate::text_typography::OH_Drawing_TextHeightBehavior) type.
     ///
     /// Available since API-level: 12
     ///
@@ -4024,7 +4024,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle) object, which is obtained from
-    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
+    ///   [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
     /// # Returns
     ///
@@ -4046,16 +4046,16 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the **OH_Drawing_TextStyle** object, which is obtained from
-    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
+    ///   [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
     /// * `rectStyleInfo` - Pointer to the [`OH_Drawing_RectStyle_Info`](crate::types::OH_Drawing_RectStyle_Info) object.
     ///
     /// * `styleId` - Style ID. The style ID is valid only when the background box is a rounded rectangle. Text processing
-    /// is divided into multiple segments. Each segment has its own text style. **id** indicates the sequence number of
-    /// the background box in which the segment is drawn.
-    /// <br>If the ID of each segment in a row is **0**, all segments are drawn in the same background box. If a row
-    /// contains segments with IDs **0** and **1**, the segment with ID **0** is drawn in a background box, and the
-    /// segment with ID **1** is drawn in another background box. Other cases can be deduced in the same way.
+    ///   is divided into multiple segments. Each segment has its own text style. **id** indicates the sequence number of
+    ///   the background box in which the segment is drawn.
+    ///   <br>If the ID of each segment in a row is **0**, all segments are drawn in the same background box. If a row
+    ///   contains segments with IDs **0** and **1**, the segment with ID **0** is drawn in a background box, and the
+    ///   segment with ID **1** is drawn in another background box. Other cases can be deduced in the same way.
     ///
     /// Available since API-level: 12
     ///
@@ -4074,7 +4074,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `handler` - Pointer to the [`OH_Drawing_TypographyCreate`](crate::text_declaration::OH_Drawing_TypographyCreate) object, which is obtained from
-    /// [`OH_Drawing_CreateTypographyHandler`](crate::text_typography::OH_Drawing_CreateTypographyHandler).
+    ///   [`OH_Drawing_CreateTypographyHandler`](crate::text_typography::OH_Drawing_CreateTypographyHandler).
     ///
     /// * `symbol` - Symbol value. For details, see the Unicode value in the HarmonyOS Symbol library.
     ///
@@ -4094,7 +4094,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the **OH_Drawing_TextStyle** object, which is obtained from
-    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
+    ///   [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
     /// * `tag` - Pointer to the string identified by the keyword in the font feature key-value pair.
     ///
@@ -4118,13 +4118,13 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the **OH_Drawing_TextStyle** object, which is obtained from
-    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
+    ///   [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
     /// * `axis` - Pointer to the key in the font variation key-value pair. Currently, only **'wght'** is supported,
-    /// indicating the font weight.
+    ///   indicating the font weight.
     ///
     /// * `value` - Value of the font variation key-value pair. Currently, the value range of **'wght'** for the default
-    /// font is \[0,900\].
+    ///   font is \[0,900\].
     ///
     /// Available since API-level: 12
     ///
@@ -4142,13 +4142,13 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the **OH_Drawing_TextStyle** object, which is obtained from
-    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
+    ///   [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
     /// * `axis` - Pointer to the key in the font variation key-value pair.
     ///
     /// * `normalizedValue` - Value of the font variation key-value pair. The normalized value range is \[-1,1\], mapping the
-    /// range from the minimum value to the maximum value configured in the font file. **0** indicates the default value
-    /// configured in the font file.
+    ///   range from the minimum value to the maximum value configured in the font file. **0** indicates the default value
+    ///   configured in the font file.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -4165,7 +4165,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the **OH_Drawing_TextStyle** object, which is obtained from
-    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
+    ///   [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
     /// # Returns
     ///
@@ -4186,7 +4186,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `fontFeature` - Pointer to the struct array that holds all the font features, which is obtained from
-    /// [`OH_Drawing_TextStyleGetFontFeatures`](crate::text_typography::OH_Drawing_TextStyleGetFontFeatures).
+    ///   [`OH_Drawing_TextStyleGetFontFeatures`](crate::text_typography::OH_Drawing_TextStyleGetFontFeatures).
     ///
     /// * `fontFeatureSize` - Size of the struct array that holds all the font features.
     ///
@@ -4206,7 +4206,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the **OH_Drawing_TextStyle** object, which is obtained from
-    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
+    ///   [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
     /// # Returns
     ///
@@ -4225,7 +4225,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the **OH_Drawing_TextStyle** object, which is obtained from
-    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
+    ///   [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
     /// Available since API-level: 12
     ///
@@ -4240,10 +4240,10 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the **OH_Drawing_TextStyle** object, which is obtained from
-    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
+    ///   [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
     /// * `lineShift` - Baseline offset of the text. A positive value shifts upward, and a negative value shifts downward,
-    /// in px.
+    ///   in px.
     ///
     /// Available since API-level: 12
     ///
@@ -4258,7 +4258,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the **OH_Drawing_TextStyle** object, which is obtained from
-    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
+    ///   [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
     /// # Returns
     ///
@@ -4277,7 +4277,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the [`OH_Drawing_TextStyle`](crate::text_declaration::OH_Drawing_TextStyle) object, which is obtained from
-    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
+    ///   [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
     /// # Returns
     ///
@@ -4296,7 +4296,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the [`OH_Drawing_TextStyle`](crate::text_declaration::OH_Drawing_TextStyle) object, which is obtained from
-    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
+    ///   [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
     /// # Returns
     ///
@@ -4317,7 +4317,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the [`OH_Drawing_TextStyle`](crate::text_declaration::OH_Drawing_TextStyle) object, which is obtained from
-    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
+    ///   [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
     /// # Returns
     ///
@@ -4338,7 +4338,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the [`OH_Drawing_TextStyle`](crate::text_declaration::OH_Drawing_TextStyle) object, which is obtained from
-    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
+    ///   [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
     /// # Returns
     ///
@@ -4359,7 +4359,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the [`OH_Drawing_TextStyle`](crate::text_declaration::OH_Drawing_TextStyle) object, which is obtained from
-    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
+    ///   [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
     /// # Returns
     ///
@@ -4380,7 +4380,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the [`OH_Drawing_TextStyle`](crate::text_declaration::OH_Drawing_TextStyle) object, which is obtained from
-    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
+    ///   [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
     /// * `num` - Pointer to the number of font families.
     ///
@@ -4423,7 +4423,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the [`OH_Drawing_TextStyle`](crate::text_declaration::OH_Drawing_TextStyle) object, which is obtained from
-    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
+    ///   [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
     /// # Returns
     ///
@@ -4442,7 +4442,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the [`OH_Drawing_TextStyle`](crate::text_declaration::OH_Drawing_TextStyle) object, which is obtained from
-    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
+    ///   [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
     /// # Returns
     ///
@@ -4461,7 +4461,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the [`OH_Drawing_TextStyle`](crate::text_declaration::OH_Drawing_TextStyle) object, which is obtained from
-    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
+    ///   [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
     /// # Returns
     ///
@@ -4480,7 +4480,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the [`OH_Drawing_TextStyle`](crate::text_declaration::OH_Drawing_TextStyle) object, which is obtained from
-    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
+    ///   [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
     /// # Returns
     ///
@@ -4499,7 +4499,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the [`OH_Drawing_TextStyle`](crate::text_declaration::OH_Drawing_TextStyle) object, which is obtained from
-    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
+    ///   [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
     /// # Returns
     ///
@@ -4518,10 +4518,10 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle) object, which is obtained from
-    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
+    ///   [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
     /// * `align` - Vertical alignment mode of the text. The default mode is baseline alignment. For details about other
-    /// options, see [`OH_Drawing_TextVerticalAlignment`](crate::text_typography::OH_Drawing_TextVerticalAlignment).
+    ///   options, see [`OH_Drawing_TextVerticalAlignment`](crate::text_typography::OH_Drawing_TextVerticalAlignment).
     ///
     /// Available since API-level: 20
     ///
@@ -4539,12 +4539,12 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the [`OH_Drawing_TextStyle`](crate::text_declaration::OH_Drawing_TextStyle) object, which is obtained from
-    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
+    ///   [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
     /// # Returns
     ///
     /// * Pointer to the locale in the format of language-country. For example, zh-CN indicates Chinese (China), and
-    /// en-US indicates English (United States). For details, see BCP 47.
+    ///   en-US indicates English (United States). For details, see BCP 47.
     ///
     /// Available since API-level: 12
     ///
@@ -4562,10 +4562,10 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the [`OH_Drawing_TextStyle`](crate::text_declaration::OH_Drawing_TextStyle) object, which is obtained from
-    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
+    ///   [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
     /// * `textBadgeType` - Whether to enable superscript or subscript in text typography. TEXT_SUPERSCRIPT enables
-    /// superscript, TEXT_SUBSCRIPT enables subscript, and the default value TEXT_BADGE_NONE disables both.
+    ///   superscript, TEXT_SUBSCRIPT enables subscript, and the default value TEXT_BADGE_NONE disables both.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -4581,7 +4581,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `drawingTextStyle` - Pointer to the [`OH_Drawing_TextStyle`](crate::text_declaration::OH_Drawing_TextStyle) object, which is obtained from
-    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
+    ///   [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
     /// * `fontStyle` - Font style, including the font weight, width, and slant.
     ///
@@ -4601,7 +4601,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `drawingTextStyle` - Pointer to the [`OH_Drawing_TextStyle`](crate::text_declaration::OH_Drawing_TextStyle) object, which is obtained from
-    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
+    ///   [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
     /// # Returns
     ///
@@ -4623,7 +4623,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `drawingStyle` - Pointer to the [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle) object, which is obtained from
-    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
+    ///   [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
     /// * `fontStyle` - Font style, including the font weight, width, and slant.
     ///
@@ -4644,7 +4644,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `drawingStyle` - Pointer to the typography style object [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle), obtained by
-    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
+    ///   [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
     /// # Returns
     ///
@@ -4671,7 +4671,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Whether two text style objects are equal. **true** if the source rectangle is equal to the destination
-    /// rectangle; **false** otherwise.
+    ///   rectangle; **false** otherwise.
     ///
     /// Available since API-level: 12
     ///
@@ -4738,7 +4738,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the [`OH_Drawing_TextStyle`](crate::text_declaration::OH_Drawing_TextStyle) object, which is obtained from
-    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
+    ///   [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
     /// Available since API-level: 12
     ///
@@ -4753,7 +4753,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the [`OH_Drawing_TextStyle`](crate::text_declaration::OH_Drawing_TextStyle) object, which is obtained from
-    /// [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
+    ///   [`OH_Drawing_CreateTextStyle`](crate::text_typography::OH_Drawing_CreateTextStyle).
     ///
     /// # Returns
     ///
@@ -4772,7 +4772,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle) object, which is obtained from
-    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
+    ///   [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
     /// # Returns
     ///
@@ -4794,7 +4794,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the typography style object [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle), obtained by
-    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
+    ///   [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
     /// # Returns
     ///
@@ -4817,7 +4817,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Pointer to the system font configuration. When it is no longer required, call
-    /// [`OH_Drawing_DestroySystemFontConfigInfo`](crate::text_typography::OH_Drawing_DestroySystemFontConfigInfo) to release the pointer to the object.
+    ///   [`OH_Drawing_DestroySystemFontConfigInfo`](crate::text_typography::OH_Drawing_DestroySystemFontConfigInfo) to release the pointer to the object.
     ///
     /// Available since API-level: 12
     ///
@@ -4834,7 +4834,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `drawFontCfgInfo` - Pointer to the [`OH_Drawing_FontConfigInfo`](crate::text_typography::OH_Drawing_FontConfigInfo) object, which is obtained from
-    /// [`OH_Drawing_GetSystemFontConfigInfo`](crate::text_typography::OH_Drawing_GetSystemFontConfigInfo).
+    ///   [`OH_Drawing_GetSystemFontConfigInfo`](crate::text_typography::OH_Drawing_GetSystemFontConfigInfo).
     ///
     /// Available since API-level: 12
     ///
@@ -4849,10 +4849,10 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the typography style object [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle), obtained by
-    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
+    ///   [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
     /// * `strutstyle` - Pointer to the [`OH_Drawing_StrutStyle`](crate::text_typography::OH_Drawing_StrutStyle) object, which is obtained from
-    /// [`OH_Drawing_TypographyStyleGetStrutStyle`](crate::text_typography::OH_Drawing_TypographyStyleGetStrutStyle).
+    ///   [`OH_Drawing_TypographyStyleGetStrutStyle`](crate::text_typography::OH_Drawing_TypographyStyleGetStrutStyle).
     ///
     /// Available since API-level: 12
     ///
@@ -4870,7 +4870,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `strutstyle` - Pointer to the [`OH_Drawing_StrutStyle`](crate::text_typography::OH_Drawing_StrutStyle) object, which is obtained from
-    /// [`OH_Drawing_TypographyStyleGetStrutStyle`](crate::text_typography::OH_Drawing_TypographyStyleGetStrutStyle).
+    ///   [`OH_Drawing_TypographyStyleGetStrutStyle`](crate::text_typography::OH_Drawing_TypographyStyleGetStrutStyle).
     ///
     /// Available since API-level: 12
     ///
@@ -4885,7 +4885,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the typography style object [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle), obtained by
-    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
+    ///   [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
     /// # Returns
     ///
@@ -4926,7 +4926,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the typography style object [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle), obtained by
-    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
+    ///   [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
     /// * `hintsEnabled` - Whether to enable font hinting. **true**: enabled; **false**: disabled.
     ///
@@ -4948,11 +4948,11 @@ extern "C" {
     /// # Arguments
     ///
     /// * `typography` - Pointer to the [`OH_Drawing_Typography`](crate::text_declaration::OH_Drawing_Typography) object, which is obtained from
-    /// [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
+    ///   [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
     ///
     /// * `lineNumber` - Line number, which is an integer. The minimum value is 1, and the maximum value depends on the
-    /// number of lines parsed by the font engine after text input. If a value greater than the maximum number is passed
-    /// in, an error value is returned and an error message is printed.
+    ///   number of lines parsed by the font engine after text input. If a value greater than the maximum number is passed
+    ///   in, an error value is returned and an error message is printed.
     ///
     /// * `fontMetricsSize` - Pointer to the size of the struct.
     ///
@@ -4993,7 +4993,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `typography` - Pointer to the [`OH_Drawing_Typography`](crate::text_declaration::OH_Drawing_Typography) object, which is obtained from
-    /// [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
+    ///   [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
     ///
     /// Available since API-level: 12
     ///
@@ -5009,7 +5009,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `typography` - Pointer to the [`OH_Drawing_Typography`](crate::text_declaration::OH_Drawing_Typography) object, which is obtained from
-    /// [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
+    ///   [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
     ///
     /// # Returns
     ///
@@ -5030,7 +5030,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `typography` - Pointer to the [`OH_Drawing_Typography`](crate::text_declaration::OH_Drawing_Typography) object, which is obtained from
-    /// [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
+    ///   [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
     ///
     /// * `from` - Reserved field, which is not used.
     ///
@@ -5057,7 +5057,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `typography` - Pointer to the [`OH_Drawing_Typography`](crate::text_declaration::OH_Drawing_Typography) object, which is obtained from
-    /// [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
+    ///   [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
     ///
     /// * `color` - New font color.
     ///
@@ -5075,11 +5075,11 @@ extern "C" {
     /// # Arguments
     ///
     /// * `typography` - Pointer to the [`OH_Drawing_Typography`](crate::text_declaration::OH_Drawing_Typography) object, which is obtained from
-    /// [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
+    ///   [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
     ///
     /// * `decoration` - Updated decoration type. For details, see [`OH_Drawing_TextDecoration`](crate::text_typography::OH_Drawing_TextDecoration). You can set multiple
-    /// text decoration types at a time via bitwise OR operations. If a decoration type that is not in the
-    /// [`OH_Drawing_TextDecoration`](crate::text_typography::OH_Drawing_TextDecoration) enumeration is set, the original decoration is retained.
+    ///   text decoration types at a time via bitwise OR operations. If a decoration type that is not in the
+    ///   [`OH_Drawing_TextDecoration`](crate::text_typography::OH_Drawing_TextDecoration) enumeration is set, the original decoration is retained.
     ///
     /// Available since API-level: 20
     ///
@@ -5098,11 +5098,11 @@ extern "C" {
     /// # Arguments
     ///
     /// * `typography` - Pointer to the [`OH_Drawing_Typography`](crate::text_declaration::OH_Drawing_Typography) object, which is obtained from
-    /// [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
+    ///   [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
     ///
     /// * `decorationThicknessScale` - Thickness scaling ratio of the updated text decoration line. The thickness of the
-    /// decoration line increases as the ratio increases. If the value is less than or equal to 0, the decoration line
-    /// will not be drawn.
+    ///   decoration line increases as the ratio increases. If the value is less than or equal to 0, the decoration line
+    ///   will not be drawn.
     ///
     /// Available since API-level: 20
     ///
@@ -5121,10 +5121,10 @@ extern "C" {
     /// # Arguments
     ///
     /// * `typography` - Pointer to the [`OH_Drawing_Typography`](crate::text_declaration::OH_Drawing_Typography) object, which is obtained from
-    /// [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
+    ///   [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
     ///
     /// * `decorationStyle` - Updated text decoration style. For details about the available options, see
-    /// [`OH_Drawing_TextDecorationStyle`](crate::text_typography::OH_Drawing_TextDecorationStyle).
+    ///   [`OH_Drawing_TextDecorationStyle`](crate::text_typography::OH_Drawing_TextDecorationStyle).
     ///
     /// Available since API-level: 20
     ///
@@ -5143,7 +5143,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `typography` - Pointer to the [`OH_Drawing_Typography`](crate::text_declaration::OH_Drawing_Typography) object, which is obtained from
-    /// [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
+    ///   [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
     ///
     /// * `color` - Updated text decoration color.
     ///
@@ -5163,7 +5163,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle) object, which is obtained from
-    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
+    ///   [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
     /// # Returns
     ///
@@ -5182,12 +5182,12 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle) object, which is obtained from
-    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
+    ///   [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
     /// # Returns
     ///
     /// * Font weight.
-    /// <br> For details about the available options, see [`OH_Drawing_FontWeight`](crate::text_typography::OH_Drawing_FontWeight).
+    ///   <br> For details about the available options, see [`OH_Drawing_FontWeight`](crate::text_typography::OH_Drawing_FontWeight).
     ///
     /// Available since API-level: 12
     ///
@@ -5204,12 +5204,12 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle) object, which is obtained from
-    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
+    ///   [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
     /// # Returns
     ///
     /// * Font style of the strut style in a typography style. **1** indicates italic, and **0** or others indicate
-    /// non-italic. For details, see the [`OH_Drawing_FontStyle`](crate::text_typography::OH_Drawing_FontStyle) enumeration.
+    ///   non-italic. For details, see the [`OH_Drawing_FontStyle`](crate::text_typography::OH_Drawing_FontStyle) enumeration.
     ///
     /// Available since API-level: 12
     ///
@@ -5226,7 +5226,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle) object, which is obtained from
-    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
+    ///   [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
     /// * `num` - Pointer to the number of font families.
     ///
@@ -5269,7 +5269,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle) object, which is obtained from
-    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
+    ///   [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
     /// # Returns
     ///
@@ -5290,7 +5290,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle) object, which is obtained from
-    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
+    ///   [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
     /// # Returns
     ///
@@ -5311,12 +5311,12 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle) object, which is obtained from
-    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
+    ///   [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
     /// # Returns
     ///
     /// * Method for calculating the height of a font block. **true** means that the height is calculated based on the
-    /// font size; **false** means that the height is calculated based on the line spacing.
+    ///   font size; **false** means that the height is calculated based on the line spacing.
     ///
     /// Available since API-level: 12
     ///
@@ -5333,7 +5333,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle) object, which is obtained from
-    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
+    ///   [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
     /// # Returns
     ///
@@ -5354,7 +5354,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle) object, which is obtained from
-    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
+    ///   [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
     /// # Returns
     ///
@@ -5375,7 +5375,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle) object, which is obtained from
-    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
+    ///   [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
     /// # Returns
     ///
@@ -5396,7 +5396,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle) object, which is obtained from
-    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
+    ///   [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
     /// # Returns
     ///
@@ -5417,12 +5417,12 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle) object, which is obtained from
-    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
+    ///   [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
     /// # Returns
     ///
     /// * Text direction. **0** means right-to-left; **1** means left-to-right. For details, see
-    /// [`OH_Drawing_TextDirection`](crate::text_typography::OH_Drawing_TextDirection).
+    ///   [`OH_Drawing_TextDirection`](crate::text_typography::OH_Drawing_TextDirection).
     ///
     /// Available since API-level: 12
     ///
@@ -5439,7 +5439,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle) object, which is obtained from
-    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
+    ///   [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
     /// # Returns
     ///
@@ -5458,7 +5458,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to the [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle) object, which is obtained from
-    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
+    ///   [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
     /// # Returns
     ///
@@ -5531,16 +5531,16 @@ extern "C" {
     /// # Arguments
     ///
     /// * `shadow` - Pointer to the text shadow object [`OH_Drawing_TextShadow`](crate::text_declaration::OH_Drawing_TextShadow), obtained by
-    /// [`OH_Drawing_CreateTextShadow`](crate::text_typography::OH_Drawing_CreateTextShadow).
+    ///   [`OH_Drawing_CreateTextShadow`](crate::text_typography::OH_Drawing_CreateTextShadow).
     ///
     /// * `color` - Color of the text shadow. For example, if the input parameter is 0xAABBCCDD, AA represents the alpha
-    /// value, BB represents the red component, CC represents the green component, and DD represents the blue component.
+    ///   value, BB represents the red component, CC represents the green component, and DD represents the blue component.
     ///
     /// * `offset` - Pointer to the coordinate point object [`OH_Drawing_Point`](crate::types::OH_Drawing_Point), which indicates the offset of the
-    /// text shadow relative to the current text.
+    ///   text shadow relative to the current text.
     ///
     /// * `blurRadius` - Blur radius. The value is a floating point number and has no unit. The value **0.0** means that
-    /// there is no blur effect.
+    ///   there is no blur effect.
     ///
     /// Available since API-level: 12
     ///
@@ -5560,15 +5560,15 @@ extern "C" {
     /// # Arguments
     ///
     /// * `alignment` - Alignment mode of the text following the tab character. The value **1** means right alignment, **2**
-    /// means center alignment, and **0** or other values mean left alignment.
+    ///   means center alignment, and **0** or other values mean left alignment.
     ///
     /// * `location` - Alignment position of the text following the tab character. The unit is px. The minimum value is **1.
-    /// 0**.
+    ///   0**.
     ///
     /// # Returns
     ///
     /// * Pointer to the **OH_Drawing_TextTab** object created. If a null pointer is returned, the creation fails. A
-    /// possible cause is that no memory is available.
+    ///   possible cause is that no memory is available.
     ///
     /// Available since API-level: 18
     ///
@@ -5604,7 +5604,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Alignment mode. The value **1** means right alignment, **2** means center alignment, and **0** or other
-    /// values mean left alignment.
+    ///   values mean left alignment.
     ///
     /// Available since API-level: 18
     ///
@@ -5677,8 +5677,8 @@ extern "C" {
     /// * `style` - Pointer to the typography style object [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle).
     ///
     /// * `trailingSpaceOptimized` - Whether trailing spaces participate in alignment calculation during text typography.
-    /// The value true means trailing spaces do not participate in calculation, and false means they do. The default
-    /// value is false. It is recommended to set this parameter to true for center-aligned text.
+    ///   The value true means trailing spaces do not participate in calculation, and false means they do. The default
+    ///   value is false. It is recommended to set this parameter to true for center-aligned text.
     ///
     /// Available since API-level: 20
     ///
@@ -5696,14 +5696,14 @@ extern "C" {
     /// # Arguments
     ///
     /// * `handler` - Pointer to the [`OH_Drawing_TypographyCreate`](crate::text_declaration::OH_Drawing_TypographyCreate) object, which is obtained from
-    /// [`OH_Drawing_CreateTypographyHandler`](crate::text_typography::OH_Drawing_CreateTypographyHandler).
+    ///   [`OH_Drawing_CreateTypographyHandler`](crate::text_typography::OH_Drawing_CreateTypographyHandler).
     ///
     /// * `text` - Pointer to the text content.
     ///
     /// * `byteLength` - Length of the text, in bytes.
     ///
     /// * `textEncodingType` - Text encoding type, which is an enumerated value of [`OH_Drawing_TextEncoding`](crate::types::OH_Drawing_TextEncoding). Only **
-    /// TEXT_ENCODING_UTF8**, **TEXT_ENCODING_UTF16**, and **TEXT_ENCODING_UTF32** are supported.
+    ///   TEXT_ENCODING_UTF8**, **TEXT_ENCODING_UTF16**, and **TEXT_ENCODING_UTF32** are supported.
     ///
     /// Available since API-level: 20
     ///
@@ -5726,10 +5726,10 @@ extern "C" {
     /// # Arguments
     ///
     /// * `style` - Pointer to an [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle) object, obtained by
-    /// [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
+    ///   [`OH_Drawing_CreateTypographyStyle`](crate::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
     /// * `enableAutoSpace` - Whether to enable automatic spacing in text typography. The value `true` means to enable
-    /// automatic spacing, and `false` means the opposite. The default value is `false`.
+    ///   automatic spacing, and `false` means the opposite. The default value is `false`.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -5749,8 +5749,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Pointer to the copied [`OH_Drawing_TypographyStyle`](crate::text_declaration::OH_Drawing_TypographyStyle) object. If a null pointer is returned, the creation
-    /// fails. The possible cause is that no memory is available or **style** is a null pointer. Release this pointer by
-    /// calling [`OH_Drawing_DestroyTypographyStyle`](crate::text_typography::OH_Drawing_DestroyTypographyStyle) when this object is no longer needed.
+    ///   fails. The possible cause is that no memory is available or **style** is a null pointer. Release this pointer by
+    ///   calling [`OH_Drawing_DestroyTypographyStyle`](crate::text_typography::OH_Drawing_DestroyTypographyStyle) when this object is no longer needed.
     ///
     /// Available since API-level: 20
     ///
@@ -5771,8 +5771,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Pointer to the copied [`OH_Drawing_TextStyle`](crate::text_declaration::OH_Drawing_TextStyle) object. If a null pointer is returned, the creation fails.
-    /// The possible cause is that no memory is available or **style** is a null pointer. Release this pointer by
-    /// calling [`OH_Drawing_DestroyTextStyle`](crate::text_typography::OH_Drawing_DestroyTextStyle) when this object is no longer needed.
+    ///   The possible cause is that no memory is available or **style** is a null pointer. Release this pointer by
+    ///   calling [`OH_Drawing_DestroyTextStyle`](crate::text_typography::OH_Drawing_DestroyTextStyle) when this object is no longer needed.
     ///
     /// Available since API-level: 20
     ///
@@ -5791,8 +5791,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Pointer to the copied [`OH_Drawing_TextShadow`](crate::text_declaration::OH_Drawing_TextShadow) object. If a null pointer is returned, the creation
-    /// fails. The possible cause is that no memory is available or **shadow** is a null pointer. Release this pointer
-    /// by calling [`OH_Drawing_DestroyTextShadow`](crate::text_typography::OH_Drawing_DestroyTextShadow) when this object is no longer needed.
+    ///   fails. The possible cause is that no memory is available or **shadow** is a null pointer. Release this pointer
+    ///   by calling [`OH_Drawing_DestroyTextShadow`](crate::text_typography::OH_Drawing_DestroyTextShadow) when this object is no longer needed.
     ///
     /// Available since API-level: 20
     ///
@@ -5819,31 +5819,31 @@ extern "C" {
     /// # Arguments
     ///
     /// * `typography` - Pointer to the **OH_Drawing_Typography** object, which is obtained from
-    /// [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
+    ///   [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
     ///
     /// * `glyphRangeStart` - Start position of the glyph range.
     ///
     /// * `glyphRangeEnd` - End position of the glyph range.
     ///
     /// * `actualGlyphRange` - Returns the actual font range, indicating the level-2 pointer to [`OH_Drawing_Range`](crate::text_declaration::OH_Drawing_Range).
-    /// It is used as an output parameter.
-    /// <br>When the requested glyph range contains only a part of a complex glyph sequence, this parameter returns the
-    /// corresponding complete glyph range.
-    /// <br>For example, ligatures and combined emojis may consist of multiple atomic glyphs and must be processed as a
-    /// whole.
-    /// <br>If this parameter is NULL, the actual glyph range is not returned, indicating that the caller does not care
-    /// about the actual glyph range information.
-    /// <br>After use, release the object through the [`OH_Drawing_ReleaseRangeBuffer`](crate::text_typography::OH_Drawing_ReleaseRangeBuffer) API.
+    ///   It is used as an output parameter.
+    ///   <br>When the requested glyph range contains only a part of a complex glyph sequence, this parameter returns the
+    ///   corresponding complete glyph range.
+    ///   <br>For example, ligatures and combined emojis may consist of multiple atomic glyphs and must be processed as a
+    ///   whole.
+    ///   <br>If this parameter is NULL, the actual glyph range is not returned, indicating that the caller does not care
+    ///   about the actual glyph range information.
+    ///   <br>After use, release the object through the [`OH_Drawing_ReleaseRangeBuffer`](crate::text_typography::OH_Drawing_ReleaseRangeBuffer) API.
     ///
     /// * `textEncodingType` - Text encoding type [`OH_Drawing_TextEncoding`](crate::types::OH_Drawing_TextEncoding).
-    /// <br>Currently, only UTF-8 and UTF-16 encoding types are supported.
-    /// <br>For UTF-8 encoding, the returned character range indicates the byte range.
-    /// <br>For UTF-16 encoding, the returned character range indicates the UTF-16 code unit range.
+    ///   <br>Currently, only UTF-8 and UTF-16 encoding types are supported.
+    ///   <br>For UTF-8 encoding, the returned character range indicates the byte range.
+    ///   <br>For UTF-16 encoding, the returned character range indicates the UTF-16 code unit range.
     ///
     /// # Returns
     ///
     /// * Returns the [`OH_Drawing_Range`](crate::text_declaration::OH_Drawing_Range) object pointer that indicates the character range. When the object is
-    /// no longer needed, use the [`OH_Drawing_ReleaseRangeBuffer`](crate::text_typography::OH_Drawing_ReleaseRangeBuffer) API to release it.
+    ///   no longer needed, use the [`OH_Drawing_ReleaseRangeBuffer`](crate::text_typography::OH_Drawing_ReleaseRangeBuffer) API to release it.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -5860,32 +5860,32 @@ extern "C" {
     /// # Arguments
     ///
     /// * `typography` - Pointer to the **OH_Drawing_Typography** object, which is obtained from
-    /// [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
+    ///   [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
     ///
     /// * `dx` - Horizontal coordinate in the text layout area, in physical pixels (px).
-    /// <br>X offset relative to the top-left corner of the text layout area, with the right direction as positive.
-    /// <br>Supports floating-point values and accepts negative values, which indicate positions to the left of the text
-    /// layout area.
-    /// <br>If the coordinates are beyond the text layout area, the nearest character position is returned. It can be
-    /// obtained through a touch event or click event.
+    ///   <br>X offset relative to the top-left corner of the text layout area, with the right direction as positive.
+    ///   <br>Supports floating-point values and accepts negative values, which indicate positions to the left of the text
+    ///   layout area.
+    ///   <br>If the coordinates are beyond the text layout area, the nearest character position is returned. It can be
+    ///   obtained through a touch event or click event.
     ///
     /// * `dy` - Vertical coordinate in the text layout area, in physical pixels (px).
-    /// <br>Y offset relative to the top-left corner of the text layout area, with the downward direction as positive.
-    /// <br>Supports floating-point values and accepts negative values, which indicate positions above the text layout
-    /// area.
-    /// <br>If the coordinates are beyond the text layout area, the nearest character position is returned. It can be
-    /// obtained through a touch event or click event.
+    ///   <br>Y offset relative to the top-left corner of the text layout area, with the downward direction as positive.
+    ///   <br>Supports floating-point values and accepts negative values, which indicate positions above the text layout
+    ///   area.
+    ///   <br>If the coordinates are beyond the text layout area, the nearest character position is returned. It can be
+    ///   obtained through a touch event or click event.
     ///
     /// * `textEncodingType` - Text encoding type [`OH_Drawing_TextEncoding`](crate::types::OH_Drawing_TextEncoding).
-    /// <br>Currently, only UTF-8 and UTF-16 encoding types are supported.
-    /// <br>For UTF-8 encoding, the returned position indicates the byte offset. For UTF-16 encoding, the returned
-    /// position indicates the UTF-16 code unit offset.
+    ///   <br>Currently, only UTF-8 and UTF-16 encoding types are supported.
+    ///   <br>For UTF-8 encoding, the returned position indicates the byte offset. For UTF-16 encoding, the returned
+    ///   position indicates the UTF-16 code unit offset.
     ///
     /// # Returns
     ///
     /// * Returns the character index position and affinity at the coordinate. The return type is the
-    /// [`OH_Drawing_PositionAndAffinity`](ohos_sys_opaque_types::OH_Drawing_PositionAndAffinity) structure.
-    /// <br>When the object is no longer needed, call [`OH_Drawing_DestroyPositionAndAffinity`](crate::text_typography::OH_Drawing_DestroyPositionAndAffinity) to release it.
+    ///   [`OH_Drawing_PositionAndAffinity`](ohos_sys_opaque_types::OH_Drawing_PositionAndAffinity) structure.
+    ///   <br>When the object is no longer needed, call [`OH_Drawing_DestroyPositionAndAffinity`](crate::text_typography::OH_Drawing_DestroyPositionAndAffinity) to release it.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -5901,31 +5901,31 @@ extern "C" {
     /// # Arguments
     ///
     /// * `typography` - Pointer to the **OH_Drawing_Typography** object, which is obtained from
-    /// [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
+    ///   [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
     ///
     /// * `characterRangeStart` - Start position of the character range.
     ///
     /// * `characterRangeEnd` - End position of the character range.
     ///
     /// * `actualCharacterRange` - Returns the actual character range, indicating the level-2 pointer to
-    /// [`OH_Drawing_Range`](crate::text_declaration::OH_Drawing_Range). It is used as an output parameter.
-    /// <br>When the requested character range contains only a part of the combined character sequence, this parameter
-    /// returns the corresponding complete character range.
-    /// <br>For example, a combined character consisting of a base character and a diacritical mark must be processed as
-    /// a whole.
-    /// <br>If this parameter is NULL, the actual character range is not returned, indicating that the caller does not
-    /// care about the actual character range information.
-    /// <br>After use, release the object through the [`OH_Drawing_ReleaseRangeBuffer`](crate::text_typography::OH_Drawing_ReleaseRangeBuffer) API.
+    ///   [`OH_Drawing_Range`](crate::text_declaration::OH_Drawing_Range). It is used as an output parameter.
+    ///   <br>When the requested character range contains only a part of the combined character sequence, this parameter
+    ///   returns the corresponding complete character range.
+    ///   <br>For example, a combined character consisting of a base character and a diacritical mark must be processed as
+    ///   a whole.
+    ///   <br>If this parameter is NULL, the actual character range is not returned, indicating that the caller does not
+    ///   care about the actual character range information.
+    ///   <br>After use, release the object through the [`OH_Drawing_ReleaseRangeBuffer`](crate::text_typography::OH_Drawing_ReleaseRangeBuffer) API.
     ///
     /// * `textEncodingType` - Text encoding type [`OH_Drawing_TextEncoding`](crate::types::OH_Drawing_TextEncoding).
-    /// <br>Currently, only UTF-8 and UTF-16 encoding types are supported.
-    /// <br>For UTF-8 encoding, the input character range should be interpreted as a byte range. For UTF-16 encoding,
-    /// the input character range should be interpreted as a UTF-16 code unit range.
+    ///   <br>Currently, only UTF-8 and UTF-16 encoding types are supported.
+    ///   <br>For UTF-8 encoding, the input character range should be interpreted as a byte range. For UTF-16 encoding,
+    ///   the input character range should be interpreted as a UTF-16 code unit range.
     ///
     /// # Returns
     ///
     /// * Returns the [`OH_Drawing_Range`](crate::text_declaration::OH_Drawing_Range) object pointer that indicates the font range. If the object is no
-    /// longer needed, use the [`OH_Drawing_ReleaseRangeBuffer`](crate::text_typography::OH_Drawing_ReleaseRangeBuffer) API to release it.
+    ///   longer needed, use the [`OH_Drawing_ReleaseRangeBuffer`](crate::text_typography::OH_Drawing_ReleaseRangeBuffer) API to release it.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]

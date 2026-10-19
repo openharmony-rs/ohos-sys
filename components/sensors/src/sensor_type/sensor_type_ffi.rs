@@ -492,7 +492,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns <b>SENSOR_SUCCESS</b> if the operation is successful;
-    /// returns an error code defined in [`Sensor_Result`](crate::sensor_type::Sensor_Result) otherwise.
+    ///   returns an error code defined in [`Sensor_Result`](crate::sensor_type::Sensor_Result) otherwise.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -571,7 +571,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Pointer to the [`Sensor_SubscriptionAttribute`](crate::sensor_type::Sensor_SubscriptionAttribute) instance if the operation is successful; **NULL**
-    /// otherwise.
+    ///   otherwise.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]

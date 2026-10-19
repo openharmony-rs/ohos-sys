@@ -79,7 +79,7 @@ extern "C" {
     /// * `type` - \[in\] MAC parameter type.
     ///
     /// * `value` - \[in\] Parameter value. This function performs a deep copy of the data in value. The
-    /// caller can release value immediately after the function returns. Cannot be NULL.
+    ///   caller can release value immediately after the function returns. Cannot be NULL.
     ///
     /// # Returns
     ///
@@ -148,7 +148,7 @@ extern "C" {
     /// * `ctx` - \[in\] MAC context. Cannot be NULL.
     ///
     /// * `out` - \[out\] Pointer to the Crypto_DataBlob structure for storing the MAC result. Cannot be NULL.
-    /// Initialize out to {0} before calling. Do not pre-allocate out->data.
+    ///   Initialize out to {0} before calling. Do not pre-allocate out->data.
     ///
     /// # Returns
     ///

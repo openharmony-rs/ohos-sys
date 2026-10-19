@@ -187,16 +187,16 @@ extern "C" {
     /// # Arguments
     ///
     /// * `builder` - Output parameter, which is used to obtain the double pointer to the **OH_AudioVividMetaBuilder**
-    /// instance.
+    ///   instance.
     ///
     /// * `format` - Pointer to **OH_AVFormat** that contains the audio format information.
     ///
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The **builder** or **format** parameter is a null pointer or invalid.
-    /// <br>[`AV_ERR_UNSUPPORT`](crate::averrors::OH_AVErrCode::AV_ERR_UNSUPPORT): This function is not supported on the device.
-    /// <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): Failed to create the builder. This is an unknown error. Check the log for details.
+    ///   <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The **builder** or **format** parameter is a null pointer or invalid.
+    ///   <br>[`AV_ERR_UNSUPPORT`](crate::averrors::OH_AVErrCode::AV_ERR_UNSUPPORT): This function is not supported on the device.
+    ///   <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): Failed to create the builder. This is an unknown error. Check the log for details.
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]
@@ -217,16 +217,16 @@ extern "C" {
     /// * `builder` - Pointer to **OH_AudioVividMetaBuilder**.
     ///
     /// * `objectIndex` - Index of the audio object to be updated, starting from 0. The value cannot be greater than
-    /// [`OH_MD_KEY_AUDIO_OBJECT_NUMBER`](crate::avcodec_base::OH_MD_KEY_AUDIO_OBJECT_NUMBER) set in the **format** parameter passed to
-    /// [`OH_AudioVividMetaBuilder_Create`](crate::audio_vivid::OH_AudioVividMetaBuilder_Create) for creating the builder.
+    ///   [`OH_MD_KEY_AUDIO_OBJECT_NUMBER`](crate::avcodec_base::OH_MD_KEY_AUDIO_OBJECT_NUMBER) set in the **format** parameter passed to
+    ///   [`OH_AudioVividMetaBuilder_Create`](crate::audio_vivid::OH_AudioVividMetaBuilder_Create) for creating the builder.
     ///
     /// * `pos` - New position of the audio object source.
     ///
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The **builder** parameter is a null pointer or invalid, or the **objectIndex**
-    /// or **pos** parameter is invalid.
+    ///   <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The **builder** parameter is a null pointer or invalid, or the **objectIndex**
+    ///   or **pos** parameter is invalid.
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]
@@ -244,17 +244,17 @@ extern "C" {
     /// * `builder` - Pointer to **OH_AudioVividMetaBuilder**.
     ///
     /// * `objectIndex` - Index of the audio object to be updated, starting from 0. The value cannot be greater than
-    /// [`OH_MD_KEY_AUDIO_OBJECT_NUMBER`](crate::avcodec_base::OH_MD_KEY_AUDIO_OBJECT_NUMBER) set in the **format** parameter passed to
-    /// [`OH_AudioVividMetaBuilder_Create`](crate::audio_vivid::OH_AudioVividMetaBuilder_Create) for creating the builder.
+    ///   [`OH_MD_KEY_AUDIO_OBJECT_NUMBER`](crate::avcodec_base::OH_MD_KEY_AUDIO_OBJECT_NUMBER) set in the **format** parameter passed to
+    ///   [`OH_AudioVividMetaBuilder_Create`](crate::audio_vivid::OH_AudioVividMetaBuilder_Create) for creating the builder.
     ///
     /// * `gain` - Linear gain applied during object rendering. The value range is \[0.0, 6.0\], where **0.0** indicates
-    /// silence, and **1.0** indicates no change. This parameter is optional. If it is not set, no gain is applied.
+    ///   silence, and **1.0** indicates no change. This parameter is optional. If it is not set, no gain is applied.
     ///
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The **builder** parameter is a null pointer or invalid, or the **objectIndex**
-    /// or **gain** parameter is invalid.
+    ///   <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The **builder** parameter is a null pointer or invalid, or the **objectIndex**
+    ///   or **gain** parameter is invalid.
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]
@@ -271,16 +271,16 @@ extern "C" {
     /// * `builder` - Pointer to **OH_AudioVividMetaBuilder**.
     ///
     /// * `withStaticMeta` - Whether the output length includes static metadata. The value **true** indicates that the
-    /// output length includes static metadata, and the value **false** indicates that the output length includes only
-    /// dynamic metadata.
+    ///   output length includes static metadata, and the value **false** indicates that the output length includes only
+    ///   dynamic metadata.
     ///
     /// * `len` - Pointer used to receive the metadata length. The unit is bytes.
     ///
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The **builder** parameter is a null pointer or invalid, or the **len** parameter
-    /// is a null pointer.
+    ///   <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The **builder** parameter is a null pointer or invalid, or the **len** parameter
+    ///   is a null pointer.
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]
@@ -297,8 +297,8 @@ extern "C" {
     /// * `builder` - Pointer to **OH_AudioVividMetaBuilder**.
     ///
     /// * `withStaticMeta` - Whether the output buffer includes static metadata. The value **true** indicates that the
-    /// output buffer includes static metadata, and the value **false** indicates that the output buffer includes only
-    /// dynamic metadata.
+    ///   output buffer includes static metadata, and the value **false** indicates that the output buffer includes only
+    ///   dynamic metadata.
     ///
     /// * `buffer` - Pointer to the buffer for receiving the metadata.
     ///
@@ -307,8 +307,8 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The **builder** parameter is a null pointer or invalid, the **buffer** parameter
-    /// is a null pointer, or the **len** parameter value is insufficient.
+    ///   <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The **builder** parameter is a null pointer or invalid, the **buffer** parameter
+    ///   is a null pointer, or the **len** parameter value is insufficient.
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]
@@ -328,7 +328,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The **builder** parameter is a null pointer.
+    ///   <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The **builder** parameter is a null pointer.
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]
@@ -353,9 +353,9 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): builder is nullptr.
-    /// <br>[`AV_ERR_UNSUPPORT`](crate::averrors::OH_AVErrCode::AV_ERR_UNSUPPORT): current device not support this function.
-    /// <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): create builder fail with unknown error. For details, check logs.
+    ///   <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): builder is nullptr.
+    ///   <br>[`AV_ERR_UNSUPPORT`](crate::averrors::OH_AVErrCode::AV_ERR_UNSUPPORT): current device not support this function.
+    ///   <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): create builder fail with unknown error. For details, check logs.
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]
@@ -383,7 +383,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL), builder is nullptr or invalid, buffer is nullptr or len is invalid.
+    ///   <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL), builder is nullptr or invalid, buffer is nullptr or len is invalid.
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]
@@ -410,8 +410,8 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL), builder is nullptr or invalid, objectIndex is nullptr.
-    /// <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN), add object fail with unknown error. For details, check logs.
+    ///   <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL), builder is nullptr or invalid, objectIndex is nullptr.
+    ///   <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN), add object fail with unknown error. For details, check logs.
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]
@@ -435,7 +435,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL), builder is nullptr or invalid, objectIndex is invalid.
+    ///   <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL), builder is nullptr or invalid, objectIndex is invalid.
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]

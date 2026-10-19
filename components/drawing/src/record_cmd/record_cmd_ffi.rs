@@ -28,8 +28,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns one of the following result codes:
-    /// **OH_DRAWING_SUCCESS** if the operation is successful.
-    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if **recordCmdUtils** is NULL.
+    ///   **OH_DRAWING_SUCCESS** if the operation is successful.
+    ///   **OH_DRAWING_ERROR_INVALID_PARAMETER** if **recordCmdUtils** is NULL.
     ///
     /// Available since API-level: 13
     ///
@@ -52,15 +52,15 @@ extern "C" {
     /// * `height` - Height of the canvas.
     ///
     /// * `canvas` - Double pointer to the [`OH_Drawing_Canvas`](crate::types::OH_Drawing_Canvas) object. You do not need to release this pointer.
-    /// This object does not support nested calling of [`OH_Drawing_CanvasDrawRecordCmd`](crate::canvas::OH_Drawing_CanvasDrawRecordCmd).
+    ///   This object does not support nested calling of [`OH_Drawing_CanvasDrawRecordCmd`](crate::canvas::OH_Drawing_CanvasDrawRecordCmd).
     ///
     /// # Returns
     ///
     /// * Returns one of the following result codes:
-    /// **OH_DRAWING_SUCCESS** if the operation is successful.
-    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if either **recordCmdUtils** or **canvas** is NULL.
-    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if either **width** or **height** is less than 0.
-    /// **OH_DRAWING_ERROR_ALLOCATION_FAILED** if the system memory is insufficient.
+    ///   **OH_DRAWING_SUCCESS** if the operation is successful.
+    ///   **OH_DRAWING_ERROR_INVALID_PARAMETER** if either **recordCmdUtils** or **canvas** is NULL.
+    ///   **OH_DRAWING_ERROR_INVALID_PARAMETER** if either **width** or **height** is less than 0.
+    ///   **OH_DRAWING_ERROR_ALLOCATION_FAILED** if the system memory is insufficient.
     ///
     /// Available since API-level: 13
     ///
@@ -82,15 +82,15 @@ extern "C" {
     /// * `recordCmdUtils` - Pointer to an [`OH_Drawing_RecordCmdUtils`](crate::types::OH_Drawing_RecordCmdUtils) object.
     ///
     /// * `recordCmd` - Double pointer to the [`OH_Drawing_RecordCmd`](crate::types::OH_Drawing_RecordCmd) object. You need to call
-    /// [`OH_Drawing_CanvasDrawRecordCmd`](crate::canvas::OH_Drawing_CanvasDrawRecordCmd)
-    /// to draw the object, and call [`OH_Drawing_RecordCmdDestroy`](crate::record_cmd::OH_Drawing_RecordCmdDestroy) to release it.
+    ///   [`OH_Drawing_CanvasDrawRecordCmd`](crate::canvas::OH_Drawing_CanvasDrawRecordCmd)
+    ///   to draw the object, and call [`OH_Drawing_RecordCmdDestroy`](crate::record_cmd::OH_Drawing_RecordCmdDestroy) to release it.
     ///
     /// # Returns
     ///
     /// * Returns one of the following result codes:
-    /// **OH_DRAWING_SUCCESS** if the operation is successful.
-    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if either **recordCmdUtils** or **recordCmd** is NULL.
-    /// **OH_DRAWING_ERROR_ALLOCATION_FAILED** if the system memory is insufficient.
+    ///   **OH_DRAWING_SUCCESS** if the operation is successful.
+    ///   **OH_DRAWING_ERROR_INVALID_PARAMETER** if either **recordCmdUtils** or **recordCmd** is NULL.
+    ///   **OH_DRAWING_ERROR_ALLOCATION_FAILED** if the system memory is insufficient.
     ///
     /// Available since API-level: 13
     ///
@@ -110,8 +110,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns one of the following result codes:
-    /// **OH_DRAWING_SUCCESS** if the operation is successful.
-    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if **recordCmd** is NULL.
+    ///   **OH_DRAWING_SUCCESS** if the operation is successful.
+    ///   **OH_DRAWING_ERROR_INVALID_PARAMETER** if **recordCmd** is NULL.
     ///
     /// Available since API-level: 13
     ///

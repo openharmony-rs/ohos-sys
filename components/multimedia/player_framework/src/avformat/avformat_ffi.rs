@@ -70,9 +70,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Pointer to the OH_AVFormat instance created. If the operation fails, NULL is returned.
-    /// <br>The possible causes of an operation failure are as follows:
-    /// <br>1. The value of **mimeType** is NULL.
-    /// <br>2. System resources are insufficient.
+    ///   <br>The possible causes of an operation failure are as follows:
+    ///   <br>1. The value of **mimeType** is NULL.
+    ///   <br>2. System resources are insufficient.
     ///
     /// Available since API-level: 10
     ///
@@ -95,9 +95,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Pointer to the OH_AVFormat instance created. If the operation fails, NULL is returned.
-    /// <br>The possible causes of an operation failure are as follows:
-    /// <br>1. The value of **mimeType** is NULL.
-    /// <br>2. System resources are insufficient.
+    ///   <br>The possible causes of an operation failure are as follows:
+    ///   <br>1. The value of **mimeType** is NULL.
+    ///   <br>2. System resources are insufficient.
     ///
     /// Available since API-level: 10
     ///
@@ -132,9 +132,9 @@ extern "C" {
     /// # Returns
     ///
     /// * **true** if the operation is successful; **false** otherwise.
-    /// <br>The possible causes of an operation failure are as follows:
-    /// <br>1. The input parameter is nullptr.
-    /// <br>2. The value of **OH_AVFormat** fails parameter structure verification.
+    ///   <br>The possible causes of an operation failure are as follows:
+    ///   <br>1. The input parameter is nullptr.
+    ///   <br>2. The value of **OH_AVFormat** fails parameter structure verification.
     ///
     /// Available since API-level: 9
     ///
@@ -154,11 +154,11 @@ extern "C" {
     /// # Returns
     ///
     /// * **true** if the operation is successful; **false** otherwise.
-    /// <br>The possible causes of an operation failure are as follows:
-    /// <br>1. The value of **format** is nullptr.
-    /// <br>2. The value of **format** fails parameter structure verification.
-    /// <br>3. The value of **key** is nullptr.
-    /// <br>4. The value type corresponding to the key is incorrect.
+    ///   <br>The possible causes of an operation failure are as follows:
+    ///   <br>1. The value of **format** is nullptr.
+    ///   <br>2. The value of **format** fails parameter structure verification.
+    ///   <br>3. The value of **key** is nullptr.
+    ///   <br>4. The value type corresponding to the key is incorrect.
     ///
     /// Available since API-level: 9
     ///
@@ -182,10 +182,10 @@ extern "C" {
     /// # Returns
     ///
     /// * **true** if the operation is successful; **false** otherwise.
-    /// <br>The possible causes of an operation failure are as follows:
-    /// <br>1. The value of **format** is nullptr.
-    /// <br>2. The value of **format** fails parameter structure verification.
-    /// <br>3. The value of **key** is nullptr.
+    ///   <br>The possible causes of an operation failure are as follows:
+    ///   <br>1. The value of **format** is nullptr.
+    ///   <br>2. The value of **format** fails parameter structure verification.
+    ///   <br>3. The value of **key** is nullptr.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -209,11 +209,11 @@ extern "C" {
     /// # Returns
     ///
     /// * **true** if the operation is successful; **false** otherwise.
-    /// <br>The possible causes of an operation failure are as follows:
-    /// <br>1. The value of **format** is nullptr.
-    /// <br>2. The value of **format** fails parameter structure verification.
-    /// <br>3. The value of **key** is nullptr.
-    /// <br>4. The value type corresponding to the key is incorrect.
+    ///   <br>The possible causes of an operation failure are as follows:
+    ///   <br>1. The value of **format** is nullptr.
+    ///   <br>2. The value of **format** fails parameter structure verification.
+    ///   <br>3. The value of **key** is nullptr.
+    ///   <br>4. The value type corresponding to the key is incorrect.
     ///
     /// Available since API-level: 9
     ///
@@ -237,11 +237,11 @@ extern "C" {
     /// # Returns
     ///
     /// * **true** if the operation is successful; **false** otherwise.
-    /// <br>The possible causes of an operation failure are as follows:
-    /// <br>1. The value of **format** is nullptr.
-    /// <br>2. The value of **format** fails parameter structure verification.
-    /// <br>3. The value of **key** is nullptr.
-    /// <br>4. The value type corresponding to the key is incorrect.
+    ///   <br>The possible causes of an operation failure are as follows:
+    ///   <br>1. The value of **format** is nullptr.
+    ///   <br>2. The value of **format** fails parameter structure verification.
+    ///   <br>3. The value of **key** is nullptr.
+    ///   <br>4. The value type corresponding to the key is incorrect.
     ///
     /// Available since API-level: 9
     ///
@@ -265,11 +265,11 @@ extern "C" {
     /// # Returns
     ///
     /// * **true** if the operation is successful; **false** otherwise.
-    /// <br>The possible causes of an operation failure are as follows:
-    /// <br>1. The value of **format** is nullptr.
-    /// <br>2. The value of **format** fails parameter structure verification.
-    /// <br>3. The value of **key** is nullptr.
-    /// <br>4. The value type corresponding to the key is incorrect.
+    ///   <br>The possible causes of an operation failure are as follows:
+    ///   <br>1. The value of **format** is nullptr.
+    ///   <br>2. The value of **format** fails parameter structure verification.
+    ///   <br>3. The value of **key** is nullptr.
+    ///   <br>4. The value type corresponding to the key is incorrect.
     ///
     /// Available since API-level: 9
     ///
@@ -293,12 +293,12 @@ extern "C" {
     /// # Returns
     ///
     /// * **true** if the operation is successful; **false** otherwise.
-    /// <br>The possible causes of an operation failure are as follows:
-    /// <br>1. The value of **format** is nullptr.
-    /// <br>2. The value of **format** fails parameter structure verification.
-    /// <br>3. The value of **key** is nullptr.
-    /// <br>4. The passed-in value of **value** is a null pointer.
-    /// <br>5. The value type corresponding to the key is incorrect.
+    ///   <br>The possible causes of an operation failure are as follows:
+    ///   <br>1. The value of **format** is nullptr.
+    ///   <br>2. The value of **format** fails parameter structure verification.
+    ///   <br>3. The value of **key** is nullptr.
+    ///   <br>4. The passed-in value of **value** is a null pointer.
+    ///   <br>5. The value type corresponding to the key is incorrect.
     ///
     /// Available since API-level: 9
     ///
@@ -324,13 +324,13 @@ extern "C" {
     /// # Returns
     ///
     /// * **true** if the operation is successful; **false** otherwise.
-    /// <br>The possible causes of an operation failure are as follows:
-    /// <br>1. The value of **format** is nullptr.
-    /// <br>2. The value of **format** fails parameter structure verification.
-    /// <br>3. The value of **key** is nullptr.
-    /// <br>4. The value of **addr** is nullptr.
-    /// <br>5. The size is 0 or exceeds the upper limit 1 MB.
-    /// <br>6. The value type corresponding to the key is incorrect.
+    ///   <br>The possible causes of an operation failure are as follows:
+    ///   <br>1. The value of **format** is nullptr.
+    ///   <br>2. The value of **format** fails parameter structure verification.
+    ///   <br>3. The value of **key** is nullptr.
+    ///   <br>4. The value of **addr** is nullptr.
+    ///   <br>5. The size is 0 or exceeds the upper limit 1 MB.
+    ///   <br>6. The value type corresponding to the key is incorrect.
     ///
     /// Available since API-level: 9
     ///
@@ -354,12 +354,12 @@ extern "C" {
     /// # Returns
     ///
     /// * **true** if the operation is successful; **false** otherwise.
-    /// <br>The possible causes of an operation failure are as follows:
-    /// <br>1. The value of **format** is nullptr.
-    /// <br>2. The value of **format** fails parameter structure verification.
-    /// <br>3. The value of **key** is nullptr.
-    /// <br>4. The value of **out** is nullptr.
-    /// <br>5. The obtained key does not exist or is not set.
+    ///   <br>The possible causes of an operation failure are as follows:
+    ///   <br>1. The value of **format** is nullptr.
+    ///   <br>2. The value of **format** fails parameter structure verification.
+    ///   <br>3. The value of **key** is nullptr.
+    ///   <br>4. The value of **out** is nullptr.
+    ///   <br>5. The obtained key does not exist or is not set.
     ///
     /// Available since API-level: 9
     ///
@@ -382,11 +382,11 @@ extern "C" {
     /// # Returns
     ///
     /// * **true** if the operation is successful; **false** otherwise.
-    /// <br>The possible causes of an operation failure are as follows:
-    /// <br>1. The value of **format** is nullptr.
-    /// <br>2. The value of **format** fails parameter structure verification.
-    /// <br>3. The value of **key** is nullptr.
-    /// <br>4. The value of **out** is nullptr.
+    ///   <br>The possible causes of an operation failure are as follows:
+    ///   <br>1. The value of **format** is nullptr.
+    ///   <br>2. The value of **format** fails parameter structure verification.
+    ///   <br>3. The value of **key** is nullptr.
+    ///   <br>4. The value of **out** is nullptr.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -409,12 +409,12 @@ extern "C" {
     /// # Returns
     ///
     /// * **true** if the operation is successful; **false** otherwise.
-    /// <br>The possible causes of an operation failure are as follows:
-    /// <br>1. The value of **format** is nullptr.
-    /// <br>2. The value of **format** fails parameter structure verification.
-    /// <br>3. The value of **key** is nullptr.
-    /// <br>4. The value of **out** is nullptr.
-    /// <br>5. The obtained key does not exist or is not set.
+    ///   <br>The possible causes of an operation failure are as follows:
+    ///   <br>1. The value of **format** is nullptr.
+    ///   <br>2. The value of **format** fails parameter structure verification.
+    ///   <br>3. The value of **key** is nullptr.
+    ///   <br>4. The value of **out** is nullptr.
+    ///   <br>5. The obtained key does not exist or is not set.
     ///
     /// Available since API-level: 9
     ///
@@ -437,12 +437,12 @@ extern "C" {
     /// # Returns
     ///
     /// * **true** if the operation is successful; **false** otherwise.
-    /// <br>The possible causes of an operation failure are as follows:
-    /// <br>1. The value of **format** is nullptr.
-    /// <br>2. The value of **format** fails parameter structure verification.
-    /// <br>3. The value of **key** is nullptr.
-    /// <br>4. The value of **out** is nullptr.
-    /// <br>5. The obtained key does not exist or is not set.
+    ///   <br>The possible causes of an operation failure are as follows:
+    ///   <br>1. The value of **format** is nullptr.
+    ///   <br>2. The value of **format** fails parameter structure verification.
+    ///   <br>3. The value of **key** is nullptr.
+    ///   <br>4. The value of **out** is nullptr.
+    ///   <br>5. The obtained key does not exist or is not set.
     ///
     /// Available since API-level: 9
     ///
@@ -465,12 +465,12 @@ extern "C" {
     /// # Returns
     ///
     /// * **true** if the operation is successful; **false** otherwise.
-    /// <br>The possible causes of an operation failure are as follows:
-    /// <br>1. The value of **format** is nullptr.
-    /// <br>2. The value of **format** fails parameter structure verification.
-    /// <br>3. The value of **key** is nullptr.
-    /// <br>4. The value of **out** is nullptr.
-    /// <br>5. The obtained key does not exist or is not set.
+    ///   <br>The possible causes of an operation failure are as follows:
+    ///   <br>1. The value of **format** is nullptr.
+    ///   <br>2. The value of **format** fails parameter structure verification.
+    ///   <br>3. The value of **key** is nullptr.
+    ///   <br>4. The value of **out** is nullptr.
+    ///   <br>5. The obtained key does not exist or is not set.
     ///
     /// Available since API-level: 9
     ///
@@ -489,20 +489,20 @@ extern "C" {
     /// * `key` - Pointer to the key of the data to read.
     ///
     /// * `out` - Double pointer to the string read. The lifecycle of the **out** data matches the string in **format**. To
-    /// keep the **out** data for an extended period of time, you must copy it to the memory. The maximum length of the
-    /// output string is 256 bytes. If the length exceeds 256 bytes, **false** is returned.
+    ///   keep the **out** data for an extended period of time, you must copy it to the memory. The maximum length of the
+    ///   output string is 256 bytes. If the length exceeds 256 bytes, **false** is returned.
     ///
     /// # Returns
     ///
     /// * **true** if the operation is successful; **false** otherwise.
-    /// <br>The possible causes of an operation failure are as follows:
-    /// <br>1. The value of **format** is nullptr.
-    /// <br>2. The value of **format** fails parameter structure verification.
-    /// <br>3. The value of **key** is nullptr.
-    /// <br>4. The value of **out** is nullptr.
-    /// <br>5. The system resources are insufficient.
-    /// <br>6. The obtained key does not exist or is not set.
-    /// <br>7. The length of the **out** data exceeds 256 bytes.
+    ///   <br>The possible causes of an operation failure are as follows:
+    ///   <br>1. The value of **format** is nullptr.
+    ///   <br>2. The value of **format** fails parameter structure verification.
+    ///   <br>3. The value of **key** is nullptr.
+    ///   <br>4. The value of **out** is nullptr.
+    ///   <br>5. The system resources are insufficient.
+    ///   <br>6. The obtained key does not exist or is not set.
+    ///   <br>7. The length of the **out** data exceeds 256 bytes.
     ///
     /// Available since API-level: 9
     ///
@@ -521,20 +521,20 @@ extern "C" {
     /// * `key` - Pointer to the key of the data to read.
     ///
     /// * `addr` - Double pointer to the address where the data read is stored. The data read is destroyed when the
-    /// OH_AVFormat instance is destroyed. To hold the data for an extended period of time, copy it to the memory.
+    ///   OH_AVFormat instance is destroyed. To hold the data for an extended period of time, copy it to the memory.
     ///
     /// * `size` - Pointer to the size of the data read.
     ///
     /// # Returns
     ///
     /// * **true** if the operation is successful; **false** otherwise.
-    /// <br>The possible causes of an operation failure are as follows:
-    /// <br>1. The value of **format** is nullptr.
-    /// <br>2. The value of **format** fails parameter structure verification.
-    /// <br>3. The value of **key** is nullptr.
-    /// <br>4. The value of **addr** is nullptr.
-    /// <br>5. The value of **size** is nullptr.
-    /// <br>6. The obtained key does not exist or is not set.
+    ///   <br>The possible causes of an operation failure are as follows:
+    ///   <br>1. The value of **format** is nullptr.
+    ///   <br>2. The value of **format** fails parameter structure verification.
+    ///   <br>3. The value of **key** is nullptr.
+    ///   <br>4. The value of **addr** is nullptr.
+    ///   <br>5. The value of **size** is nullptr.
+    ///   <br>6. The obtained key does not exist or is not set.
     ///
     /// Available since API-level: 9
     ///
@@ -555,9 +555,9 @@ extern "C" {
     /// # Returns
     ///
     /// * A string consisting of key-value pairs. If the operation fails, NULL is returned.
-    /// <br>The possible causes of an operation failure are as follows:
-    /// <br>1. The value of **format** is NULL.
-    /// <br>2. System resources are insufficient.
+    ///   <br>The possible causes of an operation failure are as follows:
+    ///   <br>1. The value of **format** is NULL.
+    ///   <br>2. System resources are insufficient.
     ///
     /// Available since API-level: 9
     ///
@@ -583,12 +583,12 @@ extern "C" {
     /// # Returns
     ///
     /// * **true** if the operation is successful; **false** otherwise.
-    /// <br>The possible causes of an operation failure are as follows:
-    /// <br>1. The value of **format** is nullptr.
-    /// <br>2. The value of **format** fails parameter structure verification.
-    /// <br>3. The value of **key** is nullptr.
-    /// <br>4. The value of **addr** is nullptr.
-    /// <br>5. The value of **size** is nullptr.
+    ///   <br>The possible causes of an operation failure are as follows:
+    ///   <br>1. The value of **format** is nullptr.
+    ///   <br>2. The value of **format** fails parameter structure verification.
+    ///   <br>3. The value of **key** is nullptr.
+    ///   <br>4. The value of **addr** is nullptr.
+    ///   <br>5. The value of **size** is nullptr.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -614,12 +614,12 @@ extern "C" {
     /// # Returns
     ///
     /// * **true** if the operation is successful; **false** otherwise.
-    /// <br>The possible causes of an operation failure are as follows:
-    /// <br>1. The value of **format** is nullptr.
-    /// <br>2. The value of **format** fails parameter structure verification.
-    /// <br>3. The value of **key** is nullptr.
-    /// <br>4. The value of **addr** is nullptr.
-    /// <br>5. The value of **size** is **0**.
+    ///   <br>The possible causes of an operation failure are as follows:
+    ///   <br>1. The value of **format** is nullptr.
+    ///   <br>2. The value of **format** fails parameter structure verification.
+    ///   <br>3. The value of **key** is nullptr.
+    ///   <br>4. The value of **addr** is nullptr.
+    ///   <br>5. The value of **size** is **0**.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -653,7 +653,7 @@ extern "C" {
     /// * `index` - Index of the key to be queried. The value range is [0, OH_AVFormat_GetKeyCount(format)).
     ///
     /// * `key` - Output pointer for receiving the key name string. The lifecycle of the string is bound to the **format**
-    /// object.
+    ///   object.
     ///
     /// # Returns
     ///

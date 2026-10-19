@@ -483,9 +483,9 @@ pub struct ArkUI_TextEditMenuOptions {
 /// # Arguments
 ///
 /// * `items` - The framework creates and owns the array.
-/// In callback: the developer can modify the array by calling [`OH_ArkUI_TextMenuItemArray_Insert`](crate::native_type::OH_ArkUI_TextMenuItemArray_Insert),
-/// [`OH_ArkUI_TextMenuItemArray_Erase`](crate::native_type::OH_ArkUI_TextMenuItemArray_Erase), or similar APIs.
-/// The developer must not free the array instance.
+///   In callback: the developer can modify the array by calling [`OH_ArkUI_TextMenuItemArray_Insert`](crate::native_type::OH_ArkUI_TextMenuItemArray_Insert),
+///   [`OH_ArkUI_TextMenuItemArray_Erase`](crate::native_type::OH_ArkUI_TextMenuItemArray_Erase), or similar APIs.
+///   The developer must not free the array instance.
 ///
 /// * `userData` - User defined data.
 ///
@@ -500,9 +500,9 @@ pub type ArkUI_TextCreateMenuCallback = ::core::option::Option<
 /// # Arguments
 ///
 /// * `items` - The framework creates and owns the array.
-/// In callback: the developer can modify the array by calling [`OH_ArkUI_TextMenuItemArray_Insert`](crate::native_type::OH_ArkUI_TextMenuItemArray_Insert),
-/// [`OH_ArkUI_TextMenuItemArray_Erase`](crate::native_type::OH_ArkUI_TextMenuItemArray_Erase), or similar APIs.
-/// The developer must not free the array instance.
+///   In callback: the developer can modify the array by calling [`OH_ArkUI_TextMenuItemArray_Insert`](crate::native_type::OH_ArkUI_TextMenuItemArray_Insert),
+///   [`OH_ArkUI_TextMenuItemArray_Erase`](crate::native_type::OH_ArkUI_TextMenuItemArray_Erase), or similar APIs.
+///   The developer must not free the array instance.
 ///
 /// * `userData` - User defined data.
 ///

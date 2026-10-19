@@ -30,7 +30,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AUDIOCOMMON_RESULT_SUCCESS`](crate::audio_common::OH_AudioCommon_Result) if execution succeeds.
-    /// [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) The param of manager is nullptr.
+    ///   [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) The param of manager is nullptr.
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]
@@ -49,13 +49,13 @@ extern "C" {
     /// * `manager` - [`OH_AudioDebuggingManager`](crate::audio_debugging_manager::OH_AudioDebuggingManager) handle provided by [`OH_AudioManager_GetAudioDebuggingManager`](crate::audio_debugging_manager::OH_AudioManager_GetAudioDebuggingManager).
     ///
     /// * `fd` - is a file descriptor, indicates the location that the snapshot information will be written to.
-    /// If the fd is less than 0 or no writable, the snapshot information will be printed into the running log,
-    /// otherwise the snapshot will be written into the file.
+    ///   If the fd is less than 0 or no writable, the snapshot information will be printed into the running log,
+    ///   otherwise the snapshot will be written into the file.
     ///
     /// # Returns
     ///
     /// * [`AUDIOCOMMON_RESULT_SUCCESS`](crate::audio_common::OH_AudioCommon_Result) if execution succeeds.
-    /// [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) The param of manager is nullptr.
+    ///   [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) The param of manager is nullptr.
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]
@@ -77,14 +77,14 @@ extern "C" {
     /// * `renderer` - Pointer to the target audio renderer instance to print snapshot.
     ///
     /// * `fd` - is a file descriptor, indicates the location that the snapshot information will be written to.
-    /// If the fd is less than 0 or no writable, the snapshot information will be printed into the running log,
-    /// otherwise the snapshot will be written into the file.
+    ///   If the fd is less than 0 or no writable, the snapshot information will be printed into the running log,
+    ///   otherwise the snapshot will be written into the file.
     ///
     /// # Returns
     ///
     /// * [`AUDIOCOMMON_RESULT_SUCCESS`](crate::audio_common::OH_AudioCommon_Result) if execution succeeds.
-    /// [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) 1.The param of manager is nullptr;
-    /// 2.The param of renderer is nullptr;
+    ///   [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) 1.The param of manager is nullptr;
+    ///   2.The param of renderer is nullptr;
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]
@@ -107,14 +107,14 @@ extern "C" {
     /// * `capturer` - Pointer to the target audio capturer instance to print snapshot.
     ///
     /// * `fd` - is a file descriptor, indicates the location that the snapshot information will be written to.
-    /// If the fd is less than 0 or no writable, the snapshot information will be printed into the running log,
-    /// otherwise the snapshot will be written into the file.
+    ///   If the fd is less than 0 or no writable, the snapshot information will be printed into the running log,
+    ///   otherwise the snapshot will be written into the file.
     ///
     /// # Returns
     ///
     /// * [`AUDIOCOMMON_RESULT_SUCCESS`](crate::audio_common::OH_AudioCommon_Result) if execution succeeds.
-    /// [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) 1.The param of manager is nullptr;
-    /// 2.The param of capturer is nullptr;
+    ///   [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) 1.The param of manager is nullptr;
+    ///   2.The param of capturer is nullptr;
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]
@@ -137,14 +137,14 @@ extern "C" {
     /// * `session` - Pointer to the target audio session manager instance to print snapshot.
     ///
     /// * `fd` - is a file descriptor, indicates the location that the snapshot information will be written to.
-    /// If the fd is less than 0 or no writable, the snapshot information will be printed into the running log,
-    /// otherwise the snapshot will be written into the file.
+    ///   If the fd is less than 0 or no writable, the snapshot information will be printed into the running log,
+    ///   otherwise the snapshot will be written into the file.
     ///
     /// # Returns
     ///
     /// * [`AUDIOCOMMON_RESULT_SUCCESS`](crate::audio_common::OH_AudioCommon_Result) if execution succeeds.
-    /// [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) 1.The param of manager is nullptr;
-    /// 2.The param of session is nullptr;
+    ///   [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) 1.The param of manager is nullptr;
+    ///   2.The param of session is nullptr;
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]

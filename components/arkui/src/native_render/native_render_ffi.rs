@@ -259,18 +259,18 @@ extern "C" {
     /// # Arguments
     ///
     /// * `option` - [`ArkUI_RenderBlurStyleOption`](crate::native_render::ArkUI_RenderBlurStyleOption) pointer to the target blur style for which the blur radius is to
-    /// be set.
+    ///   be set.
     ///
     /// * `radius` - Blur radius to be set. The value range is [0, +∞). Unit: px. The blur radius is used to control the
-    /// blur density. A larger radius indicates a higher blur density. The value **0** indicates that no blur processing
-    /// is performed. For background blur processing, a radius of 80 can achieve a good frosted glass effect. Avoid
-    /// using a blur radius greater than 200 pixels, as this may cause performance degradation.
+    ///   blur density. A larger radius indicates a higher blur density. The value **0** indicates that no blur processing
+    ///   is performed. For background blur processing, a radius of 80 can achieve a good frosted glass effect. Avoid
+    ///   using a blur radius greater than 200 pixels, as this may cause performance degradation.
     ///
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]
@@ -284,17 +284,17 @@ extern "C" {
     /// # Arguments
     ///
     /// * `node` - **ArkUI_RenderNodeHandle** pointer to the target render node for which the background blur style is to
-    /// be set.
+    ///   be set.
     ///
     /// * `option` - [`ArkUI_RenderBlurStyleOption`](crate::native_render::ArkUI_RenderBlurStyleOption) pointer to the blur style to be set.
     ///
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
-    /// <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]
@@ -308,15 +308,15 @@ extern "C" {
     /// # Arguments
     ///
     /// * `node` - **ArkUI_RenderNodeHandle** pointer to the target render node for which the background blur style is to
-    /// be reset.
+    ///   be reset.
     ///
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
-    /// <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]
@@ -327,17 +327,17 @@ extern "C" {
     /// # Arguments
     ///
     /// * `node` - **ArkUI_RenderNodeHandle** pointer to the target render node for which the foreground blur style is to
-    /// be set.
+    ///   be set.
     ///
     /// * `option` - [`ArkUI_RenderBlurStyleOption`](crate::native_render::ArkUI_RenderBlurStyleOption) pointer to the blur style to be set.
     ///
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
-    /// <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]
@@ -351,15 +351,15 @@ extern "C" {
     /// # Arguments
     ///
     /// * `node` - **ArkUI_RenderNodeHandle** pointer to the target render node for which the foreground blur style is to
-    /// be reset.
+    ///   be reset.
     ///
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
-    /// <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]
@@ -370,17 +370,17 @@ extern "C" {
     /// # Arguments
     ///
     /// * `node` - **ArkUI_RenderNodeHandle** pointer to the target render node for which the content blur style is to be
-    /// set.
+    ///   set.
     ///
     /// * `option` - [`ArkUI_RenderBlurStyleOption`](crate::native_render::ArkUI_RenderBlurStyleOption) pointer to the blur style to be set.
     ///
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
-    /// <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]
@@ -394,15 +394,15 @@ extern "C" {
     /// # Arguments
     ///
     /// * `node` - **ArkUI_RenderNodeHandle** pointer to the target render node for which the content blur style is to be
-    /// reset.
+    ///   reset.
     ///
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
-    /// <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]
@@ -423,16 +423,16 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NOT_CUSTOM_NODE`](crate::error_code::ArkUiErrorCode::NOT_CUSTOM_NODE) if the target node is not a custom node.
-    /// <br>Returns [`ARKUI_ERROR_CODE_CHILD_EXISTED`](crate::error_code::ArkUiErrorCode::CHILD_EXISTED) if the target node already has a child node.
-    /// <br>Returns [`ARKUI_ERROR_CODE_RENDER_PARENT_EXISTED`](crate::error_code::ArkUiErrorCode::RENDER_PARENT_EXISTED) if the target rendering node already has a parent
-    /// node.
-    /// <br>Returns [`ARKUI_ERROR_CODE_RENDER_HAS_INVALID_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_HAS_INVALID_FRAME_NODE) if the current render node originates from a
-    /// FrameNode that has been either detached as a child node or destroyed. This specification is supported since API
-    /// version 22.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NOT_CUSTOM_NODE`](crate::error_code::ArkUiErrorCode::NOT_CUSTOM_NODE) if the target node is not a custom node.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_CHILD_EXISTED`](crate::error_code::ArkUiErrorCode::CHILD_EXISTED) if the target node already has a child node.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_RENDER_PARENT_EXISTED`](crate::error_code::ArkUiErrorCode::RENDER_PARENT_EXISTED) if the target rendering node already has a parent
+    ///   node.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_RENDER_HAS_INVALID_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_HAS_INVALID_FRAME_NODE) if the current render node originates from a
+    ///   FrameNode that has been either detached as a child node or destroyed. This specification is supported since API
+    ///   version 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -452,10 +452,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NOT_CUSTOM_NODE`](crate::error_code::ArkUiErrorCode::NOT_CUSTOM_NODE) if the target node is not a custom node.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NOT_CUSTOM_NODE`](crate::error_code::ArkUiErrorCode::NOT_CUSTOM_NODE) if the target node is not a custom node.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -473,10 +473,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NOT_CUSTOM_NODE`](crate::error_code::ArkUiErrorCode::NOT_CUSTOM_NODE) if the target node is not a custom node.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NOT_CUSTOM_NODE`](crate::error_code::ArkUiErrorCode::NOT_CUSTOM_NODE) if the target node is not a custom node.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -491,9 +491,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -519,9 +519,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -538,14 +538,14 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
-    /// <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
-    /// This specification is supported since API version 22.
-    /// <br>Returns [`ARKUI_ERROR_CODE_RENDER_HAS_INVALID_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_HAS_INVALID_FRAME_NODE) if the current render node originates from a
-    /// FrameNode that has been either detached as a child node or destroyed. This specification is supported since API
-    /// version 22.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
+    ///   This specification is supported since API version 22.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_RENDER_HAS_INVALID_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_HAS_INVALID_FRAME_NODE) if the current render node originates from a
+    ///   FrameNode that has been either detached as a child node or destroyed. This specification is supported since API
+    ///   version 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -563,18 +563,18 @@ extern "C" {
     /// * `child` - Child render node to be added.
     ///
     /// * `sibling` - Target child node, which is used to determine the reference sibling render node of the insertion
-    /// position. If the node is not in the current child node list of **node**, the node is appended to the end.
+    ///   position. If the node is not in the current child node list of **node**, the node is appended to the end.
     ///
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) Success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
-    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if CAPI init error.
-    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the node is obtained from a FrameNode. Add since api 22.
-    /// [`ARKUI_ERROR_CODE_RENDER_HAS_INVALID_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_HAS_INVALID_FRAME_NODE) if the child is obtained from a FrameNode, and its
-    /// corresponding FrameNode is
-    /// no longer in the adopted state. Add since api 22.
+    ///   [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) Success.
+    ///   [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
+    ///   [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if CAPI init error.
+    ///   [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the node is obtained from a FrameNode. Add since api 22.
+    ///   [`ARKUI_ERROR_CODE_RENDER_HAS_INVALID_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_HAS_INVALID_FRAME_NODE) if the child is obtained from a FrameNode, and its
+    ///   corresponding FrameNode is
+    ///   no longer in the adopted state. Add since api 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -595,11 +595,11 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
-    /// <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
-    /// This specification is supported since API version 22.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
+    ///   This specification is supported since API version 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -617,11 +617,11 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
-    /// <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
-    /// This specification is supported since API version 22.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
+    ///   This specification is supported since API version 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -640,12 +640,12 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
-    /// <br>Returns [`ARKUI_ERROR_CODE_RENDER_CHILD_NOT_EXIST`](crate::error_code::ArkUiErrorCode::RENDER_CHILD_NOT_EXIST) if the corresponding render child node is not found.
-    /// <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
-    /// This specification is supported since API version 22.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_RENDER_CHILD_NOT_EXIST`](crate::error_code::ArkUiErrorCode::RENDER_CHILD_NOT_EXIST) if the corresponding render child node is not found.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
+    ///   This specification is supported since API version 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -666,12 +666,12 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
-    /// <br>Returns [`ARKUI_ERROR_CODE_RENDER_CHILD_NOT_EXIST`](crate::error_code::ArkUiErrorCode::RENDER_CHILD_NOT_EXIST) if the corresponding render child node is not found.
-    /// <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
-    /// This specification is supported since API version 22.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_RENDER_CHILD_NOT_EXIST`](crate::error_code::ArkUiErrorCode::RENDER_CHILD_NOT_EXIST) if the corresponding render child node is not found.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
+    ///   This specification is supported since API version 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -691,10 +691,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
-    /// <br>Returns [`ARKUI_ERROR_CODE_RENDER_CHILD_NOT_EXIST`](crate::error_code::ArkUiErrorCode::RENDER_CHILD_NOT_EXIST) if the corresponding render child node is not found.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_RENDER_CHILD_NOT_EXIST`](crate::error_code::ArkUiErrorCode::RENDER_CHILD_NOT_EXIST) if the corresponding render child node is not found.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -714,10 +714,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
-    /// <br>Returns [`ARKUI_ERROR_CODE_RENDER_CHILD_NOT_EXIST`](crate::error_code::ArkUiErrorCode::RENDER_CHILD_NOT_EXIST) if the corresponding render child node is not found.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_RENDER_CHILD_NOT_EXIST`](crate::error_code::ArkUiErrorCode::RENDER_CHILD_NOT_EXIST) if the corresponding render child node is not found.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -740,11 +740,11 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
-    /// <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
-    /// This specification is supported since API version 22.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
+    ///   This specification is supported since API version 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -765,11 +765,11 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
-    /// <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
-    /// This specification is supported since API version 22.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
+    ///   This specification is supported since API version 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -785,21 +785,21 @@ extern "C" {
     /// * `node` - Target render node.
     ///
     /// * `color` - ARGB color value (32-bit unsigned integer).
-    /// <br>Default value: **0x00000000**.
-    /// <br>**Description of color byte layout**:
-    /// <br>- Bits 24-31: alpha channel (0x00 for fully transparent, 0xFF for fully opaque).
-    /// <br>- Bits 16-23: red channel.
-    /// <br>- Bits 8-15: green channel.
-    /// <br>- Bits 0-7: blue channel.
+    ///   <br>Default value: **0x00000000**.
+    ///   <br>**Description of color byte layout**:
+    ///   <br>- Bits 24-31: alpha channel (0x00 for fully transparent, 0xFF for fully opaque).
+    ///   <br>- Bits 16-23: red channel.
+    ///   <br>- Bits 8-15: green channel.
+    ///   <br>- Bits 0-7: blue channel.
     ///
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
-    /// <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
-    /// This specification is supported since API version 22.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
+    ///   This specification is supported since API version 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -815,21 +815,21 @@ extern "C" {
     /// * `node` - Target render node.
     ///
     /// * `color` - Integer pointer used to store the obtained RGBA color value.
-    /// <br>Default value: **0x00000000**.
-    /// <br>**Description of color byte layout**:
-    /// <br>- Bits 24-31: alpha channel (0x00 for fully transparent, 0xFF for fully opaque).
-    /// <br>- Bits 16-23: red channel.
-    /// <br>- Bits 8-15: green channel.
-    /// <br>- Bits 0-7: blue channel.
+    ///   <br>Default value: **0x00000000**.
+    ///   <br>**Description of color byte layout**:
+    ///   <br>- Bits 24-31: alpha channel (0x00 for fully transparent, 0xFF for fully opaque).
+    ///   <br>- Bits 16-23: red channel.
+    ///   <br>- Bits 8-15: green channel.
+    ///   <br>- Bits 0-7: blue channel.
     ///
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
-    /// <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
-    /// This specification is supported since API version 22.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
+    ///   This specification is supported since API version 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -845,17 +845,17 @@ extern "C" {
     /// * `node` - Target render node.
     ///
     /// * `clipToFrame` - Whether to clip the current render node. **1**: Clip to frame. **0**: Do not clip.
-    /// <br>Default value: **0**.
+    ///   <br>Default value: **0**.
     ///
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_OUT_OF_RANGE`](crate::error_code::ArkUiErrorCode::PARAM_OUT_OF_RANGE) if the parameter value is out of range.
-    /// <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
-    /// This specification is supported since API version 22.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_OUT_OF_RANGE`](crate::error_code::ArkUiErrorCode::PARAM_OUT_OF_RANGE) if the parameter value is out of range.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
+    ///   This specification is supported since API version 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -871,16 +871,16 @@ extern "C" {
     /// * `node` - Target render node.
     ///
     /// * `clipToFrame` - Integer pointer used to receive the clipping status (1 or 0).
-    /// <br>Default value: **0**.
+    ///   <br>Default value: **0**.
     ///
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
-    /// <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
-    /// This specification is supported since API version 22.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
+    ///   This specification is supported since API version 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -896,17 +896,17 @@ extern "C" {
     /// * `node` - Target render node.
     ///
     /// * `clipToBounds` - Clipping flag. **1**: Clip to bounds. **0**: Do not clip.
-    /// <br>Default value: **0**.
+    ///   <br>Default value: **0**.
     ///
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_OUT_OF_RANGE`](crate::error_code::ArkUiErrorCode::PARAM_OUT_OF_RANGE) if the parameter value is out of range.
-    /// <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
-    /// This specification is supported since API version 22.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_OUT_OF_RANGE`](crate::error_code::ArkUiErrorCode::PARAM_OUT_OF_RANGE) if the parameter value is out of range.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
+    ///   This specification is supported since API version 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -922,16 +922,16 @@ extern "C" {
     /// * `node` - Target render node.
     ///
     /// * `clipToBounds` - Clipping flag. **1**: Clip to bounds. **0**: Do not clip.
-    /// <br>Default value: **0**.
+    ///   <br>Default value: **0**.
     ///
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
-    /// <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
-    /// This specification is supported since API version 22.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
+    ///   This specification is supported since API version 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -947,17 +947,17 @@ extern "C" {
     /// * `node` - Target render node.
     ///
     /// * `opacity` - Opacity value (0.0–1.0).
-    /// <br>Default value: **1**.
+    ///   <br>Default value: **1**.
     ///
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_OUT_OF_RANGE`](crate::error_code::ArkUiErrorCode::PARAM_OUT_OF_RANGE) if the parameter value is out of range.
-    /// <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
-    /// This specification is supported since API version 22.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_OUT_OF_RANGE`](crate::error_code::ArkUiErrorCode::PARAM_OUT_OF_RANGE) if the parameter value is out of range.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
+    ///   This specification is supported since API version 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -970,16 +970,16 @@ extern "C" {
     /// * `node` - Target render node.
     ///
     /// * `opacity` - Pointer used to store the opacity value (0.0–1.0).
-    /// <br>Default value: **1**.
+    ///   <br>Default value: **1**.
     ///
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
-    /// <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
-    /// This specification is supported since API version 22.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
+    ///   This specification is supported since API version 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -995,22 +995,22 @@ extern "C" {
     /// * `node` - Target render node.
     ///
     /// * `width` - Width value (in px).
-    /// <br>Default value: **0**, in px. The value must be greater than or equal to 0. If a negative value is passed,
-    /// [`ARKUI_ERROR_CODE_PARAM_OUT_OF_RANGE`](crate::error_code::ArkUiErrorCode::PARAM_OUT_OF_RANGE) is returned.
+    ///   <br>Default value: **0**, in px. The value must be greater than or equal to 0. If a negative value is passed,
+    ///   [`ARKUI_ERROR_CODE_PARAM_OUT_OF_RANGE`](crate::error_code::ArkUiErrorCode::PARAM_OUT_OF_RANGE) is returned.
     ///
     /// * `height` - Height value (in px).
-    /// <br>Default value: **0**, in px. The value must be greater than or equal to 0. If a negative value is passed,
-    /// [`ARKUI_ERROR_CODE_PARAM_OUT_OF_RANGE`](crate::error_code::ArkUiErrorCode::PARAM_OUT_OF_RANGE) is returned.
+    ///   <br>Default value: **0**, in px. The value must be greater than or equal to 0. If a negative value is passed,
+    ///   [`ARKUI_ERROR_CODE_PARAM_OUT_OF_RANGE`](crate::error_code::ArkUiErrorCode::PARAM_OUT_OF_RANGE) is returned.
     ///
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_OUT_OF_RANGE`](crate::error_code::ArkUiErrorCode::PARAM_OUT_OF_RANGE) if the parameter value is out of range.
-    /// <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
-    /// This specification is supported since API version 22.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_OUT_OF_RANGE`](crate::error_code::ArkUiErrorCode::PARAM_OUT_OF_RANGE) if the parameter value is out of range.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
+    ///   This specification is supported since API version 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -1027,19 +1027,19 @@ extern "C" {
     /// * `node` - Target render node.
     ///
     /// * `width` - Pointer used to store the width value (in px).
-    /// <br>Default value: **0**, in px.
+    ///   <br>Default value: **0**, in px.
     ///
     /// * `height` - Pointer used to store the height value (in px).
-    /// <br>Default value: **0**, in px.
+    ///   <br>Default value: **0**, in px.
     ///
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
-    /// <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
-    /// This specification is supported since API version 22.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
+    ///   This specification is supported since API version 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -1056,19 +1056,19 @@ extern "C" {
     /// * `node` - Target render node.
     ///
     /// * `x` - X-coordinate (in px).
-    /// <br>Default value: **0**, in px.
+    ///   <br>Default value: **0**, in px.
     ///
     /// * `y` - Y-coordinate (in px).
-    /// <br>Default value: **0**, in px.
+    ///   <br>Default value: **0**, in px.
     ///
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
-    /// <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
-    /// This specification is supported since API version 22.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
+    ///   This specification is supported since API version 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -1088,19 +1088,19 @@ extern "C" {
     /// * `node` - Target render node.
     ///
     /// * `x` - Pointer used to store the x-coordinate (in px).
-    /// <br>Default value: **0**, in px.
+    ///   <br>Default value: **0**, in px.
     ///
     /// * `y` - Pointer used to store the y-coordinate (in px).
-    /// <br>Default value: **0**, in px.
+    ///   <br>Default value: **0**, in px.
     ///
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
-    /// <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
-    /// This specification is supported since API version 22.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
+    ///   This specification is supported since API version 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -1117,19 +1117,19 @@ extern "C" {
     /// * `node` - Target render node.
     ///
     /// * `x` - X-coordinate of the pivot point. Standard value range: 0.0–1.0.
-    /// <br>Default value: **0.5**.
+    ///   <br>Default value: **0.5**.
     ///
     /// * `y` - Y-coordinate of the pivot point. Standard value range: 0.0–1.0.
-    /// <br>Default value: **0.5**.
+    ///   <br>Default value: **0.5**.
     ///
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
-    /// <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
-    /// This specification is supported since API version 22.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
+    ///   This specification is supported since API version 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -1142,19 +1142,19 @@ extern "C" {
     /// * `node` - Target render node.
     ///
     /// * `x` - Pointer used to store the x-coordinate of the pivot point.
-    /// <br>Default value: **0.5**.
+    ///   <br>Default value: **0.5**.
     ///
     /// * `y` - Pointer used to store the y-coordinate of the pivot point.
-    /// <br>Default value: **0.5**.
+    ///   <br>Default value: **0.5**.
     ///
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
-    /// <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
-    /// This specification is supported since API version 22.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
+    ///   This specification is supported since API version 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -1171,19 +1171,19 @@ extern "C" {
     /// * `node` - Target render node.
     ///
     /// * `x` - Scale factor on the x-axis.
-    /// <br>Default value: **1**.
+    ///   <br>Default value: **1**.
     ///
     /// * `y` - Scale factor on the y-axis.
-    /// <br>Default value: **1**.
+    ///   <br>Default value: **1**.
     ///
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
-    /// <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
-    /// This specification is supported since API version 22.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
+    ///   This specification is supported since API version 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -1196,19 +1196,19 @@ extern "C" {
     /// * `node` - Target render node.
     ///
     /// * `x` - Pointer used to store the scale factor on the x-axis.
-    /// <br>Default value: **1**.
+    ///   <br>Default value: **1**.
     ///
     /// * `y` - Pointer used to store the scale factor on the y-axis.
-    /// <br>Default value: **1**.
+    ///   <br>Default value: **1**.
     ///
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
-    /// <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
-    /// This specification is supported since API version 22.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
+    ///   This specification is supported since API version 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -1225,19 +1225,19 @@ extern "C" {
     /// * `node` - Target render node.
     ///
     /// * `x` - Horizontal translation offset (in pixels).
-    /// <br>Default value: **0**.
+    ///   <br>Default value: **0**.
     ///
     /// * `y` - Vertical translation offset (in pixels).
-    /// <br>Default value: **0**.
+    ///   <br>Default value: **0**.
     ///
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
-    /// <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
-    /// This specification is supported since API version 22.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
+    ///   This specification is supported since API version 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -1254,19 +1254,19 @@ extern "C" {
     /// * `node` - Target render node.
     ///
     /// * `x` - Pointer used to store the horizontal translation offset.
-    /// <br>Default value: **0**.
+    ///   <br>Default value: **0**.
     ///
     /// * `y` - Pointer used to store the vertical translation offset.
-    /// <br>Default value: **0**.
+    ///   <br>Default value: **0**.
     ///
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
-    /// <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
-    /// This specification is supported since API version 22.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
+    ///   This specification is supported since API version 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -1283,22 +1283,22 @@ extern "C" {
     /// * `node` - Target render node.
     ///
     /// * `x` - Rotation angle around the x-axis (in degrees).
-    /// <br>Default value: **0**.
+    ///   <br>Default value: **0**.
     ///
     /// * `y` - Rotation angle around the y-axis (in degrees).
-    /// <br>Default value: **0**.
+    ///   <br>Default value: **0**.
     ///
     /// * `z` - Rotation angle around the z-axis (in degrees).
-    /// <br>Default value: **0**.
+    ///   <br>Default value: **0**.
     ///
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
-    /// <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
-    /// This specification is supported since API version 22.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
+    ///   This specification is supported since API version 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -1316,22 +1316,22 @@ extern "C" {
     /// * `node` - Target render node.
     ///
     /// * `x` - Pointer used to store the rotation angle around the x-axis (in degrees).
-    /// <br>Default value: **0**.
+    ///   <br>Default value: **0**.
     ///
     /// * `y` - Pointer used to store the rotation angle around the y-axis (in degrees).
-    /// <br>Default value: **0**.
+    ///   <br>Default value: **0**.
     ///
     /// * `z` - Pointer used to store the rotation angle around the z-axis (in degrees).
-    /// <br>Default value: **0**.
+    ///   <br>Default value: **0**.
     ///
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
-    /// <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
-    /// This specification is supported since API version 22.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
+    ///   This specification is supported since API version 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -1349,43 +1349,43 @@ extern "C" {
     /// * `node` - Target render node.
     ///
     /// * `matrix` - Float array of 4x4 transformation matrix (16 consecutive values).
-    /// The transformation matrix should be provided as 16 consecutive floating-point values in row-major order:
-    /// \[m00, m01, m02, m03,
-    /// m10, m11, m12, m13,
-    /// m20, m21, m22, m23,
-    /// m30, m31, m32, m33\]
-    /// Where the matrix represents:
-    /// | m00 m01 m02 m03 |
-    /// | m10 m11 m12 m13 |
-    /// | m20 m21 m22 m23 |
-    /// | m30 m31 m32 m33 |
-    /// Matrix components:
-    /// | m00 | Scaling value of the x-axis. The default value is **1** for the identity matrix. |
-    /// | m01 | The second value, which is affected by the rotation or tilt of the x, y, and z axes. |
-    /// | m02 | The third value, which is affected by the rotation of the x, y, and z axes. |
-    /// | m03 | The fourth value, which is affected by perspective projection. |
-    /// | m10 | The fifth value, which is affected by the rotation or tilt of the x, y, and z axes. |
-    /// | m11 | Scaling value of the y-axis. The default value is **1** for the identity matrix. |
-    /// | m12 | The seventh value, which is affected by the rotation of the x, y, and z axes. |
-    /// | m13 | The eighth value, which is affected by perspective projection. |
-    /// | m20 | The ninth value, which is affected by the rotation of the x, y, and z axes. |
-    /// | m21 | The tenth value, which is affected by the rotation of the x, y, and z axes. |
-    /// | m22 | Scaling value of the z-axis. The default value is **1** for the identity matrix. |
-    /// | m23 | The 12th value, which is affected by perspective projection. |
-    /// | m30 | Translation value of the x-axis, in px. The default value is **0** for the identity matrix.|
-    /// | m31 | Translation value of the y-axis, in px. The default value is **0** for the identity matrix.|
-    /// | m32 | Translation value of the z-axis, in px. The default value is **0** for the identity matrix.|
-    /// | m33 | Valid in homogeneous coordinates, presenting the perspective projection effect. |
+    ///   The transformation matrix should be provided as 16 consecutive floating-point values in row-major order:
+    ///   \[m00, m01, m02, m03,
+    ///   m10, m11, m12, m13,
+    ///   m20, m21, m22, m23,
+    ///   m30, m31, m32, m33\]
+    ///   Where the matrix represents:
+    ///   | m00 m01 m02 m03 |
+    ///   | m10 m11 m12 m13 |
+    ///   | m20 m21 m22 m23 |
+    ///   | m30 m31 m32 m33 |
+    ///   Matrix components:
+    ///   | m00 | Scaling value of the x-axis. The default value is **1** for the identity matrix. |
+    ///   | m01 | The second value, which is affected by the rotation or tilt of the x, y, and z axes. |
+    ///   | m02 | The third value, which is affected by the rotation of the x, y, and z axes. |
+    ///   | m03 | The fourth value, which is affected by perspective projection. |
+    ///   | m10 | The fifth value, which is affected by the rotation or tilt of the x, y, and z axes. |
+    ///   | m11 | Scaling value of the y-axis. The default value is **1** for the identity matrix. |
+    ///   | m12 | The seventh value, which is affected by the rotation of the x, y, and z axes. |
+    ///   | m13 | The eighth value, which is affected by perspective projection. |
+    ///   | m20 | The ninth value, which is affected by the rotation of the x, y, and z axes. |
+    ///   | m21 | The tenth value, which is affected by the rotation of the x, y, and z axes. |
+    ///   | m22 | Scaling value of the z-axis. The default value is **1** for the identity matrix. |
+    ///   | m23 | The 12th value, which is affected by perspective projection. |
+    ///   | m30 | Translation value of the x-axis, in px. The default value is **0** for the identity matrix.|
+    ///   | m31 | Translation value of the y-axis, in px. The default value is **0** for the identity matrix.|
+    ///   | m32 | Translation value of the z-axis, in px. The default value is **0** for the identity matrix.|
+    ///   | m33 | Valid in homogeneous coordinates, presenting the perspective projection effect. |
     ///
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_OUT_OF_RANGE`](crate::error_code::ArkUiErrorCode::PARAM_OUT_OF_RANGE) if the parameter value is out of range.
-    /// <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
-    /// This specification is supported since API version 22.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_OUT_OF_RANGE`](crate::error_code::ArkUiErrorCode::PARAM_OUT_OF_RANGE) if the parameter value is out of range.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
+    ///   This specification is supported since API version 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -1401,21 +1401,21 @@ extern "C" {
     /// * `node` - Target render node.
     ///
     /// * `color` - ARGB color value (32-bit unsigned integer).
-    /// <br>Default value: **0x00000000**.
-    /// <br>**Description of color byte layout**:
-    /// <br>- Bits 24-31: alpha channel (0x00 for fully transparent, 0xFF for fully opaque).
-    /// <br>- Bits 16-23: red channel.
-    /// <br>- Bits 8-15: green channel.
-    /// <br>- Bits 0-7: blue channel.
+    ///   <br>Default value: **0x00000000**.
+    ///   <br>**Description of color byte layout**:
+    ///   <br>- Bits 24-31: alpha channel (0x00 for fully transparent, 0xFF for fully opaque).
+    ///   <br>- Bits 16-23: red channel.
+    ///   <br>- Bits 8-15: green channel.
+    ///   <br>- Bits 0-7: blue channel.
     ///
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
-    /// <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
-    /// This specification is supported since API version 22.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
+    ///   This specification is supported since API version 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -1429,21 +1429,21 @@ extern "C" {
     /// * `node` - Target render node.
     ///
     /// * `color` - Integer pointer used to store the obtained RGBA color value.
-    /// <br>Default value: **0xFF000000**.
-    /// <br>**Description of color byte layout**:
-    /// <br>- Bits 24-31: alpha channel (0x00 for fully transparent, 0xFF for fully opaque).
-    /// <br>- Bits 16-23: red channel.
-    /// <br>- Bits 8-15: green channel.
-    /// <br>- Bits 0-7: blue channel.
+    ///   <br>Default value: **0xFF000000**.
+    ///   <br>**Description of color byte layout**:
+    ///   <br>- Bits 24-31: alpha channel (0x00 for fully transparent, 0xFF for fully opaque).
+    ///   <br>- Bits 16-23: red channel.
+    ///   <br>- Bits 8-15: green channel.
+    ///   <br>- Bits 0-7: blue channel.
     ///
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
-    /// <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
-    /// This specification is supported since API version 22.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
+    ///   This specification is supported since API version 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -1459,19 +1459,19 @@ extern "C" {
     /// * `node` - Target render node.
     ///
     /// * `x` - Horizontal offset (in pixels).
-    /// <br>Default value: **0**.
+    ///   <br>Default value: **0**.
     ///
     /// * `y` - Vertical offset (in pixels).
-    /// <br>Default value: **0**.
+    ///   <br>Default value: **0**.
     ///
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
-    /// <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
-    /// This specification is supported since API version 22.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
+    ///   This specification is supported since API version 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -1488,19 +1488,19 @@ extern "C" {
     /// * `node` - Target render node.
     ///
     /// * `x` - Pointer used to store the horizontal offset.
-    /// <br>Default value: **0**, in px.
+    ///   <br>Default value: **0**, in px.
     ///
     /// * `y` - Pointer used to store the vertical offset.
-    /// <br>Default value: **0**, in px.
+    ///   <br>Default value: **0**, in px.
     ///
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
-    /// <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
-    /// This specification is supported since API version 22.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
+    ///   This specification is supported since API version 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -1517,17 +1517,17 @@ extern "C" {
     /// * `node` - Target render node.
     ///
     /// * `alpha` - Shadow alpha value (0.0–1.0).
-    /// <br>Default value: **0**.
+    ///   <br>Default value: **0**.
     ///
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_OUT_OF_RANGE`](crate::error_code::ArkUiErrorCode::PARAM_OUT_OF_RANGE) if the parameter value is out of range.
-    /// <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
-    /// This specification is supported since API version 22.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_OUT_OF_RANGE`](crate::error_code::ArkUiErrorCode::PARAM_OUT_OF_RANGE) if the parameter value is out of range.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
+    ///   This specification is supported since API version 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -1541,16 +1541,16 @@ extern "C" {
     /// * `node` - Target render node.
     ///
     /// * `alpha` - Pointer used to store the shadow alpha value.
-    /// <br>Default value: **1**.
+    ///   <br>Default value: **1**.
     ///
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
-    /// <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
-    /// This specification is supported since API version 22.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
+    ///   This specification is supported since API version 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -1566,17 +1566,17 @@ extern "C" {
     /// * `node` - Target render node.
     ///
     /// * `elevation` - Elevation.
-    /// <br>Default value: **0**.
+    ///   <br>Default value: **0**.
     ///
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_OUT_OF_RANGE`](crate::error_code::ArkUiErrorCode::PARAM_OUT_OF_RANGE) if the parameter value is out of range.
-    /// <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
-    /// This specification is supported since API version 22.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_OUT_OF_RANGE`](crate::error_code::ArkUiErrorCode::PARAM_OUT_OF_RANGE) if the parameter value is out of range.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
+    ///   This specification is supported since API version 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -1592,16 +1592,16 @@ extern "C" {
     /// * `node` - Target render node.
     ///
     /// * `elevation` - Pointer used to store the elevation value.
-    /// <br>Default value: **0**.
+    ///   <br>Default value: **0**.
     ///
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
-    /// <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
-    /// This specification is supported since API version 22.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
+    ///   This specification is supported since API version 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -1617,18 +1617,18 @@ extern "C" {
     /// * `node` - Target render node.
     ///
     /// * `radius` - Radius value.
-    /// <br>Default value: **0**. The value must be greater than or equal to 0. If a negative value is passed,
-    /// [`ARKUI_ERROR_CODE_PARAM_OUT_OF_RANGE`](crate::error_code::ArkUiErrorCode::PARAM_OUT_OF_RANGE) is returned.
+    ///   <br>Default value: **0**. The value must be greater than or equal to 0. If a negative value is passed,
+    ///   [`ARKUI_ERROR_CODE_PARAM_OUT_OF_RANGE`](crate::error_code::ArkUiErrorCode::PARAM_OUT_OF_RANGE) is returned.
     ///
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_OUT_OF_RANGE`](crate::error_code::ArkUiErrorCode::PARAM_OUT_OF_RANGE) if the parameter value is out of range.
-    /// <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
-    /// This specification is supported since API version 22.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_OUT_OF_RANGE`](crate::error_code::ArkUiErrorCode::PARAM_OUT_OF_RANGE) if the parameter value is out of range.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
+    ///   This specification is supported since API version 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -1644,16 +1644,16 @@ extern "C" {
     /// * `node` - Target render node.
     ///
     /// * `radius` - Pointer used to store the radius value.
-    /// <br>Default value: **0**.
+    ///   <br>Default value: **0**.
     ///
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
-    /// <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
-    /// This specification is supported since API version 22.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
+    ///   This specification is supported since API version 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -1669,16 +1669,16 @@ extern "C" {
     /// * `node` - Target render node.
     ///
     /// * `borderStyle` - Pointer to the border style.
-    /// <br>Default value in the struct pointer: [`ARKUI_BORDER_STYLE_SOLID`](crate::native_type::ArkUI_BorderStyle::ARKUI_BORDER_STYLE_SOLID).
+    ///   <br>Default value in the struct pointer: [`ARKUI_BORDER_STYLE_SOLID`](crate::native_type::ArkUI_BorderStyle::ARKUI_BORDER_STYLE_SOLID).
     ///
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
-    /// <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
-    /// This specification is supported since API version 22.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
+    ///   This specification is supported since API version 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -1694,16 +1694,16 @@ extern "C" {
     /// * `node` - Target render node.
     ///
     /// * `borderStyle` - Pointer used to store the border style.
-    /// <br>Default value in the struct pointer: [`ARKUI_BORDER_STYLE_SOLID`](crate::native_type::ArkUI_BorderStyle::ARKUI_BORDER_STYLE_SOLID).
+    ///   <br>Default value in the struct pointer: [`ARKUI_BORDER_STYLE_SOLID`](crate::native_type::ArkUI_BorderStyle::ARKUI_BORDER_STYLE_SOLID).
     ///
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
-    /// <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
-    /// This specification is supported since API version 22.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
+    ///   This specification is supported since API version 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -1719,16 +1719,16 @@ extern "C" {
     /// * `node` - Target render node.
     ///
     /// * `borderWidth` - Pointer to the border width.
-    /// <br>Default value in the struct pointer: **0**. Unit: px.
+    ///   <br>Default value in the struct pointer: **0**. Unit: px.
     ///
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
-    /// <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
-    /// This specification is supported since API version 22.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
+    ///   This specification is supported since API version 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -1744,16 +1744,16 @@ extern "C" {
     /// * `node` - Target render node.
     ///
     /// * `borderWidth` - Pointer used to store the border width.
-    /// <br>Default value in the struct pointer: **0**. Unit: px.
+    ///   <br>Default value in the struct pointer: **0**. Unit: px.
     ///
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
-    /// <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
-    /// This specification is supported since API version 22.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
+    ///   This specification is supported since API version 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -1769,16 +1769,16 @@ extern "C" {
     /// * `node` - Target render node.
     ///
     /// * `borderColor` - Pointer to the border color.
-    /// <br>Default value in the struct pointer: **0x00000000**.
+    ///   <br>Default value in the struct pointer: **0x00000000**.
     ///
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
-    /// <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
-    /// This specification is supported since API version 22.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
+    ///   This specification is supported since API version 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -1794,16 +1794,16 @@ extern "C" {
     /// * `node` - Target render node.
     ///
     /// * `borderColor` - Pointer used to store the border color.
-    /// <br>Default value in the struct pointer: **0x00000000**.
+    ///   <br>Default value in the struct pointer: **0x00000000**.
     ///
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
-    /// <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
-    /// This specification is supported since API version 22.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
+    ///   This specification is supported since API version 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -1819,16 +1819,16 @@ extern "C" {
     /// * `node` - Target render node.
     ///
     /// * `borderRadius` - Pointer to the border radius.
-    /// <br>Default value in the struct pointer: **0**.
+    ///   <br>Default value in the struct pointer: **0**.
     ///
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
-    /// <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
-    /// This specification is supported since API version 22.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
+    ///   This specification is supported since API version 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -1844,16 +1844,16 @@ extern "C" {
     /// * `node` - Target render node.
     ///
     /// * `borderRadius` - Pointer used to store the border corner radius.
-    /// <br>Default value in the struct pointer: **0**.
+    ///   <br>Default value in the struct pointer: **0**.
     ///
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
-    /// <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
-    /// This specification is supported since API version 22.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
+    ///   This specification is supported since API version 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -1868,7 +1868,7 @@ extern "C" {
     /// 1. Add brightness and a linear color filter to the mask layer.
     /// 2. Draw the mask graphic under this filter.
     /// 3. Use the original node image as the source color and the mask graphic as the target color, and blend them into a
-    /// mask image using the [BlendMode.SRC_IN](../apis-arkgraphics2d/arkts-apis-graphics-drawing-e.md#blendmode) API.
+    ///    mask image using the [BlendMode.SRC_IN](../apis-arkgraphics2d/arkts-apis-graphics-drawing-e.md#blendmode) API.
     ///
     /// # Arguments
     ///
@@ -1879,11 +1879,11 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
-    /// <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
-    /// This specification is supported since API version 22.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
+    ///   This specification is supported since API version 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -1903,11 +1903,11 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
-    /// <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
-    /// This specification is supported since API version 22.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
+    ///   This specification is supported since API version 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -1923,16 +1923,16 @@ extern "C" {
     /// * `node` - Target render node.
     ///
     /// * `markNodeGroup` - Whether to prioritize drawing the node and its child nodes.
-    /// <br>**true**: Enable drawing priority. **false**: Disable drawing priority.
+    ///   <br>**true**: Enable drawing priority. **false**: Disable drawing priority.
     ///
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
-    /// <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
-    /// This specification is supported since API version 22.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
+    ///   This specification is supported since API version 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -1948,28 +1948,28 @@ extern "C" {
     /// * `node` - Target render node.
     ///
     /// * `x` - X-coordinate of the upper left corner of the bounds, in pixels.
-    /// <br>Default value: **0**.
+    ///   <br>Default value: **0**.
     ///
     /// * `y` - Y-coordinate of the upper left corner of the bounds, in pixels.
-    /// <br>Default value: **0**.
+    ///   <br>Default value: **0**.
     ///
     /// * `width` - Width of the bounds (in pixels).
-    /// <br>Default value: **0**. The value must be greater than or equal to 0. If a negative value is passed,
-    /// [`ARKUI_ERROR_CODE_PARAM_OUT_OF_RANGE`](crate::error_code::ArkUiErrorCode::PARAM_OUT_OF_RANGE) is returned.
+    ///   <br>Default value: **0**. The value must be greater than or equal to 0. If a negative value is passed,
+    ///   [`ARKUI_ERROR_CODE_PARAM_OUT_OF_RANGE`](crate::error_code::ArkUiErrorCode::PARAM_OUT_OF_RANGE) is returned.
     ///
     /// * `height` - Height of the bounds (in pixels).
-    /// <br>Default value: **0**. The value must be greater than or equal to 0. If a negative value is passed,
-    /// [`ARKUI_ERROR_CODE_PARAM_OUT_OF_RANGE`](crate::error_code::ArkUiErrorCode::PARAM_OUT_OF_RANGE) is returned.
+    ///   <br>Default value: **0**. The value must be greater than or equal to 0. If a negative value is passed,
+    ///   [`ARKUI_ERROR_CODE_PARAM_OUT_OF_RANGE`](crate::error_code::ArkUiErrorCode::PARAM_OUT_OF_RANGE) is returned.
     ///
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_OUT_OF_RANGE`](crate::error_code::ArkUiErrorCode::PARAM_OUT_OF_RANGE) if the parameter value is out of range.
-    /// <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
-    /// This specification is supported since API version 22.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_OUT_OF_RANGE`](crate::error_code::ArkUiErrorCode::PARAM_OUT_OF_RANGE) if the parameter value is out of range.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
+    ///   This specification is supported since API version 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -1988,25 +1988,25 @@ extern "C" {
     /// * `node` - Target render node.
     ///
     /// * `x` - Pointer used to store the x-coordinate of the upper left corner of the bounds, in pixels.
-    /// <br>Default value: **0**.
+    ///   <br>Default value: **0**.
     ///
     /// * `y` - Pointer used to store the y-coordinate of the upper left corner of the bounds, in pixels.
-    /// <br>Default value: **0**.
+    ///   <br>Default value: **0**.
     ///
     /// * `width` - Pointer used to store the width of the bounds (in pixels).
-    /// <br>Default value: **0**.
+    ///   <br>Default value: **0**.
     ///
     /// * `height` - Pointer used to store the height of the bounds (in pixels).
-    /// <br>Default value: **0**.
+    ///   <br>Default value: **0**.
     ///
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
-    /// <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
-    /// This specification is supported since API version 22.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
+    ///   This specification is supported since API version 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -2036,11 +2036,11 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
-    /// <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
-    /// This specification is supported since API version 22.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
+    ///   This specification is supported since API version 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -2063,11 +2063,11 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
-    /// <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
-    /// This specification is supported since API version 22.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::error_code::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the target node originates from a FrameNode.
+    ///   This specification is supported since API version 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -2110,9 +2110,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -2132,9 +2132,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -2154,9 +2154,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -2176,9 +2176,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -2198,9 +2198,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -2220,9 +2220,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -2256,9 +2256,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -2278,9 +2278,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -2331,9 +2331,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -2356,9 +2356,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -2403,9 +2403,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -2425,9 +2425,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -2473,9 +2473,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -2495,9 +2495,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -2550,9 +2550,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -2575,9 +2575,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -2626,9 +2626,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -2648,9 +2648,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -2684,9 +2684,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -2813,7 +2813,7 @@ extern "C" {
     /// * `option` - Pointer to the node border width option.
     ///
     /// * `edgeWidth` - Edge width of the node border width option.
-    /// <br>Value range: [0, +∞).
+    ///   <br>Value range: [0, +∞).
     ///
     /// * `direction` - Edge direction.
     ///
@@ -3203,8 +3203,8 @@ extern "C" {
     /// * `mask` - Pointer to the render node mask.
     ///
     /// * `strokeWidth` - Stroke width of the mask.
-    /// <br>Value range: (0, +∞). If the value is a negative number or 0, the stroke width is set to 1 pixel during
-    /// drawing.
+    ///   <br>Value range: (0, +∞). If the value is a negative number or 0, the stroke width is set to 1 pixel during
+    ///   drawing.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -3319,10 +3319,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
-    /// <br>Returns [`ARKUI_ERROR_CODE_RENDER_NOT_ADOPTED_NODE`](crate::error_code::ArkUiErrorCode::RENDER_NOT_ADOPTED_NODE) if this node is not accepted as a child node.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if C API initialization failed.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_RENDER_NOT_ADOPTED_NODE`](crate::error_code::ArkUiErrorCode::RENDER_NOT_ADOPTED_NODE) if this node is not accepted as a child node.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -3339,18 +3339,18 @@ extern "C" {
     /// * `option` - Pointer to the rounded rectangle shape option to be configured.
     ///
     /// * `x` - X coordinate of the upper left corner of the rectangle, which is used to determine the position of the left
-    /// boundary.
+    ///   boundary.
     ///
     /// * `y` - Y coordinate of the upper left corner of the rectangle, which is used to determine the position of the
-    /// upper boundary.
+    ///   upper boundary.
     ///
     /// * `width` - Width of the rectangle, which indicates the horizontal span starting from the X coordinate and is used
-    /// to determine the position of the right boundary. That is, the X coordinate of the lower right corner of the
-    /// rectangle is equal to **x** + **width**.
+    ///   to determine the position of the right boundary. That is, the X coordinate of the lower right corner of the
+    ///   rectangle is equal to **x** + **width**.
     ///
     /// * `height` - Height of the rectangle, which indicates the vertical span starting from the Y coordinate and is used
-    /// to determine the position of the bottom boundary. That is, the Y coordinate of the lower right corner of the
-    /// rectangle is equal to **y** + **height**.
+    ///   to determine the position of the bottom boundary. That is, the Y coordinate of the lower right corner of the
+    ///   rectangle is equal to **y** + **height**.
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]
@@ -3370,18 +3370,18 @@ extern "C" {
     /// * `option` - Pointer to the rectangle shape option to be configured.
     ///
     /// * `x` - X coordinate of the upper left corner of the rectangle, which is used to determine the position of the left
-    /// boundary.
+    ///   boundary.
     ///
     /// * `y` - Y coordinate of the upper left corner of the rectangle, which is used to determine the position of the
-    /// upper boundary.
+    ///   upper boundary.
     ///
     /// * `width` - Width of the rectangle, which indicates the horizontal span starting from the X coordinate and is used
-    /// to determine the position of the right boundary. That is, the X coordinate of the lower right corner of the
-    /// rectangle is equal to **x** + **width**.
+    ///   to determine the position of the right boundary. That is, the X coordinate of the lower right corner of the
+    ///   rectangle is equal to **x** + **width**.
     ///
     /// * `height` - Height of the rectangle, which indicates the vertical span starting from the Y coordinate and is used
-    /// to determine the position of the bottom boundary. That is, the Y coordinate of the lower right corner of the
-    /// rectangle is equal to **y** + **height**.
+    ///   to determine the position of the bottom boundary. That is, the Y coordinate of the lower right corner of the
+    ///   rectangle is equal to **y** + **height**.
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]
@@ -3402,8 +3402,8 @@ extern "C" {
     /// * `child` - the child RenderNode to insert.
     ///
     /// * `position` - the index at which to insert the child node.
-    /// The position must be within the range \[0, currentChildCount\].
-    /// If the position equals currentChildCount, it is equivalent to an add operation.
+    ///   The position must be within the range \[0, currentChildCount\].
+    ///   If the position equals currentChildCount, it is equivalent to an add operation.
     ///
     /// # Returns
     ///

@@ -20,7 +20,7 @@ use libc::clockid_t;
 /// * `capturer` - Pointer to the AudioCapturer instance that triggers the callback.
 ///
 /// * `userData` - Pointer to the user data passed when setting the callback via
-/// OH_AudioStreamBuilder_SetCapturerReadDataCallback.
+///   OH_AudioStreamBuilder_SetCapturerReadDataCallback.
 ///
 /// * `audioData` - Pointer to the available audio data.
 ///
@@ -47,7 +47,7 @@ pub type OH_AudioCapturer_OnReadDataCallback = ::core::option::Option<
 /// * `capturer` - Pointer to the AudioCapturer instance that triggers the callback.
 ///
 /// * `userData` - Pointer to the user data passed when setting the callback via
-/// OH_AudioStreamBuilder_SetCapturerDeviceChangeCallback.
+///   OH_AudioStreamBuilder_SetCapturerDeviceChangeCallback.
 ///
 /// * `deviceArray` - Pointer to an array of the new input devices.
 ///
@@ -71,7 +71,7 @@ pub type OH_AudioCapturer_OnDeviceChangeCallback = ::core::option::Option<
 /// * `capturer` - Pointer to the AudioCapturer instance that triggers the callback.
 ///
 /// * `userData` - Pointer to the user data passed when setting the callback via
-/// OH_AudioStreamBuilder_SetCapturerInterruptCallback.
+///   OH_AudioStreamBuilder_SetCapturerInterruptCallback.
 ///
 /// * `type` - Type of force that causes the interrupt event.
 ///
@@ -98,7 +98,7 @@ pub type OH_AudioCapturer_OnInterruptCallback = ::core::option::Option<
 /// * `capturer` - Pointer to the AudioCapturer instance that triggers the callback.
 ///
 /// * `userData` - Pointer to the user data passed when setting the callback via
-/// OH_AudioStreamBuilder_SetCapturerErrorCallback.
+///   OH_AudioStreamBuilder_SetCapturerErrorCallback.
 ///
 /// * `error` - Specific error information.
 ///
@@ -141,7 +141,7 @@ pub type OH_AudioCapturer_OnFastStatusChange = ::core::option::Option<
 /// * `capturer` - Pointer to the AudioCapturer instance that triggers the callback.
 ///
 /// * `userData` - Pointer to the user data passed when setting the callback via
-/// [`OH_AudioCapturer_RequestPlaybackCaptureStart`](crate::audiocapturer::OH_AudioCapturer_RequestPlaybackCaptureStart).
+///   [`OH_AudioCapturer_RequestPlaybackCaptureStart`](crate::audiocapturer::OH_AudioCapturer_RequestPlaybackCaptureStart).
 ///
 /// * `state` - The final state to describe whether start request is successful.
 ///
@@ -162,13 +162,13 @@ pub type OH_AudioCapturer_OnPlaybackCaptureStartCallback = ::core::option::Optio
 /// # Arguments
 ///
 /// * `capturer` - The pointer to the [`OH_AudioCapturer`](crate::audiostream_base::OH_AudioCapturer) object created
-/// by [`OH_AudioStreamBuilder_GenerateCapturer`](crate::audiostreambuilder::OH_AudioStreamBuilder_GenerateCapturer).
+///   by [`OH_AudioStreamBuilder_GenerateCapturer`](crate::audiostreambuilder::OH_AudioStreamBuilder_GenerateCapturer).
 ///
 /// * `userData` - The pointer to user data which is set in
-/// [`OH_AudioStreamBuilder_SetSensitiveRecordPermitCallback`](crate::audiostreambuilder::OH_AudioStreamBuilder_SetSensitiveRecordPermitCallback).
+///   [`OH_AudioStreamBuilder_SetSensitiveRecordPermitCallback`](crate::audiostreambuilder::OH_AudioStreamBuilder_SetSensitiveRecordPermitCallback).
 ///
 /// * `isPermitted` - Indicates whether the sensitive warning message playback is finished.
-/// If the result is true, the recording can start, otherwise the recording is not permitted.
+///   If the result is true, the recording can start, otherwise the recording is not permitted.
 ///
 /// Available since API-level: 26
 #[cfg(feature = "api-26")]
@@ -195,9 +195,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
-    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) The param of capturer is nullptr.
-    /// [`AUDIOSTREAM_ERROR_ILLEGAL_STATE`](crate::audiostream_base::OH_AudioStreamErrorCode::ILLEGAL_STATE) Execution status exception.
+    ///   [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
+    ///   [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) The param of capturer is nullptr.
+    ///   [`AUDIOSTREAM_ERROR_ILLEGAL_STATE`](crate::audiostream_base::OH_AudioStreamErrorCode::ILLEGAL_STATE) Execution status exception.
     pub fn OH_AudioCapturer_Release(capturer: *mut OH_AudioCapturer) -> OH_AudioStream_Result;
     /// Request to start the capturer stream.
     ///
@@ -213,9 +213,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
-    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) The param of capturer is nullptr.
-    /// [`AUDIOSTREAM_ERROR_ILLEGAL_STATE`](crate::audiostream_base::OH_AudioStreamErrorCode::ILLEGAL_STATE) Execution status exception.
+    ///   [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
+    ///   [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) The param of capturer is nullptr.
+    ///   [`AUDIOSTREAM_ERROR_ILLEGAL_STATE`](crate::audiostream_base::OH_AudioStreamErrorCode::ILLEGAL_STATE) Execution status exception.
     pub fn OH_AudioCapturer_Start(capturer: *mut OH_AudioCapturer) -> OH_AudioStream_Result;
     /// Request to pause the capturer stream.
     ///
@@ -231,9 +231,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
-    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) The param of capturer is nullptr.
-    /// [`AUDIOSTREAM_ERROR_ILLEGAL_STATE`](crate::audiostream_base::OH_AudioStreamErrorCode::ILLEGAL_STATE) Execution status exception.
+    ///   [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
+    ///   [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) The param of capturer is nullptr.
+    ///   [`AUDIOSTREAM_ERROR_ILLEGAL_STATE`](crate::audiostream_base::OH_AudioStreamErrorCode::ILLEGAL_STATE) Execution status exception.
     pub fn OH_AudioCapturer_Pause(capturer: *mut OH_AudioCapturer) -> OH_AudioStream_Result;
     /// Request to stop the capturer stream.
     ///
@@ -249,9 +249,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
-    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) The param of capturer is nullptr.
-    /// [`AUDIOSTREAM_ERROR_ILLEGAL_STATE`](crate::audiostream_base::OH_AudioStreamErrorCode::ILLEGAL_STATE) Execution status exception.
+    ///   [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
+    ///   [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) The param of capturer is nullptr.
+    ///   [`AUDIOSTREAM_ERROR_ILLEGAL_STATE`](crate::audiostream_base::OH_AudioStreamErrorCode::ILLEGAL_STATE) Execution status exception.
     pub fn OH_AudioCapturer_Stop(capturer: *mut OH_AudioCapturer) -> OH_AudioStream_Result;
     /// Request to flush the capturer stream.
     ///
@@ -265,9 +265,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
-    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) The param of capturer is nullptr.
-    /// [`AUDIOSTREAM_ERROR_ILLEGAL_STATE`](crate::audiostream_base::OH_AudioStreamErrorCode::ILLEGAL_STATE) Execution status exception.
+    ///   [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
+    ///   [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) The param of capturer is nullptr.
+    ///   [`AUDIOSTREAM_ERROR_ILLEGAL_STATE`](crate::audiostream_base::OH_AudioStreamErrorCode::ILLEGAL_STATE) Execution status exception.
     pub fn OH_AudioCapturer_Flush(capturer: *mut OH_AudioCapturer) -> OH_AudioStream_Result;
     /// Query the current state of the capturer client.
     ///
@@ -285,8 +285,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
-    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) The param of capturer is nullptr.
+    ///   [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
+    ///   [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) The param of capturer is nullptr.
     pub fn OH_AudioCapturer_GetCurrentState(
         capturer: *mut OH_AudioCapturer,
         state: *mut OH_AudioStream_State,
@@ -305,8 +305,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
-    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) The param of capturer is nullptr.
+    ///   [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
+    ///   [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) The param of capturer is nullptr.
     pub fn OH_AudioCapturer_GetLatencyMode(
         capturer: *mut OH_AudioCapturer,
         latencyMode: *mut OH_AudioStream_LatencyMode,
@@ -325,8 +325,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
-    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) The param of capturer is nullptr.
+    ///   [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
+    ///   [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) The param of capturer is nullptr.
     pub fn OH_AudioCapturer_GetStreamId(
         capturer: *mut OH_AudioCapturer,
         streamId: *mut u32,
@@ -347,8 +347,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
-    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) The param of capturer is nullptr.
+    ///   [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
+    ///   [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) The param of capturer is nullptr.
     pub fn OH_AudioCapturer_GetSamplingRate(
         capturer: *mut OH_AudioCapturer,
         rate: *mut i32,
@@ -367,8 +367,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
-    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) The param of capturer is nullptr.
+    ///   [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
+    ///   [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) The param of capturer is nullptr.
     pub fn OH_AudioCapturer_GetChannelCount(
         capturer: *mut OH_AudioCapturer,
         channelCount: *mut i32,
@@ -387,8 +387,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
-    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) The param of capturer is nullptr.
+    ///   [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
+    ///   [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) The param of capturer is nullptr.
     pub fn OH_AudioCapturer_GetSampleFormat(
         capturer: *mut OH_AudioCapturer,
         sampleFormat: *mut OH_AudioStream_SampleFormat,
@@ -407,8 +407,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
-    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) The param of capturer is nullptr.
+    ///   [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
+    ///   [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) The param of capturer is nullptr.
     pub fn OH_AudioCapturer_GetEncodingType(
         capturer: *mut OH_AudioCapturer,
         encodingType: *mut OH_AudioStream_EncodingType,
@@ -427,8 +427,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
-    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) The param of capturer is nullptr.
+    ///   [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
+    ///   [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) The param of capturer is nullptr.
     pub fn OH_AudioCapturer_GetCapturerInfo(
         capturer: *mut OH_AudioCapturer,
         sourceType: *mut OH_AudioStream_SourceType,
@@ -447,9 +447,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
-    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) The param of capturer is nullptr.
-    /// [`AUDIOSTREAM_ERROR_ILLEGAL_STATE`](crate::audiostream_base::OH_AudioStreamErrorCode::ILLEGAL_STATE) Execution status exception.
+    ///   [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
+    ///   [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) The param of capturer is nullptr.
+    ///   [`AUDIOSTREAM_ERROR_ILLEGAL_STATE`](crate::audiostream_base::OH_AudioStreamErrorCode::ILLEGAL_STATE) Execution status exception.
     pub fn OH_AudioCapturer_GetFrameSizeInCallback(
         capturer: *mut OH_AudioCapturer,
         frameSize: *mut i32,
@@ -472,11 +472,11 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
-    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM):
-    /// 1.The param of capturer is nullptr;
-    /// 2.The param of clockId invalid.
-    /// [`AUDIOSTREAM_ERROR_ILLEGAL_STATE`](crate::audiostream_base::OH_AudioStreamErrorCode::ILLEGAL_STATE) Execution status exception.
+    ///   [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
+    ///   [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM):
+    ///   1.The param of capturer is nullptr;
+    ///   2.The param of clockId invalid.
+    ///   [`AUDIOSTREAM_ERROR_ILLEGAL_STATE`](crate::audiostream_base::OH_AudioStreamErrorCode::ILLEGAL_STATE) Execution status exception.
     pub fn OH_AudioCapturer_GetTimestamp(
         capturer: *mut OH_AudioCapturer,
         clockId: clockid_t,
@@ -497,8 +497,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
-    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) The param of capturer is nullptr.
+    ///   [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
+    ///   [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) The param of capturer is nullptr.
     pub fn OH_AudioCapturer_GetFramesRead(
         capturer: *mut OH_AudioCapturer,
         frames: *mut i64,
@@ -517,8 +517,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
-    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) The param of capturer is nullptr.
+    ///   [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
+    ///   [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) The param of capturer is nullptr.
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_AudioCapturer_GetOverflowCount(
@@ -536,8 +536,8 @@ extern "C" {
     /// # Returns
     ///
     /// *  [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) if the execution is successful.
-    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) the param of capturer is nullptr.
-    /// [`AUDIOSTREAM_ERROR_ILLEGAL_STATE`](crate::audiostream_base::OH_AudioStreamErrorCode::ILLEGAL_STATE) function called in invalid state, only available before release state.
+    ///    [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) the param of capturer is nullptr.
+    ///    [`AUDIOSTREAM_ERROR_ILLEGAL_STATE`](crate::audiostream_base::OH_AudioStreamErrorCode::ILLEGAL_STATE) function called in invalid state, only available before release state.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -560,10 +560,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
-    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) The param of capturer is nullptr or callback is invalid.
-    /// [`AUDIOSTREAM_ERROR_ILLEGAL_STATE`](crate::audiostream_base::OH_AudioStreamErrorCode::ILLEGAL_STATE) Running and released are illegal states.
-    /// [`AUDIOSTREAM_ERROR_SYSTEM`](crate::audiostream_base::OH_AudioStreamErrorCode::SYSTEM) System internal error, like audio service error.
+    ///   [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
+    ///   [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) The param of capturer is nullptr or callback is invalid.
+    ///   [`AUDIOSTREAM_ERROR_ILLEGAL_STATE`](crate::audiostream_base::OH_AudioStreamErrorCode::ILLEGAL_STATE) Running and released are illegal states.
+    ///   [`AUDIOSTREAM_ERROR_SYSTEM`](crate::audiostream_base::OH_AudioStreamErrorCode::SYSTEM) System internal error, like audio service error.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -588,9 +588,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
-    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) The param of capturer is nullptr.
-    /// [`AUDIOSTREAM_ERROR_ILLEGAL_STATE`](crate::audiostream_base::OH_AudioStreamErrorCode::ILLEGAL_STATE) Operation not permitted at current state, stream is not running.
+    ///   [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
+    ///   [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) The param of capturer is nullptr.
+    ///   [`AUDIOSTREAM_ERROR_ILLEGAL_STATE`](crate::audiostream_base::OH_AudioStreamErrorCode::ILLEGAL_STATE) Operation not permitted at current state, stream is not running.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -608,16 +608,16 @@ extern "C" {
     /// * `capturer` - Capturer generated by OH_AudioStreamBuilder_GenerateCapturer()
     ///
     /// * `strategy` - pointer to [`OH_AudioSession_Strategy`](crate::audio_session_base::OH_AudioSession_Strategy)
-    /// which is used to set the audio session strategy.
+    ///   which is used to set the audio session strategy.
     ///
     /// * `behavior` - Audio session behavior flag, which can be a single flag or a bitwise
-    /// OR combination of multiple flags [`OH_AudioSession_BehaviorFlags`](crate::audio_session_base::OH_AudioSession_BehaviorFlags).
+    ///   OR combination of multiple flags [`OH_AudioSession_BehaviorFlags`](crate::audio_session_base::OH_AudioSession_BehaviorFlags).
     ///
     /// # Returns
     ///
     /// * [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
-    /// or [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) If the parameter is null or out of range.
-    /// or [`AUDIOSTREAM_ERROR_ILLEGAL_STATE`](crate::audiostream_base::OH_AudioStreamErrorCode::ILLEGAL_STATE) Running and released are illegal states.
+    ///   or [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) If the parameter is null or out of range.
+    ///   or [`AUDIOSTREAM_ERROR_ILLEGAL_STATE`](crate::audiostream_base::OH_AudioStreamErrorCode::ILLEGAL_STATE) Running and released are illegal states.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -663,7 +663,7 @@ extern "C" {
     /// * `capturer` - \[in\] Pointer to the audio capturer created by [`OH_AudioStreamBuilder_GenerateCapturer`](crate::audiostreambuilder::OH_AudioStreamBuilder_GenerateCapturer).
     ///
     /// * `noiseReductionMode` - \[out\] Pointer to get the input noise reduction mode, the default value is
-    /// [`AUDIO_NOISE_REDUCTION_MODE_FIDELITY`](crate::audio_common::OH_AudioNoiseReductionMode::AUDIO_NOISE_REDUCTION_MODE_FIDELITY).
+    ///   [`AUDIO_NOISE_REDUCTION_MODE_FIDELITY`](crate::audio_common::OH_AudioNoiseReductionMode::AUDIO_NOISE_REDUCTION_MODE_FIDELITY).
     ///
     /// # Returns
     ///
@@ -687,14 +687,14 @@ extern "C" {
     /// * `capturer` - \[in\] Pointer to the audio capturer created by [`OH_AudioStreamBuilder_GenerateCapturer`](crate::audiostreambuilder::OH_AudioStreamBuilder_GenerateCapturer).
     ///
     /// * `noiseReductionModeArray` - \[out\] Pointer to a user-allocated array to get the supported noise reduction
-    /// modes, at least [`AUDIO_NOISE_REDUCTION_MODE_FIDELITY`](crate::audio_common::OH_AudioNoiseReductionMode::AUDIO_NOISE_REDUCTION_MODE_FIDELITY) is supported.
+    ///   modes, at least [`AUDIO_NOISE_REDUCTION_MODE_FIDELITY`](crate::audio_common::OH_AudioNoiseReductionMode::AUDIO_NOISE_REDUCTION_MODE_FIDELITY) is supported.
     ///
     /// * `inModeArraySize` - \[in\] The allocated size of the 'noiseReductionModeArray' input parameter, it is
-    /// recommanded to allocate a larger size, such as 20, to adapt the new modes in the future.
+    ///   recommanded to allocate a larger size, such as 20, to adapt the new modes in the future.
     ///
     /// * `outModeArraySize` - \[out\] Pointer to get the actual modes size. When the supported modes size is larger
-    /// than 'inModeArraySize', only part of the modes will be filled into 'noiseReductionModeArray', and
-    /// the 'outModeArraySize' will be equal to 'inModeArraySize'.
+    ///   than 'inModeArraySize', only part of the modes will be filled into 'noiseReductionModeArray', and
+    ///   the 'outModeArraySize' will be equal to 'inModeArraySize'.
     ///
     /// # Returns
     ///

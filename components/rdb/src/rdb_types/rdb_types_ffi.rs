@@ -49,8 +49,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a pointer to OH_RDB_ReturningContext instance when the execution is successful.
-    /// Otherwise, nullptr is returned. The memory must be released through the OH_RDB_DestroyReturningContext
-    /// interface after the use is complete.
+    ///   Otherwise, nullptr is returned. The memory must be released through the OH_RDB_DestroyReturningContext
+    ///   interface after the use is complete.
     ///
     /// **See also:** [`OH_RDB_DestroyReturningContext`](crate::rdb_types::OH_RDB_DestroyReturningContext).
     ///
@@ -81,8 +81,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) if the execution is successful.
-    /// Returns [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) if invalid input parameter.
+    ///   Returns [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) if the execution is successful.
+    ///   Returns [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) if invalid input parameter.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -103,8 +103,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) if the execution is successful.
-    /// Returns [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) if invalid input parameter.
+    ///   Returns [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) if the execution is successful.
+    ///   Returns [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) if invalid input parameter.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -122,7 +122,7 @@ extern "C" {
     /// # Returns
     ///
     /// * a pointer to the instance of the [`OH_Cursor`](crate::cursor::OH_Cursor) structure is returned.
-    /// If Get Cursor failed, nullptr is returned.
+    ///   If Get Cursor failed, nullptr is returned.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]

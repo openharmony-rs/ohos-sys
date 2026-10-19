@@ -323,13 +323,13 @@ pub type OH_NetConn_AppHttpProxyChange =
 /// * `result` - The re-authentication result. 0 indicates success. Other values indicate failure.
 ///
 /// * `proxy` - The refreshed global HTTP proxy information when result is 0. If re-authentication
-/// fails, proxy is NULL.<br>
-/// The proxy object is owned by the system and is valid only during this callback
-/// invocation. The caller must not free or modify it. If the caller needs to use the
-/// proxy information after the callback returns, the caller must make a deep copy.
+///   fails, proxy is NULL.<br>
+///   The proxy object is owned by the system and is valid only during this callback
+///   invocation. The caller must not free or modify it. If the caller needs to use the
+///   proxy information after the callback returns, the caller must make a deep copy.
 ///
 /// * `userContext` - The user-defined data passed to OH_NetConn_RefreshGlobalHttpProxyWithCallback. The system
-/// does not access, copy, or release it.
+///   does not access, copy, or release it.
 ///
 ///
 /// Available since API-level: 26
@@ -440,7 +440,7 @@ pub type OH_NetConn_NetUnavailable = ::core::option::Option<unsafe extern "C" fn
 /// * `netHandle` - Network handle.
 ///
 /// * `blocked` - Whether the network is blocked. The value true indicates that the network is blocked, and the value
-/// false indicates the opposite.
+///   false indicates the opposite.
 ///
 /// Available since API-level: 12
 ///

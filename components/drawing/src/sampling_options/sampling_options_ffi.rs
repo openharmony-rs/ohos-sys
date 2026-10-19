@@ -79,7 +79,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a pointer to the created [`OH_Drawing_SamplingOptions`](crate::types::OH_Drawing_SamplingOptions) object copy. If NULL is returned, the
-    /// creation fails. The possible failure cause is that no memory is available or **samplingOptions** is NULL.
+    ///   creation fails. The possible failure cause is that no memory is available or **samplingOptions** is NULL.
     ///
     /// Available since API-level: 20
     ///

@@ -45,10 +45,10 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// `AV_ERR_INVALID_VA`: An input parameter is nullptr or invalid.
-    /// [`AV_ERR_UNSUPPORT`](crate::averrors::OH_AVErrCode::AV_ERR_UNSUPPORT): The format is not supported.
-    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED): The media server is destroyed.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not supported.
+    ///   `AV_ERR_INVALID_VA`: An input parameter is nullptr or invalid.
+    ///   [`AV_ERR_UNSUPPORT`](crate::averrors::OH_AVErrCode::AV_ERR_UNSUPPORT): The format is not supported.
+    ///   [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED): The media server is destroyed.
+    ///   [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not supported.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -68,10 +68,10 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// `AV_ERR_INVALID_VA`: An input parameter is nullptr or invalid.
-    /// [`AV_ERR_UNSUPPORT`](crate::averrors::OH_AVErrCode::AV_ERR_UNSUPPORT): The format is not supported.
-    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED): The media server is destroyed.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not supported.
+    ///   `AV_ERR_INVALID_VA`: An input parameter is nullptr or invalid.
+    ///   [`AV_ERR_UNSUPPORT`](crate::averrors::OH_AVErrCode::AV_ERR_UNSUPPORT): The format is not supported.
+    ///   [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED): The media server is destroyed.
+    ///   [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not supported.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -91,8 +91,8 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// `AV_ERR_INVALID_VA`: An input parameter is nullptr or invalid.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not supported.
+    ///   `AV_ERR_INVALID_VA`: An input parameter is nullptr or invalid.
+    ///   [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not supported.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -110,10 +110,10 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// `AV_ERR_INVALID_VA`: An input parameter is nullptr or invalid.
-    /// [`AV_ERR_UNSUPPORT`](crate::averrors::OH_AVErrCode::AV_ERR_UNSUPPORT): The format is not supported.
-    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED): The media server is destroyed.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not supported.
+    ///   `AV_ERR_INVALID_VA`: An input parameter is nullptr or invalid.
+    ///   [`AV_ERR_UNSUPPORT`](crate::averrors::OH_AVErrCode::AV_ERR_UNSUPPORT): The format is not supported.
+    ///   [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED): The media server is destroyed.
+    ///   [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not supported.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -128,10 +128,10 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// `AV_ERR_INVALID_VA`: An input parameter is nullptr or invalid.
-    /// [`AV_ERR_UNSUPPORT`](crate::averrors::OH_AVErrCode::AV_ERR_UNSUPPORT): The format is not supported.
-    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED): The media server is destroyed.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not supported.
+    ///   `AV_ERR_INVALID_VA`: An input parameter is nullptr or invalid.
+    ///   [`AV_ERR_UNSUPPORT`](crate::averrors::OH_AVErrCode::AV_ERR_UNSUPPORT): The format is not supported.
+    ///   [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED): The media server is destroyed.
+    ///   [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not supported.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -147,9 +147,9 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// `AV_ERR_INVALID_VA`: An input parameter is nullptr or invalid.
-    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED): The media server is destroyed.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not supported.
+    ///   `AV_ERR_INVALID_VA`: An input parameter is nullptr or invalid.
+    ///   [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED): The media server is destroyed.
+    ///   [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not supported.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -164,9 +164,9 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// `AV_ERR_INVALID_VA`: An input parameter is nullptr or invalid.
-    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED): The media server is destroyed.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not supported.
+    ///   `AV_ERR_INVALID_VA`: An input parameter is nullptr or invalid.
+    ///   [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED): The media server is destroyed.
+    ///   [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not supported.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -181,9 +181,9 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// `AV_ERR_INVALID_VA`: An input parameter is nullptr or invalid.
-    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED): The media server is destroyed.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not supported.
+    ///   `AV_ERR_INVALID_VA`: An input parameter is nullptr or invalid.
+    ///   [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED): The media server is destroyed.
+    ///   [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not supported.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -198,9 +198,9 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// `AV_ERR_INVALID_VA`: An input parameter is nullptr or invalid.
-    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED): The media server is destroyed.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not supported.
+    ///   `AV_ERR_INVALID_VA`: An input parameter is nullptr or invalid.
+    ///   [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED): The media server is destroyed.
+    ///   [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not supported.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -215,9 +215,9 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// `AV_ERR_INVALID_VA`: An input parameter is nullptr or invalid.
-    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED): The media server is destroyed.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not supported.
+    ///   `AV_ERR_INVALID_VA`: An input parameter is nullptr or invalid.
+    ///   [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED): The media server is destroyed.
+    ///   [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not supported.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -233,9 +233,9 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// `AV_ERR_INVALID_VA`: An input parameter is nullptr or invalid.
-    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED): The media server is destroyed.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not supported.
+    ///   `AV_ERR_INVALID_VA`: An input parameter is nullptr or invalid.
+    ///   [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED): The media server is destroyed.
+    ///   [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not supported.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -252,9 +252,9 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// `AV_ERR_INVALID_VA`: An input parameter is nullptr or invalid.
-    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED): The media server is destroyed.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not supported.
+    ///   `AV_ERR_INVALID_VA`: An input parameter is nullptr or invalid.
+    ///   [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED): The media server is destroyed.
+    ///   [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not supported.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -274,9 +274,9 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// `AV_ERR_INVALID_VA`: An input parameter is nullptr or invalid.
-    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED): The media server is destroyed.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not supported.
+    ///   `AV_ERR_INVALID_VA`: An input parameter is nullptr or invalid.
+    ///   [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED): The media server is destroyed.
+    ///   [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not supported.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -296,9 +296,9 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// `AV_ERR_INVALID_VA`: An input parameter is nullptr or invalid.
-    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED): The media server is destroyed.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not supported.
+    ///   `AV_ERR_INVALID_VA`: An input parameter is nullptr or invalid.
+    ///   [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED): The media server is destroyed.
+    ///   [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not supported.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -318,9 +318,9 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// `AV_ERR_INVALID_VA`: An input parameter is nullptr or invalid.
-    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED): The media server is destroyed.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not supported.
+    ///   `AV_ERR_INVALID_VA`: An input parameter is nullptr or invalid.
+    ///   [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED): The media server is destroyed.
+    ///   [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not supported.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -335,7 +335,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Pointer to the OH_LowPowerAudioSinkCallback instance created. If the memory is insufficient, nullptr is
-    /// returned.
+    ///   returned.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -350,7 +350,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// `AV_ERR_INVALID_VA`: An input parameter is nullptr or invalid.
+    ///   `AV_ERR_INVALID_VA`: An input parameter is nullptr or invalid.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -365,15 +365,15 @@ extern "C" {
     /// * `callback` - Pointer to an OH_LowPowerAudioSinkCallback instance
     ///
     /// * `onPositionUpdated` - OH_LowPowerAudioSink_OnPositionUpdated function,
-    /// refer to [`OH_LowPowerAudioSink_OnPositionUpdated`](crate::lowpower_audio_sink_base::OH_LowPowerAudioSink_OnPositionUpdated)
+    ///   refer to [`OH_LowPowerAudioSink_OnPositionUpdated`](crate::lowpower_audio_sink_base::OH_LowPowerAudioSink_OnPositionUpdated)
     ///
     /// * `userData` - Pointer to the data on which the caller depends when executing the callback.
     ///
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// `AV_ERR_INVALID_VA`: An input parameter is nullptr or invalid.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not supported.
+    ///   `AV_ERR_INVALID_VA`: An input parameter is nullptr or invalid.
+    ///   [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not supported.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -390,15 +390,15 @@ extern "C" {
     /// * `callback` - Pointer to an OH_LowPowerAudioSinkCallback instance
     ///
     /// * `onDataNeeded` - OH_LowPowerAudioSink_OnDataNeeded function,
-    /// refer to [`OH_LowPowerAudioSink_OnDataNeeded`](crate::lowpower_audio_sink_base::OH_LowPowerAudioSink_OnDataNeeded)
+    ///   refer to [`OH_LowPowerAudioSink_OnDataNeeded`](crate::lowpower_audio_sink_base::OH_LowPowerAudioSink_OnDataNeeded)
     ///
     /// * `userData` - User specific data
     ///
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// `AV_ERR_INVALID_VA`: An input parameter is nullptr or invalid.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not supported.
+    ///   `AV_ERR_INVALID_VA`: An input parameter is nullptr or invalid.
+    ///   [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not supported.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -415,15 +415,15 @@ extern "C" {
     /// * `callback` - Pointer to an OH_LowPowerAudioSinkCallback instance
     ///
     /// * `onError` - OH_LowPowerAudioSink_OnError function,
-    /// refer to [`OH_LowPowerAudioSink_OnError`](crate::lowpower_audio_sink_base::OH_LowPowerAudioSink_OnError)
+    ///   refer to [`OH_LowPowerAudioSink_OnError`](crate::lowpower_audio_sink_base::OH_LowPowerAudioSink_OnError)
     ///
     /// * `userData` - User specific data
     ///
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// `AV_ERR_INVALID_VA`: An input parameter is nullptr or invalid.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not supported.
+    ///   `AV_ERR_INVALID_VA`: An input parameter is nullptr or invalid.
+    ///   [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not supported.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -440,15 +440,15 @@ extern "C" {
     /// * `callback` - Pointer to an OH_LowPowerAudioSinkCallback instance
     ///
     /// * `onEos` - OH_LowPowerAudioSink_OnEos function,
-    /// refer to [`OH_LowPowerAudioSink_OnEos`](crate::lowpower_audio_sink_base::OH_LowPowerAudioSink_OnEos)
+    ///   refer to [`OH_LowPowerAudioSink_OnEos`](crate::lowpower_audio_sink_base::OH_LowPowerAudioSink_OnEos)
     ///
     /// * `userData` - User specific data
     ///
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// `AV_ERR_INVALID_VA`: An input parameter is nullptr or invalid.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not supported.
+    ///   `AV_ERR_INVALID_VA`: An input parameter is nullptr or invalid.
+    ///   [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not supported.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -465,13 +465,13 @@ extern "C" {
     /// * `sink` - Pointer to an OH_LowPowerAudioSink instance.
     ///
     /// * `loudnessGain` - Loudness gain to set which changes from -90.0 to 24.0, expressing in dB.
-    /// The default loudness gain is 0.0dB.
+    ///   The default loudness gain is 0.0dB.
     ///
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// `AV_ERR_INVALID_VA`: An input parameter is nullptr or invalid.
-    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED): The media server is destroyed.
+    ///   `AV_ERR_INVALID_VA`: An input parameter is nullptr or invalid.
+    ///   [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED): The media server is destroyed.
     ///
     /// Available since API-level: 21
     #[cfg(feature = "api-21")]

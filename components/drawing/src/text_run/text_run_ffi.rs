@@ -19,18 +19,18 @@ extern "C" {
     /// * `run` - Pointer to an [`OH_Drawing_Run`](crate::text_declaration::OH_Drawing_Run) object.
     ///
     /// * `start` - Start position specified within the rendering unit. The value range is \[0, glyphCount-1\], where
-    /// glyphCount is the glyph count of the rendering unit. The method returns a null pointer when passing a negative
-    /// number or a value that exceeds the glyph count of the rendering unit.
+    ///   glyphCount is the glyph count of the rendering unit. The method returns a null pointer when passing a negative
+    ///   number or a value that exceeds the glyph count of the rendering unit.
     ///
     /// * `length` - Length specified within the rendering unit. When length is 0, the method obtains the character index
-    /// array of all characters in the rendering unit. When length is less than 0, the method returns a null pointer.
-    /// When start+length exceeds the actual range of the rendering unit, the method obtains valid data up to the end of
-    /// the rendering unit.
+    ///   array of all characters in the rendering unit. When length is less than 0, the method returns a null pointer.
+    ///   When start+length exceeds the actual range of the rendering unit, the method obtains valid data up to the end of
+    ///   the rendering unit.
     ///
     /// # Returns
     ///
     /// * Returns the character index array of the glyph. Call [`OH_Drawing_DestroyRunStringIndices`](crate::text_run::OH_Drawing_DestroyRunStringIndices) to release
-    /// this pointer when the object is no longer needed.
+    ///   this pointer when the object is no longer needed.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -49,8 +49,8 @@ extern "C" {
     /// * `stringIndices` - Pointer to a character index array.
     ///
     /// * `index` - Subscript of the character index array for the rendering unit glyphs. The value range is \[0,
-    /// arrayLength-1\], where arrayLength is the number of elements in the stringIndices array. 0 is returned when the
-    /// value exceeds this range.
+    ///   arrayLength-1\], where arrayLength is the number of elements in the stringIndices array. 0 is returned when the
+    ///   value exceeds this range.
     ///
     /// # Returns
     ///
@@ -84,11 +84,11 @@ extern "C" {
     /// * `run` - Pointer to an [`OH_Drawing_Run`](crate::text_declaration::OH_Drawing_Run) object.
     ///
     /// * `location` - Start position of the character range of the rendering unit glyph, which is an offset relative to
-    /// the whole paragraph. This is an output parameter. The caller must provide a valid pointer to receive the return
-    /// value.
+    ///   the whole paragraph. This is an output parameter. The caller must provide a valid pointer to receive the return
+    ///   value.
     ///
     /// * `length` - Length of the character range of the rendering unit. This is an output parameter. The caller must
-    /// provide a valid pointer to receive the return value.
+    ///   provide a valid pointer to receive the return value.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -161,7 +161,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the pointer to an [`OH_Drawing_Rect`](crate::types::OH_Drawing_Rect) object. Call [`OH_Drawing_DestroyRunImageBounds`](crate::text_run::OH_Drawing_DestroyRunImageBounds) to
-    /// release this pointer when the object is no longer needed.
+    ///   release this pointer when the object is no longer needed.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -188,17 +188,17 @@ extern "C" {
     /// * `run` - Pointer to an [`OH_Drawing_Run`](crate::text_declaration::OH_Drawing_Run) object.
     ///
     /// * `start` - Start position specified within the rendering unit. The value range is \[0, glyphCount-1\], where
-    /// glyphCount is the number of glyphs in the rendering unit. When a negative number is passed or the value exceeds
-    /// the number of glyphs in the rendering unit, the method returns a null pointer.
+    ///   glyphCount is the number of glyphs in the rendering unit. When a negative number is passed or the value exceeds
+    ///   the number of glyphs in the rendering unit, the method returns a null pointer.
     ///
     /// * `length` - Length specified within the rendering unit. When length is 0, all glyphs of the rendering unit are
-    /// obtained. When length is less than 0, the method returns a null pointer. When start+length exceeds the actual
-    /// range of the rendering unit, valid data up to the end of the rendering unit is obtained.
+    ///   obtained. When length is less than 0, the method returns a null pointer. When start+length exceeds the actual
+    ///   range of the rendering unit, valid data up to the end of the rendering unit is obtained.
     ///
     /// # Returns
     ///
     /// * Returns the pointer to an [`OH_Drawing_Array`](crate::types::OH_Drawing_Array) object of a glyph array in a run. Call
-    /// [`OH_Drawing_DestroyRunGlyphs`](crate::text_run::OH_Drawing_DestroyRunGlyphs) to release this pointer when the object is no longer needed.
+    ///   [`OH_Drawing_DestroyRunGlyphs`](crate::text_run::OH_Drawing_DestroyRunGlyphs) to release this pointer when the object is no longer needed.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -217,7 +217,7 @@ extern "C" {
     /// * `glyphs` - Pointer to the glyph array, which is an [`OH_Drawing_Array`](crate::types::OH_Drawing_Array) object.
     ///
     /// * `index` - Subscript of the rendering unit glyph array. The value range is \[0, arrayLength-1\], where arrayLength
-    /// is the number of elements in the glyphs array. 0 is returned when the value exceeds this range.
+    ///   is the number of elements in the glyphs array. 0 is returned when the value exceeds this range.
     ///
     /// # Returns
     ///
@@ -250,17 +250,17 @@ extern "C" {
     /// * `run` - Pointer to an [`OH_Drawing_Run`](crate::text_declaration::OH_Drawing_Run) object.
     ///
     /// * `start` - Start position specified within the rendering unit. The value range is \[0, glyphCount-1\], where
-    /// glyphCount is the glyph count of the rendering unit. The method returns a null pointer when a negative number is
-    /// passed or when the value exceeds the glyph count of the rendering unit.
+    ///   glyphCount is the glyph count of the rendering unit. The method returns a null pointer when a negative number is
+    ///   passed or when the value exceeds the glyph count of the rendering unit.
     ///
     /// * `length` - Length specified within the rendering unit. When length is 0, all glyph positions of the rendering
-    /// unit are obtained. The method returns a null pointer when length is less than 0. When start+length exceeds the
-    /// actual range of the rendering unit, valid data up to the end of the rendering unit is obtained.
+    ///   unit are obtained. The method returns a null pointer when length is less than 0. When start+length exceeds the
+    ///   actual range of the rendering unit, valid data up to the end of the rendering unit is obtained.
     ///
     /// # Returns
     ///
     /// * Returns the pointer to an [`OH_Drawing_Array`](crate::types::OH_Drawing_Array) object of a glyph position array in a run. Call
-    /// [`OH_Drawing_DestroyRunPositions`](crate::text_run::OH_Drawing_DestroyRunPositions) to release this pointer when the object is no longer needed.
+    ///   [`OH_Drawing_DestroyRunPositions`](crate::text_run::OH_Drawing_DestroyRunPositions) to release this pointer when the object is no longer needed.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -279,13 +279,13 @@ extern "C" {
     /// * `positions` - Pointer to the glyph position array, which is an [`OH_Drawing_Array`](crate::types::OH_Drawing_Array) object.
     ///
     /// * `index` - Subscript of the rendering unit glyph position array. The value range is \[0, arrayLength-1\], where
-    /// arrayLength is the number of elements in the positions array. The method returns null pointer when the value
-    /// exceeds the range.
+    ///   arrayLength is the number of elements in the positions array. The method returns null pointer when the value
+    ///   exceeds the range.
     ///
     /// # Returns
     ///
     /// * Returns the pointer to an [`OH_Drawing_Point`](crate::types::OH_Drawing_Point) object, which holds the positions of individual glyphs in
-    /// the run.
+    ///   the run.
     ///
     /// Available since API-level: 18
     ///
@@ -335,7 +335,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the pointer to an [`OH_Drawing_Font`](crate::types::OH_Drawing_Font) object in a run. Call [`OH_Drawing_FontDestroy`](crate::font::OH_Drawing_FontDestroy) to
-    /// release this pointer when the object is no longer needed.
+    ///   release this pointer when the object is no longer needed.
     ///
     /// Available since API-level: 20
     ///
@@ -354,7 +354,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the text direction of a run. **0**: **TEXT_DIRECTION_RTL**, which means right-to-left; **1**: **
-    /// TEXT_DIRECTION_LTR**, which means left-to-right. For details, see [`OH_Drawing_TextDirection`](crate::text_typography::OH_Drawing_TextDirection).
+    ///   TEXT_DIRECTION_LTR**, which means left-to-right. For details, see [`OH_Drawing_TextDirection`](crate::text_typography::OH_Drawing_TextDirection).
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -369,16 +369,16 @@ extern "C" {
     /// * `run` - Pointer to an [`OH_Drawing_Run`](crate::text_declaration::OH_Drawing_Run) object.
     ///
     /// * `start` - Start position specified within the rendering unit. The value range is \[0, glyphCount-1\], where
-    /// glyphCount is the glyph count of the rendering unit. If the passed value exceeds the glyph count of the
-    /// rendering unit, the method returns null pointer.
+    ///   glyphCount is the glyph count of the rendering unit. If the passed value exceeds the glyph count of the
+    ///   rendering unit, the method returns null pointer.
     ///
     /// * `length` - Length specified within the rendering unit. When length is 0, obtains the widths of all glyphs from
-    /// start to the end of the rendering unit.
+    ///   start to the end of the rendering unit.
     ///
     /// # Returns
     ///
     /// * Returns the pointer to an [`OH_Drawing_Array`](crate::types::OH_Drawing_Array) object of a glyph advance array in a run. Call
-    /// [`OH_Drawing_DestroyRunGlyphAdvances`](crate::text_run::OH_Drawing_DestroyRunGlyphAdvances) to release this pointer when the object is no longer needed.
+    ///   [`OH_Drawing_DestroyRunGlyphAdvances`](crate::text_run::OH_Drawing_DestroyRunGlyphAdvances) to release this pointer when the object is no longer needed.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -397,13 +397,13 @@ extern "C" {
     /// * `advances` - Pointer to the glyph advance array, which is an [`OH_Drawing_Array`](crate::types::OH_Drawing_Array) object.
     ///
     /// * `index` - Subscript of the rendering unit glyph width array. The value range is \[0, arrayLength-1\], where
-    /// arrayLength is the number of elements in the advances array. A null pointer is returned when the value exceeds
-    /// the range.
+    ///   arrayLength is the number of elements in the advances array. A null pointer is returned when the value exceeds
+    ///   the range.
     ///
     /// # Returns
     ///
     /// * Returns the pointer to an [`OH_Drawing_Point`](crate::types::OH_Drawing_Point) object, which holds the advance of individual glyphs in
-    /// the run. **x** indicates the advance, and **y** is a reserved field and defaults to **0**.
+    ///   the run. **x** indicates the advance, and **y** is a reserved field and defaults to **0**.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]

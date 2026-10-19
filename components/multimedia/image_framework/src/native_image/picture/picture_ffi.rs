@@ -97,7 +97,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) options is nullptr.
+    ///   <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) options is nullptr.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -114,7 +114,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) options is nullptr, or desiredPixelFormat is not supported.
+    ///   <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) options is nullptr, or desiredPixelFormat is not supported.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -134,7 +134,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) options is nullptr,or desiredPixelFormat is nullptr.
+    ///   <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) options is nullptr,or desiredPixelFormat is nullptr.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -152,7 +152,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) options is nullptr.
+    ///   <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) options is nullptr.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -169,7 +169,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) mainPixelmap is nullptr, or picture is nullptr.
+    ///   <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) mainPixelmap is nullptr, or picture is nullptr.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -189,7 +189,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) picture is nullptr, or mainPixelmap is nullptr.
+    ///   <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) picture is nullptr, or mainPixelmap is nullptr.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -209,8 +209,8 @@ extern "C" {
     /// # Returns
     ///
     /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) picture is nullptr, or hdrPixelmap is nullptr.
-    /// <br>[`IMAGE_UNSUPPORTED_OPERATION`](crate::native_image::common::ImageResult::UNSUPPORTED_OPERATION) Unsupported operation, e.g. the picture does not has a gainmap.
+    ///   <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) picture is nullptr, or hdrPixelmap is nullptr.
+    ///   <br>[`IMAGE_UNSUPPORTED_OPERATION`](crate::native_image::common::ImageResult::UNSUPPORTED_OPERATION) Unsupported operation, e.g. the picture does not has a gainmap.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -232,8 +232,8 @@ extern "C" {
     /// # Returns
     ///
     /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) picture is nullptr, or hdrPixelmap is nullptr.
-    /// <br>[`IMAGE_UNSUPPORTED_OPERATION`](crate::native_image::common::ImageResult::UNSUPPORTED_OPERATION) Unsupported operation, e.g. the picture does not has a gainmap.
+    ///   <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) picture is nullptr, or hdrPixelmap is nullptr.
+    ///   <br>[`IMAGE_UNSUPPORTED_OPERATION`](crate::native_image::common::ImageResult::UNSUPPORTED_OPERATION) Unsupported operation, e.g. the picture does not has a gainmap.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -254,7 +254,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) picture is nullptr, or gainmapPixelmap is nullptr.
+    ///   <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) picture is nullptr, or gainmapPixelmap is nullptr.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -276,7 +276,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) picture is nullptr, or auxiliaryPicture is nullptr, or the type is invalid.
+    ///   <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) picture is nullptr, or auxiliaryPicture is nullptr, or the type is invalid.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -299,7 +299,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) picture is nullptr, or auxiliaryPicture is nullptr, or the type is invalid.
+    ///   <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) picture is nullptr, or auxiliaryPicture is nullptr, or the type is invalid.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -322,8 +322,8 @@ extern "C" {
     /// # Returns
     ///
     /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) picture is nullptr, or metadata is nullptr.
-    /// <br>[`IMAGE_UNSUPPORTED_METADATA`](crate::native_image::common::ImageResult::UNSUPPORTED_METADATA) unsupported metadata type.
+    ///   <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) picture is nullptr, or metadata is nullptr.
+    ///   <br>[`IMAGE_UNSUPPORTED_METADATA`](crate::native_image::common::ImageResult::UNSUPPORTED_METADATA) unsupported metadata type.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -346,8 +346,8 @@ extern "C" {
     /// # Returns
     ///
     /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) picture is nullptr, or metadata is nullptr.
-    /// <br>[`IMAGE_UNSUPPORTED_METADATA`](crate::native_image::common::ImageResult::UNSUPPORTED_METADATA) unsupported metadata type.
+    ///   <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) picture is nullptr, or metadata is nullptr.
+    ///   <br>[`IMAGE_UNSUPPORTED_METADATA`](crate::native_image::common::ImageResult::UNSUPPORTED_METADATA) unsupported metadata type.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -386,7 +386,7 @@ extern "C" {
     /// * `auxiliaryPictureTypes` - Pointer to the array that receives the auxiliary picture types.
     ///
     /// * `count` - On input, the size of auxiliaryPictureTypes array.
-    /// On output, the actual number of auxiliary pictures.
+    ///   On output, the actual number of auxiliary pictures.
     ///
     /// # Returns
     ///
@@ -430,7 +430,7 @@ extern "C" {
     /// * `metadataTypes` - Pointer to the array that receives the metadata types.
     ///
     /// * `count` - On input, the size of metadataTypes array.
-    /// On output, the actual number of metadata entries.
+    ///   On output, the actual number of metadata entries.
     ///
     /// # Returns
     ///
@@ -494,23 +494,23 @@ extern "C" {
     /// * `source` - The source PictureNative object to be copied. Must not be NULL.
     ///
     /// * `auxiliaryPictureCopyItems` - An array describing the auxiliary pictures to copy,
-    /// including source and destination auxiliary picture types. Can be NULL if
-    /// auxiliaryPictureCopyCount is 0.
+    ///   including source and destination auxiliary picture types. Can be NULL if
+    ///   auxiliaryPictureCopyCount is 0.
     ///
     /// * `auxiliaryPictureCopyCount` - The number of items in auxiliaryPictureCopyItems.
     ///
     /// * `metadataCopyItems` - An array describing the metadata entries to copy,
-    /// including source and destination metadata types. Can be NULL if
-    /// metadataCopyCount is 0.
+    ///   including source and destination metadata types. Can be NULL if
+    ///   metadataCopyCount is 0.
     ///
     /// * `metadataCopyCount` - The number of items in metadataCopyItems.
     ///
     /// * `sourceAuxPictureAsMainPixelMap` - Specifies an auxiliary picture type in the source
-    /// picture to be used as the main pixel map in the copied picture. Can be NULL if
-    /// the original main pixel map should be used.
+    ///   picture to be used as the main pixel map in the copied picture. Can be NULL if
+    ///   the original main pixel map should be used.
     ///
     /// * `picture` - Output parameter used to receive the newly created PictureNative object.
-    /// The caller is responsible for releasing it when it is no longer needed.
+    ///   The caller is responsible for releasing it when it is no longer needed.
     ///
     /// # Returns
     ///
@@ -541,7 +541,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) picture is nullptr.
+    ///   <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) picture is nullptr.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -565,8 +565,8 @@ extern "C" {
     /// # Returns
     ///
     /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) data is nullptr, or dataLength is invalid, or size is nullptr, or the type
-    /// is invalid, or auxiliaryPicture is nullptr.
+    ///   <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) data is nullptr, or dataLength is invalid, or size is nullptr, or the type
+    ///   is invalid, or auxiliaryPicture is nullptr.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -591,9 +591,9 @@ extern "C" {
     /// # Returns
     ///
     /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) auxiliaryPicture is nullptr, or source is nullptr, or the bufferSize is invalid.
-    /// <br>[`IMAGE_ALLOC_FAILED`](crate::native_image::common::ImageResult::ALLOC_FAILED) memory alloc failed.
-    /// <br>[`IMAGE_COPY_FAILED`](crate::native_image::common::ImageResult::COPY_FAILED) memory copy failed.
+    ///   <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) auxiliaryPicture is nullptr, or source is nullptr, or the bufferSize is invalid.
+    ///   <br>[`IMAGE_ALLOC_FAILED`](crate::native_image::common::ImageResult::ALLOC_FAILED) memory alloc failed.
+    ///   <br>[`IMAGE_COPY_FAILED`](crate::native_image::common::ImageResult::COPY_FAILED) memory copy failed.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -616,10 +616,10 @@ extern "C" {
     /// # Returns
     ///
     /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) auxiliaryPicture is nullptr, or destination is nullptr,
-    /// or the bufferSize is invalid.
-    /// <br>[`IMAGE_ALLOC_FAILED`](crate::native_image::common::ImageResult::ALLOC_FAILED) memory alloc failed.
-    /// <br>[`IMAGE_COPY_FAILED`](crate::native_image::common::ImageResult::COPY_FAILED) memory copy failed.
+    ///   <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) auxiliaryPicture is nullptr, or destination is nullptr,
+    ///   or the bufferSize is invalid.
+    ///   <br>[`IMAGE_ALLOC_FAILED`](crate::native_image::common::ImageResult::ALLOC_FAILED) memory alloc failed.
+    ///   <br>[`IMAGE_COPY_FAILED`](crate::native_image::common::ImageResult::COPY_FAILED) memory copy failed.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -640,7 +640,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) auxiliaryPicture is nullptr, or type is nullptr.
+    ///   <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) auxiliaryPicture is nullptr, or type is nullptr.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -660,7 +660,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) auxiliaryPicture is nullptr, or info is nullptr.
+    ///   <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) auxiliaryPicture is nullptr, or info is nullptr.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -680,7 +680,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) auxiliaryPicture is nullptr, or info is nullptr.
+    ///   <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) auxiliaryPicture is nullptr, or info is nullptr.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -702,9 +702,9 @@ extern "C" {
     /// # Returns
     ///
     /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) auxiliaryPicture is nullptr, or metadata is nullptr.
-    /// <br>[`IMAGE_UNSUPPORTED_METADATA`](crate::native_image::common::ImageResult::UNSUPPORTED_METADATA) unsupported metadata type, or the metadata type does not match the
-    /// auxiliary picture type.
+    ///   <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) auxiliaryPicture is nullptr, or metadata is nullptr.
+    ///   <br>[`IMAGE_UNSUPPORTED_METADATA`](crate::native_image::common::ImageResult::UNSUPPORTED_METADATA) unsupported metadata type, or the metadata type does not match the
+    ///   auxiliary picture type.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -727,9 +727,9 @@ extern "C" {
     /// # Returns
     ///
     /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) auxiliaryPicture is nullptr, or metadata is nullptr.
-    /// <br>[`IMAGE_UNSUPPORTED_METADATA`](crate::native_image::common::ImageResult::UNSUPPORTED_METADATA) unsupported metadata type, or the metadata type does not match the
-    /// auxiliary picture type.
+    ///   <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) auxiliaryPicture is nullptr, or metadata is nullptr.
+    ///   <br>[`IMAGE_UNSUPPORTED_METADATA`](crate::native_image::common::ImageResult::UNSUPPORTED_METADATA) unsupported metadata type, or the metadata type does not match the
+    ///   auxiliary picture type.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -772,7 +772,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) picture is nullptr.
+    ///   <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) picture is nullptr.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -789,7 +789,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) info is nullptr.
+    ///   <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) info is nullptr.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -806,7 +806,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) info is nullptr, or type is nullptr.
+    ///   <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) info is nullptr, or type is nullptr.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -826,7 +826,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) info is nullptr, or type is invalid.
+    ///   <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) info is nullptr, or type is invalid.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -846,7 +846,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) info is nullptr, or size is nullptr.
+    ///   <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) info is nullptr, or size is nullptr.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -866,7 +866,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) info is nullptr, or size is nullptr.
+    ///   <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) info is nullptr, or size is nullptr.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -882,12 +882,12 @@ extern "C" {
     /// * `info` - Pointer to the OH_AuxiliaryPictureInfo object.
     ///
     /// * `rowStride` - Pointer to the row stride, which is the number of bytes from one row of pixels in memory to the
-    /// next row of pixels in memory.
+    ///   next row of pixels in memory.
     ///
     /// # Returns
     ///
     /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) info is nullptr, or rowStride is nullptr.
+    ///   <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) info is nullptr, or rowStride is nullptr.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -903,12 +903,12 @@ extern "C" {
     /// * `info` - Pointer to the OH_AuxiliaryPictureInfo object.
     ///
     /// * `rowStride` - Row stride, which is the number of bytes from one row of pixels in memory to the next row of pixels
-    /// in memory.
+    ///   in memory.
     ///
     /// # Returns
     ///
     /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) info is nullptr, or rowStride is nullptr.
+    ///   <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) info is nullptr, or rowStride is nullptr.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -928,7 +928,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) info is nullptr, or pixelFormat is nullptr.
+    ///   <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) info is nullptr, or pixelFormat is nullptr.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -948,7 +948,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) info is nullptr.
+    ///   <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) info is nullptr.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -966,7 +966,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) info is nullptr.
+    ///   <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) info is nullptr.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]

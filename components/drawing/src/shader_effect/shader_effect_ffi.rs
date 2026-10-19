@@ -38,7 +38,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the pointer to the [`OH_Drawing_ShaderEffect`](crate::types::OH_Drawing_ShaderEffect) object created. If NULL is returned, the creation
-    /// fails. The possible failure cause is that no memory is available.
+    ///   fails. The possible failure cause is that no memory is available.
     ///
     /// Available since API-level: 12
     ///
@@ -60,13 +60,13 @@ extern "C" {
     /// * `colors` - Colors to distribute between the two points.
     ///
     /// * `pos` - Relative position of each color in the color array. The array length must be the same as that of **colors*
-    /// *. If **pos** is NULL, colors are evenly distributed between the start point and end point.
+    ///   *. If **pos** is NULL, colors are evenly distributed between the start point and end point.
     ///
     /// * `size` - Number of colors and positions (if **pos** is not NULL).
     ///
     /// * `tileMode` - Tile mode of the shader effect. For details about the available options, see
-    /// [`OH_Drawing_TileMode`](crate::shader_effect::OH_Drawing_TileMode)
-    /// .
+    ///   [`OH_Drawing_TileMode`](crate::shader_effect::OH_Drawing_TileMode)
+    ///   .
     ///
     /// # Returns
     ///
@@ -99,21 +99,21 @@ extern "C" {
     /// * `colors` - Colors to distribute between the two points.
     ///
     /// * `pos` - Relative position of each color in the color array. The array length must be the same as that of **colors*
-    /// *. If **pos** is NULL, colors are evenly distributed between the start point and end point.
+    ///   *. If **pos** is NULL, colors are evenly distributed between the start point and end point.
     ///
     /// * `size` - Number of colors and positions (if **pos** is not NULL).
     ///
     /// * `tileMode` - Tile mode of the shader effect. For details about the available options, see
-    /// [`OH_Drawing_TileMode`](crate::shader_effect::OH_Drawing_TileMode)
-    /// .
+    ///   [`OH_Drawing_TileMode`](crate::shader_effect::OH_Drawing_TileMode)
+    ///   .
     ///
     /// * `matrix` - Matrix applied on the shader effect. If **matrix** is NULL, an identity matrix is applied by default.
     ///
     /// # Returns
     ///
     /// * Returns the pointer to the [`OH_Drawing_ShaderEffect`](crate::types::OH_Drawing_ShaderEffect) object created. If NULL is returned, the creation
-    /// fails. The possible failure cause is that no memory is available or at least one of the parameters **startPt**, **
-    /// endPt**, and **colors** is NULL.
+    ///   fails. The possible failure cause is that no memory is available or at least one of the parameters **startPt**, **
+    ///   endPt**, and **colors** is NULL.
     ///
     /// Available since API-level: 12
     ///
@@ -145,13 +145,13 @@ extern "C" {
     /// * `colors` - Colors to distribute in the radial direction.
     ///
     /// * `pos` - Relative position of each color in the color array. The array length must be the same as that of **colors*
-    /// *. If **pos** is NULL, colors are evenly distributed in the radial direction.
+    ///   *. If **pos** is NULL, colors are evenly distributed in the radial direction.
     ///
     /// * `size` - Number of colors and positions (if **pos** is not NULL).
     ///
     /// * `tileMode` - Tile mode of the shader effect. For details about the available options, see
-    /// [`OH_Drawing_TileMode`](crate::shader_effect::OH_Drawing_TileMode)
-    /// .
+    ///   [`OH_Drawing_TileMode`](crate::shader_effect::OH_Drawing_TileMode)
+    ///   .
     ///
     /// # Returns
     ///
@@ -186,21 +186,21 @@ extern "C" {
     /// * `colors` - Colors to distribute in the radial direction.
     ///
     /// * `pos` - Relative position of each color in the color array. The array length must be the same as that of **colors*
-    /// *. If **pos** is NULL, colors are evenly distributed in the radial direction.
+    ///   *. If **pos** is NULL, colors are evenly distributed in the radial direction.
     ///
     /// * `size` - Number of colors and positions (if **pos** is not NULL).
     ///
     /// * `tileMode` - Tile mode of the shader effect. For details about the available options, see
-    /// [`OH_Drawing_TileMode`](crate::shader_effect::OH_Drawing_TileMode)
-    /// .
+    ///   [`OH_Drawing_TileMode`](crate::shader_effect::OH_Drawing_TileMode)
+    ///   .
     ///
     /// * `matrix` - Matrix applied on the shader effect. If **matrix** is NULL, an identity matrix is applied by default.
     ///
     /// # Returns
     ///
     /// * Returns the pointer to the [`OH_Drawing_ShaderEffect`](crate::types::OH_Drawing_ShaderEffect) object created. If NULL is returned, the creation
-    /// fails. The possible failure cause is that no memory is available or at least one of the parameters **centerPt** and *
-    /// *colors** is NULL.
+    ///   fails. The possible failure cause is that no memory is available or at least one of the parameters **centerPt** and *
+    ///   *colors** is NULL.
     ///
     /// Available since API-level: 12
     ///
@@ -227,20 +227,20 @@ extern "C" {
     /// * `colors` - Colors to distribute between the two points.
     ///
     /// * `pos` - Relative position of each color in the color array. The array length must be the same as that of **colors*
-    /// *. If **pos** is NULL, colors are evenly distributed between the start angle (0°) and end angle (360°).
+    ///   *. If **pos** is NULL, colors are evenly distributed between the start angle (0°) and end angle (360°).
     ///
     /// * `size` - Number of colors and positions (if **pos** is not NULL).
     ///
     /// * `tileMode` - Tile mode of the shader effect. For details about the available options, see
-    /// [`OH_Drawing_TileMode`](crate::shader_effect::OH_Drawing_TileMode)
-    /// .
+    ///   [`OH_Drawing_TileMode`](crate::shader_effect::OH_Drawing_TileMode)
+    ///   .
     ///
     /// * `matrix` - Matrix applied on the shader effect. If **matrix** is NULL, an identity matrix is applied by default.
     ///
     /// # Returns
     ///
     /// * Returns the pointer to the [`OH_Drawing_ShaderEffect`](crate::types::OH_Drawing_ShaderEffect) object created.
-    /// A null pointer is returned if any of the following conditions is met:
+    ///   A null pointer is returned if any of the following conditions is met:
     /// - The available memory is empty.
     /// - **centerPt** or **colors** is NULL.
     /// - The value of **tileMode** is out of the enumerated value range.
@@ -271,18 +271,18 @@ extern "C" {
     /// * `colors` - Colors to distribute between the two points.
     ///
     /// * `pos` - Relative position of each color in the color array. The array length must be the same as that of **colors*
-    /// *. If **pos** is NULL, colors are evenly distributed between the start angle (0°) and end angle (360°).
+    ///   *. If **pos** is NULL, colors are evenly distributed between the start angle (0°) and end angle (360°).
     ///
     /// * `size` - Number of colors and positions (if **pos** is not NULL).
     ///
     /// * `tileMode` - Tile mode of the shader effect. For details about the available options, see
-    /// [`OH_Drawing_TileMode`](crate::shader_effect::OH_Drawing_TileMode)
-    /// .
+    ///   [`OH_Drawing_TileMode`](crate::shader_effect::OH_Drawing_TileMode)
+    ///   .
     ///
     /// # Returns
     ///
     /// * Returns the pointer to the [`OH_Drawing_ShaderEffect`](crate::types::OH_Drawing_ShaderEffect) object created.
-    /// A null pointer is returned if any of the following conditions is met:
+    ///   A null pointer is returned if any of the following conditions is met:
     /// - The available memory is empty.
     /// - **centerPt** or **colors** is NULL.
     /// - The value of **tileMode** is out of the enumerated value range.
@@ -311,21 +311,21 @@ extern "C" {
     /// * `image` - Pointer to the [`OH_Drawing_Image`](crate::types::OH_Drawing_Image) object.
     ///
     /// * `tileX` - Tile mode of the shader effect in the horizontal direction. For details about the available options,
-    /// see [`OH_Drawing_TileMode`](crate::shader_effect::OH_Drawing_TileMode).
+    ///   see [`OH_Drawing_TileMode`](crate::shader_effect::OH_Drawing_TileMode).
     ///
     /// * `tileY` - Tile mode of the shader effect in the vertical direction. For details about the available options, see
-    /// [`OH_Drawing_TileMode`](crate::shader_effect::OH_Drawing_TileMode)
-    /// .
+    ///   [`OH_Drawing_TileMode`](crate::shader_effect::OH_Drawing_TileMode)
+    ///   .
     ///
     /// * `samplingOptions` - Pointer to the [`OH_Drawing_SamplingOptions`](crate::types::OH_Drawing_SamplingOptions) object.
     ///
     /// * `matrix` - Pointer to the [`OH_Drawing_Matrix`](crate::types::OH_Drawing_Matrix) object. If the pointer array is empty, the identity matrix is
-    /// passed in.
+    ///   passed in.
     ///
     /// # Returns
     ///
     /// * Returns the pointer to the [`OH_Drawing_ShaderEffect`](crate::types::OH_Drawing_ShaderEffect) object created.
-    /// A null pointer is returned if any of the following conditions is met:
+    ///   A null pointer is returned if any of the following conditions is met:
     /// - The available memory is empty.
     /// - **image** or **samplingOptions** is NULL.
     /// - The value of **tileX** or **tileY** is out of the enumerated value range.
@@ -349,16 +349,16 @@ extern "C" {
     /// * `pixelMap` - Pointer to the [`OH_Drawing_PixelMap`](crate::types::OH_Drawing_PixelMap) object.
     ///
     /// * `tileX` - Tile mode of the shader effect in the horizontal direction. For details about the available options,
-    /// see [`OH_Drawing_TileMode`](crate::shader_effect::OH_Drawing_TileMode).
+    ///   see [`OH_Drawing_TileMode`](crate::shader_effect::OH_Drawing_TileMode).
     ///
     /// * `tileY` - Tile mode of the shader effect in the vertical direction. For details about the available options, see
-    /// [`OH_Drawing_TileMode`](crate::shader_effect::OH_Drawing_TileMode)
-    /// .
+    ///   [`OH_Drawing_TileMode`](crate::shader_effect::OH_Drawing_TileMode)
+    ///   .
     ///
     /// * `samplingOptions` - Pointer to the [`OH_Drawing_SamplingOptions`](crate::types::OH_Drawing_SamplingOptions) object.
     ///
     /// * `matrix` - Pointer to the [`OH_Drawing_Matrix`](crate::types::OH_Drawing_Matrix) object. If the pointer array is empty, the identity matrix is
-    /// passed in.
+    ///   passed in.
     ///
     /// # Returns
     ///
@@ -394,20 +394,20 @@ extern "C" {
     /// * `colors` - Colors to distribute between the two circles.
     ///
     /// * `pos` - Relative position of each color in the color array. The array length must be the same as that of **colors*
-    /// *. If **pos** is NULL, colors are evenly distributed between the two circles.
+    ///   *. If **pos** is NULL, colors are evenly distributed between the two circles.
     ///
     /// * `size` - Number of colors and positions (if **pos** is not NULL).
     ///
     /// * `tileMode` - Tile mode of the shader effect. For details about the available options, see
-    /// [`OH_Drawing_TileMode`](crate::shader_effect::OH_Drawing_TileMode)
-    /// .
+    ///   [`OH_Drawing_TileMode`](crate::shader_effect::OH_Drawing_TileMode)
+    ///   .
     ///
     /// * `matrix` - Matrix applied on the shader effect. If **matrix** is NULL, an identity matrix is applied by default.
     ///
     /// # Returns
     ///
     /// * Returns the pointer to the [`OH_Drawing_ShaderEffect`](crate::types::OH_Drawing_ShaderEffect) object created. If the returned pointer is NULL,
-    /// the creation fails. The possible causes are as follows:
+    ///   the creation fails. The possible causes are as follows:
     /// - The available memory is empty.
     /// - **startPt**, **endPt**, or **colors** is NULL.
     /// - The value of **tileMode** is out of the enumerated value range.
@@ -441,7 +441,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the pointer to the [`OH_Drawing_ShaderEffect`](crate::types::OH_Drawing_ShaderEffect) object created.
-    /// If the returned pointer is NULL, the creation fails. The possible causes are as follows:
+    ///   If the returned pointer is NULL, the creation fails. The possible causes are as follows:
     /// - The available memory is empty.
     /// - **dst** or **src** is NULL.
     /// - The value of **mode** is out of the enumerated value range.

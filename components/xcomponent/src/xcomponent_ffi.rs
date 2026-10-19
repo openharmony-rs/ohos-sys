@@ -965,9 +965,9 @@ extern "C" {
     /// * `component` - Pointer to an [`OH_NativeXComponent`](crate::OH_NativeXComponent) instance.
     ///
     /// * `id` - Pointer to the character buffer for storing the ID of the [`OH_NativeXComponent`](crate::OH_NativeXComponent) instance. Note that
-    /// null terminators will be attached to the character buffer, so the size of the character buffer should be at
-    /// least one unit greater than the length of the real ID. The recommended size is \[
-    /// [`OH_XCOMPONENT_ID_LEN_MAX`](crate::OH_XCOMPONENT_ID_LEN_MAX) + 1].
+    ///   null terminators will be attached to the character buffer, so the size of the character buffer should be at
+    ///   least one unit greater than the length of the real ID. The recommended size is \[
+    ///   [`OH_XCOMPONENT_ID_LEN_MAX`](crate::OH_XCOMPONENT_ID_LEN_MAX) + 1].
     ///
     /// * `size` - Pointer to the length of the ID, used to receive the length information of the ID.
     ///
@@ -1022,10 +1022,10 @@ extern "C" {
     /// * `window` - Handle to the **NativeWindow** instance.
     ///
     /// * `x` - Pointer to the x-coordinate of the current surface relative to the upper left corner of the **XComponent**'
-    /// s parent component. Unit: vp.
+    ///   s parent component. Unit: vp.
     ///
     /// * `y` - Pointer to the y-coordinate of the current surface relative to the upper left corner of the **XComponent**'
-    /// s parent component. Unit: vp.
+    ///   s parent component. Unit: vp.
     ///
     /// # Returns
     ///
@@ -1148,7 +1148,7 @@ extern "C" {
     /// * `pointIndex` - Pointer to the index of the touch point.
     ///
     /// * `windowX` - Pointer to the x-coordinate of the touch point relative to the upper left corner of the application
-    /// window.
+    ///   window.
     ///
     /// # Returns
     ///
@@ -1176,7 +1176,7 @@ extern "C" {
     /// * `pointIndex` - Pointer to the index of the touch point.
     ///
     /// * `windowY` - Pointer to the y-coordinate of the touch point relative to the upper left corner of the application
-    /// window.
+    ///   window.
     ///
     /// # Returns
     ///
@@ -1453,9 +1453,9 @@ extern "C" {
     /// * `component` - Pointer to an [`OH_NativeXComponent`](crate::OH_NativeXComponent) instance.
     ///
     /// * `callback` - Indicates the pointer to a key event callback. The callback must return a result.
-    /// When the return value is true, the event will not be further propagated.
-    /// When the return value is false, the event will continue to be processed according to
-    /// the normal event handling flow.
+    ///   When the return value is true, the event will not be further propagated.
+    ///   When the return value is false, the event will continue to be processed according to
+    ///   the normal event handling flow.
     ///
     /// # Returns
     ///
@@ -1658,7 +1658,7 @@ extern "C" {
     /// * `keyEvent` - Pointer to the key event.
     ///
     /// * `isNumLockOn` - Pointer to a boolean variable to receive the state of the NumLock key. **true**: NumLock is
-    /// enabled. **false**: NumLock is disabled.
+    ///   enabled. **false**: NumLock is disabled.
     ///
     /// # Returns
     ///
@@ -1682,7 +1682,7 @@ extern "C" {
     /// * `keyEvent` - Pointer to the key event.
     ///
     /// * `isCapsLockOn` - Pointer to a boolean variable to receive the state of the CapsLock key. **true**: CapsLock is
-    /// enabled. **false**: CapsLock is disabled.
+    ///   enabled. **false**: CapsLock is disabled.
     ///
     /// # Returns
     ///
@@ -1706,7 +1706,7 @@ extern "C" {
     /// * `keyEvent` - Pointer to the key event.
     ///
     /// * `isScrollLockOn` - Pointer to a boolean variable to receive the state of the ScrollLock key. **true**: ScrollLock
-    /// is enabled. **false**: ScrollLock is disabled.
+    ///   is enabled. **false**: ScrollLock is disabled.
     ///
     /// # Returns
     ///
@@ -1730,7 +1730,7 @@ extern "C" {
     /// * `component` - Pointer to an [`OH_NativeXComponent`](crate::OH_NativeXComponent) instance.
     ///
     /// * `range` - Pointer to the expected frame rate information object of the
-    /// [`OH_NativeXComponent_ExpectedRateRange`](crate::OH_NativeXComponent_ExpectedRateRange) type.
+    ///   [`OH_NativeXComponent_ExpectedRateRange`](crate::OH_NativeXComponent_ExpectedRateRange) type.
     ///
     /// # Returns
     ///
@@ -1805,7 +1805,7 @@ extern "C" {
     /// * `component` - Pointer to an [`OH_NativeXComponent`](crate::OH_NativeXComponent) instance.
     ///
     /// * `needSoftKeyboard` - Whether the soft keyboard is required for the current [`OH_NativeXComponent`](crate::OH_NativeXComponent) instance. *
-    /// *true** if the soft keyboard is required, **false** otherwise. The default value is **false**.
+    ///   *true** if the soft keyboard is required, **false** otherwise. The default value is **false**.
     ///
     /// # Returns
     ///
@@ -1887,8 +1887,8 @@ extern "C" {
     /// * `component` - Pointer to an [`OH_NativeXComponent`](crate::OH_NativeXComponent) instance.
     ///
     /// * `pointId` - ID of the touch point. The touch event source type can be correctly returned only when the ID passed
-    /// in is the ID of the touch point that triggers the touch event. Otherwise, **
-    /// OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER** is returned.
+    ///   in is the ID of the touch point that triggers the touch event. Otherwise, **
+    ///   OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER** is returned.
     ///
     /// * `sourceType` - Pointer to the touch event source type.
     ///
@@ -2018,7 +2018,7 @@ extern "C" {
     /// * `callback` - Pointer to the surface lifecycle callback.
     ///
     /// * `onSurfaceCreated` - Indicates the surface created callback event
-    /// which will called when the surface is created.
+    ///   which will called when the surface is created.
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
@@ -2036,7 +2036,7 @@ extern "C" {
     /// * `callback` - Pointer to the surface lifecycle callback.
     ///
     /// * `onSurfaceChanged` - Indicates the surface changed callback event
-    /// which will called when the surface is changed.
+    ///   which will called when the surface is changed.
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
@@ -2058,7 +2058,7 @@ extern "C" {
     /// * `callback` - Pointer to the surface lifecycle callback.
     ///
     /// * `onSurfaceDestroyed` - Indicates the surface destroyed callback event
-    /// which will called when the surface is destroyed.
+    ///   which will called when the surface is destroyed.
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
@@ -2134,10 +2134,10 @@ extern "C" {
     /// * `node` - Pointer to the **XComponent** component instance.
     ///
     /// * `autoInitialize` - Whether the **XComponent** component needs to automatically initialize the surface. If **
-    /// autoInitialize** is **true**, the **OnSurfaceCreated** callback will be triggered when the component is attached
-    /// to the tree, and the **OnSurfaceDestroyed** callback will be triggered when the component is detached from the
-    /// tree. If the value is **false**, the component does not need to automatically initialize the surface.
-    /// <br>The default value of **autoInitialize** is **true**.
+    ///   autoInitialize** is **true**, the **OnSurfaceCreated** callback will be triggered when the component is attached
+    ///   to the tree, and the **OnSurfaceDestroyed** callback will be triggered when the component is detached from the
+    ///   tree. If the value is **false**, the component does not need to automatically initialize the surface.
+    ///   <br>The default value of **autoInitialize** is **true**.
     ///
     /// # Returns
     ///
@@ -2193,7 +2193,7 @@ extern "C" {
     /// * `node` - Pointer to the **XComponent** component instance.
     ///
     /// * `isInitialized` - Whether the surface held by the **XComponent** component is initialized. **true**: The surface
-    /// is initialized. **false**: The surface is not initialized.
+    ///   is initialized. **false**: The surface is not initialized.
     ///
     /// # Returns
     ///
@@ -2281,7 +2281,7 @@ extern "C" {
     /// * `node` - XComponent instance.
     ///
     /// * `needSoftKeyboard` - Whether the soft keyboard is required. **true** if the soft keyboard is required, **false**
-    /// otherwise. The default value is **false**.
+    ///   otherwise. The default value is **false**.
     ///
     /// # Returns
     ///
@@ -2318,7 +2318,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `provider` - [`ArkUI_AccessibilityProvider`](ohos_sys_opaque_types::ArkUI_AccessibilityProvider) instance created using
-    /// [`OH_ArkUI_AccessibilityProvider_Create`](crate::OH_ArkUI_AccessibilityProvider_Create).
+    ///   [`OH_ArkUI_AccessibilityProvider_Create`](crate::OH_ArkUI_AccessibilityProvider_Create).
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -2332,7 +2332,7 @@ extern "C" {
     /// * `callback` - Pointer to the target [`OH_ArkUI_SurfaceCallback`](crate::OH_ArkUI_SurfaceCallback) instance.
     ///
     /// * `onSurfaceShow` - Pointer to the surface display callback. - **surfaceHolder**: pointer to the target
-    /// [`OH_ArkUI_SurfaceHolder`](crate::OH_ArkUI_SurfaceHolder) instance.
+    ///   [`OH_ArkUI_SurfaceHolder`](crate::OH_ArkUI_SurfaceHolder) instance.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -2351,7 +2351,7 @@ extern "C" {
     /// * `callback` - Pointer to the target [`OH_ArkUI_SurfaceCallback`](crate::OH_ArkUI_SurfaceCallback) instance.
     ///
     /// * `onSurfaceHide` - Pointer to the surface hiding callback. - **surfaceHolder**: pointer to the target
-    /// [`OH_ArkUI_SurfaceHolder`](crate::OH_ArkUI_SurfaceHolder) instance.
+    ///   [`OH_ArkUI_SurfaceHolder`](crate::OH_ArkUI_SurfaceHolder) instance.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -2391,8 +2391,8 @@ extern "C" {
     /// * `config` - Pointer to the target [`ArkUI_XComponentSurfaceConfig`](ohos_sys_opaque_types::ArkUI_XComponentSurfaceConfig) instance.
     ///
     /// * `isOpaque` - Whether the surface held by the **XComponent** should be treated as opaque during rendering. **true**
-    /// if the surface should be treated as opaque, **false** otherwise. The default value is **false**, which means
-    /// pixel opacity of the surface content will be applied during rendering.
+    ///   if the surface should be treated as opaque, **false** otherwise. The default value is **false**, which means
+    ///   pixel opacity of the surface content will be applied during rendering.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]

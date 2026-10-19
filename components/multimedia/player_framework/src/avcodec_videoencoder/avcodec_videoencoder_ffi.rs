@@ -102,7 +102,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Pointer to the video encoder instance created.
-    /// <br>If the encoder type is not supported or the memory is insufficient, NULL is returned.
+    ///   <br>If the encoder type is not supported or the memory is insufficient, NULL is returned.
     ///
     /// Available since API-level: 9
     pub fn OH_VideoEncoder_CreateByMime(mime: *const ::core::ffi::c_char) -> *mut OH_AVCodec;
@@ -118,7 +118,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Pointer to the video encoder instance created.
-    /// <br>If the encoder name is not supported or the memory is insufficient, NULL is returned.
+    ///   <br>If the encoder name is not supported or the memory is insufficient, NULL is returned.
     ///
     /// Available since API-level: 9
     pub fn OH_VideoEncoder_CreateByName(name: *const ::core::ffi::c_char) -> *mut OH_AVCodec;
@@ -131,23 +131,23 @@ extern "C" {
     /// # Arguments
     ///
     /// * `mime` - Mime type description string, refer to `AVCODEC_MIME_TYPE`.
-    /// Cannot be NULL, must be a supported MIME type
-    /// (e.g., [`OH_AVCODEC_MIMETYPE_VIDEO_AVC`](crate::avcodec_base::OH_AVCODEC_MIMETYPE_VIDEO_AVC), [`OH_AVCODEC_MIMETYPE_VIDEO_HEVC`](crate::avcodec_base::OH_AVCODEC_MIMETYPE_VIDEO_HEVC)).
+    ///   Cannot be NULL, must be a supported MIME type
+    ///   (e.g., [`OH_AVCODEC_MIMETYPE_VIDEO_AVC`](crate::avcodec_base::OH_AVCODEC_MIMETYPE_VIDEO_AVC), [`OH_AVCODEC_MIMETYPE_VIDEO_HEVC`](crate::avcodec_base::OH_AVCODEC_MIMETYPE_VIDEO_HEVC)).
     ///
     /// * `codec` - Double pointer to an OH_AVCodec instance, used to receive the created encoder.
-    /// Cannot be NULL. If creation is successful, the encoder needs to be released
-    /// by calling [`OH_VideoEncoder_Destroy`](crate::avcodec_videoencoder::OH_VideoEncoder_Destroy).
+    ///   Cannot be NULL. If creation is successful, the encoder needs to be released
+    ///   by calling [`OH_VideoEncoder_Destroy`](crate::avcodec_videoencoder::OH_VideoEncoder_Destroy).
     ///
     ///
     /// # Returns
     ///
     /// * Returns [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
-    /// For other error codes, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode).
-    /// Returns [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if:
+    ///   For other error codes, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode).
+    ///   Returns [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if:
     /// - mime is NULL.
     /// - codec is NULL.
     /// - mime type is not supported.
-    /// Returns [`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY) if memory allocation fails.
+    ///   Returns [`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY) if memory allocation fails.
     ///
     ///
     /// Available since API-level: 26
@@ -171,34 +171,34 @@ extern "C" {
     /// # Arguments
     ///
     /// * `primary` - Pointer to a primary OH_AVCodec instance created by
-    /// [`OH_VideoEncoder_CreatePrimaryWithPreproc`](crate::avcodec_videoencoder::OH_VideoEncoder_CreatePrimaryWithPreproc). Cannot be NULL.
+    ///   [`OH_VideoEncoder_CreatePrimaryWithPreproc`](crate::avcodec_videoencoder::OH_VideoEncoder_CreatePrimaryWithPreproc). Cannot be NULL.
     ///
     /// * `codec` - Double pointer to an OH_AVCodec instance, used to receive the created encoder.
-    /// Cannot be NULL. If creation is successful, the encoder needs to be released
-    /// by calling [`OH_VideoEncoder_Destroy`](crate::avcodec_videoencoder::OH_VideoEncoder_Destroy).
+    ///   Cannot be NULL. If creation is successful, the encoder needs to be released
+    ///   by calling [`OH_VideoEncoder_Destroy`](crate::avcodec_videoencoder::OH_VideoEncoder_Destroy).
     ///
     ///
     /// # Returns
     ///
     /// * Returns [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
-    /// For other error codes, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode).
-    /// Returns [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if:
+    ///   For other error codes, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode).
+    ///   Returns [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if:
     /// - primary is NULL.
     /// - codec is NULL.
     /// - primary is not a valid primary encoder.
-    /// Returns [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) if primary encoder already has an existing secondary encoder.
-    /// Returns [`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY) if memory allocation fails.
+    ///   Returns [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) if primary encoder already has an existing secondary encoder.
+    ///   Returns [`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY) if memory allocation fails.
     ///
     ///
     /// **Note:** Lifecycle management:
     /// - The lifecycle of primary encoder must be longer than secondary encoder.
     /// - Recommended destruction order: destroy secondary encoder first, then primary encoder.
     /// - If primary encoder is destroyed before secondary encoder, the system will automatically
-    /// destroy the secondary encoder before releasing the primary encoder.
+    ///   destroy the secondary encoder before releasing the primary encoder.
     /// - Both encoders must be destroyed by calling [`OH_VideoEncoder_Destroy`](crate::avcodec_videoencoder::OH_VideoEncoder_Destroy).
     /// - One primary encoder can only have one secondary encoder at the same time.
-    /// After the secondary encoder is destroyed, a new secondary encoder can be created
-    /// from the same primary encoder again.
+    ///   After the secondary encoder is destroyed, a new secondary encoder can be created
+    ///   from the same primary encoder again.
     ///
     ///
     /// Available since API-level: 26
@@ -218,11 +218,11 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// <br>[`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): An internal exception occurs in the encoder instance,
-    /// for example, an unexpected nullptr.
-    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The value of **codec** is nullptr or does not point to an encoder instance.
-    /// <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An unknown error occurs.
-    /// <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
+    ///   <br>[`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): An internal exception occurs in the encoder instance,
+    ///   for example, an unexpected nullptr.
+    ///   <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The value of **codec** is nullptr or does not point to an encoder instance.
+    ///   <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An unknown error occurs.
+    ///   <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
     ///
     /// Available since API-level: 9
     pub fn OH_VideoEncoder_Destroy(codec: *mut OH_AVCodec) -> OH_AVErrCode;
@@ -240,11 +240,11 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// <br>[`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): An internal exception occurs in the encoder instance, for example,
-    /// an unexpected nullptr.
-    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The value of **codec** is nullptr or does not point to an encoder instance.
-    /// <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An unknown error occurs.
-    /// <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
+    ///   <br>[`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): An internal exception occurs in the encoder instance, for example,
+    ///   an unexpected nullptr.
+    ///   <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The value of **codec** is nullptr or does not point to an encoder instance.
+    ///   <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An unknown error occurs.
+    ///   <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
     ///
     /// **Deprecated** since 11
     ///
@@ -271,11 +271,11 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// <br>[`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): An internal exception occurs in the encoder instance, for example,
-    /// an unexpected nullptr.
-    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The value of **codec** is nullptr or does not point to an encoder instance.
-    /// <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An unknown error occurs.
-    /// <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
+    ///   <br>[`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): An internal exception occurs in the encoder instance, for example,
+    ///   an unexpected nullptr.
+    ///   <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The value of **codec** is nullptr or does not point to an encoder instance.
+    ///   <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An unknown error occurs.
+    ///   <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -300,12 +300,12 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// <br>[`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): An internal exception occurs in the encoder instance, for example,
-    /// an unexpected nullptr.
-    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The value of **codec** is nullptr or does not point to an encoder instance.
-    /// <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An unknown error occurs.
-    /// <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
-    /// <br>[`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE): The function is not called prior to [`OH_VideoEncoder_Prepare`](crate::avcodec_videoencoder::OH_VideoEncoder_Prepare).
+    ///   <br>[`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): An internal exception occurs in the encoder instance, for example,
+    ///   an unexpected nullptr.
+    ///   <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The value of **codec** is nullptr or does not point to an encoder instance.
+    ///   <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An unknown error occurs.
+    ///   <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
+    ///   <br>[`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE): The function is not called prior to [`OH_VideoEncoder_Prepare`](crate::avcodec_videoencoder::OH_VideoEncoder_Prepare).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -359,19 +359,19 @@ extern "C" {
     /// * `codec` - Pointer to a video encoder instance.
     ///
     /// * `format` - Pointer to an OH_AVFormat instance, which provides the description information about the video track
-    /// to be encoded.
+    ///   to be encoded.
     ///
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// <br>[`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): An internal exception occurs in the encoder instance, for example,
-    /// an unexpected nullptr.
-    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL):<br>1. The value of **codec** is nullptr or does not point to an encoder instance.
-    /// <br>2. The format is not supported.
-    /// <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An unknown error occurs.
-    /// <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
-    /// <br>[`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE): The function is not called prior to [`OH_VideoEncoder_Prepare`](crate::avcodec_videoencoder::OH_VideoEncoder_Prepare).
-    /// <br>[`AV_ERR_UNSUPPORT`](crate::averrors::OH_AVErrCode::AV_ERR_UNSUPPORT): The pixel format is not supported.
+    ///   <br>[`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): An internal exception occurs in the encoder instance, for example,
+    ///   an unexpected nullptr.
+    ///   <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL):<br>1. The value of **codec** is nullptr or does not point to an encoder instance.
+    ///   <br>2. The format is not supported.
+    ///   <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An unknown error occurs.
+    ///   <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
+    ///   <br>[`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE): The function is not called prior to [`OH_VideoEncoder_Prepare`](crate::avcodec_videoencoder::OH_VideoEncoder_Prepare).
+    ///   <br>[`AV_ERR_UNSUPPORT`](crate::averrors::OH_AVErrCode::AV_ERR_UNSUPPORT): The pixel format is not supported.
     ///
     /// Available since API-level: 9
     pub fn OH_VideoEncoder_Configure(
@@ -388,11 +388,11 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// <br>[`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): An internal error occurs in the input encoder instance.
-    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The value of **codec** is nullptr or does not point to an encoder instance.
-    /// <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An unknown error occurs.
-    /// <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
-    /// <br>[`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE): This API cannot be called in the current encoder state.
+    ///   <br>[`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): An internal error occurs in the input encoder instance.
+    ///   <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The value of **codec** is nullptr or does not point to an encoder instance.
+    ///   <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An unknown error occurs.
+    ///   <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
+    ///   <br>[`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE): This API cannot be called in the current encoder state.
     ///
     /// Available since API-level: 9
     pub fn OH_VideoEncoder_Prepare(codec: *mut OH_AVCodec) -> OH_AVErrCode;
@@ -412,12 +412,12 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// <br>[`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): An internal exception occurs in the encoder instance, for example,
-    /// an unexpected nullptr.
-    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The value of **codec** is nullptr or does not point to an encoder instance.
-    /// <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An unknown error occurs.
-    /// <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
-    /// <br>[`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE): This API cannot be called in the current encoder state.
+    ///   <br>[`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): An internal exception occurs in the encoder instance, for example,
+    ///   an unexpected nullptr.
+    ///   <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The value of **codec** is nullptr or does not point to an encoder instance.
+    ///   <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An unknown error occurs.
+    ///   <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
+    ///   <br>[`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE): This API cannot be called in the current encoder state.
     ///
     /// Available since API-level: 9
     pub fn OH_VideoEncoder_Start(codec: *mut OH_AVCodec) -> OH_AVErrCode;
@@ -431,12 +431,12 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// <br>[`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): An internal exception occurs in the encoder instance, for example,
-    /// an unexpected nullptr.
-    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The value of **codec** is nullptr or does not point to an encoder instance.
-    /// <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An unknown error occurs.
-    /// <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
-    /// <br>[`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE): This API cannot be called in the current encoder state.
+    ///   <br>[`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): An internal exception occurs in the encoder instance, for example,
+    ///   an unexpected nullptr.
+    ///   <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The value of **codec** is nullptr or does not point to an encoder instance.
+    ///   <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An unknown error occurs.
+    ///   <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
+    ///   <br>[`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE): This API cannot be called in the current encoder state.
     ///
     /// Available since API-level: 9
     pub fn OH_VideoEncoder_Stop(codec: *mut OH_AVCodec) -> OH_AVErrCode;
@@ -453,12 +453,12 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// <br>[`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): An internal exception occurs in the encoder instance, for example,
-    /// an unexpected nullptr.
-    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The value of **codec** is nullptr or does not point to an encoder instance.
-    /// <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An unknown error occurs.
-    /// <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
-    /// <br>[`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE): This API cannot be called in the current encoder state.
+    ///   <br>[`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): An internal exception occurs in the encoder instance, for example,
+    ///   an unexpected nullptr.
+    ///   <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The value of **codec** is nullptr or does not point to an encoder instance.
+    ///   <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An unknown error occurs.
+    ///   <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
+    ///   <br>[`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE): This API cannot be called in the current encoder state.
     ///
     /// Available since API-level: 9
     pub fn OH_VideoEncoder_Flush(codec: *mut OH_AVCodec) -> OH_AVErrCode;
@@ -472,11 +472,11 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// <br>[`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): An internal exception occurs in the encoder instance, for example,
-    /// an unexpected nullptr.
-    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The value of **codec** is nullptr or does not point to an encoder instance.
-    /// <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An unknown error occurs.
-    /// <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
+    ///   <br>[`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): An internal exception occurs in the encoder instance, for example,
+    ///   an unexpected nullptr.
+    ///   <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The value of **codec** is nullptr or does not point to an encoder instance.
+    ///   <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An unknown error occurs.
+    ///   <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
     ///
     /// Available since API-level: 9
     pub fn OH_VideoEncoder_Reset(codec: *mut OH_AVCodec) -> OH_AVErrCode;
@@ -491,7 +491,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Pointer to an OH_AVFormat instance.
-    /// <br>If the value of **codec** is nullptr or does not point to an encoder instance, NULL is returned.
+    ///   <br>If the value of **codec** is nullptr or does not point to an encoder instance, NULL is returned.
     ///
     /// Available since API-level: 9
     pub fn OH_VideoEncoder_GetOutputDescription(codec: *mut OH_AVCodec) -> *mut OH_AVFormat;
@@ -509,13 +509,13 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// <br>[`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): An internal exception occurs in the encoder instance, for example,
-    /// an unexpected nullptr.
-    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL):<br>1. The value of **codec** is nullptr or does not point to an encoder instance.
-    /// <br>2. The format is not supported.
-    /// <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An unknown error occurs.
-    /// <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
-    /// <br>[`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE): This API cannot be called in the current encoder state.
+    ///   <br>[`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): An internal exception occurs in the encoder instance, for example,
+    ///   an unexpected nullptr.
+    ///   <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL):<br>1. The value of **codec** is nullptr or does not point to an encoder instance.
+    ///   <br>2. The format is not supported.
+    ///   <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An unknown error occurs.
+    ///   <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
+    ///   <br>[`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE): This API cannot be called in the current encoder state.
     ///
     /// Available since API-level: 9
     pub fn OH_VideoEncoder_SetParameter(
@@ -530,13 +530,13 @@ extern "C" {
     /// * `codec` - Pointer to a video encoder instance.
     ///
     /// * `window` - Double pointer to an OHNativeWindow instance. The application manages the lifecycle of the window and
-    /// calls `OH_NativeWindow_DestroyNativeWindow` to release the window when the lifecycle ends.
+    ///   calls `OH_NativeWindow_DestroyNativeWindow` to release the window when the lifecycle ends.
     ///
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The value of **codec** is nullptr or does not point to an encoder instance.
-    /// <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
+    ///   <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The value of **codec** is nullptr or does not point to an encoder instance.
+    ///   <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
     ///
     /// Available since API-level: 9
     pub fn OH_VideoEncoder_GetSurface(
@@ -554,13 +554,13 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// <br>[`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): An internal exception occurs in the encoder instance, for example,
-    /// an unexpected nullptr.
-    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL):<br>1. The value of **codec** is nullptr or does not point to an encoder instance.
-    /// <br>2. The index is invalid. This error does not affect the subsequent encoding process.
-    /// <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An unknown error occurs.
-    /// <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
-    /// <br>[`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE): This API cannot be called in the current encoder state.
+    ///   <br>[`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): An internal exception occurs in the encoder instance, for example,
+    ///   an unexpected nullptr.
+    ///   <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL):<br>1. The value of **codec** is nullptr or does not point to an encoder instance.
+    ///   <br>2. The index is invalid. This error does not affect the subsequent encoding process.
+    ///   <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An unknown error occurs.
+    ///   <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
+    ///   <br>[`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE): This API cannot be called in the current encoder state.
     ///
     /// **Deprecated** since 11
     ///
@@ -580,12 +580,12 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// <br>[`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): An internal exception occurs in the encoder instance, for example,
-    /// an unexpected nullptr.
-    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The value of **codec** is nullptr or does not point to an encoder instance.
-    /// <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An unknown error occurs.
-    /// <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
-    /// <br>[`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE): This API cannot be called in the current encoder state.
+    ///   <br>[`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): An internal exception occurs in the encoder instance, for example,
+    ///   an unexpected nullptr.
+    ///   <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The value of **codec** is nullptr or does not point to an encoder instance.
+    ///   <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An unknown error occurs.
+    ///   <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
+    ///   <br>[`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE): This API cannot be called in the current encoder state.
     ///
     /// Available since API-level: 9
     pub fn OH_VideoEncoder_NotifyEndOfStream(codec: *mut OH_AVCodec) -> OH_AVErrCode;
@@ -602,13 +602,13 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// <br>[`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): An internal exception occurs in the encoder instance, for example,
-    /// an unexpected nullptr.
-    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL):<br>1. The value of **codec** is nullptr or does not point to an encoder instance.
-    /// <br>2. The index is invalid. This error does not affect the subsequent encoding process.
-    /// <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An unknown error occurs.
-    /// <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
-    /// <br>[`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE): This API cannot be called in the current encoder state.
+    ///   <br>[`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): An internal exception occurs in the encoder instance, for example,
+    ///   an unexpected nullptr.
+    ///   <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL):<br>1. The value of **codec** is nullptr or does not point to an encoder instance.
+    ///   <br>2. The index is invalid. This error does not affect the subsequent encoding process.
+    ///   <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An unknown error occurs.
+    ///   <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
+    ///   <br>[`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE): This API cannot be called in the current encoder state.
     ///
     /// **Deprecated** since 11
     ///
@@ -632,13 +632,13 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// <br>[`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): An internal exception occurs in the encoder instance,
-    /// for example, an unexpected nullptr.
-    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL):<br>1. The value of **codec** is nullptr or does not point to an encoder instance.
-    /// <br>2. The index is invalid. This error does not affect the subsequent encoding process.
-    /// <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): unknown error.
-    /// <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
-    /// <br>[`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE): This API cannot be called in the current encoder state.
+    ///   <br>[`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): An internal exception occurs in the encoder instance,
+    ///   for example, an unexpected nullptr.
+    ///   <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL):<br>1. The value of **codec** is nullptr or does not point to an encoder instance.
+    ///   <br>2. The index is invalid. This error does not affect the subsequent encoding process.
+    ///   <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): unknown error.
+    ///   <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
+    ///   <br>[`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE): This API cannot be called in the current encoder state.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -651,18 +651,18 @@ extern "C" {
     /// * `codec` - Pointer to a video encoder instance.
     ///
     /// * `index` - Index of the input parameter buffer. The value is provided by
-    /// [`OH_VideoEncoder_OnNeedInputParameter`](crate::avcodec_videoencoder::OH_VideoEncoder_OnNeedInputParameter).
+    ///   [`OH_VideoEncoder_OnNeedInputParameter`](crate::avcodec_videoencoder::OH_VideoEncoder_OnNeedInputParameter).
     ///
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// <br>[`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): An internal exception occurs in the encoder instance, for example,
-    /// an unexpected nullptr.
-    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL):<br>1. The value of **codec** is nullptr or does not point to an encoder instance.
-    /// <br>2. The index is invalid. This error does not affect the subsequent encoding process.
-    /// <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An unknown error occurs.
-    /// <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
-    /// <br>[`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE): This API cannot be called in the current encoder state.
+    ///   <br>[`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): An internal exception occurs in the encoder instance, for example,
+    ///   an unexpected nullptr.
+    ///   <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL):<br>1. The value of **codec** is nullptr or does not point to an encoder instance.
+    ///   <br>2. The index is invalid. This error does not affect the subsequent encoding process.
+    ///   <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An unknown error occurs.
+    ///   <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
+    ///   <br>[`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE): This API cannot be called in the current encoder state.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -683,13 +683,13 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// <br>[`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): An internal exception occurs in the encoder instance, for example,
-    /// an unexpected nullptr.
-    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL):<br>1. The value of **codec** is nullptr or does not point to an encoder instance.
-    /// <br>2. The index is invalid. This error does not affect the subsequent encoding process.
-    /// <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An unknown error occurs.
-    /// <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
-    /// <br>[`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE): This API cannot be called in the current encoder state.
+    ///   <br>[`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): An internal exception occurs in the encoder instance, for example,
+    ///   an unexpected nullptr.
+    ///   <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL):<br>1. The value of **codec** is nullptr or does not point to an encoder instance.
+    ///   <br>2. The index is invalid. This error does not affect the subsequent encoding process.
+    ///   <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An unknown error occurs.
+    ///   <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
+    ///   <br>[`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE): This API cannot be called in the current encoder state.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -709,17 +709,17 @@ extern "C" {
     /// * `index` - Pointer to the index of the input buffer.
     ///
     /// * `timeoutUs` - Timeout duration, in microseconds. A negative value means to wait infinitely. The value **0** means
-    /// to return immediately. A positive value means to wait for the specified time before exiting.
+    ///   to return immediately. A positive value means to wait for the specified time before exiting.
     ///
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// <br>[`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): The encoder instance has been destroyed.
-    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The value of **codec** is nullptr or does not point to an encoder instance.
-    /// <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An unknown error occurs.
-    /// <br>[`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE): This API cannot be called in the current encoder state.
-    /// <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): This function is called in asynchronous mode.
-    /// <br>[`AV_ERR_TRY_AGAIN_LATER`](crate::averrors::OH_AVErrCode::AV_ERR_TRY_AGAIN_LATER): The query fails. Try again after a short interval.
+    ///   <br>[`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): The encoder instance has been destroyed.
+    ///   <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The value of **codec** is nullptr or does not point to an encoder instance.
+    ///   <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An unknown error occurs.
+    ///   <br>[`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE): This API cannot be called in the current encoder state.
+    ///   <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): This function is called in asynchronous mode.
+    ///   <br>[`AV_ERR_TRY_AGAIN_LATER`](crate::averrors::OH_AVErrCode::AV_ERR_TRY_AGAIN_LATER): The query fails. Try again after a short interval.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -760,19 +760,19 @@ extern "C" {
     /// * `index` - Pointer to the index of the output buffer.
     ///
     /// * `timeoutUs` - Timeout duration, in microseconds. A negative value means to wait infinitely. The value **0** means
-    /// to return immediately. A positive value means to wait for the specified time before exiting.
+    ///   to return immediately. A positive value means to wait for the specified time before exiting.
     ///
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// <br>[`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): The encoder instance has been destroyed.
-    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The value of **codec** is nullptr or does not point to an encoder instance.
-    /// <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An unknown error occurs.
-    /// <br>[`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE): This API cannot be called in the current encoder state.
-    /// <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): This function is called in asynchronous mode.
-    /// <br>[`AV_ERR_STREAM_CHANGED`](crate::averrors::OH_AVErrCode::AV_ERR_STREAM_CHANGED): The stream format has changed. You can call
-    /// [`OH_VideoEncoder_GetOutputDescription`](crate::avcodec_videoencoder::OH_VideoEncoder_GetOutputDescription) to obtain the new stream information.
-    /// <br>[`AV_ERR_TRY_AGAIN_LATER`](crate::averrors::OH_AVErrCode::AV_ERR_TRY_AGAIN_LATER): The query fails. Try again after a short interval.
+    ///   <br>[`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): The encoder instance has been destroyed.
+    ///   <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The value of **codec** is nullptr or does not point to an encoder instance.
+    ///   <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An unknown error occurs.
+    ///   <br>[`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE): This API cannot be called in the current encoder state.
+    ///   <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): This function is called in asynchronous mode.
+    ///   <br>[`AV_ERR_STREAM_CHANGED`](crate::averrors::OH_AVErrCode::AV_ERR_STREAM_CHANGED): The stream format has changed. You can call
+    ///   [`OH_VideoEncoder_GetOutputDescription`](crate::avcodec_videoencoder::OH_VideoEncoder_GetOutputDescription) to obtain the new stream information.
+    ///   <br>[`AV_ERR_TRY_AGAIN_LATER`](crate::averrors::OH_AVErrCode::AV_ERR_TRY_AGAIN_LATER): The query fails. Try again after a short interval.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -812,7 +812,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Pointer to an OH_AVFormat instance.
-    /// <br>If the value of **codec** is nullptr or does not point to an encoder instance, NULL is returned.
+    ///   <br>If the value of **codec** is nullptr or does not point to an encoder instance, NULL is returned.
     ///
     /// Available since API-level: 10
     pub fn OH_VideoEncoder_GetInputDescription(codec: *mut OH_AVCodec) -> *mut OH_AVFormat;
@@ -823,13 +823,13 @@ extern "C" {
     /// * `codec` - Pointer to a video encoder instance.
     ///
     /// * `isValid` - Pointer of the Boolean type. The value indicates the validity of the encoder service only when the
-    /// function returns [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK). The value **true** means that the encoder service is valid,
-    /// and **false** means the opposite. It is recommended that you initialize **isValid** to **false**.
+    ///   function returns [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK). The value **true** means that the encoder service is valid,
+    ///   and **false** means the opposite. It is recommended that you initialize **isValid** to **false**.
     ///
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The value of **codec** is nullptr or does not point to an encoder instance.
+    ///   <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The value of **codec** is nullptr or does not point to an encoder instance.
     ///
     /// Available since API-level: 10
     pub fn OH_VideoEncoder_IsValid(codec: *mut OH_AVCodec, isValid: *mut bool) -> OH_AVErrCode;

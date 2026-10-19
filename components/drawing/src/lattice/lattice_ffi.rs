@@ -50,8 +50,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Execution result.
-    /// **OH_DRAWING_SUCCESS** if the operation is successful.
-    /// **OH_DRAWING_ERROR_INCORRECT_PARAMETER** if **OHDrawingLattice* lattice** is a null pointer.
+    ///   **OH_DRAWING_SUCCESS** if the operation is successful.
+    ///   **OH_DRAWING_ERROR_INCORRECT_PARAMETER** if **OHDrawingLattice* lattice** is a null pointer.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -75,35 +75,35 @@ extern "C" {
     /// * `yCount` - Size of the array that holds the Y coordinates. The value range is \[0, 5\].
     ///
     /// * `bounds` - The original bounding rectangle to be drawn, which defaults to the size of the original image
-    /// rectangle. The value must be an integer and is rounded down.
+    ///   rectangle. The value must be an integer and is rounded down.
     ///
     /// * `rectTypes` - Array of rectangle types used to fill the lattice.
     ///
     /// * `rectTypeCount` - Size of the **rectTypes** array. If **rectTypes** is not a null pointer, the array size must be
-    /// **(xCount + 1)*(yCount + 1)**.
-    /// If **rectTypes** is a null pointer, the array size must be **0**.
+    ///   **(xCount + 1)*(yCount + 1)**.
+    ///   If **rectTypes** is a null pointer, the array size must be **0**.
     ///
     /// * `colors` - Array of colors used to fill the lattice.
     ///
     /// * `colorCount` - Size of the **colors** array. If **colors** is not a null pointer, the array size must be **(
-    /// xCount + 1)*(yCount + 1)**.
-    /// If **colors** is a null pointer, the array size must be **0**.
+    ///   xCount + 1)*(yCount + 1)**.
+    ///   If **colors** is a null pointer, the array size must be **0**.
     ///
     /// * `lattice` - Double pointer to an [`OH_Drawing_Lattice`](crate::types::OH_Drawing_Lattice) object, which serves as an output parameter returned
-    /// to the caller.
+    ///   to the caller.
     ///
     /// # Returns
     ///
     /// * Execution result.
-    /// Returns **OH_DRAWING_SUCCESS** if the operation is successful.
-    /// Returns **OH_DRAWING_ERROR_INCORRECT_PARAMETER** for any of the following reasons:
+    ///   Returns **OH_DRAWING_SUCCESS** if the operation is successful.
+    ///   Returns **OH_DRAWING_ERROR_INCORRECT_PARAMETER** for any of the following reasons:
     /// - **xDivs** or **yDivs** is a null pointer.
     /// - **rectTypes** is not a null pointer, and **rectTypeCount** is not equal to **(xCount + 1)*(yCount + 1)**.
     /// - **colors** is not a null pointer, and **colorCount** is not equal to **(xCount + 1)*(yCount + 1)**.
     /// - **rectTypes** is a null pointer, and **rectTypeCount** is not equal to **0**.
     /// - **colors** is a null pointer, and **colorCount** is not equal to **0**.
-    /// Returns **OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE**, indicating that the enumeration value in **rectTypes** exceeds
-    /// the valid enumeration range.
+    ///   Returns **OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE**, indicating that the enumeration value in **rectTypes** exceeds
+    ///   the valid enumeration range.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]

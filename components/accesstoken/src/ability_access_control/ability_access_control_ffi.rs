@@ -9,7 +9,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `permission` - - Pointer to the permission to check. For details about the permission,
-    /// see [the application permission list](docroot://security/AccessToken/app-permissions.md).
+    ///   see [the application permission list](docroot://security/AccessToken/app-permissions.md).
     ///
     /// # Returns
     ///

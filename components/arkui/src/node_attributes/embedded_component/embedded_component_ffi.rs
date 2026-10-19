@@ -56,7 +56,7 @@ extern "C" {
     /// * `option` - Pointer to the **EmbeddedComponent** option object.
     ///
     /// * `callback` - Callback function that will called when error occurs during the running of
-    /// the **EmbeddedComponent** component
+    ///   the **EmbeddedComponent** component
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]

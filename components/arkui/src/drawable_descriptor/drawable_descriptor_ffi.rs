@@ -201,7 +201,7 @@ extern "C" {
     /// * `drawableDescriptor` - Pointer to a **DrawableDescriptor** object.
     ///
     /// * `duration` - Total playback duration, in ms. Value range: [0, +∞). If a negative value is passed in, **0** is
-    /// used.
+    ///   used.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -264,12 +264,12 @@ extern "C" {
     /// * `drawableDescriptor` - Pointer to a **DrawableDescriptor** object.
     ///
     /// * `durations` - Array of the playback durations for each frame in the animation, in ms.
-    /// <br>If this parameter is not set, the playback follows the total duration. This parameter takes precedence over
-    /// [`OH_ArkUI_DrawableDescriptor_SetAnimationDuration`](crate::drawable_descriptor::OH_ArkUI_DrawableDescriptor_SetAnimationDuration). That is, if both **
-    /// OH_ArkUI_DrawableDescriptor_SetAnimationDuration** and **OH_ArkUI_DrawableDescriptor_SetAnimationFrameDurations**
-    /// are set, **OH_ArkUI_DrawableDescriptor_SetAnimationDuration** does not take effect.
-    /// <br>The array size must match the number of frames in the PixelMap image array.
-    /// <br>Valid range for each frame's playback duration: [0, +∞). Default value: evenly distributed total duration.
+    ///   <br>If this parameter is not set, the playback follows the total duration. This parameter takes precedence over
+    ///   [`OH_ArkUI_DrawableDescriptor_SetAnimationDuration`](crate::drawable_descriptor::OH_ArkUI_DrawableDescriptor_SetAnimationDuration). That is, if both **
+    ///   OH_ArkUI_DrawableDescriptor_SetAnimationDuration** and **OH_ArkUI_DrawableDescriptor_SetAnimationFrameDurations**
+    ///   are set, **OH_ArkUI_DrawableDescriptor_SetAnimationDuration** does not take effect.
+    ///   <br>The array size must match the number of frames in the PixelMap image array.
+    ///   <br>Valid range for each frame's playback duration: [0, +∞). Default value: evenly distributed total duration.
     ///
     /// * `size` - Array size.
     ///
@@ -318,8 +318,8 @@ extern "C" {
     /// * `drawableDescriptor` - Pointer to a **DrawableDescriptor** object.
     ///
     /// * `autoPlay` - Whether to enable autoplay.
-    /// <br>**1** to enable, **0** otherwise.
-    /// <br>The default value is **1**.
+    ///   <br>**1** to enable, **0** otherwise.
+    ///   <br>The default value is **1**.
     ///
     /// # Returns
     ///
@@ -362,8 +362,8 @@ extern "C" {
     /// * `drawableDescriptor` - Pointer to the `DrawableDescriptor` object.
     ///
     /// * `mode` - Stop mode of an animation.
-    /// <br>The value is an enumerated value of [`DrawableDescriptor_AnimationStopMode`](crate::drawable_descriptor::DrawableDescriptor_AnimationStopMode). The default value is
-    /// [`DRAWABLE_DESCRIPTOR_ANIMATION_FIRST_FRAME`](crate::drawable_descriptor::DrawableDescriptor_AnimationStopMode::DRAWABLE_DESCRIPTOR_ANIMATION_FIRST_FRAME).
+    ///   <br>The value is an enumerated value of [`DrawableDescriptor_AnimationStopMode`](crate::drawable_descriptor::DrawableDescriptor_AnimationStopMode). The default value is
+    ///   [`DRAWABLE_DESCRIPTOR_ANIMATION_FIRST_FRAME`](crate::drawable_descriptor::DrawableDescriptor_AnimationStopMode::DRAWABLE_DESCRIPTOR_ANIMATION_FIRST_FRAME).
     ///
     /// # Returns
     ///
@@ -385,7 +385,7 @@ extern "C" {
     /// * `drawableDescriptor` - Pointer to the `DrawableDescriptor` object.
     ///
     /// * `mode` - Stop mode of an animation.
-    /// <br>For details about the values, see [`DrawableDescriptor_AnimationStopMode`](crate::drawable_descriptor::DrawableDescriptor_AnimationStopMode).
+    ///   <br>For details about the values, see [`DrawableDescriptor_AnimationStopMode`](crate::drawable_descriptor::DrawableDescriptor_AnimationStopMode).
     ///
     /// # Returns
     ///

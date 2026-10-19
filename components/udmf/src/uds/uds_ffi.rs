@@ -104,7 +104,7 @@ extern "C" {
     /// # Returns
     ///
     /// * If the operation is successful, a pointer to the instance of the [`OH_UdsPlainText`](ohos_sys_opaque_types::OH_UdsPlainText)
-    /// structure is returned. If the operation is failed, nullptr is returned.
+    ///   structure is returned. If the operation is failed, nullptr is returned.
     ///
     /// **See also:** [`OH_UdsPlainText`](ohos_sys_opaque_types::OH_UdsPlainText)
     ///
@@ -183,8 +183,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
-    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
-    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
+    ///   [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    ///   [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
     /// **See also:** [`OH_UdsPlainText`](ohos_sys_opaque_types::OH_UdsPlainText) [`OH_UdsDetails`](crate::data_struct::OH_UdsDetails) [`Udmf_ErrCode`](crate::Udmf_ErrCode)
     ///
@@ -206,8 +206,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
-    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
-    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
+    ///   [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    ///   [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
     /// **See also:** [`OH_UdsPlainText`](ohos_sys_opaque_types::OH_UdsPlainText) [`Udmf_ErrCode`](crate::Udmf_ErrCode)
     ///
@@ -229,8 +229,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
-    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
-    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
+    ///   [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    ///   [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
     /// **See also:** [`OH_UdsPlainText`](ohos_sys_opaque_types::OH_UdsPlainText) [`Udmf_ErrCode`](crate::Udmf_ErrCode)
     ///
@@ -252,8 +252,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
-    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
-    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
+    ///   [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    ///   [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
     /// **See also:** [`OH_UdsPlainText`](ohos_sys_opaque_types::OH_UdsPlainText) [`OH_UdsDetails`](crate::data_struct::OH_UdsDetails) [`Udmf_ErrCode`](crate::Udmf_ErrCode)
     ///
@@ -270,7 +270,7 @@ extern "C" {
     /// # Returns
     ///
     /// * If the operation is successful, a pointer to the instance of [`OH_UdsHyperlink`](ohos_sys_opaque_types::OH_UdsHyperlink)
-    /// structure is returned. If the operation is failed, nullptr is returned.
+    ///   structure is returned. If the operation is failed, nullptr is returned.
     ///
     /// **See also:** [`OH_UdsHyperlink`](ohos_sys_opaque_types::OH_UdsHyperlink)
     ///
@@ -351,8 +351,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
-    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
-    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
+    ///   [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    ///   [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
     /// **See also:** [`OH_UdsHyperlink`](ohos_sys_opaque_types::OH_UdsHyperlink) [`OH_UdsDetails`](crate::data_struct::OH_UdsDetails) [`Udmf_ErrCode`](crate::Udmf_ErrCode)
     ///
@@ -374,8 +374,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
-    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
-    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
+    ///   [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    ///   [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
     /// **See also:** [`OH_UdsHyperlink`](ohos_sys_opaque_types::OH_UdsHyperlink) [`Udmf_ErrCode`](crate::Udmf_ErrCode)
     ///
@@ -397,8 +397,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
-    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
-    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
+    ///   [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    ///   [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
     /// **See also:** [`OH_UdsHyperlink`](ohos_sys_opaque_types::OH_UdsHyperlink) [`Udmf_ErrCode`](crate::Udmf_ErrCode)
     ///
@@ -420,8 +420,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
-    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
-    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
+    ///   [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    ///   [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
     /// Available since API-level: 22
     ///
@@ -438,7 +438,7 @@ extern "C" {
     /// # Returns
     ///
     /// * If the operation is successful, a pointer to the instance of the [`OH_UdsHtml`](ohos_sys_opaque_types::OH_UdsHtml)
-    /// structure is returned. If the operation is failed, nullptr is returned.
+    ///   structure is returned. If the operation is failed, nullptr is returned.
     ///
     /// **See also:** [`OH_UdsHtml`](ohos_sys_opaque_types::OH_UdsHtml)
     ///
@@ -517,8 +517,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
-    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
-    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
+    ///   [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    ///   [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
     /// Available since API-level: 22
     ///
@@ -540,8 +540,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
-    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
-    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
+    ///   [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    ///   [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
     /// **See also:** [`OH_UdsHtml`](ohos_sys_opaque_types::OH_UdsHtml) [`Udmf_ErrCode`](crate::Udmf_ErrCode)
     ///
@@ -563,8 +563,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
-    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
-    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
+    ///   [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    ///   [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
     /// **See also:** [`OH_UdsHtml`](ohos_sys_opaque_types::OH_UdsHtml) [`Udmf_ErrCode`](crate::Udmf_ErrCode)
     ///
@@ -586,8 +586,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
-    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
-    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
+    ///   [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    ///   [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
     /// Available since API-level: 22
     ///
@@ -608,8 +608,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
-    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
-    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
+    ///   [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    ///   [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
     /// Available since API-level: 26
     ///
@@ -623,7 +623,7 @@ extern "C" {
     /// # Returns
     ///
     /// * If the operation is successful, a pointer to the instance of the [`OH_UdsAppItem`](ohos_sys_opaque_types::OH_UdsAppItem)
-    /// structure is returned. sIf the operation is failed, nullptr is returned.
+    ///   structure is returned. sIf the operation is failed, nullptr is returned.
     ///
     /// **See also:** [`OH_UdsAppItem`](ohos_sys_opaque_types::OH_UdsAppItem)
     ///
@@ -766,8 +766,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
-    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
-    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
+    ///   [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    ///   [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
     /// Available since API-level: 22
     ///
@@ -789,8 +789,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
-    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
-    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
+    ///   [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    ///   [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
     /// **See also:** [`OH_UdsAppItem`](ohos_sys_opaque_types::OH_UdsAppItem) [`Udmf_ErrCode`](crate::Udmf_ErrCode)
     ///
@@ -812,8 +812,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
-    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
-    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
+    ///   [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    ///   [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
     /// **See also:** [`OH_UdsAppItem`](ohos_sys_opaque_types::OH_UdsAppItem) [`Udmf_ErrCode`](crate::Udmf_ErrCode)
     ///
@@ -835,8 +835,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
-    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
-    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
+    ///   [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    ///   [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
     /// **See also:** [`OH_UdsAppItem`](ohos_sys_opaque_types::OH_UdsAppItem) [`Udmf_ErrCode`](crate::Udmf_ErrCode)
     ///
@@ -858,8 +858,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
-    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
-    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
+    ///   [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    ///   [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
     /// **See also:** [`OH_UdsAppItem`](ohos_sys_opaque_types::OH_UdsAppItem) [`Udmf_ErrCode`](crate::Udmf_ErrCode)
     ///
@@ -881,8 +881,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
-    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
-    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
+    ///   [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    ///   [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
     /// **See also:** [`OH_UdsAppItem`](ohos_sys_opaque_types::OH_UdsAppItem) [`Udmf_ErrCode`](crate::Udmf_ErrCode)
     ///
@@ -904,8 +904,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
-    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
-    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
+    ///   [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    ///   [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
     /// **See also:** [`OH_UdsAppItem`](ohos_sys_opaque_types::OH_UdsAppItem) [`Udmf_ErrCode`](crate::Udmf_ErrCode)
     ///
@@ -927,8 +927,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
-    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
-    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
+    ///   [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    ///   [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
     /// **See also:** [`OH_UdsAppItem`](ohos_sys_opaque_types::OH_UdsAppItem) [`OH_UdsDetails`](crate::data_struct::OH_UdsDetails) [`Udmf_ErrCode`](crate::Udmf_ErrCode)
     ///
@@ -945,7 +945,7 @@ extern "C" {
     /// # Returns
     ///
     /// * If the operation is successful, a pointer to the instance of the [`OH_UdsFileUri`](ohos_sys_opaque_types::OH_UdsFileUri)
-    /// structure is returned. If the memory is not enough, nullptr is returned.
+    ///   structure is returned. If the memory is not enough, nullptr is returned.
     ///
     /// **See also:** [`OH_UdsFileUri`](ohos_sys_opaque_types::OH_UdsFileUri)
     ///
@@ -1024,8 +1024,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
-    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
-    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
+    ///   [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    ///   [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
     /// Available since API-level: 22
     ///
@@ -1047,8 +1047,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
-    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
-    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
+    ///   [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    ///   [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
     /// **See also:** [`OH_UdsFileUri`](ohos_sys_opaque_types::OH_UdsFileUri) [`Udmf_ErrCode`](crate::Udmf_ErrCode)
     ///
@@ -1070,8 +1070,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
-    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
-    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
+    ///   [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    ///   [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
     /// **See also:** [`OH_UdsFileUri`](ohos_sys_opaque_types::OH_UdsFileUri) [`Udmf_ErrCode`](crate::Udmf_ErrCode)
     ///
@@ -1093,8 +1093,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
-    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
-    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
+    ///   [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    ///   [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
     /// **See also:** [`OH_UdsFileUri`](ohos_sys_opaque_types::OH_UdsFileUri) [`OH_UdsDetails`](crate::data_struct::OH_UdsDetails) [`Udmf_ErrCode`](crate::Udmf_ErrCode)
     ///
@@ -1115,8 +1115,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
-    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
-    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
+    ///   [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    ///   [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
     /// **See also:** [`OH_UdsFileUri`](ohos_sys_opaque_types::OH_UdsFileUri) [`Udmf_ErrCode`](crate::Udmf_ErrCode)
     ///
@@ -1133,7 +1133,7 @@ extern "C" {
     /// # Returns
     ///
     /// * If the operation is successful, a pointer to the instance of the [`OH_UdsPixelMap`](ohos_sys_opaque_types::OH_UdsPixelMap)
-    /// structure is returned. If the memory is not enough, nullptr is returned.
+    ///   structure is returned. If the memory is not enough, nullptr is returned.
     ///
     /// **See also:** [`OH_UdsPixelMap`](ohos_sys_opaque_types::OH_UdsPixelMap)
     ///
@@ -1197,8 +1197,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
-    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
-    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
+    ///   [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    ///   [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
     /// Available since API-level: 22
     ///
@@ -1220,8 +1220,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
-    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
-    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
+    ///   [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    ///   [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
     /// **See also:** [`OH_UdsPixelMap`](ohos_sys_opaque_types::OH_UdsPixelMap) [`Udmf_ErrCode`](crate::Udmf_ErrCode)
     ///
@@ -1243,8 +1243,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
-    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
-    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
+    ///   [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    ///   [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
     /// Available since API-level: 22
     ///
@@ -1261,7 +1261,7 @@ extern "C" {
     /// # Returns
     ///
     /// * If the operation is successful, a pointer to the instance of the [`OH_UdsArrayBuffer`](ohos_sys_opaque_types::OH_UdsArrayBuffer)
-    /// structure is returned. If the memory is not enough, nullptr is returned.
+    ///   structure is returned. If the memory is not enough, nullptr is returned.
     ///
     /// **See also:** [`OH_UdsArrayBuffer`](ohos_sys_opaque_types::OH_UdsArrayBuffer)
     ///
@@ -1278,8 +1278,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
-    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
-    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
+    ///   [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    ///   [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
     /// **See also:** [`OH_UdsArrayBuffer`](ohos_sys_opaque_types::OH_UdsArrayBuffer) [`Udmf_ErrCode`](crate::Udmf_ErrCode)
     ///
@@ -1300,8 +1300,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
-    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
-    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
+    ///   [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    ///   [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
     /// **See also:** [`OH_UdsArrayBuffer`](ohos_sys_opaque_types::OH_UdsArrayBuffer) [`Udmf_ErrCode`](crate::Udmf_ErrCode)
     ///
@@ -1326,8 +1326,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
-    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
-    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
+    ///   [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    ///   [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
     /// **See also:** [`OH_UdsArrayBuffer`](ohos_sys_opaque_types::OH_UdsArrayBuffer) [`Udmf_ErrCode`](crate::Udmf_ErrCode)
     ///
@@ -1345,7 +1345,7 @@ extern "C" {
     /// # Returns
     ///
     /// * If the operation is successful, a pointer to the instance of the [`OH_UdsContentForm`](ohos_sys_opaque_types::OH_UdsContentForm)
-    /// structure is returned. If the operation is failed, nullptr is returned.
+    ///   structure is returned. If the operation is failed, nullptr is returned.
     ///
     /// **See also:** [`OH_UdsContentForm`](ohos_sys_opaque_types::OH_UdsContentForm)
     ///
@@ -1394,9 +1394,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
-    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
-    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
-    /// [`UDMF_ERR`](crate::Udmf_ErrCode::ERR) Internal data error.
+    ///   [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    ///   [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
+    ///   [`UDMF_ERR`](crate::Udmf_ErrCode::ERR) Internal data error.
     ///
     /// **See also:** [`OH_UdsContentForm`](ohos_sys_opaque_types::OH_UdsContentForm) [`Udmf_ErrCode`](crate::Udmf_ErrCode)
     ///
@@ -1455,9 +1455,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
-    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
-    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
-    /// [`UDMF_ERR`](crate::Udmf_ErrCode::ERR) Internal data error.
+    ///   [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    ///   [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
+    ///   [`UDMF_ERR`](crate::Udmf_ErrCode::ERR) Internal data error.
     ///
     /// **See also:** [`OH_UdsContentForm`](ohos_sys_opaque_types::OH_UdsContentForm) [`Udmf_ErrCode`](crate::Udmf_ErrCode)
     ///
@@ -1518,8 +1518,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
-    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
-    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
+    ///   [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    ///   [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
     /// **See also:** [`OH_UdsContentForm`](ohos_sys_opaque_types::OH_UdsContentForm) [`Udmf_ErrCode`](crate::Udmf_ErrCode)
     ///
@@ -1542,8 +1542,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
-    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
-    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
+    ///   [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    ///   [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
     /// **See also:** [`OH_UdsContentForm`](ohos_sys_opaque_types::OH_UdsContentForm) [`Udmf_ErrCode`](crate::Udmf_ErrCode)
     ///
@@ -1565,8 +1565,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
-    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
-    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
+    ///   [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    ///   [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
     /// **See also:** [`OH_UdsContentForm`](ohos_sys_opaque_types::OH_UdsContentForm) [`Udmf_ErrCode`](crate::Udmf_ErrCode)
     ///
@@ -1590,8 +1590,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
-    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
-    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
+    ///   [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    ///   [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
     /// **See also:** [`OH_UdsContentForm`](ohos_sys_opaque_types::OH_UdsContentForm) [`Udmf_ErrCode`](crate::Udmf_ErrCode)
     ///
@@ -1614,8 +1614,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
-    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
-    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
+    ///   [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    ///   [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
     /// **See also:** [`OH_UdsContentForm`](ohos_sys_opaque_types::OH_UdsContentForm) [`Udmf_ErrCode`](crate::Udmf_ErrCode)
     ///
@@ -1637,8 +1637,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
-    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
-    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
+    ///   [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    ///   [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
     /// **See also:** [`OH_UdsContentForm`](ohos_sys_opaque_types::OH_UdsContentForm) [`Udmf_ErrCode`](crate::Udmf_ErrCode)
     ///
@@ -1655,7 +1655,7 @@ extern "C" {
     /// # Returns
     ///
     /// * If the operation is successful, a pointer to the instance of the [`OH_UdsDetails`](crate::data_struct::OH_UdsDetails)
-    /// structure is returned. If the operation is failed, nullptr is returned.
+    ///   structure is returned. If the operation is failed, nullptr is returned.
     ///
     /// Available since API-level: 22
     ///
@@ -1686,8 +1686,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// `false` Represents The details do not contain the key.
-    /// `true` Represents The details contain the key.
+    ///   `false` Represents The details do not contain the key.
+    ///   `true` Represents The details contain the key.
     ///
     /// **See also:** [`OH_UdsDetails`](crate::data_struct::OH_UdsDetails)
     ///
@@ -1709,8 +1709,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
-    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
-    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
+    ///   [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    ///   [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
     /// Available since API-level: 22
     ///
@@ -1730,8 +1730,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
-    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
-    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
+    ///   [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    ///   [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
     /// Available since API-level: 22
     ///
@@ -1752,8 +1752,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
-    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
-    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
+    ///   [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    ///   [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
     /// Available since API-level: 22
     ///

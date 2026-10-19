@@ -252,7 +252,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `audioDeviceDescriptor` - reference returned by [`OH_AudioRoutingManager_GetDevices`](crate::audio_routing_manager::OH_AudioRoutingManager_GetDevices) or
-    /// `OH_AudioRouterManager_OnDeviceChangedCallback`.
+    ///   `OH_AudioRouterManager_OnDeviceChangedCallback`.
     ///
     /// * `deviceRole` - the pointer [`OH_AudioDevice_Role`](crate::audio_device_base::OH_AudioDevice_Role) variable that will be set the device role value.
     ///
@@ -272,10 +272,10 @@ extern "C" {
     /// # Arguments
     ///
     /// * `audioDeviceDescriptor` - reference returned by [`OH_AudioRoutingManager_GetDevices`](crate::audio_routing_manager::OH_AudioRoutingManager_GetDevices) or
-    /// `OH_AudioRouterManager_OnDeviceChangedCallback`.
+    ///   `OH_AudioRouterManager_OnDeviceChangedCallback`.
     ///
     /// * `deviceType` - the pointer [`OH_AudioDevice_Type`](crate::audio_device_base::OH_AudioDevice_Type)
-    /// pointer variable that will be set the device type value.
+    ///   pointer variable that will be set the device type value.
     ///
     /// # Returns
     ///
@@ -293,7 +293,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `audioDeviceDescriptor` - reference returned by [`OH_AudioRoutingManager_GetDevices`](crate::audio_routing_manager::OH_AudioRoutingManager_GetDevices) or
-    /// `OH_AudioRouterManager_OnDeviceChangedCallback`.
+    ///   `OH_AudioRouterManager_OnDeviceChangedCallback`.
     ///
     /// * `id` - pointer variable that will be set the device id value.
     ///
@@ -313,12 +313,12 @@ extern "C" {
     /// # Arguments
     ///
     /// * `audioDeviceDescriptor` - reference returned by [`OH_AudioRoutingManager_GetDevices`](crate::audio_routing_manager::OH_AudioRoutingManager_GetDevices) or
-    /// `OH_AudioRouterManager_OnDeviceChangedCallback`.
+    ///   `OH_AudioRouterManager_OnDeviceChangedCallback`.
     ///
     /// * `name` - pointer variable that will be set the device name value.
-    /// Do not release the name pointer separately
-    /// instead call [`OH_AudioRoutingManager_ReleaseDevices`](crate::audio_routing_manager::OH_AudioRoutingManager_ReleaseDevices) to release the DeviceDescriptor array
-    /// when it is no use anymore.
+    ///   Do not release the name pointer separately
+    ///   instead call [`OH_AudioRoutingManager_ReleaseDevices`](crate::audio_routing_manager::OH_AudioRoutingManager_ReleaseDevices) to release the DeviceDescriptor array
+    ///   when it is no use anymore.
     ///
     /// # Returns
     ///
@@ -336,12 +336,12 @@ extern "C" {
     /// # Arguments
     ///
     /// * `audioDeviceDescriptor` - reference returned by [`OH_AudioRoutingManager_GetDevices`](crate::audio_routing_manager::OH_AudioRoutingManager_GetDevices) or
-    /// `OH_AudioRouterManager_OnDeviceChangedCallback`.
+    ///   `OH_AudioRouterManager_OnDeviceChangedCallback`.
     ///
     /// * `address` - pointer variable that will be set the device address value.
-    /// Do not release the address pointer separately
-    /// instead call [`OH_AudioRoutingManager_ReleaseDevices`](crate::audio_routing_manager::OH_AudioRoutingManager_ReleaseDevices) to release the DeviceDescriptor array
-    /// when it is no use anymore.
+    ///   Do not release the address pointer separately
+    ///   instead call [`OH_AudioRoutingManager_ReleaseDevices`](crate::audio_routing_manager::OH_AudioRoutingManager_ReleaseDevices) to release the DeviceDescriptor array
+    ///   when it is no use anymore.
     ///
     /// # Returns
     ///
@@ -359,12 +359,12 @@ extern "C" {
     /// # Arguments
     ///
     /// * `audioDeviceDescriptor` - reference returned by [`OH_AudioRoutingManager_GetDevices`](crate::audio_routing_manager::OH_AudioRoutingManager_GetDevices) or
-    /// `OH_AudioRouterManager_OnDeviceChangedCallback`.
+    ///   `OH_AudioRouterManager_OnDeviceChangedCallback`.
     ///
     /// * `sampleRates` - array pointer variable that will be set the sample rate array value.
-    /// Do not release the sampleRates pointer separately
-    /// instead call [`OH_AudioRoutingManager_ReleaseDevices`](crate::audio_routing_manager::OH_AudioRoutingManager_ReleaseDevices) to release the DeviceDescriptor array
-    /// when it is no use anymore.
+    ///   Do not release the sampleRates pointer separately
+    ///   instead call [`OH_AudioRoutingManager_ReleaseDevices`](crate::audio_routing_manager::OH_AudioRoutingManager_ReleaseDevices) to release the DeviceDescriptor array
+    ///   when it is no use anymore.
     ///
     /// * `size` - pointer variable that will be set the sample rate size value.
     ///
@@ -385,12 +385,12 @@ extern "C" {
     /// # Arguments
     ///
     /// * `audioDeviceDescriptor` - reference returned by [`OH_AudioRoutingManager_GetDevices`](crate::audio_routing_manager::OH_AudioRoutingManager_GetDevices) or
-    /// `OH_AudioRouterManager_OnDeviceChangedCallback`.
+    ///   `OH_AudioRouterManager_OnDeviceChangedCallback`.
     ///
     /// * `channelCounts` - array pointer variable that will be set the channel count array value.
-    /// Do not release the channelCounts pointer separately
-    /// instead call [`OH_AudioRoutingManager_ReleaseDevices`](crate::audio_routing_manager::OH_AudioRoutingManager_ReleaseDevices) to release the DeviceDescriptor array
-    /// when it is no use anymore.
+    ///   Do not release the channelCounts pointer separately
+    ///   instead call [`OH_AudioRoutingManager_ReleaseDevices`](crate::audio_routing_manager::OH_AudioRoutingManager_ReleaseDevices) to release the DeviceDescriptor array
+    ///   when it is no use anymore.
     ///
     /// * `size` - pointer variable that will be set the channel count size value.
     ///
@@ -411,12 +411,12 @@ extern "C" {
     /// # Arguments
     ///
     /// * `audioDeviceDescriptor` - reference returned by [`OH_AudioRoutingManager_GetDevices`](crate::audio_routing_manager::OH_AudioRoutingManager_GetDevices) or
-    /// `OH_AudioRouterManager_OnDeviceChangedCallback`.
+    ///   `OH_AudioRouterManager_OnDeviceChangedCallback`.
     ///
     /// * `displayName` - pointer variable that will be set the display name value.
-    /// Do not release the displayName pointer separately
-    /// instead call [`OH_AudioRoutingManager_ReleaseDevices`](crate::audio_routing_manager::OH_AudioRoutingManager_ReleaseDevices) to release the DeviceDescriptor array
-    /// when it is no use anymore.
+    ///   Do not release the displayName pointer separately
+    ///   instead call [`OH_AudioRoutingManager_ReleaseDevices`](crate::audio_routing_manager::OH_AudioRoutingManager_ReleaseDevices) to release the DeviceDescriptor array
+    ///   when it is no use anymore.
     ///
     /// # Returns
     ///
@@ -434,12 +434,12 @@ extern "C" {
     /// # Arguments
     ///
     /// * `audioDeviceDescriptor` - reference returned by [`OH_AudioRoutingManager_GetDevices`](crate::audio_routing_manager::OH_AudioRoutingManager_GetDevices) or
-    /// `OH_AudioRouterManager_OnDeviceChangedCallback`.
+    ///   `OH_AudioRouterManager_OnDeviceChangedCallback`.
     ///
     /// * `encodingTypes` - the [`OH_AudioStream_EncodingType`](crate::audiostream_base::OH_AudioStream_EncodingType)
-    /// Do not release the encodingTypes pointer separately
-    /// instead call [`OH_AudioRoutingManager_ReleaseDevices`](crate::audio_routing_manager::OH_AudioRoutingManager_ReleaseDevices) to release the DeviceDescriptor array
-    /// when it is no use anymore.
+    ///   Do not release the encodingTypes pointer separately
+    ///   instead call [`OH_AudioRoutingManager_ReleaseDevices`](crate::audio_routing_manager::OH_AudioRoutingManager_ReleaseDevices) to release the DeviceDescriptor array
+    ///   when it is no use anymore.
     ///
     /// * `size` - pointer variable that will be set the encoding type size value.
     ///

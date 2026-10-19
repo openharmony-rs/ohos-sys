@@ -18,24 +18,24 @@ extern "C" {
     /// # Returns
     ///
     /// * [`ASSET_SUCCESS`](crate::asset_type::Asset_ResultCode::ASSET_SUCCESS) 0 - The operation is successful.
-    /// [`ASSET_PERMISSION_DENIED`](crate::asset_type::Asset_ResultCode::ASSET_PERMISSION_DENIED) 201 - The caller doesn't have the permission.
-    /// [`ASSET_INVALID_ARGUMENT`](crate::asset_type::Asset_ResultCode::ASSET_INVALID_ARGUMENT) 401 - Parameter error. Possible causes:
+    ///   [`ASSET_PERMISSION_DENIED`](crate::asset_type::Asset_ResultCode::ASSET_PERMISSION_DENIED) 201 - The caller doesn't have the permission.
+    ///   [`ASSET_INVALID_ARGUMENT`](crate::asset_type::Asset_ResultCode::ASSET_INVALID_ARGUMENT) 401 - Parameter error. Possible causes:
     /// 1. Mandatory parameters are left unspecified.
     /// 2. Incorrect parameter types.
     /// 3. Parameter verification failed.
-    /// [`ASSET_SERVICE_UNAVAILABLE`](crate::asset_type::Asset_ResultCode::ASSET_SERVICE_UNAVAILABLE) 24000001 - The ASSET service is unavailable.
-    /// [`ASSET_DUPLICATED`](crate::asset_type::Asset_ResultCode::ASSET_DUPLICATED) 24000003 - The asset already exists.
-    /// [`ASSET_STATUS_MISMATCH`](crate::asset_type::Asset_ResultCode::ASSET_STATUS_MISMATCH) 24000005 - The screen lock status does not match.
-    /// [`ASSET_OUT_OF_MEMORY`](crate::asset_type::Asset_ResultCode::ASSET_OUT_OF_MEMORY) 24000006 - Insufficient memory.
-    /// [`ASSET_DATA_CORRUPTED`](crate::asset_type::Asset_ResultCode::ASSET_DATA_CORRUPTED) 24000007 - The asset is corrupted.
-    /// [`ASSET_DATABASE_ERROR`](crate::asset_type::Asset_ResultCode::ASSET_DATABASE_ERROR) 24000008 - The database operation failed.
-    /// [`ASSET_CRYPTO_ERROR`](crate::asset_type::Asset_ResultCode::ASSET_CRYPTO_ERROR) 24000009 - The cryptography operation failed.
-    /// [`ASSET_IPC_ERROR`](crate::asset_type::Asset_ResultCode::ASSET_IPC_ERROR) 24000010 - IPC failed.
-    /// [`ASSET_BMS_ERROR`](crate::asset_type::Asset_ResultCode::ASSET_BMS_ERROR) 24000011 - Calling the Bundle Manager service failed.
-    /// [`ASSET_ACCOUNT_ERROR`](crate::asset_type::Asset_ResultCode::ASSET_ACCOUNT_ERROR) 24000012 - Calling the OS Account service failed.
-    /// [`ASSET_ACCESS_TOKEN_ERROR`](crate::asset_type::Asset_ResultCode::ASSET_ACCESS_TOKEN_ERROR) 24000013 - Calling the Access Token service failed.
-    /// [`ASSET_FILE_OPERATION_ERROR`](crate::asset_type::Asset_ResultCode::ASSET_FILE_OPERATION_ERROR) 24000014 - The file operation failed.
-    /// [`ASSET_GET_SYSTEM_TIME_ERROR`](crate::asset_type::Asset_ResultCode::ASSET_GET_SYSTEM_TIME_ERROR) 24000015 - Getting the system time failed.
+    ///    [`ASSET_SERVICE_UNAVAILABLE`](crate::asset_type::Asset_ResultCode::ASSET_SERVICE_UNAVAILABLE) 24000001 - The ASSET service is unavailable.
+    ///    [`ASSET_DUPLICATED`](crate::asset_type::Asset_ResultCode::ASSET_DUPLICATED) 24000003 - The asset already exists.
+    ///    [`ASSET_STATUS_MISMATCH`](crate::asset_type::Asset_ResultCode::ASSET_STATUS_MISMATCH) 24000005 - The screen lock status does not match.
+    ///    [`ASSET_OUT_OF_MEMORY`](crate::asset_type::Asset_ResultCode::ASSET_OUT_OF_MEMORY) 24000006 - Insufficient memory.
+    ///    [`ASSET_DATA_CORRUPTED`](crate::asset_type::Asset_ResultCode::ASSET_DATA_CORRUPTED) 24000007 - The asset is corrupted.
+    ///    [`ASSET_DATABASE_ERROR`](crate::asset_type::Asset_ResultCode::ASSET_DATABASE_ERROR) 24000008 - The database operation failed.
+    ///    [`ASSET_CRYPTO_ERROR`](crate::asset_type::Asset_ResultCode::ASSET_CRYPTO_ERROR) 24000009 - The cryptography operation failed.
+    ///    [`ASSET_IPC_ERROR`](crate::asset_type::Asset_ResultCode::ASSET_IPC_ERROR) 24000010 - IPC failed.
+    ///    [`ASSET_BMS_ERROR`](crate::asset_type::Asset_ResultCode::ASSET_BMS_ERROR) 24000011 - Calling the Bundle Manager service failed.
+    ///    [`ASSET_ACCOUNT_ERROR`](crate::asset_type::Asset_ResultCode::ASSET_ACCOUNT_ERROR) 24000012 - Calling the OS Account service failed.
+    ///    [`ASSET_ACCESS_TOKEN_ERROR`](crate::asset_type::Asset_ResultCode::ASSET_ACCESS_TOKEN_ERROR) 24000013 - Calling the Access Token service failed.
+    ///    [`ASSET_FILE_OPERATION_ERROR`](crate::asset_type::Asset_ResultCode::ASSET_FILE_OPERATION_ERROR) 24000014 - The file operation failed.
+    ///    [`ASSET_GET_SYSTEM_TIME_ERROR`](crate::asset_type::Asset_ResultCode::ASSET_GET_SYSTEM_TIME_ERROR) 24000015 - Getting the system time failed.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -52,19 +52,19 @@ extern "C" {
     /// # Returns
     ///
     /// * [`ASSET_SUCCESS`](crate::asset_type::Asset_ResultCode::ASSET_SUCCESS) 0 - The operation is successful.
-    /// [`ASSET_INVALID_ARGUMENT`](crate::asset_type::Asset_ResultCode::ASSET_INVALID_ARGUMENT) 401 - Parameter error. Possible causes:
+    ///   [`ASSET_INVALID_ARGUMENT`](crate::asset_type::Asset_ResultCode::ASSET_INVALID_ARGUMENT) 401 - Parameter error. Possible causes:
     /// 1. Incorrect parameter types.
     /// 2. Parameter verification failed.
-    /// [`ASSET_SERVICE_UNAVAILABLE`](crate::asset_type::Asset_ResultCode::ASSET_SERVICE_UNAVAILABLE) 24000001 - The ASSET service is unavailable.
-    /// [`ASSET_NOT_FOUND`](crate::asset_type::Asset_ResultCode::ASSET_NOT_FOUND) 24000002 - The asset is not found.
-    /// [`ASSET_OUT_OF_MEMORY`](crate::asset_type::Asset_ResultCode::ASSET_OUT_OF_MEMORY) 24000006 - Insufficient memory.
-    /// [`ASSET_DATA_CORRUPTED`](crate::asset_type::Asset_ResultCode::ASSET_DATA_CORRUPTED) 24000007 - The asset is corrupted.
-    /// [`ASSET_DATABASE_ERROR`](crate::asset_type::Asset_ResultCode::ASSET_DATABASE_ERROR) 24000008 - The database operation failed.
-    /// [`ASSET_IPC_ERROR`](crate::asset_type::Asset_ResultCode::ASSET_IPC_ERROR) 24000010 - IPC failed.
-    /// [`ASSET_BMS_ERROR`](crate::asset_type::Asset_ResultCode::ASSET_BMS_ERROR) 24000011 - Calling the Bundle Manager service failed.
-    /// [`ASSET_ACCOUNT_ERROR`](crate::asset_type::Asset_ResultCode::ASSET_ACCOUNT_ERROR) 24000012 - Calling the OS Account service failed.
-    /// [`ASSET_ACCESS_TOKEN_ERROR`](crate::asset_type::Asset_ResultCode::ASSET_ACCESS_TOKEN_ERROR) 24000013 - Calling the Access Token service failed.
-    /// [`ASSET_GET_SYSTEM_TIME_ERROR`](crate::asset_type::Asset_ResultCode::ASSET_GET_SYSTEM_TIME_ERROR) 24000015 - Getting the system time failed.
+    ///    [`ASSET_SERVICE_UNAVAILABLE`](crate::asset_type::Asset_ResultCode::ASSET_SERVICE_UNAVAILABLE) 24000001 - The ASSET service is unavailable.
+    ///    [`ASSET_NOT_FOUND`](crate::asset_type::Asset_ResultCode::ASSET_NOT_FOUND) 24000002 - The asset is not found.
+    ///    [`ASSET_OUT_OF_MEMORY`](crate::asset_type::Asset_ResultCode::ASSET_OUT_OF_MEMORY) 24000006 - Insufficient memory.
+    ///    [`ASSET_DATA_CORRUPTED`](crate::asset_type::Asset_ResultCode::ASSET_DATA_CORRUPTED) 24000007 - The asset is corrupted.
+    ///    [`ASSET_DATABASE_ERROR`](crate::asset_type::Asset_ResultCode::ASSET_DATABASE_ERROR) 24000008 - The database operation failed.
+    ///    [`ASSET_IPC_ERROR`](crate::asset_type::Asset_ResultCode::ASSET_IPC_ERROR) 24000010 - IPC failed.
+    ///    [`ASSET_BMS_ERROR`](crate::asset_type::Asset_ResultCode::ASSET_BMS_ERROR) 24000011 - Calling the Bundle Manager service failed.
+    ///    [`ASSET_ACCOUNT_ERROR`](crate::asset_type::Asset_ResultCode::ASSET_ACCOUNT_ERROR) 24000012 - Calling the OS Account service failed.
+    ///    [`ASSET_ACCESS_TOKEN_ERROR`](crate::asset_type::Asset_ResultCode::ASSET_ACCESS_TOKEN_ERROR) 24000013 - Calling the Access Token service failed.
+    ///    [`ASSET_GET_SYSTEM_TIME_ERROR`](crate::asset_type::Asset_ResultCode::ASSET_GET_SYSTEM_TIME_ERROR) 24000015 - Getting the system time failed.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -85,22 +85,22 @@ extern "C" {
     /// # Returns
     ///
     /// * [`ASSET_SUCCESS`](crate::asset_type::Asset_ResultCode::ASSET_SUCCESS) 0 - The operation is successful.
-    /// [`ASSET_INVALID_ARGUMENT`](crate::asset_type::Asset_ResultCode::ASSET_INVALID_ARGUMENT) 401 - Parameter error. Possible causes:
+    ///   [`ASSET_INVALID_ARGUMENT`](crate::asset_type::Asset_ResultCode::ASSET_INVALID_ARGUMENT) 401 - Parameter error. Possible causes:
     /// 1. Mandatory parameters are left unspecified.
     /// 2. Incorrect parameter types.
     /// 3. Parameter verification failed.
-    /// [`ASSET_SERVICE_UNAVAILABLE`](crate::asset_type::Asset_ResultCode::ASSET_SERVICE_UNAVAILABLE) 24000001 - The ASSET service is unavailable.
-    /// [`ASSET_NOT_FOUND`](crate::asset_type::Asset_ResultCode::ASSET_NOT_FOUND) 24000002 - The asset is not found.
-    /// [`ASSET_STATUS_MISMATCH`](crate::asset_type::Asset_ResultCode::ASSET_STATUS_MISMATCH) 24000005 - The screen lock status does not match.
-    /// [`ASSET_OUT_OF_MEMORY`](crate::asset_type::Asset_ResultCode::ASSET_OUT_OF_MEMORY) 24000006 - Insufficient memory.
-    /// [`ASSET_DATA_CORRUPTED`](crate::asset_type::Asset_ResultCode::ASSET_DATA_CORRUPTED) 24000007 - The asset is corrupted.
-    /// [`ASSET_DATABASE_ERROR`](crate::asset_type::Asset_ResultCode::ASSET_DATABASE_ERROR) 24000008 - The database operation failed.
-    /// [`ASSET_CRYPTO_ERROR`](crate::asset_type::Asset_ResultCode::ASSET_CRYPTO_ERROR) 24000009 - The cryptography operation failed.
-    /// [`ASSET_IPC_ERROR`](crate::asset_type::Asset_ResultCode::ASSET_IPC_ERROR) 24000010 - IPC failed.
-    /// [`ASSET_BMS_ERROR`](crate::asset_type::Asset_ResultCode::ASSET_BMS_ERROR) 24000011 - Calling the Bundle Manager service failed.
-    /// [`ASSET_ACCOUNT_ERROR`](crate::asset_type::Asset_ResultCode::ASSET_ACCOUNT_ERROR) 24000012 - Calling the OS Account service failed.
-    /// [`ASSET_ACCESS_TOKEN_ERROR`](crate::asset_type::Asset_ResultCode::ASSET_ACCESS_TOKEN_ERROR) 24000013 - Calling the Access Token service failed.
-    /// [`ASSET_GET_SYSTEM_TIME_ERROR`](crate::asset_type::Asset_ResultCode::ASSET_GET_SYSTEM_TIME_ERROR) 24000015 - Getting the system time failed.
+    ///    [`ASSET_SERVICE_UNAVAILABLE`](crate::asset_type::Asset_ResultCode::ASSET_SERVICE_UNAVAILABLE) 24000001 - The ASSET service is unavailable.
+    ///    [`ASSET_NOT_FOUND`](crate::asset_type::Asset_ResultCode::ASSET_NOT_FOUND) 24000002 - The asset is not found.
+    ///    [`ASSET_STATUS_MISMATCH`](crate::asset_type::Asset_ResultCode::ASSET_STATUS_MISMATCH) 24000005 - The screen lock status does not match.
+    ///    [`ASSET_OUT_OF_MEMORY`](crate::asset_type::Asset_ResultCode::ASSET_OUT_OF_MEMORY) 24000006 - Insufficient memory.
+    ///    [`ASSET_DATA_CORRUPTED`](crate::asset_type::Asset_ResultCode::ASSET_DATA_CORRUPTED) 24000007 - The asset is corrupted.
+    ///    [`ASSET_DATABASE_ERROR`](crate::asset_type::Asset_ResultCode::ASSET_DATABASE_ERROR) 24000008 - The database operation failed.
+    ///    [`ASSET_CRYPTO_ERROR`](crate::asset_type::Asset_ResultCode::ASSET_CRYPTO_ERROR) 24000009 - The cryptography operation failed.
+    ///    [`ASSET_IPC_ERROR`](crate::asset_type::Asset_ResultCode::ASSET_IPC_ERROR) 24000010 - IPC failed.
+    ///    [`ASSET_BMS_ERROR`](crate::asset_type::Asset_ResultCode::ASSET_BMS_ERROR) 24000011 - Calling the Bundle Manager service failed.
+    ///    [`ASSET_ACCOUNT_ERROR`](crate::asset_type::Asset_ResultCode::ASSET_ACCOUNT_ERROR) 24000012 - Calling the OS Account service failed.
+    ///    [`ASSET_ACCESS_TOKEN_ERROR`](crate::asset_type::Asset_ResultCode::ASSET_ACCESS_TOKEN_ERROR) 24000013 - Calling the Access Token service failed.
+    ///    [`ASSET_GET_SYSTEM_TIME_ERROR`](crate::asset_type::Asset_ResultCode::ASSET_GET_SYSTEM_TIME_ERROR) 24000015 - Getting the system time failed.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -125,22 +125,22 @@ extern "C" {
     /// # Returns
     ///
     /// * [`ASSET_SUCCESS`](crate::asset_type::Asset_ResultCode::ASSET_SUCCESS) 0 - The operation is successful.
-    /// [`ASSET_INVALID_ARGUMENT`](crate::asset_type::Asset_ResultCode::ASSET_INVALID_ARGUMENT) 401 - Parameter error. Possible causes:
+    ///   [`ASSET_INVALID_ARGUMENT`](crate::asset_type::Asset_ResultCode::ASSET_INVALID_ARGUMENT) 401 - Parameter error. Possible causes:
     /// 1. Incorrect parameter types.
     /// 2. Parameter verification failed.
-    /// [`ASSET_SERVICE_UNAVAILABLE`](crate::asset_type::Asset_ResultCode::ASSET_SERVICE_UNAVAILABLE) 24000001 - The ASSET service is unavailable.
-    /// [`ASSET_NOT_FOUND`](crate::asset_type::Asset_ResultCode::ASSET_NOT_FOUND) 24000002 - The asset is not found.
-    /// [`ASSET_STATUS_MISMATCH`](crate::asset_type::Asset_ResultCode::ASSET_STATUS_MISMATCH) 24000005 - The screen lock status does not match.
-    /// [`ASSET_OUT_OF_MEMORY`](crate::asset_type::Asset_ResultCode::ASSET_OUT_OF_MEMORY) 24000006 - Insufficient memory.
-    /// [`ASSET_DATA_CORRUPTED`](crate::asset_type::Asset_ResultCode::ASSET_DATA_CORRUPTED) 24000007 - The asset is corrupted.
-    /// [`ASSET_DATABASE_ERROR`](crate::asset_type::Asset_ResultCode::ASSET_DATABASE_ERROR) 24000008 - The database operation failed.
-    /// [`ASSET_CRYPTO_ERROR`](crate::asset_type::Asset_ResultCode::ASSET_CRYPTO_ERROR) 24000009 - The cryptography operation failed.
-    /// [`ASSET_IPC_ERROR`](crate::asset_type::Asset_ResultCode::ASSET_IPC_ERROR) 24000010 - IPC failed.
-    /// [`ASSET_BMS_ERROR`](crate::asset_type::Asset_ResultCode::ASSET_BMS_ERROR) 24000011 - Calling the Bundle Manager service failed.
-    /// [`ASSET_ACCOUNT_ERROR`](crate::asset_type::Asset_ResultCode::ASSET_ACCOUNT_ERROR) 24000012 - Calling the OS Account service failed.
-    /// [`ASSET_ACCESS_TOKEN_ERROR`](crate::asset_type::Asset_ResultCode::ASSET_ACCESS_TOKEN_ERROR) 24000013 - Calling the Access Token service failed.
-    /// [`ASSET_LIMIT_EXCEEDED`](crate::asset_type::Asset_ResultCode::ASSET_LIMIT_EXCEEDED) 24000016 - The cache exceeds the limit.
-    /// [`ASSET_UNSUPPORTED`](crate::asset_type::Asset_ResultCode::ASSET_UNSUPPORTED) 24000017 - The capability is not supported.
+    ///    [`ASSET_SERVICE_UNAVAILABLE`](crate::asset_type::Asset_ResultCode::ASSET_SERVICE_UNAVAILABLE) 24000001 - The ASSET service is unavailable.
+    ///    [`ASSET_NOT_FOUND`](crate::asset_type::Asset_ResultCode::ASSET_NOT_FOUND) 24000002 - The asset is not found.
+    ///    [`ASSET_STATUS_MISMATCH`](crate::asset_type::Asset_ResultCode::ASSET_STATUS_MISMATCH) 24000005 - The screen lock status does not match.
+    ///    [`ASSET_OUT_OF_MEMORY`](crate::asset_type::Asset_ResultCode::ASSET_OUT_OF_MEMORY) 24000006 - Insufficient memory.
+    ///    [`ASSET_DATA_CORRUPTED`](crate::asset_type::Asset_ResultCode::ASSET_DATA_CORRUPTED) 24000007 - The asset is corrupted.
+    ///    [`ASSET_DATABASE_ERROR`](crate::asset_type::Asset_ResultCode::ASSET_DATABASE_ERROR) 24000008 - The database operation failed.
+    ///    [`ASSET_CRYPTO_ERROR`](crate::asset_type::Asset_ResultCode::ASSET_CRYPTO_ERROR) 24000009 - The cryptography operation failed.
+    ///    [`ASSET_IPC_ERROR`](crate::asset_type::Asset_ResultCode::ASSET_IPC_ERROR) 24000010 - IPC failed.
+    ///    [`ASSET_BMS_ERROR`](crate::asset_type::Asset_ResultCode::ASSET_BMS_ERROR) 24000011 - Calling the Bundle Manager service failed.
+    ///    [`ASSET_ACCOUNT_ERROR`](crate::asset_type::Asset_ResultCode::ASSET_ACCOUNT_ERROR) 24000012 - Calling the OS Account service failed.
+    ///    [`ASSET_ACCESS_TOKEN_ERROR`](crate::asset_type::Asset_ResultCode::ASSET_ACCESS_TOKEN_ERROR) 24000013 - Calling the Access Token service failed.
+    ///    [`ASSET_LIMIT_EXCEEDED`](crate::asset_type::Asset_ResultCode::ASSET_LIMIT_EXCEEDED) 24000016 - The cache exceeds the limit.
+    ///    [`ASSET_UNSUPPORTED`](crate::asset_type::Asset_ResultCode::ASSET_UNSUPPORTED) 24000017 - The capability is not supported.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -163,22 +163,22 @@ extern "C" {
     /// # Returns
     ///
     /// * [`ASSET_SUCCESS`](crate::asset_type::Asset_ResultCode::ASSET_SUCCESS) 0 - The operation is successful.
-    /// [`ASSET_INVALID_ARGUMENT`](crate::asset_type::Asset_ResultCode::ASSET_INVALID_ARGUMENT) 401 - Parameter error. Possible causes:
+    ///   [`ASSET_INVALID_ARGUMENT`](crate::asset_type::Asset_ResultCode::ASSET_INVALID_ARGUMENT) 401 - Parameter error. Possible causes:
     /// 1. Incorrect parameter types.
     /// 2. Parameter verification failed.
-    /// [`ASSET_SERVICE_UNAVAILABLE`](crate::asset_type::Asset_ResultCode::ASSET_SERVICE_UNAVAILABLE) 24000001 - The ASSET service is unavailable.
-    /// [`ASSET_NOT_FOUND`](crate::asset_type::Asset_ResultCode::ASSET_NOT_FOUND) 24000002 - The asset is not found.
-    /// [`ASSET_ACCESS_DENIED`](crate::asset_type::Asset_ResultCode::ASSET_ACCESS_DENIED) 24000004 - Access to the asset is denied.
-    /// [`ASSET_STATUS_MISMATCH`](crate::asset_type::Asset_ResultCode::ASSET_STATUS_MISMATCH) 24000005 - The screen lock status does not match.
-    /// [`ASSET_OUT_OF_MEMORY`](crate::asset_type::Asset_ResultCode::ASSET_OUT_OF_MEMORY) 24000006 - Insufficient memory.
-    /// [`ASSET_DATA_CORRUPTED`](crate::asset_type::Asset_ResultCode::ASSET_DATA_CORRUPTED) 24000007 - The asset is corrupted.
-    /// [`ASSET_DATABASE_ERROR`](crate::asset_type::Asset_ResultCode::ASSET_DATABASE_ERROR) 24000008 - The database operation failed.
-    /// [`ASSET_CRYPTO_ERROR`](crate::asset_type::Asset_ResultCode::ASSET_CRYPTO_ERROR) 24000009 - The cryptography operation failed.
-    /// [`ASSET_IPC_ERROR`](crate::asset_type::Asset_ResultCode::ASSET_IPC_ERROR) 24000010 - IPC failed.
-    /// [`ASSET_BMS_ERROR`](crate::asset_type::Asset_ResultCode::ASSET_BMS_ERROR) 24000011 - Calling the Bundle Manager service failed.
-    /// [`ASSET_ACCOUNT_ERROR`](crate::asset_type::Asset_ResultCode::ASSET_ACCOUNT_ERROR) 24000012 - Calling the OS Account service failed.
-    /// [`ASSET_ACCESS_TOKEN_ERROR`](crate::asset_type::Asset_ResultCode::ASSET_ACCESS_TOKEN_ERROR) 24000013 - Calling the Access Token service failed.
-    /// [`ASSET_UNSUPPORTED`](crate::asset_type::Asset_ResultCode::ASSET_UNSUPPORTED) 24000017 - The capability is not supported.
+    ///    [`ASSET_SERVICE_UNAVAILABLE`](crate::asset_type::Asset_ResultCode::ASSET_SERVICE_UNAVAILABLE) 24000001 - The ASSET service is unavailable.
+    ///    [`ASSET_NOT_FOUND`](crate::asset_type::Asset_ResultCode::ASSET_NOT_FOUND) 24000002 - The asset is not found.
+    ///    [`ASSET_ACCESS_DENIED`](crate::asset_type::Asset_ResultCode::ASSET_ACCESS_DENIED) 24000004 - Access to the asset is denied.
+    ///    [`ASSET_STATUS_MISMATCH`](crate::asset_type::Asset_ResultCode::ASSET_STATUS_MISMATCH) 24000005 - The screen lock status does not match.
+    ///    [`ASSET_OUT_OF_MEMORY`](crate::asset_type::Asset_ResultCode::ASSET_OUT_OF_MEMORY) 24000006 - Insufficient memory.
+    ///    [`ASSET_DATA_CORRUPTED`](crate::asset_type::Asset_ResultCode::ASSET_DATA_CORRUPTED) 24000007 - The asset is corrupted.
+    ///    [`ASSET_DATABASE_ERROR`](crate::asset_type::Asset_ResultCode::ASSET_DATABASE_ERROR) 24000008 - The database operation failed.
+    ///    [`ASSET_CRYPTO_ERROR`](crate::asset_type::Asset_ResultCode::ASSET_CRYPTO_ERROR) 24000009 - The cryptography operation failed.
+    ///    [`ASSET_IPC_ERROR`](crate::asset_type::Asset_ResultCode::ASSET_IPC_ERROR) 24000010 - IPC failed.
+    ///    [`ASSET_BMS_ERROR`](crate::asset_type::Asset_ResultCode::ASSET_BMS_ERROR) 24000011 - Calling the Bundle Manager service failed.
+    ///    [`ASSET_ACCOUNT_ERROR`](crate::asset_type::Asset_ResultCode::ASSET_ACCOUNT_ERROR) 24000012 - Calling the OS Account service failed.
+    ///    [`ASSET_ACCESS_TOKEN_ERROR`](crate::asset_type::Asset_ResultCode::ASSET_ACCESS_TOKEN_ERROR) 24000013 - Calling the Access Token service failed.
+    ///    [`ASSET_UNSUPPORTED`](crate::asset_type::Asset_ResultCode::ASSET_UNSUPPORTED) 24000017 - The capability is not supported.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -200,16 +200,16 @@ extern "C" {
     /// # Returns
     ///
     /// * [`ASSET_SUCCESS`](crate::asset_type::Asset_ResultCode::ASSET_SUCCESS) 0 - The operation is successful.
-    /// [`ASSET_INVALID_ARGUMENT`](crate::asset_type::Asset_ResultCode::ASSET_INVALID_ARGUMENT) 401 - Parameter error. Possible causes:
+    ///   [`ASSET_INVALID_ARGUMENT`](crate::asset_type::Asset_ResultCode::ASSET_INVALID_ARGUMENT) 401 - Parameter error. Possible causes:
     /// 1. Mandatory parameters are left unspecified.
     /// 2. Incorrect parameter types.
     /// 3. Parameter verification failed.
-    /// [`ASSET_SERVICE_UNAVAILABLE`](crate::asset_type::Asset_ResultCode::ASSET_SERVICE_UNAVAILABLE) 24000001 - The ASSET service is unavailable.
-    /// [`ASSET_OUT_OF_MEMORY`](crate::asset_type::Asset_ResultCode::ASSET_OUT_OF_MEMORY) 24000006 - Insufficient memory.
-    /// [`ASSET_IPC_ERROR`](crate::asset_type::Asset_ResultCode::ASSET_IPC_ERROR) 24000010 - IPC failed.
-    /// [`ASSET_BMS_ERROR`](crate::asset_type::Asset_ResultCode::ASSET_BMS_ERROR) 24000011 - Calling the Bundle Manager service failed.
-    /// [`ASSET_ACCOUNT_ERROR`](crate::asset_type::Asset_ResultCode::ASSET_ACCOUNT_ERROR) 24000012 - Calling the OS Account service failed.
-    /// [`ASSET_ACCESS_TOKEN_ERROR`](crate::asset_type::Asset_ResultCode::ASSET_ACCESS_TOKEN_ERROR) 24000013 - Calling the Access Token service failed.
+    ///    [`ASSET_SERVICE_UNAVAILABLE`](crate::asset_type::Asset_ResultCode::ASSET_SERVICE_UNAVAILABLE) 24000001 - The ASSET service is unavailable.
+    ///    [`ASSET_OUT_OF_MEMORY`](crate::asset_type::Asset_ResultCode::ASSET_OUT_OF_MEMORY) 24000006 - Insufficient memory.
+    ///    [`ASSET_IPC_ERROR`](crate::asset_type::Asset_ResultCode::ASSET_IPC_ERROR) 24000010 - IPC failed.
+    ///    [`ASSET_BMS_ERROR`](crate::asset_type::Asset_ResultCode::ASSET_BMS_ERROR) 24000011 - Calling the Bundle Manager service failed.
+    ///    [`ASSET_ACCOUNT_ERROR`](crate::asset_type::Asset_ResultCode::ASSET_ACCOUNT_ERROR) 24000012 - Calling the OS Account service failed.
+    ///    [`ASSET_ACCESS_TOKEN_ERROR`](crate::asset_type::Asset_ResultCode::ASSET_ACCESS_TOKEN_ERROR) 24000013 - Calling the Access Token service failed.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -228,14 +228,14 @@ extern "C" {
     /// # Returns
     ///
     /// * [`ASSET_SUCCESS`](crate::asset_type::Asset_ResultCode::ASSET_SUCCESS) 0 - The operation is successful.
-    /// [`ASSET_SERVICE_UNAVAILABLE`](crate::asset_type::Asset_ResultCode::ASSET_SERVICE_UNAVAILABLE) 24000001 - The ASSET service is unavailable.
-    /// [`ASSET_OUT_OF_MEMORY`](crate::asset_type::Asset_ResultCode::ASSET_OUT_OF_MEMORY) 24000006 - Insufficient memory.
-    /// [`ASSET_IPC_ERROR`](crate::asset_type::Asset_ResultCode::ASSET_IPC_ERROR) 24000010 - IPC failed.
-    /// [`ASSET_BMS_ERROR`](crate::asset_type::Asset_ResultCode::ASSET_BMS_ERROR) 24000011 - Calling the Bundle Manager service failed.
-    /// [`ASSET_ACCOUNT_ERROR`](crate::asset_type::Asset_ResultCode::ASSET_ACCOUNT_ERROR) 24000012 - Calling the OS Account service failed.
-    /// [`ASSET_ACCESS_TOKEN_ERROR`](crate::asset_type::Asset_ResultCode::ASSET_ACCESS_TOKEN_ERROR) 24000013 - Calling the Access Token service failed.
-    /// [`ASSET_FILE_OPERATION_ERROR`](crate::asset_type::Asset_ResultCode::ASSET_FILE_OPERATION_ERROR) 24000014 - The file operation failed.
-    /// [`ASSET_PARAM_VERIFICATION_FAILED`](crate::asset_type::Asset_ResultCode::ASSET_PARAM_VERIFICATION_FAILED) 24000018 - Parameter verification failed.
+    ///   [`ASSET_SERVICE_UNAVAILABLE`](crate::asset_type::Asset_ResultCode::ASSET_SERVICE_UNAVAILABLE) 24000001 - The ASSET service is unavailable.
+    ///   [`ASSET_OUT_OF_MEMORY`](crate::asset_type::Asset_ResultCode::ASSET_OUT_OF_MEMORY) 24000006 - Insufficient memory.
+    ///   [`ASSET_IPC_ERROR`](crate::asset_type::Asset_ResultCode::ASSET_IPC_ERROR) 24000010 - IPC failed.
+    ///   [`ASSET_BMS_ERROR`](crate::asset_type::Asset_ResultCode::ASSET_BMS_ERROR) 24000011 - Calling the Bundle Manager service failed.
+    ///   [`ASSET_ACCOUNT_ERROR`](crate::asset_type::Asset_ResultCode::ASSET_ACCOUNT_ERROR) 24000012 - Calling the OS Account service failed.
+    ///   [`ASSET_ACCESS_TOKEN_ERROR`](crate::asset_type::Asset_ResultCode::ASSET_ACCESS_TOKEN_ERROR) 24000013 - Calling the Access Token service failed.
+    ///   [`ASSET_FILE_OPERATION_ERROR`](crate::asset_type::Asset_ResultCode::ASSET_FILE_OPERATION_ERROR) 24000014 - The file operation failed.
+    ///   [`ASSET_PARAM_VERIFICATION_FAILED`](crate::asset_type::Asset_ResultCode::ASSET_PARAM_VERIFICATION_FAILED) 24000018 - Parameter verification failed.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -256,7 +256,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns <b>Asset_Attr</b> obtained if the operation is successful; returns <b>NULL</b> otherwise.
-    /// The attribute does not need to be released by the service.
+    ///   The attribute does not need to be released by the service.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]

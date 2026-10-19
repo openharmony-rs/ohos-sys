@@ -36,7 +36,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The release operation is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **config** is nullptr.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **config** is nullptr.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -58,8 +58,8 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The setting is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **config** is nullptr, or the parameters related to the source video
-    /// file are incorrect.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **config** is nullptr, or the parameters related to the source video
+    ///   file are incorrect.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -82,7 +82,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The setting is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **config** is nullptr, or the output video file descriptor is invalid.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **config** is nullptr, or the output video file descriptor is invalid.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -105,7 +105,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The setting is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **config** is nullptr, or the value of **mimeType** is not allowed.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **config** is nullptr, or the value of **mimeType** is not allowed.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -127,7 +127,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The setting is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **config** is nullptr, or the value of **mimeType** is not allowed.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **config** is nullptr, or the value of **mimeType** is not allowed.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -149,7 +149,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The setting is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **config** is nullptr, or the value of **mimeType** is invalid.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **config** is nullptr, or the value of **mimeType** is invalid.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -170,7 +170,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The setting is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **config** is nullptr, or the value of **bitrate** is invalid.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **config** is nullptr, or the value of **bitrate** is invalid.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -191,7 +191,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The setting is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **config** is nullptr, or the value of **bitrate** is invalid.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **config** is nullptr, or the value of **bitrate** is invalid.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -215,8 +215,8 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The setting is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **config** is nullptr, or the value of **width** or **height** is
-    /// invalid.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **config** is nullptr, or the value of **width** or **height** is
+    ///   invalid.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -246,17 +246,17 @@ extern "C" {
     /// * `transcoder` - Pointer to an OH_AVTranscoder instance
     ///
     /// * `config` - Pointer to an OH_AVTranscoder_Config instance,
-    /// see [`OH_AVTranscoder_Config`](crate::avtranscoder_base::OH_AVTranscoder_Config)
+    ///   see [`OH_AVTranscoder_Config`](crate::avtranscoder_base::OH_AVTranscoder_Config)
     ///
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The video transcoding parameters are set successfully, and the AVTranscoder enters the
-    /// AVTRANSCODER_PREPARED state.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **transcoder** is nullptr, or the Prepare operation fails.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The Prepare operation is not allowed in the current state, or the format is not
-    /// supported.
-    /// **AV_ERR_IO**: An I/O access error occurs.
-    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED): The media service is stopped.
+    ///   AVTRANSCODER_PREPARED state.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **transcoder** is nullptr, or the Prepare operation fails.
+    ///   [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The Prepare operation is not allowed in the current state, or the format is not
+    ///   supported.
+    ///   **AV_ERR_IO**: An I/O access error occurs.
+    ///   [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED): The media service is stopped.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -276,10 +276,10 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): Transcoding starts successfully, and the AVTranscoder enters the AVTRANSCODER_STARTED state.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **transcoder** is nullptr, or the Start operation fails.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The Start operation is not allowed in the current state.
-    /// **AV_ERR_IO**: An I/O access error occurs.
-    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED): The media service is stopped.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **transcoder** is nullptr, or the Start operation fails.
+    ///   [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The Start operation is not allowed in the current state.
+    ///   **AV_ERR_IO**: An I/O access error occurs.
+    ///   [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED): The media service is stopped.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -296,10 +296,10 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): Transcoding is paused successfully, and the AVTranscoder enters the AVTRANSCODER_PAUSED state.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **transcoder** is nullptr, or the Pause operation fails.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The Pause operation is not allowed in the current state.
-    /// **AV_ERR_IO**: An I/O access error occurs.
-    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED): The media service is stopped.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **transcoder** is nullptr, or the Pause operation fails.
+    ///   [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The Pause operation is not allowed in the current state.
+    ///   **AV_ERR_IO**: An I/O access error occurs.
+    ///   [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED): The media service is stopped.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -316,11 +316,11 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): Transcoding is resumed successfully, and the AVTranscoder enters the AVTRANSCODER_STARTED
-    /// state.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **transcoder** is nullptr, or the Resume operation fails.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The Resume operation is not allowed in the current state.
-    /// **AV_ERR_IO**: An I/O access error occurs.
-    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED): The media service is stopped.
+    ///   state.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **transcoder** is nullptr, or the Resume operation fails.
+    ///   [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The Resume operation is not allowed in the current state.
+    ///   **AV_ERR_IO**: An I/O access error occurs.
+    ///   [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED): The media service is stopped.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -337,11 +337,11 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): Transcoding is canceled successfully, and the AVTranscoder enters the AVTRANSCODER_CANCELLED
-    /// state.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **transcoder** is nullptr, or the Cancel operation fails.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The Cancel operation is not allowed in the current state.
-    /// **AV_ERR_IO**: An I/O access error occurs.
-    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED): The media service is stopped.
+    ///   state.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **transcoder** is nullptr, or the Cancel operation fails.
+    ///   [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The Cancel operation is not allowed in the current state.
+    ///   **AV_ERR_IO**: An I/O access error occurs.
+    ///   [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED): The media service is stopped.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -356,10 +356,10 @@ extern "C" {
     /// # Returns
     ///
     /// * AV_ERR_OK: The AVTranscoder instance is successfully released.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **transcoder** is nullptr, or the Release operation fails.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The Release operation is not allowed in the current state.
-    /// **AV_ERR_IO**: An I/O access error occurs.
-    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED): The media service is stopped.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **transcoder** is nullptr, or the Release operation fails.
+    ///   [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The Release operation is not allowed in the current state.
+    ///   **AV_ERR_IO**: An I/O access error occurs.
+    ///   [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED): The media service is stopped.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -382,7 +382,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The registration is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **transcoder** or **callback** is nullptr.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **transcoder** or **callback** is nullptr.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -410,7 +410,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The registration is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **transcoder** or **callback** is nullptr.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **transcoder** or **callback** is nullptr.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -431,14 +431,14 @@ extern "C" {
     /// * `transcoder` - Pointer to an OH_AVTranscoder instance
     ///
     /// * `callback` - Uri callback function,
-    /// see [`OH_AVTranscoder_OnProgressUpdate`](crate::avtranscoder_base::OH_AVTranscoder_OnProgressUpdate)
+    ///   see [`OH_AVTranscoder_OnProgressUpdate`](crate::avtranscoder_base::OH_AVTranscoder_OnProgressUpdate)
     ///
     /// * `userData` - Pointer to user specific data
     ///
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The registration is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **transcoder** or **callback** is nullptr.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **transcoder** or **callback** is nullptr.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -462,7 +462,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The setting is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **config** is nullptr.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **config** is nullptr.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]

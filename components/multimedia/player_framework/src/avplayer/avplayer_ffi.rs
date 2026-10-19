@@ -93,7 +93,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Pointer to the OH_AVPlayer instance created if the operation is successful; nullptr otherwise.
-    /// The possible causes of an operation failure are as follows:
+    ///   The possible causes of an operation failure are as follows:
     /// 1. The execution of **PlayerFactory::CreatePlayer** fails.
     /// 2. The execution of **new PlayerObject** fails.
     ///
@@ -112,8 +112,8 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The setting is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **player** is nullptr, the input parameter **url** is null, or the
-    /// execution of **player SetUrlSource** fails.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **player** is nullptr, the input parameter **url** is null, or the
+    ///   execution of **player SetUrlSource** fails.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -137,7 +137,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The file descriptor is set successfully.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **player** is nullptr, or the execution of **player SetFdSource** fails.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **player** is nullptr, or the execution of **player SetFdSource** fails.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -161,7 +161,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The setting is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The **player** or **datasrc** parameter is nullptr.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The **player** or **datasrc** parameter is nullptr.
     ///
     /// Available since API-level: 21
     #[cfg(feature = "api-21")]
@@ -181,7 +181,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **player** is nullptr, or the execution of **player Prepare** fails.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **player** is nullptr, or the execution of **player Prepare** fails.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -198,7 +198,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **player** is nullptr, or the execution of **player Play** fails.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **player** is nullptr, or the execution of **player Play** fails.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -213,7 +213,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **player** is nullptr, or the execution of **player Pause** fails.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **player** is nullptr, or the execution of **player Pause** fails.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -228,7 +228,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **player** is nullptr, or the execution of **player Stop** fails.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **player** is nullptr, or the execution of **player Stop** fails.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -245,7 +245,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **player** is nullptr, or the execution of **player Reset** fails.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **player** is nullptr, or the execution of **player Reset** fails.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -262,7 +262,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **player** is nullptr, or the execution of **player Release** fails.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **player** is nullptr, or the execution of **player Release** fails.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -279,7 +279,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **player** is nullptr, or the execution of **player ReleaseSync** fails.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **player** is nullptr, or the execution of **player ReleaseSync** fails.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -296,7 +296,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Media source information obtained. If the operation fails, nullptr is returned.
-    /// Possible cause:
+    ///   Possible cause:
     /// 1. The **player** pointer is invalid.
     /// 2. The playback resource is invalid.
     ///
@@ -318,7 +318,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Track information obtained. If the operation fails, nullptr is returned.
-    /// Possible cause:
+    ///   Possible cause:
     /// 1. The **player** pointer is invalid.
     /// 2. The playback resource is invalid.
     /// 3. The track index is out of the range for the playback source file array.
@@ -345,7 +345,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The volume is set successfully.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **player** is nullptr, or the execution of **player SetVolume** fails.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **player** is nullptr, or the execution of **player SetVolume** fails.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -369,7 +369,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **player** is nullptr, or the execution of **player Seek** fails.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **player** is nullptr, or the execution of **player Seek** fails.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -390,8 +390,8 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The playback position is obtained.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **player** is nullptr, or the execution of **player GetCurrentTime**
-    /// fails.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **player** is nullptr, or the execution of **player GetCurrentTime**
+    ///   fails.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -411,7 +411,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The video width is obtained.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **player** is nullptr.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **player** is nullptr.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -431,7 +431,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The video height is obtained.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **player** is nullptr.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **player** is nullptr.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -451,7 +451,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The playback speed is set successfully.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **player** is nullptr.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **player** is nullptr.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -471,8 +471,8 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The playback rate is obtained.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **player** is nullptr, or the execution of **player GetPlaybackSpeed**
-    /// fails.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **player** is nullptr, or the execution of **player GetPlaybackSpeed**
+    ///   fails.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -492,7 +492,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the playback rate of the AVPlayer is successfully obtained.
-    /// Otherwise, an error code defined in `native_averrors.h` is returned.
+    ///   Otherwise, an error code defined in `native_averrors.h` is returned.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -513,8 +513,8 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The bit rate is set successfully.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **player** is nullptr, or the execution of **player SelectBitRate**
-    /// fails.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **player** is nullptr, or the execution of **player SelectBitRate**
+    ///   fails.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -532,8 +532,8 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The playback window is set successfully.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **player** or **window** is nullptr, or the execution of **player
-    /// SetVideoSurface** fails.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **player** or **window** is nullptr, or the execution of **player
+    ///   SetVideoSurface** fails.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -553,7 +553,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The total duration is obtained.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **player** is nullptr, or the execution of **player GetDuration** fails.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **player** is nullptr, or the execution of **player GetDuration** fails.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -570,7 +570,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The AVPlayer state is obtained.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **player** is nullptr, or the execution of **player GetState** fails.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **player** is nullptr, or the execution of **player GetState** fails.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -588,7 +588,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Check result for whether the AVPlayer is playing. **true** if yes, **false** if the AVPlayer is not playing
-    /// or the input parameter **player** is nullptr.
+    ///   or the input parameter **player** is nullptr.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -603,7 +603,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Check result for whether the AVPlayer is looping. **true** if yes, **false** if the AVPlayer is not looping
-    /// or the input parameter **player** is nullptr.
+    ///   or the input parameter **player** is nullptr.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -620,7 +620,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): Loop playback is enabled.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **player** is nullptr, or the execution of **player SetLooping** fails.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **player** is nullptr, or the execution of **player SetLooping** fails.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -642,8 +642,8 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The callback is set successfully.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **player** is nullptr, the input parameter **callback.onInfo** or **
-    /// onError** is null, or the execution of **player SetPlayerCallback** fails.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **player** is nullptr, the input parameter **callback.onInfo** or **
+    ///   onError** is null, or the execution of **player SetPlayerCallback** fails.
     ///
     /// Available since API-level: 11
     ///
@@ -674,7 +674,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **player** is nullptr, or the execution of **player SelectTrack** fails.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **player** is nullptr, or the execution of **player SelectTrack** fails.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -691,8 +691,8 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **player** is nullptr, or the execution of **player DeselectTrack**
-    /// fails.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **player** is nullptr, or the execution of **player DeselectTrack**
+    ///   fails.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -711,8 +711,8 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The track is obtained.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **player** is nullptr, or the execution of **player GetCurrentTrack**
-    /// fails.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **player** is nullptr, or the execution of **player GetCurrentTrack**
+    ///   fails.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -733,9 +733,9 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **player** or **callback** is a null pointer, or the execution of **
-    /// player SetDrmSystemInfoCallback**
-    /// **SetDrmSystemInfoCallback** or **SetDrmSystemInfoCallback** fails.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **player** or **callback** is a null pointer, or the execution of **
+    ///   player SetDrmSystemInfoCallback**
+    ///   **SetDrmSystemInfoCallback** or **SetDrmSystemInfoCallback** fails.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -755,7 +755,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **player** is nullptr, or the memory is insufficient.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **player** is nullptr, or the memory is insufficient.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -777,7 +777,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **player** is nullptr, or the execution of **SetDecryptionConfig** fails.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **player** is nullptr, or the execution of **SetDecryptionConfig** fails.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -800,8 +800,8 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// **AV_ERR_NO_MEMORY**: Memory allocation fails.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **player** is nullptr or the function fails to be executed.
+    ///   **AV_ERR_NO_MEMORY**: Memory allocation fails.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **player** is nullptr or the function fails to be executed.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -824,8 +824,8 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// **AV_ERR_NO_MEMORY**: Memory allocation fails.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **player** is nullptr or the function fails to be executed.
+    ///   **AV_ERR_NO_MEMORY**: Memory allocation fails.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **player** is nullptr or the function fails to be executed.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -847,9 +847,9 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The playback speed is set successfully.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The function is called when the AVPlayer is not in the allowed state, or it is called
-    /// during live streaming.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **player** is nullptr, or **rate** is out of range.
+    ///   [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The function is called when the AVPlayer is not in the allowed state, or it is called
+    ///   during live streaming.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **player** is nullptr, or **rate** is out of range.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -872,13 +872,13 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The loudness is set successfully.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The **player** parameter is nullptr, or the **loudnessGain** parameter is invalid.
-    /// **AV_ERR_INVALID_STATE**: The function is called in an abnormal state, or the **usage** parameter of **
-    /// audioRendererInfo** is not one of the following:
-    /// `OH_AudioStream_Usage`.AUDIOSTREAM_USAGE_MUSIC,
-    /// `OH_AudioStream_Usage`.AUDIOSTREAM_USAGE_MOVIE,
-    /// and `OH_AudioStream_Usage`.AUDIOSTREAM_USAGE_AUDIOBOOKs.
-    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED): A system error occurs.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The **player** parameter is nullptr, or the **loudnessGain** parameter is invalid.
+    ///   **AV_ERR_INVALID_STATE**: The function is called in an abnormal state, or the **usage** parameter of **
+    ///   audioRendererInfo** is not one of the following:
+    ///   `OH_AudioStream_Usage`.AUDIOSTREAM_USAGE_MUSIC,
+    ///   `OH_AudioStream_Usage`.AUDIOSTREAM_USAGE_MOVIE,
+    ///   and `OH_AudioStream_Usage`.AUDIOSTREAM_USAGE_AUDIOBOOKs.
+    ///   [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED): A system error occurs.
     ///
     /// Available since API-level: 21
     #[cfg(feature = "api-21")]
@@ -896,8 +896,8 @@ extern "C" {
     /// # Returns
     ///
     /// * If the operation is successful, the statistic metric information of the AVPlayer is returned. (For details
-    /// about the key values, see statistic metric information). Otherwise, **nullptr** is returned.
-    /// Possible failure cause: The input **player** pointer is invalid.
+    ///   about the key values, see statistic metric information). Otherwise, **nullptr** is returned.
+    ///   Possible failure cause: The input **player** pointer is invalid.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -919,8 +919,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Execution result of the function.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input player is a null pointer.
+    ///   [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input player is a null pointer.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -943,8 +943,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Execution result of the function.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input player is a null pointer.
+    ///   [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input player is a null pointer.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -965,16 +965,16 @@ extern "C" {
     /// * indicates that the start position is not set, and the playback starts from 0.
     ///
     /// * `mSecondsEnd` - End position of playback. The value must be in the range of (**startTimeMs**, **duration**]. The
-    /// value **-1** indicates that the end position is not set, and the playback ends at the end of the stream.
+    ///   value **-1** indicates that the end position is not set, and the playback ends at the end of the stream.
     ///
     /// * `closestRange` - Whether to seek to the frame closest to the specified position.
     ///
     /// # Returns
     ///
     /// * Execution result of the function.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input player is a null pointer.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
+    ///   [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input player is a null pointer.
+    ///   [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -998,9 +998,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Execution result of the function.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter is invalid.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
+    ///   [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter is invalid.
+    ///   [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -1020,7 +1020,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Playback position, in milliseconds.
-    /// If **player** is a null pointer or invalid, **-1** is returned.
+    ///   If **player** is a null pointer or invalid, **-1** is returned.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -1038,7 +1038,7 @@ extern "C" {
     ///
     /// *
     /// * **true** indicates that continuous seek is supported.
-    /// **false** indicates that continuous seek is not supported or is uncertain.
+    ///   **false** indicates that continuous seek is not supported or is uncertain.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -1058,9 +1058,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Execution result of the function.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter is invalid.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
+    ///   [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter is invalid.
+    ///   [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -1084,8 +1084,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Execution result of the function.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input player is a null pointer.
+    ///   [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input player is a null pointer.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -1114,8 +1114,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Execution result of the function.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input player is a null pointer.
+    ///   [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input player is a null pointer.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -1175,11 +1175,11 @@ extern "C" {
     /// # Returns
     ///
     /// * Execution result of the function.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input player is a null pointer or the parameter is incorrect.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
-    /// [`AV_ERR_SUPER_RESOLUTION_UNSUPPORTED`](crate::averrors::OH_AVErrCode::AV_ERR_SUPER_RESOLUTION_UNSUPPORTED): Super resolution is not supported.
-    /// [`AV_ERR_SUPER_RESOLUTION_NOT_ENABLED`](crate::averrors::OH_AVErrCode::AV_ERR_SUPER_RESOLUTION_NOT_ENABLED): Super resolution is not enabled in [`OH_AVPlaybackStrategy`](crate::avplayer_base::OH_AVPlaybackStrategy).
+    ///   [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input player is a null pointer or the parameter is incorrect.
+    ///   [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
+    ///   [`AV_ERR_SUPER_RESOLUTION_UNSUPPORTED`](crate::averrors::OH_AVErrCode::AV_ERR_SUPER_RESOLUTION_UNSUPPORTED): Super resolution is not supported.
+    ///   [`AV_ERR_SUPER_RESOLUTION_NOT_ENABLED`](crate::averrors::OH_AVErrCode::AV_ERR_SUPER_RESOLUTION_NOT_ENABLED): Super resolution is not enabled in [`OH_AVPlaybackStrategy`](crate::avplayer_base::OH_AVPlaybackStrategy).
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -1202,11 +1202,11 @@ extern "C" {
     /// # Returns
     ///
     /// * Execution result of the function.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input player is a null pointer or the parameter is incorrect.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
-    /// [`AV_ERR_SUPER_RESOLUTION_UNSUPPORTED`](crate::averrors::OH_AVErrCode::AV_ERR_SUPER_RESOLUTION_UNSUPPORTED): Super resolution is not supported.
-    /// [`AV_ERR_SUPER_RESOLUTION_NOT_ENABLED`](crate::averrors::OH_AVErrCode::AV_ERR_SUPER_RESOLUTION_NOT_ENABLED): Super resolution is not enabled in [`OH_AVPlaybackStrategy`](crate::avplayer_base::OH_AVPlaybackStrategy).
+    ///   [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input player is a null pointer or the parameter is incorrect.
+    ///   [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
+    ///   [`AV_ERR_SUPER_RESOLUTION_UNSUPPORTED`](crate::averrors::OH_AVErrCode::AV_ERR_SUPER_RESOLUTION_UNSUPPORTED): Super resolution is not supported.
+    ///   [`AV_ERR_SUPER_RESOLUTION_NOT_ENABLED`](crate::averrors::OH_AVErrCode::AV_ERR_SUPER_RESOLUTION_NOT_ENABLED): Super resolution is not enabled in [`OH_AVPlaybackStrategy`](crate::avplayer_base::OH_AVPlaybackStrategy).
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -1235,8 +1235,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Execution result of the function.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input strategy is a null pointer.
+    ///   [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input strategy is a null pointer.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -1253,8 +1253,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Execution result of the function.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input strategy is a null pointer.
+    ///   [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input strategy is a null pointer.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -1274,8 +1274,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Execution result of the function.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input strategy is a null pointer.
+    ///   [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input strategy is a null pointer.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -1295,8 +1295,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Execution result of the function.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input strategy is a null pointer.
+    ///   [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input strategy is a null pointer.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -1316,8 +1316,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Execution result of the function.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input strategy is a null pointer.
+    ///   [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input strategy is a null pointer.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -1337,8 +1337,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Execution result of the function.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input strategy is a null pointer.
+    ///   [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input strategy is a null pointer.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -1358,8 +1358,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Execution result of the function.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input strategy is a null pointer.
+    ///   [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input strategy is a null pointer.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -1379,8 +1379,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Execution result of the function.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input strategy is a null pointer.
+    ///   [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input strategy is a null pointer.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -1400,8 +1400,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Execution result of the function.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input strategy is a null pointer.
+    ///   [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input strategy is a null pointer.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -1421,8 +1421,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Execution result of the function.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input strategy is a null pointer.
+    ///   [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input strategy is a null pointer.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -1442,8 +1442,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Execution result of the function.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input strategy is a null pointer.
+    ///   [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input strategy is a null pointer.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -1463,8 +1463,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Execution result of the function.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input strategy is a null pointer.
+    ///   [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input strategy is a null pointer.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -1480,13 +1480,13 @@ extern "C" {
     /// * `strategy` - Pointer to **OH_AVPlaybackStrategy**.
     ///
     /// * `enabled` - The value **true** means to continue decoding when the audio is muted, and **false** means the
-    /// opposite.
+    ///   opposite.
     ///
     /// # Returns
     ///
     /// * Execution result of the function.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input strategy is a null pointer.
+    ///   [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input strategy is a null pointer.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -1507,9 +1507,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Execution result of the function.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input player is a null pointer.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
+    ///   [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input player is a null pointer.
+    ///   [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -1528,7 +1528,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Pointer to the **OH_AVFormat** instance.
-    /// If the **player** is a null pointer or invalid, a null pointer is returned.
+    ///   If the **player** is a null pointer or invalid, a null pointer is returned.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -1545,9 +1545,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Execution result of the function.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input **player** or **source** is a null pointer, or the **player** fails to set the URL
-    /// source.
+    ///   [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input **player** or **source** is a null pointer, or the **player** fails to set the URL
+    ///   source.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -1581,7 +1581,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Pointer to the **OH_AVFormat** instance.
-    /// If **player** is a null pointer or invalid, or **trackIndex** is invalid, a null pointer is returned.
+    ///   If **player** is a null pointer or invalid, or **trackIndex** is invalid, a null pointer is returned.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -1603,9 +1603,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input player is null or player SetPCMOutputCallback failed.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) if called in unsupported state.
+    ///   [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input player is null or player SetPCMOutputCallback failed.
+    ///   [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) if called in unsupported state.
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]
@@ -1626,7 +1626,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a pointer to an OH_AVPlayerVideoOutput instance, released by system when avplayer was
-    /// reset or release. nullptr means failed.
+    ///   reset or release. nullptr means failed.
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]
@@ -1644,7 +1644,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns OH_VIDEO_OUTPUT_OK when got a frame.
-    /// Returns OH_VIDEO_OUTPUT_NO_IMAGE when there is no frame ready to render.
+    ///   Returns OH_VIDEO_OUTPUT_NO_IMAGE when there is no frame ready to render.
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]
@@ -1665,9 +1665,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code.
-    /// <br>[`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
-    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input player is null or player SetPCMProcessorCallback failed.
-    /// <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) if called in unsupported state.
+    ///   <br>[`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
+    ///   <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input player is null or player SetPCMProcessorCallback failed.
+    ///   <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) if called in unsupported state.
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]
@@ -1685,14 +1685,14 @@ extern "C" {
     /// * `player` - Pointer to an OH_AVPlayer instance.
     ///
     /// * `maxProcessedPCMLen` - the maximum amount of PCM data returned at one time, in the range (0, 5MB].
-    /// OH_AVPlayerPCMProcessorCallback ensures that the returned pcmBuffer's Capacity is not less than this value.
+    ///   OH_AVPlayerPCMProcessorCallback ensures that the returned pcmBuffer's Capacity is not less than this value.
     ///
     /// # Returns
     ///
     /// * Function result code.
-    /// <br>[`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
-    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input player is null or maxProcessedPCMLen is error.
-    /// <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) if called in unsupported state.
+    ///   <br>[`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
+    ///   <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input player is null or maxProcessedPCMLen is error.
+    ///   <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) if called in unsupported state.
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]

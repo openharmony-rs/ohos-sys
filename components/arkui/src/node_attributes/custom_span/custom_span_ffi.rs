@@ -44,7 +44,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a <b>CustomSpanMeasureInfo</b> instance.
-    /// <br> If the result returns nullptr, there may be out of memory.
+    ///   <br> If the result returns nullptr, there may be out of memory.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -69,7 +69,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the font size. If a parameter error occurs, <b>0.0f</b> is returned.
-    /// <br> Possible causes: Parameter verification failed, the parameter should not be nullptr.
+    ///   <br> Possible causes: Parameter verification failed, the parameter should not be nullptr.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -83,7 +83,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a <b>CustomSpanMetrics</b> instance.
-    /// <br> If the result returns nullptr, there may be out of memory.
+    ///   <br> If the result returns nullptr, there may be out of memory.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -110,9 +110,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br> Possible causes: Parameter verification failed, the parameter should not be nullptr.
+    ///   Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br> Possible causes: Parameter verification failed, the parameter should not be nullptr.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -132,9 +132,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br> Possible causes: Parameter verification failed, the parameter should not be nullptr.
+    ///   Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br> Possible causes: Parameter verification failed, the parameter should not be nullptr.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -149,7 +149,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a <b>CustomSpanDrawInfo</b> instance.
-    /// <br> If the result returns nullptr, there may be out of memory.
+    ///   <br> If the result returns nullptr, there may be out of memory.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -174,7 +174,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the x-axis offset. If a parameter error occurs, <b>0.0f</b> is returned.
-    /// <br> Possible causes: Parameter verification failed, the parameter should not be nullptr.
+    ///   <br> Possible causes: Parameter verification failed, the parameter should not be nullptr.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -189,7 +189,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the top margin. If a parameter error occurs, <b>0.0f</b> is returned.
-    /// <br> Possible causes: Parameter verification failed, the parameter should not be nullptr.
+    ///   <br> Possible causes: Parameter verification failed, the parameter should not be nullptr.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -204,7 +204,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the bottom margin. If a parameter error occurs, <b>0.0f</b> is returned.
-    /// <br> Possible causes: Parameter verification failed, the parameter should not be nullptr.
+    ///   <br> Possible causes: Parameter verification failed, the parameter should not be nullptr.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -219,7 +219,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the baseline offset. If a parameter error occurs, <b>0.0f</b> is returned.
-    /// <br> Possible causes: Parameter verification failed, the parameter should not be nullptr.
+    ///   <br> Possible causes: Parameter verification failed, the parameter should not be nullptr.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]

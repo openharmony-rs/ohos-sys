@@ -42,8 +42,8 @@ extern "C" {
     /// # Arguments
     ///
     /// * `outManager` - \[out\] Returns a pointer to the manager handle.
-    /// Note that the handle is managed by the system and must not be released
-    /// by the caller, otherwise an exception may occur.
+    ///   Note that the handle is managed by the system and must not be released
+    ///   by the caller, otherwise an exception may occur.
     ///
     /// # Returns
     ///
@@ -93,8 +93,8 @@ extern "C" {
     /// * `capabilities` - \[in\] Pointer to the accessory capabilities. Must not be null.
     ///
     /// * `openInputStream` - \[in\] Callback invoked when the framework opens an input stream.
-    /// Must not be null. The callback is invoked only when the framework creates
-    /// a stream for this accessory, not when this function is called.
+    ///   Must not be null. The callback is invoked only when the framework creates
+    ///   a stream for this accessory, not when this function is called.
     ///
     /// * `outOwnedAccessory` - \[out\] Returns the created accessory handle.
     ///
@@ -138,16 +138,16 @@ extern "C" {
     /// * `accessory` - \[in\] Pointer to the accessory handle.
     ///
     /// * `macAddresses` - \[in\] Array of MAC addresses to associate.
-    /// <b>Can be null if count is 0</b>, indicating that all associated MAC addresses
-    /// should be cleared (e.g., when all secondary transmitters disconnect).
-    /// If not null, the framework performs a deep copy of these strings.
-    /// Each element must conform to the following rules:
+    ///   <b>Can be null if count is 0</b>, indicating that all associated MAC addresses
+    ///   should be cleared (e.g., when all secondary transmitters disconnect).
+    ///   If not null, the framework performs a deep copy of these strings.
+    ///   Each element must conform to the following rules:
     /// - Must be a NUL-terminated ASCII string in colon-separated hexadecimal
-    /// notation, e.g. "00:11:22:33:44:55". Both upper-case and lower-case
-    /// hex digits (A-F / a-f) are accepted.
+    ///   notation, e.g. "00:11:22:33:44:55". Both upper-case and lower-case
+    ///   hex digits (A-F / a-f) are accepted.
     /// - Must be a non-null, non-empty string.
     /// - Duplicate addresses within the same array are ignored; only the first
-    /// occurrence of each unique address takes effect.
+    ///   occurrence of each unique address takes effect.
     ///
     /// * `count` - \[in\] Number of MAC addresses in the array.
     ///
@@ -181,9 +181,9 @@ extern "C" {
     /// * `capability` - \[in\] Pointer to the noise reduction capability. Must not be null.
     ///
     /// * `onNoiseReduction` - \[in\] Callback invoked when the framework
-    /// requests a noise reduction mode change. May be null if the accessory
-    /// does not support dynamic mode switching. If provided, the callback must
-    /// return `true` on success and `false` on failure.
+    ///   requests a noise reduction mode change. May be null if the accessory
+    ///   does not support dynamic mode switching. If provided, the callback must
+    ///   return `true` on success and `false` on failure.
     ///
     /// # Returns
     ///
@@ -215,7 +215,7 @@ extern "C" {
     /// * `accessory` - \[in\] Pointer to the accessory handle.
     ///
     /// * `mode` - \[in\] The noise reduction mode to set. Must be one of the modes
-    /// registered via RegisterNoiseReductionCapability.
+    ///   registered via RegisterNoiseReductionCapability.
     ///
     /// # Returns
     ///

@@ -174,8 +174,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Execution result.
-    /// **OH_DRAWING_SUCCESS** if the operation is successful.
-    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if **path** or **other** is NULL.
+    ///   **OH_DRAWING_SUCCESS** if the operation is successful.
+    ///   **OH_DRAWING_ERROR_INVALID_PARAMETER** if **path** or **other** is NULL.
     ///
     /// Available since API-level: 20
     ///
@@ -193,13 +193,13 @@ extern "C" {
     /// * `path` - Pointer to the [`OH_Drawing_Path`](crate::types::OH_Drawing_Path) object.
     ///
     /// * `isEmpty` - Whether the path object is empty. **true** means empty; **false** otherwise. It as an output
-    /// parameter.
+    ///   parameter.
     ///
     /// # Returns
     ///
     /// * Execution result.
-    /// **OH_DRAWING_SUCCESS** if the operation is successful.
-    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if **path** or **isEmpty** is NULL.
+    ///   **OH_DRAWING_SUCCESS** if the operation is successful.
+    ///   **OH_DRAWING_ERROR_INVALID_PARAMETER** if **path** or **isEmpty** is NULL.
     ///
     /// Available since API-level: 20
     ///
@@ -223,8 +223,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Execution result.
-    /// **OH_DRAWING_SUCCESS** if the operation is successful.
-    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if **path** or **isRect** is NULL.
+    ///   **OH_DRAWING_SUCCESS** if the operation is successful.
+    ///   **OH_DRAWING_ERROR_INVALID_PARAMETER** if **path** or **isRect** is NULL.
     ///
     /// Available since API-level: 20
     ///
@@ -292,7 +292,7 @@ extern "C" {
     /// * `startDeg` - Start angle. The start direction (0°) of the angle is the positive direction of the X axis.
     ///
     /// * `sweepDeg` - Angle to sweep, in degrees. A positive number indicates a clockwise sweep, and a negative value
-    /// indicates a counterclockwise swipe. The actual swipe degree is the modulo operation result of the input parameter by
+    ///   indicates a counterclockwise swipe. The actual swipe degree is the modulo operation result of the input parameter by
     /// 360.
     ///
     /// Available since API-level: 8
@@ -352,10 +352,10 @@ extern "C" {
     /// * `endY` - Y coordinate of the target point.
     ///
     /// * `weight` - Weight of the curve, which determines its shape. The larger the value, the closer of the curve to the
-    /// control point.
-    /// If the value is less than or equal to **0**, the result is equivalent to a line segment from the start point to the
-    /// end point, which is added by calling [`OH_Drawing_PathLineTo`](crate::path::OH_Drawing_PathLineTo).
-    /// If the value is **1**, the result is equivalent to [`OH_Drawing_PathQuadTo`](crate::path::OH_Drawing_PathQuadTo).
+    ///   control point.
+    ///   If the value is less than or equal to **0**, the result is equivalent to a line segment from the start point to the
+    ///   end point, which is added by calling [`OH_Drawing_PathLineTo`](crate::path::OH_Drawing_PathLineTo).
+    ///   If the value is **1**, the result is equivalent to [`OH_Drawing_PathQuadTo`](crate::path::OH_Drawing_PathQuadTo).
     ///
     /// Available since API-level: 12
     ///
@@ -413,10 +413,10 @@ extern "C" {
     /// * `path` - Pointer to the [`OH_Drawing_Path`](crate::types::OH_Drawing_Path) object.
     ///
     /// * `x` - X-axis offset relative to the end point of a path. A positive number indicates an offset in the positive
-    /// direction of the X axis, and a negative number indicates an offset in the negative direction of the X axis.
+    ///   direction of the X axis, and a negative number indicates an offset in the negative direction of the X axis.
     ///
     /// * `y` - Y-axis offset relative to the end point of a path. A positive number indicates an offset in the positive
-    /// direction of the Y axis, and a negative number indicates an offset in the negative direction of the Y axis.
+    ///   direction of the Y axis, and a negative number indicates an offset in the negative direction of the Y axis.
     ///
     /// Available since API-level: 12
     ///
@@ -490,10 +490,10 @@ extern "C" {
     /// * `endY` - Y offset relative to the last point, which is used to specify the Y coordinate of the target point.
     ///
     /// * `weight` - Weight of the curve, which determines its shape. The larger the value, the closer of the curve to the
-    /// control point.
-    /// If the value is less than or equal to **0**, the result is equivalent to a line segment from the start point to the
-    /// end point, which is added by calling [`OH_Drawing_PathRLineTo`](crate::path::OH_Drawing_PathRLineTo).
-    /// If the value is **1**, the result is equivalent to [`OH_Drawing_PathRQuadTo`](crate::path::OH_Drawing_PathRQuadTo).
+    ///   control point.
+    ///   If the value is less than or equal to **0**, the result is equivalent to a line segment from the start point to the
+    ///   end point, which is added by calling [`OH_Drawing_PathRLineTo`](crate::path::OH_Drawing_PathRLineTo).
+    ///   If the value is **1**, the result is equivalent to [`OH_Drawing_PathRQuadTo`](crate::path::OH_Drawing_PathRQuadTo).
     ///
     /// Available since API-level: 12
     ///
@@ -518,16 +518,16 @@ extern "C" {
     /// * `path` - Pointer to the [`OH_Drawing_Path`](crate::types::OH_Drawing_Path) object.
     ///
     /// * `ctrlX1` - X offset relative to the last point, which is used to specify the X coordinate of the first control
-    /// point.
+    ///   point.
     ///
     /// * `ctrlY1` - Y offset relative to the last point, which is used to specify the Y coordinate of the first control
-    /// point.
+    ///   point.
     ///
     /// * `ctrlX2` - X offset relative to the last point, which is used to specify the X coordinate of the second control
-    /// point.
+    ///   point.
     ///
     /// * `ctrlY2` - Y offset relative to the last point, which is used to specify the Y coordinate of the second control
-    /// point.
+    ///   point.
     ///
     /// * `endX` - X offset relative to the last point, which is used to specify the X coordinate of the target point.
     ///
@@ -596,8 +596,8 @@ extern "C" {
     /// * `pathDirection` - Indicates the path direction.
     ///
     /// * `start` - Start point, indicating the corner of the rectangle from which the path is drawn. The value **0** means
-    /// the upper left corner, **1** means the upper right corner, **2** means the lower right corner, and **3** means the
-    /// lower left corner.
+    ///   the upper left corner, **1** means the upper right corner, **2** means the lower right corner, and **3** means the
+    ///   lower left corner.
     ///
     /// Available since API-level: 12
     ///
@@ -705,7 +705,7 @@ extern "C" {
     /// * `startAngle` - Start angle of the arc, in degrees.
     ///
     /// * `sweepAngle` - Angle to sweep, in degrees. A positive number indicates a clockwise sweep, and a negative value
-    /// indicates a counterclockwise swipe. The actual swipe degree is the modulo operation result of the input parameter by
+    ///   indicates a counterclockwise swipe. The actual swipe degree is the modulo operation result of the input parameter by
     /// 360.
     ///
     /// Available since API-level: 12
@@ -837,7 +837,7 @@ extern "C" {
     /// * `count` - Size of the array.
     ///
     /// * `isClosed` - Whether the path is closed. The value **true** means that the path is closed, and **false** means
-    /// the opposite.
+    ///   the opposite.
     ///
     /// Available since API-level: 12
     ///
@@ -917,8 +917,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`](crate::error_code::DrawingErrorCode::INCORRECT_PARAMETER) if path or strSize is nullptr.
+    ///   Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
+    ///   Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`](crate::error_code::DrawingErrorCode::INCORRECT_PARAMETER) if path or strSize is nullptr.
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]
@@ -941,8 +941,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`](crate::error_code::DrawingErrorCode::INCORRECT_PARAMETER) if path or count is nullptr.
+    ///   Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
+    ///   Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`](crate::error_code::DrawingErrorCode::INCORRECT_PARAMETER) if path or count is nullptr.
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]
@@ -965,8 +965,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`](crate::error_code::DrawingErrorCode::INCORRECT_PARAMETER) if path or count is nullptr.
+    ///   Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
+    ///   Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`](crate::error_code::DrawingErrorCode::INCORRECT_PARAMETER) if path or count is nullptr.
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]
@@ -989,8 +989,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`](crate::error_code::DrawingErrorCode::INCORRECT_PARAMETER) if path or count is nullptr.
+    ///   Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
+    ///   Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`](crate::error_code::DrawingErrorCode::INCORRECT_PARAMETER) if path or count is nullptr.
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]
@@ -1052,7 +1052,7 @@ extern "C" {
     /// * `dst` - Pointer to the target [`OH_Drawing_Path`](crate::types::OH_Drawing_Path) object.
     ///
     /// * `applyPerspectiveClip` - Whether to apply perspective cropping to the new path. The value **true** means to apply
-    /// perspective cropping, and **false** means the opposite.
+    ///   perspective cropping, and **false** means the opposite.
     ///
     /// Available since API-level: 12
     ///
@@ -1097,8 +1097,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Execution result.
-    /// **OH_DRAWING_SUCCESS** if the operation is successful.
-    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if **path** or **pathFillType** is NULL.
+    ///   **OH_DRAWING_SUCCESS** if the operation is successful.
+    ///   **OH_DRAWING_ERROR_INVALID_PARAMETER** if **path** or **pathFillType** is NULL.
     ///
     /// Available since API-level: 20
     ///
@@ -1118,7 +1118,7 @@ extern "C" {
     /// * `path` - Pointer to the [`OH_Drawing_Path`](crate::types::OH_Drawing_Path) object.
     ///
     /// * `forceClosed` - Whether the path is measured as a closed path. **true** means that the path is forcibly
-    /// considered as a closed path; **false** means that the path is measured depending on whether it is a closed path.
+    ///   considered as a closed path; **false** means that the path is measured depending on whether it is a closed path.
     ///
     /// # Returns
     ///
@@ -1167,7 +1167,7 @@ extern "C" {
     /// * `path` - Pointer to the existing [`OH_Drawing_Path`](crate::types::OH_Drawing_Path) object.
     ///
     /// * `dst` - Pointer to a destination path, which is an [`OH_Drawing_Path`](crate::types::OH_Drawing_Path) object. If NULL is passed in, the
-    /// result is stored in the current path.
+    ///   result is stored in the current path.
     ///
     /// * `dx` - X offset.
     ///
@@ -1205,8 +1205,8 @@ extern "C" {
     /// * `path` - Pointer to the [`OH_Drawing_Path`](crate::types::OH_Drawing_Path) object.
     ///
     /// * `forceClosed` - Whether the path is measured as a closed path. The value **true** means that the path is
-    /// considered closed during measurement, and **false** means that the path is measured based on the actual closed
-    /// status.
+    ///   considered closed during measurement, and **false** means that the path is measured based on the actual closed
+    ///   status.
     ///
     /// # Returns
     ///
@@ -1227,16 +1227,16 @@ extern "C" {
     /// * `path` - Pointer to the [`OH_Drawing_Path`](crate::types::OH_Drawing_Path) object.
     ///
     /// * `forceClosed` - Whether the path is measured as a closed path. The value **true** means that the path is
-    /// considered closed during measurement, and **false** means that the path is measured based on the actual closed
-    /// status.
+    ///   considered closed during measurement, and **false** means that the path is measured based on the actual closed
+    ///   status.
     ///
     /// * `distance` - Distance from the start point. If the distance is less than 0, it is considered as 0. If the
-    /// distance is greater than the path length, it is considered as the path length.
+    ///   distance is greater than the path length, it is considered as the path length.
     ///
     /// * `position` - Pointer to the coordinates.
     ///
     /// * `tangent` - Pointer to the tangent, where **tangent.x** and **tangent.y** represent the cosine and sine of the
-    /// tangent of the point, respectively.
+    ///   tangent of the point, respectively.
     ///
     /// # Returns
     ///
@@ -1261,30 +1261,30 @@ extern "C" {
     /// * `path` - Pointer to the [`OH_Drawing_Path`](crate::types::OH_Drawing_Path) object.
     ///
     /// * `forceClosed` - Whether the path is measured as a closed path. The value **true** means that the path is
-    /// considered closed during measurement, and **false** means that the path is measured based on the actual closed
-    /// status.
+    ///   considered closed during measurement, and **false** means that the path is measured based on the actual closed
+    ///   status.
     ///
     /// * `start` - Distance from the start point of the path to the start point of the segment. If it is less than 0, it
-    /// defaults to 0. If it is greater than or equal to **stop**, the extraction fails.
+    ///   defaults to 0. If it is greater than or equal to **stop**, the extraction fails.
     ///
     /// * `stop` - Distance from the start point of the path to the end point of the segment. If it is less than or equal
-    /// to **start**, the extraction fails. If it is greater than the path length, it defaults to the path length.
+    ///   to **start**, the extraction fails. If it is greater than the path length, it defaults to the path length.
     ///
     /// * `startWithMoveTo` - Whether to execute [`OH_Drawing_PathMoveTo`](crate::path::OH_Drawing_PathMoveTo) in the destination path to move to its start
-    /// point. The value **true** means to move to the start point, and **false** means the opposite.
+    ///   point. The value **true** means to move to the start point, and **false** means the opposite.
     ///
     /// * `dst` - Pointer to a destination path, which is an [`OH_Drawing_Path`](crate::types::OH_Drawing_Path) object. If the extraction succeeds,
-    /// the segment is appended to the path. If the extraction fails, nothing changes.
+    ///   the segment is appended to the path. If the extraction fails, nothing changes.
     ///
     /// * `result` - Pointer to the extraction result. The value **true** means that the extraction is successful, and **
-    /// false** means the opposite. It as an output parameter.
+    ///   false** means the opposite. It as an output parameter.
     ///
     /// # Returns
     ///
     /// * Returns one of the following result codes:
-    /// **OH_DRAWING_SUCCESS** if the operation is successful.
-    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if at least one of the **path**, **dst**, and **result** parameters is a null
-    /// pointer.
+    ///   **OH_DRAWING_SUCCESS** if the operation is successful.
+    ///   **OH_DRAWING_ERROR_INVALID_PARAMETER** if at least one of the **path**, **dst**, and **result** parameters is a null
+    ///   pointer.
     ///
     /// Available since API-level: 18
     ///
@@ -1337,22 +1337,22 @@ extern "C" {
     /// * `path` - Pointer to the [`OH_Drawing_Path`](crate::types::OH_Drawing_Path) object.
     ///
     /// * `forceClosed` - Whether the path is measured as a closed path. The value **true** means that the path is
-    /// considered closed during measurement, and **false** means that the path is measured based on the actual closed
-    /// status.
+    ///   considered closed during measurement, and **false** means that the path is measured based on the actual closed
+    ///   status.
     ///
     /// * `distance` - Distance from the start point. If the distance is less than 0, it is considered as 0. If the
-    /// distance is greater than the path length, it is considered as the path length.
+    ///   distance is greater than the path length, it is considered as the path length.
     ///
     /// * `matrix` - Pointer to the transformation matrix.
     ///
     /// * `flag` - Type of the matrix information. For details about the available options, see
-    /// [`OH_Drawing_PathMeasureMatrixFlags`](crate::path::OH_Drawing_PathMeasureMatrixFlags)
-    /// .
+    ///   [`OH_Drawing_PathMeasureMatrixFlags`](crate::path::OH_Drawing_PathMeasureMatrixFlags)
+    ///   .
     ///
     /// # Returns
     ///
     /// * Returns **true** if the transformation matrix is obtained successfully; returns **false** otherwise. The
-    /// possible failure cause is that **path** is NULL or the path length is 0.
+    ///   possible failure cause is that **path** is NULL or the path length is 0.
     ///
     /// Available since API-level: 12
     ///
@@ -1374,27 +1374,27 @@ extern "C" {
     ///
     /// * `acceptableError` - Acceptable error of each line segment on the path. The value cannot be less than 0.
     /// 1. Avoid setting **acceptableError** to **0** as it heavily divides the curve path, significantly impacting
-    /// performance and memory usage.
+    ///    performance and memory usage.
     /// 2. Setting a high **acceptableError** simplifies the path greatly by keeping only essential points, potentially
-    /// distorting the original shape.
+    ///    distorting the original shape.
     /// 3. When you set a high **acceptableError** for curves such as ellipses, the fitting process often simplifies them to
-    /// polygons by keeping just the start and end points of their Bezier curve segments.
+    ///    polygons by keeping just the start and end points of their Bezier curve segments.
     ///
     /// * `vals` - An array of approximate points of the path.
-    /// Each point consists of three values, indicating:
+    ///   Each point consists of three values, indicating:
     /// 1. Length ratio of the point to the start point of the path.
     /// 2. X coordinate of the point.
     /// 3. Y coordinate of the point.
     ///
     /// * `count` - Size of the returned array, which is at least 6. The size of the point array after fitting is returned
-    /// if **vals** is a null pointer.
+    ///   if **vals** is a null pointer.
     ///
     /// # Returns
     ///
     /// * Execution result.
-    /// **OH_DRAWING_SUCCESS** if the operation is successful.
-    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if **path** or **count** is a null pointer.
-    /// **OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE** if **acceptableError** is less than 0.
+    ///   **OH_DRAWING_SUCCESS** if the operation is successful.
+    ///   **OH_DRAWING_ERROR_INVALID_PARAMETER** if **path** or **count** is a null pointer.
+    ///   **OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE** if **acceptableError** is less than 0.
     ///
     /// Available since API-level: 20
     ///
@@ -1421,17 +1421,17 @@ extern "C" {
     /// * `weight` - Interpolation weight. The value range is \[0, 1\].
     ///
     /// * `success` - Whether the interpolation is successful. **true** means yes; **false** otherwise. It as an output
-    /// parameter.
+    ///   parameter.
     ///
     /// * `interpolatedPath` - Pointer to the [`OH_Drawing_Path`](crate::types::OH_Drawing_Path) object used to store the interpolation result.
     ///
     /// # Returns
     ///
     /// * Execution result.
-    /// **OH_DRAWING_SUCCESS** if the operation is successful.
-    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if **path**, **other**, **success**, or **interpolatedPath** is a null
-    /// pointer.
-    /// **OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE** if **weight** is not in the range of \[0, 1\].
+    ///   **OH_DRAWING_SUCCESS** if the operation is successful.
+    ///   **OH_DRAWING_ERROR_INVALID_PARAMETER** if **path**, **other**, **success**, or **interpolatedPath** is a null
+    ///   pointer.
+    ///   **OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE** if **weight** is not in the range of \[0, 1\].
     ///
     /// Available since API-level: 20
     ///
@@ -1456,13 +1456,13 @@ extern "C" {
     /// * `other` - Pointer to the [`OH_Drawing_Path`](crate::types::OH_Drawing_Path) object.
     ///
     /// * `result` - Checks whether a path is compatible with another path. It is used as an output parameter.
-    /// **true** if the paths are compatible, **false** otherwise.
+    ///   **true** if the paths are compatible, **false** otherwise.
     ///
     /// # Returns
     ///
     /// * Execution result.
-    /// **OH_DRAWING_SUCCESS** if the operation is successful.
-    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if **path**, **other**, or **result** is a null pointer.
+    ///   **OH_DRAWING_SUCCESS** if the operation is successful.
+    ///   **OH_DRAWING_ERROR_INVALID_PARAMETER** if **path**, **other**, or **result** is a null pointer.
     ///
     /// Available since API-level: 20
     ///
@@ -1485,8 +1485,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`](crate::error_code::DrawingErrorCode::INCORRECT_PARAMETER) if path or point is nullptr, or the path is empty.
+    ///   Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
+    ///   Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`](crate::error_code::DrawingErrorCode::INCORRECT_PARAMETER) if path or point is nullptr, or the path is empty.
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]
@@ -1502,13 +1502,13 @@ extern "C" {
     /// * `path` - Pointer to the [`OH_Drawing_Path`](crate::types::OH_Drawing_Path) object.
     ///
     /// * `isInverse` - Whether the fill type is the inverse type. It is used as an output parameter. **true** if the fill
-    /// type is the inverse type; **false** otherwise.
+    ///   type is the inverse type; **false** otherwise.
     ///
     /// # Returns
     ///
     /// * Execution result.
-    /// **OH_DRAWING_SUCCESS** if the operation is successful.
-    /// **OH_DRAWING_ERROR_INCORRECT_PARAMETER** if **path** or **isInverse** is a null pointer.
+    ///   **OH_DRAWING_SUCCESS** if the operation is successful.
+    ///   **OH_DRAWING_ERROR_INCORRECT_PARAMETER** if **path** or **isInverse** is a null pointer.
     ///
     /// Available since API-level: 23
     ///
@@ -1528,8 +1528,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Execution result.
-    /// **OH_DRAWING_SUCCESS** if the operation is successful.
-    /// **OH_DRAWING_ERROR_INCORRECT_PARAMETER** if **path** is a null pointer.
+    ///   **OH_DRAWING_SUCCESS** if the operation is successful.
+    ///   **OH_DRAWING_ERROR_INCORRECT_PARAMETER** if **path** is a null pointer.
     ///
     /// Available since API-level: 23
     ///
@@ -1552,8 +1552,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`](crate::error_code::DrawingErrorCode::INCORRECT_PARAMETER) if path or other is nullptr, or equal is nullptr.
+    ///   Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
+    ///   Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`](crate::error_code::DrawingErrorCode::INCORRECT_PARAMETER) if path or other is nullptr, or equal is nullptr.
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]

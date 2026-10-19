@@ -38,8 +38,8 @@ extern "C" {
     /// * `sigma` - Standard deviation of the Gaussian blur to apply. The value must be greater than 0.
     ///
     /// * `respectCTM` - Whether the blur standard deviation is modified by the current transformation matrix (CTM). The
-    /// default value is **true**. **true**: The blur standard deviation is affected by the CTM. **false**: The blur
-    /// standard deviation is fixed and not affected by the CTM.
+    ///   default value is **true**. **true**: The blur standard deviation is affected by the CTM. **false**: The blur
+    ///   standard deviation is fixed and not affected by the CTM.
     ///
     /// # Returns
     ///

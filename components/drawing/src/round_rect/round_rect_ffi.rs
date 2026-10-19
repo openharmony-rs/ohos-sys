@@ -85,7 +85,7 @@ extern "C" {
     /// * `pos` - Position of the rounded corner. For details about the available options, see [`OH_Drawing_CornerPos`](crate::round_rect::OH_Drawing_CornerPos).
     ///
     /// * `radii` - OH_Drawing_Corner_Radii struct, including the radii on the X axis and Y axis. A radius less than or
-    /// equal to 0 is invalid.
+    ///   equal to 0 is invalid.
     ///
     /// Available since API-level: 12
     ///
@@ -145,8 +145,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns one of the following result codes:
-    /// **OH_DRAWING_SUCCESS** if the operation is successful.
-    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if **roundRect** is NULL.
+    ///   **OH_DRAWING_SUCCESS** if the operation is successful.
+    ///   **OH_DRAWING_ERROR_INVALID_PARAMETER** if **roundRect** is NULL.
     ///
     /// Available since API-level: 12
     ///

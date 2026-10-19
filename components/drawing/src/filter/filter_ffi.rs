@@ -28,7 +28,7 @@ extern "C" {
     /// * `filter` - Pointer to an [`OH_Drawing_Filter`](crate::types::OH_Drawing_Filter) object.
     ///
     /// * `imageFilter` - Pointer to an [`OH_Drawing_ImageFilter`](crate::types::OH_Drawing_ImageFilter) object. If NULL is passed in, the image filter
-    /// effect of the object will be cleared.
+    ///   effect of the object will be cleared.
     ///
     /// Available since API-level: 12
     ///
@@ -48,7 +48,7 @@ extern "C" {
     /// * `filter` - Pointer to an [`OH_Drawing_Filter`](crate::types::OH_Drawing_Filter) object.
     ///
     /// * `maskFilter` - Pointer to an [`OH_Drawing_ColorFilter`](crate::types::OH_Drawing_ColorFilter) object. If NULL is passed in, the mask filter effect
-    /// of the object will be cleared.
+    ///   of the object will be cleared.
     ///
     /// Available since API-level: 11
     ///
@@ -68,7 +68,7 @@ extern "C" {
     /// * `filter` - Pointer to an [`OH_Drawing_Filter`](crate::types::OH_Drawing_Filter) object.
     ///
     /// * `colorFilter` - Pointer to an [`OH_Drawing_ColorFilter`](crate::types::OH_Drawing_ColorFilter) object. If NULL is passed in, the color filter
-    /// effect of the object will be cleared.
+    ///   effect of the object will be cleared.
     ///
     /// Available since API-level: 11
     ///

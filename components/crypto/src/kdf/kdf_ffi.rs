@@ -122,7 +122,7 @@ extern "C" {
     /// * `type` - \[in\] KDF parameter type.
     ///
     /// * `value` - \[in\] KDF parameter value. This function performs a deep copy of the data in value.
-    /// The caller can release value immediately after the function returns. Cannot be NULL.
+    ///   The caller can release value immediately after the function returns. Cannot be NULL.
     ///
     /// # Returns
     ///
@@ -154,16 +154,16 @@ extern "C" {
     ///
     /// * `algoName` - \[in\] KDF algorithm name. Cannot be NULL. Format: "KDFType|DigestAlgorithm". Values:
     /// - "PBKDF2|SHA1", "PBKDF2|SHA224", "PBKDF2|SHA256", "PBKDF2|SHA384", "PBKDF2|SHA512",
-    /// "PBKDF2|SM3" supported since API version 20.
-    /// "PBKDF2|SHA3-256", "PBKDF2|SHA3-384", "PBKDF2|SHA3-512" supported since API version 26.0.0.
+    ///   "PBKDF2|SM3" supported since API version 20.
+    ///   "PBKDF2|SHA3-256", "PBKDF2|SHA3-384", "PBKDF2|SHA3-512" supported since API version 26.0.0.
     /// - "HKDF|SHA1", "HKDF|SHA224", "HKDF|SHA256", "HKDF|SHA384", "HKDF|SHA512", "HKDF|SM3"
-    /// supported since API version 20. HKDF supports an optional third parameter to specify the mode:
-    /// "EXTRACT_AND_EXPAND" (default), "EXTRACT_ONLY", "EXPAND_ONLY", e.g. "HKDF|SHA256|EXTRACT_ONLY".
-    /// "HKDF|SHA3-256", "HKDF|SHA3-384", "HKDF|SHA3-512" supported since API version 26.0.0.
+    ///   supported since API version 20. HKDF supports an optional third parameter to specify the mode:
+    ///   "EXTRACT_AND_EXPAND" (default), "EXTRACT_ONLY", "EXPAND_ONLY", e.g. "HKDF|SHA256|EXTRACT_ONLY".
+    ///   "HKDF|SHA3-256", "HKDF|SHA3-384", "HKDF|SHA3-512" supported since API version 26.0.0.
     /// - "SCRYPT" supported since API version 20.
     /// - "X963KDF|SHA1", "X963KDF|SHA224", "X963KDF|SHA256", "X963KDF|SHA384", "X963KDF|SHA512"
-    /// supported since API version 22.
-    /// "X963KDF|SHA3-256", "X963KDF|SHA3-384", "X963KDF|SHA3-512" supported since API version 26.0.0.
+    ///   supported since API version 22.
+    ///   "X963KDF|SHA3-256", "X963KDF|SHA3-384", "X963KDF|SHA3-512" supported since API version 26.0.0.
     ///
     /// * `ctx` - \[out\] Pointer to the KDF context pointer. ctx cannot be NULL, *ctx must be NULL.
     ///
@@ -196,7 +196,7 @@ extern "C" {
     /// * `keyLen` - \[in\] Byte length of the derived key.
     ///
     /// * `key` - \[out\] Pointer to the Crypto_DataBlob structure for storing the derived key. Cannot be NULL. Initialize key
-    /// to {0} before calling. Do not pre-allocate key->data.
+    ///   to {0} before calling. Do not pre-allocate key->data.
     ///
     /// # Returns
     ///

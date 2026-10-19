@@ -135,7 +135,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Default size of the list item along the main axis. The default value is **0**. The unit is `vp`. If **
-    /// option** is a null pointer, **-1** is returned.
+    ///   option** is a null pointer, **-1** is returned.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]

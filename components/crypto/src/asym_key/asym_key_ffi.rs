@@ -373,18 +373,18 @@ extern "C" {
     ///
     /// * `algoName` - \[in\] Asymmetric key algorithm name. Cannot be NULL. Values:
     /// - RSA series since API version 12: "RSA512", "RSA768", "RSA1024", "RSA2048", "RSA3072",
-    /// "RSA4096", "RSA8192". Multi-prime format is supported, e.g. "RSA1024|PRIMES_3",
-    /// "RSA4096|PRIMES_4", "RSA8192|PRIMES_5".
+    ///   "RSA4096", "RSA8192". Multi-prime format is supported, e.g. "RSA1024|PRIMES_3",
+    ///   "RSA4096|PRIMES_4", "RSA8192|PRIMES_5".
     /// - ECC series since API version 12: "ECC224", "ECC256", "ECC384", "ECC521".
     /// - ECC BrainPool series since API version 12: "ECC_BrainPoolP160r1", "ECC_BrainPoolP160t1",
-    /// "ECC_BrainPoolP192r1", "ECC_BrainPoolP192t1", "ECC_BrainPoolP224r1", "ECC_BrainPoolP224t1",
-    /// "ECC_BrainPoolP256r1", "ECC_BrainPoolP256t1", "ECC_BrainPoolP320r1", "ECC_BrainPoolP320t1",
-    /// "ECC_BrainPoolP384r1", "ECC_BrainPoolP384t1", "ECC_BrainPoolP512r1", "ECC_BrainPoolP512t1".
+    ///   "ECC_BrainPoolP192r1", "ECC_BrainPoolP192t1", "ECC_BrainPoolP224r1", "ECC_BrainPoolP224t1",
+    ///   "ECC_BrainPoolP256r1", "ECC_BrainPoolP256t1", "ECC_BrainPoolP320r1", "ECC_BrainPoolP320t1",
+    ///   "ECC_BrainPoolP384r1", "ECC_BrainPoolP384t1", "ECC_BrainPoolP512r1", "ECC_BrainPoolP512t1".
     /// - "SM2_256", "Ed25519", "X25519" supported since API version 12.
     /// - DSA series since API version 12: "DSA1024", "DSA2048", "DSA3072".
     /// - DH series since API version 12: "DH_modp1536", "DH_modp2048", "DH_modp3072",
-    /// "DH_modp4096", "DH_modp6144", "DH_modp8192", "DH_ffdhe2048", "DH_ffdhe3072",
-    /// "DH_ffdhe4096", "DH_ffdhe6144", "DH_ffdhe8192".
+    ///   "DH_modp4096", "DH_modp6144", "DH_modp8192", "DH_ffdhe2048", "DH_ffdhe3072",
+    ///   "DH_ffdhe4096", "DH_ffdhe6144", "DH_ffdhe8192".
     /// - "ECC_Secp256k1" supported since API version 14.
     /// - "ECC192" supported since API version 26.0.0.
     ///
@@ -540,7 +540,7 @@ extern "C" {
     /// * `encodingStandard` - \[in\] Encoding standard. Supports "X509". Cannot be NULL.
     ///
     /// * `out` - \[out\] Pointer to the Crypto_DataBlob structure for storing the encoding result. Cannot be NULL. Initialize
-    /// out to {0} before calling. Do not pre-allocate out->data.
+    ///   out to {0} before calling. Do not pre-allocate out->data.
     ///
     /// # Returns
     ///
@@ -569,7 +569,7 @@ extern "C" {
     /// * `item` - \[in\] Asymmetric key parameter type.
     ///
     /// * `value` - \[out\] Pointer to the Crypto_DataBlob structure for storing the output data. Cannot be NULL.
-    /// Initialize value to {0} before calling. Do not pre-allocate value->data.
+    ///   Initialize value to {0} before calling. Do not pre-allocate value->data.
     ///
     /// # Returns
     ///
@@ -596,7 +596,7 @@ extern "C" {
     /// * `ctx` - \[in\] Asymmetric key generator. Cannot be NULL.
     ///
     /// * `password` - \[in\] Password. This function performs a deep copy of the data in password. The
-    /// caller can release password immediately after the function returns. Cannot be NULL.
+    ///   caller can release password immediately after the function returns. Cannot be NULL.
     ///
     /// * `passwordLen` - \[in\] Byte length of the password. Must be greater than 0.
     ///
@@ -647,7 +647,7 @@ extern "C" {
     /// * `type` - \[in\] Private key encoding parameter type.
     ///
     /// * `value` - \[in\] Private key encoding parameter value. This function performs a deep copy of the data in value.
-    /// The caller can release value immediately after the function returns. Cannot be NULL.
+    ///   The caller can release value immediately after the function returns. Cannot be NULL.
     ///
     /// # Returns
     ///
@@ -682,13 +682,13 @@ extern "C" {
     /// * `type` - \[in\] Encoding type.
     ///
     /// * `encodingStandard` - \[in\] Encoding standard. Supports "PKCS8" and "PKCS1". "PKCS1" is only supported for RSA
-    /// private keys. Cannot be NULL.
+    ///   private keys. Cannot be NULL.
     ///
     /// * `params` - \[in\] Private key encoding parameters. Can be NULL. Set this parameter if the private key needs to be
-    /// encrypted.
+    ///   encrypted.
     ///
     /// * `out` - \[out\] Pointer to the Crypto_DataBlob structure for storing the encoding result. Cannot be NULL.
-    /// Initialize out to {0} before calling. Do not pre-allocate out->data.
+    ///   Initialize out to {0} before calling. Do not pre-allocate out->data.
     ///
     /// # Returns
     ///
@@ -718,7 +718,7 @@ extern "C" {
     /// * `item` - \[in\] Asymmetric key parameter type.
     ///
     /// * `value` - \[out\] Pointer to the Crypto_DataBlob structure for storing the output data. Cannot be NULL.
-    /// Initialize value to {0} before calling. Do not pre-allocate value->data.
+    ///   Initialize value to {0} before calling. Do not pre-allocate value->data.
     ///
     /// # Returns
     ///
@@ -742,7 +742,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `curveName` - \[in\] NID (Name Identifier) string of the ECC curve. Cannot be NULL.
-    /// e.g. "NID_X9_62_prime256v1", "NID_secp384r1", "NID_secp521r1", "NID_sm2".
+    ///   e.g. "NID_X9_62_prime256v1", "NID_secp384r1", "NID_secp521r1", "NID_sm2".
     ///
     /// * `spec` - \[out\] Pointer to the asymmetric key specification pointer. spec cannot be NULL, *spec must be NULL.
     ///
@@ -826,7 +826,7 @@ extern "C" {
     /// * `type` - \[in\] Asymmetric key parameter type.
     ///
     /// * `value` - \[in\] Input data. This function performs a deep copy of the data in value. The caller can release value
-    /// immediately after the function returns. Cannot be NULL.
+    ///   immediately after the function returns. Cannot be NULL.
     ///
     /// # Returns
     ///
@@ -850,7 +850,7 @@ extern "C" {
     /// * `spec` - \[in\] Asymmetric key specification. Cannot be NULL.
     ///
     /// * `commonParamsSpec` - \[in\] Common parameter specification. This function performs a deep copy of the data in
-    /// commonParamsSpec. The caller can release commonParamsSpec immediately after the function returns. Cannot be NULL.
+    ///   commonParamsSpec. The caller can release commonParamsSpec immediately after the function returns. Cannot be NULL.
     ///
     /// # Returns
     ///
@@ -875,7 +875,7 @@ extern "C" {
     /// * `type` - \[in\] Asymmetric key parameter type.
     ///
     /// * `value` - \[out\] Pointer to the Crypto_DataBlob structure for storing the output data. Cannot be NULL.
-    /// Initialize value to {0} before calling. Do not pre-allocate value->data.
+    ///   Initialize value to {0} before calling. Do not pre-allocate value->data.
     ///
     /// # Returns
     ///
@@ -910,7 +910,7 @@ extern "C" {
     /// * `keySpec` - \[in\] Asymmetric key specification. Cannot be NULL.
     ///
     /// * `generator` - \[out\] Pointer to the specification-based asymmetric key generator pointer. generator cannot be NULL,
-    /// *generator must be NULL.
+    ///   *generator must be NULL.
     ///
     /// # Returns
     ///
@@ -971,10 +971,10 @@ extern "C" {
     /// # Arguments
     ///
     /// * `curveName` - \[in\] NID (Name Identifier) string of the elliptic curve. Cannot be NULL.
-    /// e.g. "NID_X9_62_prime256v1", "NID_secp384r1", "NID_secp521r1", "NID_sm2".
+    ///   e.g. "NID_X9_62_prime256v1", "NID_secp384r1", "NID_secp521r1", "NID_sm2".
     ///
     /// * `ecKeyData` - \[in\] Elliptic curve point data. Supports "04 || x || y", "02 || x", or "03 || x" format.
-    /// Can be NULL. If ecKeyData is NULL, an empty elliptic curve point specification is created.
+    ///   Can be NULL. If ecKeyData is NULL, an empty elliptic curve point specification is created.
     ///
     /// * `point` - \[out\] Pointer to the elliptic curve point pointer. point cannot be NULL, *point must be NULL.
     ///
@@ -1006,10 +1006,10 @@ extern "C" {
     /// * `point` - \[in\] Elliptic curve point. Cannot be NULL.
     ///
     /// * `x` - \[out\] Pointer to the Crypto_DataBlob structure for storing the x-coordinate. Cannot be NULL.
-    /// Initialize x to {0} before calling. Do not pre-allocate x->data.
+    ///   Initialize x to {0} before calling. Do not pre-allocate x->data.
     ///
     /// * `y` - \[out\] Pointer to the Crypto_DataBlob structure for storing the y-coordinate. Cannot be NULL.
-    /// Initialize y to {0} before calling. Do not pre-allocate y->data.
+    ///   Initialize y to {0} before calling. Do not pre-allocate y->data.
     ///
     /// # Returns
     ///
@@ -1037,7 +1037,7 @@ extern "C" {
     /// * `point` - \[in\] Elliptic curve point. Cannot be NULL.
     ///
     /// * `x` - \[in\] x-coordinate of the elliptic curve point. This function performs a deep copy of the
-    /// data in x and y. The caller can release x and y immediately after the function returns. Cannot be NULL.
+    ///   data in x and y. The caller can release x and y immediately after the function returns. Cannot be NULL.
     ///
     /// * `y` - \[in\] y-coordinate of the elliptic curve point. Cannot be NULL.
     ///
@@ -1067,7 +1067,7 @@ extern "C" {
     /// * `format` - \[in\] Encoding format. Cannot be NULL. Supports "UNCOMPRESSED" and "COMPRESSED".
     ///
     /// * `out` - \[out\] Pointer to the Crypto_DataBlob structure for storing the encoded point data. Cannot be NULL.
-    /// Initialize out to {0} before calling. Do not pre-allocate out->data.
+    ///   Initialize out to {0} before calling. Do not pre-allocate out->data.
     ///
     /// # Returns
     ///

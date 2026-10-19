@@ -36,10 +36,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_FOCUS_NON_FOCUSABLE`](crate::error_code::ArkUiErrorCode::FOCUS_NON_FOCUSABLE) if the node cannot receive focus.
-    /// <br>Returns [`ARKUI_ERROR_CODE_FOCUS_NON_FOCUSABLE_ANCESTOR`](crate::error_code::ArkUiErrorCode::FOCUS_NON_FOCUSABLE_ANCESTOR) if the ancestor node cannot receive focus.
-    /// <br>Returns [`ARKUI_ERROR_CODE_FOCUS_NON_EXISTENT`](crate::error_code::ArkUiErrorCode::FOCUS_NON_EXISTENT) if the node does not exist.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_FOCUS_NON_FOCUSABLE`](crate::error_code::ArkUiErrorCode::FOCUS_NON_FOCUSABLE) if the node cannot receive focus.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_FOCUS_NON_FOCUSABLE_ANCESTOR`](crate::error_code::ArkUiErrorCode::FOCUS_NON_FOCUSABLE_ANCESTOR) if the ancestor node cannot receive focus.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_FOCUS_NON_EXISTENT`](crate::error_code::ArkUiErrorCode::FOCUS_NON_EXISTENT) if the node does not exist.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
@@ -62,11 +62,11 @@ extern "C" {
     /// * `uiContext` - UI instance object pointer.
     ///
     /// * `isActive` - Whether to enter or exit the focus activation state. The value **true** means to enter the focus
-    /// activation state, and **false** means to exit the focus activation state.
+    ///   activation state, and **false** means to exit the focus activation state.
     ///
     /// * `isAutoInactive` - Whether to automatically exit the focus active state on touch or mouse down events. **true**:
-    /// Automatically exit the focus active state. **false**: Maintain the current state until the corresponding setting
-    /// API is called.
+    ///   Automatically exit the focus active state. **false**: Maintain the current state until the corresponding setting
+    ///   API is called.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
@@ -83,7 +83,7 @@ extern "C" {
     /// * `uiContext` - UI instance object pointer.
     ///
     /// * `autoTransfer` - Whether to automatically transfer focus when pages are switched. The value **true** means to
-    /// automatically transfer focus when pages are switched, and **false** means the opposite.
+    ///   automatically transfer focus when pages are switched, and **false** means the opposite.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]

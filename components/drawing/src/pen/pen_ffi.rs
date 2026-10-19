@@ -69,7 +69,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the pointer to the [`OH_Drawing_Pen`](crate::types::OH_Drawing_Pen) object created. If NULL is returned, the creation fails.
-    /// The possible failure cause is that no memory is available or **pen** is NULL.
+    ///   The possible failure cause is that no memory is available or **pen** is NULL.
     ///
     /// Available since API-level: 12
     ///
@@ -114,7 +114,7 @@ extern "C" {
     /// * `pen` - Pointer to an **OH_Drawing_Pen** object.
     ///
     /// * `antiAlias` - Whether to enable anti-aliasing. The value **true** means to enable anti-aliasing, and **false**
-    /// means the opposite.
+    ///   means the opposite.
     ///
     /// Available since API-level: 8
     ///
@@ -196,24 +196,24 @@ extern "C" {
     /// * `pen` - Pointer to an [`OH_Drawing_Pen`](crate::types::OH_Drawing_Pen) object.
     ///
     /// * `a` - Alpha value of the color, which is a floating-point number ranging from 0.0 to 1.0. Values above 1.0
-    /// default to 1.0, while values below 0.0 default to 0.0.
+    ///   default to 1.0, while values below 0.0 default to 0.0.
     ///
     /// * `r` - Red component of the color, which is a floating-point number ranging from 0.0 to 1.0. Values above 1.0
-    /// default to 1.0, while values below 0.0 default to 0.0.
+    ///   default to 1.0, while values below 0.0 default to 0.0.
     ///
     /// * `g` - Green component of the color, which is a floating-point number ranging from 0.0 to 1.0. Values above 1.0
-    /// default to 1.0, while values below 0.0 default to 0.0.
+    ///   default to 1.0, while values below 0.0 default to 0.0.
     ///
     /// * `b` - Blue component of the color, which is a floating-point number ranging from 0.0 to 1.0. Values above 1.0
-    /// default to 1.0, while values below 0.0 default to 0.0.
+    ///   default to 1.0, while values below 0.0 default to 0.0.
     ///
     /// * `colorSpaceManager` - Pointer to an [`OH_NativeColorSpaceManager`](ohos_sys_opaque_types::OH_NativeColorSpaceManager) object.
     ///
     /// # Returns
     ///
     /// * Execution result.
-    /// **OH_DRAWING_SUCCESS** if the operation is successful.
-    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if **pen** is NULL.
+    ///   **OH_DRAWING_SUCCESS** if the operation is successful.
+    ///   **OH_DRAWING_ERROR_INVALID_PARAMETER** if **pen** is NULL.
     ///
     /// Available since API-level: 20
     ///
@@ -239,8 +239,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Execution result.
-    /// **OH_DRAWING_SUCCESS** if the operation is successful.
-    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if **pen** or **a** is NULL.
+    ///   **OH_DRAWING_SUCCESS** if the operation is successful.
+    ///   **OH_DRAWING_ERROR_INVALID_PARAMETER** if **pen** or **a** is NULL.
     ///
     /// Available since API-level: 20
     ///
@@ -262,8 +262,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Execution result.
-    /// **OH_DRAWING_SUCCESS** if the operation is successful.
-    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if **pen** or **r** is NULL.
+    ///   **OH_DRAWING_SUCCESS** if the operation is successful.
+    ///   **OH_DRAWING_ERROR_INVALID_PARAMETER** if **pen** or **r** is NULL.
     ///
     /// Available since API-level: 20
     ///
@@ -285,8 +285,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Execution result.
-    /// **OH_DRAWING_SUCCESS** if the operation is successful.
-    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if **pen** or **g** is NULL.
+    ///   **OH_DRAWING_SUCCESS** if the operation is successful.
+    ///   **OH_DRAWING_ERROR_INVALID_PARAMETER** if **pen** or **g** is NULL.
     ///
     /// Available since API-level: 20
     ///
@@ -308,8 +308,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Execution result.
-    /// **OH_DRAWING_SUCCESS** if the operation is successful.
-    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if **pen** or **b** is NULL.
+    ///   **OH_DRAWING_SUCCESS** if the operation is successful.
+    ///   **OH_DRAWING_ERROR_INVALID_PARAMETER** if **pen** or **b** is NULL.
     ///
     /// Available since API-level: 20
     ///
@@ -453,7 +453,7 @@ extern "C" {
     /// * `pen` - Pointer to the [`OH_Drawing_Pen`](crate::types::OH_Drawing_Pen) object.
     ///
     /// * `shaderEffect` - Pointer to an [`OH_Drawing_ShaderEffect`](crate::types::OH_Drawing_ShaderEffect) object. If NULL is passed in, the shader effect
-    /// will be cleared.
+    ///   will be cleared.
     ///
     /// Available since API-level: 11
     ///
@@ -473,7 +473,7 @@ extern "C" {
     /// * `pen` - Pointer to the [`OH_Drawing_Pen`](crate::types::OH_Drawing_Pen) object.
     ///
     /// * `shadowLayer` - Pointer to an [`OH_Drawing_ShadowLayer`](crate::types::OH_Drawing_ShadowLayer) object. If NULL is passed in, the shadow layer
-    /// effect will be cleared.
+    ///   effect will be cleared.
     ///
     /// Available since API-level: 12
     ///
@@ -493,7 +493,7 @@ extern "C" {
     /// * `pen` - Pointer to the [`OH_Drawing_Pen`](crate::types::OH_Drawing_Pen) object.
     ///
     /// * `pathEffect` - Pointer to an [`OH_Drawing_PathEffect`](crate::types::OH_Drawing_PathEffect) object. If NULL is passed in, the path effect will be
-    /// cleared.
+    ///   cleared.
     ///
     /// Available since API-level: 12
     ///
@@ -569,7 +569,7 @@ extern "C" {
     /// * `rect` - Pointer to an [`OH_Drawing_Rect`](crate::types::OH_Drawing_Rect) object. NULL is recommended.
     ///
     /// * `matrix` - Pointer to an [`OH_Drawing_Matrix`](crate::types::OH_Drawing_Matrix) object. NULL is recommended. The default value is an identity
-    /// matrix.
+    ///   matrix.
     ///
     /// # Returns
     ///

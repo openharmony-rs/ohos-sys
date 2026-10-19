@@ -18,9 +18,9 @@ use crate::types::*;
 /// * `index` - Index of each character in the text line object.
 ///
 /// * `leadingEdge` - Whether the cursor is located at the leading edge of a character. **true** means that the
-/// cursor is located at the front of the character, that is, the offset does not contain the character width.
-/// **false** means that the cursor is located at the rear of the character, that is, the offset contains the
-/// character width.
+///   cursor is located at the front of the character, that is, the offset does not contain the character width.
+///   **false** means that the cursor is located at the rear of the character, that is, the offset contains the
+///   character width.
 ///
 /// # Returns
 ///
@@ -97,7 +97,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Pointer to the [`OH_Drawing_TextLine`](crate::text_declaration::OH_Drawing_TextLine) text line object at the specified index. <br>Returns NULL if
-    /// lines is NULL or the index is out of bounds.
+    ///   lines is NULL or the index is out of bounds.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -157,8 +157,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Pointer to the [`OH_Drawing_Array`](crate::types::OH_Drawing_Array) array of text rendering units [`OH_Drawing_Run`](crate::text_declaration::OH_Drawing_Run). When the
-    /// [`OH_Drawing_Array`](crate::types::OH_Drawing_Array) is no longer needed, please use the [`OH_Drawing_DestroyRuns`](crate::text_line::OH_Drawing_DestroyRuns) API to release the
-    /// pointer of the object.
+    ///   [`OH_Drawing_Array`](crate::types::OH_Drawing_Array) is no longer needed, please use the [`OH_Drawing_DestroyRuns`](crate::text_line::OH_Drawing_DestroyRuns) API to release the
+    ///   pointer of the object.
     ///
     /// Available since API-level: 18
     ///
@@ -194,7 +194,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Pointer to the text rendering unit object [`OH_Drawing_Run`](crate::text_declaration::OH_Drawing_Run) at the specified index. <br>NULL is
-    /// returned if runs is NULL or the index is out of bounds.
+    ///   returned if runs is NULL or the index is out of bounds.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -241,15 +241,15 @@ extern "C" {
     /// * `width` - Width of the truncated line, in physical pixels (px).
     ///
     /// * `mode` - Truncation type. The value is an enumerated value of [`OH_Drawing_EllipsisModal`](crate::text_typography::OH_Drawing_EllipsisModal). Currently, only **
-    /// ELLIPSIS_MODAL_HEAD** and **ELLIPSIS_MODAL_TAIL** are supported.
+    ///   ELLIPSIS_MODAL_HEAD** and **ELLIPSIS_MODAL_TAIL** are supported.
     ///
     /// * `ellipsis` - Pointer to the string used to mark a truncation.
     ///
     /// # Returns
     ///
     /// * Pointer to the truncated text line object [`OH_Drawing_TextLine`](crate::text_declaration::OH_Drawing_TextLine). <br>NULL is returned when line or
-    /// ellipsis is NULL. <br>Please use [`OH_Drawing_DestroyTextLine`](crate::text_line::OH_Drawing_DestroyTextLine) to release the object's memory when it is no
-    /// longer needed.
+    ///   ellipsis is NULL. <br>Please use [`OH_Drawing_DestroyTextLine`](crate::text_line::OH_Drawing_DestroyTextLine) to release the object's memory when it is no
+    ///   longer needed.
     ///
     /// Available since API-level: 18
     ///
@@ -314,8 +314,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Pointer to the image bounds [`OH_Drawing_Rect`](crate::types::OH_Drawing_Rect) of the text line object. <br>Returns NULL when the
-    /// passed-in line is NULL. <br>When the [`OH_Drawing_Rect`](crate::types::OH_Drawing_Rect) is no longer needed, please use the
-    /// [`OH_Drawing_RectDestroy`](crate::rect::OH_Drawing_RectDestroy) API to release the pointer of the object.
+    ///   passed-in line is NULL. <br>When the [`OH_Drawing_Rect`](crate::types::OH_Drawing_Rect) is no longer needed, please use the
+    ///   [`OH_Drawing_RectDestroy`](crate::rect::OH_Drawing_RectDestroy) API to release the pointer of the object.
     ///
     /// Available since API-level: 18
     ///
@@ -356,7 +356,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the index of the character. For example, for the string "abc", the index of "a" is 0, the index of "
-    /// b" is 1, and the index of "c" is 2. If the specified position is at "a", then **0** is returned.
+    ///   b" is 1, and the index of "c" is 2. If the specified position is at "a", then **0** is returned.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -413,12 +413,12 @@ extern "C" {
     /// * `line` - Pointer to the [`OH_Drawing_TextLine`](crate::text_declaration::OH_Drawing_TextLine) object.
     ///
     /// * `alignmentFactor` - Alignment factor. A value less than or equal to 0.0 indicates left alignment, greater than 0.
-    /// 0 and less than 0.5 indicates left-biased alignment, 0.5 indicates center alignment, greater than 0.5 and less
-    /// than 1.0 indicates right-biased alignment, and greater than or equal to 1.0 indicates right alignment.
+    ///   0 and less than 0.5 indicates left-biased alignment, 0.5 indicates center alignment, greater than 0.5 and less
+    ///   than 1.0 indicates right-biased alignment, and greater than or equal to 1.0 indicates right alignment.
     ///
     /// * `alignmentWidth` - Alignment width, i.e., the offset of the bottom-right corner of the text line object relative
-    /// to the starting position after final offset, in physical pixels (px). If the specified alignment width is less
-    /// than the actual width of the text line object, 0 is returned.
+    ///   to the starting position after final offset, in physical pixels (px). If the specified alignment width is less
+    ///   than the actual width of the text line object, 0 is returned.
     ///
     /// # Returns
     ///

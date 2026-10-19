@@ -53,8 +53,8 @@ extern "C" {
     /// # Returns
     ///
     /// * `linkImage_ErrorCode` IMAGE_SUCCESS - The operation is successful.
-    /// <br>`linkImage_ErrorCode` IMAGE_BAD_PARAMETER - A parameter is incorrect.
-    /// <br>`linkImage_ErrorCode` IMAGE_UNKNOWN_ERROR - An unknown error occurs.
+    ///   <br>`linkImage_ErrorCode` IMAGE_BAD_PARAMETER - A parameter is incorrect.
+    ///   <br>`linkImage_ErrorCode` IMAGE_UNKNOWN_ERROR - An unknown error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -70,15 +70,15 @@ extern "C" {
     /// * `image` - Pointer to an [`OH_ImageNative`](crate::native_image::image::OH_ImageNative) object.
     ///
     /// * `types` - Pointer to the component type list object obtained. Since the number of components is uncertain, this
-    /// API needs to be called twice: first, set **types** to **NULL** to obtain the number of components (**typeSize**);
-    /// second, allocate corresponding memory for **types** based on **typeSize** and then obtain the component type list.
+    ///   API needs to be called twice: first, set **types** to **NULL** to obtain the number of components (**typeSize**);
+    ///   second, allocate corresponding memory for **types** based on **typeSize** and then obtain the component type list.
     ///
     /// * `typeSize` - Pointer to the number of component types obtained.
     ///
     /// # Returns
     ///
     /// * `linkImage_ErrorCode` IMAGE_SUCCESS - The operation is successful.
-    /// <br>`linkImage_ErrorCode` IMAGE_BAD_PARAMETER - A parameter is incorrect.
+    ///   <br>`linkImage_ErrorCode` IMAGE_BAD_PARAMETER - A parameter is incorrect.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -101,7 +101,7 @@ extern "C" {
     /// # Returns
     ///
     /// * `linkImage_ErrorCode` IMAGE_SUCCESS - The operation is successful.
-    /// <br>`linkImage_ErrorCode` IMAGE_BAD_PARAMETER - A parameter is incorrect.
+    ///   <br>`linkImage_ErrorCode` IMAGE_BAD_PARAMETER - A parameter is incorrect.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -124,7 +124,7 @@ extern "C" {
     /// # Returns
     ///
     /// * `linkImage_ErrorCode` IMAGE_SUCCESS - The operation is successful.
-    /// <br>`linkImage_ErrorCode` IMAGE_BAD_PARAMETER - A parameter is incorrect.
+    ///   <br>`linkImage_ErrorCode` IMAGE_BAD_PARAMETER - A parameter is incorrect.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -147,7 +147,7 @@ extern "C" {
     /// # Returns
     ///
     /// * `linkImage_ErrorCode` IMAGE_SUCCESS - The operation is successful.
-    /// <br>`linkImage_ErrorCode` IMAGE_BAD_PARAMETER - A parameter is incorrect.
+    ///   <br>`linkImage_ErrorCode` IMAGE_BAD_PARAMETER - A parameter is incorrect.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -170,7 +170,7 @@ extern "C" {
     /// # Returns
     ///
     /// * `linkImage_ErrorCode` IMAGE_SUCCESS - The operation is successful.
-    /// <br>`linkImage_ErrorCode` IMAGE_BAD_PARAMETER - A parameter is incorrect.
+    ///   <br>`linkImage_ErrorCode` IMAGE_BAD_PARAMETER - A parameter is incorrect.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -192,7 +192,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_SUCCESS The operation is successful.
-    /// <br>[`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_BAD_PARAMETER A parameter is incorrect.
+    ///   <br>[`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_BAD_PARAMETER A parameter is incorrect.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -210,7 +210,7 @@ extern "C" {
     /// # Returns
     ///
     /// * `linkImage_ErrorCode` IMAGE_SUCCESS - The operation is successful.
-    /// <br>`linkImage_ErrorCode` IMAGE_BAD_PARAMETER - A parameter is incorrect.
+    ///   <br>`linkImage_ErrorCode` IMAGE_BAD_PARAMETER - A parameter is incorrect.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -223,12 +223,12 @@ extern "C" {
     /// * `image` - Pointer to an [`OH_ImageNative`](crate::native_image::image::OH_ImageNative) object.
     ///
     /// * `colorSpaceName` - Pointer to the image color space. For details about the color space corresponding to **colorSpaceName**,
-    /// see `ColorSpaceName`.
+    ///   see `ColorSpaceName`.
     ///
     /// # Returns
     ///
     /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) The operation is successful.
-    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) A parameter is incorrect.
+    ///   <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) A parameter is incorrect.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -248,7 +248,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) The operation is successful.
-    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) A parameter is incorrect.
+    ///   <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) A parameter is incorrect.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]

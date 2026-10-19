@@ -87,15 +87,15 @@ pub struct AVLoadingRequestError(pub ::core::ffi::c_uint);
 /// # Arguments
 ///
 /// * `request` - Parameters for the resource open request,
-/// including detailed information about the requested resource and the data push method.
+///   including detailed information about the requested resource and the data push method.
 ///
 /// * `userData` - The data set by user in OH_AVMediaSourceLoader_SetSourceOpenCallback
 ///
 /// # Returns
 ///
 /// * The handler of current resource open request, the handler for the request object is unique.
-/// A value greater than 0 means the request is successful.
-/// A value less than or equal to 0 means it fails.
+///   A value greater than 0 means the request is successful.
+///   A value less than or equal to 0 means it fails.
 ///
 /// Available since API-level: 23
 #[cfg(feature = "api-23")]
@@ -118,8 +118,8 @@ pub type OH_AVMediaSourceLoaderOnSourceOpenedCallback = ::core::option::Option<
 /// * `requestedOffset` - Offset of the current media data relative to the start of the resource.
 ///
 /// * `requestedLength` - Length of the requested data. The value **-1** indicates that the end of the resource has
-/// been reached. In this case, call the [`OH_AVMediaSourceLoadingRequest_FinishLoading`](crate::avmedia_source::OH_AVMediaSourceLoadingRequest_FinishLoading) method to notify the
-/// player that the push is complete.
+///   been reached. In this case, call the [`OH_AVMediaSourceLoadingRequest_FinishLoading`](crate::avmedia_source::OH_AVMediaSourceLoadingRequest_FinishLoading) method to notify the
+///   player that the push is complete.
 ///
 /// * `userData` - The data set by user in OH_AVMediaSourceLoader_SetSourceReadCallback
 ///
@@ -155,7 +155,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Pointer to the **OH_AVHttpHeader** instance if the operation is successful; null pointer if the operation
-    /// fails.
+    ///   fails.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -170,8 +170,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Execution result of the function.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The header is a null pointer or the instance fails to be destroyed.
+    ///   [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The header is a null pointer or the instance fails to be destroyed.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -188,8 +188,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Execution result of the function.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The header is a null pointer.
+    ///   [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The header is a null pointer.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -208,8 +208,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Execution result of the function.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): Any parameter is a null pointer.
+    ///   [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): Any parameter is a null pointer.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -234,8 +234,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Execution result of the function.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The header is a null pointer or the index is out of range.
+    ///   [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The header is a null pointer or the index is out of range.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -251,14 +251,14 @@ extern "C" {
     /// # Arguments
     ///
     /// * `url` - Pointer to the URL of the media source. The following streaming media formats are supported: HLS, HTTP-
-    /// FLV, DASH, and HTTPS.
+    ///   FLV, DASH, and HTTPS.
     ///
     /// * `header` - Pointer to the HTTP header attached to the network request.
     ///
     /// # Returns
     ///
     /// * Pointer to the **OH_AVMediaSource** instance if the operation is successful; null pointer if the operation
-    /// fails.
+    ///   fails.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -276,7 +276,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Pointer to the **OH_AVMediaSource** instance if the operation is successful; null pointer if the operation
-    /// fails.
+    ///   fails.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -297,7 +297,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Pointer to the **OH_AVMediaSource** instance if the operation is successful; null pointer if the operation
-    /// fails.
+    ///   fails.
     ///
     ///
     /// Possible failure causes:
@@ -320,8 +320,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Execution result of the function.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The **source** is a null pointer or fails to be released.
+    ///   [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The **source** is a null pointer or fails to be released.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -338,9 +338,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Execution result of the function.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The **source** or **mimetype** is a null pointer.
-    /// [`AV_ERR_UNSUPPORTED_FORMAT`](crate::averrors::OH_AVErrCode::AV_ERR_UNSUPPORTED_FORMAT): The **mimetype** is not supported.
+    ///   [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The **source** or **mimetype** is a null pointer.
+    ///   [`AV_ERR_UNSUPPORTED_FORMAT`](crate::averrors::OH_AVErrCode::AV_ERR_UNSUPPORTED_FORMAT): The **mimetype** is not supported.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -360,8 +360,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Execution result of the function.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The **request** is a null pointer or the URL does not exist.
+    ///   [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The **request** is a null pointer or the URL does not exist.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -381,8 +381,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Execution result of the function.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The **request** is a null pointer.
+    ///   [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The **request** is a null pointer.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -408,10 +408,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Number of bytes accepted by the current read operation. If the return value is less than 0, the operation
-    /// fails.
-    /// The value **-2** indicates that the player no longer needs the current data, and the client should stop the current
-    /// read process.
-    /// The value **-3** indicates that the player's buffer is full, and the client should wait for the next read.
+    ///   fails.
+    ///   The value **-2** indicates that the player no longer needs the current data, and the client should stop the current
+    ///   read process.
+    ///   The value **-3** indicates that the player's buffer is full, and the client should wait for the next read.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -433,8 +433,8 @@ extern "C" {
     /// * `uuid` - ID of the resource handle.
     ///
     /// * `header` - Pointer to the header information in the HTTP response.
-    /// The application can intersect the header field with the supported fields at the bottom layer and then pass the
-    /// intersection result to the AVPlayer, or directly pass all the corresponding header information.
+    ///   The application can intersect the header field with the supported fields at the bottom layer and then pass the
+    ///   intersection result to the AVPlayer, or directly pass all the corresponding header information.
     ///
     /// * `redirectUrl` - Pointer to the redirection URL contained in the HTTP response (if any).
     ///
@@ -487,8 +487,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Execution result of the function.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The **loader** is a null pointer or fails to be released.
+    ///   [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The **loader** is a null pointer or fails to be released.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -505,8 +505,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Execution result of the function.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The **source** or **loader** is a null pointer, or the operation fails.
+    ///   [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The **source** or **loader** is a null pointer, or the operation fails.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -528,8 +528,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Execution result of the function.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The **loader** is a null pointer or the operation fails.
+    ///   [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The **loader** is a null pointer or the operation fails.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -552,8 +552,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Execution result of the function.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The **loader** is a null pointer or the operation fails.
+    ///   [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The **loader** is a null pointer or the operation fails.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -576,8 +576,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Execution result of the function.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The **loader** is a null pointer or the operation fails.
+    ///   [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The execution is successful.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The **loader** is a null pointer or the operation fails.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]

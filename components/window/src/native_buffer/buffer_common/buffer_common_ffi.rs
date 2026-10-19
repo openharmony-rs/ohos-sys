@@ -283,10 +283,10 @@ impl OH_NativeBuffer_MetadataKey {
     /// The "\[=Params\]" is optional.
     /// The format of "\[=Params\]" varies by version:
     /// 1. Prior to version 26.0.0: Only a single int32_t value representing the
-    /// quantization parameter offset is supported (e.g., "=QpOffset").
+    ///    quantization parameter offset is supported (e.g., "=QpOffset").
     /// 2. Since version 26.0.0: A Key-Value format is additionally supported and recommended.
-    /// It uses comma-separated key-value pairs (e.g., "=dqp:-6,slb:1").
-    /// Supported keys:
+    ///    It uses comma-separated key-value pairs (e.g., "=dqp:-6,slb:1").
+    ///    Supported keys:
     /// - "dqp": Quantization parameter offset.
     /// - "slb": Semantic label. The value must correspond to `OH_VideoMetadataRoiSemanticLabel`.
     ///

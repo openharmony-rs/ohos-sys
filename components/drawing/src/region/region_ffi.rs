@@ -182,8 +182,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns one of the following result codes:
-    /// **OH_DRAWING_SUCCESS** if the operation is successful.
-    /// **OH_DRAWING_ERROR_INCORRECT_PARAMETER** if the **region** parameter is empty.
+    ///   **OH_DRAWING_SUCCESS** if the operation is successful.
+    ///   **OH_DRAWING_ERROR_INCORRECT_PARAMETER** if the **region** parameter is empty.
     ///
     /// Available since API-level: 22
     ///
@@ -204,8 +204,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Execution result.
-    /// **OH_DRAWING_SUCCESS** if the operation is successful.
-    /// **OH_DRAWING_ERROR_INCORRECT_PARAMETER** if **region** or **path** is a null pointer.
+    ///   **OH_DRAWING_SUCCESS** if the operation is successful.
+    ///   **OH_DRAWING_ERROR_INCORRECT_PARAMETER** if **region** or **path** is a null pointer.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -225,8 +225,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Execution result.
-    /// **OH_DRAWING_SUCCESS** if the operation is successful.
-    /// **OH_DRAWING_ERROR_INCORRECT_PARAMETER** if **region** or **rect** is a null pointer.
+    ///   **OH_DRAWING_SUCCESS** if the operation is successful.
+    ///   **OH_DRAWING_ERROR_INCORRECT_PARAMETER** if **region** or **rect** is a null pointer.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -242,13 +242,13 @@ extern "C" {
     /// * `region` - Pointer to the [`OH_Drawing_Region`](crate::types::OH_Drawing_Region) object.
     ///
     /// * `isComplex` - Whether this region contains multiple rectangles. It is used as an output parameter. **true** means
-    /// yes; **false** otherwise.
+    ///   yes; **false** otherwise.
     ///
     /// # Returns
     ///
     /// * Execution result.
-    /// **OH_DRAWING_SUCCESS** if the operation is successful.
-    /// **OH_DRAWING_ERROR_INCORRECT_PARAMETER** if **region** or **isComplex** is a null pointer.
+    ///   **OH_DRAWING_SUCCESS** if the operation is successful.
+    ///   **OH_DRAWING_ERROR_INCORRECT_PARAMETER** if **region** or **isComplex** is a null pointer.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -264,13 +264,13 @@ extern "C" {
     /// * `region` - Pointer to the [`OH_Drawing_Region`](crate::types::OH_Drawing_Region) object.
     ///
     /// * `isEmpty` - Whether the region is empty. It is used as an output parameter. **true** means yes; **false**
-    /// otherwise.
+    ///   otherwise.
     ///
     /// # Returns
     ///
     /// * Execution result.
-    /// **OH_DRAWING_SUCCESS** if the operation is successful.
-    /// **OH_DRAWING_ERROR_INCORRECT_PARAMETER** if **region** or **isEmpty** is a null pointer.
+    ///   **OH_DRAWING_SUCCESS** if the operation is successful.
+    ///   **OH_DRAWING_ERROR_INCORRECT_PARAMETER** if **region** or **isEmpty** is a null pointer.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -286,13 +286,13 @@ extern "C" {
     /// * `region` - Pointer to the [`OH_Drawing_Region`](crate::types::OH_Drawing_Region) object.
     ///
     /// * `isRect` - Whether the region the same as a rectangle. It is used as an output parameter. **true** means yes; **
-    /// false** otherwise.
+    ///   false** otherwise.
     ///
     /// # Returns
     ///
     /// * Execution result.
-    /// **OH_DRAWING_SUCCESS** if the operation is successful.
-    /// **OH_DRAWING_ERROR_INCORRECT_PARAMETER** if **region** or **isRect** is a null pointer.
+    ///   **OH_DRAWING_SUCCESS** if the operation is successful.
+    ///   **OH_DRAWING_ERROR_INCORRECT_PARAMETER** if **region** or **isRect** is a null pointer.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -316,15 +316,15 @@ extern "C" {
     /// * `bottom` - Y coordinate of the lower right corner of the specified rectangle.
     ///
     /// * `isContained` - Whether the region is the same as a single rectangle and contains the specified rectangle. It is
-    /// used as an output parameter.
-    /// **true** if the current region is the same as a single rectangle and contains the specified rectangle; **false**
-    /// otherwise.
+    ///   used as an output parameter.
+    ///   **true** if the current region is the same as a single rectangle and contains the specified rectangle; **false**
+    ///   otherwise.
     ///
     /// # Returns
     ///
     /// * Execution result.
-    /// **OH_DRAWING_SUCCESS** if the operation is successful.
-    /// **OH_DRAWING_ERROR_INCORRECT_PARAMETER** if **region** or **isContained** is a null pointer.
+    ///   **OH_DRAWING_SUCCESS** if the operation is successful.
+    ///   **OH_DRAWING_ERROR_INCORRECT_PARAMETER** if **region** or **isContained** is a null pointer.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -352,14 +352,14 @@ extern "C" {
     /// * `bottom` - Y coordinate of the lower right corner of the specified rectangle.
     ///
     /// * `isReject` - Whether the region is empty or whether the specified rectangle does not intersect with the region.
-    /// It is used as an output parameter.
-    /// **true** means yes; **false** otherwise.
+    ///   It is used as an output parameter.
+    ///   **true** means yes; **false** otherwise.
     ///
     /// # Returns
     ///
     /// * Execution result.
-    /// **OH_DRAWING_SUCCESS** if the operation is successful.
-    /// **OH_DRAWING_ERROR_INCORRECT_PARAMETER** if **region** or **isReject** is a null pointer.
+    ///   **OH_DRAWING_SUCCESS** if the operation is successful.
+    ///   **OH_DRAWING_ERROR_INCORRECT_PARAMETER** if **region** or **isReject** is a null pointer.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -386,8 +386,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Execution result.
-    /// **OH_DRAWING_SUCCESS** if the operation is successful.
-    /// **OH_DRAWING_ERROR_INCORRECT_PARAMETER** if **region** is a null pointer.
+    ///   **OH_DRAWING_SUCCESS** if the operation is successful.
+    ///   **OH_DRAWING_ERROR_INCORRECT_PARAMETER** if **region** is a null pointer.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]

@@ -11,7 +11,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `buffer` - Character array of the OS account name, which must contain the OS account name
-    /// and the null terminator ('\0'). The maximum length is defined by **LOGIN_NAME_MAX**.
+    ///   and the null terminator ('\0'). The maximum length is defined by **LOGIN_NAME_MAX**.
     ///
     /// * `buffer_size` - Size of the OS account name's character array.
     ///
@@ -37,7 +37,7 @@ extern "C" {
     /// * `localId` - Local ID of the target OS account.
     ///
     /// * `name` - Character array of the OS account name, which must contain the OS account name
-    /// and the null terminator ('\0'). The maximum length is defined by **LOGIN_NAME_MAX**.
+    ///   and the null terminator ('\0'). The maximum length is defined by **LOGIN_NAME_MAX**.
     ///
     /// * `name_size` - Size of the OS account name's character array.
     ///

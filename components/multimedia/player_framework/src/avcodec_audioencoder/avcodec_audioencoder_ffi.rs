@@ -108,7 +108,7 @@ extern "C" {
     /// * `codec` - Pointer to an OH_AVCodec instance.
     ///
     /// * `format` - Pointer to an OH_AVFormat instance, which provides the description information about the audio track
-    /// to be encoded.
+    ///   to be encoded.
     ///
     /// # Returns
     ///
@@ -235,7 +235,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Handle to an OH_AVFormat instance. The lifecycle of this instance is refreshed when **GetOutputDescription**
-    /// is called again and destroyed when the OH_AVCodec instance is destroyed.
+    ///   is called again and destroyed when the OH_AVCodec instance is destroyed.
     ///
     /// **Deprecated** since 11
     ///
@@ -335,7 +335,7 @@ extern "C" {
     /// * `codec` - Pointer to an OH_AVCodec instance.
     ///
     /// * `isValid` - Pointer of the Boolean type. The value **true** means that the encoder instance is valid and
-    /// **false** means the opposite.
+    ///   **false** means the opposite.
     ///
     /// # Returns
     ///

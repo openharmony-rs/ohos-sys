@@ -541,7 +541,7 @@ extern "C" {
     /// * `event` - Pointer to the target **ArkUI_UIInputEvent** object.
     ///
     /// * `stopPropagation` - Whether to stop event propagation. The value **true** means to stop event propagation, and **
-    /// false** means the opposite.
+    ///   false** means the opposite.
     ///
     /// Available since API-level: 14
     #[cfg(feature = "api-14")]
@@ -589,7 +589,7 @@ extern "C" {
     /// * `event` - Pointer to the target **ArkUI_UIInputEvent** object.
     ///
     /// * `isConsumed` - Whether the key event is consumed by the callback. The value **true** means that the key event is
-    /// consumed, and **false** the opposite.
+    ///   consumed, and **false** the opposite.
     ///
     /// Available since API-level: 14
     #[cfg(feature = "api-14")]
@@ -614,13 +614,13 @@ extern "C" {
     /// * `event` - Pointer to the target **ArkUI_UIInputEvent** object.
     ///
     /// * `state` - Output parameter that returns the state of the NumLock key. The value **true** indicates an activated
-    /// state, and **false** indicates an inactivated state.
+    ///   state, and **false** indicates an inactivated state.
     ///
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
@@ -636,13 +636,13 @@ extern "C" {
     /// * `event` - Pointer to the target **ArkUI_UIInputEvent** object.
     ///
     /// * `state` - Output parameter that returns the state of the CapsLock key. The value **true** indicates an activated
-    /// state, and **false** indicates an inactivated state.
+    ///   state, and **false** indicates an inactivated state.
     ///
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
@@ -658,13 +658,13 @@ extern "C" {
     /// * `event` - Pointer to the target **ArkUI_UIInputEvent** object.
     ///
     /// * `state` - Output parameter that returns the state of the ScrollLock key. The value **true** indicates an
-    /// activated state, and **false** indicates an inactivated state.
+    ///   activated state, and **false** indicates an inactivated state.
     ///
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]

@@ -101,7 +101,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Size of the array. If **-1** is returned, an error code indicating failure is returned. The possible cause
-    /// is that the **option** parameter is abnormal, for example, a null pointer.
+    ///   is that the **option** parameter is abnormal, for example, a null pointer.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -181,7 +181,7 @@ extern "C" {
     /// * `userData` - Pointer to user-defined data, which will be passed back to the user in the callback.
     ///
     /// * `callback` - Callback used to return the result. **itemIndex**: index of the water flow item; **userData**
-    /// : user-defined data.
+    ///   : user-defined data.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]

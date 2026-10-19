@@ -28,17 +28,17 @@ extern "C" {
     /// # Arguments
     ///
     /// * `inputMethodProxy` - Represents a pointer to an [`InputMethod_InputMethodProxy`](crate::inputmethod_proxy::InputMethod_InputMethodProxy) instance.
-    /// The inputMethodProxy is obtained from [`OH_InputMethodController_Attach`](crate::controller::OH_InputMethodController_Attach).
+    ///   The inputMethodProxy is obtained from [`OH_InputMethodController_Attach`](crate::controller::OH_InputMethodController_Attach).
     ///
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
-    /// [`IME_ERR_IMCLIENT`](crate::types::InputMethodErrorCode::IMCLIENT) - input method client error.
-    /// [`IME_ERR_IMMS`](crate::types::InputMethodErrorCode::IMMS) - input method manager service error.
-    /// [`IME_ERR_DETACHED`](crate::types::InputMethodErrorCode::DETACHED) - input method client detached.
-    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
+    ///   [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    ///   [`IME_ERR_IMCLIENT`](crate::types::InputMethodErrorCode::IMCLIENT) - input method client error.
+    ///   [`IME_ERR_IMMS`](crate::types::InputMethodErrorCode::IMMS) - input method manager service error.
+    ///   [`IME_ERR_DETACHED`](crate::types::InputMethodErrorCode::DETACHED) - input method client detached.
+    ///   [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    ///   Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -51,21 +51,21 @@ extern "C" {
     /// # Arguments
     ///
     /// * `inputMethodProxy` - Represents a pointer to an [`InputMethod_InputMethodProxy`](crate::inputmethod_proxy::InputMethod_InputMethodProxy) instance.
-    /// The inputMethodProxy is obtained from [`OH_InputMethodController_Attach`](crate::controller::OH_InputMethodController_Attach).
+    ///   The inputMethodProxy is obtained from [`OH_InputMethodController_Attach`](crate::controller::OH_InputMethodController_Attach).
     ///
     /// * `options` - Represents a pointer to an [`InputMethod_AttachOptions`](crate::attach_options::InputMethod_AttachOptions) instance which will be get value from.
-    /// `ShowKeyboard` - property is always true,can not be changed,so no need to focus on
-    /// [`InputMethod_RequestKeyboardReason`](crate::types::InputMethod_RequestKeyboardReason) - property is the requestKeyboardReason for show keyboard
+    ///   `ShowKeyboard` - property is always true,can not be changed,so no need to focus on
+    ///   [`InputMethod_RequestKeyboardReason`](crate::types::InputMethod_RequestKeyboardReason) - property is the requestKeyboardReason for show keyboard
     ///
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
-    /// [`IME_ERR_IMCLIENT`](crate::types::InputMethodErrorCode::IMCLIENT) - input method client error.
-    /// [`IME_ERR_IMMS`](crate::types::InputMethodErrorCode::IMMS) - input method manager service error.
-    /// [`IME_ERR_DETACHED`](crate::types::InputMethodErrorCode::DETACHED) - input method client detached.
-    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer. If inputMethodProxy is NULL, or options is NULL.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
+    ///   [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    ///   [`IME_ERR_IMCLIENT`](crate::types::InputMethodErrorCode::IMCLIENT) - input method client error.
+    ///   [`IME_ERR_IMMS`](crate::types::InputMethodErrorCode::IMMS) - input method manager service error.
+    ///   [`IME_ERR_DETACHED`](crate::types::InputMethodErrorCode::DETACHED) - input method client detached.
+    ///   [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer. If inputMethodProxy is NULL, or options is NULL.
+    ///   Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
@@ -79,17 +79,17 @@ extern "C" {
     /// # Arguments
     ///
     /// * `inputMethodProxy` - Represents a pointer to an [`InputMethod_InputMethodProxy`](crate::inputmethod_proxy::InputMethod_InputMethodProxy) instance.
-    /// The inputMethodProxy is obtained from [`OH_InputMethodController_Attach`](crate::controller::OH_InputMethodController_Attach).
+    ///   The inputMethodProxy is obtained from [`OH_InputMethodController_Attach`](crate::controller::OH_InputMethodController_Attach).
     ///
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
-    /// [`IME_ERR_IMCLIENT`](crate::types::InputMethodErrorCode::IMCLIENT) - input method client error.
-    /// [`IME_ERR_IMMS`](crate::types::InputMethodErrorCode::IMMS) - input method manager service error.
-    /// [`IME_ERR_DETACHED`](crate::types::InputMethodErrorCode::DETACHED) - input method client detached.
-    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
+    ///   [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    ///   [`IME_ERR_IMCLIENT`](crate::types::InputMethodErrorCode::IMCLIENT) - input method client error.
+    ///   [`IME_ERR_IMMS`](crate::types::InputMethodErrorCode::IMMS) - input method manager service error.
+    ///   [`IME_ERR_DETACHED`](crate::types::InputMethodErrorCode::DETACHED) - input method client detached.
+    ///   [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    ///   Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -104,7 +104,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `inputMethodProxy` - Represents a pointer to an [`InputMethod_InputMethodProxy`](crate::inputmethod_proxy::InputMethod_InputMethodProxy) instance.
-    /// The inputMethodProxy is obtained from [`OH_InputMethodController_Attach`](crate::controller::OH_InputMethodController_Attach).
+    ///   The inputMethodProxy is obtained from [`OH_InputMethodController_Attach`](crate::controller::OH_InputMethodController_Attach).
     ///
     /// * `text` - The whole input text.
     ///
@@ -117,13 +117,13 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
-    /// [`IME_ERR_PARAMCHECK`](crate::types::InputMethodErrorCode::PARAMCHECK) - parameter check failed.
-    /// [`IME_ERR_IMCLIENT`](crate::types::InputMethodErrorCode::IMCLIENT) - input method client error.
-    /// [`IME_ERR_IMMS`](crate::types::InputMethodErrorCode::IMMS) - input method manager service error.
-    /// [`IME_ERR_DETACHED`](crate::types::InputMethodErrorCode::DETACHED) - input method client detached.
-    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
+    ///   [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    ///   [`IME_ERR_PARAMCHECK`](crate::types::InputMethodErrorCode::PARAMCHECK) - parameter check failed.
+    ///   [`IME_ERR_IMCLIENT`](crate::types::InputMethodErrorCode::IMCLIENT) - input method client error.
+    ///   [`IME_ERR_IMMS`](crate::types::InputMethodErrorCode::IMMS) - input method manager service error.
+    ///   [`IME_ERR_DETACHED`](crate::types::InputMethodErrorCode::DETACHED) - input method client detached.
+    ///   [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    ///   Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -140,7 +140,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `inputMethodProxy` - Represents a pointer to an [`InputMethod_InputMethodProxy`](crate::inputmethod_proxy::InputMethod_InputMethodProxy) instance.
-    /// The inputMethodProxy is obtained from [`OH_InputMethodController_Attach`](crate::controller::OH_InputMethodController_Attach).
+    ///   The inputMethodProxy is obtained from [`OH_InputMethodController_Attach`](crate::controller::OH_InputMethodController_Attach).
     ///
     /// * `enterKey` - The enter key type.
     ///
@@ -149,13 +149,13 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
-    /// [`IME_ERR_PARAMCHECK`](crate::types::InputMethodErrorCode::PARAMCHECK) - parameter check failed.
-    /// [`IME_ERR_IMCLIENT`](crate::types::InputMethodErrorCode::IMCLIENT) - input method client error.
-    /// [`IME_ERR_IMMS`](crate::types::InputMethodErrorCode::IMMS) - input method manager service error.
-    /// [`IME_ERR_DETACHED`](crate::types::InputMethodErrorCode::DETACHED) - input method client detached.
-    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
+    ///   [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    ///   [`IME_ERR_PARAMCHECK`](crate::types::InputMethodErrorCode::PARAMCHECK) - parameter check failed.
+    ///   [`IME_ERR_IMCLIENT`](crate::types::InputMethodErrorCode::IMCLIENT) - input method client error.
+    ///   [`IME_ERR_IMMS`](crate::types::InputMethodErrorCode::IMMS) - input method manager service error.
+    ///   [`IME_ERR_DETACHED`](crate::types::InputMethodErrorCode::DETACHED) - input method client detached.
+    ///   [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    ///   Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -170,21 +170,21 @@ extern "C" {
     /// # Arguments
     ///
     /// * `inputMethodProxy` - Represents a pointer to an [`InputMethod_InputMethodProxy`](crate::inputmethod_proxy::InputMethod_InputMethodProxy) instance.
-    /// The inputMethodProxy is obtained from [`OH_InputMethodController_Attach`](crate::controller::OH_InputMethodController_Attach).
+    ///   The inputMethodProxy is obtained from [`OH_InputMethodController_Attach`](crate::controller::OH_InputMethodController_Attach).
     ///
     /// * `cursorInfo` - Represents a pointer to an [`InputMethod_CursorInfo`](crate::cursor_info::InputMethod_CursorInfo) instance.
-    /// The cursor information.
+    ///   The cursor information.
     ///
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
-    /// [`IME_ERR_PARAMCHECK`](crate::types::InputMethodErrorCode::PARAMCHECK) - parameter check failed.
-    /// [`IME_ERR_IMCLIENT`](crate::types::InputMethodErrorCode::IMCLIENT) - input method client error.
-    /// [`IME_ERR_IMMS`](crate::types::InputMethodErrorCode::IMMS) - input method manager service error.
-    /// [`IME_ERR_DETACHED`](crate::types::InputMethodErrorCode::DETACHED) - input method client detached.
-    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
+    ///   [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    ///   [`IME_ERR_PARAMCHECK`](crate::types::InputMethodErrorCode::PARAMCHECK) - parameter check failed.
+    ///   [`IME_ERR_IMCLIENT`](crate::types::InputMethodErrorCode::IMCLIENT) - input method client error.
+    ///   [`IME_ERR_IMMS`](crate::types::InputMethodErrorCode::IMMS) - input method manager service error.
+    ///   [`IME_ERR_DETACHED`](crate::types::InputMethodErrorCode::DETACHED) - input method client detached.
+    ///   [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    ///   Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -198,7 +198,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `inputMethodProxy` - Represents a pointer to an [`InputMethod_InputMethodProxy`](crate::inputmethod_proxy::InputMethod_InputMethodProxy) instance.
-    /// The inputMethodProxy is obtained from [`OH_InputMethodController_Attach`](crate::controller::OH_InputMethodController_Attach).
+    ///   The inputMethodProxy is obtained from [`OH_InputMethodController_Attach`](crate::controller::OH_InputMethodController_Attach).
     ///
     /// * `privateCommand` - The private commands, which is defined in [`InputMethod_PrivateCommand`](crate::private_command::InputMethod_PrivateCommand). Max size 32KB.
     ///
@@ -207,13 +207,13 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
-    /// [`IME_ERR_PARAMCHECK`](crate::types::InputMethodErrorCode::PARAMCHECK) - parameter check failed.
-    /// [`IME_ERR_IMCLIENT`](crate::types::InputMethodErrorCode::IMCLIENT) - input method client error.
-    /// [`IME_ERR_IMMS`](crate::types::InputMethodErrorCode::IMMS) - input method manager service error.
-    /// [`IME_ERR_DETACHED`](crate::types::InputMethodErrorCode::DETACHED) - input method client detached.
-    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
+    ///   [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    ///   [`IME_ERR_PARAMCHECK`](crate::types::InputMethodErrorCode::PARAMCHECK) - parameter check failed.
+    ///   [`IME_ERR_IMCLIENT`](crate::types::InputMethodErrorCode::IMCLIENT) - input method client error.
+    ///   [`IME_ERR_IMMS`](crate::types::InputMethodErrorCode::IMMS) - input method manager service error.
+    ///   [`IME_ERR_DETACHED`](crate::types::InputMethodErrorCode::DETACHED) - input method client detached.
+    ///   [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    ///   Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]

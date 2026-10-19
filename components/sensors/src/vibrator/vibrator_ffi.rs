@@ -17,7 +17,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns **0** if the operation is successful; returns a non-zero value otherwise.
-    /// For details, see [`Vibrator_ErrorCode`](crate::vibrator_type::Vibrator_ErrorCode).
+    ///   For details, see [`Vibrator_ErrorCode`](crate::vibrator_type::Vibrator_ErrorCode).
     ///
     /// Required Permissions: ohos.permission.VIBRATE
     ///
@@ -31,14 +31,14 @@ extern "C" {
     /// # Arguments
     ///
     /// * `fileDescription` - File descriptor of the custom vibration effect.
-    /// For details, see [`Vibrator_FileDescription`](crate::vibrator_type::Vibrator_FileDescription).
+    ///   For details, see [`Vibrator_FileDescription`](crate::vibrator_type::Vibrator_FileDescription).
     ///
     /// * `vibrateAttribute` - Vibration attribute. For details, see [`Vibrator_Attribute`](crate::vibrator_type::Vibrator_Attribute).
     ///
     /// # Returns
     ///
     /// * Returns **0** if the operation is successful; returns a non-zero value otherwise.
-    /// For details, see [`Vibrator_ErrorCode`](crate::vibrator_type::Vibrator_ErrorCode).
+    ///   For details, see [`Vibrator_ErrorCode`](crate::vibrator_type::Vibrator_ErrorCode).
     ///
     /// Required Permissions: ohos.permission.VIBRATE
     ///
@@ -58,7 +58,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns **0** if the operation is successful; returns a non-zero value otherwise.
-    /// For details, see [`Vibrator_ErrorCode`](crate::vibrator_type::Vibrator_ErrorCode).
+    ///   For details, see [`Vibrator_ErrorCode`](crate::vibrator_type::Vibrator_ErrorCode).
     ///
     /// Required Permissions: ohos.permission.VIBRATE
     ///

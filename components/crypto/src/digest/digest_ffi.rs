@@ -74,7 +74,7 @@ extern "C" {
     /// * `ctx` - \[in\] Digest context. Cannot be NULL.
     ///
     /// * `out` - \[out\] Pointer to the Crypto_DataBlob structure for storing the digest result. Cannot be NULL. Initialize
-    /// out to {0} before calling. Do not pre-allocate out->data.
+    ///   out to {0} before calling. Do not pre-allocate out->data.
     ///
     /// # Returns
     ///
@@ -101,7 +101,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the byte length of the digest result. Note: If ctx is NULL, returns 401; for other failure cases,
-    /// returns 0.
+    ///   returns 0.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]

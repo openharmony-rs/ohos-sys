@@ -15,8 +15,8 @@ extern "C" {
     /// # Returns
     ///
     /// * If the operation is successful, a pointer to the instance of the [`OH_Utd`](ohos_sys_opaque_types::OH_Utd)
-    /// structure is returned.If the operation is failed, nullptr is returned.
-    /// Must be destroyed with [`OH_Utd_Destroy`](crate::type_descriptor::OH_Utd_Destroy) when not needed.
+    ///   structure is returned.If the operation is failed, nullptr is returned.
+    ///   Must be destroyed with [`OH_Utd_Destroy`](crate::type_descriptor::OH_Utd_Destroy) when not needed.
     ///
     /// **See also:** [`OH_Utd`](ohos_sys_opaque_types::OH_Utd).
     ///
@@ -212,8 +212,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// `false` Represents srcTypeId not belongs to destTypeId.
-    /// `true` Represents srcTypeId belongs to destTypeId.
+    ///   `false` Represents srcTypeId not belongs to destTypeId.
+    ///   `true` Represents srcTypeId belongs to destTypeId.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -233,8 +233,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// `false` Represents srcTypeId not lower level to destTypeId.
-    /// `true` Represents srcTypeId lower level to destTypeId.
+    ///   `false` Represents srcTypeId not lower level to destTypeId.
+    ///   `true` Represents srcTypeId lower level to destTypeId.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -254,8 +254,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// `false` Represents srcTypeId not higher level to destTypeId.
-    /// `true` Represents srcTypeId higher level to destTypeId.
+    ///   `false` Represents srcTypeId not higher level to destTypeId.
+    ///   `true` Represents srcTypeId higher level to destTypeId.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -275,8 +275,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// `false` Represents utd1 and utd2 are not equal.
-    /// `true` Represents utd1 and utd2 are equal.
+    ///   `false` Represents utd1 and utd2 are not equal.
+    ///   `true` Represents utd1 and utd2 are equal.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]

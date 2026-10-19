@@ -100,10 +100,10 @@ extern "C" {
     /// # Arguments
     ///
     /// * `videoProcessor` - Output parameter. The *videoProcessor points to a new video processing object.
-    /// The *videoProcessor must be null before passed in.
+    ///   The *videoProcessor must be null before passed in.
     ///
     /// * `type` - Use VIDEO_PROCESSING_TYPE_XXX to specify the processing type. The processing type of the instance can not
-    /// be changed.
+    ///   be changed.
     ///
     /// # Returns
     ///
@@ -133,7 +133,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `videoProcessor` - The video processing instance pointer to be destroyed. It is recommended setting the
-    /// instance pointer to null after the instance is destroyed.
+    ///   instance pointer to null after the instance is destroyed.
     ///
     /// # Returns
     ///
@@ -370,7 +370,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `callback` - Output parameter. The *callback points to a new callback object. The *callback should be null before
-    /// creating the callback object.
+    ///   creating the callback object.
     ///
     /// # Returns
     ///
@@ -393,7 +393,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `callback` - The callback object pointer. It is recommended setting the callback pointer to null after the
-    /// callback object is destroyed.
+    ///   callback object is destroyed.
     ///
     /// # Returns
     ///

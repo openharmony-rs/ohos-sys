@@ -51,7 +51,7 @@ extern "C" {
     /// * `imageInfo` - Pointer to an [`OH_Drawing_Image_Info`](crate::types::OH_Drawing_Image_Info) object.
     ///
     /// * `pixels` - Pointer to the start address of the memory for storing the bitmap pixels. You need to apply for the
-    /// memory and ensure its validity.
+    ///   memory and ensure its validity.
     ///
     /// * `rowBytes` - Number of bytes in each row of pixels. The value is invalid if it is less than or equal to 0.
     ///
@@ -82,7 +82,7 @@ extern "C" {
     /// * `height` - Height of the bitmap to be initialized.
     ///
     /// * `bitmapFormat` - Pointer to the pixel format of the bitmap to be initialized, including the pixel color type and
-    /// alpha type.
+    ///   alpha type.
     ///
     /// Available since API-level: 8
     ///
@@ -213,13 +213,13 @@ extern "C" {
     /// * `dstPixels` - Pointer to the buffer for storing the pixels read.
     ///
     /// * `dstRowBytes` - Number of bytes in each row of the pixel data read. The value must be greater than or equal to
-    /// the minimum number of bytes in each row in the **OH_Drawing_Image_Info** object.
+    ///   the minimum number of bytes in each row in the **OH_Drawing_Image_Info** object.
     ///
     /// * `srcX` - Start X coordinate of the pixel data to read from the bitmap. The value must be less than the width of
-    /// the bitmap.
+    ///   the bitmap.
     ///
     /// * `srcY` - Start Y coordinate of the pixel data to read from the bitmap. The value must be less than the height of
-    /// the bitmap.
+    ///   the bitmap.
     ///
     /// # Returns
     ///
@@ -249,8 +249,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`](crate::error_code::DrawingErrorCode::INCORRECT_PARAMETER) if bitmap or bytes is nullptr.
+    ///   Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
+    ///   Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`](crate::error_code::DrawingErrorCode::INCORRECT_PARAMETER) if bitmap or bytes is nullptr.
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]

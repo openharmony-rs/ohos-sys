@@ -64,7 +64,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `deg` - Angle to rotate, in degrees. A positive value indicates a clockwise rotation, and a negative value
-    /// indicates a counterclockwise rotation.
+    ///   indicates a counterclockwise rotation.
     ///
     /// * `x` - Coordinate point on the X axis.
     ///
@@ -86,10 +86,10 @@ extern "C" {
     /// # Arguments
     ///
     /// * `sx` - Scale factor on the X axis. If a negative number is passed in, the matrix is mirrored around y = px before
-    /// being scaled. The value is a floating point number.
+    ///   being scaled. The value is a floating point number.
     ///
     /// * `sy` - Scale factor on the Y axis. If a negative number is passed in, the matrix is mirrored around x = py before
-    /// being scaled. The value is a floating point number.
+    ///   being scaled. The value is a floating point number.
     ///
     /// * `px` - Coordinate point on the X axis.
     ///
@@ -116,12 +116,12 @@ extern "C" {
     /// # Arguments
     ///
     /// * `dx` - Distance to translate on the X axis. A positive number indicates a translation towards the positive
-    /// direction of the X axis, and a negative number indicates a translation towards the negative direction of the X axis.
-    /// The value is a floating point number.
+    ///   direction of the X axis, and a negative number indicates a translation towards the negative direction of the X axis.
+    ///   The value is a floating point number.
     ///
     /// * `dy` - Distance to translate on the Y axis. A positive number indicates a translation towards the positive
-    /// direction of the Y axis, and a negative number indicates a translation towards the negative direction of the Y axis.
-    /// The value is a floating point number.
+    ///   direction of the Y axis, and a negative number indicates a translation towards the negative direction of the Y axis.
+    ///   The value is a floating point number.
     ///
     /// # Returns
     ///
@@ -193,9 +193,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns true if dst is empty, and sets matrix to:
-    /// | 0 0 0 |
-    /// | 0 0 0 |
-    /// | 0 0 1 |
+    ///   | 0 0 0 |
+    ///   | 0 0 0 |
+    ///   | 0 0 1 |
     ///
     ///
     /// Available since API-level: 12
@@ -219,7 +219,7 @@ extern "C" {
     /// * `matrix` - Pointer to the [`OH_Drawing_Matrix`](crate::types::OH_Drawing_Matrix) object.
     ///
     /// * `degree` - Angle to rotate, in degrees. A positive value indicates a clockwise rotation, and a negative value
-    /// indicates a counterclockwise rotation.
+    ///   indicates a counterclockwise rotation.
     ///
     /// * `px` - X coordinate of the rotation point.
     ///
@@ -243,10 +243,10 @@ extern "C" {
     /// * `matrix` - Pointer to the [`OH_Drawing_Matrix`](crate::types::OH_Drawing_Matrix) object.
     ///
     /// * `sx` - Scale factor on the X axis. If a negative number is passed in, the matrix is mirrored around y = px before
-    /// being scaled. The value is a floating point number.
+    ///   being scaled. The value is a floating point number.
     ///
     /// * `sy` - Scale factor on the Y axis. If a negative number is passed in, the matrix is mirrored around x = py before
-    /// being scaled. The value is a floating point number.
+    ///   being scaled. The value is a floating point number.
     ///
     /// * `px` - X coordinate of the scale point.
     ///
@@ -274,12 +274,12 @@ extern "C" {
     /// * `matrix` - Pointer to the [`OH_Drawing_Matrix`](crate::types::OH_Drawing_Matrix) object.
     ///
     /// * `dx` - Horizontal distance to translate. A positive number indicates a translation towards the positive direction
-    /// of the X axis, and a negative number indicates a translation towards the negative direction of the X axis. The value
-    /// is a floating point number.
+    ///   of the X axis, and a negative number indicates a translation towards the negative direction of the X axis. The value
+    ///   is a floating point number.
     ///
     /// * `dy` - Vertical distance to translate. A positive number indicates a translation towards the positive direction
-    /// of the Y axis, and a negative number indicates a translation towards the negative direction of the Y axis. The value
-    /// is a floating point number.
+    ///   of the Y axis, and a negative number indicates a translation towards the negative direction of the Y axis. The value
+    ///   is a floating point number.
     ///
     /// Available since API-level: 12
     ///
@@ -297,7 +297,7 @@ extern "C" {
     /// * `matrix` - Pointer to the [`OH_Drawing_Matrix`](crate::types::OH_Drawing_Matrix) object.
     ///
     /// * `degree` - Angle to rotate, in degrees. A positive value indicates a clockwise rotation, and a negative value
-    /// indicates a counterclockwise rotation.
+    ///   indicates a counterclockwise rotation.
     ///
     /// * `px` - X coordinate of the rotation point.
     ///
@@ -324,10 +324,10 @@ extern "C" {
     /// * `matrix` - Pointer to the [`OH_Drawing_Matrix`](crate::types::OH_Drawing_Matrix) object.
     ///
     /// * `sx` - Scale factor on the X axis. If a negative number is passed in, the matrix is mirrored around y = px before
-    /// being scaled. The value is a floating point number.
+    ///   being scaled. The value is a floating point number.
     ///
     /// * `sy` - Scale factor on the Y axis. If a negative number is passed in, the matrix is mirrored around x = py before
-    /// being scaled. The value is a floating point number.
+    ///   being scaled. The value is a floating point number.
     ///
     /// * `px` - X coordinate of the scale point.
     ///
@@ -355,12 +355,12 @@ extern "C" {
     /// * `matrix` - Pointer to the [`OH_Drawing_Matrix`](crate::types::OH_Drawing_Matrix) object.
     ///
     /// * `dx` - Horizontal distance to translate. A positive number indicates a translation towards the positive direction
-    /// of the X axis, and a negative number indicates a translation towards the negative direction of the X axis. The value
-    /// is a floating point number.
+    ///   of the X axis, and a negative number indicates a translation towards the negative direction of the X axis. The value
+    ///   is a floating point number.
     ///
     /// * `dy` - Vertical distance to translate. A positive number indicates a translation towards the positive direction
-    /// of the Y axis, and a negative number indicates a translation towards the negative direction of the Y axis. The value
-    /// is a floating point number.
+    ///   of the Y axis, and a negative number indicates a translation towards the negative direction of the Y axis. The value
+    ///   is a floating point number.
     ///
     /// Available since API-level: 12
     ///
@@ -415,8 +415,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`](crate::error_code::DrawingErrorCode::INVALID_PARAMETER) if matrix or value is nullptr.
+    ///   Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
+    ///   Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`](crate::error_code::DrawingErrorCode::INVALID_PARAMETER) if matrix or value is nullptr.
     ///
     /// Available since API-level: 12
     ///
@@ -438,8 +438,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`](crate::error_code::DrawingErrorCode::INCORRECT_PARAMETER) if a or b is nullptr.
+    ///   Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
+    ///   Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`](crate::error_code::DrawingErrorCode::INCORRECT_PARAMETER) if a or b is nullptr.
     ///
     /// Available since API-level: 22
     ///
@@ -483,7 +483,7 @@ extern "C" {
     /// * `matrix` - Pointer to the [`OH_Drawing_Matrix`](crate::types::OH_Drawing_Matrix) object.
     ///
     /// * `degree` - Angle to rotate, in degrees. A positive value indicates a clockwise rotation, and a negative value
-    /// indicates a counterclockwise rotation.
+    ///   indicates a counterclockwise rotation.
     ///
     /// * `px` - Coordinate point on the X axis.
     ///
@@ -504,12 +504,12 @@ extern "C" {
     /// * `matrix` - Pointer to the [`OH_Drawing_Matrix`](crate::types::OH_Drawing_Matrix) object.
     ///
     /// * `dx` - Distance to translate on the X axis. A positive number indicates a translation towards the positive
-    /// direction of the X axis, and a negative number indicates a translation towards the negative direction of the X axis.
-    /// The value is a floating point number.
+    ///   direction of the X axis, and a negative number indicates a translation towards the negative direction of the X axis.
+    ///   The value is a floating point number.
     ///
     /// * `dy` - Distance to translate on the Y axis. A positive number indicates a translation towards the positive
-    /// direction of the Y axis, and a negative number indicates a translation towards the negative direction of the Y axis.
-    /// The value is a floating point number.
+    ///   direction of the Y axis, and a negative number indicates a translation towards the negative direction of the Y axis.
+    ///   The value is a floating point number.
     ///
     /// Available since API-level: 12
     ///
@@ -526,10 +526,10 @@ extern "C" {
     /// * `matrix` - Pointer to the [`OH_Drawing_Matrix`](crate::types::OH_Drawing_Matrix) object.
     ///
     /// * `sx` - Scale factor on the X axis. If a negative number is passed in, the matrix is mirrored around y = px before
-    /// being scaled. The value is a floating point number.
+    ///   being scaled. The value is a floating point number.
     ///
     /// * `sy` - Scale factor on the Y axis. If a negative number is passed in, the matrix is mirrored around x = py before
-    /// being scaled. The value is a floating point number.
+    ///   being scaled. The value is a floating point number.
     ///
     /// * `px` - Coordinate point on the X axis.
     ///
@@ -556,12 +556,12 @@ extern "C" {
     /// * `matrix` - Pointer to the [`OH_Drawing_Matrix`](crate::types::OH_Drawing_Matrix) object.
     ///
     /// * `inverse` - Pointer to the inverse [`OH_Drawing_Matrix`](crate::types::OH_Drawing_Matrix) object. You can call [`OH_Drawing_MatrixCreate`](crate::matrix::OH_Drawing_MatrixCreate)
-    /// to create an inverse matrix object.
+    ///   to create an inverse matrix object.
     ///
     /// # Returns
     ///
     /// * Returns true if the matrix is not nullptr and can be inverted;
-    /// returns false if the matrix is nullptr or cannot be inverted.
+    ///   returns false if the matrix is nullptr or cannot be inverted.
     ///
     /// Available since API-level: 12
     ///
@@ -585,10 +585,10 @@ extern "C" {
     /// * `src` - Array of source points. If NULL is passed in, **count** must be 0.
     ///
     /// * `dst` - Array of destination points. The number of destination points must be the same as that of source points.
-    /// If NULL is passed in, **count** must be 0.
+    ///   If NULL is passed in, **count** must be 0.
     ///
     /// * `count` - Number of source points or destination points. If 0 is passed in, the matrix is set to an identity
-    /// matrix.
+    ///   matrix.
     ///
     /// # Returns
     ///
@@ -709,13 +709,13 @@ extern "C" {
     /// * `matrix` - Pointer to the [`OH_Drawing_Matrix`](crate::types::OH_Drawing_Matrix) object.
     ///
     /// * `isAffine` - Whether the existing matrix is an affine matrix. It is used as an output parameter. **true** means
-    /// yes; **false** otherwise.
+    ///   yes; **false** otherwise.
     ///
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`](crate::error_code::DrawingErrorCode::INCORRECT_PARAMETER) if matrix or isAffine is nullptr.
+    ///   Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
+    ///   Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`](crate::error_code::DrawingErrorCode::INCORRECT_PARAMETER) if matrix or isAffine is nullptr.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -741,8 +741,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`](crate::error_code::DrawingErrorCode::INCORRECT_PARAMETER) if matrix is nullptr.
+    ///   Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
+    ///   Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`](crate::error_code::DrawingErrorCode::INCORRECT_PARAMETER) if matrix is nullptr.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -763,14 +763,14 @@ extern "C" {
     /// * `matrix` - Pointer to the [`OH_Drawing_Matrix`](crate::types::OH_Drawing_Matrix) object.
     ///
     /// * `isRectStaysRect` - Whether a rectangle stays a rectangle after being mapped by a matrix. It is used as an output
-    /// parameter.
-    /// **true** means yes; **false** otherwise.
+    ///   parameter.
+    ///   **true** means yes; **false** otherwise.
     ///
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`](crate::error_code::DrawingErrorCode::INCORRECT_PARAMETER) if matrix or isRectStaysRect is nullptr.
+    ///   Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
+    ///   Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`](crate::error_code::DrawingErrorCode::INCORRECT_PARAMETER) if matrix or isRectStaysRect is nullptr.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -796,8 +796,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`](crate::error_code::DrawingErrorCode::INCORRECT_PARAMETER) if matrix is nullptr.
+    ///   Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
+    ///   Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`](crate::error_code::DrawingErrorCode::INCORRECT_PARAMETER) if matrix is nullptr.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]

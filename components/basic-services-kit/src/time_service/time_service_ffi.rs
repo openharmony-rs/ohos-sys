@@ -30,17 +30,17 @@ extern "C" {
     /// # Arguments
     ///
     /// * `timeZone` - Pointer to the buffer for one time zone ID string. If the time zone is obtained, its ID is written.
-    /// Otherwise, an empty string is written. The string ends with **\0**.
+    ///   Otherwise, an empty string is written. The string ends with **\0**.
     ///
     /// * `len` - Capacity of the buffer pointed to by **timeZone**, in bytes, including the end character **\0**.
-    /// There is no maximum limit. You are advised to allocate at least 31 bytes.
+    ///   There is no maximum limit. You are advised to allocate at least 31 bytes.
     ///
     /// # Returns
     ///
     /// * Returns **TIMESERVICE_ERR_OK** if the operation is successful;
-    /// <br>returns **TIMESERVICE_ERR_INTERNAL_ERROR** if the system parameters fail to be obtained;
-    /// <br>returns **TIMESERVICE_ERR_INVALID_PARAMETER** if **timeZone** is a null pointer or the length of the time
-    /// zone name (excluding the end character **\0**) is greater than or equal to the value of **len**.
+    ///   <br>returns **TIMESERVICE_ERR_INTERNAL_ERROR** if the system parameters fail to be obtained;
+    ///   <br>returns **TIMESERVICE_ERR_INVALID_PARAMETER** if **timeZone** is a null pointer or the length of the time
+    ///   zone name (excluding the end character **\0**) is greater than or equal to the value of **len**.
     ///
     /// Required System Capabilities: SystemCapability.MiscServices.Time
     ///

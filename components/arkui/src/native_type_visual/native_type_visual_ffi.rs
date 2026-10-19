@@ -730,9 +730,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Pointer to [`ArkUI_MotionPathOptions`](crate::native_type_visual::ArkUI_MotionPathOptions).
-    /// <br>In the newly created [`ArkUI_MotionPathOptions`](crate::native_type_visual::ArkUI_MotionPathOptions) object, **path** (motion path) is an empty string, **
-    /// from** (start progress) is **0**, **to** (end progress) is **1**, and **rotatable** (whether the component
-    /// rotates along the path) is **false**.
+    ///   <br>In the newly created [`ArkUI_MotionPathOptions`](crate::native_type_visual::ArkUI_MotionPathOptions) object, **path** (motion path) is an empty string, **
+    ///   from** (start progress) is **0**, **to** (end progress) is **1**, and **rotatable** (whether the component
+    ///   rotates along the path) is **false**.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -782,8 +782,8 @@ extern "C" {
     /// * `bufferSize` - Buffer size of the **svgPathBuffer** parameter.
     ///
     /// * `writeLength` - Indicates the string length actually written to the buffer when [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult)
-    /// is returned. Indicates the minimum buffer size that can accommodate the target string when
-    /// [`ARKUI_ERROR_CODE_BUFFER_SIZE_ERROR`](crate::error_code::ArkUiErrorCode::BUFFER_SIZE_ERROR) is returned.
+    ///   is returned. Indicates the minimum buffer size that can accommodate the target string when
+    ///   [`ARKUI_ERROR_CODE_BUFFER_SIZE_ERROR`](crate::error_code::ArkUiErrorCode::BUFFER_SIZE_ERROR) is returned.
     ///
     /// # Returns
     ///
@@ -808,8 +808,8 @@ extern "C" {
     /// * `options` - Pointer to [`ArkUI_MotionPathOptions`](crate::native_type_visual::ArkUI_MotionPathOptions).
     ///
     /// * `from` - Start progress of the motion path. The value ranges from **0.0** to **1.0**. The value of **from** must
-    /// be less than or equal to that of **to**; otherwise, [`ARKUI_ERROR_CODE_PARAM_OUT_OF_RANGE`](crate::error_code::ArkUiErrorCode::PARAM_OUT_OF_RANGE) is returned.
-    /// For details about the meaning of **to**, see [`OH_ArkUI_MotionPathOptions_SetTo`](crate::native_type_visual::OH_ArkUI_MotionPathOptions_SetTo).
+    ///   be less than or equal to that of **to**; otherwise, [`ARKUI_ERROR_CODE_PARAM_OUT_OF_RANGE`](crate::error_code::ArkUiErrorCode::PARAM_OUT_OF_RANGE) is returned.
+    ///   For details about the meaning of **to**, see [`OH_ArkUI_MotionPathOptions_SetTo`](crate::native_type_visual::OH_ArkUI_MotionPathOptions_SetTo).
     ///
     /// # Returns
     ///
@@ -852,8 +852,8 @@ extern "C" {
     /// * `options` - Pointer to [`ArkUI_MotionPathOptions`](crate::native_type_visual::ArkUI_MotionPathOptions).
     ///
     /// * `to` - End progress of the motion path. The value ranges from **0.0** to **1.0**. The value of **to** must be
-    /// greater than or equal to that of **from**; otherwise, [`ARKUI_ERROR_CODE_PARAM_OUT_OF_RANGE`](crate::error_code::ArkUiErrorCode::PARAM_OUT_OF_RANGE) is returned.
-    /// For details about the meaning of **from**, see [`OH_ArkUI_MotionPathOptions_SetFrom`](crate::native_type_visual::OH_ArkUI_MotionPathOptions_SetFrom).
+    ///   greater than or equal to that of **from**; otherwise, [`ARKUI_ERROR_CODE_PARAM_OUT_OF_RANGE`](crate::error_code::ArkUiErrorCode::PARAM_OUT_OF_RANGE) is returned.
+    ///   For details about the meaning of **from**, see [`OH_ArkUI_MotionPathOptions_SetFrom`](crate::native_type_visual::OH_ArkUI_MotionPathOptions_SetFrom).
     ///
     /// # Returns
     ///
@@ -895,8 +895,8 @@ extern "C" {
     /// * `options` - Pointer to [`ArkUI_MotionPathOptions`](crate::native_type_visual::ArkUI_MotionPathOptions).
     ///
     /// * `rotatable` - Whether the component rotates along the path. The value **true** means that the component rotates
-    /// along the path, and **false** means that the component does not rotate along the path. The default value is
-    /// **false**.
+    ///   along the path, and **false** means that the component does not rotate along the path. The default value is
+    ///   **false**.
     ///
     /// # Returns
     ///
@@ -917,8 +917,8 @@ extern "C" {
     /// * `options` - Pointer to [`ArkUI_MotionPathOptions`](crate::native_type_visual::ArkUI_MotionPathOptions).
     ///
     /// * `rotatable` - Pointer to the variable used to receive the value of **rotatable**, which indicates whether the
-    /// component rotates along the path. The value **true** means that the component rotates along the path, and
-    /// **false** means that the component does not rotate along the path.
+    ///   component rotates along the path. The value **true** means that the component rotates along the path, and
+    ///   **false** means that the component does not rotate along the path.
     ///
     /// # Returns
     ///
@@ -1161,7 +1161,7 @@ extern "C" {
     /// * `options` - Pointer to the [`OH_ArkUI_ShadowOptions`](crate::native_type_visual::OH_ArkUI_ShadowOptions) object.
     ///
     /// * `isFill` - Whether to fill a component with a shadow. **true** means to fill a component with a shadow, and **
-    /// false** means the opposite. The default value is **false**.
+    ///   false** means the opposite. The default value is **false**.
     ///
     /// # Returns
     ///
@@ -1182,7 +1182,7 @@ extern "C" {
     /// * `options` - Pointer to the [`OH_ArkUI_ShadowOptions`](crate::native_type_visual::OH_ArkUI_ShadowOptions) object.
     ///
     /// * `isFill` - Pointer to the **isFill** parameter indicating whether a component is filled with a shadow. **true**
-    /// means that a component is filled with a shadow, and **false** means the opposite.
+    ///   means that a component is filled with a shadow, and **false** means the opposite.
     ///
     /// # Returns
     ///
@@ -1350,7 +1350,7 @@ extern "C" {
     /// * `options` - Pointer to the scaling parameter object for matrix operations.
     ///
     /// * `centerX` - X-coordinate of the transformation center point. The value range is (-∞, +∞). **0** indicates that
-    /// there is no x-axis offset based on the transformation center. The unit is px.
+    ///   there is no x-axis offset based on the transformation center. The unit is px.
     ///
     /// # Returns
     ///
@@ -1372,7 +1372,7 @@ extern "C" {
     /// * `options` - Pointer to the scaling parameter object for matrix operations.
     ///
     /// * `centerX` - Pointer to the X-coordinate of the transformation center point. The unit is px. The default value is *
-    /// **0**.
+    ///   **0**.
     ///
     /// # Returns
     ///
@@ -1394,7 +1394,7 @@ extern "C" {
     /// * `options` - Pointer to the scaling parameter object for matrix operations.
     ///
     /// * `centerY` - Y-coordinate of the transformation center point. The value range is (-∞, +∞). **0** indicates that
-    /// there is no y-axis offset based on the transformation center. The unit is px.
+    ///   there is no y-axis offset based on the transformation center. The unit is px.
     ///
     /// # Returns
     ///
@@ -1416,7 +1416,7 @@ extern "C" {
     /// * `options` - Pointer to the scaling parameter object for matrix operations.
     ///
     /// * `centerY` - Pointer to the Y-coordinate of the transformation center point. The unit is px. The default value is *
-    /// **0**.
+    ///   **0**.
     ///
     /// # Returns
     ///
@@ -1486,7 +1486,7 @@ extern "C" {
     /// * `options` - Pointer to the rotation parameter object for matrix operations.
     ///
     /// * `x` - Pointer to the value of the direction vector in the x direction. If the value of x has never been set, the
-    /// value is undefined.
+    ///   value is undefined.
     ///
     /// # Returns
     ///
@@ -1529,7 +1529,7 @@ extern "C" {
     /// * `options` - Pointer to the rotation parameter object for matrix operations.
     ///
     /// * `y` - Pointer to the value of the direction vector in the y direction. If the value of y has never been set, the
-    /// value is undefined.
+    ///   value is undefined.
     ///
     /// # Returns
     ///
@@ -1572,7 +1572,7 @@ extern "C" {
     /// * `options` - Pointer to the rotation parameter object for matrix operations.
     ///
     /// * `z` - Pointer to the value of the direction vector in the z direction. If the value of z has never been set, the
-    /// value is undefined.
+    ///   value is undefined.
     ///
     /// # Returns
     ///
@@ -1613,7 +1613,7 @@ extern "C" {
     /// * `options` - Pointer to the rotation parameter object for matrix operations.
     ///
     /// * `angle` - Pointer to the value of the rotation angle. The unit is degree. If the angle has never been set, the
-    /// default value is **0**.
+    ///   default value is **0**.
     ///
     /// # Returns
     ///
@@ -1635,8 +1635,8 @@ extern "C" {
     /// * `options` - Pointer to the rotation parameter object for matrix operations.
     ///
     /// * `centerX` - X-axis offset of a single matrix transformation center point relative to a component transformation
-    /// center point. The value range is (-∞, +∞). **0** indicates that there is no x-axis offset based on the
-    /// transformation center. The unit is px.
+    ///   center point. The value range is (-∞, +∞). **0** indicates that there is no x-axis offset based on the
+    ///   transformation center. The unit is px.
     ///
     /// # Returns
     ///
@@ -1658,7 +1658,7 @@ extern "C" {
     /// * `options` - Pointer to the rotation parameter object for matrix operations.
     ///
     /// * `centerX` - Pointer to the x-axis offset of a single matrix transformation center point relative to a component
-    /// transformation center point. The unit is px. If **centerX** has never been set, the default value is **0**.
+    ///   transformation center point. The unit is px. If **centerX** has never been set, the default value is **0**.
     ///
     /// # Returns
     ///
@@ -1680,8 +1680,8 @@ extern "C" {
     /// * `options` - Pointer to the rotation parameter object for matrix operations.
     ///
     /// * `centerY` - Y-axis offset of a single matrix transformation center point relative to a component transformation
-    /// center point. The value range is (-∞, +∞). **0** indicates that there is no y-axis offset based on the
-    /// transformation center. The unit is px.
+    ///   center point. The value range is (-∞, +∞). **0** indicates that there is no y-axis offset based on the
+    ///   transformation center. The unit is px.
     ///
     /// # Returns
     ///
@@ -1703,7 +1703,7 @@ extern "C" {
     /// * `options` - Pointer to the rotation parameter object for matrix operations.
     ///
     /// * `centerY` - Pointer to the y-axis offset of a single matrix transformation center point relative to a component
-    /// transformation center point. The unit is px. If **centerY** has never been set, the default value is **0**.
+    ///   transformation center point. The unit is px. If **centerY** has never been set, the default value is **0**.
     ///
     /// # Returns
     ///
@@ -1750,7 +1750,7 @@ extern "C" {
     /// * `options` - Pointer to the translation parameter object for matrix operations.
     ///
     /// * `x` - Translation value on the x-axis. The value range is (-∞, +∞). The unit is px. If the value of x has never
-    /// been set, the default value is **0**.
+    ///   been set, the default value is **0**.
     ///
     /// # Returns
     ///
@@ -1791,7 +1791,7 @@ extern "C" {
     /// * `options` - Pointer to the translation parameter object for matrix operations.
     ///
     /// * `y` - Translation value on the y-axis. The value range is (-∞, +∞). The unit is px. If the value of y has never
-    /// been set, the default value is **0**.
+    ///   been set, the default value is **0**.
     ///
     /// # Returns
     ///
@@ -1832,7 +1832,7 @@ extern "C" {
     /// * `options` - Pointer to the translation parameter object for matrix operations.
     ///
     /// * `z` - Translation value on the z-axis. The value range is (-∞, +∞). The unit is px. If the value of z has never
-    /// been set, the default value is **0**.
+    ///   been set, the default value is **0**.
     ///
     /// # Returns
     ///
@@ -1884,12 +1884,12 @@ extern "C" {
     /// # Arguments
     ///
     /// * `elements` - Pointer to the array of expected matrix element data. The array length must be greater than or equal
-    /// to 16. This parameter cannot be set to a null pointer.
+    ///   to 16. This parameter cannot be set to a null pointer.
     ///
     /// # Returns
     ///
     /// * Pointer to the created fourth-order matrix object. If the **elements** pointer is a null pointer, a null
-    /// value is returned.
+    ///   value is returned.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -2073,7 +2073,7 @@ extern "C" {
     /// * `matrix` - Pointer to the fourth-order matrix object, which is used to store the result matrix.
     ///
     /// * `src` - Pointer to the array of original polygon coordinate points. The array length must be at least
-    /// **pointCount**.
+    ///   **pointCount**.
     ///
     /// * `dst` - Pointer to the array of mapped polygon coordinate points. The array length must be at least **pointCount**.
     ///
@@ -2100,7 +2100,7 @@ extern "C" {
     /// * `matrix` - Pointer to the fourth-order matrix object.
     ///
     /// * `result` - Pointer to an array that can hold 16 floating-point numbers. This parameter cannot be set to a null
-    /// pointer.
+    ///   pointer.
     ///
     /// # Returns
     ///

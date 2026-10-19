@@ -44,8 +44,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) success.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) parameter check failed.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) success.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) parameter check failed.
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]
@@ -63,32 +63,32 @@ extern "C" {
     /// * `context` - Represents a pointer to a modular object extension ability context.
     ///
     /// * `want` - The arguments passed to start the self UIAbility.
-    /// For details, see [`AbilityBase_Want`](crate::base::want::AbilityBase_Want).
+    ///   For details, see [`AbilityBase_Want`](crate::base::want::AbilityBase_Want).
     ///
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the call is successful.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_PERMISSION_DENIED`](crate::runtime::AbilityRuntimeErrorCode::PERMISSION_DENIED) if the caller has no correct permission.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the arguments provided is invalid.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_NOT_SUPPORTED`](crate::runtime::AbilityRuntimeErrorCode::NOT_SUPPORTED) if the device does not support starting self UIAbility.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_SUCH_ABILITY`](crate::runtime::AbilityRuntimeErrorCode::NO_SUCH_ABILITY) if the target ability does not exist.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_INCORRECT_ABILITY_TYPE`](crate::runtime::AbilityRuntimeErrorCode::INCORRECT_ABILITY_TYPE) if the ability type is incorrect.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_CROWDTEST_EXPIRED`](crate::runtime::AbilityRuntimeErrorCode::CROWDTEST_EXPIRED) if the crowdtesting application expires.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_WUKONG_MODE`](crate::runtime::AbilityRuntimeErrorCode::WUKONG_MODE) if the ability cannot be started in Wukong mode.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_CONTROLLED`](crate::runtime::AbilityRuntimeErrorCode::CONTROLLED) if the app is controlled.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_EDM_CONTROLLED`](crate::runtime::AbilityRuntimeErrorCode::EDM_CONTROLLED) if the app is controlled by EDM.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_CROSS_APP`](crate::runtime::AbilityRuntimeErrorCode::CROSS_APP) if the caller tries to start a different application.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_INTERNAL`](crate::runtime::AbilityRuntimeErrorCode::INTERNAL) if an internal error occurs.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_NOT_TOP_ABILITY`](crate::runtime::AbilityRuntimeErrorCode::NOT_TOP_ABILITY) if the caller is not top ability.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_MULTI_APP_NOT_SUPPORTED`](crate::runtime::AbilityRuntimeErrorCode::MULTI_APP_NOT_SUPPORTED) if the app clone or multi-instance is
-    /// not supported.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_INVALID_APP_INSTANCE_KEY`](crate::runtime::AbilityRuntimeErrorCode::INVALID_APP_INSTANCE_KEY) if the app instance key is invalid.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_UPPER_LIMIT_REACHED`](crate::runtime::AbilityRuntimeErrorCode::UPPER_LIMIT_REACHED) if the number of app instances has reached
-    /// the limit.
-    /// [`ABILITY_RUNTIME_ERROR_MULTI_INSTANCE_NOT_SUPPORTED`](crate::runtime::AbilityRuntimeErrorCode::ABILITY_RUNTIME_ERROR_MULTI_INSTANCE_NOT_SUPPORTED) if multi-instance is not supported.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_APP_INSTANCE_KEY_NOT_SUPPORTED`](crate::runtime::AbilityRuntimeErrorCode::APP_INSTANCE_KEY_NOT_SUPPORTED) if the APP_INSTANCE_KEY cannot
-    /// be specified.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the call is successful.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_PERMISSION_DENIED`](crate::runtime::AbilityRuntimeErrorCode::PERMISSION_DENIED) if the caller has no correct permission.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the arguments provided is invalid.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_NOT_SUPPORTED`](crate::runtime::AbilityRuntimeErrorCode::NOT_SUPPORTED) if the device does not support starting self UIAbility.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_NO_SUCH_ABILITY`](crate::runtime::AbilityRuntimeErrorCode::NO_SUCH_ABILITY) if the target ability does not exist.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_INCORRECT_ABILITY_TYPE`](crate::runtime::AbilityRuntimeErrorCode::INCORRECT_ABILITY_TYPE) if the ability type is incorrect.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_CROWDTEST_EXPIRED`](crate::runtime::AbilityRuntimeErrorCode::CROWDTEST_EXPIRED) if the crowdtesting application expires.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_WUKONG_MODE`](crate::runtime::AbilityRuntimeErrorCode::WUKONG_MODE) if the ability cannot be started in Wukong mode.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_CONTROLLED`](crate::runtime::AbilityRuntimeErrorCode::CONTROLLED) if the app is controlled.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_EDM_CONTROLLED`](crate::runtime::AbilityRuntimeErrorCode::EDM_CONTROLLED) if the app is controlled by EDM.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_CROSS_APP`](crate::runtime::AbilityRuntimeErrorCode::CROSS_APP) if the caller tries to start a different application.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_INTERNAL`](crate::runtime::AbilityRuntimeErrorCode::INTERNAL) if an internal error occurs.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_NOT_TOP_ABILITY`](crate::runtime::AbilityRuntimeErrorCode::NOT_TOP_ABILITY) if the caller is not top ability.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_MULTI_APP_NOT_SUPPORTED`](crate::runtime::AbilityRuntimeErrorCode::MULTI_APP_NOT_SUPPORTED) if the app clone or multi-instance is
+    ///   not supported.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_INVALID_APP_INSTANCE_KEY`](crate::runtime::AbilityRuntimeErrorCode::INVALID_APP_INSTANCE_KEY) if the app instance key is invalid.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_UPPER_LIMIT_REACHED`](crate::runtime::AbilityRuntimeErrorCode::UPPER_LIMIT_REACHED) if the number of app instances has reached
+    ///   the limit.
+    ///   [`ABILITY_RUNTIME_ERROR_MULTI_INSTANCE_NOT_SUPPORTED`](crate::runtime::AbilityRuntimeErrorCode::ABILITY_RUNTIME_ERROR_MULTI_INSTANCE_NOT_SUPPORTED) if multi-instance is not supported.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_APP_INSTANCE_KEY_NOT_SUPPORTED`](crate::runtime::AbilityRuntimeErrorCode::APP_INSTANCE_KEY_NOT_SUPPORTED) if the APP_INSTANCE_KEY cannot
+    ///   be specified.
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]
@@ -106,36 +106,36 @@ extern "C" {
     /// * `context` - Represents a pointer to a modular object extension ability context.
     ///
     /// * `want` - The arguments passed to start the self UIAbility.
-    /// For details, see [`AbilityBase_Want`](crate::base::want::AbilityBase_Want).
+    ///   For details, see [`AbilityBase_Want`](crate::base::want::AbilityBase_Want).
     ///
     /// * `options` - The start options passed to start the self UIAbility.
-    /// For details, see [`AbilityRuntime_StartOptions`](crate::runtime::start_options::AbilityRuntime_StartOptions).
+    ///   For details, see [`AbilityRuntime_StartOptions`](crate::runtime::start_options::AbilityRuntime_StartOptions).
     ///
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the call is successful.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_PERMISSION_DENIED`](crate::runtime::AbilityRuntimeErrorCode::PERMISSION_DENIED) if the caller has no correct permission.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the arguments provided are invalid.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_NOT_SUPPORTED`](crate::runtime::AbilityRuntimeErrorCode::NOT_SUPPORTED) if the device does not support starting self UIAbility.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_SUCH_ABILITY`](crate::runtime::AbilityRuntimeErrorCode::NO_SUCH_ABILITY) if the target ability does not exist.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_INCORRECT_ABILITY_TYPE`](crate::runtime::AbilityRuntimeErrorCode::INCORRECT_ABILITY_TYPE) if the ability type is incorrect.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_CROWDTEST_EXPIRED`](crate::runtime::AbilityRuntimeErrorCode::CROWDTEST_EXPIRED) if the crowdtesting application expires.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_WUKONG_MODE`](crate::runtime::AbilityRuntimeErrorCode::WUKONG_MODE) if the ability cannot be started in Wukong mode.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_CONTROLLED`](crate::runtime::AbilityRuntimeErrorCode::CONTROLLED) if the app is controlled.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_EDM_CONTROLLED`](crate::runtime::AbilityRuntimeErrorCode::EDM_CONTROLLED) if the app is controlled by EDM.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_CROSS_APP`](crate::runtime::AbilityRuntimeErrorCode::CROSS_APP) if the caller tries to start a different application.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_INTERNAL`](crate::runtime::AbilityRuntimeErrorCode::INTERNAL) if an internal error occurs.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_NOT_TOP_ABILITY`](crate::runtime::AbilityRuntimeErrorCode::NOT_TOP_ABILITY) if the caller is not a foreground process.
-    /// [`ABILITY_RUNTIME_ERROR_VISIBILITY_SETTING_DISABLED`](crate::runtime::AbilityRuntimeErrorCode::ABILITY_RUNTIME_ERROR_VISIBILITY_SETTING_DISABLED) if setting visibility is disabled.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_MULTI_APP_NOT_SUPPORTED`](crate::runtime::AbilityRuntimeErrorCode::MULTI_APP_NOT_SUPPORTED) if the app clone or multi-instance is
-    /// not supported.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_INVALID_APP_INSTANCE_KEY`](crate::runtime::AbilityRuntimeErrorCode::INVALID_APP_INSTANCE_KEY) if the app instance key is invalid.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_UPPER_LIMIT_REACHED`](crate::runtime::AbilityRuntimeErrorCode::UPPER_LIMIT_REACHED) if the number of app instances has reached
-    /// the limit.
-    /// [`ABILITY_RUNTIME_ERROR_MULTI_INSTANCE_NOT_SUPPORTED`](crate::runtime::AbilityRuntimeErrorCode::ABILITY_RUNTIME_ERROR_MULTI_INSTANCE_NOT_SUPPORTED) if multi-instance is not supported.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_APP_INSTANCE_KEY_NOT_SUPPORTED`](crate::runtime::AbilityRuntimeErrorCode::APP_INSTANCE_KEY_NOT_SUPPORTED) if the APP_INSTANCE_KEY cannot
-    /// be specified.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the call is successful.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_PERMISSION_DENIED`](crate::runtime::AbilityRuntimeErrorCode::PERMISSION_DENIED) if the caller has no correct permission.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the arguments provided are invalid.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_NOT_SUPPORTED`](crate::runtime::AbilityRuntimeErrorCode::NOT_SUPPORTED) if the device does not support starting self UIAbility.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_NO_SUCH_ABILITY`](crate::runtime::AbilityRuntimeErrorCode::NO_SUCH_ABILITY) if the target ability does not exist.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_INCORRECT_ABILITY_TYPE`](crate::runtime::AbilityRuntimeErrorCode::INCORRECT_ABILITY_TYPE) if the ability type is incorrect.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_CROWDTEST_EXPIRED`](crate::runtime::AbilityRuntimeErrorCode::CROWDTEST_EXPIRED) if the crowdtesting application expires.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_WUKONG_MODE`](crate::runtime::AbilityRuntimeErrorCode::WUKONG_MODE) if the ability cannot be started in Wukong mode.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_CONTROLLED`](crate::runtime::AbilityRuntimeErrorCode::CONTROLLED) if the app is controlled.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_EDM_CONTROLLED`](crate::runtime::AbilityRuntimeErrorCode::EDM_CONTROLLED) if the app is controlled by EDM.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_CROSS_APP`](crate::runtime::AbilityRuntimeErrorCode::CROSS_APP) if the caller tries to start a different application.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_INTERNAL`](crate::runtime::AbilityRuntimeErrorCode::INTERNAL) if an internal error occurs.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_NOT_TOP_ABILITY`](crate::runtime::AbilityRuntimeErrorCode::NOT_TOP_ABILITY) if the caller is not a foreground process.
+    ///   [`ABILITY_RUNTIME_ERROR_VISIBILITY_SETTING_DISABLED`](crate::runtime::AbilityRuntimeErrorCode::ABILITY_RUNTIME_ERROR_VISIBILITY_SETTING_DISABLED) if setting visibility is disabled.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_MULTI_APP_NOT_SUPPORTED`](crate::runtime::AbilityRuntimeErrorCode::MULTI_APP_NOT_SUPPORTED) if the app clone or multi-instance is
+    ///   not supported.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_INVALID_APP_INSTANCE_KEY`](crate::runtime::AbilityRuntimeErrorCode::INVALID_APP_INSTANCE_KEY) if the app instance key is invalid.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_UPPER_LIMIT_REACHED`](crate::runtime::AbilityRuntimeErrorCode::UPPER_LIMIT_REACHED) if the number of app instances has reached
+    ///   the limit.
+    ///   [`ABILITY_RUNTIME_ERROR_MULTI_INSTANCE_NOT_SUPPORTED`](crate::runtime::AbilityRuntimeErrorCode::ABILITY_RUNTIME_ERROR_MULTI_INSTANCE_NOT_SUPPORTED) if multi-instance is not supported.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_APP_INSTANCE_KEY_NOT_SUPPORTED`](crate::runtime::AbilityRuntimeErrorCode::APP_INSTANCE_KEY_NOT_SUPPORTED) if the APP_INSTANCE_KEY cannot
+    ///   be specified.
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]
@@ -179,8 +179,8 @@ extern "C" {
     /// * `context` - Represents a pointer to a modular object extension ability context.
     ///
     /// * `descriptor` - Pointer to the descriptor of the <b>OHIPCRemoteStub</b> object to create. It cannot be NULL.
-    /// The string is copied internally during creation, so the caller may release the descriptor
-    /// after this function returns.
+    ///   The string is copied internally during creation, so the caller may release the descriptor
+    ///   after this function returns.
     ///
     /// * `requestCallback` - Callback used to process the data request. It cannot be NULL.
     ///
@@ -191,7 +191,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the pointer to the <b>OHIPCRemoteStub</b> object created if the operation is successful;
-    /// returns NULL otherwise.
+    ///   returns NULL otherwise.
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]

@@ -997,7 +997,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the pointer to the accessibility state object.
-    /// If a null pointer is returned, the object fails to be created. The possible cause is that the address space is full.
+    ///   If a null pointer is returned, the object fails to be created. The possible cause is that the address space is full.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1037,7 +1037,7 @@ extern "C" {
     /// # Returns
     ///
     /// * accessibility state disabled, Value 1 indicates disabled and 0 indicates enbled. The default value is 0.
-    /// If the function parameter is abnormal, return the default value.
+    ///   If the function parameter is abnormal, return the default value.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1050,7 +1050,7 @@ extern "C" {
     /// * `state` - accessibility state object.
     ///
     /// * `isSelected` - accessibility state selected, Value 1 indicates selected, and 0 indicates not selected.
-    /// The default value is 0.
+    ///   The default value is 0.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1068,8 +1068,8 @@ extern "C" {
     /// # Returns
     ///
     /// * accessibility state selected, Value 1 indicates selected, and 0 indicates not selected.
-    /// The default value is 0.
-    /// If the function parameter is abnormal, return the default value.
+    ///   The default value is 0.
+    ///   If the function parameter is abnormal, return the default value.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1082,7 +1082,7 @@ extern "C" {
     /// * `state` - accessibility state object.
     ///
     /// * `checkedState` - checked state, and uses the [`ArkUI_AccessibilityCheckedState`](crate::native_type::ArkUI_AccessibilityCheckedState) enumeration value,
-    /// The default value is ARKUI_ACCESSIBILITY_UNCHECKED.
+    ///   The default value is ARKUI_ACCESSIBILITY_UNCHECKED.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1100,8 +1100,8 @@ extern "C" {
     /// # Returns
     ///
     /// * checked state, and uses the [`ArkUI_AccessibilityCheckedState`](crate::native_type::ArkUI_AccessibilityCheckedState) enumeration value,
-    /// The default value is ARKUI_ACCESSIBILITY_UNCHECKED.
-    /// If the function parameter is abnormal, return the default value.
+    ///   The default value is ARKUI_ACCESSIBILITY_UNCHECKED.
+    ///   If the function parameter is abnormal, return the default value.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1114,7 +1114,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the pointer to the accessibility state object.
-    /// If a null pointer is returned, the object fails to be created. The possible cause is that the address space is full.
+    ///   If a null pointer is returned, the object fails to be created. The possible cause is that the address space is full.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1151,7 +1151,7 @@ extern "C" {
     /// # Returns
     ///
     /// * minimum value based on range components, The default value is -1.
-    /// If the function parameter is abnormal, return -1.
+    ///   If the function parameter is abnormal, return -1.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1178,7 +1178,7 @@ extern "C" {
     /// # Returns
     ///
     /// * maximum value based on range components, The default value is -1.
-    /// If the function parameter is abnormal, return -1.
+    ///   If the function parameter is abnormal, return -1.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1208,7 +1208,7 @@ extern "C" {
     /// # Returns
     ///
     /// * current value based on range components, The default value is -1.
-    /// If the function parameter is abnormal, return -1.
+    ///   If the function parameter is abnormal, return -1.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1238,7 +1238,7 @@ extern "C" {
     /// # Returns
     ///
     /// * minimum value based on range components, The default value is -1.
-    /// If the function parameter is abnormal, return -1.
+    ///   If the function parameter is abnormal, return -1.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -1268,7 +1268,7 @@ extern "C" {
     /// # Returns
     ///
     /// * maximum value based on range components, The default value is -1.
-    /// If the function parameter is abnormal, return -1.
+    ///   If the function parameter is abnormal, return -1.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -1298,7 +1298,7 @@ extern "C" {
     /// # Returns
     ///
     /// * current value based on range components, The default value is -1.
-    /// If the function parameter is abnormal, return -1.
+    ///   If the function parameter is abnormal, return -1.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -1329,7 +1329,7 @@ extern "C" {
     /// # Returns
     ///
     /// * The textual description information of the component, which defaults to an empty string;
-    /// If the function parameter is abnormal, return null.
+    ///   If the function parameter is abnormal, return null.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1460,7 +1460,7 @@ extern "C" {
     /// * `option` - Pointer to the cross-language configuration option instance.
     ///
     /// * `enabled` - Whether cross-language attribute setting is allowed. true means that cross-language attribute
-    /// setting is allowed, and **false** means the opposite. The default value is **false**.
+    ///   setting is allowed, and **false** means the opposite. The default value is **false**.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
@@ -1478,7 +1478,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Whether cross-language attribute setting is allowed. true means that cross-language attribute setting is
-    /// allowed, and **false** means the opposite.
+    ///   allowed, and **false** means the opposite.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
@@ -1497,8 +1497,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///   Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -1518,17 +1518,17 @@ extern "C" {
     /// * `bufferSize` - The name of the text menu item, which defaults to an empty string;
     ///
     /// * `writeLength` - Indicates the string length actually written to the buffer
-    /// when returning [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult).
-    /// Indicates the minimum buffer size that can accommodate the target
-    /// when [`ARKUI_ERROR_CODE_BUFFER_SIZE_ERROR`](crate::error_code::ArkUiErrorCode::BUFFER_SIZE_ERROR) is returned.
+    ///   when returning [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult).
+    ///   Indicates the minimum buffer size that can accommodate the target
+    ///   when [`ARKUI_ERROR_CODE_BUFFER_SIZE_ERROR`](crate::error_code::ArkUiErrorCode::BUFFER_SIZE_ERROR) is returned.
     ///
     ///
     /// # Returns
     ///
     /// * The error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if the node, buffer or writeLength is null.
-    /// [`ARKUI_ERROR_CODE_BUFFER_SIZE_ERROR`](crate::error_code::ArkUiErrorCode::BUFFER_SIZE_ERROR) If the buffer size is less than the minimum buffer size.
+    ///   [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if the node, buffer or writeLength is null.
+    ///   [`ARKUI_ERROR_CODE_BUFFER_SIZE_ERROR`](crate::error_code::ArkUiErrorCode::BUFFER_SIZE_ERROR) If the buffer size is less than the minimum buffer size.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -1550,8 +1550,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///   Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -1571,17 +1571,17 @@ extern "C" {
     /// * `bufferSize` - The icon of the text menu item, which defaults to an empty string;
     ///
     /// * `writeLength` - Indicates the string length actually written to the buffer
-    /// when returning [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult).
-    /// Indicates the minimum buffer size that can accommodate the target
-    /// when [`ARKUI_ERROR_CODE_BUFFER_SIZE_ERROR`](crate::error_code::ArkUiErrorCode::BUFFER_SIZE_ERROR) is returned.
+    ///   when returning [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult).
+    ///   Indicates the minimum buffer size that can accommodate the target
+    ///   when [`ARKUI_ERROR_CODE_BUFFER_SIZE_ERROR`](crate::error_code::ArkUiErrorCode::BUFFER_SIZE_ERROR) is returned.
     ///
     ///
     /// # Returns
     ///
     /// * The error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if the node, buffer or writeLength is null.
-    /// [`ARKUI_ERROR_CODE_BUFFER_SIZE_ERROR`](crate::error_code::ArkUiErrorCode::BUFFER_SIZE_ERROR) If the buffer size is less than the minimum buffer size.
+    ///   [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if the node, buffer or writeLength is null.
+    ///   [`ARKUI_ERROR_CODE_BUFFER_SIZE_ERROR`](crate::error_code::ArkUiErrorCode::BUFFER_SIZE_ERROR) If the buffer size is less than the minimum buffer size.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -1599,13 +1599,13 @@ extern "C" {
     /// * `item` - The text menu item.
     ///
     /// * `labelInfo` - The text menu item shortcut displays, which defaults to an empty string.
-    /// The string will copy to framework.
+    ///   The string will copy to framework.
     ///
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///   Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -1625,17 +1625,17 @@ extern "C" {
     /// * `bufferSize` - The shortcuts of the text menu item, which defaults to an empty string;
     ///
     /// * `writeLength` - Indicates the string length actually written to the buffer
-    /// when returning [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult).
-    /// Indicates the minimum buffer size that can accommodate the target
-    /// when [`ARKUI_ERROR_CODE_BUFFER_SIZE_ERROR`](crate::error_code::ArkUiErrorCode::BUFFER_SIZE_ERROR) is returned.
+    ///   when returning [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult).
+    ///   Indicates the minimum buffer size that can accommodate the target
+    ///   when [`ARKUI_ERROR_CODE_BUFFER_SIZE_ERROR`](crate::error_code::ArkUiErrorCode::BUFFER_SIZE_ERROR) is returned.
     ///
     ///
     /// # Returns
     ///
     /// * The error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if the node, buffer or writeLength is null.
-    /// [`ARKUI_ERROR_CODE_BUFFER_SIZE_ERROR`](crate::error_code::ArkUiErrorCode::BUFFER_SIZE_ERROR) If the buffer size is less than the minimum buffer size.
+    ///   [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if the node, buffer or writeLength is null.
+    ///   [`ARKUI_ERROR_CODE_BUFFER_SIZE_ERROR`](crate::error_code::ArkUiErrorCode::BUFFER_SIZE_ERROR) If the buffer size is less than the minimum buffer size.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -1657,8 +1657,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///   Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -1675,8 +1675,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///   Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -1696,8 +1696,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///   Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -1719,8 +1719,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///   Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -1743,8 +1743,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///   Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -1765,8 +1765,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///   Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -1784,8 +1784,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///   Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -1804,8 +1804,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///   Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -1828,8 +1828,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///   Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -1852,8 +1852,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///   Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -1874,8 +1874,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///   Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -1895,8 +1895,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///   Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -1916,8 +1916,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///   Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -1937,8 +1937,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///   Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -1958,8 +1958,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///   Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -1979,8 +1979,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///   Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -1998,15 +1998,15 @@ extern "C" {
     /// * `userData` - The user data.
     ///
     /// * `callback` - The callback function of menu show.
-    /// start The start offset of the selected content.
-    /// end The end offset of the selected content.
-    /// userData The user data.
+    ///   start The start offset of the selected content.
+    ///   end The end offset of the selected content.
+    ///   userData The user data.
     ///
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///   Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -2027,15 +2027,15 @@ extern "C" {
     /// * `userData` - The user data.
     ///
     /// * `callback` - The callback function of menu hide.
-    /// start The start offset of the selected content.
-    /// end The end offset of the selected content.
-    /// userData The user data.
+    ///   start The start offset of the selected content.
+    ///   end The end offset of the selected content.
+    ///   userData The user data.
     ///
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///   Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -2158,8 +2158,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -2179,8 +2179,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -2200,8 +2200,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -2221,8 +2221,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -2242,8 +2242,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -2263,8 +2263,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -2284,8 +2284,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -2305,8 +2305,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -2322,15 +2322,15 @@ extern "C" {
     /// * `config` - Pointer to the [`OH_ArkUI_TextDataDetectorConfig`](crate::node_attributes::text::OH_ArkUI_TextDataDetectorConfig) object.
     ///
     /// * `types` - Pointer to the types of the text entity recognition configuration. The value is an enumerated value of {
-    /// ArkUI_TextDataDetectorType}.
+    ///   ArkUI_TextDataDetectorType}.
     ///
     /// * `length` - Type quantity.
     ///
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -2355,10 +2355,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>Returns [`ARKUI_ERROR_CODE_BUFFER_SIZE_ERROR`](crate::error_code::ArkUiErrorCode::BUFFER_SIZE_ERROR) if the value of **bufferSize** is less than that of **
-    /// writeLength**.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_BUFFER_SIZE_ERROR`](crate::error_code::ArkUiErrorCode::BUFFER_SIZE_ERROR) if the value of **bufferSize** is less than that of **
+    ///   writeLength**.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -2382,8 +2382,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -2410,8 +2410,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -2431,8 +2431,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -2448,13 +2448,13 @@ extern "C" {
     /// * `config` - Pointer to the [`OH_ArkUI_TextDataDetectorConfig`](crate::node_attributes::text::OH_ArkUI_TextDataDetectorConfig) object.
     ///
     /// * `decoration` - Pointer to the decoration style of the recognized content. The value is an enumerated value of
-    /// [`OH_ArkUI_DecorationStyleOptions`](crate::node_attributes::text_common::OH_ArkUI_DecorationStyleOptions).
+    ///   [`OH_ArkUI_DecorationStyleOptions`](crate::node_attributes::text_common::OH_ArkUI_DecorationStyleOptions).
     ///
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -2470,13 +2470,13 @@ extern "C" {
     /// * `config` - Pointer to the [`OH_ArkUI_TextDataDetectorConfig`](crate::node_attributes::text::OH_ArkUI_TextDataDetectorConfig) object.
     ///
     /// * `decoration` - Pointer to the decoration style of the recognized content. The value is an enumerated value of
-    /// [`OH_ArkUI_DecorationStyleOptions`](crate::node_attributes::text_common::OH_ArkUI_DecorationStyleOptions).
+    ///   [`OH_ArkUI_DecorationStyleOptions`](crate::node_attributes::text_common::OH_ArkUI_DecorationStyleOptions).
     ///
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -2492,13 +2492,13 @@ extern "C" {
     /// * `config` - Pointer to the [`OH_ArkUI_TextDataDetectorConfig`](crate::node_attributes::text::OH_ArkUI_TextDataDetectorConfig) object.
     ///
     /// * `enablePreviewMenu` - Whether to display the preview menu when the recognized content is long-pressed. **true**
-    /// means to display the preview menu, and **false** means the opposite. The default value is **false**.
+    ///   means to display the preview menu, and **false** means the opposite. The default value is **false**.
     ///
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -2514,14 +2514,14 @@ extern "C" {
     /// * `config` - Pointer to the [`OH_ArkUI_TextDataDetectorConfig`](crate::node_attributes::text::OH_ArkUI_TextDataDetectorConfig) object.
     ///
     /// * `enablePreviewMenu` - Pointer to the **enablePreviewMenu** parameter indicating whether the preview menu is
-    /// displayed when the recognized content is long-pressed. **true** means that the preview menu is displayed, and **
-    /// false** means the opposite.
+    ///   displayed when the recognized content is long-pressed. **true** means that the preview menu is displayed, and **
+    ///   false** means the opposite.
     ///
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -2541,8 +2541,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///   Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]
@@ -2562,8 +2562,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -2587,10 +2587,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>Returns [`ARKUI_ERROR_CODE_BUFFER_SIZE_ERROR`](crate::error_code::ArkUiErrorCode::BUFFER_SIZE_ERROR) if the value of **bufferSize** is less than that of **
-    /// writeLength**.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_BUFFER_SIZE_ERROR`](crate::error_code::ArkUiErrorCode::BUFFER_SIZE_ERROR) if the value of **bufferSize** is less than that of **
+    ///   writeLength**.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -2612,8 +2612,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -2633,8 +2633,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -2650,13 +2650,13 @@ extern "C" {
     /// * `options` - Pointer to the [`OH_ArkUI_TextEditorPlaceholderOptions`](crate::node_attributes::rich_editor::OH_ArkUI_TextEditorPlaceholderOptions) object.
     ///
     /// * `fontWeight` - Font weight. The value is an integer multiple of 100 within the \[100, 900\] range, for example, **
-    /// 100** or **900**.
+    ///   100** or **900**.
     ///
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -2672,13 +2672,13 @@ extern "C" {
     /// * `options` - Pointer to the [`OH_ArkUI_TextEditorPlaceholderOptions`](crate::node_attributes::rich_editor::OH_ArkUI_TextEditorPlaceholderOptions) object.
     ///
     /// * `fontWeight` - Pointer to the font weight. The value is an integer multiple of 100 within the \[100, 900\] range,
-    /// for example, **100** or **900**.
+    ///   for example, **100** or **900**.
     ///
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -2694,13 +2694,13 @@ extern "C" {
     /// * `options` - Pointer to the [`OH_ArkUI_TextEditorPlaceholderOptions`](crate::node_attributes::rich_editor::OH_ArkUI_TextEditorPlaceholderOptions) object.
     ///
     /// * `fontFamily` - Pointer to the font family, containing the font names to be set. Different font names are
-    /// separated by commas (,).
+    ///   separated by commas (,).
     ///
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -2724,10 +2724,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>Returns [`ARKUI_ERROR_CODE_BUFFER_SIZE_ERROR`](crate::error_code::ArkUiErrorCode::BUFFER_SIZE_ERROR) if the value of **bufferSize** is less than that of **
-    /// writeLength**.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_BUFFER_SIZE_ERROR`](crate::error_code::ArkUiErrorCode::BUFFER_SIZE_ERROR) if the value of **bufferSize** is less than that of **
+    ///   writeLength**.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -2749,8 +2749,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -2770,8 +2770,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -2791,8 +2791,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -2812,8 +2812,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -2833,8 +2833,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -2854,8 +2854,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -2875,13 +2875,13 @@ extern "C" {
     /// * `end` - End position of the selected area.
     ///
     /// * `menuPolicy` - Policy for displaying the menu in the selected area. The value is an enumerated value of
-    /// [`ArkUI_MenuPolicy`](crate::native_type::ArkUI_MenuPolicy).
+    ///   [`ArkUI_MenuPolicy`](crate::native_type::ArkUI_MenuPolicy).
     ///
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -2899,13 +2899,13 @@ extern "C" {
     /// * `controller` - Pointer to the [`OH_ArkUI_TextEditorStyledStringController`](crate::node_attributes::rich_editor::OH_ArkUI_TextEditorStyledStringController) object.
     ///
     /// * `isEditing` - Pointer to the **isEditing** parameter indicating whether the text editor is in the editing state. *
-    /// *true** means that the text editor is in the editing state, and **false** means the opposite.
+    ///   *true** means that the text editor is in the editing state, and **false** means the opposite.
     ///
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -2923,8 +2923,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -2949,8 +2949,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -2969,13 +2969,13 @@ extern "C" {
     /// * `controller` - Pointer to the [`OH_ArkUI_TextEditorStyledStringController`](crate::node_attributes::rich_editor::OH_ArkUI_TextEditorStyledStringController) object.
     ///
     /// * `rect` - Pointer to the caret-selected rectangle information. The value is an enumerated value of
-    /// [`ArkUI_Rect`](crate::common_type::ArkUI_Rect).
+    ///   [`ArkUI_Rect`](crate::common_type::ArkUI_Rect).
     ///
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -2994,8 +2994,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -3014,8 +3014,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -3035,8 +3035,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -3056,8 +3056,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -3077,8 +3077,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -3098,8 +3098,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -3119,8 +3119,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -3140,8 +3140,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -3161,8 +3161,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -3182,8 +3182,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -3203,8 +3203,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -3220,13 +3220,13 @@ extern "C" {
     /// * `style` - Pointer to the [`OH_ArkUI_TextEditorParagraphStyle`](crate::node_attributes::rich_editor::OH_ArkUI_TextEditorParagraphStyle) object.
     ///
     /// * `lineBreakStrategy` - Line breaking strategy. The value is an enumerated value of
-    /// [`OH_ArkUI_LineBreakStrategy`](crate::node_attributes::text_common::OH_ArkUI_LineBreakStrategy).
+    ///   [`OH_ArkUI_LineBreakStrategy`](crate::node_attributes::text_common::OH_ArkUI_LineBreakStrategy).
     ///
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -3242,13 +3242,13 @@ extern "C" {
     /// * `style` - Pointer to the [`OH_ArkUI_TextEditorParagraphStyle`](crate::node_attributes::rich_editor::OH_ArkUI_TextEditorParagraphStyle) object.
     ///
     /// * `lineBreakStrategy` - Pointer to the line breaking strategy. The value is an enumerated value of
-    /// [`OH_ArkUI_LineBreakStrategy`](crate::node_attributes::text_common::OH_ArkUI_LineBreakStrategy).
+    ///   [`OH_ArkUI_LineBreakStrategy`](crate::node_attributes::text_common::OH_ArkUI_LineBreakStrategy).
     ///
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -3268,8 +3268,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -3289,8 +3289,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -3306,13 +3306,13 @@ extern "C" {
     /// * `style` - Pointer to the [`OH_ArkUI_TextEditorParagraphStyle`](crate::node_attributes::rich_editor::OH_ArkUI_TextEditorParagraphStyle) object.
     ///
     /// * `verticalAlignment` - Text vertical alignment mode. The value is an enumerated value of
-    /// [`ArkUI_TextVerticalAlignment`](crate::node_attributes::text_common::ArkUI_TextVerticalAlignment).
+    ///   [`ArkUI_TextVerticalAlignment`](crate::node_attributes::text_common::ArkUI_TextVerticalAlignment).
     ///
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -3328,13 +3328,13 @@ extern "C" {
     /// * `style` - Pointer to the [`OH_ArkUI_TextEditorParagraphStyle`](crate::node_attributes::rich_editor::OH_ArkUI_TextEditorParagraphStyle) object.
     ///
     /// * `verticalAlignment` - Text vertical alignment mode. The value is an enumerated value of
-    /// [`ArkUI_TextVerticalAlignment`](crate::node_attributes::text_common::ArkUI_TextVerticalAlignment).
+    ///   [`ArkUI_TextVerticalAlignment`](crate::node_attributes::text_common::ArkUI_TextVerticalAlignment).
     ///
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -3354,8 +3354,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -3375,8 +3375,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -3396,8 +3396,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -3417,8 +3417,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -3438,8 +3438,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -3459,8 +3459,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -3480,8 +3480,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -3501,8 +3501,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -3522,8 +3522,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -3539,13 +3539,13 @@ extern "C" {
     /// * `style` - Pointer to the text style of the **TextEditor** component.
     ///
     /// * `fontWeight` - Font weight. The value is an integer multiple of 100 within the \[100, 900\] range, for example, **
-    /// 100** or **900**.
+    ///   100** or **900**.
     ///
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -3561,13 +3561,13 @@ extern "C" {
     /// * `style` - Pointer to the text style of the **TextEditor** component.
     ///
     /// * `fontWeight` - Pointer to the font weight. The value is an integer multiple of 100 within the \[100, 900\] range,
-    /// for example, **100** or **900**.
+    ///   for example, **100** or **900**.
     ///
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -3583,13 +3583,13 @@ extern "C" {
     /// * `style` - Pointer to the text style of the **TextEditor** component.
     ///
     /// * `fontFamily` - Pointer to the font family, containing the font names to be set. Different font names are
-    /// separated by commas (,).
+    ///   separated by commas (,).
     ///
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -3613,8 +3613,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -3636,8 +3636,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -3657,8 +3657,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -3680,8 +3680,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -3706,8 +3706,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -3729,8 +3729,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -3750,8 +3750,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -3771,8 +3771,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -3792,8 +3792,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -3809,13 +3809,13 @@ extern "C" {
     /// * `style` - Pointer to the text style of the **TextEditor** component.
     ///
     /// * `fontFeature` - Pointer to the font features, containing font features to be set. Multiple features are separated
-    /// by commas (,).
+    ///   by commas (,).
     ///
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -3839,8 +3839,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -3858,13 +3858,13 @@ extern "C" {
     /// * `style` - Pointer to the text style of the **TextEditor** component.
     ///
     /// * `halfLeading` - Whether to enable half leading.
-    /// <br>**true** means to enable, and **false** means the opposite. The default value is **false**.
+    ///   <br>**true** means to enable, and **false** means the opposite. The default value is **false**.
     ///
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -3880,13 +3880,13 @@ extern "C" {
     /// * `style` - Pointer to the text style of the **TextEditor** component.
     ///
     /// * `halfLeading` - Pointer to the **halfLeading** parameter indicating whether to enable half leading.
-    /// <br>**true** means to enable, and **false** means the opposite. The default value is **false**.
+    ///   <br>**true** means to enable, and **false** means the opposite. The default value is **false**.
     ///
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -3906,8 +3906,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -3927,8 +3927,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -3954,8 +3954,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -3974,22 +3974,22 @@ extern "C" {
     /// * `style` - Pointer to the text style of the **TextEditor** component.
     ///
     /// * `topLeft` - Pointer to the radius of the rounded corner in the upper left corner of the text background. The unit
-    /// is vp.
+    ///   is vp.
     ///
     /// * `topRight` - Pointer to the radius of the rounded corner in the upper right corner of the text background. The
-    /// unit is vp.
+    ///   unit is vp.
     ///
     /// * `bottomLeft` - Pointer to the radius of the rounded corner in the lower left corner of the text background. The
-    /// unit is vp.
+    ///   unit is vp.
     ///
     /// * `bottomRight` - Pointer to the radius of the rounded corner in the lower right corner of the text background. The
-    /// unit is vp.
+    ///   unit is vp.
     ///
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -4012,8 +4012,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -4033,8 +4033,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -4054,8 +4054,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -4071,13 +4071,13 @@ extern "C" {
     /// * `options` - Pointer to the [`OH_ArkUI_TextEditorSelectionMenuOptions`](crate::node_attributes::rich_editor::OH_ArkUI_TextEditorSelectionMenuOptions) object.
     ///
     /// * `textEditorSpanType` - Pointer to the span type. The value is an enumerated value of
-    /// [`OH_ArkUI_TextEditorSpanType`](crate::node_attributes::rich_editor::OH_ArkUI_TextEditorSpanType).
+    ///   [`OH_ArkUI_TextEditorSpanType`](crate::node_attributes::rich_editor::OH_ArkUI_TextEditorSpanType).
     ///
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -4097,8 +4097,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -4118,8 +4118,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -4139,8 +4139,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -4156,13 +4156,13 @@ extern "C" {
     /// * `options` - Pointer to the [`OH_ArkUI_TextEditorSelectionMenuOptions`](crate::node_attributes::rich_editor::OH_ArkUI_TextEditorSelectionMenuOptions) object.
     ///
     /// * `responseType` - Pointer to the response type. The value is an enumerated value of
-    /// [`OH_ArkUI_TextEditorResponseType`](crate::node_attributes::rich_editor::OH_ArkUI_TextEditorResponseType).
+    ///   [`OH_ArkUI_TextEditorResponseType`](crate::node_attributes::rich_editor::OH_ArkUI_TextEditorResponseType).
     ///
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -4182,8 +4182,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -4203,8 +4203,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -4222,15 +4222,15 @@ extern "C" {
     /// * `userData` - Pointer to the user data.
     ///
     /// * `callback` - The callback function of menu show.
-    /// start The start offset of the selected content.
-    /// end The end offset of the selected content.
-    /// callbackUserData The user data.
+    ///   start The start offset of the selected content.
+    ///   end The end offset of the selected content.
+    ///   callbackUserData The user data.
     ///
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -4251,15 +4251,15 @@ extern "C" {
     /// * `userData` - Pointer to the user data.
     ///
     /// * `callback` - The callback function of menu hide.
-    /// start The start offset of the selected content.
-    /// end The end offset of the selected content.
-    /// userData The user data.
+    ///   start The start offset of the selected content.
+    ///   end The end offset of the selected content.
+    ///   userData The user data.
     ///
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -4280,15 +4280,15 @@ extern "C" {
     /// * `userData` - Pointer to the user data.
     ///
     /// * `callback` - The callback function of menu appear.
-    /// start The start offset of the selected content.
-    /// end The end offset of the selected content.
-    /// userData The user data.
+    ///   start The start offset of the selected content.
+    ///   end The end offset of the selected content.
+    ///   userData The user data.
     ///
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -4309,13 +4309,13 @@ extern "C" {
     /// * `userData` - Pointer to the user data.
     ///
     /// * `callback` - The callback function of menu disappear.
-    /// userData The user data.
+    ///   userData The user data.
     ///
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -4338,8 +4338,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -4355,13 +4355,13 @@ extern "C" {
     /// * `options` - Pointer to the [`OH_ArkUI_TextEditorSelectionMenuOptions`](crate::node_attributes::rich_editor::OH_ArkUI_TextEditorSelectionMenuOptions) object.
     ///
     /// * `mode` - Pointer to the haptic feedback mode. The value is an enumerated value of
-    /// [`OH_ArkUI_HapticFeedbackMode`](crate::node_attributes::rich_editor::OH_ArkUI_HapticFeedbackMode).
+    ///   [`OH_ArkUI_HapticFeedbackMode`](crate::node_attributes::rich_editor::OH_ArkUI_HapticFeedbackMode).
     ///
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -4379,8 +4379,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -4403,8 +4403,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -4427,8 +4427,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -4450,8 +4450,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -4473,8 +4473,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -4496,8 +4496,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///   Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]
@@ -4518,9 +4518,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if success.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) The parameters set need to be consistent with
-    /// the type of the created instance. If they are not consistent, this error code will be returned.
-    /// This interface only takes effect when the type is "background".
+    ///   Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) The parameters set need to be consistent with
+    ///   the type of the created instance. If they are not consistent, this error code will be returned.
+    ///   This interface only takes effect when the type is "background".
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -4540,9 +4540,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if success.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) The parameters set need to be consistent with
-    /// the type of the created instance. If they are not consistent, this error code will be returned.
-    /// This interface only takes effect when the type is "divider".
+    ///   Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) The parameters set need to be consistent with
+    ///   the type of the created instance. If they are not consistent, this error code will be returned.
+    ///   This interface only takes effect when the type is "divider".
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -4558,7 +4558,7 @@ extern "C" {
     /// * `option` - The cross-language option.
     ///
     /// * `status` - The tree operating status to be set for the cross-language option.
-    /// Default value: OH_ARKUI_TREE_OPERATING_STATUS_UNDEFINED.
+    ///   Default value: OH_ARKUI_TREE_OPERATING_STATUS_UNDEFINED.
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]
@@ -4650,7 +4650,7 @@ extern "C" {
     /// * `options` - Pointer to the <b>OH_ArkUI_LinearGradientOptions</b> object.
     ///
     /// * `direction` - Direction of linear gradient.
-    /// The parameter type is [`ArkUI_LinearGradientDirection`](crate::native_type_visual::ArkUI_LinearGradientDirection).
+    ///   The parameter type is [`ArkUI_LinearGradientDirection`](crate::native_type_visual::ArkUI_LinearGradientDirection).
     ///
     /// # Returns
     ///
@@ -4670,7 +4670,7 @@ extern "C" {
     /// * `options` - Pointer to the <b>OH_ArkUI_LinearGradientOptions</b> object.
     ///
     /// * `direction` - Pointer to the direction of linear gradient.
-    /// The parameter type is [`ArkUI_LinearGradientDirection`](crate::native_type_visual::ArkUI_LinearGradientDirection).
+    ///   The parameter type is [`ArkUI_LinearGradientDirection`](crate::native_type_visual::ArkUI_LinearGradientDirection).
     ///
     /// # Returns
     ///
@@ -4732,7 +4732,7 @@ extern "C" {
     /// * `stops` - Pointer to the stop array.
     ///
     /// * `colorsAndStopsSize` - Number of elements in colors and stops.
-    /// The number of elements in colors and stops must be the same.
+    ///   The number of elements in colors and stops must be the same.
     ///
     /// # Returns
     ///
@@ -4758,17 +4758,17 @@ extern "C" {
     /// * `stops` - Buffer pointer to the stop array.
     ///
     /// * `colorsAndStopsSize` - Buffer size reserved for color stops by developer.
-    /// The number of elements in colors and stops must be the same.
-    /// It should be larger than writeLength,
-    /// otherwise the operation will return ARKUI_ERROR_CODE_PARAM_INVALID.
+    ///   The number of elements in colors and stops must be the same.
+    ///   It should be larger than writeLength,
+    ///   otherwise the operation will return ARKUI_ERROR_CODE_PARAM_INVALID.
     ///
     /// * `writeLength` - Number of color stops actually written.
     ///
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///   Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]
@@ -4965,7 +4965,7 @@ extern "C" {
     /// * `stops` - Pointer to the stop array.
     ///
     /// * `colorsAndStopsSize` - Number of elements in colors and stops.
-    /// The number of elements in colors and stops must be the same.
+    ///   The number of elements in colors and stops must be the same.
     ///
     /// # Returns
     ///
@@ -4991,17 +4991,17 @@ extern "C" {
     /// * `stops` - Buffer pointer to the stop array.
     ///
     /// * `colorsAndStopsSize` - Buffer size reserved for color stops by developer.
-    /// The number of elements in colors and stops must be the same.
-    /// It should be larger than writeLength,
-    /// otherwise the operation will return ARKUI_ERROR_CODE_PARAM_INVALID.
+    ///   The number of elements in colors and stops must be the same.
+    ///   It should be larger than writeLength,
+    ///   otherwise the operation will return ARKUI_ERROR_CODE_PARAM_INVALID.
     ///
     /// * `writeLength` - Number of color stops actually written.
     ///
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    ///   Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]

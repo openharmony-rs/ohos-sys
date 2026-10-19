@@ -88,8 +88,8 @@ extern "C" {
     /// * `paramsType` - \[in\] Cipher parameter type to set.
     ///
     /// * `value` - \[in\] Parameter value. This function performs a shallow copy and does not copy the
-    /// data in value. The caller must ensure that the memory pointed to by value remains valid until
-    /// [`OH_CryptoSymCipher_Init`](crate::sym_cipher::OH_CryptoSymCipher_Init) completes. Cannot be NULL.
+    ///   data in value. The caller must ensure that the memory pointed to by value remains valid until
+    ///   [`OH_CryptoSymCipher_Init`](crate::sym_cipher::OH_CryptoSymCipher_Init) completes. Cannot be NULL.
     ///
     /// # Returns
     ///
@@ -120,37 +120,37 @@ extern "C" {
     /// # Arguments
     ///
     /// * `algoName` - \[in\] Symmetric cipher algorithm name. Cannot be NULL. Format: "Algorithm|Mode|Padding",
-    /// separated by "|". Algorithms: AES128, AES192, AES256, SM4_128, 3DES192, DES64, ChaCha20, RC2,
-    /// Blowfish, CAST. Modes: ECB, CBC, CTR, OFB, CFB, CFB1, CFB8, CFB64, CFB128, GCM, CCM, XTS,
-    /// Poly1305. Padding: NoPadding, PKCS5, PKCS7. Supported combinations:
+    ///   separated by "|". Algorithms: AES128, AES192, AES256, SM4_128, 3DES192, DES64, ChaCha20, RC2,
+    ///   Blowfish, CAST. Modes: ECB, CBC, CTR, OFB, CFB, CFB1, CFB8, CFB64, CFB128, GCM, CCM, XTS,
+    ///   Poly1305. Padding: NoPadding, PKCS5, PKCS7. Supported combinations:
     /// - AES series since API version 12: AES128, AES192, AES256 algorithms, ECB, CBC, CTR, OFB, CFB,
-    /// GCM, CCM modes, NoPadding or PKCS7. Examples: "AES128|GCM", "AES256|CBC|PKCS7".
+    ///   GCM, CCM modes, NoPadding or PKCS7. Examples: "AES128|GCM", "AES256|CBC|PKCS7".
     /// - 3DES series since API version 12: 3DES192 algorithm, ECB, CBC, OFB, CFB modes, NoPadding,
-    /// PKCS5, or PKCS7. Example: "3DES192|CBC|PKCS5".
+    ///   PKCS5, or PKCS7. Example: "3DES192|CBC|PKCS5".
     /// - SM4 series since API version 12: SM4_128 algorithm, ECB, CBC, CTR, OFB, CFB, CFB128, GCM modes,
-    /// NoPadding or PKCS7. Examples: "SM4_128|CBC|PKCS7", "SM4_128|GCM|NoPadding".
+    ///   NoPadding or PKCS7. Examples: "SM4_128|CBC|PKCS7", "SM4_128|GCM|NoPadding".
     /// - DES series since API version 20: DES64 algorithm, ECB, CBC, OFB, CFB modes, NoPadding,
-    /// PKCS5, or PKCS7. Example: "DES64|CBC|PKCS5".
+    ///   PKCS5, or PKCS7. Example: "DES64|CBC|PKCS5".
     /// - AES WRAP algorithms since API version 22: AES128_WRAP, AES192_WRAP, AES256_WRAP.
-    /// Examples: "AES128_WRAP", "AES192_WRAP", "AES256_WRAP".
+    ///   Examples: "AES128_WRAP", "AES192_WRAP", "AES256_WRAP".
     /// - ChaCha20 since API version 22: "ChaCha20", "ChaCha20|Poly1305".
-    /// Examples: "ChaCha20|Poly1305", "ChaCha20".
+    ///   Examples: "ChaCha20|Poly1305", "ChaCha20".
     /// - AES XTS mode since API version 26.0.0: "AES128|XTS", "AES256|XTS". AES192 is not supported.
     /// - RC2 since API version 26.0.0: ECB, CBC, OFB, CFB modes, NoPadding, PKCS5, or PKCS7. Example: "RC2|CBC|PKCS5".
     /// - RC4 since API version 26.0.0: "RC4". Example: "RC4".
     /// - Blowfish since API version 26.0.0: ECB, CBC, OFB, CFB modes, NoPadding, PKCS5, or PKCS7.
-    /// Example: "Blowfish|CBC|PKCS5".
+    ///   Example: "Blowfish|CBC|PKCS5".
     /// - CAST since API version 26.0.0: ECB, CBC, OFB, CFB modes, NoPadding, PKCS5, or PKCS7. Example: "CAST|CBC|PKCS5".
-    /// Padding notes:
+    ///   Padding notes:
     /// - ECB and CBC modes require padding: when plaintext length is not a multiple of the algorithm block size,
-    /// PKCS5 or PKCS7 must be used; with NoPadding, input length must be a multiple of the
-    /// block size (16 bytes for AES/SM4, 8 bytes for DES/3DES/RC2/Blowfish/CAST).
+    ///   PKCS5 or PKCS7 must be used; with NoPadding, input length must be a multiple of the
+    ///   block size (16 bytes for AES/SM4, 8 bytes for DES/3DES/RC2/Blowfish/CAST).
     /// - CTR, OFB, CFB, CFB1, CFB8, CFB64, CFB128, GCM, CCM modes convert block ciphers to stream
-    /// mode and do not need padding. Any specified padding is treated as NoPadding.
+    ///   mode and do not need padding. Any specified padding is treated as NoPadding.
     /// - XTS mode does not involve padding and does not require a padding field. Any specified padding is treated
-    /// as NoPadding.
+    ///   as NoPadding.
     /// - ChaCha20 is a stream cipher algorithm and does not require a padding field. Any specified padding is treated
-    /// as NoPadding.
+    ///   as NoPadding.
     ///
     /// * `ctx` - \[out\] Pointer to the symmetric cipher context pointer. ctx cannot be NULL, *ctx must be NULL.
     ///
@@ -215,7 +215,7 @@ extern "C" {
     /// * `in` - \[in\] Data to be encrypted or decrypted. Cannot be NULL.
     ///
     /// * `out` - \[out\] Pointer to the Crypto_DataBlob structure for storing the updated data. Cannot be NULL. Initialize
-    /// out to {0} before calling. Do not pre-allocate out->data.
+    ///   out to {0} before calling. Do not pre-allocate out->data.
     ///
     /// # Returns
     ///
@@ -244,10 +244,10 @@ extern "C" {
     /// * `ctx` - \[in\] Symmetric cipher context. Cannot be NULL.
     ///
     /// * `in` - \[in\] Data to be encrypted or decrypted. Can be NULL if all data has been updated via
-    /// [`OH_CryptoSymCipher_Update`](crate::sym_cipher::OH_CryptoSymCipher_Update).
+    ///   [`OH_CryptoSymCipher_Update`](crate::sym_cipher::OH_CryptoSymCipher_Update).
     ///
     /// * `out` - \[out\] Pointer to the Crypto_DataBlob structure for storing the final result. Cannot be NULL. Initialize
-    /// out to {0} before calling. Do not pre-allocate out->data.
+    ///   out to {0} before calling. Do not pre-allocate out->data.
     ///
     /// # Returns
     ///
@@ -276,7 +276,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the symmetric cipher algorithm name. No need to free by the caller. Invalid after
-    /// the context is destroyed.
+    ///   the context is destroyed.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]

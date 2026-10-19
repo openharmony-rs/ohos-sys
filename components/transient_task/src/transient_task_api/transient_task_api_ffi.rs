@@ -13,7 +13,7 @@ extern "C" {
     /// * `reason` - Reason for requesting the transient task.
     ///
     /// * `callback` - Callback used to notify the application that the transient task is about to time out. Generally, the
-    /// callback is invoked 6 seconds before the timeout.
+    ///   callback is invoked 6 seconds before the timeout.
     ///
     /// * `info` - Indicates the info of delay request.
     ///
@@ -97,7 +97,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `transientTaskInfo` - All information about a transient task. For details, see
-    /// [`TransientTask_TransientTaskInfo`](crate::transient_task_type::TransientTask_TransientTaskInfo).
+    ///   [`TransientTask_TransientTaskInfo`](crate::transient_task_type::TransientTask_TransientTaskInfo).
     ///
     /// # Returns
     ///

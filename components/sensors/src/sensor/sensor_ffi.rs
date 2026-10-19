@@ -17,9 +17,9 @@ extern "C" {
     /// # Returns
     ///
     /// * **SENSOR_SUCCESS** if the operation is successful; an error code defined in [`Sensor_Result`](crate::sensor_type::Sensor_Result) otherwise.
-    /// The error code can be:
+    ///   The error code can be:
     /// - [`SENSOR_PARAMETER_ERROR`](crate::sensor_type::Sensor_Result::SENSOR_PARAMETER_ERROR) if the parameter verification fails. For example, the parameter is invalid or the
-    /// parameter type is incorrect.
+    ///   parameter type is incorrect.
     /// - [`SENSOR_SERVICE_EXCEPTION`](crate::sensor_type::Sensor_Result::SENSOR_SERVICE_EXCEPTION) if the sensor service is abnormal.
     ///
     /// Available since API-level: 11
@@ -39,18 +39,18 @@ extern "C" {
     /// * `id` - Pointer to the sensor subscription ID. For details, see [`Sensor_SubscriptionId`](crate::sensor_type::Sensor_SubscriptionId).
     ///
     /// * `attribute` - Pointer to the subscription attribute, which is used to specify the data reporting frequency. For
-    /// details, see [`Sensor_SubscriptionAttribute`](crate::sensor_type::Sensor_SubscriptionAttribute).
+    ///   details, see [`Sensor_SubscriptionAttribute`](crate::sensor_type::Sensor_SubscriptionAttribute).
     ///
     /// * `subscriber` - Pointer to the subscriber information, which is used by the callback function to report sensor
-    /// data. For details, see [`Sensor_Subscriber`](crate::sensor_type::Sensor_Subscriber).
+    ///   data. For details, see [`Sensor_Subscriber`](crate::sensor_type::Sensor_Subscriber).
     ///
     /// # Returns
     ///
     /// * **SENSOR_SUCCESS** if the operation is successful; an error code defined in [`Sensor_Result`](crate::sensor_type::Sensor_Result) otherwise.
-    /// The error code can be:
+    ///   The error code can be:
     /// - [`SENSOR_PERMISSION_DENIED`](crate::sensor_type::Sensor_Result::SENSOR_PERMISSION_DENIED) if the permission verification fails.
     /// - [`SENSOR_PARAMETER_ERROR`](crate::sensor_type::Sensor_Result::SENSOR_PARAMETER_ERROR) if the parameter verification fails. For example, the parameter is invalid or the
-    /// parameter type is incorrect.
+    ///   parameter type is incorrect.
     /// - [`SENSOR_SERVICE_EXCEPTION`](crate::sensor_type::Sensor_Result::SENSOR_SERVICE_EXCEPTION) if the sensor service is abnormal.
     ///
     /// Required Permissions: ohos.permission.ACCELEROMETER or ohos.permission.GYROSCOPE or
@@ -76,15 +76,15 @@ extern "C" {
     /// * `id` - Pointer to the sensor subscription ID. For details, see [`Sensor_SubscriptionId`](crate::sensor_type::Sensor_SubscriptionId).
     ///
     /// * `subscriber` - Pointer to the subscriber information, which is used by the callback function to report sensor
-    /// data. For details, see [`Sensor_Subscriber`](crate::sensor_type::Sensor_Subscriber).
+    ///   data. For details, see [`Sensor_Subscriber`](crate::sensor_type::Sensor_Subscriber).
     ///
     /// # Returns
     ///
     /// * **SENSOR_SUCCESS** if the operation is successful; an error code defined in [`Sensor_Result`](crate::sensor_type::Sensor_Result) otherwise.
-    /// The error code can be:
+    ///   The error code can be:
     /// - [`SENSOR_PERMISSION_DENIED`](crate::sensor_type::Sensor_Result::SENSOR_PERMISSION_DENIED) if the permission verification fails.
     /// - [`SENSOR_PARAMETER_ERROR`](crate::sensor_type::Sensor_Result::SENSOR_PARAMETER_ERROR) if the parameter verification fails. For example, the parameter is invalid or the
-    /// parameter type is incorrect.
+    ///   parameter type is incorrect.
     /// - [`SENSOR_SERVICE_EXCEPTION`](crate::sensor_type::Sensor_Result::SENSOR_SERVICE_EXCEPTION) if the sensor service is abnormal.
     ///
     /// Required Permissions: ohos.permission.ACCELEROMETER or ohos.permission.GYROSCOPE or

@@ -29,7 +29,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `drawingFontMgr` - Pointer to an [`OH_Drawing_FontMgr`](crate::types::OH_Drawing_FontMgr) object, which is obtained from
-    /// [`OH_Drawing_FontMgrCreate`](crate::font_mgr::OH_Drawing_FontMgrCreate).
+    ///   [`OH_Drawing_FontMgrCreate`](crate::font_mgr::OH_Drawing_FontMgrCreate).
     ///
     /// Available since API-level: 12
     ///
@@ -44,7 +44,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `drawingFontMgr` - Pointer to an [`OH_Drawing_FontMgr`](crate::types::OH_Drawing_FontMgr) object, which is obtained from
-    /// [`OH_Drawing_FontMgrCreate`](crate::font_mgr::OH_Drawing_FontMgrCreate).
+    ///   [`OH_Drawing_FontMgrCreate`](crate::font_mgr::OH_Drawing_FontMgrCreate).
     ///
     /// # Returns
     ///
@@ -66,15 +66,15 @@ extern "C" {
     /// # Arguments
     ///
     /// * `drawingFontMgr` - Pointer to an [`OH_Drawing_FontMgr`](crate::types::OH_Drawing_FontMgr) object, which is obtained from
-    /// [`OH_Drawing_FontMgrCreate`](crate::font_mgr::OH_Drawing_FontMgrCreate).
+    ///   [`OH_Drawing_FontMgrCreate`](crate::font_mgr::OH_Drawing_FontMgrCreate).
     ///
     /// * `index` - Index used to obtain the corresponding font family name. The value range is \[0,
-    /// OH_Drawing_FontMgrGetFamilyCount() - 1\].
+    ///   OH_Drawing_FontMgrGetFamilyCount() - 1\].
     ///
     /// # Returns
     ///
     /// * Font family name corresponding to the index. When no longer needed, use
-    /// [`OH_Drawing_FontMgrDestroyFamilyName`](crate::font_mgr::OH_Drawing_FontMgrDestroyFamilyName) to release the memory occupied by the name.
+    ///   [`OH_Drawing_FontMgrDestroyFamilyName`](crate::font_mgr::OH_Drawing_FontMgrDestroyFamilyName) to release the memory occupied by the name.
     ///
     /// Available since API-level: 12
     ///
@@ -106,10 +106,10 @@ extern "C" {
     /// # Arguments
     ///
     /// * `drawingFontMgr` - Pointer to an [`OH_Drawing_FontMgr`](crate::types::OH_Drawing_FontMgr) object, which is obtained from
-    /// [`OH_Drawing_FontMgrCreate`](crate::font_mgr::OH_Drawing_FontMgrCreate).
+    ///   [`OH_Drawing_FontMgrCreate`](crate::font_mgr::OH_Drawing_FontMgrCreate).
     ///
     /// * `index` - Index value used to obtain the font style set object from the font manager object. Value range: \[0,
-    /// OH_Drawing_FontMgrGetFamilyCount() - 1\].
+    ///   OH_Drawing_FontMgrGetFamilyCount() - 1\].
     ///
     /// # Returns
     ///
@@ -146,15 +146,15 @@ extern "C" {
     /// # Arguments
     ///
     /// * `drawingFontMgr` - Pointer to an [`OH_Drawing_FontMgr`](crate::types::OH_Drawing_FontMgr) object, which is obtained from
-    /// [`OH_Drawing_FontMgrCreate`](crate::font_mgr::OH_Drawing_FontMgrCreate).
+    ///   [`OH_Drawing_FontMgrCreate`](crate::font_mgr::OH_Drawing_FontMgrCreate).
     ///
     /// * `familyName` - Pointer to a font family name.
     ///
     /// # Returns
     ///
     /// * Pointer to the corresponding font style set object [`OH_Drawing_FontStyleSet`](crate::types::OH_Drawing_FontStyleSet). When no longer needed,
-    /// use [`OH_Drawing_FontMgrDestroyFontStyleSet`](crate::font_mgr::OH_Drawing_FontMgrDestroyFontStyleSet) to release the object pointer. <br>NULL is returned if
-    /// matching fails.
+    ///   use [`OH_Drawing_FontMgrDestroyFontStyleSet`](crate::font_mgr::OH_Drawing_FontMgrDestroyFontStyleSet) to release the object pointer. <br>NULL is returned if
+    ///   matching fails.
     ///
     /// Available since API-level: 12
     ///
@@ -173,7 +173,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `drawingFontMgr` - Pointer to an [`OH_Drawing_FontMgr`](crate::types::OH_Drawing_FontMgr) object, which is obtained from
-    /// [`OH_Drawing_FontMgrCreate`](crate::font_mgr::OH_Drawing_FontMgrCreate).
+    ///   [`OH_Drawing_FontMgrCreate`](crate::font_mgr::OH_Drawing_FontMgrCreate).
     ///
     /// * `familyName` - Pointer to a font family name.
     ///
@@ -182,8 +182,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Pointer to the [`OH_Drawing_Typeface`](crate::types::OH_Drawing_Typeface) object corresponding to the font style. Use
-    /// [`OH_Drawing_TypefaceDestroy`](crate::typeface::OH_Drawing_TypefaceDestroy) to release the pointer when it is no longer needed. <br>NULL is returned if
-    /// the match fails.
+    ///   [`OH_Drawing_TypefaceDestroy`](crate::typeface::OH_Drawing_TypefaceDestroy) to release the pointer when it is no longer needed. <br>NULL is returned if
+    ///   the match fails.
     ///
     /// Available since API-level: 12
     ///
@@ -204,7 +204,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `drawingFontMgr` - Pointer to an [`OH_Drawing_FontMgr`](crate::types::OH_Drawing_FontMgr) object, which is obtained from
-    /// [`OH_Drawing_FontMgrCreate`](crate::font_mgr::OH_Drawing_FontMgrCreate).
+    ///   [`OH_Drawing_FontMgrCreate`](crate::font_mgr::OH_Drawing_FontMgrCreate).
     ///
     /// * `familyName` - Pointer to a font family name.
     ///
@@ -269,7 +269,7 @@ extern "C" {
     /// * `index` - Index of the specified font style. The value range is \[0, OH_Drawing_FontStyleSetCount() - 1\].
     ///
     /// * `styleName` - String specifying the font style name. Call [`OH_Drawing_FontStyleSetFreeStyleName`](crate::font_mgr::OH_Drawing_FontStyleSetFreeStyleName) to release
-    /// it when it is no longer needed, freeing up the allocated memory.
+    ///   it when it is no longer needed, freeing up the allocated memory.
     ///
     /// # Returns
     ///

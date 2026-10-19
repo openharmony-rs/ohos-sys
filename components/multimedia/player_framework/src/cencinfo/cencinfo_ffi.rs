@@ -101,8 +101,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Pointer to the OH_AVCencInfo instance created. If the operation fails, nullptr is returned.
-    /// <br>The possible causes of an operation failure are as follows: The application address space is full,
-    /// or the data in the object fails to be initialized.
+    ///   <br>The possible causes of an operation failure are as follows: The application address space is full,
+    ///   or the data in the object fails to be initialized.
     ///
     /// Available since API-level: 12
     ///
@@ -122,7 +122,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The value of **cencInfo** is null.
+    ///   <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The value of **cencInfo** is null.
     ///
     /// Available since API-level: 12
     ///
@@ -141,7 +141,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The value of **cencInfo** is null.
+    ///   <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The value of **cencInfo** is null.
     ///
     /// Available since API-level: 12
     ///
@@ -169,9 +169,9 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The value of **cencInfo**, **keyId**, or **iv** is null,
-    /// **keyIdLen** is not equal to **DRM_KEY_ID_SIZE**, **ivLen** is not equal to **DRM_KEY_IV_SIZE**,
-    /// the key ID or IV fails to be copied.
+    ///   <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The value of **cencInfo**, **keyId**, or **iv** is null,
+    ///   **keyIdLen** is not equal to **DRM_KEY_ID_SIZE**, **ivLen** is not equal to **DRM_KEY_IV_SIZE**,
+    ///   the key ID or IV fails to be copied.
     ///
     /// Available since API-level: 12
     ///
@@ -204,8 +204,8 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The value of **cencInfo** is null, **subsampleCount** is greater than
-    /// **DRM_KEY_MAX_SUB_SAMPLE_NUM**, or **subsamples** is null.
+    ///   <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The value of **cencInfo** is null, **subsampleCount** is greater than
+    ///   **DRM_KEY_MAX_SUB_SAMPLE_NUM**, or **subsamples** is null.
     ///
     /// Available since API-level: 12
     ///
@@ -231,7 +231,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The value of **cencInfo** is null.
+    ///   <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The value of **cencInfo** is null.
     ///
     /// Available since API-level: 12
     ///
@@ -253,8 +253,8 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The value of **cencInfo**, **buffer**, **buffer->buffer_**,
-    /// or **buffer->buffer_->meta_** is null.
+    ///   <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The value of **cencInfo**, **buffer**, **buffer->buffer_**,
+    ///   or **buffer->buffer_->meta_** is null.
     ///
     /// Available since API-level: 12
     ///

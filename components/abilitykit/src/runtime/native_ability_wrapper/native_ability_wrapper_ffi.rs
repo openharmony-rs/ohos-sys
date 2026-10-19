@@ -25,16 +25,16 @@ extern "C" {
     /// * `nativeAbilityWrapper` - The native ability wrapper pointer.
     ///
     /// * `buffer` - A pointer to a buffer that receives the instance ID string which is UUID format,
-    /// an amount of 37 bytes, 36 chars plus an ending '\0'.
+    ///   an amount of 37 bytes, 36 chars plus an ending '\0'.
     ///
     /// * `bufferSize` - The length of the buffer, must be at least 37.
     ///
     /// # Returns
     ///
     /// * The error code.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the nativeAbilityWrapper or buffer is null,
-    /// or the buffer size is less than 37.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the nativeAbilityWrapper or buffer is null,
+    ///   or the buffer size is less than 37.
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]
@@ -51,7 +51,7 @@ extern "C" {
     /// * `nativeAbilityWrapper` - The native ability wrapper pointer.
     ///
     /// * `buffer` - A pointer to a buffer that receives the ability name.
-    /// Pass nullptr to query the ability name length.
+    ///   Pass nullptr to query the ability name length.
     ///
     /// * `bufferSize` - The length of the buffer. Make sure the buffer has at least one more byte for '\0'.
     ///
@@ -60,12 +60,12 @@ extern "C" {
     /// # Returns
     ///
     /// * The error code.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the nativeAbilityWrapper or writeLength is null,
-    /// or the buffer is too small for the ability name.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_ABILITY_WRAPPER_INVALID`](crate::runtime::AbilityRuntimeErrorCode::ABILITY_WRAPPER_INVALID) if the native ability wrapper is invalid or
-    /// incomplete.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_INTERNAL`](crate::runtime::AbilityRuntimeErrorCode::INTERNAL) inner error.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the nativeAbilityWrapper or writeLength is null,
+    ///   or the buffer is too small for the ability name.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_ABILITY_WRAPPER_INVALID`](crate::runtime::AbilityRuntimeErrorCode::ABILITY_WRAPPER_INVALID) if the native ability wrapper is invalid or
+    ///   incomplete.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_INTERNAL`](crate::runtime::AbilityRuntimeErrorCode::INTERNAL) inner error.
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]
@@ -87,10 +87,10 @@ extern "C" {
     /// # Returns
     ///
     /// * The error code.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the nativeAbilityWrapper or env is null.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_ABILITY_WRAPPER_INVALID`](crate::runtime::AbilityRuntimeErrorCode::ABILITY_WRAPPER_INVALID) if the native ability wrapper is invalid or
-    /// incomplete.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the nativeAbilityWrapper or env is null.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_ABILITY_WRAPPER_INVALID`](crate::runtime::AbilityRuntimeErrorCode::ABILITY_WRAPPER_INVALID) if the native ability wrapper is invalid or
+    ///   incomplete.
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]

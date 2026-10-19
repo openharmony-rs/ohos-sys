@@ -73,12 +73,12 @@ extern "C" {
     /// * `algoName` - \[in\] Asymmetric cipher algorithm name. Cannot be NULL. Values:
     /// - RSA algorithm PKCS1 padding mode: "RSA|PKCS1".
     /// - RSA algorithm OAEP padding mode: Format "RSA|PKCS1_OAEP|Digest|MGF1Digest",
-    /// e.g. "RSA|PKCS1_OAEP|SHA256|MGF1_SHA256".
-    /// Digest supports "MD5", "SHA1", "SHA224", "SHA256", "SHA384", "SHA512".
-    /// MGF1 digest supports "MGF1_SHA1", "MGF1_SHA224", "MGF1_SHA256", "MGF1_SHA384", "MGF1_SHA512".
+    ///   e.g. "RSA|PKCS1_OAEP|SHA256|MGF1_SHA256".
+    ///   Digest supports "MD5", "SHA1", "SHA224", "SHA256", "SHA384", "SHA512".
+    ///   MGF1 digest supports "MGF1_SHA1", "MGF1_SHA224", "MGF1_SHA256", "MGF1_SHA384", "MGF1_SHA512".
     /// - RSA algorithm NoPadding padding mode: "RSA|NoPadding".
     /// - SM2 algorithm: Format "SM2|Digest", e.g. "SM2|SM3".
-    /// Digest supports "MD5", "SHA1", "SHA224", "SHA256", "SHA384", "SHA512", "SM3".
+    ///   Digest supports "MD5", "SHA1", "SHA224", "SHA256", "SHA384", "SHA512", "SM3".
     ///
     /// * `ctx` - \[out\] Pointer to the asymmetric cipher context pointer. ctx cannot be NULL, *ctx must be NULL.
     ///
@@ -136,7 +136,7 @@ extern "C" {
     /// * `in` - \[in\] Data to be encrypted or decrypted. Cannot be NULL.
     ///
     /// * `out` - \[out\] Pointer to the Crypto_DataBlob structure for storing the encrypted or decrypted result. Cannot be
-    /// NULL. Initialize out to {0} before calling. Do not pre-allocate out->data.
+    ///   NULL. Initialize out to {0} before calling. Do not pre-allocate out->data.
     ///
     /// # Returns
     ///
@@ -201,7 +201,7 @@ extern "C" {
     /// * `item` - \[in\] SM2 ciphertext specification item.
     ///
     /// * `out` - \[out\] Pointer to the Crypto_DataBlob structure for storing the output data. Cannot be NULL. Initialize out
-    /// to {0} before calling. Do not pre-allocate out->data.
+    ///   to {0} before calling. Do not pre-allocate out->data.
     ///
     /// # Returns
     ///
@@ -229,7 +229,7 @@ extern "C" {
     /// * `item` - \[in\] SM2 ciphertext specification item.
     ///
     /// * `in` - \[in\] Input data. Cannot be NULL. This function performs a deep copy of the input data.
-    /// The caller can release in immediately after the function returns.
+    ///   The caller can release in immediately after the function returns.
     ///
     /// # Returns
     ///
@@ -255,7 +255,7 @@ extern "C" {
     /// * `spec` - \[in\] SM2 ciphertext specification. Cannot be NULL.
     ///
     /// * `out` - \[out\] Pointer to the Crypto_DataBlob structure for storing the encoded data. Cannot be NULL. Initialize
-    /// out to {0} before calling. Do not pre-allocate out->data.
+    ///   out to {0} before calling. Do not pre-allocate out->data.
     ///
     /// # Returns
     ///

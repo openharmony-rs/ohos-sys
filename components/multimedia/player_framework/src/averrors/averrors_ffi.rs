@@ -164,7 +164,7 @@ impl OH_AVErrCode {
     /// - For video encoders: Call [`OH_VideoEncoder_GetOutputDescription`](crate::avcodec_videoencoder::OH_VideoEncoder_GetOutputDescription)
     /// - For video decoders: Call [`OH_VideoDecoder_GetOutputDescription`](crate::avcodec_videodecoder::OH_VideoDecoder_GetOutputDescription)
     /// - For audio decoders : Call [`OH_AudioCodec_GetOutputDescription`](crate::avcodec_audiocodec::OH_AudioCodec_GetOutputDescription)
-    /// to retrieve updated stream configuration.
+    ///   to retrieve updated stream configuration.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]

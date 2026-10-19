@@ -58,8 +58,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a pointer to an OH_AVFormat instance containing track description for success, nullptr for failure.
-    /// Possible failure causes: extractor is nullptr, no source set, or format is unsupported.
-    /// Note: User need release OH_AVFormat by [`OH_AVFormat_Destroy`](crate::avformat::OH_AVFormat_Destroy) after use.
+    ///   Possible failure causes: extractor is nullptr, no source set, or format is unsupported.
+    ///   Note: User need release OH_AVFormat by [`OH_AVFormat_Destroy`](crate::avformat::OH_AVFormat_Destroy) after use.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -77,8 +77,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a pointer to an OH_AVFormat instance containing custom metadata for success, nullptr for failure.
-    /// Possible failure causes: extractor is nullptr, no source set, or custom info not found.
-    /// Note: User need release OH_AVFormat by [`OH_AVFormat_Destroy`](crate::avformat::OH_AVFormat_Destroy) after use.
+    ///   Possible failure causes: extractor is nullptr, no source set, or custom info not found.
+    ///   Note: User need release OH_AVFormat by [`OH_AVFormat_Destroy`](crate::avformat::OH_AVFormat_Destroy) after use.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -97,8 +97,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): input extractor is nullptr or input source is invalid.
+    ///   [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): the execution is successful.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): input extractor is nullptr or input source is invalid.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -113,7 +113,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a pointer to an OH_AVMetadataExtractor instance for success, nullptr for failure
-    /// Possible failure causes: failed to HstEngineFactory::CreateAVMetadataHelperEngine.
+    ///   Possible failure causes: failed to HstEngineFactory::CreateAVMetadataHelperEngine.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -134,10 +134,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): input extractor is nullptr or input param is invalid.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): operation not allowed.
-    /// [`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): internal memory allocation failed.
+    ///   [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): the execution is successful.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): input extractor is nullptr or input param is invalid.
+    ///   [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): operation not allowed.
+    ///   [`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): internal memory allocation failed.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -160,12 +160,12 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): input extractor is nullptr or input param is invalid.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): operation not allowed.
-    /// [`AV_ERR_UNSUPPORTED_FORMAT`](crate::averrors::OH_AVErrCode::AV_ERR_UNSUPPORTED_FORMAT): format is unsupported.
-    /// [`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): internal memory allocation failed.
-    /// [`AV_ERR_IO_CLEARTEXT_NOT_PERMITTED`](crate::averrors::OH_AVErrCode::AV_ERR_IO_CLEARTEXT_NOT_PERMITTED): http cleartext traffic is not permitted. Add since api 23.
+    ///   [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): the execution is successful.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): input extractor is nullptr or input param is invalid.
+    ///   [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): operation not allowed.
+    ///   [`AV_ERR_UNSUPPORTED_FORMAT`](crate::averrors::OH_AVErrCode::AV_ERR_UNSUPPORTED_FORMAT): format is unsupported.
+    ///   [`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): internal memory allocation failed.
+    ///   [`AV_ERR_IO_CLEARTEXT_NOT_PERMITTED`](crate::averrors::OH_AVErrCode::AV_ERR_IO_CLEARTEXT_NOT_PERMITTED): http cleartext traffic is not permitted. Add since api 23.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -186,11 +186,11 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): input extractor is nullptr or input param is invalid.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): operation not allowed.
-    /// [`AV_ERR_UNSUPPORTED_FORMAT`](crate::averrors::OH_AVErrCode::AV_ERR_UNSUPPORTED_FORMAT): format is unsupported.
-    /// [`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): internal memory allocation failed.
+    ///   [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): the execution is successful.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): input extractor is nullptr or input param is invalid.
+    ///   [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): operation not allowed.
+    ///   [`AV_ERR_UNSUPPORTED_FORMAT`](crate::averrors::OH_AVErrCode::AV_ERR_UNSUPPORTED_FORMAT): format is unsupported.
+    ///   [`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): internal memory allocation failed.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -209,23 +209,23 @@ extern "C" {
     /// * `timeUs` - Time (in microseconds) at which an image is extracted from the video resource.
     ///
     /// * `seekMode` - Seek mode that defines the relationship between the specified time and the key frame. For details,
-    /// see [`OH_AVMedia_SeekMode`](crate::avmedia_base::OH_AVMedia_SeekMode).
+    ///   see [`OH_AVMedia_SeekMode`](crate::avmedia_base::OH_AVMedia_SeekMode).
     ///
     /// * `outputParam` - Output parameter of the image, for example, the height or width of the image. For details, see [`OH_AVMetadataExtractor_OutputParam`](crate::avmetadata_extractor_base::OH_AVMetadataExtractor_OutputParam).
-    /// If this parameter is a null pointer, the original size of the video is used. Note: You need to use `OH_PixelmapNative_Destroy`
-    /// to release the pixel map after using it.
+    ///   If this parameter is a null pointer, the original size of the video is used. Note: You need to use `OH_PixelmapNative_Destroy`
+    ///   to release the pixel map after using it.
     ///
     /// * `pixelMap` - Used to receive images extracted from the video source. For details, see [`OH_PixelmapNative`](ohos_sys_opaque_types::OH_PixelmapNative).
     ///
     /// # Returns
     ///
     /// * Function result code.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): the input param is invalid.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): operation not allowed.
-    /// [`AV_ERR_UNSUPPORTED_FORMAT`](crate::averrors::OH_AVErrCode::AV_ERR_UNSUPPORTED_FORMAT): format is unsupported.
-    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED): the service died.
-    /// [`AV_ERR_IO_CLEARTEXT_NOT_PERMITTED`](crate::averrors::OH_AVErrCode::AV_ERR_IO_CLEARTEXT_NOT_PERMITTED): http cleartext traffic is not permitted.
+    ///   [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): the execution is successful.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): the input param is invalid.
+    ///   [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): operation not allowed.
+    ///   [`AV_ERR_UNSUPPORTED_FORMAT`](crate::averrors::OH_AVErrCode::AV_ERR_UNSUPPORTED_FORMAT): format is unsupported.
+    ///   [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED): the service died.
+    ///   [`AV_ERR_IO_CLEARTEXT_NOT_PERMITTED`](crate::averrors::OH_AVErrCode::AV_ERR_IO_CLEARTEXT_NOT_PERMITTED): http cleartext traffic is not permitted.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -249,10 +249,10 @@ extern "C" {
     /// * `timesUsSize` - Length of the time point array.
     ///
     /// * `seekMode` - Seek mode that defines the relationship between the specified time and the key frame. For details,
-    /// see [`OH_AVMedia_SeekMode`](crate::avmedia_base::OH_AVMedia_SeekMode).
+    ///   see [`OH_AVMedia_SeekMode`](crate::avmedia_base::OH_AVMedia_SeekMode).
     ///
     /// * `outputParam` - Output parameter of the image, for example, the height or width of the image. For details, see [`OH_AVMetadataExtractor_OutputParam`](crate::avmetadata_extractor_base::OH_AVMetadataExtractor_OutputParam).
-    /// If this parameter is a null pointer, the original video size is used for the obtained frame.
+    ///   If this parameter is a null pointer, the original video size is used for the obtained frame.
     ///
     /// * `onFrameInfoCallback` - Callback function invoked after each frame is extracted or fails to be extracted.
     ///
@@ -261,13 +261,13 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): the input param is invalid.
-    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED): the service died.
-    /// [`AV_ERR_IO_CLEARTEXT_NOT_PERMITTED`](crate::averrors::OH_AVErrCode::AV_ERR_IO_CLEARTEXT_NOT_PERMITTED): http cleartext traffic is not permitted.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): operation not allowed. Returned by onFrameInfoCallback.
-    /// [`AV_ERR_UNSUPPORTED_FORMAT`](crate::averrors::OH_AVErrCode::AV_ERR_UNSUPPORTED_FORMAT): format is unsupported. Returned by onFrameInfoCallback.
-    /// [`AV_ERR_TIMEOUT`](crate::averrors::OH_AVErrCode::AV_ERR_TIMEOUT): the execution is times out. Returned by onFrameInfoCallback.
+    ///   [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): the input param is invalid.
+    ///   [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED): the service died.
+    ///   [`AV_ERR_IO_CLEARTEXT_NOT_PERMITTED`](crate::averrors::OH_AVErrCode::AV_ERR_IO_CLEARTEXT_NOT_PERMITTED): http cleartext traffic is not permitted.
+    ///   [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): operation not allowed. Returned by onFrameInfoCallback.
+    ///   [`AV_ERR_UNSUPPORTED_FORMAT`](crate::averrors::OH_AVErrCode::AV_ERR_UNSUPPORTED_FORMAT): format is unsupported. Returned by onFrameInfoCallback.
+    ///   [`AV_ERR_TIMEOUT`](crate::averrors::OH_AVErrCode::AV_ERR_TIMEOUT): the execution is times out. Returned by onFrameInfoCallback.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -301,8 +301,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): input extractor is nullptr or input param is invalid.
+    ///   [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): the execution is successful.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): input extractor is nullptr or input param is invalid.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -347,7 +347,7 @@ extern "C" {
     /// # Returns
     ///
     /// * The return value is TRUE for success, FALSE for failure.
-    /// Possible failure causes: outputParam is nullptr.
+    ///   Possible failure causes: outputParam is nullptr.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]

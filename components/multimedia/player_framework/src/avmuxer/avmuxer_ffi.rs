@@ -33,14 +33,14 @@ extern "C" {
     /// # Arguments
     ///
     /// * `fd` - File descriptor (FD). You must open the file in read/write mode (O_RDWR) and close the file after
-    /// using it.
+    ///   using it.
     ///
     /// * `format` - Format of the multiplexed output file.
     ///
     /// # Returns
     ///
     /// * Pointer to the **OH_AVMuxer** instance created. You must call [`OH_AVMuxer_Destroy`](crate::avmuxer::OH_AVMuxer_Destroy) to destroy the
-    /// instance when it is no longer needed.
+    ///   instance when it is no longer needed.
     ///
     /// Available since API-level: 10
     pub fn OH_AVMuxer_Create(fd: i32, format: OH_AVOutputFormat) -> *mut OH_AVMuxer;
@@ -56,8 +56,8 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The muxer pointer is null or the value of **rotation** is invalid.
-    /// <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The function is called out of sequence.
+    ///   <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The muxer pointer is null or the value of **rotation** is invalid.
+    ///   <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The function is called out of sequence.
     ///
     /// Available since API-level: 10
     pub fn OH_AVMuxer_SetRotation(muxer: *mut OH_AVMuxer, rotation: i32) -> OH_AVErrCode;
@@ -72,8 +72,8 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): the muxer or format is invalid
-    /// <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): not permit to call the interface, it was called in invalid state
+    ///   <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): the muxer or format is invalid
+    ///   <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): not permit to call the interface, it was called in invalid state
     ///
     /// Available since API-level: 14
     #[cfg(feature = "api-14")]
@@ -87,19 +87,19 @@ extern "C" {
     /// * `muxer` - Pointer to an OH_AVMuxer instance.
     ///
     /// * `trackIndex` - Pointer to the index of the media track. The index will be used in the
-    /// [`OH_AVMuxer_WriteSample`](crate::avmuxer::OH_AVMuxer_WriteSample) function. If the media track is added, the index value is greater than or equal
-    /// to 0; otherwise, the value is less than 0.
+    ///   [`OH_AVMuxer_WriteSample`](crate::avmuxer::OH_AVMuxer_WriteSample) function. If the media track is added, the index value is greater than or equal
+    ///   to 0; otherwise, the value is less than 0.
     ///
     /// * `trackFormat` - Pointer to an OH_AVFormat instance.
     ///
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The muxer pointer is null, or the track index or track format is invalid.
-    /// <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The function is called out of sequence.
-    /// <br>[`AV_ERR_UNSUPPORT`](crate::averrors::OH_AVErrCode::AV_ERR_UNSUPPORT): The MIME type is not supported.
-    /// <br>[`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): Memory allocation fails.
-    /// <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An unknown error occurs.
+    ///   <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The muxer pointer is null, or the track index or track format is invalid.
+    ///   <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The function is called out of sequence.
+    ///   <br>[`AV_ERR_UNSUPPORT`](crate::averrors::OH_AVErrCode::AV_ERR_UNSUPPORT): The MIME type is not supported.
+    ///   <br>[`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): Memory allocation fails.
+    ///   <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An unknown error occurs.
     ///
     /// Available since API-level: 10
     pub fn OH_AVMuxer_AddTrack(
@@ -117,9 +117,9 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The muxer pointer is null.
-    /// <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The function is called out of sequence.
-    /// <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An unknown error occurs.
+    ///   <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The muxer pointer is null.
+    ///   <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The function is called out of sequence.
+    ///   <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An unknown error occurs.
     ///
     /// Available since API-level: 10
     pub fn OH_AVMuxer_Start(muxer: *mut OH_AVMuxer) -> OH_AVErrCode;
@@ -140,10 +140,10 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The muxer pointer is null, or the track index, sample, or info is invalid.
-    /// <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The function is called out of sequence.
-    /// <br>[`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): Memory allocation fails.
-    /// <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An unknown error occurs.
+    ///   <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The muxer pointer is null, or the track index, sample, or info is invalid.
+    ///   <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The function is called out of sequence.
+    ///   <br>[`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): Memory allocation fails.
+    ///   <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An unknown error occurs.
     ///
     /// **Deprecated** since 11
     ///
@@ -172,10 +172,10 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The muxer pointer is null, or the track index or sample is invalid.
-    /// <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The function is called out of sequence.
-    /// <br>[`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): Memory allocation fails.
-    /// <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An unknown error occurs.
+    ///   <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The muxer pointer is null, or the track index or sample is invalid.
+    ///   <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The function is called out of sequence.
+    ///   <br>[`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): Memory allocation fails.
+    ///   <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An unknown error occurs.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -194,8 +194,8 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The muxer pointer is null.
-    /// <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The function is called out of sequence.
+    ///   <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The muxer pointer is null.
+    ///   <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The function is called out of sequence.
     ///
     /// Available since API-level: 10
     pub fn OH_AVMuxer_Stop(muxer: *mut OH_AVMuxer) -> OH_AVErrCode;
@@ -210,7 +210,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The muxer pointer is null.
+    ///   <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The muxer pointer is null.
     ///
     /// Available since API-level: 10
     pub fn OH_AVMuxer_Destroy(muxer: *mut OH_AVMuxer) -> OH_AVErrCode;

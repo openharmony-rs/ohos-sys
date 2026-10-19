@@ -26,20 +26,20 @@ pub struct OHIPCDeathRecipient {
 /// # Arguments
 ///
 /// * `code` - Customized communication command word.
-/// Value range: \[0x01, 0x00ffffff\]
+///   Value range: \[0x01, 0x00ffffff\]
 ///
 /// * `data` - Pointer to the requested data object. It cannot be NULL or released in the function.
 ///
 /// * `reply` - Pointer to the response data object. It cannot be NULL or released in the function. If this function
-/// returns an error, data cannot be written to this parameter.
+///   returns an error, data cannot be written to this parameter.
 ///
 /// * `userData` - Pointer to the private user data. It can be NULL.
 ///
 /// # Returns
 ///
 /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_SUCCESS) if the operation is successful.
-/// Returns a custom error code in the range \[1909001, 1909999\] or a system error code otherwise.
-/// If the custom error code is out of range, [`OH_IPC_ErrorCode#OH_IPC_INVALID_USER_ERROR_CODE`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_INVALID_USER_ERROR_CODE) is returned.
+///   Returns a custom error code in the range \[1909001, 1909999\] or a system error code otherwise.
+///   If the custom error code is out of range, [`OH_IPC_ErrorCode#OH_IPC_INVALID_USER_ERROR_CODE`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_INVALID_USER_ERROR_CODE) is returned.
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
@@ -136,7 +136,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the pointer to the **OHIPCRemoteStub** object created if the operation is successful; returns NULL
-    /// otherwise.
+    ///   otherwise.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -184,17 +184,17 @@ extern "C" {
     /// * `data` - Pointer to the requested data object. It cannot be NULL.
     ///
     /// * `reply` - Pointer to the response data object. It cannot be NULL in the case of a synchronous request, and can be
-    /// NULL in the case of an asynchronous request.
+    ///   NULL in the case of an asynchronous request.
     ///
     /// * `option` - Pointer to the message option. It can be NULL, which indicates a synchronous request.
     ///
     /// # Returns
     ///
     /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_SUCCESS) if the message is sent successfully.
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_CHECK_PARAM_ERROR) if invalid parameters are found.
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_DEAD_REMOTE_OBJECT`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_DEAD_REMOTE_OBJECT) if the remote **OHIPCRemoteStub** object dies.
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_CODE_OUT_OF_RANGE`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_CODE_OUT_OF_RANGE) if the code is out of range.
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_INNER_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_INNER_ERROR) or a custom error code in other cases.
+    ///   Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_CHECK_PARAM_ERROR) if invalid parameters are found.
+    ///   Returns [`OH_IPC_ErrorCode#OH_IPC_DEAD_REMOTE_OBJECT`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_DEAD_REMOTE_OBJECT) if the remote **OHIPCRemoteStub** object dies.
+    ///   Returns [`OH_IPC_ErrorCode#OH_IPC_CODE_OUT_OF_RANGE`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_CODE_OUT_OF_RANGE) if the code is out of range.
+    ///   Returns [`OH_IPC_ErrorCode#OH_IPC_INNER_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_INNER_ERROR) or a custom error code in other cases.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -215,9 +215,9 @@ extern "C" {
     /// * `proxy` - Pointer to the **OHIPCRemoteProxy** object. It cannot be NULL.
     ///
     /// * `descriptor` - Pointer to the address of the memory for holding the interface descriptor. The memory is allocated
-    /// by the allocator provided by the user and needs to be released. This pointer cannot be NULL. If an error code is
-    /// returned, you still need to check whether the memory is empty and release the memory. Otherwise, memory leaks may
-    /// occur.
+    ///   by the allocator provided by the user and needs to be released. This pointer cannot be NULL. If an error code is
+    ///   returned, you still need to check whether the memory is empty and release the memory. Otherwise, memory leaks may
+    ///   occur.
     ///
     /// * `len` - Pointer to the length of the data written to the descriptor, including the terminator. It cannot be NULL.
     ///
@@ -226,11 +226,11 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_SUCCESS) if the message is sent successfully.
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_CHECK_PARAM_ERROR) if the parameters are incorrect.
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_DEAD_REMOTE_OBJECT`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_DEAD_REMOTE_OBJECT) if the remote **OHIPCRemoteStub** object dies.
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_MEM_ALLOCATOR_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_MEM_ALLOCATOR_ERROR) if the memory allocation fails.
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_PARCEL_READ_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_PARCEL_READ_ERROR) or a custom error code if the data in the serialized
-    /// object fails to be read.
+    ///   Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_CHECK_PARAM_ERROR) if the parameters are incorrect.
+    ///   Returns [`OH_IPC_ErrorCode#OH_IPC_DEAD_REMOTE_OBJECT`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_DEAD_REMOTE_OBJECT) if the remote **OHIPCRemoteStub** object dies.
+    ///   Returns [`OH_IPC_ErrorCode#OH_IPC_MEM_ALLOCATOR_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_MEM_ALLOCATOR_ERROR) if the memory allocation fails.
+    ///   Returns [`OH_IPC_ErrorCode#OH_IPC_PARCEL_READ_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_PARCEL_READ_ERROR) or a custom error code if the data in the serialized
+    ///   object fails to be read.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -257,7 +257,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the pointer to the **OHIPCDeathRecipient** object created if the operation is successful; returns
-    /// NULL otherwise.
+    ///   NULL otherwise.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -288,13 +288,13 @@ extern "C" {
     /// * `proxy` - Pointer to the **OHIPCRemoteProxy** object that subscribes to the death notification. It cannot be NULL.
     ///
     /// * `recipient` - Pointer to the object that receives the death notification of the **OHIPCRemoteStub** object. It
-    /// cannot be NULL.
+    ///   cannot be NULL.
     ///
     /// # Returns
     ///
     /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_SUCCESS) if the operation is successful.
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_CHECK_PARAM_ERROR) if the parameters are incorrect.
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_INNER_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_INNER_ERROR) in other cases.
+    ///   Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_CHECK_PARAM_ERROR) if the parameters are incorrect.
+    ///   Returns [`OH_IPC_ErrorCode#OH_IPC_INNER_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_INNER_ERROR) in other cases.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -310,16 +310,16 @@ extern "C" {
     /// # Arguments
     ///
     /// * `proxy` - Pointer to the **OHIPCRemoteProxy** object that unsubscribes from the death notification. It cannot be
-    /// NULL.
+    ///   NULL.
     ///
     /// * `recipient` - Pointer to the object that receives the death notification of the **OHIPCRemoteStub** object. It
-    /// cannot be NULL.
+    ///   cannot be NULL.
     ///
     /// # Returns
     ///
     /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_SUCCESS) if the operation is successful.
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_CHECK_PARAM_ERROR) if the parameters are incorrect.
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_INNER_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_INNER_ERROR) in other cases.
+    ///   Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_CHECK_PARAM_ERROR) if the parameters are incorrect.
+    ///   Returns [`OH_IPC_ErrorCode#OH_IPC_INNER_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_INNER_ERROR) in other cases.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -339,7 +339,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns **1** if the **OHIPCRemoteStub** object is dead or invalid parameters are found; returns **0**
-    /// otherwise. If invalid parameters are found, the **OHIPCRemoteStub** object does not exist.
+    ///   otherwise. If invalid parameters are found, the **OHIPCRemoteStub** object does not exist.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
