@@ -1,6 +1,6 @@
 //! Raw bindings to the OpenHarmony Purgeable Memory API, available since API level 10.
 //!
-//! See the [Purgeable Memory development guide](https://gitcode.com/openharmony/docs/blob/master/zh-cn/application-dev/kernel-enhance/purgeable-memory-guidelines.md).
+//! See the [Purgeable Memory development guide](https://gitcode.com/openharmony/docs/blob/master/en/application-dev/kernel-enhance/purgeable-memory-guidelines.md).
 //!
 //! ## Feature flags
 #![cfg_attr(
