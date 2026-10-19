@@ -154,7 +154,9 @@ jobs:
           - basic-services-kit-time-service
           - crypto
           - deviceinfo
+          - display-soloist
           - drawing
+          - hiappevent
           - hilog
           - hitrace
           - huks
