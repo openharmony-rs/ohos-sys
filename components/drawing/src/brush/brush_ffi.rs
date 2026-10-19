@@ -30,7 +30,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a pointer to the [`OH_Drawing_Brush`](crate::types::OH_Drawing_Brush) object created. If NULL is returned, the creation fails.
-    /// The possible failure cause is that no memory is available or **brush** is NULL.
+    ///   The possible failure cause is that no memory is available or **brush** is NULL.
     ///
     /// Available since API-level: 12
     ///
@@ -75,7 +75,7 @@ extern "C" {
     /// * `brush` - Pointer to an **OH_Drawing_Brush** object.
     ///
     /// * `antiAlias` - Whether to enable anti-aliasing. The value **true** means to enable anti-aliasing, and **false**
-    /// means the opposite.
+    ///   means the opposite.
     ///
     /// Available since API-level: 8
     ///
@@ -156,24 +156,24 @@ extern "C" {
     /// * `brush` - Pointer to an [`OH_Drawing_Brush`](crate::types::OH_Drawing_Brush) object.
     ///
     /// * `a` - Alpha value of the color, which is a floating-point number ranging from 0.0 to 1.0. Values above 1.0
-    /// default to 1.0, while values below 0.0 default to 0.0.
+    ///   default to 1.0, while values below 0.0 default to 0.0.
     ///
     /// * `r` - Red component of the color, which is a floating-point number ranging from 0.0 to 1.0. Values above 1.0
-    /// default to 1.0, while values below 0.0 default to 0.0.
+    ///   default to 1.0, while values below 0.0 default to 0.0.
     ///
     /// * `g` - Green component of the color, which is a floating-point number ranging from 0.0 to 1.0. Values above 1.0
-    /// default to 1.0, while values below 0.0 default to 0.0.
+    ///   default to 1.0, while values below 0.0 default to 0.0.
     ///
     /// * `b` - Blue component of the color, which is a floating-point number ranging from 0.0 to 1.0. Values above 1.0
-    /// default to 1.0, while values below 0.0 default to 0.0.
+    ///   default to 1.0, while values below 0.0 default to 0.0.
     ///
     /// * `colorSpaceManager` - Pointer to an [`OH_NativeColorSpaceManager`](ohos_sys_opaque_types::OH_NativeColorSpaceManager) object.
     ///
     /// # Returns
     ///
     /// * Execution result.
-    /// **OH_DRAWING_SUCCESS** if the operation is successful.
-    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if **brush** is NULL.
+    ///   **OH_DRAWING_SUCCESS** if the operation is successful.
+    ///   **OH_DRAWING_ERROR_INVALID_PARAMETER** if **brush** is NULL.
     ///
     /// Available since API-level: 20
     ///
@@ -199,8 +199,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Execution result.
-    /// **OH_DRAWING_SUCCESS** if the operation is successful.
-    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if **brush** or **a** is NULL.
+    ///   **OH_DRAWING_SUCCESS** if the operation is successful.
+    ///   **OH_DRAWING_ERROR_INVALID_PARAMETER** if **brush** or **a** is NULL.
     ///
     /// Available since API-level: 20
     ///
@@ -222,8 +222,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Execution result.
-    /// **OH_DRAWING_SUCCESS** if the operation is successful.
-    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if **brush** or **r** is NULL.
+    ///   **OH_DRAWING_SUCCESS** if the operation is successful.
+    ///   **OH_DRAWING_ERROR_INVALID_PARAMETER** if **brush** or **r** is NULL.
     ///
     /// Available since API-level: 20
     ///
@@ -245,8 +245,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Execution result.
-    /// **OH_DRAWING_SUCCESS** if the operation is successful.
-    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if **brush** or **g** is NULL.
+    ///   **OH_DRAWING_SUCCESS** if the operation is successful.
+    ///   **OH_DRAWING_ERROR_INVALID_PARAMETER** if **brush** or **g** is NULL.
     ///
     /// Available since API-level: 20
     ///
@@ -268,8 +268,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Execution result.
-    /// **OH_DRAWING_SUCCESS** if the operation is successful.
-    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if **brush** or **b** is NULL.
+    ///   **OH_DRAWING_SUCCESS** if the operation is successful.
+    ///   **OH_DRAWING_ERROR_INVALID_PARAMETER** if **brush** or **b** is NULL.
     ///
     /// Available since API-level: 20
     ///
@@ -289,7 +289,7 @@ extern "C" {
     /// * `brush` - Pointer to an **OH_Drawing_Brush** object.
     ///
     /// * `shaderEffect` - Pointer to an **OH_Drawing_ShaderEffect** object. If NULL is passed in, the shader effect of the
-    /// brush will be cleared.
+    ///   brush will be cleared.
     ///
     /// Available since API-level: 11
     ///
@@ -309,7 +309,7 @@ extern "C" {
     /// * `brush` - Pointer to an **OH_Drawing_Brush** object.
     ///
     /// * `shadowLayer` - Pointer to an **OH_Drawing_ShadowLayer** object. If NULL is passed in, the shadow layer effect of
-    /// the brush will be cleared.
+    ///   the brush will be cleared.
     ///
     /// Available since API-level: 12
     ///

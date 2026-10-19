@@ -189,7 +189,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Vertical coordinate of the image relative to the upper left corner of the component, in px. If **imageInfo**
-    /// is a null pointer, **0** is returned.
+    ///   is a null pointer, **0** is returned.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]

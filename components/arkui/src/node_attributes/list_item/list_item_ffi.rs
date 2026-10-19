@@ -101,7 +101,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Pointer to the created **ListItemSwipeActionItem** instance. If a null pointer is returned, it indicates a
-    /// creation failure. The possible cause is that the address space is full.
+    ///   creation failure. The possible cause is that the address space is full.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -156,7 +156,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Threshold for the long-distance sliding deletion distance of the component. If **-1.0f** is returned, the
-    /// operation fails. The possible cause is that the **item** parameter is abnormal, such as a null pointer.
+    ///   operation fails. The possible cause is that the **item** parameter is abnormal, such as a null pointer.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -272,7 +272,7 @@ extern "C" {
     /// * `item` - Pointer to the **ListItemSwipeActionItem** instance.
     ///
     /// * `callback` - Callback event.
-    /// **swipeActionState** The changed state.
+    ///   **swipeActionState** The changed state.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -292,7 +292,7 @@ extern "C" {
     /// * `userData` - User-defined data.
     ///
     /// * `callback` - Callback event.
-    /// **swipeActionState** The changed state.
+    ///   **swipeActionState** The changed state.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -313,7 +313,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Pointer to the created **ListItemSwipeActionOption** instance. If a null pointer is returned, it indicates a
-    /// creation failure. The possible cause is that the address space is full.
+    ///   creation failure. The possible cause is that the address space is full.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -385,7 +385,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Sliding effect. The default return value is **0**. If **-1** is returned, the operation fails. The possible
-    /// cause is that the **option** parameter is abnormal, such as a null pointer.
+    ///   cause is that the **option** parameter is abnormal, such as a null pointer.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -400,7 +400,7 @@ extern "C" {
     /// * `option` - Pointer to the **ListItemSwipeActionOption** instance.
     ///
     /// * `callback` - Callback event.
-    /// **offset** Slide offset.
+    ///   **offset** Slide offset.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -418,7 +418,7 @@ extern "C" {
     /// * `userData` - User-defined data.
     ///
     /// * `callback` - Callback event.
-    /// **offset** Slide offset.
+    ///   **offset** Slide offset.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]

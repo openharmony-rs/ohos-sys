@@ -47,7 +47,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns **true** if they intersect (**rect** is set to the intersection area); returns **false** otherwise (*
-    /// *rect** remains unchanged).
+    ///   *rect** remains unchanged).
     ///
     /// Available since API-level: 12
     ///
@@ -71,8 +71,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns **true** if the union is obtained; returns **false** otherwise. The possible failure cause is that
-    /// at least one of the parameters **rect** and **other** is NULL or the size of the rectangle specified by **other** is
-    /// empty.
+    ///   at least one of the parameters **rect** and **other** is NULL or the size of the rectangle specified by **other** is
+    ///   empty.
     ///
     /// Available since API-level: 12
     ///
@@ -292,8 +292,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the pointer to the [`OH_Drawing_Array`](crate::types::OH_Drawing_Array) object created. If the returned object pointer is null,
-    /// the creation fails.
-    /// Possible causes are that no memory is available or an input parameter is incorrect.
+    ///   the creation fails.
+    ///   Possible causes are that no memory is available or an input parameter is incorrect.
     ///
     /// Available since API-level: 18
     ///
@@ -308,13 +308,13 @@ extern "C" {
     /// * `rectArray` - Pointer to an [`OH_Drawing_Array`](crate::types::OH_Drawing_Array) object.
     ///
     /// * `pSize` - Pointer to the size_t type, which is used as an output parameter to store the size of the rectangle
-    /// array.
+    ///   array.
     ///
     /// # Returns
     ///
     /// * Returns one of the following result codes:
-    /// **OH_DRAWING_SUCCESS** if the operation is successful.
-    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if either **rectArray** or **pSize** is NULL.
+    ///   **OH_DRAWING_SUCCESS** if the operation is successful.
+    ///   **OH_DRAWING_ERROR_INVALID_PARAMETER** if either **rectArray** or **pSize** is NULL.
     ///
     /// Available since API-level: 18
     ///
@@ -338,8 +338,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns one of the following result codes:
-    /// **OH_DRAWING_SUCCESS** if the operation is successful.
-    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if **rectArray** or **rect** is null or **index** is out of range.
+    ///   **OH_DRAWING_SUCCESS** if the operation is successful.
+    ///   **OH_DRAWING_ERROR_INVALID_PARAMETER** if **rectArray** or **rect** is null or **index** is out of range.
     ///
     /// Available since API-level: 18
     ///
@@ -360,8 +360,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns one of the following result codes:
-    /// **OH_DRAWING_SUCCESS** if the operation is successful.
-    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if **rectArray** is NULL.
+    ///   **OH_DRAWING_SUCCESS** if the operation is successful.
+    ///   **OH_DRAWING_ERROR_INVALID_PARAMETER** if **rectArray** is NULL.
     ///
     /// Available since API-level: 18
     ///
@@ -376,20 +376,20 @@ extern "C" {
     /// # Arguments
     ///
     /// * `rect` - Pointer to the [`OH_Drawing_Rect`](crate::types::OH_Drawing_Rect) object. This rectangle is used to check whether another rectangle
-    /// (**other**) is contained.
+    ///   (**other**) is contained.
     ///
     /// * `other` - Pointer to the [`OH_Drawing_Rect`](crate::types::OH_Drawing_Rect) object. This rectangle is used to check whether it is contained
-    /// by another rectangle (**rect**).
+    ///   by another rectangle (**rect**).
     ///
     /// * `isContains` - Result of whether a rectangle completely contains another rectangle. It is used as an output
-    /// parameter. **true** indicates that **rect** completely contains **other**. **false** indicates that **rect** does
-    /// not completely contain **other**.
+    ///   parameter. **true** indicates that **rect** completely contains **other**. **false** indicates that **rect** does
+    ///   not completely contain **other**.
     ///
     /// # Returns
     ///
     /// * Returns one of the following result codes:
-    /// **OH_DRAWING_SUCCESS** if the operation is successful.
-    /// **OH_DRAWING_ERROR_INCORRECT_PARAMETER** if the **rect**, **other**, or **isContains** parameter is empty.
+    ///   **OH_DRAWING_SUCCESS** if the operation is successful.
+    ///   **OH_DRAWING_ERROR_INCORRECT_PARAMETER** if the **rect**, **other**, or **isContains** parameter is empty.
     ///
     /// Available since API-level: 22
     ///
@@ -408,22 +408,22 @@ extern "C" {
     /// * `rect` - Pointer to the [`OH_Drawing_Rect`](crate::types::OH_Drawing_Rect) object.
     ///
     /// * `left` - Value to be added to the left bound of the rectangle (X coordinate of the upper left corner of the
-    /// rectangle).
+    ///   rectangle).
     ///
     /// * `top` - Value to be added to the top bound of the rectangle (Y coordinate of the upper left corner of the
-    /// rectangle).
+    ///   rectangle).
     ///
     /// * `right` - Value to be added to the right bound of the rectangle (X coordinate of the lower right corner of the
-    /// rectangle).
+    ///   rectangle).
     ///
     /// * `bottom` - Value to be added to the bottom bound of the rectangle (Y coordinate of the lower right corner of the
-    /// rectangle).
+    ///   rectangle).
     ///
     /// # Returns
     ///
     /// * Returns one of the following result codes:
-    /// **OH_DRAWING_SUCCESS** if the operation is successful.
-    /// **OH_DRAWING_ERROR_INCORRECT_PARAMETER** if the **rect** parameter is empty.
+    ///   **OH_DRAWING_SUCCESS** if the operation is successful.
+    ///   **OH_DRAWING_ERROR_INCORRECT_PARAMETER** if the **rect** parameter is empty.
     ///
     /// Available since API-level: 22
     ///
@@ -444,13 +444,13 @@ extern "C" {
     /// * `rect` - Pointer to the [`OH_Drawing_Rect`](crate::types::OH_Drawing_Rect) object.
     ///
     /// * `isEmpty` - Whether a rectangle is empty. It is used as an output parameter. **true** means yes; **false**
-    /// otherwise.
+    ///   otherwise.
     ///
     /// # Returns
     ///
     /// * Execution result.
-    /// **OH_DRAWING_SUCCESS** if the operation is successful.
-    /// **OH_DRAWING_ERROR_INCORRECT_PARAMETER** if **rect** or **isEmpty** is a null pointer.
+    ///   **OH_DRAWING_SUCCESS** if the operation is successful.
+    ///   **OH_DRAWING_ERROR_INCORRECT_PARAMETER** if **rect** or **isEmpty** is a null pointer.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -466,16 +466,16 @@ extern "C" {
     /// * `rect` - Pointer to the [`OH_Drawing_Rect`](crate::types::OH_Drawing_Rect) object.
     ///
     /// * `dx` - Offset on the X axis. A positive number indicates an offset towards the positive direction of the X axis,
-    /// and a negative number indicates an offset towards the negative direction of the X axis.
+    ///   and a negative number indicates an offset towards the negative direction of the X axis.
     ///
     /// * `dy` - Offset on the Y axis. A positive number indicates an offset towards the positive direction of the Y axis,
-    /// and a negative number indicates an offset towards the negative direction of the Y axis.
+    ///   and a negative number indicates an offset towards the negative direction of the Y axis.
     ///
     /// # Returns
     ///
     /// * Execution result.
-    /// **OH_DRAWING_SUCCESS** if the operation is successful.
-    /// **OH_DRAWING_ERROR_INCORRECT_PARAMETER** if **rect** is a null pointer.
+    ///   **OH_DRAWING_SUCCESS** if the operation is successful.
+    ///   **OH_DRAWING_ERROR_INCORRECT_PARAMETER** if **rect** is a null pointer.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -498,8 +498,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Execution result.
-    /// **OH_DRAWING_SUCCESS** if the operation is successful.
-    /// **OH_DRAWING_ERROR_INCORRECT_PARAMETER** if **rect** is a null pointer.
+    ///   **OH_DRAWING_SUCCESS** if the operation is successful.
+    ///   **OH_DRAWING_ERROR_INCORRECT_PARAMETER** if **rect** is a null pointer.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -519,8 +519,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Execution result.
-    /// **OH_DRAWING_SUCCESS** if the operation is successful.
-    /// **OH_DRAWING_ERROR_INCORRECT_PARAMETER** if **rect** is a null pointer.
+    ///   **OH_DRAWING_SUCCESS** if the operation is successful.
+    ///   **OH_DRAWING_ERROR_INCORRECT_PARAMETER** if **rect** is a null pointer.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -535,8 +535,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Execution result.
-    /// **OH_DRAWING_SUCCESS** if the operation is successful.
-    /// **OH_DRAWING_ERROR_INCORRECT_PARAMETER** if **rect** is a null pointer.
+    ///   **OH_DRAWING_SUCCESS** if the operation is successful.
+    ///   **OH_DRAWING_ERROR_INCORRECT_PARAMETER** if **rect** is a null pointer.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -553,8 +553,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Execution result.
-    /// **OH_DRAWING_SUCCESS** if the operation is successful.
-    /// **OH_DRAWING_ERROR_INCORRECT_PARAMETER** if **rect** or **other** is a null pointer.
+    ///   **OH_DRAWING_SUCCESS** if the operation is successful.
+    ///   **OH_DRAWING_ERROR_INCORRECT_PARAMETER** if **rect** or **other** is a null pointer.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]

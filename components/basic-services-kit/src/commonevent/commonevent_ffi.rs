@@ -171,16 +171,16 @@ extern "C" {
     /// # Arguments
     ///
     /// * `events` - Pointer to the common events. The actual number of subscribed common events
-    /// is the smaller value between **eventsNum** and **events**.
+    ///   is the smaller value between **eventsNum** and **events**.
     ///
     /// * `eventsNum` - Number of common events to subscribe to. The value is a non-negative integer
-    /// and is the length of the **events** array.
+    ///   and is the length of the **events** array.
     ///
     /// # Returns
     ///
     /// * Returns the subscriber information created if the operation is successful; returns
-    /// **NULL** otherwise. This pointer is internally managed and is released when
-    /// [OH_CommonEvent_DestroySubscribeInfo()](#oh_commonevent_destroysubscribeinfo) is called.
+    ///   **NULL** otherwise. This pointer is internally managed and is released when
+    ///   [OH_CommonEvent_DestroySubscribeInfo()](#oh_commonevent_destroysubscribeinfo) is called.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -194,18 +194,18 @@ extern "C" {
     /// # Arguments
     ///
     /// * `info` - Pointer to the subscriber information object for which the publisher permission
-    /// is to be set.
+    ///   is to be set.
     ///
     /// * `permission` - Pointer to the permission name. The value is an array of permission names
-    /// defined by the system. The subscriber can receive only the events from the publisher with
-    /// this permission. If this parameter is not set, the subscriber can receive events from all
-    /// publishers.
+    ///   defined by the system. The subscriber can receive only the events from the publisher with
+    ///   this permission. If this parameter is not set, the subscriber can receive events from all
+    ///   publishers.
     ///
     /// # Returns
     ///
     /// * Returns an execution result.
-    /// <br>[`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK): Operation successful.
-    /// <br>[`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER): Invalid parameter.
+    ///   <br>[`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK): Operation successful.
+    ///   <br>[`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER): Invalid parameter.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -219,18 +219,18 @@ extern "C" {
     /// # Arguments
     ///
     /// * `info` - Pointer to the subscriber information object for which the publisher permission
-    /// is to be set.
+    ///   is to be set.
     ///
     /// * `bundleName` - Pointer to the bundle name. This parameter is used to specify that the
-    /// subscriber receives only public events published by the publisher with the specified
-    /// bundle name. If this parameter is not set, the subscriber can receive all public events
-    /// published by the app.
+    ///   subscriber receives only public events published by the publisher with the specified
+    ///   bundle name. If this parameter is not set, the subscriber can receive all public events
+    ///   published by the app.
     ///
     /// # Returns
     ///
     /// * Returns an execution result.
-    /// <br>[`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK): Operation successful.
-    /// <br>[`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER): Invalid parameter.
+    ///   <br>[`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK): Operation successful.
+    ///   <br>[`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER): Invalid parameter.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -256,14 +256,14 @@ extern "C" {
     /// * `info` - Pointer to the subscriber information.
     ///
     /// * `callback` - Callback to be invoked when a common event is triggered. When a common event
-    /// is successfully subscribed to, the common event data is returned by **data** when the
-    /// event is triggered.
+    ///   is successfully subscribed to, the common event data is returned by **data** when the
+    ///   event is triggered.
     ///
     /// # Returns
     ///
     /// * Returns the subscriber created if the operation is successful; returns **NULL**
-    /// otherwise. This pointer is internally managed and is released when
-    /// [OH_CommonEvent_DestroySubscriber()](#oh_commonevent_destroysubscriber) is called.
+    ///   otherwise. This pointer is internally managed and is released when
+    ///   [OH_CommonEvent_DestroySubscriber()](#oh_commonevent_destroysubscriber) is called.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -291,13 +291,13 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns an execution result.
-    /// <br>[`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK): Operation successful.
-    /// <br>[`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER): Invalid parameter.
-    /// <br>[`COMMONEVENT_ERR_SENDING_REQUEST_FAILED`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_SENDING_REQUEST_FAILED): Failed to send IPC requests.
-    /// <br>[`COMMONEVENT_ERR_INIT_UNDONE`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INIT_UNDONE): Services not initialized.
-    /// <br>[`COMMONEVENT_ERR_SUBSCRIBER_NUM_EXCEEDED`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_SUBSCRIBER_NUM_EXCEEDED): The number of subscribers in the
-    /// process exceeds the system limit (200).
-    /// <br>[`COMMONEVENT_ERR_ALLOC_MEMORY_FAILED`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_ALLOC_MEMORY_FAILED): Failed to allocate memory.
+    ///   <br>[`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK): Operation successful.
+    ///   <br>[`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER): Invalid parameter.
+    ///   <br>[`COMMONEVENT_ERR_SENDING_REQUEST_FAILED`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_SENDING_REQUEST_FAILED): Failed to send IPC requests.
+    ///   <br>[`COMMONEVENT_ERR_INIT_UNDONE`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INIT_UNDONE): Services not initialized.
+    ///   <br>[`COMMONEVENT_ERR_SUBSCRIBER_NUM_EXCEEDED`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_SUBSCRIBER_NUM_EXCEEDED): The number of subscribers in the
+    ///   process exceeds the system limit (200).
+    ///   <br>[`COMMONEVENT_ERR_ALLOC_MEMORY_FAILED`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_ALLOC_MEMORY_FAILED): Failed to allocate memory.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -314,10 +314,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns an execution result.
-    /// <br>[`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK): Operation successful.
-    /// <br>[`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER): Invalid parameter.
-    /// <br>[`COMMONEVENT_ERR_SENDING_REQUEST_FAILED`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_SENDING_REQUEST_FAILED): Failed to send IPC requests.
-    /// <br>[`COMMONEVENT_ERR_INIT_UNDONE`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INIT_UNDONE): Services not initialized.
+    ///   <br>[`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK): Operation successful.
+    ///   <br>[`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER): Invalid parameter.
+    ///   <br>[`COMMONEVENT_ERR_SENDING_REQUEST_FAILED`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_SENDING_REQUEST_FAILED): Failed to send IPC requests.
+    ///   <br>[`COMMONEVENT_ERR_INIT_UNDONE`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INIT_UNDONE): Services not initialized.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -334,9 +334,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Name of a common event. This pointer is generated by the system and is released
-    /// immediately after the callback function
-    /// [CommonEvent_ReceiveCallback](#commonevent_receivecallback) ends. This parameter cannot
-    /// be used outside the callback function.
+    ///   immediately after the callback function
+    ///   [CommonEvent_ReceiveCallback](#commonevent_receivecallback) ends. This parameter cannot
+    ///   be used outside the callback function.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -367,9 +367,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Result data (string type) of a common event. This pointer is generated by the system
-    /// and is released immediately after the callback function
-    /// [CommonEvent_ReceiveCallback](#commonevent_receivecallback) ends. This parameter cannot
-    /// be used outside the callback function.
+    ///   and is released immediately after the callback function
+    ///   [CommonEvent_ReceiveCallback](#commonevent_receivecallback) ends. This parameter cannot
+    ///   be used outside the callback function.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -386,9 +386,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Bundle name obtained. This pointer is generated by the system and is released
-    /// immediately after the callback function
-    /// [CommonEvent_ReceiveCallback](#commonevent_receivecallback) ends. This parameter cannot
-    /// be used outside the callback function.
+    ///   immediately after the callback function
+    ///   [CommonEvent_ReceiveCallback](#commonevent_receivecallback) ends. This parameter cannot
+    ///   be used outside the callback function.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -417,14 +417,14 @@ extern "C" {
     /// # Arguments
     ///
     /// * `ordered` - Whether the common event is an ordered one.
-    /// <br>- **true**: ordered common event.
-    /// <br>- **false**: unordered common event.
+    ///   <br>- **true**: ordered common event.
+    ///   <br>- **false**: unordered common event.
     ///
     /// # Returns
     ///
     /// * Returns the property object if the operation is successful; returns **NULL**
-    /// otherwise. This pointer is internally managed and is released when
-    /// [OH_CommonEvent_DestroyPublishInfo()](#oh_commonevent_destroypublishinfo) is called.
+    ///   otherwise. This pointer is internally managed and is released when
+    ///   [OH_CommonEvent_DestroyPublishInfo()](#oh_commonevent_destroypublishinfo) is called.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -451,8 +451,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns an execution result.
-    /// <br>[`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK): Operation successful.
-    /// <br>[`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER): Invalid parameter.
+    ///   <br>[`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK): Operation successful.
+    ///   <br>[`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER): Invalid parameter.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -468,16 +468,16 @@ extern "C" {
     /// * `info` - Pointer to the property object of a common event.
     ///
     /// * `permissions` - Subscriber permissions. Only subscribers with the specified permissions
-    /// can receive the common event. The valid number of permissions is the smaller value
-    /// between **num** and **permissions**.
+    ///   can receive the common event. The valid number of permissions is the smaller value
+    ///   between **num** and **permissions**.
     ///
     /// * `num` - Number of permission names. The value is the length of the **permissions** array.
     ///
     /// # Returns
     ///
     /// * Returns an execution result.
-    /// <br>[`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK): Operation successful.
-    /// <br>[`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER): Invalid parameter.
+    ///   <br>[`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK): Operation successful.
+    ///   <br>[`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER): Invalid parameter.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -498,8 +498,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns an execution result.
-    /// <br>[`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK): Operation successful.
-    /// <br>[`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER): Invalid parameter.
+    ///   <br>[`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK): Operation successful.
+    ///   <br>[`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER): Invalid parameter.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -515,15 +515,15 @@ extern "C" {
     /// * `info` - Pointer to the property object of a common event.
     ///
     /// * `data` - Pointer to the result data to set. The value is a string. The valid data length
-    /// is the smaller value between **length** and **data**.
+    ///   is the smaller value between **length** and **data**.
     ///
     /// * `length` - Length of the result data. The value is the length of the **data** string.
     ///
     /// # Returns
     ///
     /// * Returns an execution result.
-    /// <br>[`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK): Operation successful.
-    /// <br>[`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER): Invalid parameter.
+    ///   <br>[`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK): Operation successful.
+    ///   <br>[`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER): Invalid parameter.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -544,8 +544,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns an execution result.
-    /// <br>[`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK): Operation successful.
-    /// <br>[`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER): Invalid parameter.
+    ///   <br>[`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK): Operation successful.
+    ///   <br>[`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER): Invalid parameter.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -560,8 +560,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns additional information of the common event if operation is successful;
-    /// returns **NULL** otherwise. This pointer is internally managed and is released when
-    /// [OH_CommonEvent_DestroyParameters()](#oh_commonevent_destroyparameters) is called.
+    ///   returns **NULL** otherwise. This pointer is internally managed and is released when
+    ///   [OH_CommonEvent_DestroyParameters()](#oh_commonevent_destroyparameters) is called.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -588,8 +588,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the check result.
-    /// <br>- **true**: The key exists.
-    /// <br>- **false**: The key does not exist.
+    ///   <br>- **true**: The key exists.
+    ///   <br>- **false**: The key does not exist.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -633,8 +633,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns an execution result.
-    /// <br>[`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK): Operation successful.
-    /// <br>[`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER): Invalid parameter.
+    ///   <br>[`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK): Operation successful.
+    ///   <br>[`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER): Invalid parameter.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -653,8 +653,8 @@ extern "C" {
     /// * `key` - Pointer to the key.
     ///
     /// * `array` - Output parameter, which is used to receive the int array. The array memory is
-    /// allocated internally by the function, and the caller does not need to allocate it in
-    /// advance.
+    ///   allocated internally by the function, and the caller does not need to allocate it in
+    ///   advance.
     ///
     /// # Returns
     ///
@@ -677,17 +677,17 @@ extern "C" {
     /// * `key` - Pointer to the key.
     ///
     /// * `value` - The int array to set. The actual number of elements is **num**. The length of
-    /// the **value** array must be greater than **num**. Otherwise, out-of-bounds access may
-    /// occur.
+    ///   the **value** array must be greater than **num**. Otherwise, out-of-bounds access may
+    ///   occur.
     ///
     /// * `num` - Number of elements in the int array.
     ///
     /// # Returns
     ///
     /// * Returns an execution result.
-    /// <br>[`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK): Operation successful.
-    /// <br>[`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER): Invalid parameter.
-    /// <br>[`COMMONEVENT_ERR_ALLOC_MEMORY_FAILED`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_ALLOC_MEMORY_FAILED): Failed to allocate memory.
+    ///   <br>[`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK): Operation successful.
+    ///   <br>[`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER): Invalid parameter.
+    ///   <br>[`COMMONEVENT_ERR_ALLOC_MEMORY_FAILED`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_ALLOC_MEMORY_FAILED): Failed to allocate memory.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -733,8 +733,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns an execution result.
-    /// <br>[`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK): Operation successful.
-    /// <br>[`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER): Invalid parameter.
+    ///   <br>[`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK): Operation successful.
+    ///   <br>[`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER): Invalid parameter.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -753,8 +753,8 @@ extern "C" {
     /// * `key` - Pointer to the key.
     ///
     /// * `array` - Output parameter, which is used to receive the long array. The array memory is
-    /// allocated internally by the function, and the caller does not need to allocate it in
-    /// advance.
+    ///   allocated internally by the function, and the caller does not need to allocate it in
+    ///   advance.
     ///
     /// # Returns
     ///
@@ -777,17 +777,17 @@ extern "C" {
     /// * `key` - Pointer to the key.
     ///
     /// * `value` - Pointer to the long array to set. The actual number of elements is **num**.
-    /// The length of the **value** array must be greater than **num**. Otherwise, out-of-bounds
-    /// access may occur.
+    ///   The length of the **value** array must be greater than **num**. Otherwise, out-of-bounds
+    ///   access may occur.
     ///
     /// * `num` - Number of elements in the long array.
     ///
     /// # Returns
     ///
     /// * Returns an execution result.
-    /// <br>[`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK): Operation successful.
-    /// <br>[`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER): Invalid parameter.
-    /// <br>[`COMMONEVENT_ERR_ALLOC_MEMORY_FAILED`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_ALLOC_MEMORY_FAILED): Failed to allocate memory.
+    ///   <br>[`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK): Operation successful.
+    ///   <br>[`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER): Invalid parameter.
+    ///   <br>[`COMMONEVENT_ERR_ALLOC_MEMORY_FAILED`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_ALLOC_MEMORY_FAILED): Failed to allocate memory.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -833,8 +833,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns an execution result.
-    /// <br>[`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK): Operation successful.
-    /// <br>[`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER): Invalid parameter.
+    ///   <br>[`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK): Operation successful.
+    ///   <br>[`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER): Invalid parameter.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -853,8 +853,8 @@ extern "C" {
     /// * `key` - Pointer to the key.
     ///
     /// * `array` - Output parameter, which is used to receive the bool array. The array memory is
-    /// allocated internally by the function, and the caller does not need to allocate it in
-    /// advance.
+    ///   allocated internally by the function, and the caller does not need to allocate it in
+    ///   advance.
     ///
     /// # Returns
     ///
@@ -877,17 +877,17 @@ extern "C" {
     /// * `key` - Pointer to the key.
     ///
     /// * `value` - Pointer to the Boolean array to set. The actual number of elements is **num**.
-    /// The length of the **value** array must be greater than **num**. Otherwise, out-of-bounds
-    /// access may occur.
+    ///   The length of the **value** array must be greater than **num**. Otherwise, out-of-bounds
+    ///   access may occur.
     ///
     /// * `num` - Number of elements in the Boolean array.
     ///
     /// # Returns
     ///
     /// * Returns an execution result.
-    /// <br>[`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK): Operation successful.
-    /// <br>[`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER): Invalid parameter.
-    /// <br>[`COMMONEVENT_ERR_ALLOC_MEMORY_FAILED`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_ALLOC_MEMORY_FAILED): Failed to allocate memory.
+    ///   <br>[`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK): Operation successful.
+    ///   <br>[`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER): Invalid parameter.
+    ///   <br>[`COMMONEVENT_ERR_ALLOC_MEMORY_FAILED`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_ALLOC_MEMORY_FAILED): Failed to allocate memory.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -933,8 +933,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns an execution result.
-    /// <br>[`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK): Operation successful.
-    /// <br>[`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER): Invalid parameter.
+    ///   <br>[`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK): Operation successful.
+    ///   <br>[`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER): Invalid parameter.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -953,8 +953,8 @@ extern "C" {
     /// * `key` - Pointer to the key.
     ///
     /// * `array` - Output parameter, which is used to receive the character array. The array
-    /// memory is allocated internally by the function, and the caller does not need to allocate
-    /// it in advance.
+    ///   memory is allocated internally by the function, and the caller does not need to allocate
+    ///   it in advance.
     ///
     /// # Returns
     ///
@@ -977,15 +977,15 @@ extern "C" {
     /// * `key` - Pointer to the key.
     ///
     /// * `value` - Pointer to the character array to set. The actual number of elements is the
-    /// smaller value between **num** and the length of the **value** array.
+    ///   smaller value between **num** and the length of the **value** array.
     ///
     /// * `num` - Number of elements in the character array.
     ///
     /// # Returns
     ///
     /// * Returns an execution result.
-    /// <br>[`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK): Operation successful.
-    /// <br>[`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER): Invalid parameter.
+    ///   <br>[`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK): Operation successful.
+    ///   <br>[`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER): Invalid parameter.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -1031,8 +1031,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns an execution result.
-    /// <br>[`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK): Operation successful.
-    /// <br>[`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER): Invalid parameter.
+    ///   <br>[`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK): Operation successful.
+    ///   <br>[`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER): Invalid parameter.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -1051,8 +1051,8 @@ extern "C" {
     /// * `key` - Pointer to the key.
     ///
     /// * `array` - Output parameter, which is used to receive the double array. The array memory
-    /// is allocated internally by the function, and the caller does not need to allocate it in
-    /// advance.
+    ///   is allocated internally by the function, and the caller does not need to allocate it in
+    ///   advance.
     ///
     /// # Returns
     ///
@@ -1075,17 +1075,17 @@ extern "C" {
     /// * `key` - Pointer to the key.
     ///
     /// * `value` - Pointer to the double array to set. The actual number of elements is **num**.
-    /// The length of the **value** array must be greater than **num**. Otherwise, out-of-bounds
-    /// access may occur.
+    ///   The length of the **value** array must be greater than **num**. Otherwise, out-of-bounds
+    ///   access may occur.
     ///
     /// * `num` - Number of elements in the double array.
     ///
     /// # Returns
     ///
     /// * Returns an execution result.
-    /// <br>[`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK): Operation successful.
-    /// <br>[`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER): Invalid parameter.
-    /// <br>[`COMMONEVENT_ERR_ALLOC_MEMORY_FAILED`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_ALLOC_MEMORY_FAILED): Failed to allocate memory.
+    ///   <br>[`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK): Operation successful.
+    ///   <br>[`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER): Invalid parameter.
+    ///   <br>[`COMMONEVENT_ERR_ALLOC_MEMORY_FAILED`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_ALLOC_MEMORY_FAILED): Failed to allocate memory.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -1105,11 +1105,11 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns an execution result.
-    /// <br>[`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK): Operation successful.
-    /// <br>[`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER): Invalid parameter.
-    /// <br>[`COMMONEVENT_ERR_SENDING_LIMIT_EXCEEDED`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_SENDING_LIMIT_EXCEEDED): Event sending frequency is too high.
-    /// <br>[`COMMONEVENT_ERR_SENDING_REQUEST_FAILED`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_SENDING_REQUEST_FAILED): Failed to send IPC requests.
-    /// <br>[`COMMONEVENT_ERR_INIT_UNDONE`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INIT_UNDONE): Services not initialized.
+    ///   <br>[`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK): Operation successful.
+    ///   <br>[`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER): Invalid parameter.
+    ///   <br>[`COMMONEVENT_ERR_SENDING_LIMIT_EXCEEDED`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_SENDING_LIMIT_EXCEEDED): Event sending frequency is too high.
+    ///   <br>[`COMMONEVENT_ERR_SENDING_REQUEST_FAILED`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_SENDING_REQUEST_FAILED): Failed to send IPC requests.
+    ///   <br>[`COMMONEVENT_ERR_INIT_UNDONE`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INIT_UNDONE): Services not initialized.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -1126,11 +1126,11 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns an execution result.
-    /// <br>[`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK): Operation successful.
-    /// <br>[`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER): Invalid parameter.
-    /// <br>[`COMMONEVENT_ERR_SENDING_LIMIT_EXCEEDED`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_SENDING_LIMIT_EXCEEDED): Event sending frequency is too high.
-    /// <br>[`COMMONEVENT_ERR_SENDING_REQUEST_FAILED`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_SENDING_REQUEST_FAILED): Failed to send IPC requests.
-    /// <br>[`COMMONEVENT_ERR_INIT_UNDONE`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INIT_UNDONE): Services not initialized.
+    ///   <br>[`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK): Operation successful.
+    ///   <br>[`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER): Invalid parameter.
+    ///   <br>[`COMMONEVENT_ERR_SENDING_LIMIT_EXCEEDED`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_SENDING_LIMIT_EXCEEDED): Event sending frequency is too high.
+    ///   <br>[`COMMONEVENT_ERR_SENDING_REQUEST_FAILED`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_SENDING_REQUEST_FAILED): Failed to send IPC requests.
+    ///   <br>[`COMMONEVENT_ERR_INIT_UNDONE`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INIT_UNDONE): Services not initialized.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -1148,7 +1148,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns **true** if the common event is an ordered one; returns **false** if the common event is an
-    /// unordered one.
+    ///   unordered one.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -1268,10 +1268,10 @@ extern "C" {
     /// * `subscriber` - Pointer to the common event subscriber.
     ///
     /// * `data` - Pointer to the result data to set. The effective data length is the smaller of **length** and
-    /// the length of the **data** string
+    ///   the length of the **data** string
     ///
     /// * `length` - Length of the data to be transferred, in bytes. The value is the length of the
-    /// **data** string.
+    ///   **data** string.
     ///
     /// # Returns
     ///

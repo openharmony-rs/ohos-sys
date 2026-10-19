@@ -57,8 +57,8 @@ extern "C" {
     /// # Returns
     ///
     /// * The error code.
-    /// [`ABILITY_BASE_ERROR_CODE_NO_ERROR`](crate::base::common::AbilityBaseResult) if the operation is successful.
-    /// [`ABILITY_BASE_ERROR_CODE_PARAM_INVALID`](crate::base::common::AbilityBaseErrorCode::PARAM_INVALID) if the want is invalid.
+    ///   [`ABILITY_BASE_ERROR_CODE_NO_ERROR`](crate::base::common::AbilityBaseResult) if the operation is successful.
+    ///   [`ABILITY_BASE_ERROR_CODE_PARAM_INVALID`](crate::base::common::AbilityBaseErrorCode::PARAM_INVALID) if the want is invalid.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
@@ -75,8 +75,8 @@ extern "C" {
     /// # Returns
     ///
     /// * The error code.
-    /// [`ABILITY_BASE_ERROR_CODE_NO_ERROR`](crate::base::common::AbilityBaseResult) if the operation is successful.
-    /// [`ABILITY_BASE_ERROR_CODE_PARAM_INVALID`](crate::base::common::AbilityBaseErrorCode::PARAM_INVALID) if the want is invalid.
+    ///   [`ABILITY_BASE_ERROR_CODE_NO_ERROR`](crate::base::common::AbilityBaseResult) if the operation is successful.
+    ///   [`ABILITY_BASE_ERROR_CODE_PARAM_INVALID`](crate::base::common::AbilityBaseErrorCode::PARAM_INVALID) if the want is invalid.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
@@ -96,8 +96,8 @@ extern "C" {
     /// # Returns
     ///
     /// * The error code.
-    /// [`ABILITY_BASE_ERROR_CODE_NO_ERROR`](crate::base::common::AbilityBaseResult) if the operation is successful.
-    /// [`ABILITY_BASE_ERROR_CODE_PARAM_INVALID`](crate::base::common::AbilityBaseErrorCode::PARAM_INVALID) if the want or element is invalid.
+    ///   [`ABILITY_BASE_ERROR_CODE_NO_ERROR`](crate::base::common::AbilityBaseResult) if the operation is successful.
+    ///   [`ABILITY_BASE_ERROR_CODE_PARAM_INVALID`](crate::base::common::AbilityBaseErrorCode::PARAM_INVALID) if the want or element is invalid.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
@@ -119,8 +119,8 @@ extern "C" {
     /// # Returns
     ///
     /// * The error code.
-    /// [`ABILITY_BASE_ERROR_CODE_NO_ERROR`](crate::base::common::AbilityBaseResult) if the operation is successful.
-    /// [`ABILITY_BASE_ERROR_CODE_PARAM_INVALID`](crate::base::common::AbilityBaseErrorCode::PARAM_INVALID) if the input parameters are invalid.
+    ///   [`ABILITY_BASE_ERROR_CODE_NO_ERROR`](crate::base::common::AbilityBaseResult) if the operation is successful.
+    ///   [`ABILITY_BASE_ERROR_CODE_PARAM_INVALID`](crate::base::common::AbilityBaseErrorCode::PARAM_INVALID) if the input parameters are invalid.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
@@ -145,8 +145,8 @@ extern "C" {
     /// # Returns
     ///
     /// * The error code.
-    /// [`ABILITY_BASE_ERROR_CODE_NO_ERROR`](crate::base::common::AbilityBaseResult) if the operation is successful.
-    /// [`ABILITY_BASE_ERROR_CODE_PARAM_INVALID`](crate::base::common::AbilityBaseErrorCode::PARAM_INVALID) if the input parameters are invalid.
+    ///   [`ABILITY_BASE_ERROR_CODE_NO_ERROR`](crate::base::common::AbilityBaseResult) if the operation is successful.
+    ///   [`ABILITY_BASE_ERROR_CODE_PARAM_INVALID`](crate::base::common::AbilityBaseErrorCode::PARAM_INVALID) if the input parameters are invalid.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
@@ -170,8 +170,8 @@ extern "C" {
     /// # Returns
     ///
     /// * The error code.
-    /// [`ABILITY_BASE_ERROR_CODE_NO_ERROR`](crate::base::common::AbilityBaseResult) if the operation is successful.
-    /// [`ABILITY_BASE_ERROR_CODE_PARAM_INVALID`](crate::base::common::AbilityBaseErrorCode::PARAM_INVALID) if the input parameters are invalid.
+    ///   [`ABILITY_BASE_ERROR_CODE_NO_ERROR`](crate::base::common::AbilityBaseResult) if the operation is successful.
+    ///   [`ABILITY_BASE_ERROR_CODE_PARAM_INVALID`](crate::base::common::AbilityBaseErrorCode::PARAM_INVALID) if the input parameters are invalid.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
@@ -194,8 +194,8 @@ extern "C" {
     /// # Returns
     ///
     /// * The error code.
-    /// [`ABILITY_BASE_ERROR_CODE_NO_ERROR`](crate::base::common::AbilityBaseResult) if the operation is successful.
-    /// [`ABILITY_BASE_ERROR_CODE_PARAM_INVALID`](crate::base::common::AbilityBaseErrorCode::PARAM_INVALID) if the input parameters are invalid.
+    ///   [`ABILITY_BASE_ERROR_CODE_NO_ERROR`](crate::base::common::AbilityBaseResult) if the operation is successful.
+    ///   [`ABILITY_BASE_ERROR_CODE_PARAM_INVALID`](crate::base::common::AbilityBaseErrorCode::PARAM_INVALID) if the input parameters are invalid.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
@@ -216,8 +216,8 @@ extern "C" {
     /// # Returns
     ///
     /// * The error code.
-    /// [`ABILITY_BASE_ERROR_CODE_NO_ERROR`](crate::base::common::AbilityBaseResult) if the operation is successful.
-    /// [`ABILITY_BASE_ERROR_CODE_PARAM_INVALID`](crate::base::common::AbilityBaseErrorCode::PARAM_INVALID) if the input parameters are invalid.
+    ///   [`ABILITY_BASE_ERROR_CODE_NO_ERROR`](crate::base::common::AbilityBaseResult) if the operation is successful.
+    ///   [`ABILITY_BASE_ERROR_CODE_PARAM_INVALID`](crate::base::common::AbilityBaseErrorCode::PARAM_INVALID) if the input parameters are invalid.
     ///
     /// Available since API-level: 17
     #[cfg(feature = "api-17")]
@@ -239,8 +239,8 @@ extern "C" {
     /// # Returns
     ///
     /// * The error code.
-    /// [`ABILITY_BASE_ERROR_CODE_NO_ERROR`](crate::base::common::AbilityBaseResult) if the operation is successful.
-    /// [`ABILITY_BASE_ERROR_CODE_PARAM_INVALID`](crate::base::common::AbilityBaseErrorCode::PARAM_INVALID) if the input parameters are invalid.
+    ///   [`ABILITY_BASE_ERROR_CODE_NO_ERROR`](crate::base::common::AbilityBaseResult) if the operation is successful.
+    ///   [`ABILITY_BASE_ERROR_CODE_PARAM_INVALID`](crate::base::common::AbilityBaseErrorCode::PARAM_INVALID) if the input parameters are invalid.
     ///
     /// Available since API-level: 17
     #[cfg(feature = "api-17")]
@@ -263,8 +263,8 @@ extern "C" {
     /// # Returns
     ///
     /// * The error code.
-    /// [`ABILITY_BASE_ERROR_CODE_NO_ERROR`](crate::base::common::AbilityBaseResult) if the operation is successful.
-    /// [`ABILITY_BASE_ERROR_CODE_PARAM_INVALID`](crate::base::common::AbilityBaseErrorCode::PARAM_INVALID) if the input parameters are invalid.
+    ///   [`ABILITY_BASE_ERROR_CODE_NO_ERROR`](crate::base::common::AbilityBaseResult) if the operation is successful.
+    ///   [`ABILITY_BASE_ERROR_CODE_PARAM_INVALID`](crate::base::common::AbilityBaseErrorCode::PARAM_INVALID) if the input parameters are invalid.
     ///
     /// Available since API-level: 17
     #[cfg(feature = "api-17")]
@@ -287,8 +287,8 @@ extern "C" {
     /// # Returns
     ///
     /// * The error code.
-    /// [`ABILITY_BASE_ERROR_CODE_NO_ERROR`](crate::base::common::AbilityBaseResult) if the operation is successful.
-    /// [`ABILITY_BASE_ERROR_CODE_PARAM_INVALID`](crate::base::common::AbilityBaseErrorCode::PARAM_INVALID) if the input parameters are invalid.
+    ///   [`ABILITY_BASE_ERROR_CODE_NO_ERROR`](crate::base::common::AbilityBaseResult) if the operation is successful.
+    ///   [`ABILITY_BASE_ERROR_CODE_PARAM_INVALID`](crate::base::common::AbilityBaseErrorCode::PARAM_INVALID) if the input parameters are invalid.
     ///
     /// Available since API-level: 17
     #[cfg(feature = "api-17")]
@@ -311,8 +311,8 @@ extern "C" {
     /// # Returns
     ///
     /// * The error code.
-    /// [`ABILITY_BASE_ERROR_CODE_NO_ERROR`](crate::base::common::AbilityBaseResult) if the operation is successful.
-    /// [`ABILITY_BASE_ERROR_CODE_PARAM_INVALID`](crate::base::common::AbilityBaseErrorCode::PARAM_INVALID) if the input parameters are invalid.
+    ///   [`ABILITY_BASE_ERROR_CODE_NO_ERROR`](crate::base::common::AbilityBaseResult) if the operation is successful.
+    ///   [`ABILITY_BASE_ERROR_CODE_PARAM_INVALID`](crate::base::common::AbilityBaseErrorCode::PARAM_INVALID) if the input parameters are invalid.
     ///
     /// Available since API-level: 17
     #[cfg(feature = "api-17")]
@@ -335,8 +335,8 @@ extern "C" {
     /// # Returns
     ///
     /// * The error code.
-    /// [`ABILITY_BASE_ERROR_CODE_NO_ERROR`](crate::base::common::AbilityBaseResult) if the operation is successful.
-    /// [`ABILITY_BASE_ERROR_CODE_PARAM_INVALID`](crate::base::common::AbilityBaseErrorCode::PARAM_INVALID) if the input parameters are invalid.
+    ///   [`ABILITY_BASE_ERROR_CODE_NO_ERROR`](crate::base::common::AbilityBaseResult) if the operation is successful.
+    ///   [`ABILITY_BASE_ERROR_CODE_PARAM_INVALID`](crate::base::common::AbilityBaseErrorCode::PARAM_INVALID) if the input parameters are invalid.
     ///
     /// Available since API-level: 17
     #[cfg(feature = "api-17")]
@@ -359,8 +359,8 @@ extern "C" {
     /// # Returns
     ///
     /// * The error code.
-    /// [`ABILITY_BASE_ERROR_CODE_NO_ERROR`](crate::base::common::AbilityBaseResult) if the operation is successful.
-    /// [`ABILITY_BASE_ERROR_CODE_PARAM_INVALID`](crate::base::common::AbilityBaseErrorCode::PARAM_INVALID) if the input parameters are invalid.
+    ///   [`ABILITY_BASE_ERROR_CODE_NO_ERROR`](crate::base::common::AbilityBaseResult) if the operation is successful.
+    ///   [`ABILITY_BASE_ERROR_CODE_PARAM_INVALID`](crate::base::common::AbilityBaseErrorCode::PARAM_INVALID) if the input parameters are invalid.
     ///
     /// Available since API-level: 17
     #[cfg(feature = "api-17")]
@@ -383,8 +383,8 @@ extern "C" {
     /// # Returns
     ///
     /// * The error code.
-    /// [`ABILITY_BASE_ERROR_CODE_NO_ERROR`](crate::base::common::AbilityBaseResult) if the operation is successful.
-    /// [`ABILITY_BASE_ERROR_CODE_PARAM_INVALID`](crate::base::common::AbilityBaseErrorCode::PARAM_INVALID) if the input parameters are invalid.
+    ///   [`ABILITY_BASE_ERROR_CODE_NO_ERROR`](crate::base::common::AbilityBaseResult) if the operation is successful.
+    ///   [`ABILITY_BASE_ERROR_CODE_PARAM_INVALID`](crate::base::common::AbilityBaseErrorCode::PARAM_INVALID) if the input parameters are invalid.
     ///
     /// Available since API-level: 17
     #[cfg(feature = "api-17")]

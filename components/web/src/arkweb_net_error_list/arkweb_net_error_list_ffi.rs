@@ -299,28 +299,28 @@ impl ArkWeb_NetError {
     /// The server responded with a certificate whose common name did not match
     /// the host name. This could mean:
     /// 1. An attacker has redirected our traffic to their server and is
-    /// presenting a certificate for which they know the private key.
+    ///    presenting a certificate for which they know the private key.
     /// 2. The server is misconfigured and responding with the wrong cert.
     /// 3. The user is on a wireless network and is being redirected to the
-    /// network's login page.
+    ///    network's login page.
     /// 4. The OS has used a DNS search suffix and the server doesn't have
-    /// a certificate for the abbreviated name in the address bar.
+    ///    a certificate for the abbreviated name in the address bar.
     pub const ARKWEB_ERR_CERT_COMMON_NAME_INVALID: ArkWeb_NetError = ArkWeb_NetError(-200);
     /// The server responded with a certificate that, by our clock, appears to
     /// either not yet be valid or to have expired. This could mean:
     /// 1. An attacker is presenting an old certificate for which they have
-    /// managed to obtain the private key.
+    ///    managed to obtain the private key.
     /// 2. The server is misconfigured and is not presenting a valid cert.
     /// 3. Our clock is wrong.
     pub const ARKWEB_ERR_CERT_DATE_INVALID: ArkWeb_NetError = ArkWeb_NetError(-201);
     /// The server responded with a certificate that is signed by an authority
     /// we don't trust. The could mean:
     /// 1. An attacker has substituted the real certificate for a cert that
-    /// contains their public key and is signed by their cousin.
+    ///    contains their public key and is signed by their cousin.
     /// 2. The server operator has a legitimate certificate from a CA we don't
-    /// know about, but should trust.
+    ///    know about, but should trust.
     /// 3. The server is presenting a self-signed certificate, providing no
-    /// defense against active attackers (but foiling passive attackers).
+    ///    defense against active attackers (but foiling passive attackers).
     pub const ARKWEB_ERR_CERT_AUTHORITY_INVALID: ArkWeb_NetError = ArkWeb_NetError(-202);
     /// The server responded with a certificate that contains errors.
     /// This error is not recoverable.
@@ -335,9 +335,9 @@ impl ArkWeb_NetError {
     /// Revocation information for the security certificate for this site is not
     /// available. This could mean:
     /// 1. An attacker has compromised the private key in the certificate and is
-    /// blocking our attempt to find out that the cert was revoked.
+    ///    blocking our attempt to find out that the cert was revoked.
     /// 2. The certificate is unrevoked, but the revocation server is busy or
-    /// unavailable.
+    ///    unavailable.
     pub const ARKWEB_ERR_CERT_UNABLE_TO_CHECK_REVOCATION: ArkWeb_NetError = ArkWeb_NetError(-205);
     /// The server responded with a certificate has been revoked.
     /// We have the capability to ignore this error, but it is probably not the

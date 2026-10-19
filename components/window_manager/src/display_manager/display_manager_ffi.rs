@@ -31,7 +31,7 @@ pub type OH_NativeDisplayManager_DisplayChangeCallback =
 /// # Arguments
 ///
 /// * `displayMode` - Folded or unfolded state of the display. For details about the available options, see
-/// [`NativeDisplayManager_FoldDisplayMode`](crate::display_info::NativeDisplayManager_FoldDisplayMode).
+///   [`NativeDisplayManager_FoldDisplayMode`](crate::display_info::NativeDisplayManager_FoldDisplayMode).
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
@@ -131,7 +131,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `displayRotation` - Pointer to the clockwise rotation angle. For details about the available options, see
-    /// [`NativeDisplayManager_Rotation`](crate::display_info::NativeDisplayManager_Rotation).
+    ///   [`NativeDisplayManager_Rotation`](crate::display_info::NativeDisplayManager_Rotation).
     ///
     /// # Returns
     ///
@@ -150,7 +150,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `displayOrientation` - Pointer to the orientation. For details about the available options, see
-    /// [`NativeDisplayManager_Orientation`](crate::display_info::NativeDisplayManager_Orientation).
+    ///   [`NativeDisplayManager_Orientation`](crate::display_info::NativeDisplayManager_Orientation).
     ///
     /// # Returns
     ///
@@ -169,7 +169,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `virtualPixels` - Pointer to the virtual pixel ratio. The value is a floating-point number, and it is usually the
-    /// same as that of **densityPixels**.
+    ///   same as that of **densityPixels**.
     ///
     /// # Returns
     ///
@@ -206,7 +206,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `densityDpi` - Pointer to the physical pixel density, that is, the number of pixels per inch. The value is an
-    /// integer, in px. The actual value depends on the options provided in device settings.
+    ///   integer, in px. The actual value depends on the options provided in device settings.
     ///
     /// # Returns
     ///
@@ -225,8 +225,8 @@ extern "C" {
     /// # Arguments
     ///
     /// * `densityPixels` - Pointer to the logical pixel density, which indicates the scaling coefficient of the physical
-    /// pixels and logical pixels. The value is a floating-point number in the range \[0.5, 4.0\]. Generally, the value is
-    /// **1.0** or **3.0**. The actual value depends on the density DPI provided by the device in use.
+    ///   pixels and logical pixels. The value is a floating-point number in the range \[0.5, 4.0\]. Generally, the value is
+    ///   **1.0** or **3.0**. The actual value depends on the density DPI provided by the device in use.
     ///
     /// # Returns
     ///
@@ -245,7 +245,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `scaledDensity` - Pointer to the scale factor. The value is a floating-point number, and it is usually the same
-    /// as that of **densityPixels**.
+    ///   as that of **densityPixels**.
     ///
     /// # Returns
     ///
@@ -264,7 +264,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `xDpi` - Pointer to the number of physical pixels per inch in the X dimension. The value is a floating-point
-    /// number.
+    ///   number.
     ///
     /// # Returns
     ///
@@ -283,7 +283,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `yDpi` - Pointer to the number of physical pixels per inch in the Y dimension. The value is a floating-point
-    /// number.
+    ///   number.
     ///
     /// # Returns
     ///
@@ -303,7 +303,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `cutoutInfo` - Double pointer to the unusable area information, which is encapsulated in
-    /// [`NativeDisplayManager_CutoutInfo`](crate::display_info::NativeDisplayManager_CutoutInfo).
+    ///   [`NativeDisplayManager_CutoutInfo`](crate::display_info::NativeDisplayManager_CutoutInfo).
     ///
     /// # Returns
     ///
@@ -323,8 +323,8 @@ extern "C" {
     /// # Arguments
     ///
     /// * `cutoutInfo` - Pointer to the unusable area information object, which is obtained by calling
-    /// [`OH_NativeDisplayManager_CreateDefaultDisplayCutoutInfo`](crate::display_manager::OH_NativeDisplayManager_CreateDefaultDisplayCutoutInfo). For details, see
-    /// [`NativeDisplayManager_CutoutInfo`](crate::display_info::NativeDisplayManager_CutoutInfo).
+    ///   [`OH_NativeDisplayManager_CreateDefaultDisplayCutoutInfo`](crate::display_manager::OH_NativeDisplayManager_CreateDefaultDisplayCutoutInfo). For details, see
+    ///   [`NativeDisplayManager_CutoutInfo`](crate::display_info::NativeDisplayManager_CutoutInfo).
     ///
     /// # Returns
     ///
@@ -353,7 +353,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `displayMode` - Pointer to the display mode. For details about the available options, see
-    /// [`NativeDisplayManager_FoldDisplayMode`](crate::display_info::NativeDisplayManager_FoldDisplayMode).
+    ///   [`NativeDisplayManager_FoldDisplayMode`](crate::display_info::NativeDisplayManager_FoldDisplayMode).
     ///
     /// # Returns
     ///
@@ -372,10 +372,10 @@ extern "C" {
     /// # Arguments
     ///
     /// * `displayChangeCallback` - Callback function triggered when the display status is changed. For details, see
-    /// [`OH_NativeDisplayManager_DisplayChangeCallback`](crate::display_manager::OH_NativeDisplayManager_DisplayChangeCallback).
+    ///   [`OH_NativeDisplayManager_DisplayChangeCallback`](crate::display_manager::OH_NativeDisplayManager_DisplayChangeCallback).
     ///
     /// * `listenerIndex` - Pointer to the index of the listener registered. It can be used as an input parameter of
-    /// [`OH_NativeDisplayManager_UnregisterDisplayChangeListener`](crate::display_manager::OH_NativeDisplayManager_UnregisterDisplayChangeListener).
+    ///   [`OH_NativeDisplayManager_UnregisterDisplayChangeListener`](crate::display_manager::OH_NativeDisplayManager_UnregisterDisplayChangeListener).
     ///
     /// # Returns
     ///
@@ -395,7 +395,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `listenerIndex` - Index of the listener returned when
-    /// [`OH_NativeDisplayManager_RegisterDisplayChangeListener`](crate::display_manager::OH_NativeDisplayManager_RegisterDisplayChangeListener) is called.
+    ///   [`OH_NativeDisplayManager_RegisterDisplayChangeListener`](crate::display_manager::OH_NativeDisplayManager_RegisterDisplayChangeListener) is called.
     ///
     /// # Returns
     ///
@@ -414,10 +414,10 @@ extern "C" {
     /// # Arguments
     ///
     /// * `displayModeChangeCallback` - Callback function triggered when the folded/unfolded state of the display is
-    /// changed. For details, see [`OH_NativeDisplayManager_FoldDisplayModeChangeCallback`](crate::display_manager::OH_NativeDisplayManager_FoldDisplayModeChangeCallback).
+    ///   changed. For details, see [`OH_NativeDisplayManager_FoldDisplayModeChangeCallback`](crate::display_manager::OH_NativeDisplayManager_FoldDisplayModeChangeCallback).
     ///
     /// * `listenerIndex` - Pointer to the index of the listener registered. It can be used as an input parameter of
-    /// [`OH_NativeDisplayManager_UnregisterFoldDisplayModeChangeListener`](crate::display_manager::OH_NativeDisplayManager_UnregisterFoldDisplayModeChangeListener).
+    ///   [`OH_NativeDisplayManager_UnregisterFoldDisplayModeChangeListener`](crate::display_manager::OH_NativeDisplayManager_UnregisterFoldDisplayModeChangeListener).
     ///
     /// # Returns
     ///
@@ -438,7 +438,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `listenerIndex` - Index of the listener returned when
-    /// [`OH_NativeDisplayManager_RegisterFoldDisplayModeChangeListener`](crate::display_manager::OH_NativeDisplayManager_RegisterFoldDisplayModeChangeListener) is called.
+    ///   [`OH_NativeDisplayManager_RegisterFoldDisplayModeChangeListener`](crate::display_manager::OH_NativeDisplayManager_RegisterFoldDisplayModeChangeListener) is called.
     ///
     /// # Returns
     ///
@@ -458,7 +458,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `allDisplays` - Double pointer to the display information, which is encapsulated in
-    /// [`NativeDisplayManager_DisplaysInfo`](crate::display_info::NativeDisplayManager_DisplaysInfo).
+    ///   [`NativeDisplayManager_DisplaysInfo`](crate::display_info::NativeDisplayManager_DisplaysInfo).
     ///
     /// # Returns
     ///
@@ -477,7 +477,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `allDisplays` - Pointer to the display information object, which is obtained by calling
-    /// [`OH_NativeDisplayManager_CreateAllDisplays`](crate::display_manager::OH_NativeDisplayManager_CreateAllDisplays). For details, see [`NativeDisplayManager_DisplaysInfo`](crate::display_info::NativeDisplayManager_DisplaysInfo).
+    ///   [`OH_NativeDisplayManager_CreateAllDisplays`](crate::display_manager::OH_NativeDisplayManager_CreateAllDisplays). For details, see [`NativeDisplayManager_DisplaysInfo`](crate::display_info::NativeDisplayManager_DisplaysInfo).
     ///
     /// Available since API-level: 14
     #[cfg(feature = "api-14")]
@@ -492,7 +492,7 @@ extern "C" {
     /// * `displayId` - ID of the display. The value must be a non-negative integer.
     ///
     /// * `displayInfo` - Double pointer to the display information, which is encapsulated in
-    /// [`NativeDisplayManager_DisplayInfo`](crate::display_info::NativeDisplayManager_DisplayInfo).
+    ///   [`NativeDisplayManager_DisplayInfo`](crate::display_info::NativeDisplayManager_DisplayInfo).
     ///
     /// # Returns
     ///
@@ -512,8 +512,8 @@ extern "C" {
     /// # Arguments
     ///
     /// * `displayInfo` - Pointer to the display information object, which is obtained by calling
-    /// [`OH_NativeDisplayManager_CreateDisplayById`](crate::display_manager::OH_NativeDisplayManager_CreateDisplayById) or [`OH_NativeDisplayManager_CreatePrimaryDisplay`](crate::display_manager::OH_NativeDisplayManager_CreatePrimaryDisplay). For
-    /// details, see [`NativeDisplayManager_DisplayInfo`](crate::display_info::NativeDisplayManager_DisplayInfo).
+    ///   [`OH_NativeDisplayManager_CreateDisplayById`](crate::display_manager::OH_NativeDisplayManager_CreateDisplayById) or [`OH_NativeDisplayManager_CreatePrimaryDisplay`](crate::display_manager::OH_NativeDisplayManager_CreatePrimaryDisplay). For
+    ///   details, see [`NativeDisplayManager_DisplayInfo`](crate::display_info::NativeDisplayManager_DisplayInfo).
     ///
     /// Available since API-level: 14
     #[cfg(feature = "api-14")]
@@ -529,7 +529,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `displayInfo` - Double pointer to the display information, which is encapsulated in
-    /// [`NativeDisplayManager_DisplayInfo`](crate::display_info::NativeDisplayManager_DisplayInfo).
+    ///   [`NativeDisplayManager_DisplayInfo`](crate::display_info::NativeDisplayManager_DisplayInfo).
     ///
     /// # Returns
     ///
@@ -553,10 +553,10 @@ extern "C" {
     /// # Arguments
     ///
     /// * `availableAreaChangeCallback` - Callback function triggered when the available area of the display changes.
-    /// For details, see [`OH_NativeDisplayManager_AvailableAreaChangeCallback`](crate::display_manager::OH_NativeDisplayManager_AvailableAreaChangeCallback).
+    ///   For details, see [`OH_NativeDisplayManager_AvailableAreaChangeCallback`](crate::display_manager::OH_NativeDisplayManager_AvailableAreaChangeCallback).
     ///
     /// * `listenerIndex` - Pointer to the index of the listener registered.
-    /// It can be used as an input parameter of [`OH_NativeDisplayManager_UnregisterAvailableAreaChangeListener`](crate::display_manager::OH_NativeDisplayManager_UnregisterAvailableAreaChangeListener).
+    ///   It can be used as an input parameter of [`OH_NativeDisplayManager_UnregisterAvailableAreaChangeListener`](crate::display_manager::OH_NativeDisplayManager_UnregisterAvailableAreaChangeListener).
     ///
     /// # Returns
     ///
@@ -581,7 +581,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `listenerIndex` - Index of the listener returned
-    /// when [`OH_NativeDisplayManager_RegisterAvailableAreaChangeListener`](crate::display_manager::OH_NativeDisplayManager_RegisterAvailableAreaChangeListener) is called.
+    ///   when [`OH_NativeDisplayManager_RegisterAvailableAreaChangeListener`](crate::display_manager::OH_NativeDisplayManager_RegisterAvailableAreaChangeListener) is called.
     ///
     /// # Returns
     ///
@@ -608,7 +608,7 @@ extern "C" {
     /// * `displayId` - Display ID, which is a non-negative integer.
     ///
     /// * `availableArea` - Double pointer to the available area of the display. For details, see
-    /// [`NativeDisplayManager_Rect`](crate::display_info::NativeDisplayManager_Rect).
+    ///   [`NativeDisplayManager_Rect`](crate::display_info::NativeDisplayManager_Rect).
     ///
     /// # Returns
     ///
@@ -628,8 +628,8 @@ extern "C" {
     /// # Arguments
     ///
     /// * `availableArea` - Pointer to the available area, which is obtained by calling
-    /// [`OH_NativeDisplayManager_CreateAvailableArea`](crate::display_manager::OH_NativeDisplayManager_CreateAvailableArea).
-    /// For details about the available area, see [`NativeDisplayManager_Rect`](crate::display_info::NativeDisplayManager_Rect).
+    ///   [`OH_NativeDisplayManager_CreateAvailableArea`](crate::display_manager::OH_NativeDisplayManager_CreateAvailableArea).
+    ///   For details about the available area, see [`NativeDisplayManager_Rect`](crate::display_info::NativeDisplayManager_Rect).
     ///
     /// # Returns
     ///
@@ -647,10 +647,10 @@ extern "C" {
     /// # Arguments
     ///
     /// * `displayAddCallback` - Callback function triggered when a display is added. For details, see
-    /// [`OH_NativeDisplayManager_DisplayAddCallback`](crate::display_manager::OH_NativeDisplayManager_DisplayAddCallback).
+    ///   [`OH_NativeDisplayManager_DisplayAddCallback`](crate::display_manager::OH_NativeDisplayManager_DisplayAddCallback).
     ///
     /// * `listenerIndex` - Pointer to the index of the listener registered.
-    /// It can be used as an input parameter of [`OH_NativeDisplayManager_UnregisterDisplayAddListener`](crate::display_manager::OH_NativeDisplayManager_UnregisterDisplayAddListener).
+    ///   It can be used as an input parameter of [`OH_NativeDisplayManager_UnregisterDisplayAddListener`](crate::display_manager::OH_NativeDisplayManager_UnregisterDisplayAddListener).
     ///
     /// # Returns
     ///
@@ -670,7 +670,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `listenerIndex` - Index of the listener returned when [`OH_NativeDisplayManager_RegisterDisplayAddListener`](crate::display_manager::OH_NativeDisplayManager_RegisterDisplayAddListener)
-    /// is called.
+    ///   is called.
     ///
     /// # Returns
     ///
@@ -689,10 +689,10 @@ extern "C" {
     /// # Arguments
     ///
     /// * `displayRemoveCallback` - Callback function triggered when a display is removed. For details, see
-    /// [`OH_NativeDisplayManager_DisplayRemoveCallback`](crate::display_manager::OH_NativeDisplayManager_DisplayRemoveCallback).
+    ///   [`OH_NativeDisplayManager_DisplayRemoveCallback`](crate::display_manager::OH_NativeDisplayManager_DisplayRemoveCallback).
     ///
     /// * `listenerIndex` - Pointer to the index of the listener registered.
-    /// It can be used as an input parameter of [`OH_NativeDisplayManager_UnregisterDisplayRemoveListener`](crate::display_manager::OH_NativeDisplayManager_UnregisterDisplayRemoveListener).
+    ///   It can be used as an input parameter of [`OH_NativeDisplayManager_UnregisterDisplayRemoveListener`](crate::display_manager::OH_NativeDisplayManager_UnregisterDisplayRemoveListener).
     ///
     /// # Returns
     ///
@@ -712,7 +712,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `listenerIndex` - Index of the listener returned when
-    /// [`OH_NativeDisplayManager_RegisterDisplayRemoveListener`](crate::display_manager::OH_NativeDisplayManager_RegisterDisplayRemoveListener) is called.
+    ///   [`OH_NativeDisplayManager_RegisterDisplayRemoveListener`](crate::display_manager::OH_NativeDisplayManager_RegisterDisplayRemoveListener) is called.
     ///
     /// # Returns
     ///
@@ -733,7 +733,7 @@ extern "C" {
     /// * `displayId` - Display ID, which is a non-negative integer.
     ///
     /// * `sourceMode` - Pointer to the source mode. For details about the available options, see
-    /// [`NativeDisplayManager_SourceMode`](crate::display_info::NativeDisplayManager_SourceMode).
+    ///   [`NativeDisplayManager_SourceMode`](crate::display_info::NativeDisplayManager_SourceMode).
     ///
     /// # Returns
     ///
@@ -756,10 +756,10 @@ extern "C" {
     /// * `displayId` - Display ID, which is a non-negative integer.
     ///
     /// * `x` - Pointer to the x-coordinate relative to the upper left corner of the main screen, in px. The value must be
-    /// an integer and is returned as an output parameter.
+    ///   an integer and is returned as an output parameter.
     ///
     /// * `y` - Pointer to the y-coordinate relative to the upper left corner of the main screen, in px. The value must be
-    /// an integer and is returned as an output parameter.
+    ///   an integer and is returned as an output parameter.
     ///
     /// # Returns
     ///

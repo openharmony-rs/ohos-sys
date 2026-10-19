@@ -94,22 +94,22 @@ extern "C" {
     ///
     /// * `algoName` - \[in\] Verification algorithm name. Cannot be NULL. Values:
     /// - RSA PKCS1 mode: Format "RSA|PKCS1|Digest", e.g. "RSA|PKCS1|SHA256", "RSA|PKCS1|SHA512".
-    /// Digest supports "MD5", "SHA1", "SHA224", "SHA256", "SHA384", "SHA512".
+    ///   Digest supports "MD5", "SHA1", "SHA224", "SHA256", "SHA384", "SHA512".
     /// - RSA PSS mode: Format "RSA|PSS|Digest|MGF1Digest", e.g. "RSA|PSS|SHA256|MGF1_SHA256".
-    /// Digest supports "MD5", "SHA1", "SHA224", "SHA256", "SHA384", "SHA512".
-    /// MGF1 digest supports "MGF1_MD5", "MGF1_SHA1", "MGF1_SHA224", "MGF1_SHA256", "MGF1_SHA384", "MGF1_SHA512".
+    ///   Digest supports "MD5", "SHA1", "SHA224", "SHA256", "SHA384", "SHA512".
+    ///   MGF1 digest supports "MGF1_MD5", "MGF1_SHA1", "MGF1_SHA224", "MGF1_SHA256", "MGF1_SHA384", "MGF1_SHA512".
     /// - RSA verify recovery: Format "RSA|PKCS1|Digest|Recover", e.g. "RSA|PKCS1|SHA256|Recover",
-    /// "RSA|PKCS1|SHA512|Recover".
-    /// Digest supports "NoHash", "MD5", "SHA1", "SHA224", "SHA256", "SHA384", "SHA512".
+    ///   "RSA|PKCS1|SHA512|Recover".
+    ///   Digest supports "NoHash", "MD5", "SHA1", "SHA224", "SHA256", "SHA384", "SHA512".
     /// - ECDSA algorithm: Format "ECC|Digest", e.g. "ECC|SHA256", "ECC|SHA384".
-    /// Digest supports "SHA1", "SHA224", "SHA256", "SHA384", "SHA512".
+    ///   Digest supports "SHA1", "SHA224", "SHA256", "SHA384", "SHA512".
     /// - DSA algorithm: Format "DSA|Digest", e.g. "DSA|SHA256", "DSA|SHA384".
-    /// Digest supports "NoHash", "SHA1", "SHA224", "SHA256", "SHA384", "SHA512".
+    ///   Digest supports "NoHash", "SHA1", "SHA224", "SHA256", "SHA384", "SHA512".
     /// - SM2 algorithm: "SM2|SM3".
     /// - Ed25519 algorithm: "Ed25519".
     ///
     /// * `verify` - \[out\] Pointer to the verification context pointer. verify cannot be NULL,
-    /// *verify must be NULL.
+    ///   *verify must be NULL.
     ///
     /// # Returns
     ///
@@ -195,8 +195,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the boolean verification result. Returns true if verification succeeds, false if verification fails.
-    /// Possible causes: incorrect public key, corrupted signature data, mismatched hash algorithm,
-    /// mismatched padding mode, or the data does not match the original signed data.
+    ///   Possible causes: incorrect public key, corrupted signature data, mismatched hash algorithm,
+    ///   mismatched padding mode, or the data does not match the original signed data.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -214,7 +214,7 @@ extern "C" {
     /// * `signData` - \[in\] Signature data. Cannot be NULL.
     ///
     /// * `rawSignData` - \[out\] Pointer to the Crypto_DataBlob structure for storing the raw signature data. Cannot be NULL.
-    /// Initialize rawSignData to {0} before calling. Do not pre-allocate rawSignData->data.
+    ///   Initialize rawSignData to {0} before calling. Do not pre-allocate rawSignData->data.
     ///
     /// # Returns
     ///
@@ -243,7 +243,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the verification algorithm name. No need to free by the caller. Invalid after the context is
-    /// destroyed.
+    ///   destroyed.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -257,7 +257,7 @@ extern "C" {
     /// * `type` - \[in\] Signature parameter type.
     ///
     /// * `value` - \[in\] Input data. This function performs a deep copy of the data in value. The caller can release value
-    /// immediately after the function returns. Cannot be NULL.
+    ///   immediately after the function returns. Cannot be NULL.
     ///
     /// # Returns
     ///
@@ -283,7 +283,7 @@ extern "C" {
     /// * `type` - \[in\] Signature parameter type.
     ///
     /// * `value` - \[out\] Pointer to the Crypto_DataBlob structure for storing the output data. Cannot be NULL.
-    /// Initialize value to {0} before calling. Do not pre-allocate value->data.
+    ///   Initialize value to {0} before calling. Do not pre-allocate value->data.
     ///
     /// # Returns
     ///
@@ -317,17 +317,17 @@ extern "C" {
     ///
     /// * `algoName` - \[in\] Signing algorithm name. Cannot be NULL. Values:
     /// - RSA PKCS1 mode: Format "RSA|PKCS1|Digest", e.g. "RSA|PKCS1|SHA256", "RSA|PKCS1|SHA512".
-    /// Digest supports "MD5", "SHA1", "SHA224", "SHA256", "SHA384", "SHA512".
+    ///   Digest supports "MD5", "SHA1", "SHA224", "SHA256", "SHA384", "SHA512".
     /// - RSA PSS mode: Format "RSA|PSS|Digest|MGF1Digest", e.g. "RSA|PSS|SHA256|MGF1_SHA256".
-    /// Digest supports "MD5", "SHA1", "SHA224", "SHA256", "SHA384", "SHA512".
-    /// MGF1 digest supports "MGF1_MD5", "MGF1_SHA1", "MGF1_SHA224", "MGF1_SHA256", "MGF1_SHA384", "MGF1_SHA512".
+    ///   Digest supports "MD5", "SHA1", "SHA224", "SHA256", "SHA384", "SHA512".
+    ///   MGF1 digest supports "MGF1_MD5", "MGF1_SHA1", "MGF1_SHA224", "MGF1_SHA256", "MGF1_SHA384", "MGF1_SHA512".
     /// - RSA sign only: Format "RSA|PKCS1|Digest|OnlySign", e.g. "RSA|PKCS1|SHA256|OnlySign",
-    /// "RSA|PKCS1|SHA512|OnlySign".
-    /// Digest supports "NoHash", "MD5", "SHA1", "SHA224", "SHA256", "SHA384", "SHA512".
+    ///   "RSA|PKCS1|SHA512|OnlySign".
+    ///   Digest supports "NoHash", "MD5", "SHA1", "SHA224", "SHA256", "SHA384", "SHA512".
     /// - ECDSA algorithm: Format "ECC|Digest", e.g. "ECC|SHA256", "ECC|SHA384".
-    /// Digest supports "SHA1", "SHA224", "SHA256", "SHA384", "SHA512".
+    ///   Digest supports "SHA1", "SHA224", "SHA256", "SHA384", "SHA512".
     /// - DSA algorithm: Format "DSA|Digest", e.g. "DSA|SHA256", "DSA|SHA384".
-    /// Digest supports "NoHash", "SHA1", "SHA224", "SHA256", "SHA384", "SHA512".
+    ///   Digest supports "NoHash", "SHA1", "SHA224", "SHA256", "SHA384", "SHA512".
     /// - SM2 algorithm: "SM2|SM3".
     /// - Ed25519 algorithm: "Ed25519".
     ///
@@ -411,7 +411,7 @@ extern "C" {
     /// * `in` - \[in\] Data to be signed. Can be NULL if all data has been updated via [`OH_CryptoSign_Update`](crate::signature::OH_CryptoSign_Update).
     ///
     /// * `out` - \[out\] Pointer to the Crypto_DataBlob structure for storing the signature result. Cannot be NULL.
-    /// Initialize out to {0} before calling. Do not pre-allocate out->data.
+    ///   Initialize out to {0} before calling. Do not pre-allocate out->data.
     ///
     /// # Returns
     ///
@@ -452,7 +452,7 @@ extern "C" {
     /// * `type` - \[in\] Signing parameter type.
     ///
     /// * `value` - \[in\] Input data. This function performs a deep copy of the data in value. The caller
-    /// can release value immediately after the function returns. Cannot be NULL.
+    ///   can release value immediately after the function returns. Cannot be NULL.
     ///
     /// # Returns
     ///
@@ -478,7 +478,7 @@ extern "C" {
     /// * `type` - \[in\] Signing parameter type.
     ///
     /// * `value` - \[out\] Pointer to the Crypto_DataBlob structure for storing the output data. Cannot be NULL. Initialize
-    /// value to {0} before calling. Do not pre-allocate value->data.
+    ///   value to {0} before calling. Do not pre-allocate value->data.
     ///
     /// # Returns
     ///
@@ -541,10 +541,10 @@ extern "C" {
     /// * `spec` - \[in\] ECC signature specification. Cannot be NULL.
     ///
     /// * `r` - \[out\] Pointer to the Crypto_DataBlob structure for storing the r value. Cannot be NULL.
-    /// Initialize r to {0} before calling. Do not pre-allocate r->data.
+    ///   Initialize r to {0} before calling. Do not pre-allocate r->data.
     ///
     /// * `s` - \[out\] Pointer to the Crypto_DataBlob structure for storing the s value. Cannot be NULL.
-    /// Initialize s to {0} before calling. Do not pre-allocate s->data.
+    ///   Initialize s to {0} before calling. Do not pre-allocate s->data.
     ///
     /// # Returns
     ///
@@ -572,7 +572,7 @@ extern "C" {
     /// * `spec` - \[in\] ECC signature specification. Cannot be NULL.
     ///
     /// * `r` - \[in\] r value. This function performs a deep copy of the data in r and s. The caller can
-    /// release r and s immediately after the function returns. Cannot be NULL.
+    ///   release r and s immediately after the function returns. Cannot be NULL.
     ///
     /// * `s` - \[in\] s value. Cannot be NULL.
     ///
@@ -600,7 +600,7 @@ extern "C" {
     /// * `spec` - \[in\] ECC signature specification. Cannot be NULL.
     ///
     /// * `out` - \[out\] Pointer to the Crypto_DataBlob structure for storing the encoded signature. Cannot
-    /// be NULL. Initialize out to {0} before calling. Do not pre-allocate out->data.
+    ///   be NULL. Initialize out to {0} before calling. Do not pre-allocate out->data.
     ///
     /// # Returns
     ///

@@ -21,7 +21,7 @@ extern "C" {
     /// * `length` - Length of the data.
     ///
     /// * `copyData` - Whether to copy data. The value **true** means that the **OH_Drawing_MemoryStream** object copies
-    /// the data, and **false** means that the **OH_Drawing_MemoryStream** object directly uses the data without copying.
+    ///   the data, and **false** means that the **OH_Drawing_MemoryStream** object directly uses the data without copying.
     ///
     /// Available since API-level: 12
     ///

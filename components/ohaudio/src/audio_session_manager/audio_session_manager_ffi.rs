@@ -237,10 +237,10 @@ pub type OH_AudioSession_StateChangedCallback =
 /// * `type` - the [`OH_AudioDevice_ChangeType`](crate::audio_device_base::OH_AudioDevice_ChangeType) is connect or disconnect.
 ///
 /// * `audioDeviceDescriptorArray` - the [`OH_AudioDeviceDescriptorArray`](crate::audio_device_base::OH_AudioDeviceDescriptorArray)
-/// pointer variable which will be set the audio device descriptors value.
-/// Do not release the audioDeviceDescriptorArray pointer separately
-/// instead call [`OH_AudioSessionManager_ReleaseDevices`](crate::audio_session_manager::OH_AudioSessionManager_ReleaseDevices) to release the DeviceDescriptor array
-/// when it is no use anymore.
+///   pointer variable which will be set the audio device descriptors value.
+///   Do not release the audioDeviceDescriptorArray pointer separately
+///   instead call [`OH_AudioSessionManager_ReleaseDevices`](crate::audio_session_manager::OH_AudioSessionManager_ReleaseDevices) to release the DeviceDescriptor array
+///   when it is no use anymore.
 ///
 /// Available since API-level: 21
 #[cfg(feature = "api-21")]
@@ -257,13 +257,13 @@ pub type OH_AudioSession_AvailableDeviceChangedCallback = ::core::option::Option
 /// # Arguments
 ///
 /// * `audioDeviceDescriptorArray` - the [`OH_AudioDeviceDescriptorArray`](crate::audio_device_base::OH_AudioDeviceDescriptorArray)
-/// pointer variable which will be set the audio input device descriptors value.
-/// Do not release the audioDeviceDescriptorArray pointer separately
-/// instead call [`OH_AudioSessionManager_ReleaseDevices`](crate::audio_session_manager::OH_AudioSessionManager_ReleaseDevices)
-/// to release the DeviceDescriptor array when it is no use anymore.
+///   pointer variable which will be set the audio input device descriptors value.
+///   Do not release the audioDeviceDescriptorArray pointer separately
+///   instead call [`OH_AudioSessionManager_ReleaseDevices`](crate::audio_session_manager::OH_AudioSessionManager_ReleaseDevices)
+///   to release the DeviceDescriptor array when it is no use anymore.
 ///
 /// * `changeReason` - the [`OH_AudioStream_DeviceChangeReason`](crate::audiostream_base::OH_AudioStream_DeviceChangeReason) indicates
-/// that why does the input device changes.
+///   that why does the input device changes.
 ///
 /// Available since API-level: 21
 #[cfg(feature = "api-21")]
@@ -280,15 +280,15 @@ pub type OH_AudioSession_CurrentInputDeviceChangedCallback = ::core::option::Opt
 /// # Arguments
 ///
 /// * `audioDeviceDescriptorArray` - the [`OH_AudioDeviceDescriptorArray`](crate::audio_device_base::OH_AudioDeviceDescriptorArray)
-/// pointer variable which will be set the audio device descriptors value.
-/// Do not release the audioDeviceDescriptorArray pointer separately
-/// instead call [`OH_AudioSessionManager_ReleaseDevices`](crate::audio_session_manager::OH_AudioSessionManager_ReleaseDevices)
-/// to release the DeviceDescriptor array when it is no use anymore.
+///   pointer variable which will be set the audio device descriptors value.
+///   Do not release the audioDeviceDescriptorArray pointer separately
+///   instead call [`OH_AudioSessionManager_ReleaseDevices`](crate::audio_session_manager::OH_AudioSessionManager_ReleaseDevices)
+///   to release the DeviceDescriptor array when it is no use anymore.
 ///
 /// * `changeReason` - the [`OH_AudioStream_DeviceChangeReason`](crate::audiostream_base::OH_AudioStream_DeviceChangeReason) indicates that why does the device changes.
 ///
 /// * `recommendedAction` - the [`OH_AudioSession_OutputDeviceChangeRecommendedAction`](crate::audio_session_manager::OH_AudioSession_OutputDeviceChangeRecommendedAction)
-/// recommend action when device change.
+///   recommend action when device change.
 ///
 /// Available since API-level: 20
 #[cfg(feature = "api-20")]
@@ -319,12 +319,12 @@ extern "C" {
     /// # Arguments
     ///
     /// * `audioSessionManager` - the [`OH_AudioSessionManager`](crate::audio_session_manager::OH_AudioSessionManager)
-    /// which will be returned as the output parameter
+    ///   which will be returned as the output parameter
     ///
     /// # Returns
     ///
     /// * [`AUDIOCOMMON_RESULT_SUCCESS`](crate::audio_common::OH_AudioCommon_Result) if execution succeeds
-    /// or [`AUDIOCOMMON_RESULT_ERROR_SYSTEM`](crate::audio_common::OH_AudioCommonErrorCode::SYSTEM) if system state error
+    ///   or [`AUDIOCOMMON_RESULT_ERROR_SYSTEM`](crate::audio_common::OH_AudioCommonErrorCode::SYSTEM) if system state error
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -340,10 +340,10 @@ extern "C" {
     /// # Arguments
     ///
     /// * `audioSessionManager` - the [`OH_AudioSessionManager`](crate::audio_session_manager::OH_AudioSessionManager)
-    /// returned by the [`OH_AudioManager_GetAudioSessionManager`](crate::audio_session_manager::OH_AudioManager_GetAudioSessionManager)
+    ///   returned by the [`OH_AudioManager_GetAudioSessionManager`](crate::audio_session_manager::OH_AudioManager_GetAudioSessionManager)
     ///
     /// * `strategy` - pointer of [`OH_AudioSession_Strategy`](crate::audio_session_base::OH_AudioSession_Strategy)
-    /// which is used for setting audio session strategy
+    ///   which is used for setting audio session strategy
     ///
     /// # Returns
     ///
@@ -363,7 +363,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `audioSessionManager` - the [`OH_AudioSessionManager`](crate::audio_session_manager::OH_AudioSessionManager)
-    /// returned by the [`OH_AudioManager_GetAudioSessionManager`](crate::audio_session_manager::OH_AudioManager_GetAudioSessionManager)
+    ///   returned by the [`OH_AudioManager_GetAudioSessionManager`](crate::audio_session_manager::OH_AudioManager_GetAudioSessionManager)
     ///
     /// # Returns
     ///
@@ -382,12 +382,12 @@ extern "C" {
     /// # Arguments
     ///
     /// * `audioSessionManager` - the [`OH_AudioSessionManager`](crate::audio_session_manager::OH_AudioSessionManager)
-    /// returned by the [`OH_AudioManager_GetAudioSessionManager`](crate::audio_session_manager::OH_AudioManager_GetAudioSessionManager)
+    ///   returned by the [`OH_AudioManager_GetAudioSessionManager`](crate::audio_session_manager::OH_AudioManager_GetAudioSessionManager)
     ///
     /// # Returns
     ///
     /// * True when the current pid application has an activated audio session
-    /// False when it does not
+    ///   False when it does not
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -400,15 +400,15 @@ extern "C" {
     /// # Arguments
     ///
     /// * `audioSessionManager` - the [`OH_AudioSessionManager`](crate::audio_session_manager::OH_AudioSessionManager)
-    /// returned by the [`OH_AudioManager_GetAudioSessionManager`](crate::audio_session_manager::OH_AudioManager_GetAudioSessionManager)
+    ///   returned by the [`OH_AudioManager_GetAudioSessionManager`](crate::audio_session_manager::OH_AudioManager_GetAudioSessionManager)
     ///
     /// * `callback` - the [`OH_AudioSession_DeactivatedCallback`](crate::audio_session_manager::OH_AudioSession_DeactivatedCallback) which is used
-    /// to receive the deactivated event
+    ///   to receive the deactivated event
     ///
     /// # Returns
     ///
     /// * [`AUDIOCOMMON_RESULT_SUCCESS`](crate::audio_common::OH_AudioCommon_Result) if execution succeeds
-    /// or [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) if parameter validation fails
+    ///   or [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) if parameter validation fails
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -422,15 +422,15 @@ extern "C" {
     /// # Arguments
     ///
     /// * `audioSessionManager` - the [`OH_AudioSessionManager`](crate::audio_session_manager::OH_AudioSessionManager)
-    /// returned by the [`OH_AudioManager_GetAudioSessionManager`](crate::audio_session_manager::OH_AudioManager_GetAudioSessionManager)
+    ///   returned by the [`OH_AudioManager_GetAudioSessionManager`](crate::audio_session_manager::OH_AudioManager_GetAudioSessionManager)
     ///
     /// * `callback` - the [`OH_AudioSession_DeactivatedCallback`](crate::audio_session_manager::OH_AudioSession_DeactivatedCallback) which is used
-    /// to receive the deactivated event
+    ///   to receive the deactivated event
     ///
     /// # Returns
     ///
     /// * [`AUDIOCOMMON_RESULT_SUCCESS`](crate::audio_common::OH_AudioCommon_Result) if execution succeeds
-    /// or [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) if parameter validation fails
+    ///   or [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) if parameter validation fails
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -444,16 +444,16 @@ extern "C" {
     /// # Arguments
     ///
     /// * `audioSessionManager` - the [`OH_AudioSessionManager`](crate::audio_session_manager::OH_AudioSessionManager)
-    /// returned by the [`OH_AudioManager_GetAudioSessionManager`](crate::audio_session_manager::OH_AudioManager_GetAudioSessionManager)
+    ///   returned by the [`OH_AudioManager_GetAudioSessionManager`](crate::audio_session_manager::OH_AudioManager_GetAudioSessionManager)
     ///
     /// * `scene` - the [`OH_AudioSession_Scene`](crate::audio_session_manager::OH_AudioSession_Scene)
     ///
     /// # Returns
     ///
     /// * [`AUDIOCOMMON_RESULT_SUCCESS`](crate::audio_common::OH_AudioCommon_Result) if execution succeeds
-    /// or [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) if parameter validation fails
-    /// or [`AUDIOCOMMON_RESULT_ERROR_ILLEGAL_STATE`](crate::audio_common::OH_AudioCommonErrorCode::ILLEGAL_STATE) if system illegal state
-    /// or [`AUDIOCOMMON_RESULT_ERROR_SYSTEM`](crate::audio_common::OH_AudioCommonErrorCode::SYSTEM) if system state error
+    ///   or [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) if parameter validation fails
+    ///   or [`AUDIOCOMMON_RESULT_ERROR_ILLEGAL_STATE`](crate::audio_common::OH_AudioCommonErrorCode::ILLEGAL_STATE) if system illegal state
+    ///   or [`AUDIOCOMMON_RESULT_ERROR_SYSTEM`](crate::audio_common::OH_AudioCommonErrorCode::SYSTEM) if system state error
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -467,17 +467,17 @@ extern "C" {
     /// # Arguments
     ///
     /// * `audioSessionManager` - the [`OH_AudioSessionManager`](crate::audio_session_manager::OH_AudioSessionManager)
-    /// returned by the [`OH_AudioManager_GetAudioSessionManager`](crate::audio_session_manager::OH_AudioManager_GetAudioSessionManager)
+    ///   returned by the [`OH_AudioManager_GetAudioSessionManager`](crate::audio_session_manager::OH_AudioManager_GetAudioSessionManager)
     ///
     /// * `callback` - the [`OH_AudioSession_StateChangedCallback`](crate::audio_session_manager::OH_AudioSession_StateChangedCallback) which is used
-    /// to receive the state change event
+    ///   to receive the state change event
     ///
     /// # Returns
     ///
     /// * [`AUDIOCOMMON_RESULT_SUCCESS`](crate::audio_common::OH_AudioCommon_Result) if execution succeeds
-    /// or [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) if parameter validation fails
-    /// or [`AUDIOCOMMON_RESULT_ERROR_NO_MEMORY`](crate::audio_common::OH_AudioCommonErrorCode::NO_MEMORY) No memory error
-    /// or [`AUDIOCOMMON_RESULT_ERROR_SYSTEM`](crate::audio_common::OH_AudioCommonErrorCode::SYSTEM) if system state error
+    ///   or [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) if parameter validation fails
+    ///   or [`AUDIOCOMMON_RESULT_ERROR_NO_MEMORY`](crate::audio_common::OH_AudioCommonErrorCode::NO_MEMORY) No memory error
+    ///   or [`AUDIOCOMMON_RESULT_ERROR_SYSTEM`](crate::audio_common::OH_AudioCommonErrorCode::SYSTEM) if system state error
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -491,16 +491,16 @@ extern "C" {
     /// # Arguments
     ///
     /// * `audioSessionManager` - the [`OH_AudioSessionManager`](crate::audio_session_manager::OH_AudioSessionManager)
-    /// returned by the [`OH_AudioManager_GetAudioSessionManager`](crate::audio_session_manager::OH_AudioManager_GetAudioSessionManager)
+    ///   returned by the [`OH_AudioManager_GetAudioSessionManager`](crate::audio_session_manager::OH_AudioManager_GetAudioSessionManager)
     ///
     /// * `callback` - the [`OH_AudioSession_StateChangedCallback`](crate::audio_session_manager::OH_AudioSession_StateChangedCallback) which is used
-    /// to receive the state change event
+    ///   to receive the state change event
     ///
     /// # Returns
     ///
     /// * [`AUDIOCOMMON_RESULT_SUCCESS`](crate::audio_common::OH_AudioCommon_Result) if execution succeeds
-    /// or [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) if parameter validation fails
-    /// or [`AUDIOCOMMON_RESULT_ERROR_SYSTEM`](crate::audio_common::OH_AudioCommonErrorCode::SYSTEM) if system state error
+    ///   or [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) if parameter validation fails
+    ///   or [`AUDIOCOMMON_RESULT_ERROR_SYSTEM`](crate::audio_common::OH_AudioCommonErrorCode::SYSTEM) if system state error
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -516,18 +516,18 @@ extern "C" {
     /// # Arguments
     ///
     /// * `audioSessionManager` - the [`OH_AudioSessionManager`](crate::audio_session_manager::OH_AudioSessionManager)
-    /// returned by the [`OH_AudioManager_GetAudioSessionManager`](crate::audio_session_manager::OH_AudioManager_GetAudioSessionManager)
+    ///   returned by the [`OH_AudioManager_GetAudioSessionManager`](crate::audio_session_manager::OH_AudioManager_GetAudioSessionManager)
     ///
     /// * `deviceType` - The target device. The available deviceTypes are:
-    /// EARPIECE: Built-in earpiece
-    /// SPEAKER: Built-in speaker
-    /// DEFAULT: System default output device
+    ///   EARPIECE: Built-in earpiece
+    ///   SPEAKER: Built-in speaker
+    ///   DEFAULT: System default output device
     ///
     /// # Returns
     ///
     /// * [`AUDIOCOMMON_RESULT_SUCCESS`](crate::audio_common::OH_AudioCommon_Result) if execution succeeds
-    /// or [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) if parameter validation fails
-    /// or [`AUDIOCOMMON_RESULT_ERROR_SYSTEM`](crate::audio_common::OH_AudioCommonErrorCode::SYSTEM) if system state error
+    ///   or [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) if parameter validation fails
+    ///   or [`AUDIOCOMMON_RESULT_ERROR_SYSTEM`](crate::audio_common::OH_AudioCommonErrorCode::SYSTEM) if system state error
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -541,18 +541,18 @@ extern "C" {
     /// # Arguments
     ///
     /// * `audioSessionManager` - the [`OH_AudioSessionManager`](crate::audio_session_manager::OH_AudioSessionManager)
-    /// returned by the [`OH_AudioManager_GetAudioSessionManager`](crate::audio_session_manager::OH_AudioManager_GetAudioSessionManager)
+    ///   returned by the [`OH_AudioManager_GetAudioSessionManager`](crate::audio_session_manager::OH_AudioManager_GetAudioSessionManager)
     ///
     /// * `deviceType` - The target device.The available deviceTypes are:
-    /// EARPIECE: Built-in earpiece
-    /// SPEAKER: Built-in speaker
-    /// DEFAULT: System default output device
+    ///   EARPIECE: Built-in earpiece
+    ///   SPEAKER: Built-in speaker
+    ///   DEFAULT: System default output device
     ///
     /// # Returns
     ///
     /// * [`AUDIOCOMMON_RESULT_SUCCESS`](crate::audio_common::OH_AudioCommon_Result) if execution succeeds
-    /// or [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) if parameter validation fails
-    /// or [`AUDIOCOMMON_RESULT_ERROR_ILLEGAL_STATE`](crate::audio_common::OH_AudioCommonErrorCode::ILLEGAL_STATE) if system illegal state
+    ///   or [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) if parameter validation fails
+    ///   or [`AUDIOCOMMON_RESULT_ERROR_ILLEGAL_STATE`](crate::audio_common::OH_AudioCommonErrorCode::ILLEGAL_STATE) if system illegal state
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -566,16 +566,16 @@ extern "C" {
     /// # Arguments
     ///
     /// * `audioSessionManager` - the [`OH_AudioSessionManager`](crate::audio_session_manager::OH_AudioSessionManager)
-    /// returned by the [`OH_AudioManager_GetAudioSessionManager`](crate::audio_session_manager::OH_AudioManager_GetAudioSessionManager)
+    ///   returned by the [`OH_AudioManager_GetAudioSessionManager`](crate::audio_session_manager::OH_AudioManager_GetAudioSessionManager)
     ///
     /// * `audioDeviceDescriptorArray` - Audio device descriptors should be released.
     ///
     /// # Returns
     ///
     /// * [`AUDIOCOMMON_RESULT_SUCCESS`](crate::audio_common::OH_AudioCommon_Result) If the execution is successful.
-    /// or [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) if parameter validation fails
-    /// 1.The param of audioSessionManager is nullptr;
-    /// 2.The param of audioDeviceDescriptorArray is nullptr.
+    ///   or [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) if parameter validation fails
+    ///   1.The param of audioSessionManager is nullptr;
+    ///   2.The param of audioDeviceDescriptorArray is nullptr.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -589,17 +589,17 @@ extern "C" {
     /// # Arguments
     ///
     /// * `audioSessionManager` - the [`OH_AudioSessionManager`](crate::audio_session_manager::OH_AudioSessionManager)
-    /// returned by the [`OH_AudioManager_GetAudioSessionManager`](crate::audio_session_manager::OH_AudioManager_GetAudioSessionManager)
+    ///   returned by the [`OH_AudioManager_GetAudioSessionManager`](crate::audio_session_manager::OH_AudioManager_GetAudioSessionManager)
     ///
     /// * `callback` - the [`OH_AudioSession_CurrentOutputDeviceChangedCallback`](crate::audio_session_manager::OH_AudioSession_CurrentOutputDeviceChangedCallback) which is used
-    /// to receive the device change event
+    ///   to receive the device change event
     ///
     /// # Returns
     ///
     /// * [`AUDIOCOMMON_RESULT_SUCCESS`](crate::audio_common::OH_AudioCommon_Result) if execution succeeds
-    /// or [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) if parameter validation fails
-    /// or [`AUDIOCOMMON_RESULT_ERROR_NO_MEMORY`](crate::audio_common::OH_AudioCommonErrorCode::NO_MEMORY) No memory error
-    /// or [`AUDIOCOMMON_RESULT_ERROR_SYSTEM`](crate::audio_common::OH_AudioCommonErrorCode::SYSTEM) if system state error
+    ///   or [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) if parameter validation fails
+    ///   or [`AUDIOCOMMON_RESULT_ERROR_NO_MEMORY`](crate::audio_common::OH_AudioCommonErrorCode::NO_MEMORY) No memory error
+    ///   or [`AUDIOCOMMON_RESULT_ERROR_SYSTEM`](crate::audio_common::OH_AudioCommonErrorCode::SYSTEM) if system state error
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -613,16 +613,16 @@ extern "C" {
     /// # Arguments
     ///
     /// * `audioSessionManager` - the [`OH_AudioSessionManager`](crate::audio_session_manager::OH_AudioSessionManager)
-    /// returned by the [`OH_AudioManager_GetAudioSessionManager`](crate::audio_session_manager::OH_AudioManager_GetAudioSessionManager)
+    ///   returned by the [`OH_AudioManager_GetAudioSessionManager`](crate::audio_session_manager::OH_AudioManager_GetAudioSessionManager)
     ///
     /// * `callback` - the [`OH_AudioSession_CurrentOutputDeviceChangedCallback`](crate::audio_session_manager::OH_AudioSession_CurrentOutputDeviceChangedCallback) which is used
-    /// to receive the device change event
+    ///   to receive the device change event
     ///
     /// # Returns
     ///
     /// * [`AUDIOCOMMON_RESULT_SUCCESS`](crate::audio_common::OH_AudioCommon_Result) if execution succeeds
-    /// or [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) if parameter validation fails
-    /// or [`AUDIOCOMMON_RESULT_ERROR_SYSTEM`](crate::audio_common::OH_AudioCommonErrorCode::SYSTEM) if system state error
+    ///   or [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) if parameter validation fails
+    ///   or [`AUDIOCOMMON_RESULT_ERROR_SYSTEM`](crate::audio_common::OH_AudioCommonErrorCode::SYSTEM) if system state error
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -636,22 +636,22 @@ extern "C" {
     /// # Arguments
     ///
     /// * `audioSessionManager` - the [`OH_AudioSessionManager`](crate::audio_session_manager::OH_AudioSessionManager) handle returned
-    /// by [`OH_AudioManager_GetAudioSessionManager`](crate::audio_session_manager::OH_AudioManager_GetAudioSessionManager).
+    ///   by [`OH_AudioManager_GetAudioSessionManager`](crate::audio_session_manager::OH_AudioManager_GetAudioSessionManager).
     ///
     /// * `deviceUsage` - the [`OH_AudioDevice_Usage`](crate::audio_device_base::OH_AudioDevice_Usage) which is used as
-    /// the filter parameter for get the available devices.
+    ///   the filter parameter for get the available devices.
     ///
     /// * `audioDeviceDescriptorArray` - the [`OH_AudioDeviceDescriptorArray`](crate::audio_device_base::OH_AudioDeviceDescriptorArray)
-    /// pointer variable which will be set the audio device descriptors value
-    /// Do not release the audioDeviceDescriptorArray pointer separately
-    /// instead call [`OH_AudioSessionManager_ReleaseDevices`](crate::audio_session_manager::OH_AudioSessionManager_ReleaseDevices) to release the DeviceDescriptor array
-    /// when it is no use anymore.
+    ///   pointer variable which will be set the audio device descriptors value
+    ///   Do not release the audioDeviceDescriptorArray pointer separately
+    ///   instead call [`OH_AudioSessionManager_ReleaseDevices`](crate::audio_session_manager::OH_AudioSessionManager_ReleaseDevices) to release the DeviceDescriptor array
+    ///   when it is no use anymore.
     ///
     /// # Returns
     ///
     /// * [`AUDIOCOMMON_RESULT_SUCCESS`](crate::audio_common::OH_AudioCommon_Result) if execution succeeds.
-    /// or [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) if parameter validation fails.
-    /// or [`AUDIOCOMMON_RESULT_ERROR_SYSTEM`](crate::audio_common::OH_AudioCommonErrorCode::SYSTEM) Audio client call audio service error, System error.
+    ///   or [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) if parameter validation fails.
+    ///   or [`AUDIOCOMMON_RESULT_ERROR_SYSTEM`](crate::audio_common::OH_AudioCommonErrorCode::SYSTEM) Audio client call audio service error, System error.
     ///
     /// Available since API-level: 21
     #[cfg(feature = "api-21")]
@@ -666,19 +666,19 @@ extern "C" {
     /// # Arguments
     ///
     /// * `audioSessionManager` - the [`OH_AudioSessionManager`](crate::audio_session_manager::OH_AudioSessionManager)
-    /// returned by the [`OH_AudioManager_GetAudioSessionManager`](crate::audio_session_manager::OH_AudioManager_GetAudioSessionManager)
+    ///   returned by the [`OH_AudioManager_GetAudioSessionManager`](crate::audio_session_manager::OH_AudioManager_GetAudioSessionManager)
     ///
     /// * `deviceUsage` - the [`OH_AudioDevice_Usage`](crate::audio_device_base::OH_AudioDevice_Usage) which is used as
-    /// the filter parameter for register the available devices change event.
+    ///   the filter parameter for register the available devices change event.
     ///
     /// * `callback` - the [`OH_AudioSession_AvailableDeviceChangedCallback`](crate::audio_session_manager::OH_AudioSession_AvailableDeviceChangedCallback) which is used
-    /// to receive available device change event.
+    ///   to receive available device change event.
     ///
     /// # Returns
     ///
     /// * [`AUDIOCOMMON_RESULT_SUCCESS`](crate::audio_common::OH_AudioCommon_Result) if execution succeeds.
-    /// or [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) if parameter validation fails.
-    /// or [`AUDIOCOMMON_RESULT_ERROR_SYSTEM`](crate::audio_common::OH_AudioCommonErrorCode::SYSTEM) Audio client call audio service error, System error.
+    ///   or [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) if parameter validation fails.
+    ///   or [`AUDIOCOMMON_RESULT_ERROR_SYSTEM`](crate::audio_common::OH_AudioCommonErrorCode::SYSTEM) Audio client call audio service error, System error.
     ///
     /// Available since API-level: 21
     #[cfg(feature = "api-21")]
@@ -693,16 +693,16 @@ extern "C" {
     /// # Arguments
     ///
     /// * `audioSessionManager` - the [`OH_AudioSessionManager`](crate::audio_session_manager::OH_AudioSessionManager)
-    /// returned by the [`OH_AudioManager_GetAudioSessionManager`](crate::audio_session_manager::OH_AudioManager_GetAudioSessionManager).
+    ///   returned by the [`OH_AudioManager_GetAudioSessionManager`](crate::audio_session_manager::OH_AudioManager_GetAudioSessionManager).
     ///
     /// * `callback` - the [`OH_AudioSession_AvailableDeviceChangedCallback`](crate::audio_session_manager::OH_AudioSession_AvailableDeviceChangedCallback) which is used
-    /// to receive the device change event.
+    ///   to receive the device change event.
     ///
     /// # Returns
     ///
     /// * [`AUDIOCOMMON_RESULT_SUCCESS`](crate::audio_common::OH_AudioCommon_Result) if execution succeeds.
-    /// or [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) if parameter validation fails.
-    /// or [`AUDIOCOMMON_RESULT_ERROR_SYSTEM`](crate::audio_common::OH_AudioCommonErrorCode::SYSTEM) Audio client call audio service error, System error.
+    ///   or [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) if parameter validation fails.
+    ///   or [`AUDIOCOMMON_RESULT_ERROR_SYSTEM`](crate::audio_common::OH_AudioCommonErrorCode::SYSTEM) Audio client call audio service error, System error.
     ///
     /// Available since API-level: 21
     #[cfg(feature = "api-21")]
@@ -722,17 +722,17 @@ extern "C" {
     /// # Arguments
     ///
     /// * `audioSessionManager` - the [`OH_AudioSessionManager`](crate::audio_session_manager::OH_AudioSessionManager) handle returned
-    /// by [`OH_AudioManager_GetAudioSessionManager`](crate::audio_session_manager::OH_AudioManager_GetAudioSessionManager).
+    ///   by [`OH_AudioManager_GetAudioSessionManager`](crate::audio_session_manager::OH_AudioManager_GetAudioSessionManager).
     ///
     /// * `deviceDescriptor` - The target device. The available device must be in the array returned
-    /// by [`OH_AudioSessionManager_GetAvailableDevices`](crate::audio_session_manager::OH_AudioSessionManager_GetAvailableDevices).
-    /// When the nullptr is passed, system will clear the last selection.
+    ///   by [`OH_AudioSessionManager_GetAvailableDevices`](crate::audio_session_manager::OH_AudioSessionManager_GetAvailableDevices).
+    ///   When the nullptr is passed, system will clear the last selection.
     ///
     /// # Returns
     ///
     /// * [`AUDIOCOMMON_RESULT_SUCCESS`](crate::audio_common::OH_AudioCommon_Result) if execution succeeds.
-    /// or [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) if parameter validation fails.
-    /// or [`AUDIOCOMMON_RESULT_ERROR_SYSTEM`](crate::audio_common::OH_AudioCommonErrorCode::SYSTEM) Audio client call audio service error, System error.
+    ///   or [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) if parameter validation fails.
+    ///   or [`AUDIOCOMMON_RESULT_ERROR_SYSTEM`](crate::audio_common::OH_AudioCommonErrorCode::SYSTEM) Audio client call audio service error, System error.
     ///
     /// Available since API-level: 21
     #[cfg(feature = "api-21")]
@@ -746,20 +746,20 @@ extern "C" {
     /// # Arguments
     ///
     /// * `audioSessionManager` - the [`OH_AudioSessionManager`](crate::audio_session_manager::OH_AudioSessionManager)
-    /// returned by the [`OH_AudioManager_GetAudioSessionManager`](crate::audio_session_manager::OH_AudioManager_GetAudioSessionManager).
+    ///   returned by the [`OH_AudioManager_GetAudioSessionManager`](crate::audio_session_manager::OH_AudioManager_GetAudioSessionManager).
     ///
     /// * `audioDeviceDescriptor` - The target device set by
-    /// [`OH_AudioSessionManager_SelectMediaInputDevice`](crate::audio_session_manager::OH_AudioSessionManager_SelectMediaInputDevice) or
-    /// device with AUDIO_DEVICE_TYPE_INVALID if not set yet.
-    /// Do not release the audioDeviceDescriptor pointer separately,
-    /// instead call [`OH_AudioSessionManager_ReleaseDevice`](crate::audio_session_manager::OH_AudioSessionManager_ReleaseDevice) to release it
-    /// when it is no use anymore.
+    ///   [`OH_AudioSessionManager_SelectMediaInputDevice`](crate::audio_session_manager::OH_AudioSessionManager_SelectMediaInputDevice) or
+    ///   device with AUDIO_DEVICE_TYPE_INVALID if not set yet.
+    ///   Do not release the audioDeviceDescriptor pointer separately,
+    ///   instead call [`OH_AudioSessionManager_ReleaseDevice`](crate::audio_session_manager::OH_AudioSessionManager_ReleaseDevice) to release it
+    ///   when it is no use anymore.
     ///
     /// # Returns
     ///
     /// * [`AUDIOCOMMON_RESULT_SUCCESS`](crate::audio_common::OH_AudioCommon_Result) if execution succeeds.
-    /// or [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) if parameter validation fails.
-    /// or [`AUDIOCOMMON_RESULT_ERROR_SYSTEM`](crate::audio_common::OH_AudioCommonErrorCode::SYSTEM) Audio client call audio service error, System error.
+    ///   or [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) if parameter validation fails.
+    ///   or [`AUDIOCOMMON_RESULT_ERROR_SYSTEM`](crate::audio_common::OH_AudioCommonErrorCode::SYSTEM) Audio client call audio service error, System error.
     ///
     /// Available since API-level: 21
     #[cfg(feature = "api-21")]
@@ -779,15 +779,15 @@ extern "C" {
     /// # Arguments
     ///
     /// * `audioSessionManager` - the [`OH_AudioSessionManager`](crate::audio_session_manager::OH_AudioSessionManager) handle returned
-    /// by [`OH_AudioManager_GetAudioSessionManager`](crate::audio_session_manager::OH_AudioManager_GetAudioSessionManager).
+    ///   by [`OH_AudioManager_GetAudioSessionManager`](crate::audio_session_manager::OH_AudioManager_GetAudioSessionManager).
     ///
     /// * `category` - The category application prefer to use when recording with bluetooth and nearlink.
     ///
     /// # Returns
     ///
     /// * [`AUDIOCOMMON_RESULT_SUCCESS`](crate::audio_common::OH_AudioCommon_Result) if execution succeeds.
-    /// or [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) if parameter validation fails.
-    /// or [`AUDIOCOMMON_RESULT_ERROR_SYSTEM`](crate::audio_common::OH_AudioCommonErrorCode::SYSTEM) Audio client call audio service error, System error.
+    ///   or [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) if parameter validation fails.
+    ///   or [`AUDIOCOMMON_RESULT_ERROR_SYSTEM`](crate::audio_common::OH_AudioCommonErrorCode::SYSTEM) Audio client call audio service error, System error.
     ///
     /// Available since API-level: 21
     #[cfg(feature = "api-21")]
@@ -801,15 +801,15 @@ extern "C" {
     /// # Arguments
     ///
     /// * `audioSessionManager` - the [`OH_AudioSessionManager`](crate::audio_session_manager::OH_AudioSessionManager) handle returned
-    /// by [`OH_AudioManager_GetAudioSessionManager`](crate::audio_session_manager::OH_AudioManager_GetAudioSessionManager).
+    ///   by [`OH_AudioManager_GetAudioSessionManager`](crate::audio_session_manager::OH_AudioManager_GetAudioSessionManager).
     ///
     /// * `category` - The category application prefer to use when recording with bluetooth and nearlink.
     ///
     /// # Returns
     ///
     /// * [`AUDIOCOMMON_RESULT_SUCCESS`](crate::audio_common::OH_AudioCommon_Result) if execution succeeds.
-    /// or [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) if parameter validation fails.
-    /// or [`AUDIOCOMMON_RESULT_ERROR_SYSTEM`](crate::audio_common::OH_AudioCommonErrorCode::SYSTEM) Audio client call audio service error, System error.
+    ///   or [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) if parameter validation fails.
+    ///   or [`AUDIOCOMMON_RESULT_ERROR_SYSTEM`](crate::audio_common::OH_AudioCommonErrorCode::SYSTEM) Audio client call audio service error, System error.
     ///
     /// Available since API-level: 21
     #[cfg(feature = "api-21")]
@@ -823,17 +823,17 @@ extern "C" {
     /// # Arguments
     ///
     /// * `audioSessionManager` - the [`OH_AudioSessionManager`](crate::audio_session_manager::OH_AudioSessionManager)
-    /// returned by the [`OH_AudioManager_GetAudioSessionManager`](crate::audio_session_manager::OH_AudioManager_GetAudioSessionManager).
+    ///   returned by the [`OH_AudioManager_GetAudioSessionManager`](crate::audio_session_manager::OH_AudioManager_GetAudioSessionManager).
     ///
     /// * `callback` - the [`OH_AudioSession_CurrentInputDeviceChangedCallback`](crate::audio_session_manager::OH_AudioSession_CurrentInputDeviceChangedCallback) which is used
-    /// to receive the input device change event.
+    ///   to receive the input device change event.
     ///
     /// # Returns
     ///
     /// * [`AUDIOCOMMON_RESULT_SUCCESS`](crate::audio_common::OH_AudioCommon_Result) if execution succeeds.
-    /// or [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) if parameter validation fails.
-    /// or [`AUDIOCOMMON_RESULT_ERROR_NO_MEMORY`](crate::audio_common::OH_AudioCommonErrorCode::NO_MEMORY) No memory error.
-    /// or [`AUDIOCOMMON_RESULT_ERROR_SYSTEM`](crate::audio_common::OH_AudioCommonErrorCode::SYSTEM) Audio client call audio service error, System error.
+    ///   or [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) if parameter validation fails.
+    ///   or [`AUDIOCOMMON_RESULT_ERROR_NO_MEMORY`](crate::audio_common::OH_AudioCommonErrorCode::NO_MEMORY) No memory error.
+    ///   or [`AUDIOCOMMON_RESULT_ERROR_SYSTEM`](crate::audio_common::OH_AudioCommonErrorCode::SYSTEM) Audio client call audio service error, System error.
     ///
     /// Available since API-level: 21
     #[cfg(feature = "api-21")]
@@ -847,16 +847,16 @@ extern "C" {
     /// # Arguments
     ///
     /// * `audioSessionManager` - the [`OH_AudioSessionManager`](crate::audio_session_manager::OH_AudioSessionManager)
-    /// returned by the [`OH_AudioManager_GetAudioSessionManager`](crate::audio_session_manager::OH_AudioManager_GetAudioSessionManager).
+    ///   returned by the [`OH_AudioManager_GetAudioSessionManager`](crate::audio_session_manager::OH_AudioManager_GetAudioSessionManager).
     ///
     /// * `callback` - the [`OH_AudioSession_CurrentInputDeviceChangedCallback`](crate::audio_session_manager::OH_AudioSession_CurrentInputDeviceChangedCallback) which is used
-    /// to receive the input device change event.
+    ///   to receive the input device change event.
     ///
     /// # Returns
     ///
     /// * [`AUDIOCOMMON_RESULT_SUCCESS`](crate::audio_common::OH_AudioCommon_Result) if execution succeeds.
-    /// or [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) if parameter validation fails.
-    /// or [`AUDIOCOMMON_RESULT_ERROR_SYSTEM`](crate::audio_common::OH_AudioCommonErrorCode::SYSTEM) Audio client call audio service error, System error.
+    ///   or [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) if parameter validation fails.
+    ///   or [`AUDIOCOMMON_RESULT_ERROR_SYSTEM`](crate::audio_common::OH_AudioCommonErrorCode::SYSTEM) Audio client call audio service error, System error.
     ///
     /// Available since API-level: 21
     #[cfg(feature = "api-21")]
@@ -870,14 +870,14 @@ extern "C" {
     /// # Arguments
     ///
     /// * `audioSessionManager` - the [`OH_AudioSessionManager`](crate::audio_session_manager::OH_AudioSessionManager)
-    /// returned by the [`OH_AudioManager_GetAudioSessionManager`](crate::audio_session_manager::OH_AudioManager_GetAudioSessionManager)
+    ///   returned by the [`OH_AudioManager_GetAudioSessionManager`](crate::audio_session_manager::OH_AudioManager_GetAudioSessionManager)
     ///
     /// * `audioDeviceDescriptor` - Audio device descriptor to release.
     ///
     /// # Returns
     ///
     /// * [`AUDIOCOMMON_RESULT_SUCCESS`](crate::audio_common::OH_AudioCommon_Result) If the execution is successful.
-    /// or [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) if parameter validation fails
+    ///   or [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) if parameter validation fails
     ///
     /// Available since API-level: 21
     #[cfg(feature = "api-21")]
@@ -900,17 +900,17 @@ extern "C" {
     /// # Arguments
     ///
     /// * `audioSessionManager` - the [`OH_AudioSessionManager`](crate::audio_session_manager::OH_AudioSessionManager)
-    /// returned by the [`OH_AudioManager_GetAudioSessionManager`](crate::audio_session_manager::OH_AudioManager_GetAudioSessionManager).
+    ///   returned by the [`OH_AudioManager_GetAudioSessionManager`](crate::audio_session_manager::OH_AudioManager_GetAudioSessionManager).
     ///
     /// * `enable` - Sets true to enable mute suggestion while registering session state change event callback.
     ///
     /// # Returns
     ///
     /// * [`AUDIOCOMMON_RESULT_SUCCESS`](crate::audio_common::OH_AudioCommon_Result) If the execution is successful.
-    /// or [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) Parameter validation fails.
-    /// or [`AUDIOCOMMON_RESULT_ERROR_ILLEGAL_STATE`](crate::audio_common::OH_AudioCommonErrorCode::ILLEGAL_STATE) Function is called without setting
-    /// [`OH_AudioSession_Scene`](crate::audio_session_manager::OH_AudioSession_Scene) or called after audio session activation.
-    /// or [`AUDIOCOMMON_RESULT_ERROR_SYSTEM`](crate::audio_common::OH_AudioCommonErrorCode::SYSTEM) Audio client call audio service error, system internal error.
+    ///   or [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) Parameter validation fails.
+    ///   or [`AUDIOCOMMON_RESULT_ERROR_ILLEGAL_STATE`](crate::audio_common::OH_AudioCommonErrorCode::ILLEGAL_STATE) Function is called without setting
+    ///   [`OH_AudioSession_Scene`](crate::audio_session_manager::OH_AudioSession_Scene) or called after audio session activation.
+    ///   or [`AUDIOCOMMON_RESULT_ERROR_SYSTEM`](crate::audio_common::OH_AudioCommonErrorCode::SYSTEM) Audio client call audio service error, system internal error.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -924,7 +924,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `audioSessionManager` - the [`OH_AudioSessionManager`](crate::audio_session_manager::OH_AudioSessionManager)
-    /// returned by the [`OH_AudioManager_GetAudioSessionManager`](crate::audio_session_manager::OH_AudioManager_GetAudioSessionManager).
+    ///   returned by the [`OH_AudioManager_GetAudioSessionManager`](crate::audio_session_manager::OH_AudioManager_GetAudioSessionManager).
     ///
     /// # Returns
     ///
@@ -945,17 +945,17 @@ extern "C" {
     /// # Arguments
     ///
     /// * `audioSessionManager` - the [`OH_AudioSessionManager`](crate::audio_session_manager::OH_AudioSessionManager)
-    /// returned by the [`OH_AudioManager_GetAudioSessionManager`](crate::audio_session_manager::OH_AudioManager_GetAudioSessionManager).
+    ///   returned by the [`OH_AudioManager_GetAudioSessionManager`](crate::audio_session_manager::OH_AudioManager_GetAudioSessionManager).
     ///
     /// * `mute` - use true if application recording stream muted by application itself.
     ///
     /// # Returns
     ///
     /// * Function result code:
-    /// [`AUDIOCOMMON_RESULT_SUCCESS`](crate::audio_common::OH_AudioCommon_Result) If the execution is successful.
-    /// [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) The param of audioSessionManager is nullptr.
-    /// [`AUDIOCOMMON_RESULT_ERROR_ILLEGAL_STATE`](crate::audio_common::OH_AudioCommonErrorCode::ILLEGAL_STATE) Operation not permitted at current state,
-    /// there is no audio capturer running.
+    ///   [`AUDIOCOMMON_RESULT_SUCCESS`](crate::audio_common::OH_AudioCommon_Result) If the execution is successful.
+    ///   [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) The param of audioSessionManager is nullptr.
+    ///   [`AUDIOCOMMON_RESULT_ERROR_ILLEGAL_STATE`](crate::audio_common::OH_AudioCommonErrorCode::ILLEGAL_STATE) Operation not permitted at current state,
+    ///   there is no audio capturer running.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -973,16 +973,16 @@ extern "C" {
     /// # Arguments
     ///
     /// * `audioSessionManager` - the [`OH_AudioSessionManager`](crate::audio_session_manager::OH_AudioSessionManager)
-    /// returned by the [`OH_AudioManager_GetAudioSessionManager`](crate::audio_session_manager::OH_AudioManager_GetAudioSessionManager)
+    ///   returned by the [`OH_AudioManager_GetAudioSessionManager`](crate::audio_session_manager::OH_AudioManager_GetAudioSessionManager)
     ///
     /// * `behavior` - Audio session behavior flags,
-    /// which can be a single flag or a bitwise OR combination of multiple flags [`OH_AudioSession_BehaviorFlags`](crate::audio_session_base::OH_AudioSession_BehaviorFlags)
+    ///   which can be a single flag or a bitwise OR combination of multiple flags [`OH_AudioSession_BehaviorFlags`](crate::audio_session_base::OH_AudioSession_BehaviorFlags)
     ///
     /// # Returns
     ///
     /// * [`AUDIOCOMMON_RESULT_SUCCESS`](crate::audio_common::OH_AudioCommon_Result) if execution succeeds
-    /// or [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) if parameter validation fails
-    /// or [`AUDIOCOMMON_RESULT_ERROR_ILLEGAL_STATE`](crate::audio_common::OH_AudioCommonErrorCode::ILLEGAL_STATE) if system illegal state
+    ///   or [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) if parameter validation fails
+    ///   or [`AUDIOCOMMON_RESULT_ERROR_ILLEGAL_STATE`](crate::audio_common::OH_AudioCommonErrorCode::ILLEGAL_STATE) if system illegal state
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]

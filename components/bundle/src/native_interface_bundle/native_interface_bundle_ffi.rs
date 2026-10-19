@@ -85,8 +85,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Pointer to the OH_NativeBundle_ApplicationInfo object. If the attribute of the returned object is NULL,
-    /// the creation fails. The possible cause is that the application address space is full, causing space
-    /// allocation to fail.
+    ///   the creation fails. The possible cause is that the application address space is full, causing space
+    ///   allocation to fail.
     ///
     /// Available since API-level: 9
     ///
@@ -100,7 +100,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Pointer to a new string that indicates the appID. If the returned object is NULL, the creation fails.
-    /// <br> The possible cause is that the application address space is full, causing space allocation to fail.
+    ///   <br> The possible cause is that the application address space is full, causing space allocation to fail.
     ///
     /// Available since API-level: 11
     ///
@@ -117,7 +117,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Pointer to a new string that indicates the appIdentifier. If the returned object is NULL, the creation
-    /// fails. The possible cause is that the application address space is full, causing space allocation to fail.
+    ///   fails. The possible cause is that the application address space is full, causing space allocation to fail.
     ///
     /// Available since API-level: 11
     ///
@@ -132,8 +132,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Pointer to the OH_NativeBundle_ElementName object. If the attribute of the returned object is NULL,
-    /// the creation fails. The possible cause is that the application address space is full, causing space
-    /// allocation to fail.
+    ///   the creation fails. The possible cause is that the application address space is full, causing space
+    ///   allocation to fail.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -147,8 +147,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Pointer to a new string that indicates the compatible device type. If the returned object is NULL, the
-    /// creation fails.
-    /// <br> The possible cause is that the application address space is full, causing space allocation to fail.
+    ///   creation fails.
+    ///   <br> The possible cause is that the application address space is full, causing space allocation to fail.
     ///
     /// Available since API-level: 14
     ///
@@ -161,7 +161,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `isDebugMode` - Pointer to the check result indicating whether the application is in debug mode. **true** if in
-    /// debug mode, **false** otherwise.
+    ///   debug mode, **false** otherwise.
     ///
     /// # Returns
     ///
@@ -181,7 +181,7 @@ extern "C" {
     /// # Returns
     ///
     /// * An array of module metadata. If the returned object is NULL, the retrieval fails.
-    /// <br> The possible cause is that the application address space is full, causing space allocation to fail.
+    ///   <br> The possible cause is that the application address space is full, causing space allocation to fail.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]

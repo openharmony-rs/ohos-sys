@@ -172,12 +172,12 @@ pub struct OH_Interceptor_Result(pub ::core::ffi::c_uint);
 /// * `response` - Pointer to the HTTP response data packet (valid only in the response stage).
 ///
 /// * `isModified` - Output parameter, which indicates whether the interceptor has modified the data packet. This
-/// parameter is invalid for the interceptor of the **OH_TYPE_READ_ONLY** type.
+///   parameter is invalid for the interceptor of the **OH_TYPE_READ_ONLY** type.
 ///
 /// # Returns
 ///
 /// * Interceptor processing result. - **OH_CONTINUE**: The processing continues. - **OH_ABORT**: The processing
-/// is aborted.
+///   is aborted.
 ///
 /// Available since API-level: 24
 #[cfg(feature = "api-24")]

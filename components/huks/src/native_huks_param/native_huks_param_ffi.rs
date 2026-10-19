@@ -18,9 +18,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Possible error codes (**errorCode**):
-    /// <br>OH_HUKS_SUCCESS 0: Initialization successful.
-    /// <br>OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY 12000014: Insufficient memory.
-    /// <br>OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT 401: **paramSet** is invalid.
+    ///   <br>OH_HUKS_SUCCESS 0: Initialization successful.
+    ///   <br>OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY 12000014: Insufficient memory.
+    ///   <br>OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT 401: **paramSet** is invalid.
     ///
     /// Available since API-level: 9
     ///
@@ -32,7 +32,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `paramSet` - Pointer to the parameter set to which parameters are to be added. This parameter needs to be
-    /// initialized by using [`OH_Huks_InitParamSet`](crate::native_huks_param::OH_Huks_InitParamSet).
+    ///   initialized by using [`OH_Huks_InitParamSet`](crate::native_huks_param::OH_Huks_InitParamSet).
     ///
     /// * `params` - Pointer to an array of parameters to add.
     ///
@@ -41,8 +41,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Possible error codes (**errorCode**):
-    /// <br>OH_HUKS_SUCCESS 0: Operation successful.
-    /// <br>OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT 401: **params** is a null pointer or **paramSet** is invalid.
+    ///   <br>OH_HUKS_SUCCESS 0: Operation successful.
+    ///   <br>OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT 401: **params** is a null pointer or **paramSet** is invalid.
     ///
     /// Available since API-level: 9
     ///
@@ -63,9 +63,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Possible error codes (**errorCode**):
-    /// <br>OH_HUKS_SUCCESS 0: Operation successful.
-    /// <br>OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT 401: **paramSet** is invalid.
-    /// <br>OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY 12000014: Insufficient memory.
+    ///   <br>OH_HUKS_SUCCESS 0: Operation successful.
+    ///   <br>OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT 401: **paramSet** is invalid.
+    ///   <br>OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY 12000014: Insufficient memory.
     ///
     /// Available since API-level: 9
     ///
@@ -94,10 +94,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Possible error codes (**errorCode**):
-    /// <br>OH_HUKS_SUCCESS 0: Operation successful.
-    /// <br>OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT 401: **fromParamSet**, **fromParamSetSize**, or **paramSet**
-    /// is invalid.
-    /// <br>OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY 12000014: Insufficient memory.
+    ///   <br>OH_HUKS_SUCCESS 0: Operation successful.
+    ///   <br>OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT 401: **fromParamSet**, **fromParamSetSize**, or **paramSet**
+    ///   is invalid.
+    ///   <br>OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY 12000014: Insufficient memory.
     ///
     /// Available since API-level: 9
     ///
@@ -120,9 +120,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Possible error codes (**errorCode**):
-    /// <br>OH_HUKS_SUCCESS 0: Operation successful.
-    /// <br>OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT 401: **paramSet** or **param** is invalid, or **param** is not in *
-    /// *paramSet**.
+    ///   <br>OH_HUKS_SUCCESS 0: Operation successful.
+    ///   <br>OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT 401: **paramSet** or **param** is invalid, or **param** is not in *
+    ///   *paramSet**.
     ///
     /// Available since API-level: 9
     ///
@@ -139,14 +139,14 @@ extern "C" {
     /// * `paramSet` - Pointer to the parameter set to check.
     ///
     /// * `isCopy` - If the value is **true**, the address of the [`OH_Huks_Blob`](crate::native_huks_type::OH_Huks_Blob) data is refreshed and copied to the
-    /// parameter set. If the value is **false**, only the address of the [`OH_Huks_Blob`](crate::native_huks_type::OH_Huks_Blob) data is refreshed.
+    ///   parameter set. If the value is **false**, only the address of the [`OH_Huks_Blob`](crate::native_huks_type::OH_Huks_Blob) data is refreshed.
     ///
     /// # Returns
     ///
     /// * Possible error codes (**errorCode**):
-    /// <br>OH_HUKS_SUCCESS 0: Operation successful.
-    /// <br>OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT 401: **paramSet** is invalid.
-    /// <br>OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY 12000014: Insufficient memory.
+    ///   <br>OH_HUKS_SUCCESS 0: Operation successful.
+    ///   <br>OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT 401: **paramSet** is invalid.
+    ///   <br>OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY 12000014: Insufficient memory.
     ///
     /// Available since API-level: 9
     ///
@@ -161,9 +161,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Possible error codes (**errorCode**):
-    /// <br>OH_HUKS_SUCCESS 0: All tags in **paramSet** are valid.
-    /// <br>OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT 401: **paramSet** is invalid, or the parameter set contains
-    /// invalid, duplicate, or incorrect tags.
+    ///   <br>OH_HUKS_SUCCESS 0: All tags in **paramSet** are valid.
+    ///   <br>OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT 401: **paramSet** is invalid, or the parameter set contains
+    ///   invalid, duplicate, or incorrect tags.
     ///
     /// Available since API-level: 9
     ///
@@ -180,8 +180,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Possible error codes (**errorCode**):
-    /// <br>OH_HUKS_SUCCESS 0: The size of the parameter set is valid.
-    /// <br>OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT 401: The **paramSet** or **size** parameter is invalid.
+    ///   <br>OH_HUKS_SUCCESS 0: The size of the parameter set is valid.
+    ///   <br>OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT 401: The **paramSet** or **size** parameter is invalid.
     ///
     /// Available since API-level: 9
     ///
@@ -198,9 +198,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Possible error codes (**errorCode**):
-    /// <br>OH_HUKS_SUCCESS 0: The two parameters to be compared are the same.
-    /// <br>OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT 401: One of the parameters is invalid or the parameters do not
-    /// match.
+    ///   <br>OH_HUKS_SUCCESS 0: The two parameters to be compared are the same.
+    ///   <br>OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT 401: One of the parameters is invalid or the parameters do not
+    ///   match.
     ///
     /// Available since API-level: 9
     ///

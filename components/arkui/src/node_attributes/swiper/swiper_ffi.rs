@@ -535,8 +535,8 @@ extern "C" {
     /// # Returns
     ///
     /// * [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) Success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) indicator is null or maxDisplayCount less then 6 or
-    /// maxDisplayCount more then 9
+    ///   [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) indicator is null or maxDisplayCount less then 6 or
+    ///   maxDisplayCount more then 9
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -554,7 +554,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the number of the maxDisplayCount, span is 6-9.
-    /// 0 - indicator is null
+    ///   0 - indicator is null
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -569,7 +569,7 @@ extern "C" {
     /// * `indicator` - Indicates the pointer to the indicator.
     ///
     /// * `ignoreSize` - Whether to ignore the size of the indicator. The value 1 means to ignore, and 0 means the opposite.
-    /// The default value is 0.
+    ///   The default value is 0.
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
@@ -896,7 +896,7 @@ extern "C" {
     /// * `indicator` - The pointer to the digital indicator.
     ///
     /// * `ignoreSize` - Whether to ignore the size of the indicator. The value 1 means to ignore, and 0 means the opposite.
-    /// The default value is 0.
+    ///   The default value is 0.
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
@@ -940,8 +940,8 @@ extern "C" {
     /// * `arrowStyle` - The pointer to the arrow style.
     ///
     /// * `showBackground` - whether to show the background for the arrow.
-    /// The value <b>1</b> means to show the background, and <b>0</b> means the opposite.
-    /// The default value is <b>0</b>.
+    ///   The value <b>1</b> means to show the background, and <b>0</b> means the opposite.
+    ///   The default value is <b>0</b>.
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
@@ -959,7 +959,7 @@ extern "C" {
     /// # Returns
     ///
     /// * whether to show the background for the arrow.
-    /// The value <b>1</b> means to show the background, and <b>0</b> means the opposite.
+    ///   The value <b>1</b> means to show the background, and <b>0</b> means the opposite.
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
@@ -974,9 +974,9 @@ extern "C" {
     /// * `arrowStyle` - The pointer to the arrow style.
     ///
     /// * `showSidebarMiddle` - the display position of the arrow.
-    /// The value <b>1</b> means to display on boths sides of the swiper,
-    /// and <b>0</b> means display on boths sides of the swiper indicator.
-    /// The default value is <b>0</b>.
+    ///   The value <b>1</b> means to display on boths sides of the swiper,
+    ///   and <b>0</b> means display on boths sides of the swiper indicator.
+    ///   The default value is <b>0</b>.
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
@@ -994,7 +994,7 @@ extern "C" {
     /// # Returns
     ///
     /// * the display position of the arrow. The value <b>1</b> means to display on boths sides of the swiper,
-    /// and <b>0</b> means display on boths sides of the swiper indicator.
+    ///   and <b>0</b> means display on boths sides of the swiper indicator.
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
@@ -1009,8 +1009,8 @@ extern "C" {
     /// * `arrowStyle` - The pointer to the arrow style.
     ///
     /// * `backgroundSize` - the background size of the arrow. The unit is vp.
-    /// The default value is <b>24</b> when the arrow displays on both sides of the swiper indicator.
-    /// The default value is <b>32</b> when the arrow displays on both sides of the swiper.
+    ///   The default value is <b>24</b> when the arrow displays on both sides of the swiper indicator.
+    ///   The default value is <b>32</b> when the arrow displays on both sides of the swiper.
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
@@ -1052,8 +1052,8 @@ extern "C" {
     /// * `arrowStyle` - The pointer to the arrow style.
     ///
     /// * `backgroundColor` - the background color of the arrow, in 0xARGB format.
-    /// The default value is <b>0x00000000</b> when the arrow displays on both sides of the swiper indicator.
-    /// The default value is <b>0x19182431</b> when the arrow displays on both sides of the swiper.
+    ///   The default value is <b>0x00000000</b> when the arrow displays on both sides of the swiper indicator.
+    ///   The default value is <b>0x19182431</b> when the arrow displays on both sides of the swiper.
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
@@ -1085,9 +1085,9 @@ extern "C" {
     /// * `arrowStyle` - The pointer to the arrow style.
     ///
     /// * `arrowSize` - the size of the arrow. The unit is vp.
-    /// The default value is <b>18</b> when the arrow displays on both sides of the swiper indicator.
-    /// The default value is <b>24</b> when the arrow displays on both sides of the swiper.
-    /// The arrow size is fixed to 3/4 of the background size when the background is shown.
+    ///   The default value is <b>18</b> when the arrow displays on both sides of the swiper indicator.
+    ///   The default value is <b>24</b> when the arrow displays on both sides of the swiper.
+    ///   The arrow size is fixed to 3/4 of the background size when the background is shown.
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]

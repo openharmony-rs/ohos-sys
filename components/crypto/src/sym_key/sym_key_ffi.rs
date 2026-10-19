@@ -31,13 +31,13 @@ extern "C" {
     ///
     /// * `algoName` - \[in\] Symmetric key algorithm name. Cannot be NULL. Values:
     /// - "AES128", "AES192", "AES256", "3DES192", "HMAC|SHA1", "HMAC|SHA224",
-    /// "HMAC|SHA256", "HMAC|SHA384", "HMAC|SHA512", "HMAC|SM3", "HMAC|MD5" supported since API version 12.
-    /// "HMAC|SHA3-256", "HMAC|SHA3-384", "HMAC|SHA3-512" supported since API version 26.0.0.
+    ///   "HMAC|SHA256", "HMAC|SHA384", "HMAC|SHA512", "HMAC|SM3", "HMAC|MD5" supported since API version 12.
+    ///   "HMAC|SHA3-256", "HMAC|SHA3-384", "HMAC|SHA3-512" supported since API version 26.0.0.
     /// - "SM4_128" supported since API version 12.
     /// - "DES64" supported since API version 20.
     /// - "ChaCha20" supported since API version 22.
     /// - "RC2", "RC4", "Blowfish", "CAST" supported since API version 26.0.0. Note: only key conversion
-    /// is supported, random generation is not.
+    ///   is supported, random generation is not.
     ///
     /// * `ctx` - \[out\] Pointer to the symmetric key generator pointer. ctx cannot be NULL, *ctx must be NULL.
     ///
@@ -122,7 +122,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the symmetric key algorithm name. No need to free by the caller. Invalid after
-    /// the generator is destroyed.
+    ///   the generator is destroyed.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -158,7 +158,7 @@ extern "C" {
     /// * `keyCtx` - \[in\] Symmetric key. Cannot be NULL.
     ///
     /// * `out` - \[out\] Pointer to the Crypto_DataBlob structure for storing the key data. Cannot be NULL.
-    /// Initialize out to {0} before calling. Do not pre-allocate out->data.
+    ///   Initialize out to {0} before calling. Do not pre-allocate out->data.
     ///
     /// # Returns
     ///

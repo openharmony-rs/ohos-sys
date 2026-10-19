@@ -85,8 +85,8 @@ extern "C" {
     /// * `byteLength` - Length of the text, in bytes.
     ///
     /// * `point2D` - Pointer to the start address of the [`OH_Drawing_Point2D`](crate::types::OH_Drawing_Point2D)
-    /// array. The number of entries in the array is determined by [`OH_Drawing_FontCountText`](crate::font::OH_Drawing_FontCountText)
-    /// .
+    ///   array. The number of entries in the array is determined by [`OH_Drawing_FontCountText`](crate::font::OH_Drawing_FontCountText)
+    ///   .
     ///
     /// * `font` - Pointer to the [`OH_Drawing_Font`](crate::types::OH_Drawing_Font) object.
     ///
@@ -145,7 +145,7 @@ extern "C" {
     /// * `textBlob` - Pointer to the [`OH_Drawing_TextBlob`](crate::types::OH_Drawing_TextBlob) object.
     ///
     /// * `rect` - Pointer to the [`OH_Drawing_Rect`](crate::types::OH_Drawing_Rect) object. You can call [`OH_Drawing_Rect`](crate::types::OH_Drawing_Rect) to create a
-    /// rectangle object.
+    ///   rectangle object.
     ///
     /// Available since API-level: 12
     ///

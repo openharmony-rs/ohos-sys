@@ -20,17 +20,17 @@ extern "C" {
     /// # Returns
     ///
     /// * Possible error codes (**errorCode**):
-    /// <br>OH_HUKS_SUCCESS 0: Operation successful.
-    /// <br>OH_HUKS_ERR_CODE_PERMISSION_FAIL 201: Permission verification fails. Apply for the required permission
-    /// first.
-    /// <br>OH_HUKS_ERR_CODE_NOT_SUPPORTED_API 801: Unsupported API.
-    /// <br>OH_HUKS_ERR_CODE_MISSING_CRYPTO_ALG_ARGUMENT 12000002: Failed to obtain the provider parameters.
-    /// <br>OH_HUKS_ERR_CODE_COMMUNICATION_FAIL 12000005: IPC communication failed.
-    /// <br>OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY 12000014: Insufficient memory.
-    /// <br>OH_HUKS_ERR_CODE_INVALID_ARGUMENT 12000018: Invalid **providerName** or **paramSet**.
-    /// <br>OH_HUKS_ERR_CODE_ITEM_EXISTS 12000019: The provider has been registered.
-    /// <br>OH_HUKS_ERR_CODE_EXTERNAL_ERROR 12000020: An error occurs in the dependent module.
-    /// <br>OH_HUKS_ERR_CODE_EXCEED_LIMIT 12000025: The number of providers exceeds the upper limit.
+    ///   <br>OH_HUKS_SUCCESS 0: Operation successful.
+    ///   <br>OH_HUKS_ERR_CODE_PERMISSION_FAIL 201: Permission verification fails. Apply for the required permission
+    ///   first.
+    ///   <br>OH_HUKS_ERR_CODE_NOT_SUPPORTED_API 801: Unsupported API.
+    ///   <br>OH_HUKS_ERR_CODE_MISSING_CRYPTO_ALG_ARGUMENT 12000002: Failed to obtain the provider parameters.
+    ///   <br>OH_HUKS_ERR_CODE_COMMUNICATION_FAIL 12000005: IPC communication failed.
+    ///   <br>OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY 12000014: Insufficient memory.
+    ///   <br>OH_HUKS_ERR_CODE_INVALID_ARGUMENT 12000018: Invalid **providerName** or **paramSet**.
+    ///   <br>OH_HUKS_ERR_CODE_ITEM_EXISTS 12000019: The provider has been registered.
+    ///   <br>OH_HUKS_ERR_CODE_EXTERNAL_ERROR 12000020: An error occurs in the dependent module.
+    ///   <br>OH_HUKS_ERR_CODE_EXCEED_LIMIT 12000025: The number of providers exceeds the upper limit.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -52,16 +52,16 @@ extern "C" {
     /// # Returns
     ///
     /// * Possible error codes (**errorCode**):
-    /// <br>OH_HUKS_SUCCESS 0: Operation successful.
-    /// <br>OH_HUKS_ERR_CODE_PERMISSION_FAIL 201: Permission verification fails. Apply for the required permission
-    /// first.
-    /// <br>OH_HUKS_ERR_CODE_NOT_SUPPORTED_API 801: Unsupported API.
-    /// <br>OH_HUKS_ERR_CODE_COMMUNICATION_FAIL 12000005: IPC communication failed.
-    /// <br>OH_HUKS_ERR_CODE_ITEM_NOT_EXIST 12000011: The specified provider is not found.
-    /// <br>[`OH_HUKS_ERR_CODE_INTERNAL_ERROR`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_INTERNAL_ERROR) 12000012: An internal system error occurs. The key management
-    /// extension module is not loaded.
-    /// <br>OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY 12000014: Insufficient memory.
-    /// <br>OH_HUKS_ERR_CODE_INVALID_ARGUMENT 12000018: Invalid **providerName**.
+    ///   <br>OH_HUKS_SUCCESS 0: Operation successful.
+    ///   <br>OH_HUKS_ERR_CODE_PERMISSION_FAIL 201: Permission verification fails. Apply for the required permission
+    ///   first.
+    ///   <br>OH_HUKS_ERR_CODE_NOT_SUPPORTED_API 801: Unsupported API.
+    ///   <br>OH_HUKS_ERR_CODE_COMMUNICATION_FAIL 12000005: IPC communication failed.
+    ///   <br>OH_HUKS_ERR_CODE_ITEM_NOT_EXIST 12000011: The specified provider is not found.
+    ///   <br>[`OH_HUKS_ERR_CODE_INTERNAL_ERROR`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_INTERNAL_ERROR) 12000012: An internal system error occurs. The key management
+    ///   extension module is not loaded.
+    ///   <br>OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY 12000014: Insufficient memory.
+    ///   <br>OH_HUKS_ERR_CODE_INVALID_ARGUMENT 12000018: Invalid **providerName**.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -82,20 +82,20 @@ extern "C" {
     /// # Returns
     ///
     /// * Possible error codes (**errorCode**):
-    /// <br>OH_HUKS_SUCCESS 0: Operation successful.
-    /// <br>OH_HUKS_ERR_CODE_NOT_SUPPORTED_API 801: Unsupported API.
-    /// <br>OH_HUKS_ERR_CODE_COMMUNICATION_FAIL 12000005: IPC communication failed.
-    /// <br>OH_HUKS_ERR_CODE_CRYPTO_FAIL 12000006: The UKey driver reports an error.
-    /// <br>OH_HUKS_ERR_CODE_ITEM_NOT_EXIST 12000011: The cached resource handle is not found. Open the resource
-    /// based on the resource ID first.
-    /// <br>OH_HUKS_ERR_CODE_INTERNAL_ERROR 12000012: An internal system error occurs. The processing function is
-    /// not found.
-    /// <br>OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY 12000014: Insufficient memory.
-    /// <br>OH_HUKS_ERR_CODE_KEY_ALREADY_EXIST 12000017: The resource is already open.
-    /// <br>OH_HUKS_ERR_CODE_INVALID_ARGUMENT 12000018: Invalid **resourceId** or **paramSet**.
-    /// <br>OH_HUKS_ERR_CODE_EXTERNAL_ERROR 12000020: Provider execution fails.
-    /// <br>OH_HUKS_ERR_CODE_BUSY 12000024: The provider or UKey is busy.
-    /// <br>OH_HUKS_ERR_CODE_EXCEED_LIMIT 12000025: The number of opened resources exceeds the limit.
+    ///   <br>OH_HUKS_SUCCESS 0: Operation successful.
+    ///   <br>OH_HUKS_ERR_CODE_NOT_SUPPORTED_API 801: Unsupported API.
+    ///   <br>OH_HUKS_ERR_CODE_COMMUNICATION_FAIL 12000005: IPC communication failed.
+    ///   <br>OH_HUKS_ERR_CODE_CRYPTO_FAIL 12000006: The UKey driver reports an error.
+    ///   <br>OH_HUKS_ERR_CODE_ITEM_NOT_EXIST 12000011: The cached resource handle is not found. Open the resource
+    ///   based on the resource ID first.
+    ///   <br>OH_HUKS_ERR_CODE_INTERNAL_ERROR 12000012: An internal system error occurs. The processing function is
+    ///   not found.
+    ///   <br>OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY 12000014: Insufficient memory.
+    ///   <br>OH_HUKS_ERR_CODE_KEY_ALREADY_EXIST 12000017: The resource is already open.
+    ///   <br>OH_HUKS_ERR_CODE_INVALID_ARGUMENT 12000018: Invalid **resourceId** or **paramSet**.
+    ///   <br>OH_HUKS_ERR_CODE_EXTERNAL_ERROR 12000020: Provider execution fails.
+    ///   <br>OH_HUKS_ERR_CODE_BUSY 12000024: The provider or UKey is busy.
+    ///   <br>OH_HUKS_ERR_CODE_EXCEED_LIMIT 12000025: The number of opened resources exceeds the limit.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -115,16 +115,16 @@ extern "C" {
     /// # Returns
     ///
     /// * Possible error codes (**errorCode**):
-    /// <br>OH_HUKS_SUCCESS 0: Operation successful.
-    /// <br>OH_HUKS_ERR_CODE_NOT_SUPPORTED_API 801: Unsupported API.
-    /// <br>OH_HUKS_ERR_CODE_COMMUNICATION_FAIL 12000005: IPC communication failed.
-    /// <br>OH_HUKS_ERR_CODE_CRYPTO_FAIL 12000006: The UKey driver reports an error.
-    /// <br>OH_HUKS_ERR_CODE_INTERNAL_ERROR 12000012: An internal system error occurs. The processing function is
-    /// not found.
-    /// <br>OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY 12000014: Insufficient memory.
-    /// <br>OH_HUKS_ERR_CODE_INVALID_ARGUMENT 12000018: Invalid **resourceId** or **paramSet**.
-    /// <br>OH_HUKS_ERR_CODE_EXTERNAL_ERROR 12000020: Provider execution fails.
-    /// <br>OH_HUKS_ERR_CODE_BUSY 12000024: The provider or UKey is busy.
+    ///   <br>OH_HUKS_SUCCESS 0: Operation successful.
+    ///   <br>OH_HUKS_ERR_CODE_NOT_SUPPORTED_API 801: Unsupported API.
+    ///   <br>OH_HUKS_ERR_CODE_COMMUNICATION_FAIL 12000005: IPC communication failed.
+    ///   <br>OH_HUKS_ERR_CODE_CRYPTO_FAIL 12000006: The UKey driver reports an error.
+    ///   <br>OH_HUKS_ERR_CODE_INTERNAL_ERROR 12000012: An internal system error occurs. The processing function is
+    ///   not found.
+    ///   <br>OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY 12000014: Insufficient memory.
+    ///   <br>OH_HUKS_ERR_CODE_INVALID_ARGUMENT 12000018: Invalid **resourceId** or **paramSet**.
+    ///   <br>OH_HUKS_ERR_CODE_EXTERNAL_ERROR 12000020: Provider execution fails.
+    ///   <br>OH_HUKS_ERR_CODE_BUSY 12000024: The provider or UKey is busy.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -146,17 +146,17 @@ extern "C" {
     /// # Returns
     ///
     /// * Possible error codes (**errorCode**):
-    /// <br>OH_HUKS_SUCCESS 0: Operation successful.
-    /// <br>OH_HUKS_ERR_CODE_NOT_SUPPORTED_API 801: Unsupported API.
-    /// <br>OH_HUKS_ERR_CODE_COMMUNICATION_FAIL 12000005: IPC communication failed.
-    /// <br>OH_HUKS_ERR_CODE_CRYPTO_FAIL 12000006: The UKey driver reports an error.
-    /// <br>OH_HUKS_ERR_CODE_ITEM_NOT_EXIST 12000011: The specified resource ID is invalid.
-    /// <br>OH_HUKS_ERR_CODE_INTERNAL_ERROR 12000012: An internal system error occurs. The processing function is
-    /// not found.
-    /// <br>OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY 12000014: Insufficient memory.
-    /// <br>OH_HUKS_ERR_CODE_INVALID_ARGUMENT 12000018: Invalid **resourceId** or **paramSet**.
-    /// <br>OH_HUKS_ERR_CODE_EXTERNAL_ERROR 12000020: Provider execution fails.
-    /// <br>OH_HUKS_ERR_CODE_BUSY 12000024: The provider or UKey is busy.
+    ///   <br>OH_HUKS_SUCCESS 0: Operation successful.
+    ///   <br>OH_HUKS_ERR_CODE_NOT_SUPPORTED_API 801: Unsupported API.
+    ///   <br>OH_HUKS_ERR_CODE_COMMUNICATION_FAIL 12000005: IPC communication failed.
+    ///   <br>OH_HUKS_ERR_CODE_CRYPTO_FAIL 12000006: The UKey driver reports an error.
+    ///   <br>OH_HUKS_ERR_CODE_ITEM_NOT_EXIST 12000011: The specified resource ID is invalid.
+    ///   <br>OH_HUKS_ERR_CODE_INTERNAL_ERROR 12000012: An internal system error occurs. The processing function is
+    ///   not found.
+    ///   <br>OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY 12000014: Insufficient memory.
+    ///   <br>OH_HUKS_ERR_CODE_INVALID_ARGUMENT 12000018: Invalid **resourceId** or **paramSet**.
+    ///   <br>OH_HUKS_ERR_CODE_EXTERNAL_ERROR 12000020: Provider execution fails.
+    ///   <br>OH_HUKS_ERR_CODE_BUSY 12000024: The provider or UKey is busy.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -177,25 +177,25 @@ extern "C" {
     /// * `paramSetIn` - Pointer to the input operation parameters.
     ///
     /// * `paramSetOut` - Double pointer to the output parameters, which must contain the **
-    /// OH_HUKS_EXT_CRYPTO_TAG_EXTRA_DATA** parameter.
+    ///   OH_HUKS_EXT_CRYPTO_TAG_EXTRA_DATA** parameter.
     ///
     /// # Returns
     ///
     /// * Possible error codes (**errorCode**):
-    /// <br>OH_HUKS_SUCCESS 0: Operation successful.
-    /// <br>OH_HUKS_ERR_CODE_NOT_SUPPORTED_API 801: Unsupported API.
-    /// <br>OH_HUKS_ERR_CODE_COMMUNICATION_FAIL 12000005: IPC communication failed.
-    /// <br>OH_HUKS_ERR_CODE_CRYPTO_FAIL 12000006: Driver error.
-    /// <br>OH_HUKS_ERR_CODE_ITEM_NOT_EXIST 12000011: The specified handle in the cache is not found.
-    /// <br>OH_HUKS_ERR_CODE_INTERNAL_ERROR 12000012: An internal system error occurs. The processing function is
-    /// not found.
-    /// <br>OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY 12000014: Insufficient memory.
-    /// <br>OH_HUKS_ERR_CODE_INVALID_ARGUMENT 12000018: The **resourceId**, **propertyId**, **paramSetIn**, or **
-    /// paramSetOut** parameter is invalid.
-    /// <br>OH_HUKS_ERR_CODE_EXTERNAL_ERROR 12000020: The provider or Ukey internal execution fails.
-    /// <br>OH_HUKS_ERR_CODE_PIN_LOCKED 12000021: The PIN is locked.
-    /// <br>OH_HUKS_ERR_CODE_PIN_NO_AUTH 12000023: PIN authentication fails.
-    /// <br>OH_HUKS_ERR_CODE_BUSY 12000024: The resources in the provider or Ukey are being used.
+    ///   <br>OH_HUKS_SUCCESS 0: Operation successful.
+    ///   <br>OH_HUKS_ERR_CODE_NOT_SUPPORTED_API 801: Unsupported API.
+    ///   <br>OH_HUKS_ERR_CODE_COMMUNICATION_FAIL 12000005: IPC communication failed.
+    ///   <br>OH_HUKS_ERR_CODE_CRYPTO_FAIL 12000006: Driver error.
+    ///   <br>OH_HUKS_ERR_CODE_ITEM_NOT_EXIST 12000011: The specified handle in the cache is not found.
+    ///   <br>OH_HUKS_ERR_CODE_INTERNAL_ERROR 12000012: An internal system error occurs. The processing function is
+    ///   not found.
+    ///   <br>OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY 12000014: Insufficient memory.
+    ///   <br>OH_HUKS_ERR_CODE_INVALID_ARGUMENT 12000018: The **resourceId**, **propertyId**, **paramSetIn**, or **
+    ///   paramSetOut** parameter is invalid.
+    ///   <br>OH_HUKS_ERR_CODE_EXTERNAL_ERROR 12000020: The provider or Ukey internal execution fails.
+    ///   <br>OH_HUKS_ERR_CODE_PIN_LOCKED 12000021: The PIN is locked.
+    ///   <br>OH_HUKS_ERR_CODE_PIN_NO_AUTH 12000023: PIN authentication fails.
+    ///   <br>OH_HUKS_ERR_CODE_BUSY 12000024: The resources in the provider or Ukey are being used.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -215,9 +215,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Possible error codes (**errorCode**):
-    /// <br>OH_HUKS_SUCCESS 0: Operation successful.
-    /// <br>OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY 12000014: Insufficient memory.
-    /// <br>OH_HUKS_ERR_CODE_INVALID_ARGUMENT 12000018: Invalid **paramSet**.
+    ///   <br>OH_HUKS_SUCCESS 0: Operation successful.
+    ///   <br>OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY 12000014: Insufficient memory.
+    ///   <br>OH_HUKS_ERR_CODE_INVALID_ARGUMENT 12000018: Invalid **paramSet**.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -238,8 +238,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Possible error codes (**errorCode**):
-    /// <br>OH_HUKS_SUCCESS 0: Operation successful.
-    /// <br>OH_HUKS_ERR_CODE_INVALID_ARGUMENT 12000018: **params** is **NULL** or **paramSet** is invalid.
+    ///   <br>OH_HUKS_SUCCESS 0: Operation successful.
+    ///   <br>OH_HUKS_ERR_CODE_INVALID_ARGUMENT 12000018: **params** is **NULL** or **paramSet** is invalid.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -258,9 +258,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Possible error codes (**errorCode**):
-    /// <br>OH_HUKS_SUCCESS 0: Operation successful.
-    /// <br>OH_HUKS_ERR_CODE_INVALID_ARGUMENT 12000018: Invalid **paramSet**.
-    /// <br>OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY 12000014: Insufficient memory.
+    ///   <br>OH_HUKS_SUCCESS 0: Operation successful.
+    ///   <br>OH_HUKS_ERR_CODE_INVALID_ARGUMENT 12000018: Invalid **paramSet**.
+    ///   <br>OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY 12000014: Insufficient memory.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -291,9 +291,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Possible error codes (**errorCode**):
-    /// <br>OH_HUKS_SUCCESS 0: Operation successful.
-    /// <br>OH_HUKS_ERR_CODE_INVALID_ARGUMENT 12000018: The **paramSet** or **param** is invalid, or the parameter
-    /// does not exist in the set.
+    ///   <br>OH_HUKS_SUCCESS 0: Operation successful.
+    ///   <br>OH_HUKS_ERR_CODE_INVALID_ARGUMENT 12000018: The **paramSet** or **param** is invalid, or the parameter
+    ///   does not exist in the set.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]

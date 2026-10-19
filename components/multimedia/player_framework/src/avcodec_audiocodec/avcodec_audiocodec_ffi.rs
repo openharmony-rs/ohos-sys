@@ -69,10 +69,10 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The OH_AVCodec instance is nullptr or invalid.
-    /// <br>[`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE): The codec service is unavailable.
-    /// <br>[`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): Internal resources have been released.
-    /// <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An internal error occurs. You are advised to check logs.
+    ///   <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The OH_AVCodec instance is nullptr or invalid.
+    ///   <br>[`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE): The codec service is unavailable.
+    ///   <br>[`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): Internal resources have been released.
+    ///   <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An internal error occurs. You are advised to check logs.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -92,8 +92,8 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): An input parameter is nullptr or invalid.
-    /// <br>[`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE): The codec service is unavailable.
+    ///   <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): An input parameter is nullptr or invalid.
+    ///   <br>[`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE): The codec service is unavailable.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -111,16 +111,16 @@ extern "C" {
     /// * `codec` - Pointer to an OH_AVCodec instance.
     ///
     /// * `format` - Pointer to an OH_AVFormat instance, which provides the description information about the audio track
-    /// to be encoded or decoded.
+    ///   to be encoded or decoded.
     ///
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): An input parameter is nullptr or invalid.
-    /// <br>[`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE): The codec service is unavailable.
-    /// <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed. This may be because of incorrect state or
-    /// unsupported operation.
-    /// <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An internal error occurs. You are advised to check logs.
+    ///   <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): An input parameter is nullptr or invalid.
+    ///   <br>[`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE): The codec service is unavailable.
+    ///   <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed. This may be because of incorrect state or
+    ///   unsupported operation.
+    ///   <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An internal error occurs. You are advised to check logs.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -138,11 +138,11 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The OH_AVCodec instance is nullptr or invalid.
-    /// <br>[`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE): The codec service is unavailable.
-    /// <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed. This may be because of incorrect state or
-    /// unsupported operation.
-    /// <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An internal error occurs. You are advised to check logs.
+    ///   <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The OH_AVCodec instance is nullptr or invalid.
+    ///   <br>[`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE): The codec service is unavailable.
+    ///   <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed. This may be because of incorrect state or
+    ///   unsupported operation.
+    ///   <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An internal error occurs. You are advised to check logs.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -158,11 +158,11 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The OH_AVCodec instance is nullptr or invalid.
-    /// <br>[`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE): The codec service is unavailable.
-    /// <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed. This may be because of incorrect state or
-    /// unsupported operation.
-    /// <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An internal error occurs. You are advised to check logs.
+    ///   <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The OH_AVCodec instance is nullptr or invalid.
+    ///   <br>[`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE): The codec service is unavailable.
+    ///   <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed. This may be because of incorrect state or
+    ///   unsupported operation.
+    ///   <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An internal error occurs. You are advised to check logs.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -178,11 +178,11 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The OH_AVCodec instance is nullptr or invalid.
-    /// <br>[`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE): The codec service is unavailable.
-    /// <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed. This may be because of incorrect state or
-    /// unsupported operation.
-    /// <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An internal error occurs. You are advised to check logs.
+    ///   <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The OH_AVCodec instance is nullptr or invalid.
+    ///   <br>[`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE): The codec service is unavailable.
+    ///   <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed. This may be because of incorrect state or
+    ///   unsupported operation.
+    ///   <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An internal error occurs. You are advised to check logs.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -199,11 +199,11 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The OH_AVCodec instance is nullptr or invalid.
-    /// <br>[`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE): The codec service is unavailable.
-    /// <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed. This may be because of incorrect state or
-    /// unsupported operation.
-    /// <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An internal error occurs. You are advised to check logs.
+    ///   <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The OH_AVCodec instance is nullptr or invalid.
+    ///   <br>[`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE): The codec service is unavailable.
+    ///   <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed. This may be because of incorrect state or
+    ///   unsupported operation.
+    ///   <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An internal error occurs. You are advised to check logs.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -220,8 +220,8 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The OH_AVCodec instance is nullptr or invalid.
-    /// <br>[`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE): The codec service is unavailable.
+    ///   <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The OH_AVCodec instance is nullptr or invalid.
+    ///   <br>[`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE): The codec service is unavailable.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -238,8 +238,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Handle to an OH_AVFormat instance. The lifecycle of this instance is refreshed when
-    /// [`OH_AudioCodec_GetOutputDescription`](crate::avcodec_audiocodec::OH_AudioCodec_GetOutputDescription) is called again and destroyed when the OH_AVCodec instance is
-    /// destroyed.
+    ///   [`OH_AudioCodec_GetOutputDescription`](crate::avcodec_audiocodec::OH_AudioCodec_GetOutputDescription) is called again and destroyed when the OH_AVCodec instance is
+    ///   destroyed.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -259,11 +259,11 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): An input parameter is nullptr or invalid.
-    /// <br>[`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE): The codec service is unavailable.
-    /// <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed. This may be because of incorrect state or
-    /// unsupported operation.
-    /// <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An internal error occurs. You are advised to check logs.
+    ///   <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): An input parameter is nullptr or invalid.
+    ///   <br>[`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE): The codec service is unavailable.
+    ///   <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed. This may be because of incorrect state or
+    ///   unsupported operation.
+    ///   <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An internal error occurs. You are advised to check logs.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -294,13 +294,13 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input index is used or invalid. Use the index returned by the
-    /// [`OH_AVCodecOnNeedInputBuffer`](crate::avcodec_base::OH_AVCodecOnNeedInputBuffer) callback.
-    /// <br>[`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE): The codec state is incorrect.
-    /// Before calling **OH_AudioCodec_PushInputBuffer**, ensure that [`OH_AudioCodec_Configure`](crate::avcodec_audiocodec::OH_AudioCodec_Configure),
-    /// [`OH_AudioCodec_Prepare`](crate::avcodec_audiocodec::OH_AudioCodec_Prepare), and [`OH_AudioCodec_Start`](crate::avcodec_audiocodec::OH_AudioCodec_Start) are successfully called in sequence.
-    /// <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): The input buffer size is invalid. Ensure that the buffer size and flags are
-    /// correctly set.
+    ///   <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input index is used or invalid. Use the index returned by the
+    ///   [`OH_AVCodecOnNeedInputBuffer`](crate::avcodec_base::OH_AVCodecOnNeedInputBuffer) callback.
+    ///   <br>[`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE): The codec state is incorrect.
+    ///   Before calling **OH_AudioCodec_PushInputBuffer**, ensure that [`OH_AudioCodec_Configure`](crate::avcodec_audiocodec::OH_AudioCodec_Configure),
+    ///   [`OH_AudioCodec_Prepare`](crate::avcodec_audiocodec::OH_AudioCodec_Prepare), and [`OH_AudioCodec_Start`](crate::avcodec_audiocodec::OH_AudioCodec_Start) are successfully called in sequence.
+    ///   <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): The input buffer size is invalid. Ensure that the buffer size and flags are
+    ///   correctly set.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -318,12 +318,12 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): An input parameter is nullptr or invalid. The buffer index is obtained from
-    /// [`OH_AVCodecOnNewOutputBuffer`](crate::avcodec_base::OH_AVCodecOnNewOutputBuffer).
-    /// <br>[`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE): The codec service is unavailable.
-    /// <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed. This may be because of incorrect state or
-    /// unsupported operation.
-    /// <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An internal error occurs. You are advised to check logs.
+    ///   <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): An input parameter is nullptr or invalid. The buffer index is obtained from
+    ///   [`OH_AVCodecOnNewOutputBuffer`](crate::avcodec_base::OH_AVCodecOnNewOutputBuffer).
+    ///   <br>[`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE): The codec service is unavailable.
+    ///   <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed. This may be because of incorrect state or
+    ///   unsupported operation.
+    ///   <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An internal error occurs. You are advised to check logs.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -339,12 +339,12 @@ extern "C" {
     /// * `codec` - Pointer to an OH_AVCodec instance.
     ///
     /// * `isValid` - Pointer to an instance of the Boolean type. The value **true** means that the codec instance is
-    /// valid, and **false** means the opposite.
+    ///   valid, and **false** means the opposite.
     ///
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): An input parameter is nullptr or invalid.
+    ///   <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): An input parameter is nullptr or invalid.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -359,15 +359,15 @@ extern "C" {
     /// * `mediaKeySession` - Pointer to the media key session with the decryption feature.
     ///
     /// * `secureAudio` - Whether a secure decoder is used. **true** if used, **false** otherwise.
-    /// <br>Currently, the secure decoder is not supported for audio decryption.
+    ///   <br>Currently, the secure decoder is not supported for audio decryption.
     ///
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The OH_AVCodec instance is nullptr or invalid, or the mediaKeySystemInfo
-    /// instance is nullptr or invalid.
-    /// <br>[`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE): The codec service is unavailable.
-    /// <br>[`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): Memory allocation fails.
+    ///   <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The OH_AVCodec instance is nullptr or invalid, or the mediaKeySystemInfo
+    ///   instance is nullptr or invalid.
+    ///   <br>[`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE): The codec service is unavailable.
+    ///   <br>[`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): Memory allocation fails.
     ///
     /// Available since API-level: 12
     ///
@@ -400,12 +400,12 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The operation fails due to incorrect input parameters.
-    /// <br>[`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE): The operation fails due to an invalid state, for example, the codec not being
-    /// started.
-    /// <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation fails because the call is not allowed in asynchronous mode.
-    /// <br>[`AV_ERR_TRY_AGAIN_LATER`](crate::averrors::OH_AVErrCode::AV_ERR_TRY_AGAIN_LATER): The operation fails because no available buffer is obtained within the
-    /// timeout period.
+    ///   <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The operation fails due to incorrect input parameters.
+    ///   <br>[`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE): The operation fails due to an invalid state, for example, the codec not being
+    ///   started.
+    ///   <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation fails because the call is not allowed in asynchronous mode.
+    ///   <br>[`AV_ERR_TRY_AGAIN_LATER`](crate::averrors::OH_AVErrCode::AV_ERR_TRY_AGAIN_LATER): The operation fails because no available buffer is obtained within the
+    ///   timeout period.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -450,14 +450,14 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The operation fails due to incorrect input parameters.
-    /// <br>[`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE): The operation fails due to an invalid state, for example, the codec not being
-    /// started.
-    /// <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation fails because the call is not allowed in asynchronous mode.
-    /// <br>[`AV_ERR_STREAM_CHANGED`](crate::averrors::OH_AVErrCode::AV_ERR_STREAM_CHANGED): The format of the decoded output stream changes. You can call
-    /// [`OH_AudioCodec_GetOutputDescription`](crate::avcodec_audiocodec::OH_AudioCodec_GetOutputDescription) to obtain the new stream information.
-    /// <br>[`AV_ERR_TRY_AGAIN_LATER`](crate::averrors::OH_AVErrCode::AV_ERR_TRY_AGAIN_LATER): The operation fails because no available buffer is obtained within the
-    /// timeout period.
+    ///   <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The operation fails due to incorrect input parameters.
+    ///   <br>[`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE): The operation fails due to an invalid state, for example, the codec not being
+    ///   started.
+    ///   <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation fails because the call is not allowed in asynchronous mode.
+    ///   <br>[`AV_ERR_STREAM_CHANGED`](crate::averrors::OH_AVErrCode::AV_ERR_STREAM_CHANGED): The format of the decoded output stream changes. You can call
+    ///   [`OH_AudioCodec_GetOutputDescription`](crate::avcodec_audiocodec::OH_AudioCodec_GetOutputDescription) to obtain the new stream information.
+    ///   <br>[`AV_ERR_TRY_AGAIN_LATER`](crate::averrors::OH_AVErrCode::AV_ERR_TRY_AGAIN_LATER): The operation fails because no available buffer is obtained within the
+    ///   timeout period.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]

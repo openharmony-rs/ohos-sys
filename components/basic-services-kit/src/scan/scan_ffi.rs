@@ -128,9 +128,9 @@ extern "C" {
     /// # Returns
     ///
     /// * [`SCAN_ERROR_NONE`](crate::scan::Scan_ErrorCode::SCAN_ERROR_NONE): operation successful.
-    /// <br>[`SCAN_ERROR_NO_PERMISSION`](crate::scan::Scan_ErrorCode::SCAN_ERROR_NO_PERMISSION): permission denied.
-    /// <br>[`SCAN_ERROR_RPC_FAILURE`](crate::scan::Scan_ErrorCode::SCAN_ERROR_RPC_FAILURE): RPC communication error.
-    /// <br>[`SCAN_ERROR_SERVER_FAILURE`](crate::scan::Scan_ErrorCode::SCAN_ERROR_SERVER_FAILURE): server error.
+    ///   <br>[`SCAN_ERROR_NO_PERMISSION`](crate::scan::Scan_ErrorCode::SCAN_ERROR_NO_PERMISSION): permission denied.
+    ///   <br>[`SCAN_ERROR_RPC_FAILURE`](crate::scan::Scan_ErrorCode::SCAN_ERROR_RPC_FAILURE): RPC communication error.
+    ///   <br>[`SCAN_ERROR_SERVER_FAILURE`](crate::scan::Scan_ErrorCode::SCAN_ERROR_SERVER_FAILURE): server error.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -147,9 +147,9 @@ extern "C" {
     /// # Returns
     ///
     /// * [`SCAN_ERROR_NONE`](crate::scan::Scan_ErrorCode::SCAN_ERROR_NONE): operation successful.
-    /// <br>[`SCAN_ERROR_NO_PERMISSION`](crate::scan::Scan_ErrorCode::SCAN_ERROR_NO_PERMISSION): permission denied.
-    /// <br>[`SCAN_ERROR_RPC_FAILURE`](crate::scan::Scan_ErrorCode::SCAN_ERROR_RPC_FAILURE): RPC communication error.
-    /// <br>[`SCAN_ERROR_SERVER_FAILURE`](crate::scan::Scan_ErrorCode::SCAN_ERROR_SERVER_FAILURE): server error.
+    ///   <br>[`SCAN_ERROR_NO_PERMISSION`](crate::scan::Scan_ErrorCode::SCAN_ERROR_NO_PERMISSION): permission denied.
+    ///   <br>[`SCAN_ERROR_RPC_FAILURE`](crate::scan::Scan_ErrorCode::SCAN_ERROR_RPC_FAILURE): RPC communication error.
+    ///   <br>[`SCAN_ERROR_SERVER_FAILURE`](crate::scan::Scan_ErrorCode::SCAN_ERROR_SERVER_FAILURE): server error.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -166,13 +166,13 @@ extern "C" {
     /// # Returns
     ///
     /// * [`SCAN_ERROR_NONE`](crate::scan::Scan_ErrorCode::SCAN_ERROR_NONE): operation successful.
-    /// <br>[`SCAN_ERROR_NO_PERMISSION`](crate::scan::Scan_ErrorCode::SCAN_ERROR_NO_PERMISSION): permission denied.
-    /// <br>[`SCAN_ERROR_RPC_FAILURE`](crate::scan::Scan_ErrorCode::SCAN_ERROR_RPC_FAILURE): RPC communication error.
-    /// <br>[`SCAN_ERROR_SERVER_FAILURE`](crate::scan::Scan_ErrorCode::SCAN_ERROR_SERVER_FAILURE): server error.
-    /// <br>[`SCAN_ERROR_DEVICE_BUSY`](crate::scan::Scan_ErrorCode::SCAN_ERROR_DEVICE_BUSY): device busy.
-    /// <br>[`SCAN_ERROR_INVALID_PARAMETER`](crate::scan::Scan_ErrorCode::SCAN_ERROR_INVALID_PARAMETER): invalid parameter.
-    /// <br>[`SCAN_ERROR_IO_ERROR`](crate::scan::Scan_ErrorCode::SCAN_ERROR_IO_ERROR): scanner I/O error.
-    /// <br>[`SCAN_ERROR_NO_MEMORY`](crate::scan::Scan_ErrorCode::SCAN_ERROR_NO_MEMORY): insufficient memory.
+    ///   <br>[`SCAN_ERROR_NO_PERMISSION`](crate::scan::Scan_ErrorCode::SCAN_ERROR_NO_PERMISSION): permission denied.
+    ///   <br>[`SCAN_ERROR_RPC_FAILURE`](crate::scan::Scan_ErrorCode::SCAN_ERROR_RPC_FAILURE): RPC communication error.
+    ///   <br>[`SCAN_ERROR_SERVER_FAILURE`](crate::scan::Scan_ErrorCode::SCAN_ERROR_SERVER_FAILURE): server error.
+    ///   <br>[`SCAN_ERROR_DEVICE_BUSY`](crate::scan::Scan_ErrorCode::SCAN_ERROR_DEVICE_BUSY): device busy.
+    ///   <br>[`SCAN_ERROR_INVALID_PARAMETER`](crate::scan::Scan_ErrorCode::SCAN_ERROR_INVALID_PARAMETER): invalid parameter.
+    ///   <br>[`SCAN_ERROR_IO_ERROR`](crate::scan::Scan_ErrorCode::SCAN_ERROR_IO_ERROR): scanner I/O error.
+    ///   <br>[`SCAN_ERROR_NO_MEMORY`](crate::scan::Scan_ErrorCode::SCAN_ERROR_NO_MEMORY): insufficient memory.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -189,10 +189,10 @@ extern "C" {
     /// # Returns
     ///
     /// * [`SCAN_ERROR_NONE`](crate::scan::Scan_ErrorCode::SCAN_ERROR_NONE): operation successful.
-    /// <br>[`SCAN_ERROR_NO_PERMISSION`](crate::scan::Scan_ErrorCode::SCAN_ERROR_NO_PERMISSION): permission denied.
-    /// <br>[`SCAN_ERROR_RPC_FAILURE`](crate::scan::Scan_ErrorCode::SCAN_ERROR_RPC_FAILURE): RPC communication error.
-    /// <br>[`SCAN_ERROR_SERVER_FAILURE`](crate::scan::Scan_ErrorCode::SCAN_ERROR_SERVER_FAILURE): server error.
-    /// <br>[`SCAN_ERROR_INVALID_PARAMETER`](crate::scan::Scan_ErrorCode::SCAN_ERROR_INVALID_PARAMETER): invalid parameter.
+    ///   <br>[`SCAN_ERROR_NO_PERMISSION`](crate::scan::Scan_ErrorCode::SCAN_ERROR_NO_PERMISSION): permission denied.
+    ///   <br>[`SCAN_ERROR_RPC_FAILURE`](crate::scan::Scan_ErrorCode::SCAN_ERROR_RPC_FAILURE): RPC communication error.
+    ///   <br>[`SCAN_ERROR_SERVER_FAILURE`](crate::scan::Scan_ErrorCode::SCAN_ERROR_SERVER_FAILURE): server error.
+    ///   <br>[`SCAN_ERROR_INVALID_PARAMETER`](crate::scan::Scan_ErrorCode::SCAN_ERROR_INVALID_PARAMETER): invalid parameter.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -208,7 +208,7 @@ extern "C" {
     /// * `scannerId` - Pointer to the scanner ID.
     ///
     /// * `errorCode` - Pointer to the error code. If the operation is successful, [`SCAN_ERROR_NONE`](crate::scan::Scan_ErrorCode::SCAN_ERROR_NONE) is returned;
-    /// otherwise, a specific error code is returned. For details, see [`Scan_ErrorCode`](crate::scan::Scan_ErrorCode).
+    ///   otherwise, a specific error code is returned. For details, see [`Scan_ErrorCode`](crate::scan::Scan_ErrorCode).
     ///
     /// # Returns
     ///
@@ -231,18 +231,18 @@ extern "C" {
     /// * `scannerId` - Pointer to the scanner ID.
     ///
     /// * `option` - ID of the option to be set. The value, obtained from [`Scan_ScannerOptions`](crate::scan::Scan_ScannerOptions), ranges from 0 to
-    /// *optionCount* – 1.
+    ///   *optionCount* – 1.
     ///
     /// * `value` - Pointer to the option value to be set. The valid value is obtained from **ranges** of
-    /// [`Scan_ScannerOptions`](crate::scan::Scan_ScannerOptions).
+    ///   [`Scan_ScannerOptions`](crate::scan::Scan_ScannerOptions).
     ///
     /// # Returns
     ///
     /// * [`SCAN_ERROR_NONE`](crate::scan::Scan_ErrorCode::SCAN_ERROR_NONE): operation successful.
-    /// <br>[`SCAN_ERROR_NO_PERMISSION`](crate::scan::Scan_ErrorCode::SCAN_ERROR_NO_PERMISSION): permission denied.
-    /// <br>[`SCAN_ERROR_RPC_FAILURE`](crate::scan::Scan_ErrorCode::SCAN_ERROR_RPC_FAILURE): RPC communication error.
-    /// <br>[`SCAN_ERROR_SERVER_FAILURE`](crate::scan::Scan_ErrorCode::SCAN_ERROR_SERVER_FAILURE): server error.
-    /// <br>[`SCAN_ERROR_INVALID_PARAMETER`](crate::scan::Scan_ErrorCode::SCAN_ERROR_INVALID_PARAMETER): invalid parameter.
+    ///   <br>[`SCAN_ERROR_NO_PERMISSION`](crate::scan::Scan_ErrorCode::SCAN_ERROR_NO_PERMISSION): permission denied.
+    ///   <br>[`SCAN_ERROR_RPC_FAILURE`](crate::scan::Scan_ErrorCode::SCAN_ERROR_RPC_FAILURE): RPC communication error.
+    ///   <br>[`SCAN_ERROR_SERVER_FAILURE`](crate::scan::Scan_ErrorCode::SCAN_ERROR_SERVER_FAILURE): server error.
+    ///   <br>[`SCAN_ERROR_INVALID_PARAMETER`](crate::scan::Scan_ErrorCode::SCAN_ERROR_INVALID_PARAMETER): invalid parameter.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -265,16 +265,16 @@ extern "C" {
     /// # Returns
     ///
     /// * [`SCAN_ERROR_NONE`](crate::scan::Scan_ErrorCode::SCAN_ERROR_NONE): operation successful.
-    /// <br>[`SCAN_ERROR_NO_PERMISSION`](crate::scan::Scan_ErrorCode::SCAN_ERROR_NO_PERMISSION): permission denied.
-    /// <br>[`SCAN_ERROR_RPC_FAILURE`](crate::scan::Scan_ErrorCode::SCAN_ERROR_RPC_FAILURE): RPC communication error.
-    /// <br>[`SCAN_ERROR_SERVER_FAILURE`](crate::scan::Scan_ErrorCode::SCAN_ERROR_SERVER_FAILURE): server error.
-    /// <br>[`SCAN_ERROR_JAMMED`](crate::scan::Scan_ErrorCode::SCAN_ERROR_JAMMED): paper jam in feeder.
-    /// <br>[`SCAN_ERROR_NO_DOCS`](crate::scan::Scan_ErrorCode::SCAN_ERROR_NO_DOCS): out of paper.
-    /// <br>[`SCAN_ERROR_COVER_OPEN`](crate::scan::Scan_ErrorCode::SCAN_ERROR_COVER_OPEN): scanner cover open.
-    /// <br>[`SCAN_ERROR_IO_ERROR`](crate::scan::Scan_ErrorCode::SCAN_ERROR_IO_ERROR): scanner I/O error.
-    /// <br>[`SCAN_ERROR_NO_MEMORY`](crate::scan::Scan_ErrorCode::SCAN_ERROR_NO_MEMORY): insufficient memory.
-    /// <br>[`SCAN_ERROR_INVALID_PARAMETER`](crate::scan::Scan_ErrorCode::SCAN_ERROR_INVALID_PARAMETER): invalid parameter.
-    /// <br>[`SCAN_ERROR_DEVICE_BUSY`](crate::scan::Scan_ErrorCode::SCAN_ERROR_DEVICE_BUSY): device busy.
+    ///   <br>[`SCAN_ERROR_NO_PERMISSION`](crate::scan::Scan_ErrorCode::SCAN_ERROR_NO_PERMISSION): permission denied.
+    ///   <br>[`SCAN_ERROR_RPC_FAILURE`](crate::scan::Scan_ErrorCode::SCAN_ERROR_RPC_FAILURE): RPC communication error.
+    ///   <br>[`SCAN_ERROR_SERVER_FAILURE`](crate::scan::Scan_ErrorCode::SCAN_ERROR_SERVER_FAILURE): server error.
+    ///   <br>[`SCAN_ERROR_JAMMED`](crate::scan::Scan_ErrorCode::SCAN_ERROR_JAMMED): paper jam in feeder.
+    ///   <br>[`SCAN_ERROR_NO_DOCS`](crate::scan::Scan_ErrorCode::SCAN_ERROR_NO_DOCS): out of paper.
+    ///   <br>[`SCAN_ERROR_COVER_OPEN`](crate::scan::Scan_ErrorCode::SCAN_ERROR_COVER_OPEN): scanner cover open.
+    ///   <br>[`SCAN_ERROR_IO_ERROR`](crate::scan::Scan_ErrorCode::SCAN_ERROR_IO_ERROR): scanner I/O error.
+    ///   <br>[`SCAN_ERROR_NO_MEMORY`](crate::scan::Scan_ErrorCode::SCAN_ERROR_NO_MEMORY): insufficient memory.
+    ///   <br>[`SCAN_ERROR_INVALID_PARAMETER`](crate::scan::Scan_ErrorCode::SCAN_ERROR_INVALID_PARAMETER): invalid parameter.
+    ///   <br>[`SCAN_ERROR_DEVICE_BUSY`](crate::scan::Scan_ErrorCode::SCAN_ERROR_DEVICE_BUSY): device busy.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -291,10 +291,10 @@ extern "C" {
     /// # Returns
     ///
     /// * [`SCAN_ERROR_NONE`](crate::scan::Scan_ErrorCode::SCAN_ERROR_NONE): operation successful.
-    /// <br>[`SCAN_ERROR_NO_PERMISSION`](crate::scan::Scan_ErrorCode::SCAN_ERROR_NO_PERMISSION): permission denied.
-    /// <br>[`SCAN_ERROR_INVALID_PARAMETER`](crate::scan::Scan_ErrorCode::SCAN_ERROR_INVALID_PARAMETER): invalid parameter.
-    /// <br>[`SCAN_ERROR_RPC_FAILURE`](crate::scan::Scan_ErrorCode::SCAN_ERROR_RPC_FAILURE): RPC communication error.
-    /// <br>[`SCAN_ERROR_SERVER_FAILURE`](crate::scan::Scan_ErrorCode::SCAN_ERROR_SERVER_FAILURE): server error.
+    ///   <br>[`SCAN_ERROR_NO_PERMISSION`](crate::scan::Scan_ErrorCode::SCAN_ERROR_NO_PERMISSION): permission denied.
+    ///   <br>[`SCAN_ERROR_INVALID_PARAMETER`](crate::scan::Scan_ErrorCode::SCAN_ERROR_INVALID_PARAMETER): invalid parameter.
+    ///   <br>[`SCAN_ERROR_RPC_FAILURE`](crate::scan::Scan_ErrorCode::SCAN_ERROR_RPC_FAILURE): RPC communication error.
+    ///   <br>[`SCAN_ERROR_SERVER_FAILURE`](crate::scan::Scan_ErrorCode::SCAN_ERROR_SERVER_FAILURE): server error.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -314,16 +314,16 @@ extern "C" {
     /// # Returns
     ///
     /// * [`SCAN_ERROR_NONE`](crate::scan::Scan_ErrorCode::SCAN_ERROR_NONE): operation successful.
-    /// <br>[`SCAN_ERROR_NO_PERMISSION`](crate::scan::Scan_ErrorCode::SCAN_ERROR_NO_PERMISSION): permission denied.
-    /// <br>[`SCAN_ERROR_INVALID_PARAMETER`](crate::scan::Scan_ErrorCode::SCAN_ERROR_INVALID_PARAMETER): invalid parameter.
-    /// <br>[`SCAN_ERROR_RPC_FAILURE`](crate::scan::Scan_ErrorCode::SCAN_ERROR_RPC_FAILURE): RPC communication error.
-    /// <br>[`SCAN_ERROR_SERVER_FAILURE`](crate::scan::Scan_ErrorCode::SCAN_ERROR_SERVER_FAILURE): server error.
-    /// <br>[`SCAN_ERROR_JAMMED`](crate::scan::Scan_ErrorCode::SCAN_ERROR_JAMMED): paper jam in feeder.
-    /// <br>[`SCAN_ERROR_NO_DOCS`](crate::scan::Scan_ErrorCode::SCAN_ERROR_NO_DOCS): out of paper.
-    /// <br>[`SCAN_ERROR_COVER_OPEN`](crate::scan::Scan_ErrorCode::SCAN_ERROR_COVER_OPEN): scanner cover open.
-    /// <br>[`SCAN_ERROR_IO_ERROR`](crate::scan::Scan_ErrorCode::SCAN_ERROR_IO_ERROR): scanner I/O error.
-    /// <br>[`SCAN_ERROR_NO_MEMORY`](crate::scan::Scan_ErrorCode::SCAN_ERROR_NO_MEMORY): insufficient memory.
-    /// <br>[`SCAN_ERROR_DEVICE_BUSY`](crate::scan::Scan_ErrorCode::SCAN_ERROR_DEVICE_BUSY): device busy.
+    ///   <br>[`SCAN_ERROR_NO_PERMISSION`](crate::scan::Scan_ErrorCode::SCAN_ERROR_NO_PERMISSION): permission denied.
+    ///   <br>[`SCAN_ERROR_INVALID_PARAMETER`](crate::scan::Scan_ErrorCode::SCAN_ERROR_INVALID_PARAMETER): invalid parameter.
+    ///   <br>[`SCAN_ERROR_RPC_FAILURE`](crate::scan::Scan_ErrorCode::SCAN_ERROR_RPC_FAILURE): RPC communication error.
+    ///   <br>[`SCAN_ERROR_SERVER_FAILURE`](crate::scan::Scan_ErrorCode::SCAN_ERROR_SERVER_FAILURE): server error.
+    ///   <br>[`SCAN_ERROR_JAMMED`](crate::scan::Scan_ErrorCode::SCAN_ERROR_JAMMED): paper jam in feeder.
+    ///   <br>[`SCAN_ERROR_NO_DOCS`](crate::scan::Scan_ErrorCode::SCAN_ERROR_NO_DOCS): out of paper.
+    ///   <br>[`SCAN_ERROR_COVER_OPEN`](crate::scan::Scan_ErrorCode::SCAN_ERROR_COVER_OPEN): scanner cover open.
+    ///   <br>[`SCAN_ERROR_IO_ERROR`](crate::scan::Scan_ErrorCode::SCAN_ERROR_IO_ERROR): scanner I/O error.
+    ///   <br>[`SCAN_ERROR_NO_MEMORY`](crate::scan::Scan_ErrorCode::SCAN_ERROR_NO_MEMORY): insufficient memory.
+    ///   <br>[`SCAN_ERROR_DEVICE_BUSY`](crate::scan::Scan_ErrorCode::SCAN_ERROR_DEVICE_BUSY): device busy.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -341,9 +341,9 @@ extern "C" {
     /// # Returns
     ///
     /// * [`SCAN_ERROR_NONE`](crate::scan::Scan_ErrorCode::SCAN_ERROR_NONE): operation successful.
-    /// <br>[`SCAN_ERROR_NO_PERMISSION`](crate::scan::Scan_ErrorCode::SCAN_ERROR_NO_PERMISSION): permission denied.
-    /// <br>[`SCAN_ERROR_RPC_FAILURE`](crate::scan::Scan_ErrorCode::SCAN_ERROR_RPC_FAILURE): RPC communication error.
-    /// <br>[`SCAN_ERROR_SERVER_FAILURE`](crate::scan::Scan_ErrorCode::SCAN_ERROR_SERVER_FAILURE): server error.
+    ///   <br>[`SCAN_ERROR_NO_PERMISSION`](crate::scan::Scan_ErrorCode::SCAN_ERROR_NO_PERMISSION): permission denied.
+    ///   <br>[`SCAN_ERROR_RPC_FAILURE`](crate::scan::Scan_ErrorCode::SCAN_ERROR_RPC_FAILURE): RPC communication error.
+    ///   <br>[`SCAN_ERROR_SERVER_FAILURE`](crate::scan::Scan_ErrorCode::SCAN_ERROR_SERVER_FAILURE): server error.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]

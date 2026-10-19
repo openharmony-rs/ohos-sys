@@ -366,9 +366,9 @@ pub struct ArkWeb_ControllerAPI {
     /// # Returns
     ///
     /// * Post web message result code.
-    /// [`ARKWEB_SUCCESS`](crate::arkweb_error_code::ArkWeb_ErrorCode) post web message success.
-    /// [`ARKWEB_INVALID_PARAM`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::INVALID_PARAM) the parameter verification fails.
-    /// [`ARKWEB_INIT_ERROR`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::INIT_ERROR) no web associated with this webTag.
+    ///   [`ARKWEB_SUCCESS`](crate::arkweb_error_code::ArkWeb_ErrorCode) post web message success.
+    ///   [`ARKWEB_INVALID_PARAM`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::INVALID_PARAM) the parameter verification fails.
+    ///   [`ARKWEB_INIT_ERROR`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::INIT_ERROR) no web associated with this webTag.
     pub postWebMessage: ::core::option::Option<
         unsafe extern "C" fn(
             webTag: *const ::core::ffi::c_char,
@@ -398,7 +398,7 @@ pub struct ArkWeb_ControllerAPI {
     /// * `proxyObject` - The JavaScript object to register, the object has callback functions with return value.
     ///
     /// * `permission` - The JSON string, which defaults to null, is used to configure the permission control for
-    /// JSBridge, allowing for the definition of URL whitelists at the object and method levels.
+    ///   JSBridge, allowing for the definition of URL whitelists at the object and method levels.
     ///
     ///
     /// Available since API-level: 18
@@ -418,7 +418,7 @@ pub struct ArkWeb_ControllerAPI {
     /// * `proxyObject` - The JavaScript object to register.
     ///
     /// * `permission` - The JSON string, which defaults to null, is used to configure the permission control
-    /// for JSBridge, allowing for the definition of URL whitelists at the object and method levels.
+    ///   for JSBridge, allowing for the definition of URL whitelists at the object and method levels.
     ///
     ///
     /// Available since API-level: 18
@@ -500,9 +500,9 @@ pub struct ArkWeb_WebMessagePortAPI {
     /// # Returns
     ///
     /// * Post message result code.
-    /// [`ARKWEB_SUCCESS`](crate::arkweb_error_code::ArkWeb_ErrorCode) post message success.
-    /// [`ARKWEB_INVALID_PARAM`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::INVALID_PARAM) the parameter verification fails.
-    /// [`ARKWEB_INIT_ERROR`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::INIT_ERROR) no web associated with this webTag.
+    ///   [`ARKWEB_SUCCESS`](crate::arkweb_error_code::ArkWeb_ErrorCode) post message success.
+    ///   [`ARKWEB_INVALID_PARAM`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::INVALID_PARAM) the parameter verification fails.
+    ///   [`ARKWEB_INIT_ERROR`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::INIT_ERROR) no web associated with this webTag.
     pub postMessage: ::core::option::Option<
         unsafe extern "C" fn(
             webMessagePort: ArkWeb_WebMessagePortPtr,
@@ -563,7 +563,7 @@ pub struct ArkWeb_WebMessageAPI {
     /// # Returns
     ///
     /// * The created ArkWeb_WebMessage, destroy it through
-    /// destroyWebMessage after it is no longer used.
+    ///   destroyWebMessage after it is no longer used.
     pub createWebMessage: ::core::option::Option<unsafe extern "C" fn() -> ArkWeb_WebMessagePtr>,
     /// Used to destroy a ArkWeb_WebMessage.
     ///
@@ -649,7 +649,7 @@ pub struct ArkWeb_CookieManagerAPI {
     /// * `url` - URL to which the cookie to be obtained belongs. A complete URL is recommended.
     ///
     /// * `incognito` - True indicates that the memory cookies of the webview in privacy mode are obtained,
-    /// and false indicates that cookies in non-privacy mode are obtained.
+    ///   and false indicates that cookies in non-privacy mode are obtained.
     ///
     /// * `includeHttpOnly` - If true HTTP-only cookies will also be included in the cookieValue.
     ///
@@ -658,9 +658,9 @@ pub struct ArkWeb_CookieManagerAPI {
     /// # Returns
     ///
     /// * Fetch cookie result code.
-    /// [`ARKWEB_SUCCESS`](crate::arkweb_error_code::ArkWeb_ErrorCode) fetch cookie success.
-    /// [`ARKWEB_INVALID_URL`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::INVALID_URL) invalid url.
-    /// [`ARKWEB_INVALID_PARAM`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::INVALID_PARAM) cookieValue is nullptr.
+    ///   [`ARKWEB_SUCCESS`](crate::arkweb_error_code::ArkWeb_ErrorCode) fetch cookie success.
+    ///   [`ARKWEB_INVALID_URL`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::INVALID_URL) invalid url.
+    ///   [`ARKWEB_INVALID_PARAM`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::INVALID_PARAM) cookieValue is nullptr.
     pub fetchCookieSync: ::core::option::Option<
         unsafe extern "C" fn(
             url: *const ::core::ffi::c_char,
@@ -678,16 +678,16 @@ pub struct ArkWeb_CookieManagerAPI {
     /// * `cookieValue` - The value of the cookie to be set.
     ///
     /// * `incognito` - True indicates that cookies of the corresponding URL are set in privacy mode,
-    /// and false indicates that cookies of the corresponding URL are set in non-privacy mode.
+    ///   and false indicates that cookies of the corresponding URL are set in non-privacy mode.
     ///
     /// * `includeHttpOnly` - If true, HTTP-only cookies can also be overwritten.
     ///
     /// # Returns
     ///
     /// * Config cookie result code.
-    /// [`ARKWEB_SUCCESS`](crate::arkweb_error_code::ArkWeb_ErrorCode) config cookie success.
-    /// [`ARKWEB_INVALID_URL`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::INVALID_URL) invalid url.
-    /// [`ARKWEB_INVALID_COOKIE_VALUE`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::INVALID_COOKIE_VALUE) invalid cookie value.
+    ///   [`ARKWEB_SUCCESS`](crate::arkweb_error_code::ArkWeb_ErrorCode) config cookie success.
+    ///   [`ARKWEB_INVALID_URL`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::INVALID_URL) invalid url.
+    ///   [`ARKWEB_INVALID_COOKIE_VALUE`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::INVALID_COOKIE_VALUE) invalid cookie value.
     pub configCookieSync: ::core::option::Option<
         unsafe extern "C" fn(
             url: *const ::core::ffi::c_char,
@@ -701,7 +701,7 @@ pub struct ArkWeb_CookieManagerAPI {
     /// # Arguments
     ///
     /// * `incognito` - True indicates whether cookies exist in privacy mode,
-    /// and false indicates whether cookies exist in non-privacy mode.
+    ///   and false indicates whether cookies exist in non-privacy mode.
     ///
     /// # Returns
     ///
@@ -712,7 +712,7 @@ pub struct ArkWeb_CookieManagerAPI {
     /// # Arguments
     ///
     /// * `incognito` - True indicates that all memory cookies of the webview are cleared in privacy mode,
-    /// and false indicates that persistent cookies in non-privacy mode are cleared.
+    ///   and false indicates that persistent cookies in non-privacy mode are cleared.
     pub clearAllCookiesSync: ::core::option::Option<unsafe extern "C" fn(incognito: bool)>,
     /// Clear all session cookies.
     pub clearSessionCookiesSync: ::core::option::Option<unsafe extern "C" fn()>,
@@ -743,7 +743,7 @@ pub struct ArkWeb_JavaScriptValueAPI {
     /// # Returns
     ///
     /// * ArkWeb_JavaScriptValuePtr created by ArkWeb, the memory of ArkWeb_JavaScriptValue
-    /// is managed by ArkWeb itself.
+    ///   is managed by ArkWeb itself.
     pub createJavaScriptValue: ::core::option::Option<
         unsafe extern "C" fn(
             type_: ArkWeb_JavaScriptValueType,

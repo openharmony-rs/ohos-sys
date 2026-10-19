@@ -34,13 +34,13 @@ extern "C" {
     /// # Returns
     ///
     /// * Pointer to the OH_AVSource instance created. If the operation fails, NULL is returned.
-    /// <br>The possible causes of an operation failure are as follows:
-    /// <br>1. The value of **dataSource** is nullptr.
-    /// <br>2. The size of the data source is 0.
-    /// <br>3. Setting the data source fails.
-    /// <br>4. The memory is insufficient.
-    /// <br>5. The decoder engine is nullptr.
-    /// <br>6. dataSource-&gt;readAt == nullptr.
+    ///   <br>The possible causes of an operation failure are as follows:
+    ///   <br>1. The value of **dataSource** is nullptr.
+    ///   <br>2. The size of the data source is 0.
+    ///   <br>3. Setting the data source fails.
+    ///   <br>4. The memory is insufficient.
+    ///   <br>5. The decoder engine is nullptr.
+    ///   <br>6. dataSource-&gt;readAt == nullptr.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -62,13 +62,13 @@ extern "C" {
     /// # Returns
     ///
     /// * Pointer to the OH_AVSource instance created. If the operation fails, NULL is returned.
-    /// <br>The possible causes of an operation failure are as follows:
-    /// <br>1. The value of **dataSource** is nullptr.
-    /// <br>2. The size of the data source is 0.
-    /// <br>3. Setting the data source fails.
-    /// <br>4. The memory is insufficient.
-    /// <br>5. The decoder engine is nullptr.
-    /// <br>6. dataSource-&gt;readAt == nullptr.
+    ///   <br>The possible causes of an operation failure are as follows:
+    ///   <br>1. The value of **dataSource** is nullptr.
+    ///   <br>2. The size of the data source is 0.
+    ///   <br>3. Setting the data source fails.
+    ///   <br>4. The memory is insufficient.
+    ///   <br>5. The decoder engine is nullptr.
+    ///   <br>6. dataSource-&gt;readAt == nullptr.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -88,11 +88,11 @@ extern "C" {
     /// # Returns
     ///
     /// * Pointer to the OH_AVSource instance created. If the operation fails, NULL is returned.
-    /// The possible causes of an operation failure are as follows:
-    /// <br>1. The network is abnormal.
-    /// <br>2. The resource is invalid.
-    /// <br>3. The file format is not supported.
-    /// <br>4. The application configuration is intercepted because it contains plaintext data.
+    ///   The possible causes of an operation failure are as follows:
+    ///   <br>1. The network is abnormal.
+    ///   <br>2. The resource is invalid.
+    ///   <br>3. The file format is not supported.
+    ///   <br>4. The application configuration is intercepted because it contains plaintext data.
     ///
     /// Available since API-level: 10
     pub fn OH_AVSource_CreateWithURI(uri: *mut ::core::ffi::c_char) -> *mut OH_AVSource;
@@ -113,12 +113,12 @@ extern "C" {
     /// # Returns
     ///
     /// * Pointer to the OH_AVSource instance created. If the operation fails, NULL is returned.
-    /// <br>The possible causes of an operation failure are as follows:
-    /// <br>1. The FD is invalid.
-    /// <br>2. The offset is not the start position of the file.
-    /// <br>3. The size is incorrect.
-    /// <br>4. The resource is invalid.
-    /// <br>5. The file format is not supported.
+    ///   <br>The possible causes of an operation failure are as follows:
+    ///   <br>1. The FD is invalid.
+    ///   <br>2. The offset is not the start position of the file.
+    ///   <br>3. The size is incorrect.
+    ///   <br>4. The resource is invalid.
+    ///   <br>5. The file format is not supported.
     ///
     /// Available since API-level: 10
     pub fn OH_AVSource_CreateWithFD(fd: i32, offset: i64, size: i64) -> *mut OH_AVSource;
@@ -134,9 +134,9 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL):
-    /// <br>1. The value of **source** is nullptr.
-    /// <br>2. The value of **source** does not point to an OH_AVSource instance.
+    ///   <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL):
+    ///   <br>1. The value of **source** is nullptr.
+    ///   <br>2. The value of **source** does not point to an OH_AVSource instance.
     ///
     /// Available since API-level: 10
     pub fn OH_AVSource_Destroy(source: *mut OH_AVSource) -> OH_AVErrCode;
@@ -151,10 +151,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Basic information about the file. If the operation fails, NULL is returned.
-    /// <br>The possible causes of an operation failure are as follows:
-    /// <br>1. The value of **source** is nullptr.
-    /// <br>2. The pointer is null or does not point to an OH_AVSource instance.
-    /// <br>3. The source is not initialized.
+    ///   <br>The possible causes of an operation failure are as follows:
+    ///   <br>1. The value of **source** is nullptr.
+    ///   <br>2. The pointer is null or does not point to an OH_AVSource instance.
+    ///   <br>3. The source is not initialized.
     ///
     /// Available since API-level: 10
     pub fn OH_AVSource_GetSourceFormat(source: *mut OH_AVSource) -> *mut OH_AVFormat;
@@ -171,10 +171,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Basic information about the track. If the operation fails, NULL is returned.
-    /// <br>The possible causes of an operation failure are as follows:
-    /// <br>1. The value of **source** is invalid (either nullptr or a pointer to a non-OH_AVSource instance).
-    /// <br>2. The track index is out of range.
-    /// <br>3. The source is not initialized.
+    ///   <br>The possible causes of an operation failure are as follows:
+    ///   <br>1. The value of **source** is invalid (either nullptr or a pointer to a non-OH_AVSource instance).
+    ///   <br>2. The track index is out of range.
+    ///   <br>3. The source is not initialized.
     ///
     /// Available since API-level: 10
     pub fn OH_AVSource_GetTrackFormat(
@@ -192,10 +192,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Basic information about the metadata. If the operation fails, NULL is returned.
-    /// <br>The possible causes of an operation failure are as follows:
-    /// <br>1. The value of **source** is nullptr.
-    /// <br>2. The pointer is null or does not point to an OH_AVSource instance.
-    /// <br>3. The source is not initialized.
+    ///   <br>The possible causes of an operation failure are as follows:
+    ///   <br>1. The value of **source** is nullptr.
+    ///   <br>2. The pointer is null or does not point to an OH_AVSource instance.
+    ///   <br>3. The source is not initialized.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]

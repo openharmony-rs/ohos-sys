@@ -77,7 +77,7 @@ pub struct PreferStrategy(pub ::core::ffi::c_uint);
 /// * `type` - Indicates the log type. The type for third-party applications is defined by [`LOG_APP`](crate::LogType::LOG_APP).
 ///
 /// * `level` - Indicates the log level, which can be <b>LOG_DEBUG</b>, <b>LOG_INFO</b>, <b>LOG_WARN</b>,
-/// <b>LOG_ERROR</b>, and <b>LOG_FATAL</b>.
+///   <b>LOG_ERROR</b>, and <b>LOG_FATAL</b>.
 ///
 /// * `domain` - Indicates the service domain of logs. Its value is a hexadecimal integer ranging from 0x0 to 0xFFFF.
 ///
@@ -108,24 +108,24 @@ extern "C" {
     /// * `type` - Indicates the log type. The type for third-party applications is defined by [`LOG_APP`](crate::LogType::LOG_APP).
     ///
     /// * `level` - Indicates the log level, which can be <b>LOG_DEBUG</b>, <b>LOG_INFO</b>, <b>LOG_WARN</b>,
-    /// <b>LOG_ERROR</b>, and <b>LOG_FATAL</b>.
+    ///   <b>LOG_ERROR</b>, and <b>LOG_FATAL</b>.
     ///
     /// * `domain` - Indicates the service domain of logs. Its value is a hexadecimal integer ranging from 0x0 to 0xFFFF.
     ///
     /// * `tag` - Indicates the log tag, which is a string used to identify the class, file, or service behavior.
     ///
     /// * `fmt` - Indicates the format string, which is an enhancement of a printf format string and supports the privacy
-    /// identifier. Specifically, {public} or {private} is added between the % character and the format specifier
-    /// in each parameter.
+    ///   identifier. Specifically, {public} or {private} is added between the % character and the format specifier
+    ///   in each parameter.
     ///
     ///
     /// * `...` - Indicates a list of parameters. The number and type of parameters must map onto the format specifiers
-    /// in the format string.
+    ///   in the format string.
     ///
     /// # Returns
     ///
     /// * Returns <b>0</b> or a larger value if the operation is successful; returns a value smaller
-    /// than <b>0</b> otherwise.
+    ///   than <b>0</b> otherwise.
     ///
     /// Available since API-level: 8
     pub fn OH_LOG_Print(
@@ -146,7 +146,7 @@ extern "C" {
     /// * `type` - Indicates the log type. The type for third-party applications is defined by [`LOG_APP`](crate::LogType::LOG_APP).
     ///
     /// * `level` - Indicates the log level, which can be <b>LOG_DEBUG</b>, <b>LOG_INFO</b>, <b>LOG_WARN</b>,
-    /// <b>LOG_ERROR</b>, and <b>LOG_FATAL</b>.
+    ///   <b>LOG_ERROR</b>, and <b>LOG_FATAL</b>.
     ///
     /// * `domain` - Indicates the service domain of logs. Its value is a hexadecimal integer ranging from 0x0 to 0xFFFF.
     ///
@@ -157,7 +157,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns <b>0</b> or a larger value if the operation is successful; returns a value smaller
-    /// than <b>0</b> otherwise.
+    ///   than <b>0</b> otherwise.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -179,7 +179,7 @@ extern "C" {
     /// * `type` - Indicates the log type. The type for third-party applications is defined by [`LOG_APP`](crate::LogType::LOG_APP).
     ///
     /// * `level` - Indicates the log level, which can be <b>LOG_DEBUG</b>, <b>LOG_INFO</b>, <b>LOG_WARN</b>,
-    /// <b>LOG_ERROR</b>, and <b>LOG_FATAL</b>.
+    ///   <b>LOG_ERROR</b>, and <b>LOG_FATAL</b>.
     ///
     /// * `domain` - Indicates the service domain of logs. Its value is a hexadecimal integer ranging from 0x0 to 0xFFFF.
     ///
@@ -194,7 +194,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns <b>0</b> or a larger value if the operation is successful; returns a value smaller
-    /// than <b>0</b> otherwise.
+    ///   than <b>0</b> otherwise.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -239,7 +239,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `callback` - Indicates the callback function implemented by the user. If you do not need to process hilog logs,
-    /// you can transfer a null pointer.
+    ///   you can transfer a null pointer.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]

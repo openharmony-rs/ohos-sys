@@ -58,8 +58,8 @@ extern "C" {
     /// # Returns
     ///
     /// * [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_SUCCESS - if the operation is successful.
-    /// <br>[`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_BAD_PARAMETER - if bad parameter.
-    /// <br>[`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_ALLOC_FAILED - if alloc failed.
+    ///   <br>[`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_BAD_PARAMETER - if bad parameter.
+    ///   <br>[`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_ALLOC_FAILED - if alloc failed.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -78,7 +78,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_SUCCESS - if the operation is successful.
-    /// <br>[`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_BAD_PARAMETER - if bad parameter.
+    ///   <br>[`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_BAD_PARAMETER - if bad parameter.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -98,7 +98,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_SUCCESS - if the operation is successful.
-    /// <br>[`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_BAD_PARAMETER - if bad parameter.
+    ///   <br>[`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_BAD_PARAMETER - if bad parameter.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -118,7 +118,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_SUCCESS - if the operation is successful.
-    /// <br>[`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_BAD_PARAMETER - if bad parameter.
+    ///   <br>[`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_BAD_PARAMETER - if bad parameter.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -138,7 +138,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_SUCCESS - if the operation is successful.
-    /// <br>[`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_BAD_PARAMETER - if bad parameter.
+    ///   <br>[`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_BAD_PARAMETER - if bad parameter.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -156,7 +156,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_SUCCESS - if the operation is successful.
-    /// <br>[`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_BAD_PARAMETER - if bad parameter.
+    ///   <br>[`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_BAD_PARAMETER - if bad parameter.
     ///
     /// **See also:** [`OH_ImageReceiverOptions`](crate::native_image::image_receiver::OH_ImageReceiverOptions)
     ///
@@ -175,8 +175,8 @@ extern "C" {
     /// # Returns
     ///
     /// * [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_SUCCESS - if the operation is successful.
-    /// <br>[`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_BAD_PARAMETER - if bad parameter.
-    /// <br>[`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_ALLOC_FAILED - if alloc failed.
+    ///   <br>[`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_BAD_PARAMETER - if bad parameter.
+    ///   <br>[`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_ALLOC_FAILED - if alloc failed.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -196,8 +196,8 @@ extern "C" {
     /// # Returns
     ///
     /// * [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_SUCCESS - if the operation is successful.
-    /// <br>[`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_BAD_PARAMETER - if bad parameter.
-    /// <br>[`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_UNKNOWN_ERROR - inner unknown error.
+    ///   <br>[`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_BAD_PARAMETER - if bad parameter.
+    ///   <br>[`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_UNKNOWN_ERROR - inner unknown error.
     ///
     /// **See also:** [`OH_ImageReceiverNative`](crate::native_image::image_receiver::OH_ImageReceiverNative)
     ///
@@ -219,9 +219,9 @@ extern "C" {
     /// # Returns
     ///
     /// * [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_SUCCESS - if the operation is successful.
-    /// <br>[`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_BAD_PARAMETER - if bad parameter.
-    /// <br>[`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_UNKNOWN_ERROR - inner unknown error.
-    /// <br>[`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_ALLOC_FAILED - if alloc failed.
+    ///   <br>[`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_BAD_PARAMETER - if bad parameter.
+    ///   <br>[`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_UNKNOWN_ERROR - inner unknown error.
+    ///   <br>[`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_ALLOC_FAILED - if alloc failed.
     ///
     /// **See also:** [`OH_ImageReceiverNative`](crate::native_image::image_receiver::OH_ImageReceiverNative), [`OH_ImageNative`](crate::native_image::image::OH_ImageNative)
     ///
@@ -243,9 +243,9 @@ extern "C" {
     /// # Returns
     ///
     /// * [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_SUCCESS - if the operation is successful.
-    /// <br>[`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_BAD_PARAMETER - if bad parameter.
-    /// <br>[`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_UNKNOWN_ERROR - inner unknown error.
-    /// <br>[`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_ALLOC_FAILED - if alloc failed.
+    ///   <br>[`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_BAD_PARAMETER - if bad parameter.
+    ///   <br>[`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_UNKNOWN_ERROR - inner unknown error.
+    ///   <br>[`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_ALLOC_FAILED - if alloc failed.
     ///
     /// **See also:** [`OH_ImageReceiverNative`](crate::native_image::image_receiver::OH_ImageReceiverNative), [`OH_ImageNative`](crate::native_image::image::OH_ImageNative)
     ///
@@ -267,7 +267,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_SUCCESS - if the operation is successful.
-    /// <br>[`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_BAD_PARAMETER - if bad parameter.
+    ///   <br>[`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_BAD_PARAMETER - if bad parameter.
     ///
     /// **See also:** [`OH_ImageReceiverNative`](crate::native_image::image_receiver::OH_ImageReceiverNative), [`OH_ImageReceiver_OnCallback`](crate::native_image::image_receiver::OH_ImageReceiver_OnCallback)
     ///
@@ -287,7 +287,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_SUCCESS - if the operation is successful.
-    /// <br>[`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_BAD_PARAMETER - if bad parameter.
+    ///   <br>[`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_BAD_PARAMETER - if bad parameter.
     ///
     /// **See also:** [`OH_ImageReceiverNative`](crate::native_image::image_receiver::OH_ImageReceiverNative), [`OH_ImageReceiverNative_On`](crate::native_image::image_receiver::OH_ImageReceiverNative_On)
     ///
@@ -306,7 +306,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_SUCCESS - if the operation is successful.
-    /// <br>[`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_BAD_PARAMETER - if bad parameter.
+    ///   <br>[`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_BAD_PARAMETER - if bad parameter.
     ///
     /// **See also:** [`OH_ImageReceiverNative`](crate::native_image::image_receiver::OH_ImageReceiverNative), [`Image_Size`](crate::native_image::common::Image_Size)
     ///
@@ -328,7 +328,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_SUCCESS - if the operation is successful.
-    /// <br>[`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_BAD_PARAMETER - if bad parameter.
+    ///   <br>[`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_BAD_PARAMETER - if bad parameter.
     ///
     /// **See also:** [`OH_ImageReceiverNative`](crate::native_image::image_receiver::OH_ImageReceiverNative)
     ///
@@ -348,7 +348,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_SUCCESS - if the operation is successful.
-    /// <br>[`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_BAD_PARAMETER - if bad parameter.
+    ///   <br>[`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_BAD_PARAMETER - if bad parameter.
     ///
     /// **See also:** [`OH_ImageReceiverNative`](crate::native_image::image_receiver::OH_ImageReceiverNative)
     ///
@@ -369,7 +369,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_SUCCESS is returned if the operation is successful.
-    /// <br>[`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_RECEIVER_INVALID_PARAMETER is returned if receiver or callback is null.
+    ///   <br>[`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_RECEIVER_INVALID_PARAMETER is returned if receiver or callback is null.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -390,7 +390,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_SUCCESS - Operation succeeded.
-    /// <br>[`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_RECEIVER_INVALID_PARAMETER - <b>receiver</b> is empty or <b>callback</b> is not registered.
+    ///   <br>[`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_RECEIVER_INVALID_PARAMETER - <b>receiver</b> is empty or <b>callback</b> is not registered.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]

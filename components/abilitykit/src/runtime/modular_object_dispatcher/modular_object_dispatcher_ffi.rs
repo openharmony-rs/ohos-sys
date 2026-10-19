@@ -545,16 +545,16 @@ extern "C" {
     ///
     /// Ownership rules:
     /// - When a Variant is passed to a function (e.g. Array_Set, Map_Put), the function
-    /// performs a deep copy. The caller retains ownership of the original Variant and
-    /// is responsible for freeing its own resources (e.g. free(bstrVal) for strings,
-    /// Release for container handles).
+    ///   performs a deep copy. The caller retains ownership of the original Variant and
+    ///   is responsible for freeing its own resources (e.g. free(bstrVal) for strings,
+    ///   Release for container handles).
     /// - When a Variant is returned from a function (e.g. Array_Get, Map_Get, CallMethod),
-    /// the function performs a deep copy and the caller owns the returned Variant.
-    /// The caller must call VariantClear exactly once to release the resources.
+    ///   the function performs a deep copy and the caller owns the returned Variant.
+    ///   The caller must call VariantClear exactly once to release the resources.
     /// - Simple types (bool, i32, f64, etc.) do not hold heap resources and do not
-    /// require VariantClear, though calling it is harmless.
+    ///   require VariantClear, though calling it is harmless.
     /// - VariantClear must NOT be called on a shallow copy of another Variant.
-    /// If Variant v2 = v1 is performed, only clear one of them.
+    ///   If Variant v2 = v1 is performed, only clear one of them.
     ///
     /// # Arguments
     ///
@@ -623,7 +623,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `ppModObjDispatcher` - Indicates a pointer to modular object dispatcher handle to release.
-    /// After release, handle will be set to NULL.
+    ///   After release, handle will be set to NULL.
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]
@@ -727,9 +727,9 @@ extern "C" {
     /// * `pResult` - Indicates pointer to receive result variant.
     ///
     /// * `pMethodErrCode` - Indicates a pointer to receive the error code returned by the remote method.
-    /// 0 if the method executed successfully, non-zero if the method returned an error.
-    /// This is independent of the framework-level return value.
-    /// This parameter can be NULL if the caller does not need the method-level error code.
+    ///   0 if the method executed successfully, non-zero if the method returned an error.
+    ///   This is independent of the framework-level return value.
+    ///   This parameter can be NULL if the caller does not need the method-level error code.
     ///
     /// # Returns
     ///
@@ -815,7 +815,7 @@ extern "C" {
     /// * `pTypeDescriptor` - Indicates TypeDescriptor handle.
     ///
     /// * `index` - Indicates interface index, ranging from 0 to
-    /// (interface count - 1) obtained from [`OH_AbilityRuntime_TypeDescriptor_GetInterfaceCount`](crate::runtime::modular_object_dispatcher::OH_AbilityRuntime_TypeDescriptor_GetInterfaceCount).
+    ///   (interface count - 1) obtained from [`OH_AbilityRuntime_TypeDescriptor_GetInterfaceCount`](crate::runtime::modular_object_dispatcher::OH_AbilityRuntime_TypeDescriptor_GetInterfaceCount).
     ///
     /// * `pbstrName` - Indicates a buffer to receive interface name.
     ///
@@ -919,7 +919,7 @@ extern "C" {
     /// * `pbstrInterfaceName` - Indicates interface name.
     ///
     /// * `index` - Indicates method index, ranging from 0 to (method count - 1)
-    /// obtained from [`OH_AbilityRuntime_TypeDescriptor_GetMethodCount`](crate::runtime::modular_object_dispatcher::OH_AbilityRuntime_TypeDescriptor_GetMethodCount).
+    ///   obtained from [`OH_AbilityRuntime_TypeDescriptor_GetMethodCount`](crate::runtime::modular_object_dispatcher::OH_AbilityRuntime_TypeDescriptor_GetMethodCount).
     ///
     /// * `pbstrName` - Indicates a buffer to receive method name.
     ///
@@ -1809,12 +1809,12 @@ extern "C" {
     /// # Arguments
     ///
     /// * `keyType` - Indicates key type. Only basic types are supported, such as
-    /// [`OH_ABILITY_RUNTIME_MOD_OBJ_DISPATCHER_VT_BOOL`](crate::runtime::modular_object_dispatcher::OH_AbilityRuntime_ModObjDispatcher_ValueType::OH_ABILITY_RUNTIME_MOD_OBJ_DISPATCHER_VT_BOOL),
-    /// [`OH_ABILITY_RUNTIME_MOD_OBJ_DISPATCHER_VT_I32`](crate::runtime::modular_object_dispatcher::OH_AbilityRuntime_ModObjDispatcher_ValueType::OH_ABILITY_RUNTIME_MOD_OBJ_DISPATCHER_VT_I32),
-    /// [`OH_ABILITY_RUNTIME_MOD_OBJ_DISPATCHER_VT_STRING`](crate::runtime::modular_object_dispatcher::OH_AbilityRuntime_ModObjDispatcher_ValueType::OH_ABILITY_RUNTIME_MOD_OBJ_DISPATCHER_VT_STRING),
-    /// and [`OH_ABILITY_RUNTIME_MOD_OBJ_DISPATCHER_VT_ENUM`](crate::runtime::modular_object_dispatcher::OH_AbilityRuntime_ModObjDispatcher_ValueType::OH_ABILITY_RUNTIME_MOD_OBJ_DISPATCHER_VT_ENUM).
-    /// Container types (ARRAY, VECTOR, SET, MAP) and complex types
-    /// (STRUCT, IPC_REMOTE_PROXY, IPC_REMOTE_STUB) are not supported.
+    ///   [`OH_ABILITY_RUNTIME_MOD_OBJ_DISPATCHER_VT_BOOL`](crate::runtime::modular_object_dispatcher::OH_AbilityRuntime_ModObjDispatcher_ValueType::OH_ABILITY_RUNTIME_MOD_OBJ_DISPATCHER_VT_BOOL),
+    ///   [`OH_ABILITY_RUNTIME_MOD_OBJ_DISPATCHER_VT_I32`](crate::runtime::modular_object_dispatcher::OH_AbilityRuntime_ModObjDispatcher_ValueType::OH_ABILITY_RUNTIME_MOD_OBJ_DISPATCHER_VT_I32),
+    ///   [`OH_ABILITY_RUNTIME_MOD_OBJ_DISPATCHER_VT_STRING`](crate::runtime::modular_object_dispatcher::OH_AbilityRuntime_ModObjDispatcher_ValueType::OH_ABILITY_RUNTIME_MOD_OBJ_DISPATCHER_VT_STRING),
+    ///   and [`OH_ABILITY_RUNTIME_MOD_OBJ_DISPATCHER_VT_ENUM`](crate::runtime::modular_object_dispatcher::OH_AbilityRuntime_ModObjDispatcher_ValueType::OH_ABILITY_RUNTIME_MOD_OBJ_DISPATCHER_VT_ENUM).
+    ///   Container types (ARRAY, VECTOR, SET, MAP) and complex types
+    ///   (STRUCT, IPC_REMOTE_PROXY, IPC_REMOTE_STUB) are not supported.
     ///
     /// * `valueType` - Indicates value type.
     ///

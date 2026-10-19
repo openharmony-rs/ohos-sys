@@ -205,7 +205,7 @@ pub type OH_HiAppEvent_OnReceive = ::core::option::Option<
 /// * `row` - Number of events newly received by the watcher.
 ///
 /// * `size` - Total size of events newly received by the watcher, in bytes. The size of a single event is the length
-/// of the JSON string converted from the event.
+///   of the JSON string converted from the event.
 ///
 /// Available since API-level: 12
 ///
@@ -673,44 +673,44 @@ extern "C" {
     /// # Arguments
     ///
     /// * `domain` - Event domain. You can customize event domains as required.
-    /// The value is a string that contains a maximum of 32 characters, including digits (0 to 9), letters (a to z)
-    /// (A to Z), and underscore (\_). It must start with a letter and cannot end with an underscore (\_).
+    ///   The value is a string that contains a maximum of 32 characters, including digits (0 to 9), letters (a to z)
+    ///   (A to Z), and underscore (\_). It must start with a letter and cannot end with an underscore (\_).
     ///
     /// * `name` - Event name. You can customize event names as required.
-    /// The value is a string that contains a maximum of 48 characters, including digits (0 to 9), letters (a to z)
-    /// (A to Z), underscore (\_), and dollar sign (`$`). It must start with a letter or dollar sign (`$`) and end with
-    /// a digit or letter.
+    ///   The value is a string that contains a maximum of 48 characters, including digits (0 to 9), letters (a to z)
+    ///   (A to Z), underscore (\_), and dollar sign (`$`). It must start with a letter or dollar sign (`$`) and end with
+    ///   a digit or letter.
     ///
     /// * `type` - Event type. For details, see [`EventType`](crate::hiappevent::EventType).
     ///
     /// * `list` - List of event parameters, each of which consists of a parameter name and a parameter value. The
-    /// specifications are as follows:
-    /// <br>1. The value is a string that contains a maximum of 32 characters, including digits (0 to 9), letters
-    /// (a to z)(A to Z),underscore (_), and dollar sign (`$`). It must start with a letter or dollar sign (`$`) and
-    /// end with a digit or letter.
-    /// <br>2. The parameter value can be a string, number, Boolean, or array. The length of a string must be less than
-    /// 8 * 1024 characters. If this limit is exceeded, excess characters will be truncated.
-    /// The element type of an array parameter can only be a string, number, or Boolean, and the number of elements
-    /// must be less than 100. If this limit is exceeded, excess elements will be discarded.
-    /// <br>3. The maximum number of parameters is 32. If this limit is exceeded, excess parameters will be discarded.
+    ///   specifications are as follows:
+    ///   <br>1. The value is a string that contains a maximum of 32 characters, including digits (0 to 9), letters
+    ///   (a to z)(A to Z),underscore (_), and dollar sign (`$`). It must start with a letter or dollar sign (`$`) and
+    ///   end with a digit or letter.
+    ///   <br>2. The parameter value can be a string, number, Boolean, or array. The length of a string must be less than
+    ///   8 * 1024 characters. If this limit is exceeded, excess characters will be truncated.
+    ///   The element type of an array parameter can only be a string, number, or Boolean, and the number of elements
+    ///   must be less than 100. If this limit is exceeded, excess elements will be discarded.
+    ///   <br>3. The maximum number of parameters is 32. If this limit is exceeded, excess parameters will be discarded.
     ///
     /// # Returns
     ///
     /// * If the event parameters are successfully verified, **0** is returned and the event is written into the event
-    /// file.
-    /// If an event contains invalid parameters, a positive value is returned. The event is written into the event file
-    /// after the invalid parameters are discarded.
-    /// If the event parameter fails to be verified, a negative value is returned and the event is not written to the
-    /// event file.
-    /// <br>**0**: Parameter verification successful.
-    /// <br>**-1**: Invalid event name.
-    /// <br>**-4**: Invalid event domain name.
-    /// <br>**-99**: Application event logging disabled.
-    /// <br>**1**: Invalid event parameter name.
-    /// <br>**4**: Invalid event parameter string length.
-    /// <br>**5**: Invalid number of event parameters.
-    /// <br>**6**: Invalid event parameter array length.
-    /// <br>**8**: Duplicate event parameter name.
+    ///   file.
+    ///   If an event contains invalid parameters, a positive value is returned. The event is written into the event file
+    ///   after the invalid parameters are discarded.
+    ///   If the event parameter fails to be verified, a negative value is returned and the event is not written to the
+    ///   event file.
+    ///   <br>**0**: Parameter verification successful.
+    ///   <br>**-1**: Invalid event name.
+    ///   <br>**-4**: Invalid event domain name.
+    ///   <br>**-99**: Application event logging disabled.
+    ///   <br>**1**: Invalid event parameter name.
+    ///   <br>**4**: Invalid event parameter string length.
+    ///   <br>**5**: Invalid number of event parameters.
+    ///   <br>**6**: Invalid event parameter array length.
+    ///   <br>**8**: Duplicate event parameter name.
     ///
     /// Available since API-level: 8
     ///
@@ -729,16 +729,16 @@ extern "C" {
     /// * `name` - Configuration item name The value can be [`DISABLE`](crate::hiappevent_cfg::DISABLE) or [`MAX_STORAGE`](crate::hiappevent_cfg::MAX_STORAGE).
     ///
     /// * `value` - Configuration item value. If the configuration item name is [`DISABLE`](crate::hiappevent_cfg::DISABLE), the value can be **true**
-    /// or **false**.
-    /// If the configuration item name is [`MAX_STORAGE`](crate::hiappevent_cfg::MAX_STORAGE), the quota value consists of only digits and a unit
-    /// (including b\|k\|kb\|m\|mb\|g\|gb\|t\|tb, which are case-insensitive).
-    /// The quota value must start with a digit. You can determine whether to pass the unit. If the unit is left
-    /// empty, **b**(that is, byte) is used by default.
+    ///   or **false**.
+    ///   If the configuration item name is [`MAX_STORAGE`](crate::hiappevent_cfg::MAX_STORAGE), the quota value consists of only digits and a unit
+    ///   (including b\|k\|kb\|m\|mb\|g\|gb\|t\|tb, which are case-insensitive).
+    ///   The quota value must start with a digit. You can determine whether to pass the unit. If the unit is left
+    ///   empty, **b**(that is, byte) is used by default.
     ///
     /// # Returns
     ///
     /// * Configuration result. The value **true** indicates that the configuration is successful, and the
-    /// value **false** indicates the opposite.
+    ///   value **false** indicates the opposite.
     ///
     /// Available since API-level: 8
     ///
@@ -757,7 +757,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Pointer to the new watcher if the API is called successfully; **NULL** if the **name** parameter is
-    /// invalid.
+    ///   invalid.
     ///
     /// Available since API-level: 12
     ///
@@ -788,20 +788,20 @@ extern "C" {
     /// * `watcher` - Pointer to the watcher (that is, the pointer returned by [`OH_HiAppEvent_CreateWatcher`](crate::hiappevent::OH_HiAppEvent_CreateWatcher)).
     ///
     /// * `row` - Row count. If the input value is greater than 0 and the number of newly received events is greater than
-    /// or equal to the value of this parameter, the configured **onTrigger** callback is called.
-    /// If the input value is less than or equal to 0, the number of received events is not used as the condition to
-    /// trigger the **onTrigger** callback.
+    ///   or equal to the value of this parameter, the configured **onTrigger** callback is called.
+    ///   If the input value is less than or equal to 0, the number of received events is not used as the condition to
+    ///   trigger the **onTrigger** callback.
     ///
     /// * `size` - Size value, Unit: bytes. If the input value is greater than 0 and the size of the newly received event
-    /// is greater than or equal to the value of this parameter, the configured **onTrigger** callback is called. The
-    /// size of a single event is the length of the JSON string converted from the event.
-    /// If the input value is less than or equal to 0, the size of received events is not used as the condition to
-    /// trigger the **onTrigger** callback.
+    ///   is greater than or equal to the value of this parameter, the configured **onTrigger** callback is called. The
+    ///   size of a single event is the length of the JSON string converted from the event.
+    ///   If the input value is less than or equal to 0, the size of received events is not used as the condition to
+    ///   trigger the **onTrigger** callback.
     ///
     /// * `timeOut` - Timeout interval, in seconds. The actual value is the value of **timeOut** multiplied by 30 seconds.
-    /// If the value of **timeOut** is greater than 0, the system checks for new events every **timeOut** * 30 seconds.
-    /// If a new event is detected, the **onTrigger** callback is triggered, and the timer restarts. If the value of
-    /// **timeOut** is less than or equal to 0, the **onTrigger** callback is not enabled.
+    ///   If the value of **timeOut** is greater than 0, the system checks for new events every **timeOut** * 30 seconds.
+    ///   If a new event is detected, the **onTrigger** callback is triggered, and the timer restarts. If the value of
+    ///   **timeOut** is less than or equal to 0, the **onTrigger** callback is not enabled.
     ///
     /// # Returns
     ///
@@ -829,13 +829,13 @@ extern "C" {
     /// * `domain` - Domain of events to be listened for.
     ///
     /// * `eventTypes` - Types of events to be listened for. The bitwise AND matching mode is used. Multiple types of
-    /// events can be listened for. If the first bit is **1** (the value is **1**), fault events can be listened for.
-    /// <br>If the second bit is **1** (the value is **2**), statistics events can be listened for.
-    /// <br>If the third bit is **1** (the value is **4**), security events can be listened for.
-    /// <br>If the fourth digit is **1** (the value is **8**), events of the listening behavior type can be
-    /// listened for.
-    /// <br>If four digits are **1** (the value is **15**) or 0 (the value is **0**), events of all types can be
-    /// listened for.
+    ///   events can be listened for. If the first bit is **1** (the value is **1**), fault events can be listened for.
+    ///   <br>If the second bit is **1** (the value is **2**), statistics events can be listened for.
+    ///   <br>If the third bit is **1** (the value is **4**), security events can be listened for.
+    ///   <br>If the fourth digit is **1** (the value is **8**), events of the listening behavior type can be
+    ///   listened for.
+    ///   <br>If four digits are **1** (the value is **15**) or 0 (the value is **0**), events of all types can be
+    ///   listened for.
     ///
     /// * `names` - Array of the event names.
     ///
@@ -844,7 +844,7 @@ extern "C" {
     /// # Returns
     ///
     /// * **0** if the API is called successfully; **-1** if the **names** parameter is invalid; **-4** if the **
-    /// domain** parameter is invalid; **-5** if the pointer to an input parameter is null.
+    ///   domain** parameter is invalid; **-5** if the pointer to an input parameter is null.
     ///
     /// Available since API-level: 12
     ///
@@ -911,15 +911,15 @@ extern "C" {
     /// * `watcher` - Pointer to the watcher (that is, the pointer returned by [`OH_HiAppEvent_CreateWatcher`](crate::hiappevent::OH_HiAppEvent_CreateWatcher)).
     ///
     /// * `eventNum` - If the input value is less than or equal to **0**, all saved events are obtained. If the input value
-    /// is greater than **0**, events are sorted by time in descending order and a specified number of saved events are
-    /// obtained.
+    ///   is greater than **0**, events are sorted by time in descending order and a specified number of saved events are
+    ///   obtained.
     ///
     /// * `onTake` - Pointer to the callback. The event information is returned through this callback.
     ///
     /// # Returns
     ///
     /// * **0** if the API is called successfully; **-5** if the pointer to an input parameter is null; **-6** if
-    /// [`OH_HiAppEvent_AddWatcher`](crate::hiappevent::OH_HiAppEvent_AddWatcher) has not been called to add a watcher.
+    ///   [`OH_HiAppEvent_AddWatcher`](crate::hiappevent::OH_HiAppEvent_AddWatcher) has not been called to add a watcher.
     ///
     /// Available since API-level: 12
     ///
@@ -966,7 +966,7 @@ extern "C" {
     /// # Returns
     ///
     /// * **0** if the API is called successfully; **-5** if the pointer to an input parameter is null; **-6** if
-    /// [`OH_HiAppEvent_AddWatcher`](crate::hiappevent::OH_HiAppEvent_AddWatcher) has not been called to add a watcher.
+    ///   [`OH_HiAppEvent_AddWatcher`](crate::hiappevent::OH_HiAppEvent_AddWatcher) has not been called to add a watcher.
     ///
     /// Available since API-level: 12
     ///
@@ -989,12 +989,12 @@ extern "C" {
     /// # Arguments
     ///
     /// * `name` - Processor name, which can contain only letters, digits, underscores (_), and dollar signs ($). It cannot
-    /// start with a digit and cannot exceed 256 characters.
+    ///   start with a digit and cannot exceed 256 characters.
     ///
     /// # Returns
     ///
     /// * Pointer to the new processor if the API is called successfully; **NULL** if the **name** parameter is
-    /// invalid.
+    ///   invalid.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -1011,7 +1011,7 @@ extern "C" {
     /// * `appId` - Application ID of the processor.
     ///
     /// * `routeInfo` - Server location information. The default value is an empty string. The string length cannot exceed
-    /// 8 KB. Otherwise, the default value is used.
+    ///   8 KB. Otherwise, the default value is used.
     ///
     /// # Returns
     ///
@@ -1040,12 +1040,12 @@ extern "C" {
     /// * `periodReport` - Period for reporting events, in seconds. The input value must be greater than or equal to 0.
     ///
     /// * `batchReport` - Threshold for reporting events. When the number of events reaches the threshold, an event is
-    /// reported. The value range is \[0, 1000\].
+    ///   reported. The value range is \[0, 1000\].
     ///
     /// * `onStartReport` - Whether to report events during startup. **true**: yes; **false**: no.
     ///
     /// * `onBackgroundReport` - Whether to report events after an application switches to the background. **true**:
-    /// yes; **false**: no.
+    ///   yes; **false**: no.
     ///
     /// # Returns
     ///
@@ -1077,7 +1077,7 @@ extern "C" {
     /// * `name` - Name of the report event.
     ///
     /// * `isRealTime` - Whether to report events in real time. The value **true** means to report events in real time,
-    /// and **false** means the opposite.
+    ///   and **false** means the opposite.
     ///
     /// # Returns
     ///
@@ -1156,7 +1156,7 @@ extern "C" {
     /// * `processor` - Pointer to the processor, that is, the pointer returned by [`OH_HiAppEvent_CreateProcessor`](crate::hiappevent::OH_HiAppEvent_CreateProcessor).
     ///
     /// * `configName` - Configuration name of the data processor, which can contain only letters, digits,
-    /// underscores (_), and dollar signs ($). It cannot start with a digit and cannot exceed 256 characters.
+    ///   underscores (_), and dollar signs ($). It cannot start with a digit and cannot exceed 256 characters.
     ///
     /// # Returns
     ///
@@ -1305,7 +1305,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `config` - Pointer to the configuration object, that is, the pointer returned by
-    /// the [`OH_HiAppEvent_CreateConfig`](crate::hiappevent::OH_HiAppEvent_CreateConfig) API.
+    ///   the [`OH_HiAppEvent_CreateConfig`](crate::hiappevent::OH_HiAppEvent_CreateConfig) API.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
@@ -1316,7 +1316,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `config` - Pointer to the configuration object, that is, the pointer returned by
-    /// the [`OH_HiAppEvent_CreateConfig`](crate::hiappevent::OH_HiAppEvent_CreateConfig) API.
+    ///   the [`OH_HiAppEvent_CreateConfig`](crate::hiappevent::OH_HiAppEvent_CreateConfig) API.
     ///
     /// * `itemName` - Name of the configuration item.
     ///
@@ -1351,7 +1351,7 @@ extern "C" {
     /// * `name` - Name of the system event.
     ///
     /// * `config` - Pointer to the configuration object, that is, the pointer returned by
-    /// the [`OH_HiAppEvent_CreateConfig`](crate::hiappevent::OH_HiAppEvent_CreateConfig) API.
+    ///   the [`OH_HiAppEvent_CreateConfig`](crate::hiappevent::OH_HiAppEvent_CreateConfig) API.
     ///
     /// # Returns
     ///

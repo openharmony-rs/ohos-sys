@@ -36,8 +36,8 @@ extern "C" {
     /// # Returns
     ///
     /// * The error code.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the startOptions is invalid.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the startOptions is invalid.
     ///
     /// Available since API-level: 17
     #[cfg(feature = "api-17")]
@@ -56,8 +56,8 @@ extern "C" {
     /// # Returns
     ///
     /// * The error code.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the startOptions or windowMode is invalid.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the startOptions or windowMode is invalid.
     ///
     /// Available since API-level: 17
     #[cfg(feature = "api-17")]
@@ -81,8 +81,8 @@ extern "C" {
     /// # Returns
     ///
     /// * The error code.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the startOptions is invalid.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the startOptions is invalid.
     ///
     /// Available since API-level: 17
     #[cfg(feature = "api-17")]
@@ -106,8 +106,8 @@ extern "C" {
     /// # Returns
     ///
     /// * The error code.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the startOptions is invalid.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the startOptions is invalid.
     ///
     /// Available since API-level: 17
     #[cfg(feature = "api-17")]
@@ -131,8 +131,8 @@ extern "C" {
     /// # Returns
     ///
     /// * The error code.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the startOptions is invalid.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the startOptions is invalid.
     ///
     /// Available since API-level: 17
     #[cfg(feature = "api-17")]
@@ -156,8 +156,8 @@ extern "C" {
     /// # Returns
     ///
     /// * The error code.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the startOptions is invalid.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the startOptions is invalid.
     ///
     /// Available since API-level: 17
     #[cfg(feature = "api-17")]
@@ -181,8 +181,8 @@ extern "C" {
     /// # Returns
     ///
     /// * The error code.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the startOptions is invalid.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the startOptions is invalid.
     ///
     /// Available since API-level: 17
     #[cfg(feature = "api-17")]
@@ -206,8 +206,8 @@ extern "C" {
     /// # Returns
     ///
     /// * The error code.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the startOptions is invalid.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the startOptions is invalid.
     ///
     /// Available since API-level: 17
     #[cfg(feature = "api-17")]
@@ -231,8 +231,8 @@ extern "C" {
     /// # Returns
     ///
     /// * The error code.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the startOptions is invalid.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the startOptions is invalid.
     ///
     /// Available since API-level: 17
     #[cfg(feature = "api-17")]
@@ -256,9 +256,9 @@ extern "C" {
     /// # Returns
     ///
     /// * The error code.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the startOptions is invalid
-    /// or startWindowIcon is nullptr.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the startOptions is invalid
+    ///   or startWindowIcon is nullptr.
     ///
     /// Available since API-level: 17
     #[cfg(feature = "api-17")]
@@ -278,9 +278,9 @@ extern "C" {
     /// # Returns
     ///
     /// * The error code.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the startOptions is invalid
-    /// or startWindowIcon is NOT nullptr.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the startOptions is invalid
+    ///   or startWindowIcon is NOT nullptr.
     ///
     /// Available since API-level: 17
     #[cfg(feature = "api-17")]
@@ -300,9 +300,9 @@ extern "C" {
     /// # Returns
     ///
     /// * The error code.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the startOptions is invalid
-    /// or startWindowBackgroundColor is nullptr.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the startOptions is invalid
+    ///   or startWindowBackgroundColor is nullptr.
     ///
     /// Available since API-level: 17
     #[cfg(feature = "api-17")]
@@ -329,9 +329,9 @@ extern "C" {
     /// # Returns
     ///
     /// * The error code.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the startOptions or supportWindowMode
-    /// or size is invalid.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the startOptions or supportWindowMode
+    ///   or size is invalid.
     ///
     /// Available since API-level: 17
     #[cfg(feature = "api-17")]
@@ -357,8 +357,8 @@ extern "C" {
     /// # Returns
     ///
     /// * The error code.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the startOptions is invalid.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the startOptions is invalid.
     ///
     /// Available since API-level: 17
     #[cfg(feature = "api-17")]
@@ -382,8 +382,8 @@ extern "C" {
     /// # Returns
     ///
     /// * The error code.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the startOptions is invalid.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the startOptions is invalid.
     ///
     /// Available since API-level: 17
     #[cfg(feature = "api-17")]
@@ -407,8 +407,8 @@ extern "C" {
     /// # Returns
     ///
     /// * The error code.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the startOptions is invalid.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the startOptions is invalid.
     ///
     /// Available since API-level: 17
     #[cfg(feature = "api-17")]
@@ -432,8 +432,8 @@ extern "C" {
     /// # Returns
     ///
     /// * The error code.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the startOptions is invalid.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the startOptions is invalid.
     ///
     /// Available since API-level: 17
     #[cfg(feature = "api-17")]
@@ -613,10 +613,10 @@ extern "C" {
     /// * `startOptions` - \[in\] The start options to read.
     ///
     /// * `startWindowBackgroundColor` - \[out\] The pointer used to receive the UTF-8 background color string.
-    /// It must not be NULL and must point to NULL before the call.
+    ///   It must not be NULL and must point to NULL before the call.
     ///
     /// * `size` - \[out\] The length of the background color string, excluding the trailing NUL.
-    /// It must not be NULL.
+    ///   It must not be NULL.
     ///
     /// # Returns
     ///
@@ -644,7 +644,7 @@ extern "C" {
     /// * `startOptions` - \[in\] The start options to read.
     ///
     /// * `supportedWindowModes` - \[out\] The pointer used to receive the supported start window modes.
-    /// It must not be NULL and must point to NULL before the call.
+    ///   It must not be NULL and must point to NULL before the call.
     ///
     /// * `size` - \[out\] The number of returned supported start window modes. It must not be NULL.
     ///

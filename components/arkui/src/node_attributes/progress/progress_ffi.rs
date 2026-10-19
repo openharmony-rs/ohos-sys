@@ -45,7 +45,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a <b>ProgressLinearStyleOption</b> instance.
-    /// <br> If the result returns nullptr, there may be out of memory.
+    ///   <br> If the result returns nullptr, there may be out of memory.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
@@ -83,7 +83,7 @@ extern "C" {
     /// * `option` - Linear progress indicator style information.
     ///
     /// * `enabled` - Whether to enable the smooth effect. When this effect is enabled, the progress change to
-    /// the set value takes place gradually. Otherwise, it takes place immediately. Default value: true.
+    ///   the set value takes place gradually. Otherwise, it takes place immediately. Default value: true.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
@@ -99,7 +99,7 @@ extern "C" {
     /// * `option` - Linear progress indicator style information.
     ///
     /// * `strokeWidth` - Stroke width of the progress indicator. It cannot be set in percentage.
-    /// Default value: 4.0vp.
+    ///   Default value: 4.0vp.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
@@ -115,7 +115,7 @@ extern "C" {
     /// * `option` - Linear progress indicator style information.
     ///
     /// * `strokeRadius` - Rounded corner radius of the progress indicator. Value range: \[0, strokeWidth/2\].
-    /// Default value: strokeWidth/2.
+    ///   Default value: strokeWidth/2.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]

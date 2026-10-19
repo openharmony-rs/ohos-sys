@@ -112,8 +112,8 @@ extern "C" {
     /// # Returns
     ///
     /// * `NATIVE_ERROR_OK` 0 - Success.
-    /// `NATIVE_ERROR_INVALID_ARGUMENTS` 40001000 - the parameter nativeVsync is NULL or callback is NULL.
-    /// `NATIVE_ERROR_BINDER_ERROR` 50401000 - ipc send failed.
+    ///   `NATIVE_ERROR_INVALID_ARGUMENTS` 40001000 - the parameter nativeVsync is NULL or callback is NULL.
+    ///   `NATIVE_ERROR_BINDER_ERROR` 50401000 - ipc send failed.
     ///
     /// Available since API-level: 9
     ///
@@ -139,8 +139,8 @@ extern "C" {
     /// # Returns
     ///
     /// * `NATIVE_ERROR_OK` 0 - Success.
-    /// `NATIVE_ERROR_INVALID_ARGUMENTS` 40001000 - the parameter nativeVsync is NULL or callback is NULL.
-    /// `NATIVE_ERROR_BINDER_ERROR` 50401000 - ipc send failed.
+    ///   `NATIVE_ERROR_INVALID_ARGUMENTS` 40001000 - the parameter nativeVsync is NULL or callback is NULL.
+    ///   `NATIVE_ERROR_BINDER_ERROR` 50401000 - ipc send failed.
     ///
     /// Available since API-level: 12
     ///
@@ -204,8 +204,8 @@ extern "C" {
     /// # Returns
     ///
     /// * `NATIVE_ERROR_OK` 0 - Success.
-    /// `NATIVE_ERROR_INVALID_ARGUMENTS` 40001000 - the parameter nativeVsync is NULL.
-    /// `NATIVE_ERROR_BINDER_ERROR` 50401000 - ipc send failed.
+    ///   `NATIVE_ERROR_INVALID_ARGUMENTS` 40001000 - the parameter nativeVsync is NULL.
+    ///   `NATIVE_ERROR_BINDER_ERROR` 50401000 - ipc send failed.
     ///
     /// Available since API-level: 14
     ///
@@ -229,7 +229,7 @@ extern "C" {
     /// # Returns
     ///
     /// * `NATIVE_ERROR_OK` 0 - Success.
-    /// `NATIVE_ERROR_INVALID_ARGUMENTS` 40001000 - the parameter nativeVsync is NULL or range is NULL or Invalid.
+    ///   `NATIVE_ERROR_INVALID_ARGUMENTS` 40001000 - the parameter nativeVsync is NULL or range is NULL or Invalid.
     ///
     /// Available since API-level: 20
     ///

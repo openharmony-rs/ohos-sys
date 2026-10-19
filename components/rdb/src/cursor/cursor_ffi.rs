@@ -70,7 +70,7 @@ pub struct OH_Cursor {
     /// * `name` - Indicates the name of the column.
     ///
     /// * `columnIndex` - This parameter is the output parameter,
-    /// and the column index for the given column is written to this variable.
+    ///   and the column index for the given column is written to this variable.
     ///
     /// # Returns
     ///
@@ -95,7 +95,7 @@ pub struct OH_Cursor {
     /// * `columnIndex` - Indicates the zero-based column index.
     ///
     /// * `name` - This parameter is the output parameter,
-    /// and the column name for the given index is written to this variable.
+    ///   and the column name for the given index is written to this variable.
     ///
     /// * `length` - Indicates the length of the name.
     ///
@@ -121,7 +121,7 @@ pub struct OH_Cursor {
     /// * `cursor` - Represents a pointer to an [`OH_Cursor`](crate::cursor::OH_Cursor) instance.
     ///
     /// * `count` - This parameter is the output parameter,
-    /// and the numbers of rows in the result set is written to this variable.
+    ///   and the numbers of rows in the result set is written to this variable.
     ///
     /// # Returns
     ///
@@ -160,7 +160,7 @@ pub struct OH_Cursor {
     /// * `columnIndex` - Indicates the zero-based column index.
     ///
     /// * `size` - This parameter is the output parameter,
-    /// and the value size of the requested column is written to this variable.
+    ///   and the value size of the requested column is written to this variable.
     ///
     /// # Returns
     ///
@@ -185,7 +185,7 @@ pub struct OH_Cursor {
     /// * `columnIndex` - Indicates the zero-based column index.
     ///
     /// * `value` - This parameter is the output parameter,
-    /// and the value of the requested column as a char * is written to this variable.
+    ///   and the value of the requested column as a char * is written to this variable.
     ///
     /// * `length` - Indicates the length of the value, it can be obtained through the OH_Cursor_GetSize function.
     ///
@@ -213,7 +213,7 @@ pub struct OH_Cursor {
     /// * `columnIndex` - Indicates the zero-based column index.
     ///
     /// * `value` - This parameter is the output parameter,
-    /// and the value of the requested column as a int64_t is written to this variable.
+    ///   and the value of the requested column as a int64_t is written to this variable.
     ///
     /// # Returns
     ///
@@ -238,7 +238,7 @@ pub struct OH_Cursor {
     /// * `columnIndex` - Indicates the zero-based column index.
     ///
     /// * `value` - This parameter is the output parameter,
-    /// and the value of the requested column as a double is written to this variable.
+    ///   and the value of the requested column as a double is written to this variable.
     ///
     /// # Returns
     ///
@@ -263,7 +263,7 @@ pub struct OH_Cursor {
     /// * `columnIndex` - Indicates the zero-based column index.
     ///
     /// * `value` - This parameter is the output parameter,
-    /// and the value of the requested column as a byte array is written to this variable.
+    ///   and the value of the requested column as a byte array is written to this variable.
     ///
     /// * `length` - Indicates the length of the value, it can be obtained through the OH_Cursor_GetSize function.
     ///
@@ -291,7 +291,7 @@ pub struct OH_Cursor {
     /// * `columnIndex` - Indicates the zero-based column index.
     ///
     /// * `isNull` - This parameter is the output parameter,
-    /// and the value whether the column value is null is written to this variable.
+    ///   and the value whether the column value is null is written to this variable.
     ///
     /// # Returns
     ///
@@ -331,7 +331,7 @@ pub struct OH_Cursor {
     /// * `columnIndex` - Indicates the zero-based column index.
     ///
     /// * `value` - This parameter is the output parameter,
-    /// and the value of the requested column as an [`Data_Asset`](ohos_sys_opaque_types::Data_Asset) instance is written to this variable.
+    ///   and the value of the requested column as an [`Data_Asset`](ohos_sys_opaque_types::Data_Asset) instance is written to this variable.
     ///
     /// # Returns
     ///
@@ -356,7 +356,7 @@ pub struct OH_Cursor {
     /// * `columnIndex` - Indicates the zero-based column index.
     ///
     /// * `value` - This parameter is the output parameter,
-    /// and the value of the requested column as an [`Data_Asset`](ohos_sys_opaque_types::Data_Asset) instance is written to this variable.
+    ///   and the value of the requested column as an [`Data_Asset`](ohos_sys_opaque_types::Data_Asset) instance is written to this variable.
     ///
     /// * `length` - Indicates the length of the value.
     ///
@@ -390,19 +390,19 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// Returns [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) if the execution is successful.
-    /// Returns [`RDB_E_ERROR`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_ERROR) database common error.
-    /// Returns [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) if invalid input parameter.
-    /// Returns [`RDB_E_SQLITE_CORRUPT`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_CORRUPT) database corrupted.
-    /// Returns [`RDB_E_STEP_RESULT_CLOSED`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_STEP_RESULT_CLOSED) the result set has been closed.
-    /// Returns [`RDB_E_ALREADY_CLOSED`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_ALREADY_CLOSED) database already closed.
-    /// Returns [`RDB_E_SQLITE_PERM`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_PERM) SQLite: Access permission denied.
-    /// Returns [`RDB_E_SQLITE_BUSY`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_BUSY) SQLite: The database file is locked.
-    /// Returns [`RDB_E_SQLITE_LOCKED`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_LOCKED) SQLite: A table in the database is locked.
-    /// Returns [`RDB_E_SQLITE_NOMEM`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_NOMEM) SQLite: The database is out of memory.
-    /// Returns [`RDB_E_SQLITE_IOERR`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_IOERR) SQLite: Some kind of disk I/O error occurred.
-    /// Returns [`RDB_E_SQLITE_TOO_BIG`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_TOO_BIG) SQLite: TEXT or BLOB exceeds size limit.
-    /// Returns [`RDB_E_SQLITE_MISMATCH`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_MISMATCH) SQLite: Data type mismatch.
+    ///   Returns [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) if the execution is successful.
+    ///   Returns [`RDB_E_ERROR`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_ERROR) database common error.
+    ///   Returns [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) if invalid input parameter.
+    ///   Returns [`RDB_E_SQLITE_CORRUPT`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_CORRUPT) database corrupted.
+    ///   Returns [`RDB_E_STEP_RESULT_CLOSED`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_STEP_RESULT_CLOSED) the result set has been closed.
+    ///   Returns [`RDB_E_ALREADY_CLOSED`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_ALREADY_CLOSED) database already closed.
+    ///   Returns [`RDB_E_SQLITE_PERM`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_PERM) SQLite: Access permission denied.
+    ///   Returns [`RDB_E_SQLITE_BUSY`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_BUSY) SQLite: The database file is locked.
+    ///   Returns [`RDB_E_SQLITE_LOCKED`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_LOCKED) SQLite: A table in the database is locked.
+    ///   Returns [`RDB_E_SQLITE_NOMEM`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_NOMEM) SQLite: The database is out of memory.
+    ///   Returns [`RDB_E_SQLITE_IOERR`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_IOERR) SQLite: Some kind of disk I/O error occurred.
+    ///   Returns [`RDB_E_SQLITE_TOO_BIG`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_TOO_BIG) SQLite: TEXT or BLOB exceeds size limit.
+    ///   Returns [`RDB_E_SQLITE_MISMATCH`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_MISMATCH) SQLite: Data type mismatch.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -421,7 +421,7 @@ extern "C" {
     /// * `columnIndex` - Indicates the zero-based column index.
     ///
     /// * `val` - Represents a pointer to float array. The caller needs to apply for data memory.
-    /// This function only fills data. Otherwise, the execution fails.
+    ///   This function only fills data. Otherwise, the execution fails.
     ///
     /// * `inLen` - Represents the size of val. It can be obtained through the OH_Cursor_GetFloatVectorCount function.
     ///
@@ -430,19 +430,19 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// Returns [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) if the execution is successful.
-    /// Returns [`RDB_E_ERROR`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_ERROR) database common error.
-    /// Returns [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) if invalid input parameter.
-    /// Returns [`RDB_E_SQLITE_CORRUPT`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_CORRUPT) database corrupted.
-    /// Returns [`RDB_E_STEP_RESULT_CLOSED`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_STEP_RESULT_CLOSED) the result set has been closed.
-    /// Returns [`RDB_E_ALREADY_CLOSED`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_ALREADY_CLOSED) database already closed.
-    /// Returns [`RDB_E_SQLITE_PERM`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_PERM) SQLite: Access permission denied.
-    /// Returns [`RDB_E_SQLITE_BUSY`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_BUSY) SQLite: The database file is locked.
-    /// Returns [`RDB_E_SQLITE_LOCKED`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_LOCKED) SQLite: A table in the database is locked.
-    /// Returns [`RDB_E_SQLITE_NOMEM`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_NOMEM) SQLite: The database is out of memory.
-    /// Returns [`RDB_E_SQLITE_IOERR`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_IOERR) SQLite: Some kind of disk I/O error occurred.
-    /// Returns [`RDB_E_SQLITE_TOO_BIG`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_TOO_BIG) SQLite: TEXT or BLOB exceeds size limit.
-    /// Returns [`RDB_E_SQLITE_MISMATCH`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_MISMATCH) SQLite: Data type mismatch.
+    ///   Returns [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) if the execution is successful.
+    ///   Returns [`RDB_E_ERROR`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_ERROR) database common error.
+    ///   Returns [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) if invalid input parameter.
+    ///   Returns [`RDB_E_SQLITE_CORRUPT`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_CORRUPT) database corrupted.
+    ///   Returns [`RDB_E_STEP_RESULT_CLOSED`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_STEP_RESULT_CLOSED) the result set has been closed.
+    ///   Returns [`RDB_E_ALREADY_CLOSED`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_ALREADY_CLOSED) database already closed.
+    ///   Returns [`RDB_E_SQLITE_PERM`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_PERM) SQLite: Access permission denied.
+    ///   Returns [`RDB_E_SQLITE_BUSY`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_BUSY) SQLite: The database file is locked.
+    ///   Returns [`RDB_E_SQLITE_LOCKED`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_LOCKED) SQLite: A table in the database is locked.
+    ///   Returns [`RDB_E_SQLITE_NOMEM`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_NOMEM) SQLite: The database is out of memory.
+    ///   Returns [`RDB_E_SQLITE_IOERR`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_IOERR) SQLite: Some kind of disk I/O error occurred.
+    ///   Returns [`RDB_E_SQLITE_TOO_BIG`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_TOO_BIG) SQLite: TEXT or BLOB exceeds size limit.
+    ///   Returns [`RDB_E_SQLITE_MISMATCH`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_MISMATCH) SQLite: Data type mismatch.
     ///
     /// **See also:** [`OH_Cursor_GetFloatVectorCount`](crate::cursor::OH_Cursor_GetFloatVectorCount).
     ///

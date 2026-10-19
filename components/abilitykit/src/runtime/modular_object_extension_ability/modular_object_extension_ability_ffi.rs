@@ -37,7 +37,7 @@ pub type OH_AbilityRuntime_ModObjExtensionInstanceHandle =
 /// * `instance` - Points to an [`OH_AbilityRuntime_ModObjExtensionInstance`](crate::runtime::modular_object_extension_ability::OH_AbilityRuntime_ModObjExtensionInstance) instance.
 ///
 /// * `want` - Indicates the want of created modular object extension.
-/// For details, see [`AbilityBase_Want`](crate::base::want::AbilityBase_Want).
+///   For details, see [`AbilityBase_Want`](crate::base::want::AbilityBase_Want).
 ///
 ///
 /// Available since API-level: 26
@@ -107,8 +107,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) success.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) parameter check failed.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) success.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) parameter check failed.
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]
@@ -129,8 +129,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) success.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) parameter check failed.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) success.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) parameter check failed.
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]
@@ -151,8 +151,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) success.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) parameter check failed.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) success.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) parameter check failed.
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]
@@ -173,8 +173,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) success.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) parameter check failed.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) success.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) parameter check failed.
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]
@@ -194,8 +194,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) success.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) parameter check failed.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) success.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) parameter check failed.
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]
@@ -215,10 +215,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) success.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) parameter check failed.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_INCORRECT_ABILITY_TYPE`](crate::runtime::AbilityRuntimeErrorCode::INCORRECT_ABILITY_TYPE) if the ability instance is not
-    /// a modular object extension.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) success.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) parameter check failed.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_INCORRECT_ABILITY_TYPE`](crate::runtime::AbilityRuntimeErrorCode::INCORRECT_ABILITY_TYPE) if the ability instance is not
+    ///   a modular object extension.
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]

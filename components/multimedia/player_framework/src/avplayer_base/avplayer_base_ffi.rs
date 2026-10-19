@@ -271,7 +271,7 @@ pub struct OH_VideoOutputResult(pub ::core::ffi::c_uint);
 /// * `player` - Pointer to an OH_AVPlayer instance.
 ///
 /// * `type` - Message type. For details about the available options, see [`AVPlayerOnInfoType`](crate::avplayer_base::AVPlayerOnInfoType). For details about
-/// the mappings between **type** and **extra** values, see the function description.
+///   the mappings between **type** and **extra** values, see the function description.
 ///
 /// * `extra` - Other information, such as the start time and position of the media file to play.
 ///
@@ -317,16 +317,16 @@ pub type OH_AVPlayerOnInfoCallback = ::core::option::Option<
 /// * `player` - Pointer to an OH_AVPlayer instance.
 ///
 /// * `errorCode` - Error code.
-/// **AV_ERR_NO_MEMORY**: No memory. The value is **1**.
-/// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed. The value is **2**.
-/// `AV_ERR_INVALID_VA`: Invalid value. The value is **3**.
-/// **AV_ERR_IO**: I/O error. The value is **4**.
-/// **AV_ERR_TIMEOUT**: Timeout. The value is **5**.
-/// **AV_ERR_UNKNOWN**: Unknown error. The value is **6**.
-/// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED): The service is dead. The value is **7**.
-/// **AV_ERR_INVALID_STATE**: The operation is not supported in the current state. The value is **8**.
-/// [`AV_ERR_UNSUPPORT`](crate::averrors::OH_AVErrCode::AV_ERR_UNSUPPORT): The function is not supported. The value is **9**.
-/// **AV_ERR_EXTEND_START**: Initial value for extended error codes. The value is **100**.
+///   **AV_ERR_NO_MEMORY**: No memory. The value is **1**.
+///   [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed. The value is **2**.
+///   `AV_ERR_INVALID_VA`: Invalid value. The value is **3**.
+///   **AV_ERR_IO**: I/O error. The value is **4**.
+///   **AV_ERR_TIMEOUT**: Timeout. The value is **5**.
+///   **AV_ERR_UNKNOWN**: Unknown error. The value is **6**.
+///   [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED): The service is dead. The value is **7**.
+///   **AV_ERR_INVALID_STATE**: The operation is not supported in the current state. The value is **8**.
+///   [`AV_ERR_UNSUPPORT`](crate::averrors::OH_AVErrCode::AV_ERR_UNSUPPORT): The function is not supported. The value is **9**.
+///   **AV_ERR_EXTEND_START**: Initial value for extended error codes. The value is **100**.
 ///
 /// * `errorMsg` - Error message.
 ///
@@ -353,17 +353,17 @@ pub type OH_AVPlayerOnError = ::core::option::Option<
 /// * `player` - Pointer to an OH_AVPlayer instance.
 ///
 /// * `errorCode` - Error code.
-/// **AV_ERR_NO_MEMORY**: No memory. The value is **1**.
-/// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed. The value is **2**.
-/// `AV_ERR_INVALID_VA`: Invalid value. The value is **3**.
-/// **AV_ERR_IO**: I/O error. For API versions 12 and 13, the value is **4**. Starting from API version 14, it
-/// corresponds to more specific error codes ranging from 5411001 to 5411011.
-/// **AV_ERR_TIMEOUT**: Timeout. The value is **5**.
-/// **AV_ERR_UNKNOWN**: Unknown error. The value is **6**.
-/// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED): The service is dead. The value is **7**.
-/// **AV_ERR_INVALID_STATE**: The operation is not supported in the current state. The value is **8**.
-/// [`AV_ERR_UNSUPPORT`](crate::averrors::OH_AVErrCode::AV_ERR_UNSUPPORT): The function is not supported. The value is **9**.
-/// **AV_ERR_EXTEND_START**: Initial value for extended error codes. The value is **100**.
+///   **AV_ERR_NO_MEMORY**: No memory. The value is **1**.
+///   [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed. The value is **2**.
+///   `AV_ERR_INVALID_VA`: Invalid value. The value is **3**.
+///   **AV_ERR_IO**: I/O error. For API versions 12 and 13, the value is **4**. Starting from API version 14, it
+///   corresponds to more specific error codes ranging from 5411001 to 5411011.
+///   **AV_ERR_TIMEOUT**: Timeout. The value is **5**.
+///   **AV_ERR_UNKNOWN**: Unknown error. The value is **6**.
+///   [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED): The service is dead. The value is **7**.
+///   **AV_ERR_INVALID_STATE**: The operation is not supported in the current state. The value is **8**.
+///   [`AV_ERR_UNSUPPORT`](crate::averrors::OH_AVErrCode::AV_ERR_UNSUPPORT): The function is not supported. The value is **9**.
+///   **AV_ERR_EXTEND_START**: Initial value for extended error codes. The value is **100**.
 ///
 /// * `errorMsg` - Error message, only valid in callback function.
 ///
@@ -414,8 +414,8 @@ pub struct AVPlayerCallback {
 /// * `player` - Pointer to an OH_AVPlayer instance.
 ///
 /// * `amplitudes` - The pointer to the maximum audio level values array.
-/// Note: the amplitudes array will be released after callback automatically.
-/// If necessary, user need copy the data for the further use.
+///   Note: the amplitudes array will be released after callback automatically.
+///   If necessary, user need copy the data for the further use.
 ///
 /// * `size` - Size of the maximum audio amplitude array.
 ///
@@ -440,8 +440,8 @@ pub type OH_AVPlayerOnAmplitudeUpdateCallback = ::core::option::Option<
 /// * `player` - Pointer to an OH_AVPlayer instance
 ///
 /// * `message` - SEI message array.
-/// Note: the message array will be released after callback automatically.
-/// If necessary, user need copy the data for the further use.
+///   Note: the message array will be released after callback automatically.
+///   If necessary, user need copy the data for the further use.
 ///
 /// * `playbackPosition` - Playback position.
 ///
@@ -464,7 +464,7 @@ pub type OH_AVPlayerOnSeiMessageReceivedCallback = ::core::option::Option<
 /// * `player` - Pointer to an OH_AVPlayer instance
 ///
 /// * `pcmBuffer` - Decoded PCM audio data. The pcmBuffer is valid only within this callback,
-/// and released by the player after the callback returns.
+///   and released by the player after the callback returns.
 ///
 /// * `userData` - Pointer to user specific data
 ///
@@ -487,7 +487,7 @@ pub type OH_AVPlayerPCMOutputCallback = ::core::option::Option<
 /// * `player` - Pointer to an OH_AVPlayer instance
 ///
 /// * `pcmBuffer` - Decoded PCM audio data. The pcmBuffer is valid only within this callback,
-/// and released by the player after the callback returns.
+///   and released by the player after the callback returns.
 ///
 /// * `userData` - Pointer to user specific data
 ///

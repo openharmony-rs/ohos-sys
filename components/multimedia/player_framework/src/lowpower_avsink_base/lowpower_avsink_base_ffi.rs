@@ -44,9 +44,9 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// `AV_ERR_INVALID_VA`: An input parameter is nullptr or invalid.
-    /// **AV_ERR_NO_MEMORY**: The framePacketBuffer does not have sufficient remaining capacity to append an OH_AVBuffer.
-    /// **AV_ERR_UNKNOWN**: An unknown error occurs.
+    ///   `AV_ERR_INVALID_VA`: An input parameter is nullptr or invalid.
+    ///   **AV_ERR_NO_MEMORY**: The framePacketBuffer does not have sufficient remaining capacity to append an OH_AVBuffer.
+    ///   **AV_ERR_UNKNOWN**: An unknown error occurs.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -64,7 +64,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Remaining capacity available in the OH_AVSamplesBuffer instance, in bytes. If **sampleBuffer** or data
-    /// pointer is nullptr or invalid, **3** is returned.
+    ///   pointer is nullptr or invalid, **3** is returned.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -80,7 +80,7 @@ extern "C" {
     /// # Returns
     ///
     /// * **OH_LowPowerAVSink_Capability**: The low-power player is supported.
-    /// **nullptr**: The low-power player is not supported or the capability fails to be obtained.
+    ///   **nullptr**: The low-power player is not supported or the capability fails to be obtained.
     ///
     /// Available since API-level: 21
     #[cfg(feature = "api-21")]

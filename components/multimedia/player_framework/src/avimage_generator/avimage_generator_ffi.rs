@@ -28,7 +28,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a pointer to an OH_AVImageGenerator instance for success, nullptr for failure.
-    /// Possible failure causes: HstEngineFactory failed to CreateAVMetadataHelperEngine.
+    ///   Possible failure causes: HstEngineFactory failed to CreateAVMetadataHelperEngine.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -49,10 +49,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): input generator is nullptr or input param is invalid.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): operation not allowed.
-    /// [`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): internal memory allocation failed.
+    ///   [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): the execution is successful.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): input generator is nullptr or input param is invalid.
+    ///   [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): operation not allowed.
+    ///   [`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): internal memory allocation failed.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -78,11 +78,11 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): input generator is nullptr or input param is invalid.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): operation not allowed.
-    /// [`AV_ERR_UNSUPPORTED_FORMAT`](crate::averrors::OH_AVErrCode::AV_ERR_UNSUPPORTED_FORMAT): format is unsupported.
-    /// [`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): internal memory allocation failed.
+    ///   [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): the execution is successful.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): input generator is nullptr or input param is invalid.
+    ///   [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): operation not allowed.
+    ///   [`AV_ERR_UNSUPPORTED_FORMAT`](crate::averrors::OH_AVErrCode::AV_ERR_UNSUPPORTED_FORMAT): format is unsupported.
+    ///   [`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): internal memory allocation failed.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -102,8 +102,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): input generator is nullptr or input param is invalid.
+    ///   [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): the execution is successful.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): input generator is nullptr or input param is invalid.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]

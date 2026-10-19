@@ -243,7 +243,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Pointer to the created snapshot option object. If a null pointer is returned, creation failed, possibly due
-    /// to insufficient memory.
+    ///   to insufficient memory.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
@@ -270,9 +270,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>A possible cause is that mandatory parameters are left unspecified.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>A possible cause is that mandatory parameters are left unspecified.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
@@ -288,25 +288,25 @@ extern "C" {
     /// * `snapshotOptions` - Pointer to the screenshot option.
     ///
     /// * `colorSpace` - Color space used for screenshot.
-    /// <br>If the target component's color space is known, specify it through **colorSpace** and set **isAuto** to **
-    /// false** to achieve optimal snapshot quality.
-    /// <br>The supported values are as follows: **3** (RGB color gamut of type Display P3), **4** (RGB color gamut of
-    /// type sRGB), and **27** (RGB color gamut of type BT.2020).
-    /// <br>Default value: **4**
-    /// <br>This parameter takes effect only when **isAuto** is set to **false**.
+    ///   <br>If the target component's color space is known, specify it through **colorSpace** and set **isAuto** to **
+    ///   false** to achieve optimal snapshot quality.
+    ///   <br>The supported values are as follows: **3** (RGB color gamut of type Display P3), **4** (RGB color gamut of
+    ///   type sRGB), and **27** (RGB color gamut of type BT.2020).
+    ///   <br>Default value: **4**
+    ///   <br>This parameter takes effect only when **isAuto** is set to **false**.
     ///
     /// * `isAuto` - Whether the system automatically determines the color space to be used.
-    /// <br>**true**: The system automatically determines the color space to be used. If the color space used by the
-    /// component is uncertain, you are advised to set **isAuto** to **true** so that the system can automatically
-    /// determine the color space to be used.
-    /// <br>**false**: The color space type set through the **colorSpace** field is used for screenshot.
-    /// <br>Default value: **false**.
+    ///   <br>**true**: The system automatically determines the color space to be used. If the color space used by the
+    ///   component is uncertain, you are advised to set **isAuto** to **true** so that the system can automatically
+    ///   determine the color space to be used.
+    ///   <br>**false**: The color space type set through the **colorSpace** field is used for screenshot.
+    ///   <br>Default value: **false**.
     ///
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -323,24 +323,24 @@ extern "C" {
     /// * `snapshotOptions` - Pointer to the screenshot option.
     ///
     /// * `dynamicRangeMode` - Dynamic range mode used for screenshot.
-    /// <br>If the dynamic range mode used for screenshot is known, you can specify the dynamic range mode using the **
-    /// dynamicRangeMode** field and set **isAuto** to **false** to achieve the expected snapshot effect.
-    /// <br>The value can be one of the enumerated values of [`ArkUI_DynamicRangeMode`](crate::node_attributes::image::ArkUI_DynamicRangeMode).
-    /// <br>Default value: **ARKUI_DYNAMIC_RANGE_MODE_STANDARD**
-    /// <br>This parameter takes effect only when **isAuto** is set to **false**.
+    ///   <br>If the dynamic range mode used for screenshot is known, you can specify the dynamic range mode using the **
+    ///   dynamicRangeMode** field and set **isAuto** to **false** to achieve the expected snapshot effect.
+    ///   <br>The value can be one of the enumerated values of [`ArkUI_DynamicRangeMode`](crate::node_attributes::image::ArkUI_DynamicRangeMode).
+    ///   <br>Default value: **ARKUI_DYNAMIC_RANGE_MODE_STANDARD**
+    ///   <br>This parameter takes effect only when **isAuto** is set to **false**.
     ///
     /// * `isAuto` - Whether the system automatically determines the dynamic range mode to be used.
-    /// <br>**true**: whether the system automatically determines the dynamic range mode to be used. If the dynamic
-    /// range mode used by the component is uncertain, you are advised to set **isAuto** to **true** so that the system
-    /// can automatically determine the dynamic range mode to be used.
-    /// <br>**false**: The dynamic range mode set by the **dynamicRangeMode** field is used for screenshot.
-    /// <br>Default value: **false**.
+    ///   <br>**true**: whether the system automatically determines the dynamic range mode to be used. If the dynamic
+    ///   range mode used by the component is uncertain, you are advised to set **isAuto** to **true** so that the system
+    ///   can automatically determine the dynamic range mode to be used.
+    ///   <br>**false**: The dynamic range mode set by the **dynamicRangeMode** field is used for screenshot.
+    ///   <br>Default value: **false**.
     ///
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -378,18 +378,18 @@ extern "C" {
     /// * `option` - Pointer to the instance of visible area change event parameters.
     ///
     /// * `value` - Pointer to the array of threshold ratios. Each element represents a ratio of the component's visible
-    /// area (that is, the area of the component that is visible on screen; only the area within the parent component is
-    /// counted) to the component's total area. The value range of the threshold is \[0.0, 1.0\]. If the threshold set
-    /// exceeds this range, the value **0.0** or **1.0** will be used.
+    ///   area (that is, the area of the component that is visible on screen; only the area within the parent component is
+    ///   counted) to the component's total area. The value range of the threshold is \[0.0, 1.0\]. If the threshold set
+    ///   exceeds this range, the value **0.0** or **1.0** will be used.
     ///
     /// * `size` - Size of the array of threshold ratios.
     ///
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>A possible cause is that mandatory parameters are left unspecified.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>A possible cause is that mandatory parameters are left unspecified.
     ///
     /// Available since API-level: 17
     #[cfg(feature = "api-17")]
@@ -410,9 +410,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>A possible cause is that mandatory parameters are left unspecified.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>A possible cause is that mandatory parameters are left unspecified.
     ///
     /// Available since API-level: 17
     #[cfg(feature = "api-17")]
@@ -428,20 +428,20 @@ extern "C" {
     /// * `option` - Pointer to the instance of visible area change event parameters.
     ///
     /// * `measureFromViewport` - Visible area calculation mode.
-    /// <br>**true**: The calculation takes the parent component's **NODE_CLIP** attribute into account. If the parent
-    /// component's **NODE_CLIP** attribute is **false**: Child components can render beyond the parent component's
-    /// bounds, and the out-of-bounds area is counted as part of the visible area. If the parent component's **NODE_CLIP*
+    ///   <br>**true**: The calculation takes the parent component's **NODE_CLIP** attribute into account. If the parent
+    ///   component's **NODE_CLIP** attribute is **false**: Child components can render beyond the parent component's
+    ///   bounds, and the out-of-bounds area is counted as part of the visible area. If the parent component's **NODE_CLIP*
     /// * attribute is **true**: Child components are clipped to the parent component's bounds, and the out-of-bounds
-    /// area is treated as invisible. **false**: The area beyond the parent component's bounds is directly treated as
-    /// invisible, ignoring the parent component's **NODE_CLIP** attribute.
-    /// <br>Default value: **false**.
+    ///   area is treated as invisible. **false**: The area beyond the parent component's bounds is directly treated as
+    ///   invisible, ignoring the parent component's **NODE_CLIP** attribute.
+    ///   <br>Default value: **false**.
     ///
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>A possible cause is that mandatory parameters are left unspecified.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>A possible cause is that mandatory parameters are left unspecified.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -463,10 +463,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>Returns [`ARKUI_ERROR_CODE_BUFFER_SIZE_ERROR`](crate::error_code::ArkUiErrorCode::BUFFER_SIZE_ERROR) if the buffer size is insufficient.
-    /// <br>A possible cause is that mandatory parameters are left unspecified.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_BUFFER_SIZE_ERROR`](crate::error_code::ArkUiErrorCode::BUFFER_SIZE_ERROR) if the buffer size is insufficient.
+    ///   <br>A possible cause is that mandatory parameters are left unspecified.
     ///
     /// Available since API-level: 17
     #[cfg(feature = "api-17")]
@@ -501,13 +501,13 @@ extern "C" {
     /// # Returns
     ///
     /// * Visible area calculation mode.
-    /// <br>**true**: The calculation takes the parent component's **NODE_CLIP** attribute into account. If the parent
-    /// component's **NODE_CLIP** attribute is **false**: Child components can render beyond the parent component's
-    /// bounds, and the out-of-bounds area is counted as part of the visible area. If the parent component's **NODE_CLIP*
+    ///   <br>**true**: The calculation takes the parent component's **NODE_CLIP** attribute into account. If the parent
+    ///   component's **NODE_CLIP** attribute is **false**: Child components can render beyond the parent component's
+    ///   bounds, and the out-of-bounds area is counted as part of the visible area. If the parent component's **NODE_CLIP*
     /// * attribute is **true**: Child components are clipped to the parent component's bounds, and the out-of-bounds
-    /// area is treated as invisible. **false**: The area beyond the parent component's bounds is directly treated as
-    /// invisible, ignoring the parent component's **NODE_CLIP** attribute.
-    /// <br>Default value: **false**.
+    ///   area is treated as invisible. **false**: The area beyond the parent component's bounds is directly treated as
+    ///   invisible, ignoring the parent component's **NODE_CLIP** attribute.
+    ///   <br>Default value: **false**.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]

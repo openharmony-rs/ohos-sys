@@ -40,8 +40,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a pointer to the created [`OH_Drawing_PathEffect`](crate::types::OH_Drawing_PathEffect) object.
-    /// If a null pointer is returned, the creation fails. The possible failure cause is that **inner** or **inner** is a
-    /// null pointer.
+    ///   If a null pointer is returned, the creation fails. The possible failure cause is that **inner** or **inner** is a
+    ///   null pointer.
     ///
     /// Available since API-level: 18
     ///
@@ -62,8 +62,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a pointer to the created [`OH_Drawing_PathEffect`](crate::types::OH_Drawing_PathEffect) object.
-    /// If a null pointer is returned, the creation fails. The possible failure cause is that **radius** is less than or
-    /// equal to **0**.
+    ///   If a null pointer is returned, the creation fails. The possible failure cause is that **radius** is less than or
+    ///   equal to **0**.
     ///
     /// Available since API-level: 18
     ///
@@ -78,7 +78,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `intervals` - Pointer to the start address of the dashed line interval array. In the array, an even entry
-    /// indicates an "on" interval and an odd entry indicates an "off" interval. The unit is px.
+    ///   indicates an "on" interval and an odd entry indicates an "off" interval. The unit is px.
     ///
     /// * `count` - Number of entries in the dashed line interval array. The value must be an even number greater than 0.
     ///
@@ -103,7 +103,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `segLength` - Distance along the path at which each segment is fragmented. An effect is created when it is
-    /// greater than 0.
+    ///   greater than 0.
     ///
     /// * `deviation` - Maximum amount by which the end points of the segments can be randomly displaced during rendering.
     ///
@@ -135,8 +135,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a pointer to the created [`OH_Drawing_PathEffect`](crate::types::OH_Drawing_PathEffect) object.
-    /// If a null pointer is returned, the creation fails. The possible failure cause is that **path** is a null pointer or *
-    /// *advance** is less than or equal to **0**.
+    ///   If a null pointer is returned, the creation fails. The possible failure cause is that **path** is a null pointer or *
+    ///   *advance** is less than or equal to **0**.
     ///
     /// Available since API-level: 18
     ///
@@ -160,8 +160,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a pointer to the created [`OH_Drawing_PathEffect`](crate::types::OH_Drawing_PathEffect) object.
-    /// If a null pointer is returned, the creation fails. The possible failure cause is that **firstPathEffect** or **
-    /// secondPathEffect** is a null pointer.
+    ///   If a null pointer is returned, the creation fails. The possible failure cause is that **firstPathEffect** or **
+    ///   secondPathEffect** is a null pointer.
     ///
     /// Available since API-level: 18
     ///

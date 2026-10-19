@@ -65,7 +65,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `action` - High contrast mode for text rendering. The value is an enumerated value of the
-    /// [`OH_Drawing_TextHighContrast`](crate::text_global::OH_Drawing_TextHighContrast) type.
+    ///   [`OH_Drawing_TextHighContrast`](crate::text_global::OH_Drawing_TextHighContrast) type.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -79,7 +79,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `undefinedGlyphDisplay` - Mode of displaying undefined glyphs. The value is an enumerated value of the
-    /// [`OH_Drawing_TextUndefinedGlyphDisplay`](crate::text_global::OH_Drawing_TextUndefinedGlyphDisplay) type.
+    ///   [`OH_Drawing_TextUndefinedGlyphDisplay`](crate::text_global::OH_Drawing_TextUndefinedGlyphDisplay) type.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]

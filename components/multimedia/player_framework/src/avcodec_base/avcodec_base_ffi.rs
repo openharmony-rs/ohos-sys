@@ -3076,9 +3076,9 @@ extern "C" {
     /// Currently, this key is used only to query the temporal layer ID carried in **AVBuffer** output by the encoder.
     /// The process is as follows:
     /// 1. Use [`OH_AVCodecOnNewOutputBuffer`](crate::avcodec_base::OH_AVCodecOnNewOutputBuffer) or [`OH_VideoEncoder_GetOutputBuffer`](crate::avcodec_videoencoder::OH_VideoEncoder_GetOutputBuffer) to
-    /// obtain the buffer instance (**AVBuffer**).
+    ///    obtain the buffer instance (**AVBuffer**).
     /// 2. Use [`OH_AVBuffer_GetParameter`](crate::avbuffer::OH_AVBuffer_GetParameter) to obtain the parameter instance (**OH_AVFormat**),
-    /// which does not contain basic properties.
+    ///    which does not contain basic properties.
     /// 3. Use [`OH_AVFormat_GetIntValue`](crate::avformat::OH_AVFormat_GetIntValue) and this key to obtain the temporal layer ID of the corresponding frame.
     ///
     ///
@@ -3093,18 +3093,18 @@ extern "C" {
     ///
     /// Using restrictions:
     /// 1. The downsampling width and height must be configured or set together.
-    /// If only one of them is configured, [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) will be returned.
+    ///    If only one of them is configured, [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) will be returned.
     /// 2. When the downsampling width and height are the same and qualified as zero, the downsampling is disabled.
     /// 3. When the downsampling width and height are within the supported range, the downsampling is enabled.
-    /// It's recommended to query the supported downsampling range through
-    /// the interface [`OH_AVCapability_IsVideoSizeSupported`](crate::avcapability::OH_AVCapability_IsVideoSizeSupported).
+    ///    It's recommended to query the supported downsampling range through
+    ///    the interface [`OH_AVCapability_IsVideoSizeSupported`](crate::avcapability::OH_AVCapability_IsVideoSizeSupported).
     /// 4. When the downsampling width and height are not within the supported range,
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) will be returned.
+    ///    [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) will be returned.
     /// 5. Cannot be used together with crop parameters ([`OH_MD_KEY_VIDEO_ENCODER_PREPROC_CROP_LEFT`](crate::avcodec_base::OH_MD_KEY_VIDEO_ENCODER_PREPROC_CROP_LEFT),
-    /// [`OH_MD_KEY_VIDEO_ENCODER_PREPROC_CROP_TOP`](crate::avcodec_base::OH_MD_KEY_VIDEO_ENCODER_PREPROC_CROP_TOP), [`OH_MD_KEY_VIDEO_ENCODER_PREPROC_CROP_RIGHT`](crate::avcodec_base::OH_MD_KEY_VIDEO_ENCODER_PREPROC_CROP_RIGHT),
-    /// [`OH_MD_KEY_VIDEO_ENCODER_PREPROC_CROP_BOTTOM`](crate::avcodec_base::OH_MD_KEY_VIDEO_ENCODER_PREPROC_CROP_BOTTOM)).
-    /// If both downsampling and crop parameters are set through [`OH_VideoEncoder_Configure`](crate::avcodec_videoencoder::OH_VideoEncoder_Configure) or
-    /// [`OH_VideoEncoder_SetParameter`](crate::avcodec_videoencoder::OH_VideoEncoder_SetParameter), [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) will be returned.
+    ///    [`OH_MD_KEY_VIDEO_ENCODER_PREPROC_CROP_TOP`](crate::avcodec_base::OH_MD_KEY_VIDEO_ENCODER_PREPROC_CROP_TOP), [`OH_MD_KEY_VIDEO_ENCODER_PREPROC_CROP_RIGHT`](crate::avcodec_base::OH_MD_KEY_VIDEO_ENCODER_PREPROC_CROP_RIGHT),
+    ///    [`OH_MD_KEY_VIDEO_ENCODER_PREPROC_CROP_BOTTOM`](crate::avcodec_base::OH_MD_KEY_VIDEO_ENCODER_PREPROC_CROP_BOTTOM)).
+    ///    If both downsampling and crop parameters are set through [`OH_VideoEncoder_Configure`](crate::avcodec_videoencoder::OH_VideoEncoder_Configure) or
+    ///    [`OH_VideoEncoder_SetParameter`](crate::avcodec_videoencoder::OH_VideoEncoder_SetParameter), [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) will be returned.
     ///
     ///
     /// Available since API-level: 26
@@ -3131,28 +3131,28 @@ extern "C" {
     /// - [`OH_MD_KEY_VIDEO_ENCODER_PREPROC_CROP_TOP`](crate::avcodec_base::OH_MD_KEY_VIDEO_ENCODER_PREPROC_CROP_TOP)
     /// - [`OH_MD_KEY_VIDEO_ENCODER_PREPROC_CROP_RIGHT`](crate::avcodec_base::OH_MD_KEY_VIDEO_ENCODER_PREPROC_CROP_RIGHT)
     /// - [`OH_MD_KEY_VIDEO_ENCODER_PREPROC_CROP_BOTTOM`](crate::avcodec_base::OH_MD_KEY_VIDEO_ENCODER_PREPROC_CROP_BOTTOM)
-    /// (left, top) is the coordinate of the top-left corner of the crop rectangle.
-    /// (right, bottom) is the coordinate of the bottom-right corner of the crop rectangle.
-    /// The width and height of the crop rectangle can be calculated as:
+    ///   (left, top) is the coordinate of the top-left corner of the crop rectangle.
+    ///   (right, bottom) is the coordinate of the bottom-right corner of the crop rectangle.
+    ///   The width and height of the crop rectangle can be calculated as:
     /// - width = right - left + 1
     /// - height = bottom - top + 1
     ///
     /// Using restrictions:
     /// 1. Crop left, top, right, bottom must be configured together. If only part of them is configured,
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) will be returned.
+    ///    [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) will be returned.
     /// 2. When crop left, top, right, bottom are all 0, the crop is disabled.
     /// 3. When the crop width, height are within the supported range, the crop is enabled.
-    /// It's recommended to query the supported crop range through
-    /// the interface [`OH_AVCapability_IsVideoSizeSupported`](crate::avcapability::OH_AVCapability_IsVideoSizeSupported).
+    ///    It's recommended to query the supported crop range through
+    ///    the interface [`OH_AVCapability_IsVideoSizeSupported`](crate::avcapability::OH_AVCapability_IsVideoSizeSupported).
     /// 4. When the crop values are not within the supported range,
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) will be returned.
+    ///    [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) will be returned.
     /// 5. Cannot be used together with downsampling parameters
-    /// ([`OH_MD_KEY_VIDEO_ENCODER_PREPROC_DOWNSAMPLING_WIDTH`](crate::avcodec_base::OH_MD_KEY_VIDEO_ENCODER_PREPROC_DOWNSAMPLING_WIDTH),
-    /// [`OH_MD_KEY_VIDEO_ENCODER_PREPROC_DOWNSAMPLING_HEIGHT`](crate::avcodec_base::OH_MD_KEY_VIDEO_ENCODER_PREPROC_DOWNSAMPLING_HEIGHT)).
-    /// If both crop and downsampling parameters are set through [`OH_VideoEncoder_Configure`](crate::avcodec_videoencoder::OH_VideoEncoder_Configure) or
-    /// [`OH_VideoEncoder_SetParameter`](crate::avcodec_videoencoder::OH_VideoEncoder_SetParameter), [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) will be returned.
+    ///    ([`OH_MD_KEY_VIDEO_ENCODER_PREPROC_DOWNSAMPLING_WIDTH`](crate::avcodec_base::OH_MD_KEY_VIDEO_ENCODER_PREPROC_DOWNSAMPLING_WIDTH),
+    ///    [`OH_MD_KEY_VIDEO_ENCODER_PREPROC_DOWNSAMPLING_HEIGHT`](crate::avcodec_base::OH_MD_KEY_VIDEO_ENCODER_PREPROC_DOWNSAMPLING_HEIGHT)).
+    ///    If both crop and downsampling parameters are set through [`OH_VideoEncoder_Configure`](crate::avcodec_videoencoder::OH_VideoEncoder_Configure) or
+    ///    [`OH_VideoEncoder_SetParameter`](crate::avcodec_videoencoder::OH_VideoEncoder_SetParameter), [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) will be returned.
     /// 6. When crop is enabled, the encoder will only encode the cropped area of the input frame.
-    /// The content outside the crop rectangle will be discarded and not participate in encoding.
+    ///    The content outside the crop rectangle will be discarded and not participate in encoding.
     ///
     ///
     /// Available since API-level: 26
@@ -3201,17 +3201,17 @@ extern "C" {
     /// Using restrictions:
     /// 1. When value is set to 0.0, the drop frame is disabled.
     /// 2. When value is set to positive value and less than original frame rate,
-    /// it will drop frames to match the set frame rate.
+    ///    it will drop frames to match the set frame rate.
     /// 3. When value is set to negative value or equal to or greater than original frame rate,
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) will be returned.
+    ///    [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) will be returned.
     /// 4. Can be used together with downsampling parameters
-    /// ([`OH_MD_KEY_VIDEO_ENCODER_PREPROC_DOWNSAMPLING_WIDTH`](crate::avcodec_base::OH_MD_KEY_VIDEO_ENCODER_PREPROC_DOWNSAMPLING_WIDTH),
-    /// [`OH_MD_KEY_VIDEO_ENCODER_PREPROC_DOWNSAMPLING_HEIGHT`](crate::avcodec_base::OH_MD_KEY_VIDEO_ENCODER_PREPROC_DOWNSAMPLING_HEIGHT)).
+    ///    ([`OH_MD_KEY_VIDEO_ENCODER_PREPROC_DOWNSAMPLING_WIDTH`](crate::avcodec_base::OH_MD_KEY_VIDEO_ENCODER_PREPROC_DOWNSAMPLING_WIDTH),
+    ///    [`OH_MD_KEY_VIDEO_ENCODER_PREPROC_DOWNSAMPLING_HEIGHT`](crate::avcodec_base::OH_MD_KEY_VIDEO_ENCODER_PREPROC_DOWNSAMPLING_HEIGHT)).
     /// 5. Can be used together with crop parameters
-    /// ([`OH_MD_KEY_VIDEO_ENCODER_PREPROC_CROP_LEFT`](crate::avcodec_base::OH_MD_KEY_VIDEO_ENCODER_PREPROC_CROP_LEFT),
-    /// [`OH_MD_KEY_VIDEO_ENCODER_PREPROC_CROP_TOP`](crate::avcodec_base::OH_MD_KEY_VIDEO_ENCODER_PREPROC_CROP_TOP),
-    /// [`OH_MD_KEY_VIDEO_ENCODER_PREPROC_CROP_RIGHT`](crate::avcodec_base::OH_MD_KEY_VIDEO_ENCODER_PREPROC_CROP_RIGHT),
-    /// [`OH_MD_KEY_VIDEO_ENCODER_PREPROC_CROP_BOTTOM`](crate::avcodec_base::OH_MD_KEY_VIDEO_ENCODER_PREPROC_CROP_BOTTOM)).
+    ///    ([`OH_MD_KEY_VIDEO_ENCODER_PREPROC_CROP_LEFT`](crate::avcodec_base::OH_MD_KEY_VIDEO_ENCODER_PREPROC_CROP_LEFT),
+    ///    [`OH_MD_KEY_VIDEO_ENCODER_PREPROC_CROP_TOP`](crate::avcodec_base::OH_MD_KEY_VIDEO_ENCODER_PREPROC_CROP_TOP),
+    ///    [`OH_MD_KEY_VIDEO_ENCODER_PREPROC_CROP_RIGHT`](crate::avcodec_base::OH_MD_KEY_VIDEO_ENCODER_PREPROC_CROP_RIGHT),
+    ///    [`OH_MD_KEY_VIDEO_ENCODER_PREPROC_CROP_BOTTOM`](crate::avcodec_base::OH_MD_KEY_VIDEO_ENCODER_PREPROC_CROP_BOTTOM)).
     /// 6. Processing order when combined: drop frame will be executed first, then downsampling or crop.
     ///
     ///
@@ -3538,10 +3538,10 @@ extern "C" {
     /// Configured value:
     ///
     /// - If the value is less than or equal to 0, the request is intercepted in the configuration phase and ERROR
-    /// AV_ERR_INVALID_VAL is returned.
+    ///   AV_ERR_INVALID_VAL is returned.
     ///
     /// - If the value is greater than 0, the last frame will be resubmitted repeatedly in the specified duration, measured
-    /// in milliseconds.
+    ///   in milliseconds.
     ///
     ///
     /// Available since API-level: 18
@@ -3557,13 +3557,13 @@ extern "C" {
     /// Configured value.
     ///
     /// - If the value is equal to 0, the request is intercepted in the configuration phase and **ERROR AV_ERR_INVALID_VAL**
-    /// is returned.
+    ///   is returned.
     ///
     /// - If the value is less than 0 and no new frame is available, the encoder repeatedly encodes the previous frame until
-    /// the upper limit of the system is reached.
+    ///   the upper limit of the system is reached.
     ///
     /// - If the value is greater than 0 and no new frame is available, the encoder repeatedly encodes the previous frame
-    /// until the maximum number specified is reached.
+    ///   until the maximum number specified is reached.
     ///
     ///
     /// Available since API-level: 18
@@ -3594,10 +3594,10 @@ extern "C" {
     /// The usage specifications are as follows:
     ///
     /// 1. To check whether the platform supports B-frame encoding, use the [`OH_AVCapability_IsFeatureSupported`](crate::avcapability::OH_AVCapability_IsFeatureSupported) API
-    /// and the enumerated value [`OH_AVCapabilityFeature`](crate::avcapability::OH_AVCapabilityFeature) VIDEO_ENCODER_B_FRAME.
+    ///    and the enumerated value [`OH_AVCapabilityFeature`](crate::avcapability::OH_AVCapabilityFeature) VIDEO_ENCODER_B_FRAME.
     ///
     /// 2. Obtain the OH_AVFormat pointer through the [`OH_AVCapability_GetFeatureProperties`](crate::avcapability::OH_AVCapability_GetFeatureProperties) API and
-    /// the enumerated value [`OH_AVCapabilityFeature`](crate::avcapability::OH_AVCapabilityFeature) VIDEO_ENCODER_B_FRAME.
+    ///    the enumerated value [`OH_AVCapabilityFeature`](crate::avcapability::OH_AVCapabilityFeature) VIDEO_ENCODER_B_FRAME.
     ///
     /// 3. Obtain the maximum number of B-frames through the [`OH_AVFormat_GetIntValue`](crate::avformat::OH_AVFormat_GetIntValue) API and this key.
     ///
@@ -3613,10 +3613,10 @@ extern "C" {
     /// The "\[=Params\]" is optional.
     /// The format of "\[=Params\]" varies by version:
     /// 1. Prior to version 26.0.0: Only a single int32_t value representing the
-    /// quantization parameter offset is supported (e.g., "=Offset").
+    ///    quantization parameter offset is supported (e.g., "=Offset").
     /// 2. Since version 26.0.0: A Key-Value format is additionally supported and recommended.
-    /// It uses comma-separated key-value pairs (e.g., "=dqp:-6,slb:1").
-    /// Supported keys:
+    ///    It uses comma-separated key-value pairs (e.g., "=dqp:-6,slb:1").
+    ///    Supported keys:
     /// - "dqp": Quantization parameter offset.
     /// - "slb": Semantic label. The value must correspond to [`OH_VideoMetadataRoiSemanticLabel`](crate::avcodec_videobase::OH_VideoMetadataRoiSemanticLabel).
     ///
@@ -3742,10 +3742,10 @@ extern "C" {
     /// scenarios:
     ///
     /// 1. Video decoding: Call [`OH_VideoDecoder_GetOutputDescription`](crate::avcodec_videodecoder::OH_VideoDecoder_GetOutputDescription) or [`OH_AVCodecOnStreamChanged`](crate::avcodec_base::OH_AVCodecOnStreamChanged) to obtain
-    /// the current output format from the returned OH_AVFormat object.
+    ///    the current output format from the returned OH_AVFormat object.
     ///
     /// 2. Video encoding: Call [`OH_VideoEncoder_GetInputDescription`](crate::avcodec_videoencoder::OH_VideoEncoder_GetInputDescription) to obtain the current input format from the
-    /// returned OH_AVFormat object.
+    ///    returned OH_AVFormat object.
     ///
     ///
     /// Available since API-level: 22
@@ -3759,10 +3759,10 @@ extern "C" {
     /// during demultiplexing and set it to the input OH_AVBuffer used for decoding.
     ///
     /// 1. Obtain the OH_AVBuffer used for decoding from the callback function [`OH_AVCodecOnNeedInputBuffer`](crate::avcodec_base::OH_AVCodecOnNeedInputBuffer) of
-    /// [`OH_AVCodecCallback`](crate::avcodec_base::OH_AVCodecCallback).
+    ///    [`OH_AVCodecCallback`](crate::avcodec_base::OH_AVCodecCallback).
     ///
     /// 2. Call [`OH_AVDemuxer_ReadSampleBuffer`](crate::avdemuxer::OH_AVDemuxer_ReadSampleBuffer) to read audio data. This function automatically sets **
-    /// OH_MD_KEY_BUFFER_SKIP_SAMPLES_INFO** when needed.
+    ///    OH_MD_KEY_BUFFER_SKIP_SAMPLES_INFO** when needed.
     ///
     /// 3. Call [`OH_AudioCodec_PushInputBuffer`](crate::avcodec_audiocodec::OH_AudioCodec_PushInputBuffer) to push the input OH_AVBuffer for decoding.
     ///
@@ -3773,7 +3773,7 @@ extern "C" {
     /// 1. Bytes 0-3 (uint32_t, little-endian): number of samples to skip from the beginning of this frame.
     ///
     /// 2. Bytes 4-7 (uint32_t, little-endian): number of samples to skip from the end of this frame (must not exceed the
-    /// frame's total sample count).
+    ///    frame's total sample count).
     ///
     /// 3. Bytes 8-9: reserved; set to **0**.
     ///

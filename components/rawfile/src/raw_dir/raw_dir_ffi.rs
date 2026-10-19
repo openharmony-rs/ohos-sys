@@ -27,18 +27,18 @@ extern "C" {
     /// # Arguments
     ///
     /// * `rawDir` - Input parameter. Pointer to a `RawDir` object, which is obtained through
-    /// [`OH_ResourceManager_OpenRawDir`](crate::raw_file_manager::OH_ResourceManager_OpenRawDir).
+    ///   [`OH_ResourceManager_OpenRawDir`](crate::raw_file_manager::OH_ResourceManager_OpenRawDir).
     ///
     /// * `index` - Input parameter. Index of the file in the `rawfile` directory, ranging from \[0, total file count - 1\].
     ///
     /// # Returns
     ///
     /// * Pointer to the file name string, which can be used as an input parameter of
-    /// [`OH_ResourceManager_OpenRawFile`](crate::raw_file_manager::OH_ResourceManager_OpenRawFile).
-    /// <br>`NULL` is returned upon failure. Possible causes include `rawDir` being `NULL`, `index` being out of the
-    /// valid range, or the directory being empty.
-    /// <br>After [`OH_ResourceManager_CloseRawDir`](crate::raw_dir::OH_ResourceManager_CloseRawDir) is called, this pointer is also released. If the file name
-    /// needs to be preserved, you must copy the string content in a timely manner.
+    ///   [`OH_ResourceManager_OpenRawFile`](crate::raw_file_manager::OH_ResourceManager_OpenRawFile).
+    ///   <br>`NULL` is returned upon failure. Possible causes include `rawDir` being `NULL`, `index` being out of the
+    ///   valid range, or the directory being empty.
+    ///   <br>After [`OH_ResourceManager_CloseRawDir`](crate::raw_dir::OH_ResourceManager_CloseRawDir) is called, this pointer is also released. If the file name
+    ///   needs to be preserved, you must copy the string content in a timely manner.
     ///
     /// **See also:** [`OH_ResourceManager_OpenRawFile`](crate::raw_file_manager::OH_ResourceManager_OpenRawFile)
     ///
@@ -56,12 +56,12 @@ extern "C" {
     /// # Arguments
     ///
     /// * `rawDir` - Input parameter. Pointer to a `RawDir` object, which is obtained through
-    /// [`OH_ResourceManager_OpenRawDir`](crate::raw_file_manager::OH_ResourceManager_OpenRawDir).
+    ///   [`OH_ResourceManager_OpenRawDir`](crate::raw_file_manager::OH_ResourceManager_OpenRawDir).
     ///
     /// # Returns
     ///
     /// * Number of rawfile subdirectories and files, without recursively counting files and directories within
-    /// `rawfile` subdirectories. `0` is returned if `rawDir` is `NULL` or the directory is empty.
+    ///   `rawfile` subdirectories. `0` is returned if `rawDir` is `NULL` or the directory is empty.
     ///
     /// **See also:** [`OH_ResourceManager_GetRawFileName`](crate::raw_dir::OH_ResourceManager_GetRawFileName)
     ///
@@ -75,8 +75,8 @@ extern "C" {
     /// # Arguments
     ///
     /// * `rawDir` - Input parameter. Pointer to a `RawDir` object, which is obtained through
-    /// [`OH_ResourceManager_OpenRawDir`](crate::raw_file_manager::OH_ResourceManager_OpenRawDir). After the release, the pointer becomes invalid and cannot be used for
-    /// other operations.
+    ///   [`OH_ResourceManager_OpenRawDir`](crate::raw_file_manager::OH_ResourceManager_OpenRawDir). After the release, the pointer becomes invalid and cannot be used for
+    ///   other operations.
     ///
     /// **See also:** [`OH_ResourceManager_OpenRawDir`](crate::raw_file_manager::OH_ResourceManager_OpenRawDir)
     ///

@@ -24,8 +24,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -49,8 +49,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -74,8 +74,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -99,8 +99,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -124,8 +124,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -142,23 +142,23 @@ extern "C" {
     /// * `node` - The node.
     ///
     /// * `buffer` - The buffer to which NavigationID writes to the memory,
-    /// memory space needs to be allocated by the developer.
+    ///   memory space needs to be allocated by the developer.
     ///
     /// * `bufferSize` - The buffer size
     ///
     /// * `writeLength` - Indicates the string length actually written to the buffer
-    /// when returning [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult).
-    /// Indicates the minimum buffer size that can accommodate the target
-    /// when [`ARKUI_ERROR_CODE_BUFFER_SIZE_ERROR`](crate::error_code::ArkUiErrorCode::BUFFER_SIZE_ERROR) is returned.
+    ///   when returning [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult).
+    ///   Indicates the minimum buffer size that can accommodate the target
+    ///   when [`ARKUI_ERROR_CODE_BUFFER_SIZE_ERROR`](crate::error_code::ArkUiErrorCode::BUFFER_SIZE_ERROR) is returned.
     ///
     /// # Returns
     ///
     /// * The error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if the node, buffer or writeLength is null.
-    /// [`ARKUI_ERROR_CODE_GET_INFO_FAILED`](crate::error_code::ArkUiErrorCode::GET_INFO_FAILED) if query information failed,
-    /// this may be because the node is not in Navigation.
-    /// [`ARKUI_ERROR_CODE_BUFFER_SIZE_ERROR`](crate::error_code::ArkUiErrorCode::BUFFER_SIZE_ERROR) If the buffer size is less than the minimum buffer size.
+    ///   [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if the node, buffer or writeLength is null.
+    ///   [`ARKUI_ERROR_CODE_GET_INFO_FAILED`](crate::error_code::ArkUiErrorCode::GET_INFO_FAILED) if query information failed,
+    ///   this may be because the node is not in Navigation.
+    ///   [`ARKUI_ERROR_CODE_BUFFER_SIZE_ERROR`](crate::error_code::ArkUiErrorCode::BUFFER_SIZE_ERROR) If the buffer size is less than the minimum buffer size.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -176,23 +176,23 @@ extern "C" {
     /// * `node` - The node.
     ///
     /// * `buffer` - The buffer to which NavDestination name writes to the memory,
-    /// memory space needs to be allocated by the developer.
+    ///   memory space needs to be allocated by the developer.
     ///
     /// * `bufferSize` - The buffer size
     ///
     /// * `writeLength` - Indicates the string length actually written to the buffer
-    /// when returning [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult).
-    /// Indicates the minimum buffer size that can accommodate the target
-    /// when [`ARKUI_ERROR_CODE_BUFFER_SIZE_ERROR`](crate::error_code::ArkUiErrorCode::BUFFER_SIZE_ERROR) is returned.
+    ///   when returning [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult).
+    ///   Indicates the minimum buffer size that can accommodate the target
+    ///   when [`ARKUI_ERROR_CODE_BUFFER_SIZE_ERROR`](crate::error_code::ArkUiErrorCode::BUFFER_SIZE_ERROR) is returned.
     ///
     /// # Returns
     ///
     /// * The error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if the node, buffer or writeLength is null.
-    /// [`ARKUI_ERROR_CODE_GET_INFO_FAILED`](crate::error_code::ArkUiErrorCode::GET_INFO_FAILED) if query information failed,
-    /// this may be because the node is not in Navigation.
-    /// [`ARKUI_ERROR_CODE_BUFFER_SIZE_ERROR`](crate::error_code::ArkUiErrorCode::BUFFER_SIZE_ERROR) If the buffer size is less than the minimum buffer size.
+    ///   [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if the node, buffer or writeLength is null.
+    ///   [`ARKUI_ERROR_CODE_GET_INFO_FAILED`](crate::error_code::ArkUiErrorCode::GET_INFO_FAILED) if query information failed,
+    ///   this may be because the node is not in Navigation.
+    ///   [`ARKUI_ERROR_CODE_BUFFER_SIZE_ERROR`](crate::error_code::ArkUiErrorCode::BUFFER_SIZE_ERROR) If the buffer size is less than the minimum buffer size.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -214,10 +214,10 @@ extern "C" {
     /// # Returns
     ///
     /// * The error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if the node or length is null.
-    /// [`ARKUI_ERROR_CODE_GET_INFO_FAILED`](crate::error_code::ArkUiErrorCode::GET_INFO_FAILED) if query information failed,
-    /// this may be because the node is not in Navigation.
+    ///   [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if the node or length is null.
+    ///   [`ARKUI_ERROR_CODE_GET_INFO_FAILED`](crate::error_code::ArkUiErrorCode::GET_INFO_FAILED) if query information failed,
+    ///   this may be because the node is not in Navigation.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -234,24 +234,24 @@ extern "C" {
     /// * `index` - The index of the NavDestination in the stack is queried.
     ///
     /// * `buffer` - The buffer to which NavDestination index writes to the memory,
-    /// memory space needs to be allocated by the developer.
+    ///   memory space needs to be allocated by the developer.
     ///
     /// * `bufferSize` - The buffer size
     ///
     /// * `writeLength` - Indicates the string length actually written to the buffer
-    /// when returning [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult).
-    /// Indicates the minimum buffer size that can accommodate the target
-    /// when [`ARKUI_ERROR_CODE_BUFFER_SIZE_ERROR`](crate::error_code::ArkUiErrorCode::BUFFER_SIZE_ERROR) is returned.
+    ///   when returning [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult).
+    ///   Indicates the minimum buffer size that can accommodate the target
+    ///   when [`ARKUI_ERROR_CODE_BUFFER_SIZE_ERROR`](crate::error_code::ArkUiErrorCode::BUFFER_SIZE_ERROR) is returned.
     ///
     /// # Returns
     ///
     /// * The error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if the node, buffer or writeLength is null.
-    /// [`ARKUI_ERROR_CODE_NODE_INDEX_INVALID`](crate::error_code::ArkUiErrorCode::NODE_INDEX_INVALID) if index is an invalid value.
-    /// [`ARKUI_ERROR_CODE_GET_INFO_FAILED`](crate::error_code::ArkUiErrorCode::GET_INFO_FAILED) if query information failed,
-    /// this may be because the node is not in Navigation.
-    /// [`ARKUI_ERROR_CODE_BUFFER_SIZE_ERROR`](crate::error_code::ArkUiErrorCode::BUFFER_SIZE_ERROR) If the buffer size is less than the minimum buffer size.
+    ///   [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if the node, buffer or writeLength is null.
+    ///   [`ARKUI_ERROR_CODE_NODE_INDEX_INVALID`](crate::error_code::ArkUiErrorCode::NODE_INDEX_INVALID) if index is an invalid value.
+    ///   [`ARKUI_ERROR_CODE_GET_INFO_FAILED`](crate::error_code::ArkUiErrorCode::GET_INFO_FAILED) if query information failed,
+    ///   this may be because the node is not in Navigation.
+    ///   [`ARKUI_ERROR_CODE_BUFFER_SIZE_ERROR`](crate::error_code::ArkUiErrorCode::BUFFER_SIZE_ERROR) If the buffer size is less than the minimum buffer size.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -270,23 +270,23 @@ extern "C" {
     /// * `node` - The node.
     ///
     /// * `buffer` - The buffer to which NavDestination ID writes to the memory,
-    /// memory space needs to be allocated by the developer.
+    ///   memory space needs to be allocated by the developer.
     ///
     /// * `bufferSize` - The buffer size
     ///
     /// * `writeLength` - Indicates the string length actually written to the buffer
-    /// when returning [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult).
-    /// Indicates the minimum buffer size that can accommodate the target
-    /// when [`ARKUI_ERROR_CODE_BUFFER_SIZE_ERROR`](crate::error_code::ArkUiErrorCode::BUFFER_SIZE_ERROR) is returned.
+    ///   when returning [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult).
+    ///   Indicates the minimum buffer size that can accommodate the target
+    ///   when [`ARKUI_ERROR_CODE_BUFFER_SIZE_ERROR`](crate::error_code::ArkUiErrorCode::BUFFER_SIZE_ERROR) is returned.
     ///
     /// # Returns
     ///
     /// * The error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if the node, buffer or writeLength is null.
-    /// [`ARKUI_ERROR_CODE_GET_INFO_FAILED`](crate::error_code::ArkUiErrorCode::GET_INFO_FAILED) if query information failed,
-    /// this may be because the node is not in Navigation.
-    /// [`ARKUI_ERROR_CODE_BUFFER_SIZE_ERROR`](crate::error_code::ArkUiErrorCode::BUFFER_SIZE_ERROR) If the buffer size is less than the minimum buffer size.
+    ///   [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if the node, buffer or writeLength is null.
+    ///   [`ARKUI_ERROR_CODE_GET_INFO_FAILED`](crate::error_code::ArkUiErrorCode::GET_INFO_FAILED) if query information failed,
+    ///   this may be because the node is not in Navigation.
+    ///   [`ARKUI_ERROR_CODE_BUFFER_SIZE_ERROR`](crate::error_code::ArkUiErrorCode::BUFFER_SIZE_ERROR) If the buffer size is less than the minimum buffer size.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -308,10 +308,10 @@ extern "C" {
     /// # Returns
     ///
     /// * The error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if the node or state is null.
-    /// [`ARKUI_ERROR_CODE_GET_INFO_FAILED`](crate::error_code::ArkUiErrorCode::GET_INFO_FAILED) if query information failed,
-    /// this may be because the node is not in Navigation.
+    ///   [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if the node or state is null.
+    ///   [`ARKUI_ERROR_CODE_GET_INFO_FAILED`](crate::error_code::ArkUiErrorCode::GET_INFO_FAILED) if query information failed,
+    ///   this may be because the node is not in Navigation.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -331,10 +331,10 @@ extern "C" {
     /// # Returns
     ///
     /// * The error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if the node or index is null.
-    /// [`ARKUI_ERROR_CODE_GET_INFO_FAILED`](crate::error_code::ArkUiErrorCode::GET_INFO_FAILED) if query information failed,
-    /// this may be because the node is not in Navigation.
+    ///   [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if the node or index is null.
+    ///   [`ARKUI_ERROR_CODE_GET_INFO_FAILED`](crate::error_code::ArkUiErrorCode::GET_INFO_FAILED) if query information failed,
+    ///   this may be because the node is not in Navigation.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -349,7 +349,7 @@ extern "C" {
     /// # Returns
     ///
     /// * The parameters.
-    /// If a null pointer is returned, it may be because the node is empty or the parameters does not exist.
+    ///   If a null pointer is returned, it may be because the node is empty or the parameters does not exist.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -366,10 +366,10 @@ extern "C" {
     /// # Returns
     ///
     /// * The error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if the node or index is null.
-    /// [`ARKUI_ERROR_CODE_GET_INFO_FAILED`](crate::error_code::ArkUiErrorCode::GET_INFO_FAILED) if query information failed,
-    /// this may be because the node is not in RouterPage.
+    ///   [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if the node or index is null.
+    ///   [`ARKUI_ERROR_CODE_GET_INFO_FAILED`](crate::error_code::ArkUiErrorCode::GET_INFO_FAILED) if query information failed,
+    ///   this may be because the node is not in RouterPage.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -382,23 +382,23 @@ extern "C" {
     /// * `node` - The node.
     ///
     /// * `buffer` - The buffer to which page name writes to the memory,
-    /// memory space needs to be allocated by the developer.
+    ///   memory space needs to be allocated by the developer.
     ///
     /// * `bufferSize` - The buffer size
     ///
     /// * `writeLength` - Indicates the string length actually written to the buffer
-    /// when returning [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult).
-    /// Indicates the minimum buffer size that can accommodate the target
-    /// when [`ARKUI_ERROR_CODE_BUFFER_SIZE_ERROR`](crate::error_code::ArkUiErrorCode::BUFFER_SIZE_ERROR) is returned.
+    ///   when returning [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult).
+    ///   Indicates the minimum buffer size that can accommodate the target
+    ///   when [`ARKUI_ERROR_CODE_BUFFER_SIZE_ERROR`](crate::error_code::ArkUiErrorCode::BUFFER_SIZE_ERROR) is returned.
     ///
     /// # Returns
     ///
     /// * The error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if the node, buffer or writeLength is null.
-    /// [`ARKUI_ERROR_CODE_GET_INFO_FAILED`](crate::error_code::ArkUiErrorCode::GET_INFO_FAILED) if query information failed,
-    /// this may be because the node is not in RouterPage.
-    /// [`ARKUI_ERROR_CODE_BUFFER_SIZE_ERROR`](crate::error_code::ArkUiErrorCode::BUFFER_SIZE_ERROR) If the buffer size is less than the minimum buffer size.
+    ///   [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if the node, buffer or writeLength is null.
+    ///   [`ARKUI_ERROR_CODE_GET_INFO_FAILED`](crate::error_code::ArkUiErrorCode::GET_INFO_FAILED) if query information failed,
+    ///   this may be because the node is not in RouterPage.
+    ///   [`ARKUI_ERROR_CODE_BUFFER_SIZE_ERROR`](crate::error_code::ArkUiErrorCode::BUFFER_SIZE_ERROR) If the buffer size is less than the minimum buffer size.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -416,23 +416,23 @@ extern "C" {
     /// * `node` - The node.
     ///
     /// * `buffer` - The buffer to which page path writes to the memory,
-    /// memory space needs to be allocated by the developer.
+    ///   memory space needs to be allocated by the developer.
     ///
     /// * `bufferSize` - The buffer size
     ///
     /// * `writeLength` - Indicates the string length actually written to the buffer
-    /// when returning [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult).
-    /// Indicates the minimum buffer size that can accommodate the target
-    /// when [`ARKUI_ERROR_CODE_BUFFER_SIZE_ERROR`](crate::error_code::ArkUiErrorCode::BUFFER_SIZE_ERROR) is returned.
+    ///   when returning [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult).
+    ///   Indicates the minimum buffer size that can accommodate the target
+    ///   when [`ARKUI_ERROR_CODE_BUFFER_SIZE_ERROR`](crate::error_code::ArkUiErrorCode::BUFFER_SIZE_ERROR) is returned.
     ///
     /// # Returns
     ///
     /// * The error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if the node, buffer or writeLength is null.
-    /// [`ARKUI_ERROR_CODE_GET_INFO_FAILED`](crate::error_code::ArkUiErrorCode::GET_INFO_FAILED) if query information failed,
-    /// this may be because the node is not in RouterPage.
-    /// [`ARKUI_ERROR_CODE_BUFFER_SIZE_ERROR`](crate::error_code::ArkUiErrorCode::BUFFER_SIZE_ERROR) If the buffer size is less than the minimum buffer size.
+    ///   [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if the node, buffer or writeLength is null.
+    ///   [`ARKUI_ERROR_CODE_GET_INFO_FAILED`](crate::error_code::ArkUiErrorCode::GET_INFO_FAILED) if query information failed,
+    ///   this may be because the node is not in RouterPage.
+    ///   [`ARKUI_ERROR_CODE_BUFFER_SIZE_ERROR`](crate::error_code::ArkUiErrorCode::BUFFER_SIZE_ERROR) If the buffer size is less than the minimum buffer size.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -454,10 +454,10 @@ extern "C" {
     /// # Returns
     ///
     /// * The error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if the node or state is null.
-    /// [`ARKUI_ERROR_CODE_GET_INFO_FAILED`](crate::error_code::ArkUiErrorCode::GET_INFO_FAILED) if query information failed,
-    /// this may be because the node is not in RouterPage.
+    ///   [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if the node or state is null.
+    ///   [`ARKUI_ERROR_CODE_GET_INFO_FAILED`](crate::error_code::ArkUiErrorCode::GET_INFO_FAILED) if query information failed,
+    ///   this may be because the node is not in RouterPage.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -473,23 +473,23 @@ extern "C" {
     /// * `node` - The node.
     ///
     /// * `buffer` - The buffer to which page ID writes to the memory,
-    /// memory space needs to be allocated by the developer.
+    ///   memory space needs to be allocated by the developer.
     ///
     /// * `bufferSize` - The buffer size
     ///
     /// * `writeLength` - Indicates the string length actually written to the buffer
-    /// when returning [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult).
-    /// Indicates the minimum buffer size that can accommodate the target
-    /// when [`ARKUI_ERROR_CODE_BUFFER_SIZE_ERROR`](crate::error_code::ArkUiErrorCode::BUFFER_SIZE_ERROR) is returned.
+    ///   when returning [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult).
+    ///   Indicates the minimum buffer size that can accommodate the target
+    ///   when [`ARKUI_ERROR_CODE_BUFFER_SIZE_ERROR`](crate::error_code::ArkUiErrorCode::BUFFER_SIZE_ERROR) is returned.
     ///
     /// # Returns
     ///
     /// * The error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if the node, buffer or writeLength is null.
-    /// [`ARKUI_ERROR_CODE_GET_INFO_FAILED`](crate::error_code::ArkUiErrorCode::GET_INFO_FAILED) if query information failed,
-    /// this may be because the node is not in RouterPage.
-    /// [`ARKUI_ERROR_CODE_BUFFER_SIZE_ERROR`](crate::error_code::ArkUiErrorCode::BUFFER_SIZE_ERROR) If the buffer size is less than the minimum buffer size.
+    ///   [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if the node, buffer or writeLength is null.
+    ///   [`ARKUI_ERROR_CODE_GET_INFO_FAILED`](crate::error_code::ArkUiErrorCode::GET_INFO_FAILED) if query information failed,
+    ///   this may be because the node is not in RouterPage.
+    ///   [`ARKUI_ERROR_CODE_BUFFER_SIZE_ERROR`](crate::error_code::ArkUiErrorCode::BUFFER_SIZE_ERROR) If the buffer size is less than the minimum buffer size.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -518,10 +518,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if the CAPI init error.
-    /// Returns [`ARKUI_ERROR_CODE_UI_CONTEXT_INVALID`](crate::error_code::ArkUiErrorCode::UI_CONTEXT_INVALID) if the uiContext is invalid.
-    /// Returns [`ARKUI_ERROR_CODE_CALLBACK_INVALID`](crate::error_code::ArkUiErrorCode::CALLBACK_INVALID) if the callback function is invalid.
+    ///   Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if the CAPI init error.
+    ///   Returns [`ARKUI_ERROR_CODE_UI_CONTEXT_INVALID`](crate::error_code::ArkUiErrorCode::UI_CONTEXT_INVALID) if the uiContext is invalid.
+    ///   Returns [`ARKUI_ERROR_CODE_CALLBACK_INVALID`](crate::error_code::ArkUiErrorCode::CALLBACK_INVALID) if the callback function is invalid.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -547,9 +547,9 @@ extern "C" {
     /// # Returns
     ///
     /// * The error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if env is null or failed to set the whitelist.
-    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if the CAPI init error.
+    ///   [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if env is null or failed to set the whitelist.
+    ///   [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if the CAPI init error.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -584,10 +584,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if the CAPI init error.
-    /// Returns [`ARKUI_ERROR_CODE_UI_CONTEXT_INVALID`](crate::error_code::ArkUiErrorCode::UI_CONTEXT_INVALID) if the uiContext is invalid.
-    /// Returns [`ARKUI_ERROR_CODE_CALLBACK_INVALID`](crate::error_code::ArkUiErrorCode::CALLBACK_INVALID) if the callback function is invalid.
+    ///   Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if the CAPI init error.
+    ///   Returns [`ARKUI_ERROR_CODE_UI_CONTEXT_INVALID`](crate::error_code::ArkUiErrorCode::UI_CONTEXT_INVALID) if the uiContext is invalid.
+    ///   Returns [`ARKUI_ERROR_CODE_CALLBACK_INVALID`](crate::error_code::ArkUiErrorCode::CALLBACK_INVALID) if the callback function is invalid.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]

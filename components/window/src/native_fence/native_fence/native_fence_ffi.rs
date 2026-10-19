@@ -14,7 +14,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns true if the fenceFd is valid.
-    /// Returns false if the fenceFd is a negative integer.
+    ///   Returns false if the fenceFd is a negative integer.
     ///
     /// Available since API-level: 20
     ///
@@ -30,17 +30,17 @@ extern "C" {
     /// * `fenceFd` - Indicates a file descriptor handle, which is used for timing synchronization.
     ///
     /// * `timeout` - Indicates the timeout duration.
-    /// The unit is milliseconds, 0 represents immediate return.
+    ///   The unit is milliseconds, 0 represents immediate return.
     ///
     /// # Returns
     ///
     /// * Returns true if the fence signaled.
-    /// Returns false in the following cases:
-    /// 1.if the fenceFd is a negative integer.
-    /// 2.no event occurred within the specified timeout period.
-    /// 3.the underlying poll interface call failed.
-    /// 4.the timeout value is 0.
-    /// 5.failed to duplicate the file descriptor.
+    ///   Returns false in the following cases:
+    ///   1.if the fenceFd is a negative integer.
+    ///   2.no event occurred within the specified timeout period.
+    ///   3.the underlying poll interface call failed.
+    ///   4.the timeout value is 0.
+    ///   5.failed to duplicate the file descriptor.
     ///
     /// Available since API-level: 20
     ///
@@ -58,10 +58,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns true if the fence signaled.
-    /// Returns false in the following cases:
-    /// 1.if the fenceFd is a negative integer.
-    /// 2.no incidents have occurred, permanent waiting.
-    /// 3.failed to duplicate the file descriptor.
+    ///   Returns false in the following cases:
+    ///   1.if the fenceFd is a negative integer.
+    ///   2.no incidents have occurred, permanent waiting.
+    ///   3.failed to duplicate the file descriptor.
     ///
     /// Available since API-level: 20
     ///
@@ -74,7 +74,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `fenceFd` - Indicates a file descriptor handle, which is used for timing synchronization.
-    /// This value is a non negative integer.
+    ///   This value is a non negative integer.
     ///
     /// Available since API-level: 20
     ///

@@ -43,7 +43,7 @@ extern "C" {
     /// * `len` - \[in\] Byte length of the random number.
     ///
     /// * `out` - \[out\] Pointer to the Crypto_DataBlob structure for storing the random number. Cannot be NULL. Initialize
-    /// out to {0} before calling. Do not pre-allocate out->data.
+    ///   out to {0} before calling. Do not pre-allocate out->data.
     ///
     /// # Returns
     ///
@@ -71,7 +71,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the random number generator algorithm name. No need to free by the caller. Invalid after the context
-    /// is destroyed.
+    ///   is destroyed.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -83,7 +83,7 @@ extern "C" {
     /// * `ctx` - \[in\] Random number generator context. Cannot be NULL.
     ///
     /// * `seed` - \[in\] Seed data. This function performs a deep copy of the data in seed. The caller can
-    /// release seed immediately after the function returns. Cannot be NULL.
+    ///   release seed immediately after the function returns. Cannot be NULL.
     ///
     /// # Returns
     ///

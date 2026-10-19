@@ -28,11 +28,11 @@ use crate::audiostream_base::OH_AudioStreamInfo;
 /// * `accessory` - \[in\] The audio accessory on which the stream is opened.
 ///
 /// * `stream` - \[in\] Reference to the newly created input stream.
-/// Use this handle to register callbacks via Register...Callback.
+///   Use this handle to register callbacks via Register...Callback.
 ///
 /// * `streamInfo` - \[in\] Pointer to the audio stream information of the stream
-/// being opened. This parameter describes the requested stream format and
-/// can be used by the accessory to configure its data path.
+///   being opened. This parameter describes the requested stream format and
+///   can be used by the accessory to configure its data path.
 ///
 /// # Returns
 ///
@@ -169,13 +169,13 @@ pub type OH_AudioAccessoryInputStream_GetLatencyCallback = ::core::option::Optio
 /// * `stream` - \[in\] Reference to the input stream.
 ///
 /// * `framePosition` - \[out\] Output parameter. Returns the cumulative number of audio
-/// frames captured since the most recent successful start of this input
-/// stream.
+///   frames captured since the most recent successful start of this input
+///   stream.
 ///
 /// * `timestamp` - \[out\] Returns the capture timestamp corresponding to the frame
-/// position reported through framePosition. The timestamp must use the
-/// `CLOCK_MONOTONIC` time base and is expressed in nanoseconds. It represents
-/// the monotonic clock time at which the frame identified by framePosition was captured.
+///   position reported through framePosition. The timestamp must use the
+///   `CLOCK_MONOTONIC` time base and is expressed in nanoseconds. It represents
+///   the monotonic clock time at which the frame identified by framePosition was captured.
 ///
 /// # Returns
 ///

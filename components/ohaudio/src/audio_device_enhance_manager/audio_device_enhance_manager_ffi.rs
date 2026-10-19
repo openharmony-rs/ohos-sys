@@ -30,13 +30,13 @@ extern "C" {
     /// # Arguments
     ///
     /// * `audioDeviceEnhanceManager` - Indicates the pointer to the [`OH_AudioDeviceEnhanceManager`](crate::audio_device_enhance_manager::OH_AudioDeviceEnhanceManager)
-    /// handle obtained by this function.
+    ///   handle obtained by this function.
     ///
     /// # Returns
     ///
     /// * [`AUDIOCOMMON_RESULT_SUCCESS`](crate::audio_common::OH_AudioCommon_Result) If the execution is successful,
-    /// or [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) if the input audioDeviceEnhanceManager
-    /// pointer is NULL.
+    ///   or [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) if the input audioDeviceEnhanceManager
+    ///   pointer is NULL.
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]
@@ -55,17 +55,17 @@ extern "C" {
     /// # Arguments
     ///
     /// * `audioDeviceEnhanceManager` - the [`OH_AudioDeviceEnhanceManager`](crate::audio_device_enhance_manager::OH_AudioDeviceEnhanceManager) handle returned
-    /// by [`OH_AudioManager_GetAudioDeviceEnhanceManager`](crate::audio_device_enhance_manager::OH_AudioManager_GetAudioDeviceEnhanceManager).
+    ///   by [`OH_AudioManager_GetAudioDeviceEnhanceManager`](crate::audio_device_enhance_manager::OH_AudioManager_GetAudioDeviceEnhanceManager).
     ///
     /// * `supported` - query result, true means the system supports the enhanced functions,
-    /// false means not supported.
+    ///   false means not supported.
     ///
     /// # Returns
     ///
     /// * [`AUDIOCOMMON_RESULT_SUCCESS`](crate::audio_common::OH_AudioCommon_Result) if execution succeeds,
-    /// or [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) if audioDeviceEnhanceManager is NULL or
-    /// supported is NULL,
-    /// or [`AUDIOCOMMON_RESULT_ERROR_SYSTEM`](crate::audio_common::OH_AudioCommonErrorCode::SYSTEM) Audio service error occurs, such as the service died.
+    ///   or [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) if audioDeviceEnhanceManager is NULL or
+    ///   supported is NULL,
+    ///   or [`AUDIOCOMMON_RESULT_ERROR_SYSTEM`](crate::audio_common::OH_AudioCommonErrorCode::SYSTEM) Audio service error occurs, such as the service died.
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]
@@ -91,19 +91,19 @@ extern "C" {
     /// # Arguments
     ///
     /// * `audioDeviceEnhanceManager` - the [`OH_AudioDeviceEnhanceManager`](crate::audio_device_enhance_manager::OH_AudioDeviceEnhanceManager) handle returned
-    /// by [`OH_AudioManager_GetAudioDeviceEnhanceManager`](crate::audio_device_enhance_manager::OH_AudioManager_GetAudioDeviceEnhanceManager).
+    ///   by [`OH_AudioManager_GetAudioDeviceEnhanceManager`](crate::audio_device_enhance_manager::OH_AudioManager_GetAudioDeviceEnhanceManager).
     ///
     /// * `deviceDescriptor` - The target device. The available device must be in the array returned
-    /// by [`OH_AudioRoutingManager_GetAvailableDevices`](crate::audio_routing_manager::OH_AudioRoutingManager_GetAvailableDevices).
-    /// If nullptr is passed, system will clear the last selection and select a default
-    /// output device for your application.
+    ///   by [`OH_AudioRoutingManager_GetAvailableDevices`](crate::audio_routing_manager::OH_AudioRoutingManager_GetAvailableDevices).
+    ///   If nullptr is passed, system will clear the last selection and select a default
+    ///   output device for your application.
     ///
     /// # Returns
     ///
     /// * [`AUDIOCOMMON_RESULT_SUCCESS`](crate::audio_common::OH_AudioCommon_Result) if execution succeeds,
-    /// or [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) if audioDeviceEnhanceManager is NULL,
-    /// deviceDescriptor is invalid, or the specified device has gone offline,
-    /// or [`AUDIOCOMMON_RESULT_ERROR_SYSTEM`](crate::audio_common::OH_AudioCommonErrorCode::SYSTEM) Audio service error occurs, such as the service died.
+    ///   or [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) if audioDeviceEnhanceManager is NULL,
+    ///   deviceDescriptor is invalid, or the specified device has gone offline,
+    ///   or [`AUDIOCOMMON_RESULT_ERROR_SYSTEM`](crate::audio_common::OH_AudioCommonErrorCode::SYSTEM) Audio service error occurs, such as the service died.
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]
@@ -127,19 +127,19 @@ extern "C" {
     /// # Arguments
     ///
     /// * `audioDeviceEnhanceManager` - the [`OH_AudioDeviceEnhanceManager`](crate::audio_device_enhance_manager::OH_AudioDeviceEnhanceManager) handle returned
-    /// by [`OH_AudioManager_GetAudioDeviceEnhanceManager`](crate::audio_device_enhance_manager::OH_AudioManager_GetAudioDeviceEnhanceManager).
+    ///   by [`OH_AudioManager_GetAudioDeviceEnhanceManager`](crate::audio_device_enhance_manager::OH_AudioManager_GetAudioDeviceEnhanceManager).
     ///
     /// * `deviceDescriptor` - The target device. The available device must be in the array returned
-    /// by [`OH_AudioRoutingManager_GetAvailableDevices`](crate::audio_routing_manager::OH_AudioRoutingManager_GetAvailableDevices).
-    /// If nullptr is passed, system will clear the last selection and select a default
-    /// input device for your application.
+    ///   by [`OH_AudioRoutingManager_GetAvailableDevices`](crate::audio_routing_manager::OH_AudioRoutingManager_GetAvailableDevices).
+    ///   If nullptr is passed, system will clear the last selection and select a default
+    ///   input device for your application.
     ///
     /// # Returns
     ///
     /// * [`AUDIOCOMMON_RESULT_SUCCESS`](crate::audio_common::OH_AudioCommon_Result) if execution succeeds,
-    /// or [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) if audioDeviceEnhanceManager is NULL,
-    /// deviceDescriptor is invalid, or the specified input device has gone offline,
-    /// or [`AUDIOCOMMON_RESULT_ERROR_SYSTEM`](crate::audio_common::OH_AudioCommonErrorCode::SYSTEM) Audio service error occurs, such as the service died.
+    ///   or [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) if audioDeviceEnhanceManager is NULL,
+    ///   deviceDescriptor is invalid, or the specified input device has gone offline,
+    ///   or [`AUDIOCOMMON_RESULT_ERROR_SYSTEM`](crate::audio_common::OH_AudioCommonErrorCode::SYSTEM) Audio service error occurs, such as the service died.
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]
@@ -160,21 +160,21 @@ extern "C" {
     /// # Arguments
     ///
     /// * `audioDeviceEnhanceManager` - the [`OH_AudioDeviceEnhanceManager`](crate::audio_device_enhance_manager::OH_AudioDeviceEnhanceManager) handle returned
-    /// by [`OH_AudioManager_GetAudioDeviceEnhanceManager`](crate::audio_device_enhance_manager::OH_AudioManager_GetAudioDeviceEnhanceManager).
+    ///   by [`OH_AudioManager_GetAudioDeviceEnhanceManager`](crate::audio_device_enhance_manager::OH_AudioManager_GetAudioDeviceEnhanceManager).
     ///
     /// * `renderer` - Indicates the renderer reference created by [`OH_AudioStreamBuilder_GenerateRenderer`](crate::audiostreambuilder::OH_AudioStreamBuilder_GenerateRenderer).
     ///
     /// * `deviceDescriptor` - The target device. The available device must be in the array returned
-    /// by [`OH_AudioRoutingManager_GetAvailableDevices`](crate::audio_routing_manager::OH_AudioRoutingManager_GetAvailableDevices).
-    /// If nullptr is passed, system will clear the last selection and select a default
-    /// output device for the renderer.
+    ///   by [`OH_AudioRoutingManager_GetAvailableDevices`](crate::audio_routing_manager::OH_AudioRoutingManager_GetAvailableDevices).
+    ///   If nullptr is passed, system will clear the last selection and select a default
+    ///   output device for the renderer.
     ///
     /// # Returns
     ///
     /// * [`AUDIOCOMMON_RESULT_SUCCESS`](crate::audio_common::OH_AudioCommon_Result) if execution succeeds,
-    /// or [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) if audioDeviceEnhanceManager is NULL, renderer is NULL,
-    /// deviceDescriptor is invalid, or the specified output device has gone offline,
-    /// or [`AUDIOCOMMON_RESULT_ERROR_SYSTEM`](crate::audio_common::OH_AudioCommonErrorCode::SYSTEM) Audio service error occurs, such as the service died.
+    ///   or [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) if audioDeviceEnhanceManager is NULL, renderer is NULL,
+    ///   deviceDescriptor is invalid, or the specified output device has gone offline,
+    ///   or [`AUDIOCOMMON_RESULT_ERROR_SYSTEM`](crate::audio_common::OH_AudioCommonErrorCode::SYSTEM) Audio service error occurs, such as the service died.
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]
@@ -196,21 +196,21 @@ extern "C" {
     /// # Arguments
     ///
     /// * `audioDeviceEnhanceManager` - the [`OH_AudioDeviceEnhanceManager`](crate::audio_device_enhance_manager::OH_AudioDeviceEnhanceManager) handle returned
-    /// by [`OH_AudioManager_GetAudioDeviceEnhanceManager`](crate::audio_device_enhance_manager::OH_AudioManager_GetAudioDeviceEnhanceManager).
+    ///   by [`OH_AudioManager_GetAudioDeviceEnhanceManager`](crate::audio_device_enhance_manager::OH_AudioManager_GetAudioDeviceEnhanceManager).
     ///
     /// * `capturer` - Indicates the capturer reference created by [`OH_AudioStreamBuilder_GenerateCapturer`](crate::audiostreambuilder::OH_AudioStreamBuilder_GenerateCapturer).
     ///
     /// * `deviceDescriptor` - The target device. The available device must be in the array returned
-    /// by [`OH_AudioRoutingManager_GetAvailableDevices`](crate::audio_routing_manager::OH_AudioRoutingManager_GetAvailableDevices).
-    /// If nullptr is passed, system will clear the last selection and select a default
-    /// input device for the capturer.
+    ///   by [`OH_AudioRoutingManager_GetAvailableDevices`](crate::audio_routing_manager::OH_AudioRoutingManager_GetAvailableDevices).
+    ///   If nullptr is passed, system will clear the last selection and select a default
+    ///   input device for the capturer.
     ///
     /// # Returns
     ///
     /// * [`AUDIOCOMMON_RESULT_SUCCESS`](crate::audio_common::OH_AudioCommon_Result) if execution succeeds,
-    /// or [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) if audioDeviceEnhanceManager is NULL, capturer is NULL,
-    /// deviceDescriptor is invalid, or the specified input device has gone offline,
-    /// or [`AUDIOCOMMON_RESULT_ERROR_SYSTEM`](crate::audio_common::OH_AudioCommonErrorCode::SYSTEM) Audio service error occurs, such as the service died.
+    ///   or [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) if audioDeviceEnhanceManager is NULL, capturer is NULL,
+    ///   deviceDescriptor is invalid, or the specified input device has gone offline,
+    ///   or [`AUDIOCOMMON_RESULT_ERROR_SYSTEM`](crate::audio_common::OH_AudioCommonErrorCode::SYSTEM) Audio service error occurs, such as the service died.
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]

@@ -42,9 +42,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`AUDIOCOMMON_RESULT_SUCCESS`](crate::audio_common::OH_AudioCommon_Result) If the execution is successful.
-    /// [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM):
-    /// 1.The param of audioManager is nullptr;
+    ///   [`AUDIOCOMMON_RESULT_SUCCESS`](crate::audio_common::OH_AudioCommon_Result) If the execution is successful.
+    ///   [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM):
+    ///   1.The param of audioManager is nullptr;
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -61,10 +61,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`AUDIOCOMMON_RESULT_SUCCESS`](crate::audio_common::OH_AudioCommon_Result) If the execution is successful.
-    /// [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM):
-    /// 1.The param of audioManager is nullptr;
-    /// 2.The param of scene is nullptr.
+    ///   [`AUDIOCOMMON_RESULT_SUCCESS`](crate::audio_common::OH_AudioCommon_Result) If the execution is successful.
+    ///   [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM):
+    ///   1.The param of audioManager is nullptr;
+    ///   2.The param of scene is nullptr.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -86,10 +86,10 @@ extern "C" {
     /// # Returns
     ///
     /// *  [`AUDIOCOMMON_RESULT_SUCCESS`](crate::audio_common::OH_AudioCommon_Result) if the execution is successful
-    /// [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM)
-    /// 1.param of manager is nullptr
-    /// 2.param of callback is nullptr
-    /// [`AUDIOCOMMON_RESULT_ERROR_SYSTEM`](crate::audio_common::OH_AudioCommonErrorCode::SYSTEM) system process error occurs
+    ///    [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM)
+    ///    1.param of manager is nullptr
+    ///    2.param of callback is nullptr
+    ///    [`AUDIOCOMMON_RESULT_ERROR_SYSTEM`](crate::audio_common::OH_AudioCommonErrorCode::SYSTEM) system process error occurs
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -110,10 +110,10 @@ extern "C" {
     /// # Returns
     ///
     /// *  [`AUDIOCOMMON_RESULT_SUCCESS`](crate::audio_common::OH_AudioCommon_Result) if the execution is successful
-    /// [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM)
-    /// 1.param of manager is nullptr
-    /// 2.param of callback is nullptr
-    /// [`AUDIOCOMMON_RESULT_ERROR_SYSTEM`](crate::audio_common::OH_AudioCommonErrorCode::SYSTEM) system process error occurs
+    ///    [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM)
+    ///    1.param of manager is nullptr
+    ///    2.param of callback is nullptr
+    ///    [`AUDIOCOMMON_RESULT_ERROR_SYSTEM`](crate::audio_common::OH_AudioCommonErrorCode::SYSTEM) system process error occurs
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]

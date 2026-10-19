@@ -679,9 +679,9 @@ extern "C" {
     /// # Returns
     ///
     /// * [`PRINT_ERROR_NONE`](crate::print::Print_ErrorCode::PRINT_ERROR_NONE): Operation is successful.
-    /// <br>[`PRINT_ERROR_NO_PERMISSION`](crate::print::Print_ErrorCode::PRINT_ERROR_NO_PERMISSION): The ohos.permission.PRINT permission is required.
-    /// <br>[`PRINT_ERROR_RPC_FAILURE`](crate::print::Print_ErrorCode::PRINT_ERROR_RPC_FAILURE): Failed to connect to the print service.
-    /// <br>[`PRINT_ERROR_SERVER_FAILURE`](crate::print::Print_ErrorCode::PRINT_ERROR_SERVER_FAILURE): Failed to start the CUPS service.
+    ///   <br>[`PRINT_ERROR_NO_PERMISSION`](crate::print::Print_ErrorCode::PRINT_ERROR_NO_PERMISSION): The ohos.permission.PRINT permission is required.
+    ///   <br>[`PRINT_ERROR_RPC_FAILURE`](crate::print::Print_ErrorCode::PRINT_ERROR_RPC_FAILURE): Failed to connect to the print service.
+    ///   <br>[`PRINT_ERROR_SERVER_FAILURE`](crate::print::Print_ErrorCode::PRINT_ERROR_SERVER_FAILURE): Failed to start the CUPS service.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -693,7 +693,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`PRINT_ERROR_NONE`](crate::print::Print_ErrorCode::PRINT_ERROR_NONE): Operation is successful.
-    /// <br>Currently, no other error codes will be returned.
+    ///   <br>Currently, no other error codes will be returned.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -710,10 +710,10 @@ extern "C" {
     /// # Returns
     ///
     /// * [`PRINT_ERROR_NONE`](crate::print::Print_ErrorCode::PRINT_ERROR_NONE): Operation is successful.
-    /// <br>[`PRINT_ERROR_NO_PERMISSION`](crate::print::Print_ErrorCode::PRINT_ERROR_NO_PERMISSION): The ohos.permission.PRINT permission is required.
-    /// <br>[`PRINT_ERROR_RPC_FAILURE`](crate::print::Print_ErrorCode::PRINT_ERROR_RPC_FAILURE): Failed to connect to the print service.
-    /// <br>[`PRINT_ERROR_SERVER_FAILURE`](crate::print::Print_ErrorCode::PRINT_ERROR_SERVER_FAILURE): Failed to query the print extension list from the BMS.
-    /// <br>[`PRINT_ERROR_INVALID_EXTENSION`](crate::print::Print_ErrorCode::PRINT_ERROR_INVALID_EXTENSION): No available print extension is found.
+    ///   <br>[`PRINT_ERROR_NO_PERMISSION`](crate::print::Print_ErrorCode::PRINT_ERROR_NO_PERMISSION): The ohos.permission.PRINT permission is required.
+    ///   <br>[`PRINT_ERROR_RPC_FAILURE`](crate::print::Print_ErrorCode::PRINT_ERROR_RPC_FAILURE): Failed to connect to the print service.
+    ///   <br>[`PRINT_ERROR_SERVER_FAILURE`](crate::print::Print_ErrorCode::PRINT_ERROR_SERVER_FAILURE): Failed to query the print extension list from the BMS.
+    ///   <br>[`PRINT_ERROR_INVALID_EXTENSION`](crate::print::Print_ErrorCode::PRINT_ERROR_INVALID_EXTENSION): No available print extension is found.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -729,8 +729,8 @@ extern "C" {
     /// # Returns
     ///
     /// * [`PRINT_ERROR_NONE`](crate::print::Print_ErrorCode::PRINT_ERROR_NONE): Operation is successful.
-    /// <br>[`PRINT_ERROR_NO_PERMISSION`](crate::print::Print_ErrorCode::PRINT_ERROR_NO_PERMISSION): The ohos.permission.PRINT permission is required.
-    /// <br>[`PRINT_ERROR_RPC_FAILURE`](crate::print::Print_ErrorCode::PRINT_ERROR_RPC_FAILURE): Failed to connect to the print service.
+    ///   <br>[`PRINT_ERROR_NO_PERMISSION`](crate::print::Print_ErrorCode::PRINT_ERROR_NO_PERMISSION): The ohos.permission.PRINT permission is required.
+    ///   <br>[`PRINT_ERROR_RPC_FAILURE`](crate::print::Print_ErrorCode::PRINT_ERROR_RPC_FAILURE): Failed to connect to the print service.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -747,10 +747,10 @@ extern "C" {
     /// # Returns
     ///
     /// * [`PRINT_ERROR_NONE`](crate::print::Print_ErrorCode::PRINT_ERROR_NONE): Operation is successful.
-    /// <br>[`PRINT_ERROR_NO_PERMISSION`](crate::print::Print_ErrorCode::PRINT_ERROR_NO_PERMISSION): The ohos.permission.PRINT permission is required.
-    /// <br>[`PRINT_ERROR_RPC_FAILURE`](crate::print::Print_ErrorCode::PRINT_ERROR_RPC_FAILURE): Failed to connect to the print service.
-    /// <br>[`PRINT_ERROR_INVALID_PRINTER`](crate::print::Print_ErrorCode::PRINT_ERROR_INVALID_PRINTER): Printer does not exist in the list of discovered printers.
-    /// <br>[`PRINT_ERROR_SERVER_FAILURE`](crate::print::Print_ErrorCode::PRINT_ERROR_SERVER_FAILURE): Failed to find the printer extension.
+    ///   <br>[`PRINT_ERROR_NO_PERMISSION`](crate::print::Print_ErrorCode::PRINT_ERROR_NO_PERMISSION): The ohos.permission.PRINT permission is required.
+    ///   <br>[`PRINT_ERROR_RPC_FAILURE`](crate::print::Print_ErrorCode::PRINT_ERROR_RPC_FAILURE): Failed to connect to the print service.
+    ///   <br>[`PRINT_ERROR_INVALID_PRINTER`](crate::print::Print_ErrorCode::PRINT_ERROR_INVALID_PRINTER): Printer does not exist in the list of discovered printers.
+    ///   <br>[`PRINT_ERROR_SERVER_FAILURE`](crate::print::Print_ErrorCode::PRINT_ERROR_SERVER_FAILURE): Failed to find the printer extension.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -767,11 +767,11 @@ extern "C" {
     /// # Returns
     ///
     /// * [`PRINT_ERROR_NONE`](crate::print::Print_ErrorCode::PRINT_ERROR_NONE): Operation is successful.
-    /// <br>[`PRINT_ERROR_NO_PERMISSION`](crate::print::Print_ErrorCode::PRINT_ERROR_NO_PERMISSION): The ohos.permission.PRINT permission is required.
-    /// <br>[`PRINT_ERROR_RPC_FAILURE`](crate::print::Print_ErrorCode::PRINT_ERROR_RPC_FAILURE): Failed to connect to the print service.
-    /// <br>[`PRINT_ERROR_INVALID_PRINTER`](crate::print::Print_ErrorCode::PRINT_ERROR_INVALID_PRINTER): Printer does not exist in the list of connected printers.
-    /// <br>[`PRINT_ERROR_SERVER_FAILURE`](crate::print::Print_ErrorCode::PRINT_ERROR_SERVER_FAILURE): Failed to create a print job in the print service.
-    /// <br>[`PRINT_ERROR_INVALID_PRINT_JOB`](crate::print::Print_ErrorCode::PRINT_ERROR_INVALID_PRINT_JOB): Failed to find the specified task in the task queue.
+    ///   <br>[`PRINT_ERROR_NO_PERMISSION`](crate::print::Print_ErrorCode::PRINT_ERROR_NO_PERMISSION): The ohos.permission.PRINT permission is required.
+    ///   <br>[`PRINT_ERROR_RPC_FAILURE`](crate::print::Print_ErrorCode::PRINT_ERROR_RPC_FAILURE): Failed to connect to the print service.
+    ///   <br>[`PRINT_ERROR_INVALID_PRINTER`](crate::print::Print_ErrorCode::PRINT_ERROR_INVALID_PRINTER): Printer does not exist in the list of connected printers.
+    ///   <br>[`PRINT_ERROR_SERVER_FAILURE`](crate::print::Print_ErrorCode::PRINT_ERROR_SERVER_FAILURE): Failed to create a print job in the print service.
+    ///   <br>[`PRINT_ERROR_INVALID_PRINT_JOB`](crate::print::Print_ErrorCode::PRINT_ERROR_INVALID_PRINT_JOB): Failed to find the specified task in the task queue.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -788,8 +788,8 @@ extern "C" {
     /// # Returns
     ///
     /// * [`PRINT_ERROR_NONE`](crate::print::Print_ErrorCode::PRINT_ERROR_NONE): Operation is successful.
-    /// <br>[`PRINT_ERROR_NO_PERMISSION`](crate::print::Print_ErrorCode::PRINT_ERROR_NO_PERMISSION): The ohos.permission.PRINT permission is required.
-    /// <br>[`PRINT_ERROR_RPC_FAILURE`](crate::print::Print_ErrorCode::PRINT_ERROR_RPC_FAILURE): Failed to connect to the print service.
+    ///   <br>[`PRINT_ERROR_NO_PERMISSION`](crate::print::Print_ErrorCode::PRINT_ERROR_NO_PERMISSION): The ohos.permission.PRINT permission is required.
+    ///   <br>[`PRINT_ERROR_RPC_FAILURE`](crate::print::Print_ErrorCode::PRINT_ERROR_RPC_FAILURE): Failed to connect to the print service.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -817,10 +817,10 @@ extern "C" {
     /// # Returns
     ///
     /// * [`PRINT_ERROR_NONE`](crate::print::Print_ErrorCode::PRINT_ERROR_NONE): Operation is successful.
-    /// <br>[`PRINT_ERROR_NO_PERMISSION`](crate::print::Print_ErrorCode::PRINT_ERROR_NO_PERMISSION): The ohos.permission.PRINT permission is required.
-    /// <br>[`PRINT_ERROR_INVALID_PARAMETER`](crate::print::Print_ErrorCode::PRINT_ERROR_INVALID_PARAMETER): printerIdList is null.
-    /// <br>[`PRINT_ERROR_INVALID_PRINTER`](crate::print::Print_ErrorCode::PRINT_ERROR_INVALID_PRINTER): Failed to query any connected printers.
-    /// <br>[`PRINT_ERROR_GENERIC_FAILURE`](crate::print::Print_ErrorCode::PRINT_ERROR_GENERIC_FAILURE): Failed to copy printer ID list.
+    ///   <br>[`PRINT_ERROR_NO_PERMISSION`](crate::print::Print_ErrorCode::PRINT_ERROR_NO_PERMISSION): The ohos.permission.PRINT permission is required.
+    ///   <br>[`PRINT_ERROR_INVALID_PARAMETER`](crate::print::Print_ErrorCode::PRINT_ERROR_INVALID_PARAMETER): printerIdList is null.
+    ///   <br>[`PRINT_ERROR_INVALID_PRINTER`](crate::print::Print_ErrorCode::PRINT_ERROR_INVALID_PRINTER): Failed to query any connected printers.
+    ///   <br>[`PRINT_ERROR_GENERIC_FAILURE`](crate::print::Print_ErrorCode::PRINT_ERROR_GENERIC_FAILURE): Failed to copy printer ID list.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -849,10 +849,10 @@ extern "C" {
     /// # Returns
     ///
     /// * [`PRINT_ERROR_NONE`](crate::print::Print_ErrorCode::PRINT_ERROR_NONE): Operation is successful.
-    /// <br>[`PRINT_ERROR_NO_PERMISSION`](crate::print::Print_ErrorCode::PRINT_ERROR_NO_PERMISSION): The ohos.permission.PRINT permission is required.
-    /// <br>[`PRINT_ERROR_RPC_FAILURE`](crate::print::Print_ErrorCode::PRINT_ERROR_RPC_FAILURE): Failed to connect to the print service.
-    /// <br>[`PRINT_ERROR_INVALID_PARAMETER`](crate::print::Print_ErrorCode::PRINT_ERROR_INVALID_PARAMETER): The printerId or printerInfo is null.
-    /// <br>[`PRINT_ERROR_INVALID_PRINTER`](crate::print::Print_ErrorCode::PRINT_ERROR_INVALID_PRINTER): Failed to find the specified printer in the list of connected printers.
+    ///   <br>[`PRINT_ERROR_NO_PERMISSION`](crate::print::Print_ErrorCode::PRINT_ERROR_NO_PERMISSION): The ohos.permission.PRINT permission is required.
+    ///   <br>[`PRINT_ERROR_RPC_FAILURE`](crate::print::Print_ErrorCode::PRINT_ERROR_RPC_FAILURE): Failed to connect to the print service.
+    ///   <br>[`PRINT_ERROR_INVALID_PARAMETER`](crate::print::Print_ErrorCode::PRINT_ERROR_INVALID_PARAMETER): The printerId or printerInfo is null.
+    ///   <br>[`PRINT_ERROR_INVALID_PRINTER`](crate::print::Print_ErrorCode::PRINT_ERROR_INVALID_PRINTER): Failed to find the specified printer in the list of connected printers.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -877,7 +877,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`PRINT_ERROR_NONE`](crate::print::Print_ErrorCode::PRINT_ERROR_NONE): Operation is successful.
-    /// <br>[`PRINT_ERROR_GENERIC_FAILURE`](crate::print::Print_ErrorCode::PRINT_ERROR_GENERIC_FAILURE): Failed to start the printer management window.
+    ///   <br>[`PRINT_ERROR_GENERIC_FAILURE`](crate::print::Print_ErrorCode::PRINT_ERROR_GENERIC_FAILURE): Failed to start the printer management window.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -898,10 +898,10 @@ extern "C" {
     /// # Returns
     ///
     /// * [`PRINT_ERROR_NONE`](crate::print::Print_ErrorCode::PRINT_ERROR_NONE): Operation is successful.
-    /// <br>[`PRINT_ERROR_NO_PERMISSION`](crate::print::Print_ErrorCode::PRINT_ERROR_NO_PERMISSION): The ohos.permission.PRINT permission is required.
-    /// <br>[`PRINT_ERROR_INVALID_PARAMETER`](crate::print::Print_ErrorCode::PRINT_ERROR_INVALID_PARAMETER): One of the parameters is null or the key list is empty.
-    /// <br>[`PRINT_ERROR_INVALID_PRINTER`](crate::print::Print_ErrorCode::PRINT_ERROR_INVALID_PRINTER): Failed to find properties of the specified printer.
-    /// <br>[`PRINT_ERROR_GENERIC_FAILURE`](crate::print::Print_ErrorCode::PRINT_ERROR_GENERIC_FAILURE): Failed to copy printer properties.
+    ///   <br>[`PRINT_ERROR_NO_PERMISSION`](crate::print::Print_ErrorCode::PRINT_ERROR_NO_PERMISSION): The ohos.permission.PRINT permission is required.
+    ///   <br>[`PRINT_ERROR_INVALID_PARAMETER`](crate::print::Print_ErrorCode::PRINT_ERROR_INVALID_PARAMETER): One of the parameters is null or the key list is empty.
+    ///   <br>[`PRINT_ERROR_INVALID_PRINTER`](crate::print::Print_ErrorCode::PRINT_ERROR_INVALID_PRINTER): Failed to find properties of the specified printer.
+    ///   <br>[`PRINT_ERROR_GENERIC_FAILURE`](crate::print::Print_ErrorCode::PRINT_ERROR_GENERIC_FAILURE): Failed to copy printer properties.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -934,8 +934,8 @@ extern "C" {
     /// # Returns
     ///
     /// * [`PRINT_ERROR_NONE`](crate::print::Print_ErrorCode::PRINT_ERROR_NONE): Operation is successful.
-    /// <br>[`PRINT_ERROR_NO_PERMISSION`](crate::print::Print_ErrorCode::PRINT_ERROR_NO_PERMISSION): The ohos.permission.PRINT permission is required.
-    /// <br>[`PRINT_ERROR_RPC_FAILURE`](crate::print::Print_ErrorCode::PRINT_ERROR_RPC_FAILURE): Failed to connect to the print service.
+    ///   <br>[`PRINT_ERROR_NO_PERMISSION`](crate::print::Print_ErrorCode::PRINT_ERROR_NO_PERMISSION): The ohos.permission.PRINT permission is required.
+    ///   <br>[`PRINT_ERROR_RPC_FAILURE`](crate::print::Print_ErrorCode::PRINT_ERROR_RPC_FAILURE): Failed to connect to the print service.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -957,8 +957,8 @@ extern "C" {
     /// # Returns
     ///
     /// * [`PRINT_ERROR_NONE`](crate::print::Print_ErrorCode::PRINT_ERROR_NONE): Operation is successful.
-    /// <br>[`PRINT_ERROR_NO_PERMISSION`](crate::print::Print_ErrorCode::PRINT_ERROR_NO_PERMISSION): The ohos.permission.PRINT permission is required.
-    /// <br>[`PRINT_ERROR_RPC_FAILURE`](crate::print::Print_ErrorCode::PRINT_ERROR_RPC_FAILURE): Failed to connect to the print service.
+    ///   <br>[`PRINT_ERROR_NO_PERMISSION`](crate::print::Print_ErrorCode::PRINT_ERROR_NO_PERMISSION): The ohos.permission.PRINT permission is required.
+    ///   <br>[`PRINT_ERROR_RPC_FAILURE`](crate::print::Print_ErrorCode::PRINT_ERROR_RPC_FAILURE): Failed to connect to the print service.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -982,8 +982,8 @@ extern "C" {
     /// # Returns
     ///
     /// * [`PRINT_ERROR_NONE`](crate::print::Print_ErrorCode::PRINT_ERROR_NONE): Operation is successful.
-    /// <br>[`PRINT_ERROR_NO_PERMISSION`](crate::print::Print_ErrorCode::PRINT_ERROR_NO_PERMISSION): The ohos.permission.PRINT permission is required.
-    /// <br>[`PRINT_ERROR_RPC_FAILURE`](crate::print::Print_ErrorCode::PRINT_ERROR_RPC_FAILURE): Failed to connect to the print service.
+    ///   <br>[`PRINT_ERROR_NO_PERMISSION`](crate::print::Print_ErrorCode::PRINT_ERROR_NO_PERMISSION): The ohos.permission.PRINT permission is required.
+    ///   <br>[`PRINT_ERROR_RPC_FAILURE`](crate::print::Print_ErrorCode::PRINT_ERROR_RPC_FAILURE): Failed to connect to the print service.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -1006,13 +1006,13 @@ extern "C" {
     /// # Returns
     ///
     /// * [`PRINT_ERROR_NONE`](crate::print::Print_ErrorCode::PRINT_ERROR_NONE): Operation is successful.
-    /// <br>[`PRINT_ERROR_NO_PERMISSION`](crate::print::Print_ErrorCode::PRINT_ERROR_NO_PERMISSION): The `ohos.permission.PRINT` permission is required.
-    /// <br>[`PRINT_ERROR_INVALID_PARAMETER`](crate::print::Print_ErrorCode::PRINT_ERROR_INVALID_PARAMETER): The jobStateChangedCb is null.
-    /// <br>[`PRINT_ERROR_GENERIC_FAILURE`](crate::print::Print_ErrorCode::PRINT_ERROR_GENERIC_FAILURE): The callback function cannot be copied.
-    /// <br>[`PRINT_ERROR_RPC_FAILURE`](crate::print::Print_ErrorCode::PRINT_ERROR_RPC_FAILURE): Failed to connect to the print service.
-    /// <br>[`PRINT_ERROR_SERVER_FAILURE`](crate::print::Print_ErrorCode::PRINT_ERROR_SERVER_FAILURE): The print job struct cannot be created in the print service.
-    /// <br>[`PRINT_ERROR_INVALID_PRINTER`](crate::print::Print_ErrorCode::PRINT_ERROR_INVALID_PRINTER): Failed to find the specified printer in the list of connected printers.
-    /// <br>[`PRINT_ERROR_INVALID_PRINT_JOB`](crate::print::Print_ErrorCode::PRINT_ERROR_INVALID_PRINT_JOB): Print job cannot be found in the job queue.
+    ///   <br>[`PRINT_ERROR_NO_PERMISSION`](crate::print::Print_ErrorCode::PRINT_ERROR_NO_PERMISSION): The `ohos.permission.PRINT` permission is required.
+    ///   <br>[`PRINT_ERROR_INVALID_PARAMETER`](crate::print::Print_ErrorCode::PRINT_ERROR_INVALID_PARAMETER): The jobStateChangedCb is null.
+    ///   <br>[`PRINT_ERROR_GENERIC_FAILURE`](crate::print::Print_ErrorCode::PRINT_ERROR_GENERIC_FAILURE): The callback function cannot be copied.
+    ///   <br>[`PRINT_ERROR_RPC_FAILURE`](crate::print::Print_ErrorCode::PRINT_ERROR_RPC_FAILURE): Failed to connect to the print service.
+    ///   <br>[`PRINT_ERROR_SERVER_FAILURE`](crate::print::Print_ErrorCode::PRINT_ERROR_SERVER_FAILURE): The print job struct cannot be created in the print service.
+    ///   <br>[`PRINT_ERROR_INVALID_PRINTER`](crate::print::Print_ErrorCode::PRINT_ERROR_INVALID_PRINTER): Failed to find the specified printer in the list of connected printers.
+    ///   <br>[`PRINT_ERROR_INVALID_PRINT_JOB`](crate::print::Print_ErrorCode::PRINT_ERROR_INVALID_PRINT_JOB): Print job cannot be found in the job queue.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]

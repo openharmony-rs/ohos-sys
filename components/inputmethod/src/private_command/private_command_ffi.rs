@@ -30,7 +30,7 @@ extern "C" {
     /// # Returns
     ///
     /// * If the creation succeeds, a pointer to the newly created [`InputMethod_PrivateCommand`](crate::private_command::InputMethod_PrivateCommand)
-    /// instance is returned. If the creation fails, NULL is returned, possible cause is insufficient memory.
+    ///   instance is returned. If the creation fails, NULL is returned, possible cause is insufficient memory.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -62,9 +62,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
-    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
+    ///   [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    ///   [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    ///   Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -85,9 +85,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
-    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
+    ///   [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    ///   [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    ///   Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -107,9 +107,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
-    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
+    ///   [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    ///   [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    ///   Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -131,9 +131,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
-    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
+    ///   [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    ///   [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    ///   Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -156,9 +156,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
-    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
+    ///   [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    ///   [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    ///   Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -175,14 +175,14 @@ extern "C" {
     /// * `command` - Represents a pointer to an [`InputMethod_PrivateCommand`](crate::private_command::InputMethod_PrivateCommand) instance which will be get value from.
     ///
     /// * `type` - Represents a pointer to a [`InputMethod_CommandValueType`](crate::types::InputMethod_CommandValueType) instance. Indicates the data type of the
-    /// value.
+    ///   value.
     ///
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
-    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
+    ///   [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    ///   [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    ///   Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -202,10 +202,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
-    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
-    /// [`IME_ERR_QUERY_FAILED`](crate::types::InputMethodErrorCode::QUERY_FAILED) - query failed, no bool value in command.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
+    ///   [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    ///   [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    ///   [`IME_ERR_QUERY_FAILED`](crate::types::InputMethodErrorCode::QUERY_FAILED) - query failed, no bool value in command.
+    ///   Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -225,10 +225,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
-    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
-    /// [`IME_ERR_QUERY_FAILED`](crate::types::InputMethodErrorCode::QUERY_FAILED) - query failed, no integer value in command.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
+    ///   [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    ///   [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    ///   [`IME_ERR_QUERY_FAILED`](crate::types::InputMethodErrorCode::QUERY_FAILED) - query failed, no integer value in command.
+    ///   Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -250,10 +250,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
-    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
-    /// [`IME_ERR_QUERY_FAILED`](crate::types::InputMethodErrorCode::QUERY_FAILED) - query failed, no string value in command.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
+    ///   [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    ///   [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    ///   [`IME_ERR_QUERY_FAILED`](crate::types::InputMethodErrorCode::QUERY_FAILED) - query failed, no string value in command.
+    ///   Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]

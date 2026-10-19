@@ -61,7 +61,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Return the pointer to the native API abstract object that carries the size.
-    /// If the type is incorrect, a null pointer is returned.
+    ///   If the type is incorrect, a null pointer is returned.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Web.Webview.Core

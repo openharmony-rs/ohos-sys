@@ -13,26 +13,26 @@ extern "C" {
     /// * `cert` - Certificate to be verified.
     ///
     /// * `caCert` - Certificate specified by the user. If this parameter is left blank, the preset certificate is used for
-    /// verification.
+    ///   verification.
     ///
     /// # Returns
     ///
     /// * **0**: Success.
-    /// <br>**2305001**: Unknown error.
-    /// <br>**2305002**: Failed to obtain the issuer certificate.
-    /// <br>**2305003**: Failed to obtain the certificate revocation list (CRL).
-    /// <br>**2305004**: Failed to decrypt the certificate signature.
-    /// <br>**2305005**: Failed to decrypt the CRL signature.
-    /// <br>**2305006**: Failed to decode the issuer public key.
-    /// <br>**2305007**: Failed to sign the certificate.
-    /// <br>**2305008**: Failed to sign the CRL.
-    /// <br>**2305009**: Certificate not activated.
-    /// <br>**2305010**: Certificate expired.
-    /// <br>**2305011**: CRL not activated.
-    /// <br>**2305012**: CRL expired.
-    /// <br>**2305023**: Certificate revoked.
-    /// <br>**2305024**: Invalid certificate authority (CA).
-    /// <br>**2305027**: Untrusted certificate.
+    ///   <br>**2305001**: Unknown error.
+    ///   <br>**2305002**: Failed to obtain the issuer certificate.
+    ///   <br>**2305003**: Failed to obtain the certificate revocation list (CRL).
+    ///   <br>**2305004**: Failed to decrypt the certificate signature.
+    ///   <br>**2305005**: Failed to decrypt the CRL signature.
+    ///   <br>**2305006**: Failed to decode the issuer public key.
+    ///   <br>**2305007**: Failed to sign the certificate.
+    ///   <br>**2305008**: Failed to sign the CRL.
+    ///   <br>**2305009**: Certificate not activated.
+    ///   <br>**2305010**: Certificate expired.
+    ///   <br>**2305011**: CRL not activated.
+    ///   <br>**2305012**: CRL expired.
+    ///   <br>**2305023**: Certificate revoked.
+    ///   <br>**2305024**: Invalid certificate authority (CA).
+    ///   <br>**2305027**: Untrusted certificate.
     ///
     /// Required System Capabilities: SystemCapability.Communication.NetStack
     ///
@@ -56,8 +56,8 @@ extern "C" {
     /// # Returns
     ///
     /// * **0**: Success.
-    /// <br>**401**: Parameter error.
-    /// <br>**2305999**: Memory error.
+    ///   <br>**401**: Parameter error.
+    ///   <br>**2305999**: Memory error.
     ///
     /// Required System Capabilities: SystemCapability.Communication.NetStack
     ///
@@ -81,8 +81,8 @@ extern "C" {
     /// # Returns
     ///
     /// * **0**: Success.
-    /// <br>**401**: Parameter error.
-    /// <br>**2305999**: Memory error.
+    ///   <br>**401**: Parameter error.
+    ///   <br>**2305999**: Memory error.
     ///
     /// Required System Capabilities: SystemCapability.Communication.NetStack
     ///
@@ -117,12 +117,12 @@ extern "C" {
     /// # Returns
     ///
     /// * **0**: Success.
-    /// <br>**201**: Permission denied.
-    /// <br>**401**: Parameter error.
+    ///   <br>**201**: Permission denied.
+    ///   <br>**401**: Parameter error.
     /// # Arguments
     ///
     /// * `isCleartextPermitted` - Boolean value indicating whether plaintext HTTP is allowed. The value **true** means
-    /// that plaintext HTTP is allowed, and the value **false** means the opposite.
+    ///   that plaintext HTTP is allowed, and the value **false** means the opposite.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -136,14 +136,14 @@ extern "C" {
     /// # Returns
     ///
     /// * **0**: Success.
-    /// <br>**201**: Permission denied.
-    /// <br>**401**: Parameter error.
+    ///   <br>**201**: Permission denied.
+    ///   <br>**401**: Parameter error.
     /// # Arguments
     ///
     /// * `hostname` - Host name.
     ///
     /// * `isCleartextPermitted` - Boolean value indicating whether host name–based plaintext HTTP is allowed. The value **
-    /// true** means that host name–based plaintext HTTP is allowed, and the value **false** means the opposite.
+    ///   true** means that host name–based plaintext HTTP is allowed, and the value **false** means the opposite.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -158,13 +158,13 @@ extern "C" {
     /// # Returns
     ///
     /// * **0**: Success.
-    /// <br>**2100001**: Invalid parameter value.
+    ///   <br>**2100001**: Invalid parameter value.
     /// # Arguments
     ///
     /// * `component` - Component name. The following components are supported: Network Kit and ArkWeb.
     ///
     /// * `componentCfg` - Output parameter, which indicates whether plaintext HTTP interception is enabled. The value **
-    /// true** indicates that plaintext HTTP interception is enabled, and the value **false** indicates the opposite.
+    ///   true** indicates that plaintext HTTP interception is enabled, and the value **false** indicates the opposite.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -190,25 +190,25 @@ extern "C" {
     /// * `hostname` - The expected server hostname.
     ///
     /// * `outSortedChain` - Pointer to receive the sorted certificate chain.
-    /// Can be NULL if the caller does not need the chain data.
-    /// Valid only if return value is 0.
-    /// Allocated memory must be freed using OH_NetStack_FreeCertChain.
+    ///   Can be NULL if the caller does not need the chain data.
+    ///   Valid only if return value is 0.
+    ///   Allocated memory must be freed using OH_NetStack_FreeCertChain.
     ///
     /// * `outSortedCount` - Pointer to receive the count of sorted certificates.
     ///
     /// # Returns
     ///
     /// * 0 - success.
-    /// 2305001 - Unspecified error.
-    /// 2305002 - Unable to get issuer certificate.
-    /// 2305004 - Unable to decrypt certificate signature.
-    /// 2305006 - Unable to decode issuer public key.
-    /// 2305007 - Certificate signature failure.
-    /// 2305009 - Certificate is not yet valid.
-    /// 2305010 - Certificate has expired.
-    /// 2305024 - Invalid certificate authority (CA).
-    /// 2305062 - Hostname verification failed.
-    /// 2305027 - Certificate is untrusted.
+    ///   2305001 - Unspecified error.
+    ///   2305002 - Unable to get issuer certificate.
+    ///   2305004 - Unable to decrypt certificate signature.
+    ///   2305006 - Unable to decode issuer public key.
+    ///   2305007 - Certificate signature failure.
+    ///   2305009 - Certificate is not yet valid.
+    ///   2305010 - Certificate has expired.
+    ///   2305024 - Invalid certificate authority (CA).
+    ///   2305062 - Hostname verification failed.
+    ///   2305027 - Certificate is untrusted.
     ///
     /// Available since API-level: 26
     ///
@@ -233,7 +233,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `certChain` - The certificate chain pointer received from outSortedChain.
-    /// If NULL, this function does nothing.
+    ///   If NULL, this function does nothing.
     ///
     /// * `certCount` - The number of certificates in the chain.
     ///

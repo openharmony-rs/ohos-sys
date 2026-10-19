@@ -15,10 +15,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Pointer to the created font collection object. The font collection pointer object created by this function
-    /// can only be used by one [`OH_Drawing_TypographyCreate`](crate::text_declaration::OH_Drawing_TypographyCreate) object and does not support shared use among
-    /// multiple OH_Drawing_TypographyCreate objects. To share the same OH_Drawing_FontCollection among multiple
-    /// OH_Drawing_TypographyCreate objects, use the [`OH_Drawing_CreateSharedFontCollection`](crate::font_collection::OH_Drawing_CreateSharedFontCollection) function to create
-    /// the OH_Drawing_FontCollection object.
+    ///   can only be used by one [`OH_Drawing_TypographyCreate`](crate::text_declaration::OH_Drawing_TypographyCreate) object and does not support shared use among
+    ///   multiple OH_Drawing_TypographyCreate objects. To share the same OH_Drawing_FontCollection among multiple
+    ///   OH_Drawing_TypographyCreate objects, use the [`OH_Drawing_CreateSharedFontCollection`](crate::font_collection::OH_Drawing_CreateSharedFontCollection) function to create
+    ///   the OH_Drawing_FontCollection object.
     ///
     /// Available since API-level: 8
     ///
@@ -66,7 +66,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `fontCollection` - Pointer to the font collection object [`OH_Drawing_FontCollection`](crate::text_declaration::OH_Drawing_FontCollection) for which system fonts
-    /// are to be disabled.
+    ///   are to be disabled.
     ///
     /// Available since API-level: 12
     ///
@@ -84,7 +84,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Pointer to the created font collection object, which can be used by multiple
-    /// [`OH_Drawing_TypographyCreate`](crate::text_declaration::OH_Drawing_TypographyCreate) objects.
+    ///   [`OH_Drawing_TypographyCreate`](crate::text_declaration::OH_Drawing_TypographyCreate) objects.
     ///
     /// Available since API-level: 12
     ///
@@ -116,7 +116,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Pointer to the global font collection object, which can be used by multiple
-    /// [`OH_Drawing_TypographyCreate`](crate::text_declaration::OH_Drawing_TypographyCreate) objects and is prohibited from being released.
+    ///   [`OH_Drawing_TypographyCreate`](crate::text_declaration::OH_Drawing_TypographyCreate) objects and is prohibited from being released.
     ///
     /// Available since API-level: 14
     ///

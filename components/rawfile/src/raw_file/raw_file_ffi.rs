@@ -17,17 +17,17 @@ extern "C" {
     /// # Arguments
     ///
     /// * `rawFile` - Input parameter. Pointer to a `RawFile` object, which is obtained through
-    /// [`OH_ResourceManager_OpenRawFile`](crate::raw_file_manager::OH_ResourceManager_OpenRawFile).
+    ///   [`OH_ResourceManager_OpenRawFile`](crate::raw_file_manager::OH_ResourceManager_OpenRawFile).
     ///
     /// * `buf` - Output parameter. Pointer to the buffer for receiving the read data. The memory is allocated by you and
-    /// needs to be freed after use.
+    ///   needs to be freed after use.
     ///
     /// * `length` - Input parameter. Expected length of data to be read, in bytes.
     ///
     /// # Returns
     ///
     /// * Length of the data read. If the file has been read and no data is available for reading, or if `rawFile` is
-    /// `NULL`, `0` is returned.
+    ///   `NULL`, `0` is returned.
     ///
     /// Available since API-level: 8
     ///
@@ -42,22 +42,22 @@ extern "C" {
     /// # Arguments
     ///
     /// * `rawFile` - Input parameter. Pointer to a `RawFile` object, which is obtained through
-    /// [`OH_ResourceManager_OpenRawFile`](crate::raw_file_manager::OH_ResourceManager_OpenRawFile).
+    ///   [`OH_ResourceManager_OpenRawFile`](crate::raw_file_manager::OH_ResourceManager_OpenRawFile).
     ///
     /// * `offset` - Input parameter. Specified offset. The value is an integer. A positive value indicates backward offset,
-    /// and a negative value indicates forward offset. The unit is bytes.
+    ///   and a negative value indicates forward offset. The unit is bytes.
     ///
     /// * `whence` - Input parameter. Offset mode. The value can be `0`, `1`, or `2`.
-    /// <br>`0`: The offset is calculated from the beginning of the file.
-    /// <br>`1`: The offset is calculated from the current position.
-    /// <br>`2`: The offset is calculated from the end of the file.
+    ///   <br>`0`: The offset is calculated from the beginning of the file.
+    ///   <br>`1`: The offset is calculated from the current position.
+    ///   <br>`2`: The offset is calculated from the end of the file.
     ///
     /// # Returns
     ///
     /// * Seeking result.
-    /// <br>**0**: The operation is successful and the file offset is moved to the specified position.
-    /// <br>**-1**: The operation fails and the file offset remains unchanged. Possible cause: `rawFile` is `NULL`,
-    /// `offset` is out the file range, or `whence` is invalid.
+    ///   <br>**0**: The operation is successful and the file offset is moved to the specified position.
+    ///   <br>**-1**: The operation fails and the file offset remains unchanged. Possible cause: `rawFile` is `NULL`,
+    ///   `offset` is out the file range, or `whence` is invalid.
     ///
     /// Available since API-level: 8
     ///
@@ -72,7 +72,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `rawFile` - Input parameter. Pointer to a `RawFile` object, which is obtained through
-    /// [`OH_ResourceManager_OpenRawFile`](crate::raw_file_manager::OH_ResourceManager_OpenRawFile).
+    ///   [`OH_ResourceManager_OpenRawFile`](crate::raw_file_manager::OH_ResourceManager_OpenRawFile).
     ///
     /// # Returns
     ///
@@ -87,7 +87,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `rawFile` - Input parameter. Pointer to a `RawFile` object, which is obtained through
-    /// [`OH_ResourceManager_OpenRawFile`](crate::raw_file_manager::OH_ResourceManager_OpenRawFile).
+    ///   [`OH_ResourceManager_OpenRawFile`](crate::raw_file_manager::OH_ResourceManager_OpenRawFile).
     ///
     /// # Returns
     ///
@@ -106,8 +106,8 @@ extern "C" {
     /// # Arguments
     ///
     /// * `rawFile` - Input parameter. Pointer to a `RawFile` object, which is obtained through
-    /// [`OH_ResourceManager_OpenRawFile`](crate::raw_file_manager::OH_ResourceManager_OpenRawFile). After the release, the pointer becomes invalid and cannot be used for
-    /// other operations.
+    ///   [`OH_ResourceManager_OpenRawFile`](crate::raw_file_manager::OH_ResourceManager_OpenRawFile). After the release, the pointer becomes invalid and cannot be used for
+    ///   other operations.
     ///
     /// **See also:** [`OH_ResourceManager_OpenRawFile`](crate::raw_file_manager::OH_ResourceManager_OpenRawFile)
     ///
@@ -121,7 +121,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `rawFile` - Input parameter. Pointer to a `RawFile` object, which is obtained through
-    /// [`OH_ResourceManager_OpenRawFile`](crate::raw_file_manager::OH_ResourceManager_OpenRawFile).
+    ///   [`OH_ResourceManager_OpenRawFile`](crate::raw_file_manager::OH_ResourceManager_OpenRawFile).
     ///
     /// # Returns
     ///
@@ -137,11 +137,11 @@ extern "C" {
     /// # Arguments
     ///
     /// * `rawFile` - Input parameter. Pointer to a `RawFile` object, which is obtained through
-    /// [`OH_ResourceManager_OpenRawFile`](crate::raw_file_manager::OH_ResourceManager_OpenRawFile).
+    ///   [`OH_ResourceManager_OpenRawFile`](crate::raw_file_manager::OH_ResourceManager_OpenRawFile).
     ///
     /// * `descriptor` - Output parameter. Reference to the [`RawFileDescriptor`](crate::RawFileDescriptor) object, After use, you must call
-    /// [`OH_ResourceManager_ReleaseRawFileDescriptor`](crate::raw_file::OH_ResourceManager_ReleaseRawFileDescriptor) to release the file descriptor, preventing file descriptor
-    /// leakage.
+    ///   [`OH_ResourceManager_ReleaseRawFileDescriptor`](crate::raw_file::OH_ResourceManager_ReleaseRawFileDescriptor) to release the file descriptor, preventing file descriptor
+    ///   leakage.
     ///
     /// # Returns
     ///
@@ -168,16 +168,16 @@ extern "C" {
     /// # Arguments
     ///
     /// * `rawFile` - Input parameter. Pointer to a `RawFile` object, which is obtained through
-    /// [`OH_ResourceManager_OpenRawFile`](crate::raw_file_manager::OH_ResourceManager_OpenRawFile).
+    ///   [`OH_ResourceManager_OpenRawFile`](crate::raw_file_manager::OH_ResourceManager_OpenRawFile).
     ///
     /// * `descriptor` - Output parameter. Pointer to the `RawFileDescriptor` object, which is used to return the file
-    /// descriptor information. After use, you must call [`OH_ResourceManager_ReleaseRawFileDescriptorData`](crate::raw_file::OH_ResourceManager_ReleaseRawFileDescriptorData) to
-    /// release the file descriptor, preventing file descriptor leakage.
+    ///   descriptor information. After use, you must call [`OH_ResourceManager_ReleaseRawFileDescriptorData`](crate::raw_file::OH_ResourceManager_ReleaseRawFileDescriptorData) to
+    ///   release the file descriptor, preventing file descriptor leakage.
     ///
     /// # Returns
     ///
     /// * Obtaining result. If the operation is successful, `true` is returned. If the operation fails, `false` is
-    /// returned. The possible cause is that `rawFile` or `descriptor` is `NULL` or the access to the rawfile is denied.
+    ///   returned. The possible cause is that `rawFile` or `descriptor` is `NULL` or the access to the rawfile is denied.
     ///
     /// Available since API-level: 12
     ///
@@ -198,7 +198,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Release result. If the operation is successful, `true` is returned. If the operation fails, `false` is
-    /// returned. The possible cause is that `descriptor` is `NULL` or the file descriptor has been released.
+    ///   returned. The possible cause is that `descriptor` is `NULL` or the file descriptor has been released.
     ///
     /// Available since API-level: 8
     ///
@@ -224,7 +224,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Release result. If the operation is successful, `true` is returned. If the operation fails, `false` is
-    /// returned. The possible cause is that `descriptor` is `NULL` or the file descriptor has been released.
+    ///   returned. The possible cause is that `descriptor` is `NULL` or the file descriptor has been released.
     ///
     /// Available since API-level: 12
     ///
@@ -242,17 +242,17 @@ extern "C" {
     /// # Arguments
     ///
     /// * `rawFile` - Input parameter. Pointer to a `RawFile64` object, which is obtained through
-    /// [`OH_ResourceManager_OpenRawFile64`](crate::raw_file_manager::OH_ResourceManager_OpenRawFile64).
+    ///   [`OH_ResourceManager_OpenRawFile64`](crate::raw_file_manager::OH_ResourceManager_OpenRawFile64).
     ///
     /// * `buf` - Output parameter. Pointer to the buffer for receiving the read data. The memory is allocated by you and
-    /// needs to be freed after use.
+    ///   needs to be freed after use.
     ///
     /// * `length` - Input parameter. Expected length of data to be read, in bytes.
     ///
     /// # Returns
     ///
     /// * Length of the data read. If the file has been read and no data is available for reading, or if `rawFile` is
-    /// `NULL`, `0` is returned.
+    ///   `NULL`, `0` is returned.
     ///
     /// Available since API-level: 11
     ///
@@ -270,22 +270,22 @@ extern "C" {
     /// # Arguments
     ///
     /// * `rawFile` - Input parameter. Pointer to a `RawFile64` object, which is obtained through
-    /// [`OH_ResourceManager_OpenRawFile64`](crate::raw_file_manager::OH_ResourceManager_OpenRawFile64).
+    ///   [`OH_ResourceManager_OpenRawFile64`](crate::raw_file_manager::OH_ResourceManager_OpenRawFile64).
     ///
     /// * `offset` - Input parameter. Specified offset. The value is an integer. A positive value indicates backward offset,
-    /// and a negative value indicates forward offset. The unit is bytes.
+    ///   and a negative value indicates forward offset. The unit is bytes.
     ///
     /// * `whence` - Input parameter. Offset mode. The value can be `0`, `1`, or `2`.
-    /// <br>`0`: The offset is calculated from the beginning of the file.
-    /// <br>`1`: The offset is calculated from the current position.
-    /// <br>`2`: The offset is calculated from the end of the file.
+    ///   <br>`0`: The offset is calculated from the beginning of the file.
+    ///   <br>`1`: The offset is calculated from the current position.
+    ///   <br>`2`: The offset is calculated from the end of the file.
     ///
     /// # Returns
     ///
     /// * Seeking result.
-    /// <br>**0**: The operation is successful and the file offset is moved to the specified position.
-    /// <br>**-1**: The operation fails and the file offset remains unchanged. Possible cause: `rawFile` is `NULL`,
-    /// `offset` is out the file range, or `whence` is invalid.
+    ///   <br>**0**: The operation is successful and the file offset is moved to the specified position.
+    ///   <br>**-1**: The operation fails and the file offset remains unchanged. Possible cause: `rawFile` is `NULL`,
+    ///   `offset` is out the file range, or `whence` is invalid.
     ///
     /// Available since API-level: 11
     ///
@@ -302,7 +302,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `rawFile` - Input parameter. Pointer to a `RawFile64` object, which is obtained through
-    /// [`OH_ResourceManager_OpenRawFile64`](crate::raw_file_manager::OH_ResourceManager_OpenRawFile64).
+    ///   [`OH_ResourceManager_OpenRawFile64`](crate::raw_file_manager::OH_ResourceManager_OpenRawFile64).
     ///
     /// # Returns
     ///
@@ -320,7 +320,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `rawFile` - Input parameter. Pointer to a `RawFile64` object, which is obtained through
-    /// [`OH_ResourceManager_OpenRawFile64`](crate::raw_file_manager::OH_ResourceManager_OpenRawFile64).
+    ///   [`OH_ResourceManager_OpenRawFile64`](crate::raw_file_manager::OH_ResourceManager_OpenRawFile64).
     ///
     /// # Returns
     ///
@@ -337,8 +337,8 @@ extern "C" {
     /// # Arguments
     ///
     /// * `rawFile` - Input parameter. Pointer to a `RawFile64` object, which is obtained through
-    /// [`OH_ResourceManager_OpenRawFile64`](crate::raw_file_manager::OH_ResourceManager_OpenRawFile64). After the release, the pointer becomes invalid and cannot be used for
-    /// other operations.
+    ///   [`OH_ResourceManager_OpenRawFile64`](crate::raw_file_manager::OH_ResourceManager_OpenRawFile64). After the release, the pointer becomes invalid and cannot be used for
+    ///   other operations.
     ///
     /// **See also:** [`OH_ResourceManager_OpenRawFile64`](crate::raw_file_manager::OH_ResourceManager_OpenRawFile64)
     ///
@@ -355,7 +355,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `rawFile` - Input parameter. Pointer to a `RawFile64` object, which is obtained through
-    /// [`OH_ResourceManager_OpenRawFile64`](crate::raw_file_manager::OH_ResourceManager_OpenRawFile64).
+    ///   [`OH_ResourceManager_OpenRawFile64`](crate::raw_file_manager::OH_ResourceManager_OpenRawFile64).
     ///
     /// # Returns
     ///
@@ -373,16 +373,16 @@ extern "C" {
     /// # Arguments
     ///
     /// * `rawFile` - Input parameter. Pointer to a `RawFile64` object, which is obtained through
-    /// [`OH_ResourceManager_OpenRawFile64`](crate::raw_file_manager::OH_ResourceManager_OpenRawFile64).
+    ///   [`OH_ResourceManager_OpenRawFile64`](crate::raw_file_manager::OH_ResourceManager_OpenRawFile64).
     ///
     /// * `descriptor` - Output parameter. Pointer to the `RawFileDescriptor64` object, which is used to return the file
-    /// descriptor information. After use, you must call [`OH_ResourceManager_ReleaseRawFileDescriptor64`](crate::raw_file::OH_ResourceManager_ReleaseRawFileDescriptor64) to
-    /// release the file descriptor, preventing file descriptor leakage.
+    ///   descriptor information. After use, you must call [`OH_ResourceManager_ReleaseRawFileDescriptor64`](crate::raw_file::OH_ResourceManager_ReleaseRawFileDescriptor64) to
+    ///   release the file descriptor, preventing file descriptor leakage.
     ///
     /// # Returns
     ///
     /// * Obtaining result. If the operation is successful, `true` is returned. If the operation fails, `false` is
-    /// returned. The possible cause is that `rawFile` or `descriptor` is `NULL` or the access to the rawfile is denied.
+    ///   returned. The possible cause is that `rawFile` or `descriptor` is `NULL` or the access to the rawfile is denied.
     ///
     /// Available since API-level: 11
     ///
@@ -399,12 +399,12 @@ extern "C" {
     /// # Arguments
     ///
     /// * `descriptor` - Input parameter. Pointer to the `RawFileDescriptor64` object to be released, which is obtained
-    /// through [`OH_ResourceManager_GetRawFileDescriptor64`](crate::raw_file::OH_ResourceManager_GetRawFileDescriptor64).
+    ///   through [`OH_ResourceManager_GetRawFileDescriptor64`](crate::raw_file::OH_ResourceManager_GetRawFileDescriptor64).
     ///
     /// # Returns
     ///
     /// * Release result. If the operation is successful, `true` is returned. If the operation fails, `false` is
-    /// returned. The possible cause is that `descriptor` is `NULL` or the file descriptor has been released.
+    ///   returned. The possible cause is that `descriptor` is `NULL` or the file descriptor has been released.
     ///
     /// Available since API-level: 11
     ///

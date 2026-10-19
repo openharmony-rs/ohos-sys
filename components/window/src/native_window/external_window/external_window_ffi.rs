@@ -1001,7 +1001,7 @@ extern "C" {
     /// # Returns
     ///
     /// * `NATIVE_ERROR_OK` 0 - Success.
-    /// `NATIVE_ERROR_INVALID_ARGUMENTS` 40001000 - parcel is NULL or window is NULL.
+    ///   `NATIVE_ERROR_INVALID_ARGUMENTS` 40001000 - parcel is NULL or window is NULL.
     ///
     /// Available since API-level: 12
     ///
@@ -1028,7 +1028,7 @@ extern "C" {
     /// # Returns
     ///
     /// * `NATIVE_ERROR_OK` 0 - Success.
-    /// `NATIVE_ERROR_INVALID_ARGUMENTS` 40001000 - parcel is NULL or parcel does not contain the window.
+    ///   `NATIVE_ERROR_INVALID_ARGUMENTS` 40001000 - parcel is NULL or parcel does not contain the window.
     ///
     /// Available since API-level: 12
     ///
@@ -1064,8 +1064,8 @@ extern "C" {
     /// # Returns
     ///
     /// * `NATIVE_ERROR_OK` 0 - Success.
-    /// `NATIVE_ERROR_INVALID_ARGUMENTS` 40001000 - window is NULL or buffer is NULL or fenceFd is NULL.
-    /// `NATIVE_ERROR_BUFFER_STATE_INVALID` 41207000 - buffer state is wrong.
+    ///   `NATIVE_ERROR_INVALID_ARGUMENTS` 40001000 - window is NULL or buffer is NULL or fenceFd is NULL.
+    ///   `NATIVE_ERROR_BUFFER_STATE_INVALID` 41207000 - buffer state is wrong.
     ///
     /// Available since API-level: 12
     ///
@@ -1094,8 +1094,8 @@ extern "C" {
     /// # Returns
     ///
     /// * `NATIVE_ERROR_OK` 0 - Success.
-    /// `NATIVE_ERROR_INVALID_ARGUMENTS` 40001000 - window is NULL.
-    /// `NATIVE_ERROR_BUFFER_STATE_INVALID` 41207000 - Incorrect colorSpace state.
+    ///   `NATIVE_ERROR_INVALID_ARGUMENTS` 40001000 - window is NULL.
+    ///   `NATIVE_ERROR_BUFFER_STATE_INVALID` 41207000 - Incorrect colorSpace state.
     ///
     /// Available since API-level: 12
     ///
@@ -1122,8 +1122,8 @@ extern "C" {
     /// # Returns
     ///
     /// * `NATIVE_ERROR_OK` 0 - Success.
-    /// `NATIVE_ERROR_INVALID_ARGUMENTS` 40001000 - window is NULL.
-    /// `NATIVE_ERROR_BUFFER_STATE_INVALID` 41207000 - Incorrect colorSpace state.
+    ///   `NATIVE_ERROR_INVALID_ARGUMENTS` 40001000 - window is NULL.
+    ///   `NATIVE_ERROR_BUFFER_STATE_INVALID` 41207000 - Incorrect colorSpace state.
     ///
     /// Available since API-level: 12
     ///
@@ -1154,9 +1154,9 @@ extern "C" {
     /// # Returns
     ///
     /// * `NATIVE_ERROR_OK` 0 - Success.
-    /// `NATIVE_ERROR_INVALID_ARGUMENTS` 40001000 - window or metadata is NULL.
-    /// `NATIVE_ERROR_BUFFER_STATE_INVALID` 41207000 - Incorrect metadata state.
-    /// `NATIVE_ERROR_UNSUPPORTED` 50102000 - Unsupported metadata key.
+    ///   `NATIVE_ERROR_INVALID_ARGUMENTS` 40001000 - window or metadata is NULL.
+    ///   `NATIVE_ERROR_BUFFER_STATE_INVALID` 41207000 - Incorrect metadata state.
+    ///   `NATIVE_ERROR_UNSUPPORTED` 50102000 - Unsupported metadata key.
     ///
     /// Available since API-level: 12
     ///
@@ -1189,9 +1189,9 @@ extern "C" {
     /// # Returns
     ///
     /// * `NATIVE_ERROR_OK` 0 - Success.
-    /// `NATIVE_ERROR_INVALID_ARGUMENTS` 40001000 - window, metadata, or size is NULL.
-    /// `NATIVE_ERROR_BUFFER_STATE_INVALID` 41207000 - Incorrect metadata state.
-    /// `NATIVE_ERROR_UNSUPPORTED` 50102000 - Unsupported metadata key.
+    ///   `NATIVE_ERROR_INVALID_ARGUMENTS` 40001000 - window, metadata, or size is NULL.
+    ///   `NATIVE_ERROR_BUFFER_STATE_INVALID` 41207000 - Incorrect metadata state.
+    ///   `NATIVE_ERROR_UNSUPPORTED` 50102000 - Unsupported metadata key.
     ///
     /// Available since API-level: 12
     ///
@@ -1217,9 +1217,9 @@ extern "C" {
     /// # Returns
     ///
     /// * `NATIVE_ERROR_OK` 0 - Success.
-    /// `NATIVE_ERROR_INVALID_ARGUMENTS` 40001000 - window is NULL.
-    /// `NATIVE_ERROR_CONSUMER_DISCONNECTED` 41211000 - the consumer is disconnected.
-    /// `NATIVE_ERROR_BINDER_ERROR` 50401000 - ipc send failed.
+    ///   `NATIVE_ERROR_INVALID_ARGUMENTS` 40001000 - window is NULL.
+    ///   `NATIVE_ERROR_CONSUMER_DISCONNECTED` 41211000 - the consumer is disconnected.
+    ///   `NATIVE_ERROR_BINDER_ERROR` 50401000 - ipc send failed.
     ///
     /// Available since API-level: 19
     ///
@@ -1275,8 +1275,8 @@ extern "C" {
     /// # Returns
     ///
     /// * `NATIVE_ERROR_OK` 0 - Success.
-    /// `NATIVE_ERROR_INVALID_ARGUMENTS` 40001000 - window or buffer is NULL.
-    /// `NATIVE_ERROR_UNKNOWN` 50002000 - surface of window is NULL.
+    ///   `NATIVE_ERROR_INVALID_ARGUMENTS` 40001000 - window or buffer is NULL.
+    ///   `NATIVE_ERROR_UNKNOWN` 50002000 - surface of window is NULL.
     ///
     /// Available since API-level: 23
     ///
@@ -1303,8 +1303,8 @@ extern "C" {
     /// # Returns
     ///
     /// * `NATIVE_ERROR_OK` 0 - Success.
-    /// `NATIVE_ERROR_INVALID_ARGUMENTS` 40001000 - window is NULL.
-    /// `NATIVE_ERROR_UNKNOWN` 50002000 - surface of window is NULL.
+    ///   `NATIVE_ERROR_INVALID_ARGUMENTS` 40001000 - window is NULL.
+    ///   `NATIVE_ERROR_UNKNOWN` 50002000 - surface of window is NULL.
     ///
     /// Available since API-level: 23
     ///
@@ -1332,9 +1332,9 @@ extern "C" {
     /// # Returns
     ///
     /// * `NATIVE_ERROR_OK` 0 - Success.
-    /// `NATIVE_ERROR_INVALID_ARGUMENTS` 40001000 - window or metadata is NULL.
-    /// `NATIVE_ERROR_UNKNOWN` 50002000 - set 3D metadata failed.
-    /// `NATIVE_ERROR_UNSUPPORTED` 50102000 - unsupported metadata key.
+    ///   `NATIVE_ERROR_INVALID_ARGUMENTS` 40001000 - window or metadata is NULL.
+    ///   `NATIVE_ERROR_UNKNOWN` 50002000 - set 3D metadata failed.
+    ///   `NATIVE_ERROR_UNSUPPORTED` 50102000 - unsupported metadata key.
     ///
     /// Available since API-level: 26
     ///
@@ -1367,9 +1367,9 @@ extern "C" {
     /// # Returns
     ///
     /// * `NATIVE_ERROR_OK` 0 - Success.
-    /// `NATIVE_ERROR_INVALID_ARGUMENTS` 40001000 - window, metadata, or size is NULL.
-    /// `NATIVE_ERROR_UNKNOWN` 50002000 - copy or allocate memory failed, otherwise get 3D metadata failed.
-    /// `NATIVE_ERROR_UNSUPPORTED` 50102000 - unsupported metadata key.
+    ///   `NATIVE_ERROR_INVALID_ARGUMENTS` 40001000 - window, metadata, or size is NULL.
+    ///   `NATIVE_ERROR_UNKNOWN` 50002000 - copy or allocate memory failed, otherwise get 3D metadata failed.
+    ///   `NATIVE_ERROR_UNSUPPORTED` 50102000 - unsupported metadata key.
     ///
     /// Available since API-level: 26
     ///

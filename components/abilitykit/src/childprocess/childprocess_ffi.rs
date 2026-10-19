@@ -174,15 +174,15 @@ pub struct Ability_ChildProcessConfigs {
 /// # Arguments
 ///
 /// * `errCode` - Error code returned by the callback function.
-/// [`NCP_NO_ERROR`](crate::childprocess::Ability_NativeChildProcessResult): The child process is created successfully.
-/// [`NCP_ERR_LIB_LOADING_FAILED`](crate::childprocess::Ability_NativeChildProcessErrorCode::LIB_LOADING_FAILED): Loading the dynamic library file fails or the necessary export function is
-/// not implemented in the dynamic library.
-/// [`NCP_ERR_CONNECTION_FAILED`](crate::childprocess::Ability_NativeChildProcessErrorCode::CONNECTION_FAILED): The **OnConnect** method implemented in the dynamic library does not return
-/// a valid IPC stub pointer.
-/// For details, see [`Ability_NativeChildProcess_ErrCode`](crate::childprocess::Ability_NativeChildProcessResult).
+///   [`NCP_NO_ERROR`](crate::childprocess::Ability_NativeChildProcessResult): The child process is created successfully.
+///   [`NCP_ERR_LIB_LOADING_FAILED`](crate::childprocess::Ability_NativeChildProcessErrorCode::LIB_LOADING_FAILED): Loading the dynamic library file fails or the necessary export function is
+///   not implemented in the dynamic library.
+///   [`NCP_ERR_CONNECTION_FAILED`](crate::childprocess::Ability_NativeChildProcessErrorCode::CONNECTION_FAILED): The **OnConnect** method implemented in the dynamic library does not return
+///   a valid IPC stub pointer.
+///   For details, see [`Ability_NativeChildProcess_ErrCode`](crate::childprocess::Ability_NativeChildProcessResult).
 ///
 /// * `remoteProxy` - Pointer to the IPC object of the child process. If an exception occurs, the value may be nullptr.
-/// The object must be released by calling `OH_IPCRemoteProxy_Destroy` when it is no longer needed.
+///   The object must be released by calling `OH_IPCRemoteProxy_Destroy` when it is no longer needed.
 ///
 /// **See also:** [`OH_Ability_CreateNativeChildProcess`](crate::childprocess::OH_Ability_CreateNativeChildProcess)
 ///
@@ -292,7 +292,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Pointer to the [`Ability_ChildProcessConfigs`](crate::childprocess::Ability_ChildProcessConfigs) object: The call is successful.
-    /// nullptr: An internal error occurs or memory allocation fails.
+    ///   nullptr: An internal error occurs or memory allocation fails.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -304,12 +304,12 @@ extern "C" {
     /// # Arguments
     ///
     /// * `configs` - Pointer to a child process configuration object. After this function is called, the object pointer
-    /// becomes invalid.
+    ///   becomes invalid.
     ///
     /// # Returns
     ///
     /// * **NCP_NO_ERROR**: The call is successful.
-    /// **NCP_ERR_INVALID_PARAM**: An input parameter is nullptr.
+    ///   **NCP_ERR_INVALID_PARAM**: An input parameter is nullptr.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -327,12 +327,12 @@ extern "C" {
     /// * `configs` - Pointer to a child process configuration object. The value cannot be nullptr.
     ///
     /// * `isolationMode` - Sharing mode of the data sandbox and network environment. For details, see **
-    /// NativeChildProcess_IsolationMode**.
+    ///   NativeChildProcess_IsolationMode**.
     ///
     /// # Returns
     ///
     /// * **NCP_NO_ERROR**: The call is successful.
-    /// **NCP_ERR_INVALID_PARAM**: The parameter **configs** is nullptr.
+    ///   **NCP_ERR_INVALID_PARAM**: The parameter **configs** is nullptr.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -349,12 +349,12 @@ extern "C" {
     /// * `configs` - Pointer to a child process configuration object. The value cannot be nullptr.
     ///
     /// * `isolationUid` - Whether the child process uses an independent UID. **true** if the child process uses an
-    /// independent UID; **false** if the child process and the main process share the same UID.
+    ///   independent UID; **false** if the child process and the main process share the same UID.
     ///
     /// # Returns
     ///
     /// * **NCP_NO_ERROR**: The call is successful.
-    /// **NCP_ERR_INVALID_PARAM**: The parameter **configs** is nullptr.
+    ///   **NCP_ERR_INVALID_PARAM**: The parameter **configs** is nullptr.
     ///
     /// Available since API-level: 21
     #[cfg(feature = "api-21")]
@@ -370,8 +370,8 @@ extern "C" {
     /// * `configs` - Pointer to a child process configuration object. The pointer cannot be null.
     ///
     /// * `processName` - Pointer to the process name, which must be a non-empty string accepting only letters, digits, and
-    /// underscores (_). The string contains a maximum of 64 characters. The final process name is in the format of {
-    /// bundleName}:{processName}.
+    ///   underscores (_). The string contains a maximum of 64 characters. The final process name is in the format of {
+    ///   bundleName}:{processName}.
     ///
     /// # Returns
     ///
@@ -396,35 +396,35 @@ extern "C" {
     /// The processing logic sequence is shown in the following pseudocode:
     /// Main process:
     /// 1. OH_Ability_CreateNativeChildProcess(libName, onProcessStartedCallback)
-    /// Child process:
+    ///    Child process:
     /// 2. dlopen(libName)
     /// 3. dlsym("NativeChildProcess_OnConnect")
     /// 4. dlsym("NativeChildProcess_MainProc")
     /// 5. ipcRemote = NativeChildProcess_OnConnect()
     /// 6. NativeChildProcess_MainProc()
-    /// Main process:
+    ///    Main process:
     /// 7. onProcessStartedCallback(ipcRemote, errCode)
-    /// Child process:
+    ///    Child process:
     /// 8. The child process exits after the NativeChildProcess_MainProc() function is returned.
     ///
     /// # Arguments
     ///
     /// * `libName` - Pointer to the name of the dynamic library file loaded in the child process. The value cannot be
-    /// nullptr.
+    ///   nullptr.
     ///
     /// * `onProcessStarted` - Pointer to the callback function for notifying the child process startup result. The value
-    /// cannot be nullptr. For details, see [`OH_Ability_OnNativeChildProcessStarted`](crate::childprocess::OH_Ability_OnNativeChildProcessStarted).
+    ///   cannot be nullptr. For details, see [`OH_Ability_OnNativeChildProcessStarted`](crate::childprocess::OH_Ability_OnNativeChildProcessStarted).
     ///
     /// # Returns
     ///
     /// * [`NCP_NO_ERROR`](crate::childprocess::Ability_NativeChildProcessResult): The call is successful, but the actual startup result is notified by the callback
-    /// function.
-    /// [`NCP_ERR_INVALID_PARAM`](crate::childprocess::Ability_NativeChildProcessErrorCode::INVALID_PARAM): The dynamic library name or callback function pointer is invalid.
-    /// [`NCP_ERR_NOT_SUPPORTED`](crate::childprocess::Ability_NativeChildProcessErrorCode::NOT_SUPPORTED): The device does not support the creation of native child processes.
-    /// [`NCP_ERR_MULTI_PROCESS_DISABLED`](crate::childprocess::Ability_NativeChildProcessErrorCode::MULTI_PROCESS_DISABLED): Multi-process mode is disabled on the device.
-    /// [`NCP_ERR_ALREADY_IN_CHILD`](crate::childprocess::Ability_NativeChildProcessErrorCode::ALREADY_IN_CHILD): A process cannot be created in a child process.
-    /// [`NCP_ERR_MAX_CHILD_PROCESSES_REACHED`](crate::childprocess::Ability_NativeChildProcessErrorCode::MAX_CHILD_PROCESSES_REACHED): The number of native child processes reaches the maximum.
-    /// For details, see [`Ability_NativeChildProcess_ErrCode`](crate::childprocess::Ability_NativeChildProcessResult).
+    ///   function.
+    ///   [`NCP_ERR_INVALID_PARAM`](crate::childprocess::Ability_NativeChildProcessErrorCode::INVALID_PARAM): The dynamic library name or callback function pointer is invalid.
+    ///   [`NCP_ERR_NOT_SUPPORTED`](crate::childprocess::Ability_NativeChildProcessErrorCode::NOT_SUPPORTED): The device does not support the creation of native child processes.
+    ///   [`NCP_ERR_MULTI_PROCESS_DISABLED`](crate::childprocess::Ability_NativeChildProcessErrorCode::MULTI_PROCESS_DISABLED): Multi-process mode is disabled on the device.
+    ///   [`NCP_ERR_ALREADY_IN_CHILD`](crate::childprocess::Ability_NativeChildProcessErrorCode::ALREADY_IN_CHILD): A process cannot be created in a child process.
+    ///   [`NCP_ERR_MAX_CHILD_PROCESSES_REACHED`](crate::childprocess::Ability_NativeChildProcessErrorCode::MAX_CHILD_PROCESSES_REACHED): The number of native child processes reaches the maximum.
+    ///   For details, see [`Ability_NativeChildProcess_ErrCode`](crate::childprocess::Ability_NativeChildProcessResult).
     ///
     /// **See also:** [`OH_Ability_OnNativeChildProcessStarted`](crate::childprocess::OH_Ability_OnNativeChildProcessStarted)
     ///
@@ -442,12 +442,12 @@ extern "C" {
     /// # Arguments
     ///
     /// * `libName` - Pointer to the name of the dynamic library file loaded in the child process. The value cannot be
-    /// nullptr.
+    ///   nullptr.
     ///
     /// * `configs` - Pointer to a child process configuration object. The value cannot be nullptr.
     ///
     /// * `onProcessStarted` - Pointer to the callback function for notifying the child process startup result. The value
-    /// cannot be nullptr. For details, see **OH_Ability_OnNativeChildProcessStarted**.
+    ///   cannot be nullptr. For details, see **OH_Ability_OnNativeChildProcessStarted**.
     ///
     /// # Returns
     ///
@@ -476,7 +476,7 @@ extern "C" {
     /// The processing logic sequence is shown in the following pseudocode:
     /// Main process:
     /// 1. OH_Ability_StartNativeChildProcess(entryPoint, args, options)
-    /// Child process:
+    ///    Child process:
     /// 2. dlopen(libName)
     /// 3. dlsym("Main")
     /// 4. Main(args)
@@ -485,7 +485,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `entry` - Pointer to the dynamic library and entry function to be loaded by the child process, for example,
-    /// **libEntry.so: Main**. The value cannot be nullptr.
+    ///   **libEntry.so: Main**. The value cannot be nullptr.
     ///
     /// * `args` - Parameters passed to the child process.
     ///
@@ -496,11 +496,11 @@ extern "C" {
     /// # Returns
     ///
     /// * **NCP_NO_ERROR**: The call is successful.
-    /// **NCP_ERR_INVALID_PARAM**: The dynamic library name or callback function pointer is invalid.
-    /// **NCP_ERR_NOT_SUPPORTED**: The device does not support the creation of native child processes.
-    /// **NCP_ERR_ALREADY_IN_CHILD**: Multi-process mode is disabled on the device.
-    /// **NCP_ERR_MAX_CHILD_PROCESSES_REACHED**: The maximum number of native child processes has been reached.
-    /// For details about the error codes, see **Ability_NativeChildProcess_ErrCode**.
+    ///   **NCP_ERR_INVALID_PARAM**: The dynamic library name or callback function pointer is invalid.
+    ///   **NCP_ERR_NOT_SUPPORTED**: The device does not support the creation of native child processes.
+    ///   **NCP_ERR_ALREADY_IN_CHILD**: Multi-process mode is disabled on the device.
+    ///   **NCP_ERR_MAX_CHILD_PROCESSES_REACHED**: The maximum number of native child processes has been reached.
+    ///   For details about the error codes, see **Ability_NativeChildProcess_ErrCode**.
     ///
     /// **See also:** [`OH_Ability_OnNativeChildProcessStarted`](crate::childprocess::OH_Ability_OnNativeChildProcessStarted)
     ///
@@ -521,7 +521,7 @@ extern "C" {
     /// The processing logic sequence is shown in the following pseudocode:
     /// Main process:
     /// 1. OH_Ability_StartNativeChildProcessWithConfigs(entryPoint, args, configs, &pid)
-    /// Child process:
+    ///    Child process:
     /// 2. dlopen(libName)
     /// 3. dlsym("Main")
     /// 4. Main(args)
@@ -530,7 +530,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `entry` - Pointer to the symbol and entry function of the dynamic library called in the child process, separated
-    /// by a colon (:), for example, **libentry.so:Main**. The value cannot be nullptr.
+    ///   by a colon (:), for example, **libentry.so:Main**. The value cannot be nullptr.
     ///
     /// * `args` - Parameters passed to the child process.
     ///
@@ -541,11 +541,11 @@ extern "C" {
     /// # Returns
     ///
     /// * **NCP_NO_ERROR**: The call is successful.
-    /// **NCP_ERR_INVALID_PARAM**: An input parameter is invalid.
-    /// **NCP_ERR_NOT_SUPPORTED**: The device does not support the creation of native child processes.
-    /// **NCP_ERR_ALREADY_IN_CHILD**: A process cannot be created in a child process.
-    /// **NCP_ERR_MAX_CHILD_PROCESSES_REACHED**: The maximum number of native child processes has been reached.
-    /// For details about the error codes, see **Ability_NativeChildProcess_ErrCode**.
+    ///   **NCP_ERR_INVALID_PARAM**: An input parameter is invalid.
+    ///   **NCP_ERR_NOT_SUPPORTED**: The device does not support the creation of native child processes.
+    ///   **NCP_ERR_ALREADY_IN_CHILD**: A process cannot be created in a child process.
+    ///   **NCP_ERR_MAX_CHILD_PROCESSES_REACHED**: The maximum number of native child processes has been reached.
+    ///   For details about the error codes, see **Ability_NativeChildProcess_ErrCode**.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -577,14 +577,14 @@ extern "C" {
     /// # Arguments
     ///
     /// * `onProcessExit` - Entry point of the callback function to be called when the child process exits. The value
-    /// cannot be nullptr.
+    ///   cannot be nullptr.
     ///
     /// # Returns
     ///
     /// * **NCP_NO_ERROR**: The call is successful.
-    /// **NCP_ERR_INVALID_PARAM**: An input parameter is invalid.
-    /// **NCP_ERR_INTERNAL**: An internal error occurs.
-    /// For details, see **Ability_NativeChildProcess_ErrCode**.
+    ///   **NCP_ERR_INVALID_PARAM**: An input parameter is invalid.
+    ///   **NCP_ERR_INTERNAL**: An internal error occurs.
+    ///   For details, see **Ability_NativeChildProcess_ErrCode**.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -597,15 +597,15 @@ extern "C" {
     /// # Arguments
     ///
     /// * `onProcessExit` - Entry point of the callback function to be called when the child process exits. The value
-    /// cannot be nullptr.
+    ///   cannot be nullptr.
     ///
     /// # Returns
     ///
     /// * **NCP_NO_ERROR**: The call is successful.
-    /// **NCP_ERR_INVALID_PARAM**: An input parameter is invalid.
-    /// **NCP_ERR_INTERNAL**: An internal error occurs.
-    /// **NCP_ERR_CALLBACK_NOT_EXIST**: The callback function is not found.
-    /// For details, see **Ability_NativeChildProcess_ErrCode**.
+    ///   **NCP_ERR_INVALID_PARAM**: An input parameter is invalid.
+    ///   **NCP_ERR_INTERNAL**: An internal error occurs.
+    ///   **NCP_ERR_CALLBACK_NOT_EXIST**: The callback function is not found.
+    ///   For details, see **Ability_NativeChildProcess_ErrCode**.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -622,9 +622,9 @@ extern "C" {
     /// # Returns
     ///
     /// * **NCP_NO_ERROR**: The call is successful.
-    /// **NCP_ERR_SERVICE_ERROR**: Server error.
-    /// **NCP_ERR_INVALID_PID**: The input PID is invalid.
-    /// For details, see **Ability_NativeChildProcess_ErrCode**.
+    ///   **NCP_ERR_SERVICE_ERROR**: Server error.
+    ///   **NCP_ERR_INVALID_PID**: The input PID is invalid.
+    ///   For details, see **Ability_NativeChildProcess_ErrCode**.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]

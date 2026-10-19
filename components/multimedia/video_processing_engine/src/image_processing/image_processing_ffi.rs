@@ -146,10 +146,10 @@ extern "C" {
     /// # Arguments
     ///
     /// * `imageProcessor` - Output parameter. The *imageProcessor points to a new image processing object.
-    /// The *imageProcessor must be null before passed in.
+    ///   The *imageProcessor must be null before passed in.
     ///
     /// * `type` - Use IMAGE_PROCESSING_TYPE_XXX to specify the processing type. The processing type of the instance can not
-    /// be changed.
+    ///   be changed.
     ///
     /// # Returns
     ///
@@ -177,7 +177,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `imageProcessor` - An image processing instance pointer. It is recommended setting the
-    /// instance pointer to null after the instance is destroyed.
+    ///   instance pointer to null after the instance is destroyed.
     ///
     /// # Returns
     ///
@@ -255,7 +255,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `imageProcessor` - An image processing instance pointer. The instance should be created with
-    /// type [`IMAGE_PROCESSING_TYPE_COLOR_SPACE_CONVERSION`](crate::image_processing_types::IMAGE_PROCESSING_TYPE_COLOR_SPACE_CONVERSION).
+    ///   type [`IMAGE_PROCESSING_TYPE_COLOR_SPACE_CONVERSION`](crate::image_processing_types::IMAGE_PROCESSING_TYPE_COLOR_SPACE_CONVERSION).
     ///
     /// * `sourceImage` - Input image pointer.
     ///
@@ -293,7 +293,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `imageProcessor` - An image processing instance pointer. The instance should be created with
-    /// type [`IMAGE_PROCESSING_TYPE_COMPOSITION`](crate::image_processing_types::IMAGE_PROCESSING_TYPE_COMPOSITION).
+    ///   type [`IMAGE_PROCESSING_TYPE_COMPOSITION`](crate::image_processing_types::IMAGE_PROCESSING_TYPE_COMPOSITION).
     ///
     /// * `sourceImage` - Input image pointer.
     ///
@@ -334,7 +334,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `imageProcessor` - An image processing instance pointer. The instance should be created with
-    /// type [`IMAGE_PROCESSING_TYPE_DECOMPOSITION`](crate::image_processing_types::IMAGE_PROCESSING_TYPE_DECOMPOSITION).
+    ///   type [`IMAGE_PROCESSING_TYPE_DECOMPOSITION`](crate::image_processing_types::IMAGE_PROCESSING_TYPE_DECOMPOSITION).
     ///
     /// * `sourceImage` - Input image pointer.
     ///
@@ -375,7 +375,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `imageProcessor` - An image processing instance pointer. The instance should be created with
-    /// type [`IMAGE_PROCESSING_TYPE_METADATA_GENERATION`](crate::image_processing_types::IMAGE_PROCESSING_TYPE_METADATA_GENERATION).
+    ///   type [`IMAGE_PROCESSING_TYPE_METADATA_GENERATION`](crate::image_processing_types::IMAGE_PROCESSING_TYPE_METADATA_GENERATION).
     ///
     /// * `sourceImage` - Input image pointer.
     ///
@@ -412,7 +412,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `imageProcessor` - An image processing instance pointer. The instance should be created with
-    /// type [`IMAGE_PROCESSING_TYPE_DETAIL_ENHANCER`](crate::image_processing_types::IMAGE_PROCESSING_TYPE_DETAIL_ENHANCER).
+    ///   type [`IMAGE_PROCESSING_TYPE_DETAIL_ENHANCER`](crate::image_processing_types::IMAGE_PROCESSING_TYPE_DETAIL_ENHANCER).
     ///
     /// * `sourceImage` - Input image pointer.
     ///

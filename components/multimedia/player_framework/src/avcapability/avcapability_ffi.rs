@@ -150,7 +150,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a capability instance if an existing codec matches,
-    /// if the specified mime type doesn't match any existing codec, returns NULL.
+    ///   if the specified mime type doesn't match any existing codec, returns NULL.
     ///
     /// Available since API-level: 10
     pub fn OH_AVCodec_GetCapability(
@@ -172,7 +172,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a capability instance if an existing codec matches,
-    /// if the specified mime type doesn't match any existing codec, returns NULL
+    ///   if the specified mime type doesn't match any existing codec, returns NULL
     ///
     /// Available since API-level: 10
     pub fn OH_AVCodec_GetCapabilityByCategory(
@@ -189,12 +189,12 @@ extern "C" {
     /// * `codecType` - The type of codec to filter by, refer to [`OH_AVCodecType`](crate::avcapability::OH_AVCodecType).
     ///
     /// * `count` - Output parameter. A pointer to a uint32_t variable that will store
-    /// the number of matched codec capabilities found.
+    ///   the number of matched codec capabilities found.
     ///
     /// # Returns
     ///
     /// * Returns a pointer to an array of [`OH_AVCapability`](crate::avcapability::OH_AVCapability) instances if matches are found;
-    /// returns NULL if no matching codecs are found or if an error occurs.
+    ///   returns NULL if no matching codecs are found or if an error occurs.
     ///
     /// **Note:** The memory for the codec capability list is managed internally.
     /// Developers MUST NOT manually allocate or free this memory.
@@ -216,7 +216,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns true if the capability instance is describing a hardware codec,
-    /// false if the capability instance is describing a software codec
+    ///   false if the capability instance is describing a software codec
     ///
     /// Available since API-level: 10
     pub fn OH_AVCapability_IsHardware(capability: *mut OH_AVCapability) -> bool;
@@ -229,7 +229,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns true if the capability instance is describing a secure codec,
-    /// false if the capability instance is describing a non-secure codec
+    ///   false if the capability instance is describing a non-secure codec
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -302,15 +302,15 @@ extern "C" {
     /// # Arguments
     ///
     /// * `capability` - Encoder capability pointer. If a decoder capability pointer is given,
-    /// undefined behavior occurs
+    ///   undefined behavior occurs
     ///
     /// * `bitrateRange` - Output parameter. Encoder bitrate range
     ///
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL), the capability is invalid, or the bitrateRange is nullptr.
+    ///   otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL), the capability is invalid, or the bitrateRange is nullptr.
     ///
     /// Available since API-level: 10
     pub fn OH_AVCapability_GetEncoderBitrateRange(
@@ -323,7 +323,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `capability` - Encoder capability pointer. If a decoder capability pointer is given,
-    /// undefined behavior occurs
+    ///   undefined behavior occurs
     ///
     /// * `bitrateMode` - Bitrate mode
     ///
@@ -342,15 +342,15 @@ extern "C" {
     /// # Arguments
     ///
     /// * `capability` - Encoder capability pointer. If a decoder capability pointer is given,
-    /// undefined behavior occurs
+    ///   undefined behavior occurs
     ///
     /// * `qualityRange` - Output parameter. Encoder quality range
     ///
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL), the capability is invalid, or the qualityRange is nullptr.
+    ///   otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL), the capability is invalid, or the qualityRange is nullptr.
     ///
     /// Available since API-level: 10
     pub fn OH_AVCapability_GetEncoderQualityRange(
@@ -363,15 +363,15 @@ extern "C" {
     /// # Arguments
     ///
     /// * `capability` - Encoder capability pointer. If a decoder capability pointer is given,
-    /// undefined behavior occurs
+    ///   undefined behavior occurs
     ///
     /// * `complexityRange` - Output parameter. Encoder complexity range
     ///
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL), the capability is invalid, or the complexityRange is nullptr.
+    ///   otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL), the capability is invalid, or the complexityRange is nullptr.
     ///
     /// Available since API-level: 10
     pub fn OH_AVCapability_GetEncoderComplexityRange(
@@ -384,7 +384,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `capability` - Audio codec capability pointer. If a video codec capability pointer is given,
-    /// undefined behavior occurs
+    ///   undefined behavior occurs
     ///
     /// * `sampleRates` - Output parameter. A pointer to the sample rates array
     ///
@@ -393,10 +393,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL), the capability is invalid, the sampleRates is nullptr, or sampleRateNum is nullptr.
-    /// [`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN), unknown error.
-    /// [`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY), internal use memory malloc failed.
+    ///   otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL), the capability is invalid, the sampleRates is nullptr, or sampleRateNum is nullptr.
+    ///   [`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN), unknown error.
+    ///   [`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY), internal use memory malloc failed.
     ///
     /// Available since API-level: 10
     pub fn OH_AVCapability_GetAudioSupportedSampleRates(
@@ -418,10 +418,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL), the capability is invalid, the sampleRateRanges is nullptr, or rangesNum is nullptr.
-    /// [`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN), unknown error.
-    /// [`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY), internal use memory malloc failed.
+    ///   otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL), the capability is invalid, the sampleRateRanges is nullptr, or rangesNum is nullptr.
+    ///   [`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN), unknown error.
+    ///   [`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY), internal use memory malloc failed.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -437,15 +437,15 @@ extern "C" {
     /// # Arguments
     ///
     /// * `capability` - Audio codec capability pointer. If a video codec capability pointer is given,
-    /// undefined behavior occurs
+    ///   undefined behavior occurs
     ///
     /// * `channelCountRange` - Output parameter. Audio channel count range
     ///
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL), the capability is invalid, or the channelCountRange is nullptr.
+    ///   otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL), the capability is invalid, or the channelCountRange is nullptr.
     ///
     /// Available since API-level: 10
     pub fn OH_AVCapability_GetAudioChannelCountRange(
@@ -458,15 +458,15 @@ extern "C" {
     /// # Arguments
     ///
     /// * `capability` - Video codec capability pointer. If an audio codec capability pointer is given,
-    /// undefined behavior occurs
+    ///   undefined behavior occurs
     ///
     /// * `widthAlignment` - Output parameter. Video width alignment
     ///
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL), the capability is invalid, or the widthAlignment is nullptr.
+    ///   otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL), the capability is invalid, or the widthAlignment is nullptr.
     ///
     /// Available since API-level: 10
     pub fn OH_AVCapability_GetVideoWidthAlignment(
@@ -479,15 +479,15 @@ extern "C" {
     /// # Arguments
     ///
     /// * `capability` - Video codec capability pointer. If an audio codec capability pointer is given,
-    /// undefined behavior occurs
+    ///   undefined behavior occurs
     ///
     /// * `heightAlignment` - Output parameter. Video height alignment
     ///
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL), the capability is invalid, or the heightAlignment is nullptr.
+    ///   otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL), the capability is invalid, or the heightAlignment is nullptr.
     ///
     /// Available since API-level: 10
     pub fn OH_AVCapability_GetVideoHeightAlignment(
@@ -500,7 +500,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `capability` - video codec capability pointer. If an audio codec capability pointer is given,
-    /// undefined behavior occurs
+    ///   undefined behavior occurs
     ///
     /// * `height` - Vertical pixel number of the video
     ///
@@ -509,9 +509,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL), the capability is invalid, the height is not within the supported range
-    /// obtained through [`OH_AVCapability_GetVideoHeightRange`](crate::avcapability::OH_AVCapability_GetVideoHeightRange), or the widthRange is nullptr.
+    ///   otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL), the capability is invalid, the height is not within the supported range
+    ///   obtained through [`OH_AVCapability_GetVideoHeightRange`](crate::avcapability::OH_AVCapability_GetVideoHeightRange), or the widthRange is nullptr.
     ///
     /// Available since API-level: 10
     pub fn OH_AVCapability_GetVideoWidthRangeForHeight(
@@ -525,7 +525,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `capability` - Video codec capability pointer. If an audio codec capability pointer is given,
-    /// undefined behavior occurs
+    ///   undefined behavior occurs
     ///
     /// * `width` - Horizontal pixel number of the video
     ///
@@ -534,9 +534,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL), the capability is invalid, the width is not within the supported range
-    /// obtained through [`OH_AVCapability_GetVideoWidthRange`](crate::avcapability::OH_AVCapability_GetVideoWidthRange), or the heightRange is nullptr.
+    ///   otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL), the capability is invalid, the width is not within the supported range
+    ///   obtained through [`OH_AVCapability_GetVideoWidthRange`](crate::avcapability::OH_AVCapability_GetVideoWidthRange), or the heightRange is nullptr.
     ///
     /// Available since API-level: 10
     pub fn OH_AVCapability_GetVideoHeightRangeForWidth(
@@ -550,15 +550,15 @@ extern "C" {
     /// # Arguments
     ///
     /// * `capability` - Video codec capability pointer. If an audio codec capability pointer is given,
-    /// undefined behavior occurs
+    ///   undefined behavior occurs
     ///
     /// * `widthRange` - Output parameter. Video width range
     ///
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL), the capability is invalid, or the widthRange is nullptr.
+    ///   otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL), the capability is invalid, or the widthRange is nullptr.
     ///
     /// Available since API-level: 10
     pub fn OH_AVCapability_GetVideoWidthRange(
@@ -571,15 +571,15 @@ extern "C" {
     /// # Arguments
     ///
     /// * `capability` - Video codec capability pointer. If an audio codec capability pointer is given,
-    /// undefined behavior occurs
+    ///   undefined behavior occurs
     ///
     /// * `heightRange` - Output parameter. Video height range
     ///
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL), the capability is invalid, or the heightRange is nullptr.
+    ///   otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL), the capability is invalid, or the heightRange is nullptr.
     ///
     /// Available since API-level: 10
     pub fn OH_AVCapability_GetVideoHeightRange(
@@ -592,7 +592,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `capability` - Video codec capability pointer. If an audio codec capability pointer is given,
-    /// undefined behavior occurs
+    ///   undefined behavior occurs
     ///
     /// * `width` - Horizontal pixel number of the video
     ///
@@ -614,15 +614,15 @@ extern "C" {
     /// # Arguments
     ///
     /// * `capability` - Video codec capability pointer. If an audio codec capability pointer is given,
-    /// undefined behavior occurs
+    ///   undefined behavior occurs
     ///
     /// * `frameRateRange` - Output parameter. Video frame rate range
     ///
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL), the capability is invalid, or the frameRateRange is nullptr.
+    ///   otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL), the capability is invalid, or the frameRateRange is nullptr.
     ///
     /// Available since API-level: 10
     pub fn OH_AVCapability_GetVideoFrameRateRange(
@@ -635,7 +635,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `capability` - Video codec capability pointer. If an audio codec capability pointer is given,
-    /// undefined behavior occurs
+    ///   undefined behavior occurs
     ///
     /// * `width` - Horizontal pixel number of the video
     ///
@@ -646,9 +646,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL), the capability is invalid, the combination of width and height is
-    /// not supported, or the frameRateRange is nullptr.
+    ///   otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL), the capability is invalid, the combination of width and height is
+    ///   not supported, or the frameRateRange is nullptr.
     ///
     /// Available since API-level: 10
     pub fn OH_AVCapability_GetVideoFrameRateRangeForSize(
@@ -663,7 +663,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `capability` - Video codec capability pointer. If an audio codec capability pointer is given,
-    /// undefined behavior occurs
+    ///   undefined behavior occurs
     ///
     /// * `width` - Horizontal pixel number of the video
     ///
@@ -674,7 +674,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns true if the combination of video size and frame rate is supported,
-    /// false if it is not supported
+    ///   false if it is not supported
     ///
     /// Available since API-level: 10
     pub fn OH_AVCapability_AreVideoSizeAndFrameRateSupported(
@@ -689,7 +689,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `capability` - Video codec capability pointer. If an audio codec capability pointer is given,
-    /// undefined behavior occurs
+    ///   undefined behavior occurs
     ///
     /// * `pixelFormats` - Output parameter. A pointer to the video pixel format array
     ///
@@ -698,11 +698,11 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL), the capability is invalid, the pixelFormats is nullptr,
-    /// or the pixelFormatNum is nullptr.
-    /// [`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN), unknown error.
-    /// [`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY), internal use memory malloc failed.
+    ///   otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL), the capability is invalid, the pixelFormats is nullptr,
+    ///   or the pixelFormatNum is nullptr.
+    ///   [`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN), unknown error.
+    ///   [`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY), internal use memory malloc failed.
     ///
     /// Available since API-level: 10
     pub fn OH_AVCapability_GetVideoSupportedPixelFormats(
@@ -724,10 +724,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL), the capability is invalid, the profiles is nullptr, or the profileNum is nullptr.
-    /// [`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN), unknown error.
-    /// [`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY), internal use memory malloc failed.
+    ///   otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL), the capability is invalid, the profiles is nullptr, or the profileNum is nullptr.
+    ///   [`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN), unknown error.
+    ///   [`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY), internal use memory malloc failed.
     ///
     /// Available since API-level: 10
     pub fn OH_AVCapability_GetSupportedProfiles(
@@ -751,11 +751,11 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL), the capability is invalid, the profile is not within the supported profile array
-    /// obtained through [`OH_AVCapability_GetSupportedProfiles`](crate::avcapability::OH_AVCapability_GetSupportedProfiles), the levels is nullptr, or the levelNum is nullptr.
-    /// [`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN), unknown error.
-    /// [`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY), internal use memory malloc failed.
+    ///   otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL), the capability is invalid, the profile is not within the supported profile array
+    ///   obtained through [`OH_AVCapability_GetSupportedProfiles`](crate::avcapability::OH_AVCapability_GetSupportedProfiles), the levels is nullptr, or the levelNum is nullptr.
+    ///   [`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN), unknown error.
+    ///   [`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY), internal use memory malloc failed.
     ///
     /// Available since API-level: 10
     pub fn OH_AVCapability_GetSupportedLevelsForProfile(
@@ -778,7 +778,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns true if the combination of profile and level is supported,
-    /// false if it is not supported
+    ///   false if it is not supported
     ///
     /// Available since API-level: 10
     pub fn OH_AVCapability_AreProfileAndLevelSupported(

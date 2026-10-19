@@ -2392,7 +2392,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS): The operation is successful.
-    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER): A parameter is incorrect.
+    ///   <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER): A parameter is incorrect.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -2415,9 +2415,9 @@ extern "C" {
     /// # Returns
     ///
     /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS): The operation is successful.
-    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER): A parameter is incorrect.
-    /// <br>[`IMAGE_UNSUPPORTED_METADATA`](crate::native_image::common::ImageResult::UNSUPPORTED_METADATA): The metadata type is not supported, or the metadata type and the
-    /// auxiliary picture type do not match.
+    ///   <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER): A parameter is incorrect.
+    ///   <br>[`IMAGE_UNSUPPORTED_METADATA`](crate::native_image::common::ImageResult::UNSUPPORTED_METADATA): The metadata type is not supported, or the metadata type and the
+    ///   auxiliary picture type do not match.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -2441,9 +2441,9 @@ extern "C" {
     /// # Returns
     ///
     /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS): The operation is successful.
-    /// <br>[`IMAGE_INVALID_PARAMETER`](crate::native_image::common::ImageResult::INVALID_PARAMETER): The **metadata**, **key**, or **value** parameter is a null pointer.
-    /// <br>[`IMAGE_UNSUPPORTED_METADATA`](crate::native_image::common::ImageResult::UNSUPPORTED_METADATA): The metadata type is not supported, or the metadata type and the
-    /// auxiliary picture type do not match.
+    ///   <br>[`IMAGE_INVALID_PARAMETER`](crate::native_image::common::ImageResult::INVALID_PARAMETER): The **metadata**, **key**, or **value** parameter is a null pointer.
+    ///   <br>[`IMAGE_UNSUPPORTED_METADATA`](crate::native_image::common::ImageResult::UNSUPPORTED_METADATA): The metadata type is not supported, or the metadata type and the
+    ///   auxiliary picture type do not match.
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
@@ -2466,9 +2466,9 @@ extern "C" {
     /// # Returns
     ///
     /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS): The operation is successful.
-    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER): A parameter is incorrect.
-    /// <br>[`IMAGE_UNSUPPORTED_METADATA`](crate::native_image::common::ImageResult::UNSUPPORTED_METADATA): The metadata type is not supported, or the metadata type and the
-    /// auxiliary picture type do not match.
+    ///   <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER): A parameter is incorrect.
+    ///   <br>[`IMAGE_UNSUPPORTED_METADATA`](crate::native_image::common::ImageResult::UNSUPPORTED_METADATA): The metadata type is not supported, or the metadata type and the
+    ///   auxiliary picture type do not match.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -2533,7 +2533,7 @@ extern "C" {
     /// * `blob` - Pointer to the blob data obtained.
     ///
     /// * `blobSize` - Size of the blob data. The value must be greater than or equal to the value obtained by the
-    /// OH_PictureMetadata_GetBlobSize method.
+    ///   OH_PictureMetadata_GetBlobSize method.
     ///
     /// # Returns
     ///
@@ -2559,7 +2559,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS): The operation is successful.
-    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER): A parameter is incorrect.
+    ///   <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER): A parameter is incorrect.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -2576,9 +2576,9 @@ extern "C" {
     /// # Returns
     ///
     /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS): The operation is successful.
-    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER): A parameter is incorrect.
-    /// <br>[`IMAGE_ALLOC_FAILED`](crate::native_image::common::ImageResult::ALLOC_FAILED): The memory allocation fails.
-    /// <br>[`IMAGE_COPY_FAILED`](crate::native_image::common::ImageResult::COPY_FAILED): The memory copy fails.
+    ///   <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER): A parameter is incorrect.
+    ///   <br>[`IMAGE_ALLOC_FAILED`](crate::native_image::common::ImageResult::ALLOC_FAILED): The memory allocation fails.
+    ///   <br>[`IMAGE_COPY_FAILED`](crate::native_image::common::ImageResult::COPY_FAILED): The memory copy fails.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]

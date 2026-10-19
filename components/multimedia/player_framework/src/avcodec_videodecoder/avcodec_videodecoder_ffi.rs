@@ -41,7 +41,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Pointer to the video decoder instance.
-    /// <br> If the decoder type is not supported or the memory is insufficient, NULL is returned.
+    ///   <br> If the decoder type is not supported or the memory is insufficient, NULL is returned.
     ///
     /// Available since API-level: 9
     pub fn OH_VideoDecoder_CreateByMime(mime: *const ::core::ffi::c_char) -> *mut OH_AVCodec;
@@ -57,7 +57,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Pointer to the video decoder instance.
-    /// <br>If the decoder name is not supported or the memory is insufficient, NULL is returned.
+    ///   <br>If the decoder name is not supported or the memory is insufficient, NULL is returned.
     ///
     /// Available since API-level: 9
     pub fn OH_VideoDecoder_CreateByName(name: *const ::core::ffi::c_char) -> *mut OH_AVCodec;
@@ -71,10 +71,10 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// <br>[`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): The decoder instance has been destroyed.
-    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The value of **codec** is nullptr or does not point to a decoder instance.
-    /// <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An unknown error occurs.
-    /// <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
+    ///   <br>[`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): The decoder instance has been destroyed.
+    ///   <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The value of **codec** is nullptr or does not point to a decoder instance.
+    ///   <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An unknown error occurs.
+    ///   <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
     ///
     /// Available since API-level: 9
     pub fn OH_VideoDecoder_Destroy(codec: *mut OH_AVCodec) -> OH_AVErrCode;
@@ -92,10 +92,10 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// <br>[`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): The decoder instance has been destroyed.
-    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The value of **codec** is nullptr or does not point to a decoder instance.
-    /// <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An unknown error occurs.
-    /// <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
+    ///   <br>[`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): The decoder instance has been destroyed.
+    ///   <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The value of **codec** is nullptr or does not point to a decoder instance.
+    ///   <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An unknown error occurs.
+    ///   <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
     ///
     /// **Deprecated** since 11
     ///
@@ -122,10 +122,10 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// <br>[`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): The decoder instance has been destroyed.
-    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The value of **codec** is nullptr or does not point to a decoder instance.
-    /// <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An unknown error occurs.
-    /// <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
+    ///   <br>[`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): The decoder instance has been destroyed.
+    ///   <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The value of **codec** is nullptr or does not point to a decoder instance.
+    ///   <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An unknown error occurs.
+    ///   <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -149,13 +149,13 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// <br>[`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): The decoder instance has been destroyed.
-    /// <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The function is called in the buffer mode.
-    /// It can be called only in the surface mode.
-    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): <br>1. The value of **codec** is nullptr or does not point
-    /// to a decoder instance. <br>2. The value of **window** is nullptr.
-    /// <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An unknown error occurs.
-    /// <br>[`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE): This API cannot be called in the current decoder state.
+    ///   <br>[`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): The decoder instance has been destroyed.
+    ///   <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The function is called in the buffer mode.
+    ///   It can be called only in the surface mode.
+    ///   <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): <br>1. The value of **codec** is nullptr or does not point
+    ///   to a decoder instance. <br>2. The value of **window** is nullptr.
+    ///   <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An unknown error occurs.
+    ///   <br>[`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE): This API cannot be called in the current decoder state.
     ///
     /// Available since API-level: 9
     pub fn OH_VideoDecoder_SetSurface(
@@ -190,19 +190,19 @@ extern "C" {
     /// * `codec` - Pointer to a video decoder instance.
     ///
     /// * `format` - Pointer to an OH_AVFormat instance, which provides the description information about the video track
-    /// to be decoded.
+    ///   to be decoded.
     ///
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// <br>[`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): The decoder instance has been destroyed.
-    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL):<br>1. The value of **codec** is nullptr or does not point to a decoder instance.
-    /// <br>2. The format is not supported.
-    /// <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An unknown error occurs.
-    /// <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
-    /// <br>[`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE): The function is not called prior to [`OH_VideoDecoder_Prepare`](crate::avcodec_videodecoder::OH_VideoDecoder_Prepare).
-    /// <br>[`AV_ERR_VIDEO_UNSUPPORTED_COLOR_SPACE_CONVERSION`](crate::averrors::OH_AVErrCode::AV_ERR_VIDEO_UNSUPPORTED_COLOR_SPACE_CONVERSION): Color Space Conversion is not supported.
-    /// <br>[`AV_ERR_UNSUPPORT`](crate::averrors::OH_AVErrCode::AV_ERR_UNSUPPORT): The pixel format is not supported.
+    ///   <br>[`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): The decoder instance has been destroyed.
+    ///   <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL):<br>1. The value of **codec** is nullptr or does not point to a decoder instance.
+    ///   <br>2. The format is not supported.
+    ///   <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An unknown error occurs.
+    ///   <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
+    ///   <br>[`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE): The function is not called prior to [`OH_VideoDecoder_Prepare`](crate::avcodec_videodecoder::OH_VideoDecoder_Prepare).
+    ///   <br>[`AV_ERR_VIDEO_UNSUPPORTED_COLOR_SPACE_CONVERSION`](crate::averrors::OH_AVErrCode::AV_ERR_VIDEO_UNSUPPORTED_COLOR_SPACE_CONVERSION): Color Space Conversion is not supported.
+    ///   <br>[`AV_ERR_UNSUPPORT`](crate::averrors::OH_AVErrCode::AV_ERR_UNSUPPORT): The pixel format is not supported.
     ///
     /// Available since API-level: 9
     pub fn OH_VideoDecoder_Configure(
@@ -219,12 +219,12 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// <br>[`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): The decoder instance has been destroyed.
-    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The value of **codec** is nullptr or does not point to a decoder instance.
-    /// <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An unknown error occurs.
-    /// <br>[`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE): This API cannot be called in the current decoder state.
-    /// <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT):<br>1. The operation is not allowed.
-    /// <br>2. Color Space Conversion is configured, but the decoder is in buffer mode.
+    ///   <br>[`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): The decoder instance has been destroyed.
+    ///   <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The value of **codec** is nullptr or does not point to a decoder instance.
+    ///   <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An unknown error occurs.
+    ///   <br>[`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE): This API cannot be called in the current decoder state.
+    ///   <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT):<br>1. The operation is not allowed.
+    ///   <br>2. Color Space Conversion is configured, but the decoder is in buffer mode.
     ///
     /// Available since API-level: 9
     pub fn OH_VideoDecoder_Prepare(codec: *mut OH_AVCodec) -> OH_AVErrCode;
@@ -239,12 +239,12 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// <br>[`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): The decoder instance has been destroyed.
-    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The value of **codec** is nullptr or does not point to a decoder instance.
-    /// <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An unknown error occurs.
-    /// <br>[`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE): This API cannot be called in the current decoder state.
-    /// <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT):<br>1. The operation is not allowed.
-    /// <br>2. Color Space Conversion is configured, but [`OH_VideoDecoder_Prepare`](crate::avcodec_videodecoder::OH_VideoDecoder_Prepare) is not called.
+    ///   <br>[`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): The decoder instance has been destroyed.
+    ///   <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The value of **codec** is nullptr or does not point to a decoder instance.
+    ///   <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An unknown error occurs.
+    ///   <br>[`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE): This API cannot be called in the current decoder state.
+    ///   <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT):<br>1. The operation is not allowed.
+    ///   <br>2. Color Space Conversion is configured, but [`OH_VideoDecoder_Prepare`](crate::avcodec_videodecoder::OH_VideoDecoder_Prepare) is not called.
     ///
     /// Available since API-level: 9
     pub fn OH_VideoDecoder_Start(codec: *mut OH_AVCodec) -> OH_AVErrCode;
@@ -260,11 +260,11 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// <br>[`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): The decoder instance has been destroyed.
-    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The value of **codec** is nullptr or does not point to a decoder instance.
-    /// <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An unknown error occurs.
-    /// <br>[`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE): This API cannot be called in the current decoder state.
-    /// <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
+    ///   <br>[`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): The decoder instance has been destroyed.
+    ///   <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The value of **codec** is nullptr or does not point to a decoder instance.
+    ///   <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An unknown error occurs.
+    ///   <br>[`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE): This API cannot be called in the current decoder state.
+    ///   <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
     ///
     /// Available since API-level: 9
     pub fn OH_VideoDecoder_Stop(codec: *mut OH_AVCodec) -> OH_AVErrCode;
@@ -280,11 +280,11 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// <br>[`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): The decoder instance has been destroyed.
-    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The value of **codec** is nullptr or does not point to a decoder instance.
-    /// <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An unknown error occurs.
-    /// <br>[`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE): This API cannot be called in the current decoder state.
-    /// <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
+    ///   <br>[`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): The decoder instance has been destroyed.
+    ///   <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The value of **codec** is nullptr or does not point to a decoder instance.
+    ///   <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An unknown error occurs.
+    ///   <br>[`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE): This API cannot be called in the current decoder state.
+    ///   <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
     ///
     /// Available since API-level: 9
     pub fn OH_VideoDecoder_Flush(codec: *mut OH_AVCodec) -> OH_AVErrCode;
@@ -298,10 +298,10 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// <br>[`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): The decoder instance has been destroyed.
-    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The value of **codec** is nullptr or does not point to a decoder instance.
-    /// <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An unknown error occurs.
-    /// <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
+    ///   <br>[`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): The decoder instance has been destroyed.
+    ///   <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The value of **codec** is nullptr or does not point to a decoder instance.
+    ///   <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An unknown error occurs.
+    ///   <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
     ///
     /// Available since API-level: 9
     pub fn OH_VideoDecoder_Reset(codec: *mut OH_AVCodec) -> OH_AVErrCode;
@@ -317,7 +317,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Pointer to an OH_AVFormat instance.
-    /// <br>If the value of **codec** is nullptr or does not point to a decoder instance, NULL is returned.
+    ///   <br>If the value of **codec** is nullptr or does not point to a decoder instance, NULL is returned.
     ///
     /// Available since API-level: 9
     pub fn OH_VideoDecoder_GetOutputDescription(codec: *mut OH_AVCodec) -> *mut OH_AVFormat;
@@ -335,12 +335,12 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// <br>[`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): The decoder instance has been destroyed.
-    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL):<br>1. The value of **codec** is nullptr or does not point to a decoder instance.
-    /// <br>2. The format is not supported.
-    /// <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An unknown error occurs.
-    /// <br>[`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE): This API cannot be called in the current decoder state.
-    /// <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
+    ///   <br>[`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): The decoder instance has been destroyed.
+    ///   <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL):<br>1. The value of **codec** is nullptr or does not point to a decoder instance.
+    ///   <br>2. The format is not supported.
+    ///   <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An unknown error occurs.
+    ///   <br>[`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE): This API cannot be called in the current decoder state.
+    ///   <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
     ///
     /// Available since API-level: 9
     pub fn OH_VideoDecoder_SetParameter(
@@ -366,12 +366,12 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// <br>[`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): The decoder instance has been destroyed.
-    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): <br>1. The value of **codec** is nullptr or does not point to a decoder instance.
-    /// <br>2. The index is invalid. This error does not affect the subsequent decoding process.
-    /// <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An unknown error occurs.
-    /// <br>[`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE): This API cannot be called in the current decoder state.
-    /// <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
+    ///   <br>[`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): The decoder instance has been destroyed.
+    ///   <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): <br>1. The value of **codec** is nullptr or does not point to a decoder instance.
+    ///   <br>2. The index is invalid. This error does not affect the subsequent decoding process.
+    ///   <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An unknown error occurs.
+    ///   <br>[`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE): This API cannot be called in the current decoder state.
+    ///   <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
     ///
     /// **Deprecated** since 11
     ///
@@ -399,12 +399,12 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// <br>[`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): The decoder instance has been destroyed.
-    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): <br>1. The value of **codec** is nullptr or does not point to a decoder instance.
-    /// <br>2. The index is invalid. This error does not affect the subsequent decoding process.
-    /// <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An unknown error occurs.
-    /// <br>[`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE): This API cannot be called in the current decoder state.
-    /// <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
+    ///   <br>[`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): The decoder instance has been destroyed.
+    ///   <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): <br>1. The value of **codec** is nullptr or does not point to a decoder instance.
+    ///   <br>2. The index is invalid. This error does not affect the subsequent decoding process.
+    ///   <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An unknown error occurs.
+    ///   <br>[`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE): This API cannot be called in the current decoder state.
+    ///   <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
     ///
     /// **Deprecated** since 11
     ///
@@ -424,12 +424,12 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// <br>[`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): The decoder instance has been destroyed.
-    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): <br>1. The value of **codec** is nullptr or does not point to a decoder instance.
-    /// <br>2. The index is invalid. This error does not affect the subsequent decoding process.
-    /// <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An unknown error occurs.
-    /// <br>[`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE): This API cannot be called in the current decoder state.
-    /// <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
+    ///   <br>[`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): The decoder instance has been destroyed.
+    ///   <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): <br>1. The value of **codec** is nullptr or does not point to a decoder instance.
+    ///   <br>2. The index is invalid. This error does not affect the subsequent decoding process.
+    ///   <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An unknown error occurs.
+    ///   <br>[`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE): This API cannot be called in the current decoder state.
+    ///   <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
     ///
     /// **Deprecated** since 11
     ///
@@ -458,14 +458,14 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// <br>[`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): The decoder instance has been destroyed.
-    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): <br>1. The value of **codec** is nullptr or does not point to a decoder instance.
-    /// <br>2. The index is invalid. This error does not affect the subsequent decoding process.
-    /// <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An unknown error occurs.
-    /// <br>[`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE): This API cannot be called in the current decoder state.
-    /// <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
-    /// <br>[`AV_ERR_DRM_DECRYPT_FAILED`](crate::averrors::OH_AVErrCode::AV_ERR_DRM_DECRYPT_FAILED): The DRM-protected video buffer fails to be decrypted.
-    /// You are advised to view logs.
+    ///   <br>[`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): The decoder instance has been destroyed.
+    ///   <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): <br>1. The value of **codec** is nullptr or does not point to a decoder instance.
+    ///   <br>2. The index is invalid. This error does not affect the subsequent decoding process.
+    ///   <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An unknown error occurs.
+    ///   <br>[`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE): This API cannot be called in the current decoder state.
+    ///   <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
+    ///   <br>[`AV_ERR_DRM_DECRYPT_FAILED`](crate::averrors::OH_AVErrCode::AV_ERR_DRM_DECRYPT_FAILED): The DRM-protected video buffer fails to be decrypted.
+    ///   You are advised to view logs.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -486,12 +486,12 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// <br>[`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): The decoder instance has been destroyed.
-    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): <br>1. The value of **codec** is nullptr or does not point to a decoder instance.
-    /// <br>2. The index is invalid. This error does not affect the subsequent decoding process.
-    /// <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An unknown error occurs.
-    /// <br>[`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE): This API cannot be called in the current decoder state.
-    /// <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
+    ///   <br>[`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): The decoder instance has been destroyed.
+    ///   <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): <br>1. The value of **codec** is nullptr or does not point to a decoder instance.
+    ///   <br>2. The index is invalid. This error does not affect the subsequent decoding process.
+    ///   <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An unknown error occurs.
+    ///   <br>[`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE): This API cannot be called in the current decoder state.
+    ///   <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -508,18 +508,18 @@ extern "C" {
     /// time within an acceptable margin of error. Pay attention to the following:
     ///
     /// 1. Buffers are processed sequentially, which may result in the display of subsequent buffers on the surface being
-    /// blocked. This is particularly important for interactive scenarios, such as responding to user actions like stopping,
-    /// fast-forwarding, or rewinding a video.
+    ///    blocked. This is particularly important for interactive scenarios, such as responding to user actions like stopping,
+    ///    fast-forwarding, or rewinding a video.
     ///
     /// 2. If multiple buffers are sent to the surface for rendering on a single VSYNC event, the last buffer is rendered
-    /// and other buffers are discarded.
+    ///    and other buffers are discarded.
     ///
     /// 3. If the difference between the timestamp and the current system time exceeds the acceptable margin of error, the
-    /// surface ignores the timestamp and renders the buffer at the earliest feasible time. In this case, no frames are
-    /// discarded.
+    ///    surface ignores the timestamp and renders the buffer at the earliest feasible time. In this case, no frames are
+    ///    discarded.
     ///
     /// 4. If you want the system to handle frame-dropping based on the display's refresh rate, you have to use
-    /// this function. Otherwise, your application manages frame-dropping on its own.
+    ///    this function. Otherwise, your application manages frame-dropping on its own.
     ///
     /// # Arguments
     ///
@@ -528,17 +528,17 @@ extern "C" {
     /// * `index` - Index of an output buffer. The value is provided by [`OH_AVCodecOnNewOutputBuffer`](crate::avcodec_base::OH_AVCodecOnNewOutputBuffer).
     ///
     /// * `renderTimestampNs` - Timestamp (in nanoseconds) when the output buffer is sent to the surface. The value must be
-    /// greater than 0 and should be generated by the clock of the std::chrono::steady_clock standard library.
+    ///   greater than 0 and should be generated by the clock of the std::chrono::steady_clock standard library.
     ///
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// <br>[`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): The decoder instance has been destroyed.
-    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): <br>1. The value of **codec** is nullptr or does not point to a decoder instance.
-    /// <br>2. The index is invalid. This error does not affect the subsequent decoding process.
-    /// <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An unknown error occurs.
-    /// <br>[`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE): This API cannot be called in the current decoder state.
-    /// <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
+    ///   <br>[`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): The decoder instance has been destroyed.
+    ///   <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): <br>1. The value of **codec** is nullptr or does not point to a decoder instance.
+    ///   <br>2. The index is invalid. This error does not affect the subsequent decoding process.
+    ///   <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An unknown error occurs.
+    ///   <br>[`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE): This API cannot be called in the current decoder state.
+    ///   <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -563,12 +563,12 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// <br>[`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): The decoder instance has been destroyed.
-    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): <br>1. The value of **codec** is nullptr or does not point to a decoder instance.
-    /// <br>2. The index is invalid. This error does not affect the subsequent decoding process.
-    /// <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An unknown error occurs.
-    /// <br>[`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE): This API cannot be called in the current decoder state.
-    /// <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
+    ///   <br>[`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): The decoder instance has been destroyed.
+    ///   <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): <br>1. The value of **codec** is nullptr or does not point to a decoder instance.
+    ///   <br>2. The index is invalid. This error does not affect the subsequent decoding process.
+    ///   <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An unknown error occurs.
+    ///   <br>[`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE): This API cannot be called in the current decoder state.
+    ///   <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -588,17 +588,17 @@ extern "C" {
     /// * `index` - The index of the input buffer.
     ///
     /// * `timeoutUs` - Timeout duration, in microseconds. A negative value means to wait infinitely. The value **0** means
-    /// to return immediately. A positive value means to wait for the specified time before exiting.
+    ///   to return immediately. A positive value means to wait for the specified time before exiting.
     ///
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// <br>[`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): The decoder instance has been destroyed.
-    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The value of **codec** is nullptr or does not point to a decoder instance.
-    /// <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An unknown error occurs.
-    /// <br>[`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE): This API cannot be called in the current decoder state.
-    /// <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): This function is called in asynchronous mode.
-    /// <br>[`AV_ERR_TRY_AGAIN_LATER`](crate::averrors::OH_AVErrCode::AV_ERR_TRY_AGAIN_LATER): The query fails. Try again after a short interval.
+    ///   <br>[`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): The decoder instance has been destroyed.
+    ///   <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The value of **codec** is nullptr or does not point to a decoder instance.
+    ///   <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An unknown error occurs.
+    ///   <br>[`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE): This API cannot be called in the current decoder state.
+    ///   <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): This function is called in asynchronous mode.
+    ///   <br>[`AV_ERR_TRY_AGAIN_LATER`](crate::averrors::OH_AVErrCode::AV_ERR_TRY_AGAIN_LATER): The query fails. Try again after a short interval.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -645,19 +645,19 @@ extern "C" {
     /// * `index` - Index of an output buffer.
     ///
     /// * `timeoutUs` - Timeout duration, in microseconds. A negative value means to wait infinitely. The value **0** means
-    /// to return immediately. A positive value means to wait for the specified time before exiting.
+    ///   to return immediately. A positive value means to wait for the specified time before exiting.
     ///
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// <br>[`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): The decoder instance has been destroyed.
-    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The value of **codec** is nullptr or does not point to a decoder instance.
-    /// <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An unknown error occurs.
-    /// <br>[`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE): This API cannot be called in the current decoder state.
-    /// <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): This function is called in asynchronous mode.
-    /// <br>[`AV_ERR_STREAM_CHANGED`](crate::averrors::OH_AVErrCode::AV_ERR_STREAM_CHANGED): The stream format has changed. You can call
-    /// [`OH_VideoDecoder_GetOutputDescription`](crate::avcodec_videodecoder::OH_VideoDecoder_GetOutputDescription) to obtain the new stream information.
-    /// <br>[`AV_ERR_TRY_AGAIN_LATER`](crate::averrors::OH_AVErrCode::AV_ERR_TRY_AGAIN_LATER): The query fails. Try again after a short interval.
+    ///   <br>[`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): The decoder instance has been destroyed.
+    ///   <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The value of **codec** is nullptr or does not point to a decoder instance.
+    ///   <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An unknown error occurs.
+    ///   <br>[`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE): This API cannot be called in the current decoder state.
+    ///   <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): This function is called in asynchronous mode.
+    ///   <br>[`AV_ERR_STREAM_CHANGED`](crate::averrors::OH_AVErrCode::AV_ERR_STREAM_CHANGED): The stream format has changed. You can call
+    ///   [`OH_VideoDecoder_GetOutputDescription`](crate::avcodec_videodecoder::OH_VideoDecoder_GetOutputDescription) to obtain the new stream information.
+    ///   <br>[`AV_ERR_TRY_AGAIN_LATER`](crate::averrors::OH_AVErrCode::AV_ERR_TRY_AGAIN_LATER): The query fails. Try again after a short interval.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -690,13 +690,13 @@ extern "C" {
     /// * `codec` - Pointer to a video decoder instance.
     ///
     /// * `isValid` - Pointer of the Boolean type. The value indicates the validity of the decoder service only when the
-    /// function returns [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK). The value **true** means that the decoder service is valid,
-    /// and **false** means the opposite. It is recommended that you initialize **isValid** to **false**.
+    ///   function returns [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK). The value **true** means that the decoder service is valid,
+    ///   and **false** means the opposite. It is recommended that you initialize **isValid** to **false**.
     ///
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The value of **codec** is nullptr or does not point to a decoder instance.
+    ///   <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The value of **codec** is nullptr or does not point to a decoder instance.
     ///
     /// Available since API-level: 10
     pub fn OH_VideoDecoder_IsValid(codec: *mut OH_AVCodec, isValid: *mut bool) -> OH_AVErrCode;
@@ -709,20 +709,20 @@ extern "C" {
     /// * `mediaKeySession` - Pointer to a media key session instance with decryption capabilities.
     ///
     /// * `secureVideoPath` - Whether a secure video channel is used. The value **true** means a secure video channel, and
-    /// **false** means a non-secure video channel.
-    /// In [surface mode](docroot://media/avcodec/video-decoding.md#surface-mode),
-    /// both secure and non-secure video channels are supported.
-    /// In [buffer mode](docroot://media/avcodec/video-decoding.md#buffer-mode),
-    /// only non-secure video channels are supported.
+    ///   **false** means a non-secure video channel.
+    ///   In [surface mode](docroot://media/avcodec/video-decoding.md#surface-mode),
+    ///   both secure and non-secure video channels are supported.
+    ///   In [buffer mode](docroot://media/avcodec/video-decoding.md#buffer-mode),
+    ///   only non-secure video channels are supported.
     ///
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT):<br>1. The operation is not allowed.
-    /// <br>2. The decoding service process is abnormal.<br>3.The media key session service is in an error state.
-    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL):<br>1. The value of **codec** is nullptr or does not point to a decoder instance.
-    /// <br>2. The valueof **mediaKeySession** is nullptr or invalid.
-    /// <br>[`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): The decoder instance has been destroyed.
+    ///   <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT):<br>1. The operation is not allowed.
+    ///   <br>2. The decoding service process is abnormal.<br>3.The media key session service is in an error state.
+    ///   <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL):<br>1. The value of **codec** is nullptr or does not point to a decoder instance.
+    ///   <br>2. The valueof **mediaKeySession** is nullptr or invalid.
+    ///   <br>[`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): The decoder instance has been destroyed.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]

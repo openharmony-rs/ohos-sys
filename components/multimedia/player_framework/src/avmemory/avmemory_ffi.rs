@@ -26,11 +26,11 @@ extern "C" {
     /// # Returns
     ///
     /// * Pointer to the OH_AVMemory instance created. If the operation fails, NULL is returned.
-    /// <br>The instance must be released by calling [`OH_AVMemory_Destroy`](crate::avmemory::OH_AVMemory_Destroy) when it is no longer required.
-    /// <br>The possible causes of an operation failure are as follows:
-    /// <br>1. The value of **size** is less than or equal to **0**.
-    /// <br>2. The OH_AVMemory instance fails to be created.
-    /// <br>3. Memory allocation fails.
+    ///   <br>The instance must be released by calling [`OH_AVMemory_Destroy`](crate::avmemory::OH_AVMemory_Destroy) when it is no longer required.
+    ///   <br>The possible causes of an operation failure are as follows:
+    ///   <br>1. The value of **size** is less than or equal to **0**.
+    ///   <br>2. The OH_AVMemory instance fails to be created.
+    ///   <br>3. Memory allocation fails.
     ///
     /// **Deprecated** since 11
     ///
@@ -48,10 +48,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Pointer to the virtual memory address. If the memory is invalid, NULL is returned.
-    /// <br>The possible causes of an operation failure are as follows:
-    /// <br>1. The value of **mem** is nullptr.
-    /// <br>2. The value of **mem** fails parameter structure verification.
-    /// <br>3. The memory in the passed-in value of **mem** is nullptr.
+    ///   <br>The possible causes of an operation failure are as follows:
+    ///   <br>1. The value of **mem** is nullptr.
+    ///   <br>2. The value of **mem** fails parameter structure verification.
+    ///   <br>3. The memory in the passed-in value of **mem** is nullptr.
     ///
     /// **Deprecated** since 11
     ///
@@ -71,10 +71,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Memory size. If the memory is invalid, **-1** is returned.
-    /// <br>The possible causes of an operation failure are as follows:
-    /// <br>1. The value of **mem** is nullptr.
-    /// <br>2. The value of **mem** fails parameter structure verification.
-    /// <br>3. The memory in the passed-in value of **mem** is nullptr.
+    ///   <br>The possible causes of an operation failure are as follows:
+    ///   <br>1. The value of **mem** is nullptr.
+    ///   <br>2. The value of **mem** fails parameter structure verification.
+    ///   <br>3. The memory in the passed-in value of **mem** is nullptr.
     ///
     /// **Deprecated** since 11
     ///
@@ -94,10 +94,10 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The release operation is successful.
-    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL):
-    /// <br>1. The value of **mem** is nullptr.
-    /// <br>2. The value of **mem** fails parameter structure verification.
-    /// <br>3. The value of **mem** is not created by the caller.
+    ///   <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL):
+    ///   <br>1. The value of **mem** is nullptr.
+    ///   <br>2. The value of **mem** fails parameter structure verification.
+    ///   <br>3. The value of **mem** is not created by the caller.
     ///
     /// **Deprecated** since 11
     ///

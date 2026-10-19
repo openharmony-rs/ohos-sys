@@ -267,7 +267,7 @@ extern "C" {
     /// * `font` - Pointer to the [`OH_Drawing_Font`](crate::types::OH_Drawing_Font) object.
     ///
     /// * `isForceAutoHinting` - Whether to forcibly use auto hinting, that is, whether to always hint glyphs. **true**
-    /// means yes; **false** otherwise.
+    ///   means yes; **false** otherwise.
     ///
     /// Available since API-level: 12
     ///
@@ -302,7 +302,7 @@ extern "C" {
     /// * `font` - Pointer to an **OH_Drawing_Font** object.
     ///
     /// * `typeface` - Pointer to an **OH_Drawing_Typeface** object. If NULL is passed in, the default **
-    /// OH_Drawing_Typeface** object is used.
+    ///   OH_Drawing_Typeface** object is used.
     ///
     /// Available since API-level: 11
     ///
@@ -340,7 +340,7 @@ extern "C" {
     /// * `font` - Pointer to an **OH_Drawing_Font** object.
     ///
     /// * `textSize` - Text size. The value is a floating point number. If a negative number is passed in, the size is set
-    /// to 0. If the size is 0, the text drawn will not be displayed.
+    ///   to 0. If the size is 0, the text drawn will not be displayed.
     ///
     /// Available since API-level: 11
     ///
@@ -465,16 +465,16 @@ extern "C" {
     /// * `font` - Pointer to the [`OH_Drawing_Font`](crate::types::OH_Drawing_Font) object.
     ///
     /// * `str` - Pointer to the single character to measure. A string can be passed in, but only the first character in
-    /// the string is parsed and measured in UTF-8 encoding.
+    ///   the string is parsed and measured in UTF-8 encoding.
     ///
     /// * `textWidth` - Pointer to the character width obtained.
     ///
     /// # Returns
     ///
     /// * Returns one of the following result codes:
-    /// **OH_DRAWING_SUCCESS** if the operation is successful.
-    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if at least one of the parameters **font**, **str**, or **textWidth** is NULL,
-    /// or the length of **str** is **0**.
+    ///   **OH_DRAWING_SUCCESS** if the operation is successful.
+    ///   **OH_DRAWING_ERROR_INVALID_PARAMETER** if at least one of the parameters **font**, **str**, or **textWidth** is NULL,
+    ///   or the length of **str** is **0**.
     ///
     /// Available since API-level: 12
     ///
@@ -494,19 +494,19 @@ extern "C" {
     /// * `font` - Pointer to the [`OH_Drawing_Font`](crate::types::OH_Drawing_Font) object.
     ///
     /// * `str` - Pointer to the single character to measure. A string can be passed in, but only the first character in
-    /// the string is parsed and measured in UTF-8 encoding.
+    ///   the string is parsed and measured in UTF-8 encoding.
     ///
     /// * `fontFeatures` - Pointer to the [`OH_Drawing_FontFeatures`](crate::types::OH_Drawing_FontFeatures) object. If no font feature is set, the preset
-    /// font feature in the TrueType fonts (TTF) file is used.
+    ///   font feature in the TrueType fonts (TTF) file is used.
     ///
     /// * `textWidth` - Pointer to the obtained text width, which is used as an output parameter.
     ///
     /// # Returns
     ///
     /// * Execution result.
-    /// **OH_DRAWING_SUCCESS** if the operation is successful.
-    /// Returns **OH_DRAWING_ERROR_INVALID_PARAMETER** if at least one of the parameters **font**, **str**, **fontFeatures**,
-    /// or **textWidth** is NULL, or the length of **str** is **0**.
+    ///   **OH_DRAWING_SUCCESS** if the operation is successful.
+    ///   Returns **OH_DRAWING_ERROR_INVALID_PARAMETER** if at least one of the parameters **font**, **str**, **fontFeatures**,
+    ///   or **textWidth** is NULL, or the length of **str** is **0**.
     ///
     /// Available since API-level: 20
     ///
@@ -538,9 +538,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns one of the following result codes:
-    /// **OH_DRAWING_SUCCESS** if the operation is successful.
-    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if at least one of the parameters **font**, **text**, and **textWidth** is
-    /// NULL, or **byteLength** is **0**.
+    ///   **OH_DRAWING_SUCCESS** if the operation is successful.
+    ///   **OH_DRAWING_ERROR_INVALID_PARAMETER** if at least one of the parameters **font**, **text**, and **textWidth** is
+    ///   NULL, or **byteLength** is **0**.
     ///
     /// Available since API-level: 12
     ///
@@ -578,9 +578,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Operation code.
-    /// **OH_DRAWING_SUCCESS** if the operation is successful.
-    /// Returns **OH_DRAWING_ERROR_INVALID_PARAMETER** if any of **font**, **text**, or **textWidth** is NULL, **byteLength**
-    /// is **0**, or a brush and a pen both exist.
+    ///   **OH_DRAWING_SUCCESS** if the operation is successful.
+    ///   Returns **OH_DRAWING_ERROR_INVALID_PARAMETER** if any of **font**, **text**, or **textWidth** is NULL, **byteLength**
+    ///   is **0**, or a brush and a pen both exist.
     ///
     /// Available since API-level: 19
     ///
@@ -618,9 +618,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Operation code.
-    /// **OH_DRAWING_SUCCESS** if the operation is successful.
-    /// Returns **OH_DRAWING_ERROR_INVALID_PARAMETER** if either **font** or **glyphs** is NULL, **count** is not greater
-    /// than **0**, a brush and a pen both exist, or both **widths** and **bounds** are NULL.
+    ///   **OH_DRAWING_SUCCESS** if the operation is successful.
+    ///   Returns **OH_DRAWING_ERROR_INVALID_PARAMETER** if either **font** or **glyphs** is NULL, **count** is not greater
+    ///   than **0**, a brush and a pen both exist, or both **widths** and **bounds** are NULL.
     ///
     /// Available since API-level: 19
     ///
@@ -647,16 +647,16 @@ extern "C" {
     /// * `count` - Number of glyph indices, which must be the same as the size of glyphs array.
     ///
     /// * `origin` - Position of the first glyph. The value can be NULL, which means that the default value **(0, 0)** is
-    /// used.
+    ///   used.
     ///
     /// * `points` - Start address for storing the relative position of a glyph.
     ///
     /// # Returns
     ///
     /// * Operation code.
-    /// **OH_DRAWING_SUCCESS** if the operation is successful.
-    /// Returns **OH_DRAWING_ERROR_INVALID_PARAMETER** if any of **font**, **glyphs**, and **points** is NULL, or **count**
-    /// is less than or equal to **0**.
+    ///   **OH_DRAWING_SUCCESS** if the operation is successful.
+    ///   Returns **OH_DRAWING_ERROR_INVALID_PARAMETER** if any of **font**, **glyphs**, and **points** is NULL, or **count**
+    ///   is less than or equal to **0**.
     ///
     /// Available since API-level: 19
     ///
@@ -681,8 +681,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Operation code.
-    /// **OH_DRAWING_SUCCESS** if the operation is successful.
-    /// Returns **OH_DRAWING_ERROR_INVALID_PARAMETER** if either **font** or **spacing** is NULL.
+    ///   **OH_DRAWING_SUCCESS** if the operation is successful.
+    ///   Returns **OH_DRAWING_ERROR_INVALID_PARAMETER** if either **font** or **spacing** is NULL.
     ///
     /// Available since API-level: 19
     ///
@@ -771,7 +771,7 @@ extern "C" {
     /// * `font` - Pointer to an **OH_Drawing_Font** object.
     ///
     /// * `isFakeBoldText` - Whether to set fake bold. The value **true** means to set fake bold, and **false** means the
-    /// opposite.
+    ///   opposite.
     ///
     /// Available since API-level: 11
     ///
@@ -879,7 +879,7 @@ extern "C" {
     /// * `font` - Pointer to the [`OH_Drawing_Font`](crate::types::OH_Drawing_Font) object.
     ///
     /// * `isEmbeddedBitmaps` - Whether to use bitmaps in the font. The value **true** means to use bitmaps in the font,
-    /// and **false** means the opposite.
+    ///   and **false** means the opposite.
     ///
     /// Available since API-level: 12
     ///
@@ -991,8 +991,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns one of the following result codes:
-    /// **OH_DRAWING_SUCCESS** if the operation is successful.
-    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if any of **font**, **glyphs**, or **bounds** is NULL or **count** is **0**.
+    ///   **OH_DRAWING_SUCCESS** if the operation is successful.
+    ///   **OH_DRAWING_ERROR_INVALID_PARAMETER** if any of **font**, **glyphs**, or **bounds** is NULL or **count** is **0**.
     ///
     /// Available since API-level: 18
     ///
@@ -1018,8 +1018,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns one of the following result codes:
-    /// **OH_DRAWING_SUCCESS** if the operation is successful.
-    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if **font** or **path** is NULL or the specified glyph does not exist.
+    ///   **OH_DRAWING_SUCCESS** if the operation is successful.
+    ///   **OH_DRAWING_ERROR_INVALID_PARAMETER** if **font** or **path** is NULL or the specified glyph does not exist.
     ///
     /// Available since API-level: 18
     ///
@@ -1040,10 +1040,10 @@ extern "C" {
     /// * `text` - Pointer to the text string.
     ///
     /// * `byteLength` - Length of the text path. If the length is greater than the length of the text string, undefined
-    /// behavior occurs.
+    ///   behavior occurs.
     ///
     /// * `encoding` - Text encoding format. UTF-8, UTF-16, UTF-32, and glyph indices are supported. For details about the
-    /// format, see [`OH_Drawing_TextEncoding`](crate::types::OH_Drawing_TextEncoding).
+    ///   format, see [`OH_Drawing_TextEncoding`](crate::types::OH_Drawing_TextEncoding).
     ///
     /// * `x` - X coordinate of the text in the drawing area, with the origin as the start point.
     ///
@@ -1054,8 +1054,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns one of the following error codes:
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`](crate::error_code::DrawingErrorCode::INVALID_PARAMETER) if any of **font**, **text**, or **path** is NULL.
+    ///   Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
+    ///   Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`](crate::error_code::DrawingErrorCode::INVALID_PARAMETER) if any of **font**, **text**, or **path** is NULL.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -1090,9 +1090,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`](crate::error_code::DrawingErrorCode::INCORRECT_PARAMETER) if any of font, text or path is nullptr, or
-    /// byteLength is 0.
+    ///   Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
+    ///   Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`](crate::error_code::DrawingErrorCode::INCORRECT_PARAMETER) if any of font, text or path is nullptr, or
+    ///   byteLength is 0.
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]
@@ -1112,7 +1112,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a pointer to the created [`OH_Drawing_FontFeatures`](crate::types::OH_Drawing_FontFeatures) object.
-    /// If a null pointer is returned, the creation fails. A possible cause is that no memory is available.
+    ///   If a null pointer is returned, the creation fails. A possible cause is that no memory is available.
     ///
     /// Available since API-level: 20
     ///
@@ -1127,16 +1127,16 @@ extern "C" {
     /// * `fontFeatures` - Pointer to the [`OH_Drawing_FontFeatures`](crate::types::OH_Drawing_FontFeatures) object.
     ///
     /// * `name` - Name of a font feature. Common font feature names include **liga**, **frac**, and **case**. A font
-    /// feature needs a TTF file to work.
+    ///   feature needs a TTF file to work.
     ///
     /// * `value` - Value of the font feature. You are advised to determine the valid value range by using a font viewing
-    /// tool or referring to the font document.
+    ///   tool or referring to the font document.
     ///
     /// # Returns
     ///
     /// * Execution result.
-    /// **OH_DRAWING_SUCCESS** if the operation is successful.
-    /// Returns **OH_DRAWING_ERROR_INVALID_PARAMETER** if **fontFeatures** or **name** is a null pointer.
+    ///   **OH_DRAWING_SUCCESS** if the operation is successful.
+    ///   Returns **OH_DRAWING_ERROR_INVALID_PARAMETER** if **fontFeatures** or **name** is a null pointer.
     ///
     /// Available since API-level: 20
     ///
@@ -1157,8 +1157,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Execution result.
-    /// **OH_DRAWING_SUCCESS** if the operation is successful.
-    /// Returns **OH_DRAWING_ERROR_INVALID_PARAMETER** if **fontFeatures** is NULL.
+    ///   **OH_DRAWING_SUCCESS** if the operation is successful.
+    ///   Returns **OH_DRAWING_ERROR_INVALID_PARAMETER** if **fontFeatures** is NULL.
     ///
     /// Available since API-level: 20
     ///
@@ -1176,13 +1176,13 @@ extern "C" {
     /// * `font` - Pointer to the [`OH_Drawing_Font`](crate::types::OH_Drawing_Font) object.
     ///
     /// * `followed` - Whether to follow the theme font. The value **true** means to follow the theme font, and **false**
-    /// means the opposite.
+    ///   means the opposite.
     ///
     /// # Returns
     ///
     /// * Returns one of the following result codes:
-    /// **OH_DRAWING_SUCCESS** if the operation is successful.
-    /// Returns **OH_DRAWING_ERROR_INVALID_PARAMETER** if **font** is NULL.
+    ///   **OH_DRAWING_SUCCESS** if the operation is successful.
+    ///   Returns **OH_DRAWING_ERROR_INVALID_PARAMETER** if **font** is NULL.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
@@ -1198,13 +1198,13 @@ extern "C" {
     /// * `font` - Pointer to the [`OH_Drawing_Font`](crate::types::OH_Drawing_Font) object.
     ///
     /// * `followed` - Check result. The value **true** means that the theme font is followed, and **false** means the
-    /// opposite. It is used as an output parameter.
+    ///   opposite. It is used as an output parameter.
     ///
     /// # Returns
     ///
     /// * Returns one of the following result codes:
-    /// **OH_DRAWING_SUCCESS** if the operation is successful.
-    /// Returns **OH_DRAWING_ERROR_INVALID_PARAMETER** if either **font** or **followed** is NULL.
+    ///   **OH_DRAWING_SUCCESS** if the operation is successful.
+    ///   Returns **OH_DRAWING_ERROR_INVALID_PARAMETER** if either **font** or **followed** is NULL.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]

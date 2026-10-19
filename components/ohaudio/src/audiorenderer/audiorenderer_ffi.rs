@@ -18,7 +18,7 @@ use libc::clockid_t;
 /// * `renderer` - Pointer to the AudioRenderer instance that triggers the callback.
 ///
 /// * `userData` - Pointer to the user data passed when setting the callback via
-/// OH_AudioStreamBuilder_SetRendererInterruptCallback.
+///   OH_AudioStreamBuilder_SetRendererInterruptCallback.
 ///
 /// * `type` - Type of force that causes the interrupt event.
 ///
@@ -45,7 +45,7 @@ pub type OH_AudioRenderer_OnInterruptCallback = ::core::option::Option<
 /// * `renderer` - Pointer to the AudioRenderer instance that triggers the callback.
 ///
 /// * `userData` - Pointer to the user data passed when setting the callback via
-/// OH_AudioStreamBuilder_SetRendererErrorCallback.
+///   OH_AudioStreamBuilder_SetRendererErrorCallback.
 ///
 /// * `error` - Specific error information.
 ///
@@ -100,10 +100,10 @@ pub type OH_AudioRenderer_OnFastStatusChange = ::core::option::Option<
 /// # Returns
 ///
 /// * Length of the valid data that has written into audioData buffer. The return value must be in range of
-/// \[0, audioDataSize\]. If the return value is less than 0, the system changes it to 0. And, if the return value is
-/// greater than audioDataSize, the system changes it to audioDataSize. Note that the length of the returned buffer
-/// must be an integer multiple of the length of the single sample data. For example, for 2 channels and S16 format
-/// audio data, it must be an integer multiple of 4(2*16/8). Otherwise, it may cause noise during playback.
+///   \[0, audioDataSize\]. If the return value is less than 0, the system changes it to 0. And, if the return value is
+///   greater than audioDataSize, the system changes it to audioDataSize. Note that the length of the returned buffer
+///   must be an integer multiple of the length of the single sample data. For example, for 2 channels and S16 format
+///   audio data, it must be an integer multiple of 4(2*16/8). Otherwise, it may cause noise during playback.
 ///
 /// **See also:** [`OH_AudioRenderer_OnWriteDataCallback`](crate::audiostream_base::OH_AudioRenderer_OnWriteDataCallback)
 ///
@@ -131,9 +131,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
-    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) The param of renderer is nullptr.
-    /// [`AUDIOSTREAM_ERROR_ILLEGAL_STATE`](crate::audiostream_base::OH_AudioStreamErrorCode::ILLEGAL_STATE) Execution status exception.
+    ///   [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
+    ///   [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) The param of renderer is nullptr.
+    ///   [`AUDIOSTREAM_ERROR_ILLEGAL_STATE`](crate::audiostream_base::OH_AudioStreamErrorCode::ILLEGAL_STATE) Execution status exception.
     pub fn OH_AudioRenderer_Release(renderer: *mut OH_AudioRenderer) -> OH_AudioStream_Result;
     /// Request to start the renderer stream.
     ///
@@ -147,9 +147,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
-    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) The param of renderer is nullptr.
-    /// [`AUDIOSTREAM_ERROR_ILLEGAL_STATE`](crate::audiostream_base::OH_AudioStreamErrorCode::ILLEGAL_STATE) Execution status exception.
+    ///   [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
+    ///   [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) The param of renderer is nullptr.
+    ///   [`AUDIOSTREAM_ERROR_ILLEGAL_STATE`](crate::audiostream_base::OH_AudioStreamErrorCode::ILLEGAL_STATE) Execution status exception.
     pub fn OH_AudioRenderer_Start(renderer: *mut OH_AudioRenderer) -> OH_AudioStream_Result;
     /// Request to pause the renderer stream.
     ///
@@ -163,9 +163,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
-    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) The param of renderer is nullptr.
-    /// [`AUDIOSTREAM_ERROR_ILLEGAL_STATE`](crate::audiostream_base::OH_AudioStreamErrorCode::ILLEGAL_STATE) Execution status exception.
+    ///   [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
+    ///   [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) The param of renderer is nullptr.
+    ///   [`AUDIOSTREAM_ERROR_ILLEGAL_STATE`](crate::audiostream_base::OH_AudioStreamErrorCode::ILLEGAL_STATE) Execution status exception.
     pub fn OH_AudioRenderer_Pause(renderer: *mut OH_AudioRenderer) -> OH_AudioStream_Result;
     /// Request to stop renderer stream.
     ///
@@ -179,9 +179,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
-    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) The param of renderer is nullptr.
-    /// [`AUDIOSTREAM_ERROR_ILLEGAL_STATE`](crate::audiostream_base::OH_AudioStreamErrorCode::ILLEGAL_STATE) Execution status exception.
+    ///   [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
+    ///   [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) The param of renderer is nullptr.
+    ///   [`AUDIOSTREAM_ERROR_ILLEGAL_STATE`](crate::audiostream_base::OH_AudioStreamErrorCode::ILLEGAL_STATE) Execution status exception.
     pub fn OH_AudioRenderer_Stop(renderer: *mut OH_AudioRenderer) -> OH_AudioStream_Result;
     /// Request to flush the renderer stream.
     ///
@@ -195,9 +195,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
-    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) The param of renderer is nullptr.
-    /// [`AUDIOSTREAM_ERROR_ILLEGAL_STATE`](crate::audiostream_base::OH_AudioStreamErrorCode::ILLEGAL_STATE) Execution status exception.
+    ///   [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
+    ///   [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) The param of renderer is nullptr.
+    ///   [`AUDIOSTREAM_ERROR_ILLEGAL_STATE`](crate::audiostream_base::OH_AudioStreamErrorCode::ILLEGAL_STATE) Execution status exception.
     pub fn OH_AudioRenderer_Flush(renderer: *mut OH_AudioRenderer) -> OH_AudioStream_Result;
     /// Query the current state of the renderer client.
     ///
@@ -215,8 +215,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
-    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) The param of renderer is nullptr.
+    ///   [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
+    ///   [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) The param of renderer is nullptr.
     pub fn OH_AudioRenderer_GetCurrentState(
         renderer: *mut OH_AudioRenderer,
         state: *mut OH_AudioStream_State,
@@ -237,8 +237,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
-    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) The param of renderer is nullptr.
+    ///   [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
+    ///   [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) The param of renderer is nullptr.
     pub fn OH_AudioRenderer_GetSamplingRate(
         renderer: *mut OH_AudioRenderer,
         rate: *mut i32,
@@ -257,8 +257,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
-    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) The param of renderer is nullptr.
+    ///   [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
+    ///   [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) The param of renderer is nullptr.
     pub fn OH_AudioRenderer_GetStreamId(
         renderer: *mut OH_AudioRenderer,
         streamId: *mut u32,
@@ -277,8 +277,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
-    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) The param of renderer is nullptr.
+    ///   [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
+    ///   [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) The param of renderer is nullptr.
     pub fn OH_AudioRenderer_GetChannelCount(
         renderer: *mut OH_AudioRenderer,
         channelCount: *mut i32,
@@ -297,8 +297,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
-    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) The param of renderer is nullptr.
+    ///   [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
+    ///   [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) The param of renderer is nullptr.
     pub fn OH_AudioRenderer_GetSampleFormat(
         renderer: *mut OH_AudioRenderer,
         sampleFormat: *mut OH_AudioStream_SampleFormat,
@@ -317,8 +317,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
-    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) The param of renderer is nullptr.
+    ///   [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
+    ///   [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) The param of renderer is nullptr.
     pub fn OH_AudioRenderer_GetLatencyMode(
         renderer: *mut OH_AudioRenderer,
         latencyMode: *mut OH_AudioStream_LatencyMode,
@@ -339,8 +339,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
-    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) The param of renderer is nullptr.
+    ///   [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
+    ///   [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) The param of renderer is nullptr.
     pub fn OH_AudioRenderer_GetRendererInfo(
         renderer: *mut OH_AudioRenderer,
         usage: *mut OH_AudioStream_Usage,
@@ -359,8 +359,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
-    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) The param of renderer is nullptr.
+    ///   [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
+    ///   [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) The param of renderer is nullptr.
     pub fn OH_AudioRenderer_GetEncodingType(
         renderer: *mut OH_AudioRenderer,
         encodingType: *mut OH_AudioStream_EncodingType,
@@ -379,8 +379,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
-    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) The param of renderer is nullptr.
+    ///   [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
+    ///   [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) The param of renderer is nullptr.
     pub fn OH_AudioRenderer_GetFramesWritten(
         renderer: *mut OH_AudioRenderer,
         frames: *mut i64,
@@ -407,11 +407,11 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
-    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM):
-    /// 1.The param of renderer is nullptr;
-    /// 2.The param of clockId invalid.
-    /// [`AUDIOSTREAM_ERROR_ILLEGAL_STATE`](crate::audiostream_base::OH_AudioStreamErrorCode::ILLEGAL_STATE) Execution status exception.
+    ///   [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
+    ///   [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM):
+    ///   1.The param of renderer is nullptr;
+    ///   2.The param of clockId invalid.
+    ///   [`AUDIOSTREAM_ERROR_ILLEGAL_STATE`](crate::audiostream_base::OH_AudioStreamErrorCode::ILLEGAL_STATE) Execution status exception.
     pub fn OH_AudioRenderer_GetTimestamp(
         renderer: *mut OH_AudioRenderer,
         clockId: clockid_t,
@@ -432,8 +432,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
-    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) The param of renderer is nullptr.
+    ///   [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
+    ///   [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) The param of renderer is nullptr.
     pub fn OH_AudioRenderer_GetFrameSizeInCallback(
         renderer: *mut OH_AudioRenderer,
         frameSize: *mut i32,
@@ -452,8 +452,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
-    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) The param of renderer is nullptr.
+    ///   [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
+    ///   [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) The param of renderer is nullptr.
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn OH_AudioRenderer_GetSpeed(
@@ -474,8 +474,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
-    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) The param of renderer is nullptr.
+    ///   [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
+    ///   [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) The param of renderer is nullptr.
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn OH_AudioRenderer_SetSpeed(
@@ -496,12 +496,12 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
-    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM):
-    /// 1.The param of renderer is nullptr;
-    /// 2.The param of volume invalid.
-    /// [`AUDIOSTREAM_ERROR_ILLEGAL_STATE`](crate::audiostream_base::OH_AudioStreamErrorCode::ILLEGAL_STATE) Execution status exception.
-    /// [`AUDIOSTREAM_ERROR_SYSTEM`](crate::audiostream_base::OH_AudioStreamErrorCode::SYSTEM) An system error has occurred.
+    ///   [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
+    ///   [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM):
+    ///   1.The param of renderer is nullptr;
+    ///   2.The param of volume invalid.
+    ///   [`AUDIOSTREAM_ERROR_ILLEGAL_STATE`](crate::audiostream_base::OH_AudioStreamErrorCode::ILLEGAL_STATE) Execution status exception.
+    ///   [`AUDIOSTREAM_ERROR_SYSTEM`](crate::audiostream_base::OH_AudioStreamErrorCode::SYSTEM) An system error has occurred.
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_AudioRenderer_SetVolume(
@@ -524,12 +524,12 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
-    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM):
-    /// 1.The param of renderer is nullptr;
-    /// 2.The param of volume invalid.
-    /// [`AUDIOSTREAM_ERROR_ILLEGAL_STATE`](crate::audiostream_base::OH_AudioStreamErrorCode::ILLEGAL_STATE) Execution status exception.
-    /// [`AUDIOSTREAM_ERROR_SYSTEM`](crate::audiostream_base::OH_AudioStreamErrorCode::SYSTEM) An system error has occurred.
+    ///   [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
+    ///   [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM):
+    ///   1.The param of renderer is nullptr;
+    ///   2.The param of volume invalid.
+    ///   [`AUDIOSTREAM_ERROR_ILLEGAL_STATE`](crate::audiostream_base::OH_AudioStreamErrorCode::ILLEGAL_STATE) Execution status exception.
+    ///   [`AUDIOSTREAM_ERROR_SYSTEM`](crate::audiostream_base::OH_AudioStreamErrorCode::SYSTEM) An system error has occurred.
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_AudioRenderer_SetVolumeWithRamp(
@@ -551,10 +551,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
-    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM):
-    /// 1.The param of renderer is nullptr;
-    /// 2.The param of volume is nullptr.
+    ///   [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
+    ///   [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM):
+    ///   1.The param of renderer is nullptr;
+    ///   2.The param of volume is nullptr.
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_AudioRenderer_GetVolume(
@@ -580,12 +580,12 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
-    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM):
-    /// 1.The param of renderer is nullptr;
-    /// 2.The param of samplePos invalid.
-    /// [`AUDIOSTREAM_ERROR_ILLEGAL_STATE`](crate::audiostream_base::OH_AudioStreamErrorCode::ILLEGAL_STATE) Execution status exception.
-    /// [`AUDIOSTREAM_ERROR_SYSTEM`](crate::audiostream_base::OH_AudioStreamErrorCode::SYSTEM) An system error has occurred.
+    ///   [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
+    ///   [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM):
+    ///   1.The param of renderer is nullptr;
+    ///   2.The param of samplePos invalid.
+    ///   [`AUDIOSTREAM_ERROR_ILLEGAL_STATE`](crate::audiostream_base::OH_AudioStreamErrorCode::ILLEGAL_STATE) Execution status exception.
+    ///   [`AUDIOSTREAM_ERROR_SYSTEM`](crate::audiostream_base::OH_AudioStreamErrorCode::SYSTEM) An system error has occurred.
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_AudioRenderer_SetMarkPosition(
@@ -606,8 +606,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
-    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) The param of renderer is nullptr.
+    ///   [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
+    ///   [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) The param of renderer is nullptr.
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_AudioRenderer_CancelMark(renderer: *mut OH_AudioRenderer) -> OH_AudioStream_Result;
@@ -625,10 +625,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
-    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM):
-    /// 1.The param of renderer is nullptr;
-    /// 2.The param of count is nullptr.
+    ///   [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
+    ///   [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM):
+    ///   1.The param of renderer is nullptr;
+    ///   2.The param of count is nullptr.
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_AudioRenderer_GetUnderflowCount(
@@ -649,8 +649,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
-    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) The param of renderer is nullptr.
+    ///   [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
+    ///   [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) The param of renderer is nullptr.
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_AudioRenderer_GetChannelLayout(
@@ -671,8 +671,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
-    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) The param of renderer is nullptr.
+    ///   [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
+    ///   [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) The param of renderer is nullptr.
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_AudioRenderer_GetEffectMode(
@@ -693,8 +693,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
-    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) The param of renderer is nullptr.
+    ///   [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
+    ///   [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) The param of renderer is nullptr.
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_AudioRenderer_SetEffectMode(
@@ -715,8 +715,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
-    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) The param of renderer is nullptr.
+    ///   [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
+    ///   [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) The param of renderer is nullptr.
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_AudioRenderer_GetRendererPrivacy(
@@ -730,14 +730,14 @@ extern "C" {
     /// * `renderer` - Renderer generated by OH_AudioStreamBuilder_GenerateRenderer()
     ///
     /// * `on` - The silent and mix with other streams mode.
-    /// true: set the silent mode and mix with other streams.
-    /// false: unset the silent mode, current stream will trigger the audio focus internally.
+    ///   true: set the silent mode and mix with other streams.
+    ///   false: unset the silent mode, current stream will trigger the audio focus internally.
     ///
     /// # Returns
     ///
     /// * result code for this function.
-    /// [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) succeed in setting to the silent and mix with other streams.
-    /// [`AUDIOSTREAM_ERROR_ILLEGAL_STATE`](crate::audiostream_base::OH_AudioStreamErrorCode::ILLEGAL_STATE) this stream is not allowed to set/unset the silent mode.
+    ///   [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) succeed in setting to the silent and mix with other streams.
+    ///   [`AUDIOSTREAM_ERROR_ILLEGAL_STATE`](crate::audiostream_base::OH_AudioStreamErrorCode::ILLEGAL_STATE) this stream is not allowed to set/unset the silent mode.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -757,8 +757,8 @@ extern "C" {
     /// # Returns
     ///
     /// * result code for this function.
-    /// [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) succeed in getting silent and mix with other streams status
-    /// [`AUDIOSTREAM_ERROR_SYSTEM`](crate::audiostream_base::OH_AudioStreamErrorCode::SYSTEM) system error when calling this function.
+    ///   [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) succeed in getting silent and mix with other streams status
+    ///   [`AUDIOSTREAM_ERROR_SYSTEM`](crate::audiostream_base::OH_AudioStreamErrorCode::SYSTEM) system error when calling this function.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -777,19 +777,19 @@ extern "C" {
     /// * `renderer` - Renderer generated by OH_AudioStreamBuilder_GenerateRenderer()
     ///
     /// * `deviceType` - The target device. The available deviceTypes are:
-    /// EARPIECE: Built-in earpiece
-    /// SPEAKER: Built-in speaker
-    /// DEFAULT: System default output device
+    ///   EARPIECE: Built-in earpiece
+    ///   SPEAKER: Built-in speaker
+    ///   DEFAULT: System default output device
     ///
     /// # Returns
     ///
     /// * result code for this function.
-    /// [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) succeed in setting the default output device
-    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM):
-    /// 1.The param of renderer is nullptr;
-    /// 2.The param of deviceType is not valid
-    /// [`AUDIOSTREAM_ERROR_ILLEGAL_STATE`](crate::audiostream_base::OH_AudioStreamErrorCode::ILLEGAL_STATE) This audiorenderer can not reset the output device
-    /// [`AUDIOSTREAM_ERROR_SYSTEM`](crate::audiostream_base::OH_AudioStreamErrorCode::SYSTEM) system error when calling this function.
+    ///   [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) succeed in setting the default output device
+    ///   [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM):
+    ///   1.The param of renderer is nullptr;
+    ///   2.The param of deviceType is not valid
+    ///   [`AUDIOSTREAM_ERROR_ILLEGAL_STATE`](crate::audiostream_base::OH_AudioStreamErrorCode::ILLEGAL_STATE) This audiorenderer can not reset the output device
+    ///   [`AUDIOSTREAM_ERROR_SYSTEM`](crate::audiostream_base::OH_AudioStreamErrorCode::SYSTEM) system error when calling this function.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -824,15 +824,15 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
-    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM):
-    /// 1.The param of renderer is nullptr;
-    /// 2.The param of framePosition or timestamp is nullptr;
-    /// [`AUDIOSTREAM_ERROR_ILLEGAL_STATE`](crate::audiostream_base::OH_AudioStreamErrorCode::ILLEGAL_STATE):
-    /// 1.Only running state is legal for getting audio timestamp.
-    /// [`AUDIOSTREAM_ERROR_SYSTEM`](crate::audiostream_base::OH_AudioStreamErrorCode::SYSTEM):
-    /// 1.Crash or blocking occurs in system process.
-    /// 2.Other unexpected error from internal system.
+    ///   [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
+    ///   [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM):
+    ///   1.The param of renderer is nullptr;
+    ///   2.The param of framePosition or timestamp is nullptr;
+    ///   [`AUDIOSTREAM_ERROR_ILLEGAL_STATE`](crate::audiostream_base::OH_AudioStreamErrorCode::ILLEGAL_STATE):
+    ///   1.Only running state is legal for getting audio timestamp.
+    ///   [`AUDIOSTREAM_ERROR_SYSTEM`](crate::audiostream_base::OH_AudioStreamErrorCode::SYSTEM):
+    ///   1.Crash or blocking occurs in system process.
+    ///   2.Other unexpected error from internal system.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
@@ -853,8 +853,8 @@ extern "C" {
     /// # Returns
     ///
     /// *  [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) if the execution is successful.
-    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) the param of renderer is nullptr.
-    /// [`AUDIOSTREAM_ERROR_ILLEGAL_STATE`](crate::audiostream_base::OH_AudioStreamErrorCode::ILLEGAL_STATE) function called in invalid state, only available before release state.
+    ///    [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) the param of renderer is nullptr.
+    ///    [`AUDIOSTREAM_ERROR_ILLEGAL_STATE`](crate::audiostream_base::OH_AudioStreamErrorCode::ILLEGAL_STATE) function called in invalid state, only available before release state.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -879,10 +879,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
-    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM):
-    /// 1.The param of renderer is nullptr or not supported to set gain;
-    /// 2.The param of loudnessGain is invalid.
+    ///   [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
+    ///   [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM):
+    ///   1.The param of renderer is nullptr or not supported to set gain;
+    ///   2.The param of loudnessGain is invalid.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -902,10 +902,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
-    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM):
-    /// 1.The param of renderer is nullptr;
-    /// 2.The param of loudnessGain is nullptr.
+    ///   [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
+    ///   [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM):
+    ///   1.The param of renderer is nullptr;
+    ///   2.The param of loudnessGain is nullptr.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -933,12 +933,12 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
-    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM)
-    /// 1.The param of renderer is nullptr.
-    /// 2.The param of latencyMs is nullptr.
-    /// 3.The param of type is invalid value.
-    /// [`AUDIOSTREAM_ERROR_SYSTEM`](crate::audiostream_base::OH_AudioStreamErrorCode::SYSTEM) System internal error, like audio service error.
+    ///   [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
+    ///   [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM)
+    ///   1.The param of renderer is nullptr.
+    ///   2.The param of latencyMs is nullptr.
+    ///   3.The param of type is invalid value.
+    ///   [`AUDIOSTREAM_ERROR_SYSTEM`](crate::audiostream_base::OH_AudioStreamErrorCode::SYSTEM) System internal error, like audio service error.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -957,16 +957,16 @@ extern "C" {
     /// * `renderer` - AudioRenderer created by OH_AudioStreamBuilder_GenerateRenderer().
     ///
     /// * `strategy` - pointer to [`OH_AudioSession_Strategy`](crate::audio_session_base::OH_AudioSession_Strategy)
-    /// which is used to set the audio session strategy.
+    ///   which is used to set the audio session strategy.
     ///
     /// * `behavior` - Audio session behavior flag, which can be a single flag or a bitwise
-    /// OR combination of multiple flags [`OH_AudioSession_BehaviorFlags`](crate::audio_session_base::OH_AudioSession_BehaviorFlags).
+    ///   OR combination of multiple flags [`OH_AudioSession_BehaviorFlags`](crate::audio_session_base::OH_AudioSession_BehaviorFlags).
     ///
     /// # Returns
     ///
     /// * [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
-    /// or [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) If the parameter is null or out of range.
-    /// or [`AUDIOSTREAM_ERROR_ILLEGAL_STATE`](crate::audiostream_base::OH_AudioStreamErrorCode::ILLEGAL_STATE) Running and released are illegal states.
+    ///   or [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) If the parameter is null or out of range.
+    ///   or [`AUDIOSTREAM_ERROR_ILLEGAL_STATE`](crate::audiostream_base::OH_AudioStreamErrorCode::ILLEGAL_STATE) Running and released are illegal states.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]

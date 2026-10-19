@@ -77,9 +77,9 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK): The operation is successful.
-    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **capture** is nullptr.
-    /// [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT): The operation is not allowed. The configuration fails to be
-    /// initialized.
+    ///   [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **capture** is nullptr.
+    ///   [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT): The operation is not allowed. The configuration fails to be
+    ///   initialized.
     ///
     /// Available since API-level: 10
     pub fn OH_AVScreenCapture_Init(
@@ -99,10 +99,10 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK): The operation is successful.
-    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **capture** is nullptr.
-    /// [`AV_SCREEN_CAPTURE_ERR_UNSUPPORT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_UNSUPPORT) (available since API version 20): The device does not support the operation.
-    /// [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT): The operation is not allowed. The privacy permission fails to be
-    /// enabled or screen capture fails to start.
+    ///   [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **capture** is nullptr.
+    ///   [`AV_SCREEN_CAPTURE_ERR_UNSUPPORT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_UNSUPPORT) (available since API version 20): The device does not support the operation.
+    ///   [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT): The operation is not allowed. The privacy permission fails to be
+    ///   enabled or screen capture fails to start.
     ///
     /// Available since API-level: 10
     pub fn OH_AVScreenCapture_StartScreenCapture(
@@ -118,8 +118,8 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK): The operation is successful.
-    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **capture** is nullptr.
-    /// [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT): The operation is not allowed. Screen capture fails to stop.
+    ///   [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **capture** is nullptr.
+    ///   [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT): The operation is not allowed. Screen capture fails to stop.
     ///
     /// Available since API-level: 10
     pub fn OH_AVScreenCapture_StopScreenCapture(
@@ -134,10 +134,10 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK): The operation is successful.
-    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **capture** is nullptr.
-    /// [`AV_SCREEN_CAPTURE_ERR_UNSUPPORT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_UNSUPPORT) (available since API version 20): The device does not support the operation.
-    /// [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT): The operation is not allowed. The privacy permission fails to be
-    /// enabled or screen capture fails to start.
+    ///   [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **capture** is nullptr.
+    ///   [`AV_SCREEN_CAPTURE_ERR_UNSUPPORT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_UNSUPPORT) (available since API version 20): The device does not support the operation.
+    ///   [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT): The operation is not allowed. The privacy permission fails to be
+    ///   enabled or screen capture fails to start.
     ///
     /// Available since API-level: 10
     pub fn OH_AVScreenCapture_StartScreenRecording(
@@ -152,8 +152,8 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK): The operation is successful.
-    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **capture** is nullptr.
-    /// [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT): The operation is not allowed. Screen capture fails to stop.
+    ///   [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **capture** is nullptr.
+    ///   [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT): The operation is not allowed. Screen capture fails to stop.
     ///
     /// Available since API-level: 10
     pub fn OH_AVScreenCapture_StopScreenRecording(
@@ -168,18 +168,18 @@ extern "C" {
     /// * `capture` - Pointer to the OH_AVScreenCapture instance.
     ///
     /// * `audiobuffer` - Pointer to the struct for storing the audio buffer. This struct is used to obtain the information
-    /// about the audio buffer and the timestamp of the buffer.
+    ///   about the audio buffer and the timestamp of the buffer.
     ///
     /// * `type` - Type of the audio buffer, which is used to distinguish external streams recorded by the microphone from
-    /// internal streams played by the system.
+    ///   internal streams played by the system.
     ///
     /// # Returns
     ///
     /// * [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK): The operation is successful.
-    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **capture** or **audiobuffer** is nullptr.
-    /// [`AV_SCREEN_CAPTURE_ERR_NO_MEMORY`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_NO_MEMORY): The audio buffer fails to be allocated due to insufficient memory.
-    /// [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT): The operation is not allowed. The privacy permission fails to be
-    /// enabled or the audio buffer fails to be obtained.
+    ///   [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **capture** or **audiobuffer** is nullptr.
+    ///   [`AV_SCREEN_CAPTURE_ERR_NO_MEMORY`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_NO_MEMORY): The audio buffer fails to be allocated due to insufficient memory.
+    ///   [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT): The operation is not allowed. The privacy permission fails to be
+    ///   enabled or the audio buffer fails to be obtained.
     ///
     /// Available since API-level: 10
     pub fn OH_AVScreenCapture_AcquireAudioBuffer(
@@ -205,7 +205,7 @@ extern "C" {
     /// # Returns
     ///
     /// * OH_NativeBuffer object if the operation is successful. The application can call the APIs provided by the
-    /// OH_NativeBuffer object to obtain information such as the video buffer and resolution.
+    ///   OH_NativeBuffer object to obtain information such as the video buffer and resolution.
     ///
     /// Available since API-level: 10
     pub fn OH_AVScreenCapture_AcquireVideoBuffer(
@@ -222,14 +222,14 @@ extern "C" {
     /// * `capture` - Pointer to the OH_AVScreenCapture instance.
     ///
     /// * `type` - Type of the audio buffer, which is used to distinguish external streams recorded by the microphone from
-    /// internal streams played by the system.
+    ///   internal streams played by the system.
     ///
     /// # Returns
     ///
     /// * [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK): The operation is successful.
-    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **capture** is nullptr.
-    /// [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT): The operation is not allowed. The data callback has been set or the
-    /// audio buffer fails to be released.
+    ///   [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **capture** is nullptr.
+    ///   [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT): The operation is not allowed. The data callback has been set or the
+    ///   audio buffer fails to be released.
     ///
     /// Available since API-level: 10
     pub fn OH_AVScreenCapture_ReleaseAudioBuffer(
@@ -246,9 +246,9 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK): The operation is successful.
-    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **capture** is nullptr.
-    /// [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT): The operation is not allowed. The data callback has been set or the
-    /// vedio buffer fails to be released.
+    ///   [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **capture** is nullptr.
+    ///   [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT): The operation is not allowed. The data callback has been set or the
+    ///   vedio buffer fails to be released.
     ///
     /// Available since API-level: 10
     pub fn OH_AVScreenCapture_ReleaseVideoBuffer(
@@ -268,8 +268,8 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK): The operation is successful.
-    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **capture** or **callback** is nullptr.
-    /// [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT): The operation is not allowed. The callback fails to be set.
+    ///   [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **capture** or **callback** is nullptr.
+    ///   [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT): The operation is not allowed. The callback fails to be set.
     ///
     /// Available since API-level: 10
     pub fn OH_AVScreenCapture_SetCallback(
@@ -285,9 +285,9 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK): The operation is successful.
-    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **capture** is nullptr.
-    /// [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT): The operation is not allowed. The OH_AVScreenCapture instance fails to
-    /// be released.
+    ///   [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **capture** is nullptr.
+    ///   [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT): The operation is not allowed. The OH_AVScreenCapture instance fails to
+    ///   be released.
     ///
     /// Available since API-level: 10
     pub fn OH_AVScreenCapture_Release(
@@ -304,15 +304,15 @@ extern "C" {
     /// * `capture` - Pointer to the OH_AVScreenCapture instance.
     ///
     /// * `isMicrophone` - Whether to enable the microphone.
-    /// **true** to enable, **false** to disable.
-    /// The default value is **true**.
+    ///   **true** to enable, **false** to disable.
+    ///   The default value is **true**.
     ///
     /// # Returns
     ///
     /// * [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK): The operation is successful.
-    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **capture** is nullptr.
-    /// [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT): The operation is not allowed. The microphone fails to be enabled or
-    /// disabled.
+    ///   [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **capture** is nullptr.
+    ///   [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT): The operation is not allowed. The microphone fails to be enabled or
+    ///   disabled.
     ///
     /// Available since API-level: 10
     pub fn OH_AVScreenCapture_SetMicrophoneEnabled(
@@ -324,12 +324,12 @@ extern "C" {
     /// A privacy dialog box is displayed to ask for user consent before screen capture starts. After a successful call to
     /// this function, the following scenarios are possible:
     /// 1. If the user agrees, the screen capture startup process starts. If screen capture starts successfully, the state
-    /// change callback is triggered to report the [`OH_AVScreenCaptureStateCode`](crate::avscreen_capture_base::OH_AVScreenCaptureStateCode).OH_SCREEN_CAPTURE_STATE_STARTED status to notify the application of the startup success, with a screen capture notification displayed. If screen capture fails to start, the state change callback is triggered to report the failure information (for example, [`OH_AVScreenCaptureStateCode`](crate::avscreen_capture_base::OH_AVScreenCaptureStateCode).
-    /// OH_SCREEN_CAPTURE_STATE_MIC_UNAVAILABLE if the microphone is unavailable), or the error processing callback [`OH_AVScreenCapture_OnError`](crate::avscreen_capture_base::OH_AVScreenCapture_OnError)
-    /// is triggered to report the error information.
+    ///    change callback is triggered to report the [`OH_AVScreenCaptureStateCode`](crate::avscreen_capture_base::OH_AVScreenCaptureStateCode).OH_SCREEN_CAPTURE_STATE_STARTED status to notify the application of the startup success, with a screen capture notification displayed. If screen capture fails to start, the state change callback is triggered to report the failure information (for example, [`OH_AVScreenCaptureStateCode`](crate::avscreen_capture_base::OH_AVScreenCaptureStateCode).
+    ///    OH_SCREEN_CAPTURE_STATE_MIC_UNAVAILABLE if the microphone is unavailable), or the error processing callback [`OH_AVScreenCapture_OnError`](crate::avscreen_capture_base::OH_AVScreenCapture_OnError)
+    ///    is triggered to report the error information.
     /// 2. If the user disagrees, the screen capture startup process stops. The state change callback is triggered to report
-    /// the [`OH_AVScreenCaptureStateCode`](crate::avscreen_capture_base::OH_AVScreenCaptureStateCode).OH_SCREEN_CAPTURE_STATE_CANCELED status to notify the application of the
-    /// startup failure due to user rejection.
+    ///    the [`OH_AVScreenCaptureStateCode`](crate::avscreen_capture_base::OH_AVScreenCaptureStateCode).OH_SCREEN_CAPTURE_STATE_CANCELED status to notify the application of the
+    ///    startup failure due to user rejection.
     ///
     /// # Arguments
     ///
@@ -338,14 +338,14 @@ extern "C" {
     /// * `callback` - State change callback.
     ///
     /// * `userData` - Pointer to the user-defined data. The data is returned as an input parameter when the state change
-    /// callback is triggered.
+    ///   callback is triggered.
     ///
     /// # Returns
     ///
     /// * [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK): The operation is successful.
-    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **capture** or **callback** is nullptr.
-    /// [`AV_SCREEN_CAPTURE_ERR_NO_MEMORY`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_NO_MEMORY): The memory fails to be allocated due to insufficient memory.
-    /// [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT): The operation is not allowed. The state callback fails to be set.
+    ///   [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **capture** or **callback** is nullptr.
+    ///   [`AV_SCREEN_CAPTURE_ERR_NO_MEMORY`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_NO_MEMORY): The memory fails to be allocated due to insufficient memory.
+    ///   [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT): The operation is not allowed. The state callback fails to be set.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -362,10 +362,10 @@ extern "C" {
     /// callback. After the callback is triggered, the buffer is no longer valid.
     /// A successful call to this function leads to the following scenarios:
     /// 1. The callbacks [`OH_AVScreenCaptureOnAudioBufferAvailable`](crate::avscreen_capture_base::OH_AVScreenCaptureOnAudioBufferAvailable) and [`OH_AVScreenCaptureOnVideoBufferAvailable`](crate::avscreen_capture_base::OH_AVScreenCaptureOnVideoBufferAvailable)
-    /// set by calling [`OH_AVScreenCapture_SetCallback`](crate::avscreen_capture::OH_AVScreenCapture_SetCallback) will no longer be triggered, even when an audio buffer or a
-    /// video buffer becomes available.
+    ///    set by calling [`OH_AVScreenCapture_SetCallback`](crate::avscreen_capture::OH_AVScreenCapture_SetCallback) will no longer be triggered, even when an audio buffer or a
+    ///    video buffer becomes available.
     /// 2. A failure message is returned for a call to any of the following functions: [`OH_AVScreenCapture_AcquireAudioBuffer`](crate::avscreen_capture::OH_AVScreenCapture_AcquireAudioBuffer),
-    /// [`OH_AVScreenCapture_ReleaseAudioBuffer`](crate::avscreen_capture::OH_AVScreenCapture_ReleaseAudioBuffer), [`OH_AVScreenCapture_AcquireVideoBuffer`](crate::avscreen_capture::OH_AVScreenCapture_AcquireVideoBuffer), and [`OH_AVScreenCapture_ReleaseVideoBuffer`](crate::avscreen_capture::OH_AVScreenCapture_ReleaseVideoBuffer).
+    ///    [`OH_AVScreenCapture_ReleaseAudioBuffer`](crate::avscreen_capture::OH_AVScreenCapture_ReleaseAudioBuffer), [`OH_AVScreenCapture_AcquireVideoBuffer`](crate::avscreen_capture::OH_AVScreenCapture_AcquireVideoBuffer), and [`OH_AVScreenCapture_ReleaseVideoBuffer`](crate::avscreen_capture::OH_AVScreenCapture_ReleaseVideoBuffer).
     ///
     /// # Arguments
     ///
@@ -374,14 +374,14 @@ extern "C" {
     /// * `callback` - Data processing callback.
     ///
     /// * `userData` - Pointer to the user-defined data. The data is returned as an input parameter when the data
-    /// processing callback is triggered.
+    ///   processing callback is triggered.
     ///
     /// # Returns
     ///
     /// * [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK): The operation is successful.
-    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **capture** or **callback** is nullptr.
-    /// [`AV_SCREEN_CAPTURE_ERR_NO_MEMORY`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_NO_MEMORY): The memory fails to be allocated due to insufficient memory.
-    /// [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT): The operation is not allowed. The data callback fails to be set.
+    ///   [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **capture** or **callback** is nullptr.
+    ///   [`AV_SCREEN_CAPTURE_ERR_NO_MEMORY`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_NO_MEMORY): The memory fails to be allocated due to insufficient memory.
+    ///   [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT): The operation is not allowed. The data callback fails to be set.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -403,14 +403,14 @@ extern "C" {
     /// * `callback` - Error processing callback.
     ///
     /// * `userData` - Pointer to the user-defined data. The data is returned as an input parameter when the error
-    /// processing callback is triggered.
+    ///   processing callback is triggered.
     ///
     /// # Returns
     ///
     /// * [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK): The operation is successful.
-    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **capture** or **callback** is nullptr.
-    /// [`AV_SCREEN_CAPTURE_ERR_NO_MEMORY`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_NO_MEMORY): The memory fails to be allocated due to insufficient memory.
-    /// [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT): The operation is not allowed. The error callback fails to be set.
+    ///   [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **capture** or **callback** is nullptr.
+    ///   [`AV_SCREEN_CAPTURE_ERR_NO_MEMORY`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_NO_MEMORY): The memory fails to be allocated due to insufficient memory.
+    ///   [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT): The operation is not allowed. The error callback fails to be set.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -430,14 +430,14 @@ extern "C" {
     /// * `callback` - Pointer to the callback method instance for the screen capture content change event.
     ///
     /// * `userData` - Pointer to the user-defined data. The data is returned as an input parameter when the error
-    /// processing callback is triggered.
+    ///   processing callback is triggered.
     ///
     /// # Returns
     ///
     /// * [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK): The operation is successful.
-    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **capture** or **callback** is nullptr.
-    /// [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT): The operation is not allowed. The screen capture callback fails to be
-    /// set.
+    ///   [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **capture** or **callback** is nullptr.
+    ///   [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT): The operation is not allowed. The screen capture callback fails to be
+    ///   set.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -458,11 +458,11 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK): The operation is successful.
-    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **capture**, input parameter **window**, or **
-    /// windowSurface** pointed to by **window** is nullptr.
-    /// **AV_SCREEN_CAPTURE_ERR_UNSUPPORT** (available since API version 20): The device does not support the operation.
-    /// [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT): The operation is not allowed. The privacy permission fails to be
-    /// enabled or screen capture with a surface fails to start.
+    ///   [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **capture**, input parameter **window**, or **
+    ///   windowSurface** pointed to by **window** is nullptr.
+    ///   **AV_SCREEN_CAPTURE_ERR_UNSUPPORT** (available since API version 20): The device does not support the operation.
+    ///   [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT): The operation is not allowed. The privacy permission fails to be
+    ///   enabled or screen capture with a surface fails to start.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -484,10 +484,10 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK): The operation is successful.
-    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **capture** is nullptr.
-    /// **AV_SCREEN_CAPTURE_ERR_UNSUPPORT** (available since API version 20): The device does not support the operation.
-    /// [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT): The operation is not allowed. Canvas rotation fails to be set for
-    /// screen capture.
+    ///   [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **capture** is nullptr.
+    ///   **AV_SCREEN_CAPTURE_ERR_UNSUPPORT** (available since API version 20): The device does not support the operation.
+    ///   [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT): The operation is not allowed. Canvas rotation fails to be set for
+    ///   screen capture.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -516,7 +516,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK): The operation is successful.
-    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **filter** is nullptr.
+    ///   [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **filter** is nullptr.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -535,8 +535,8 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK): The operation is successful.
-    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **filter** is nullptr or the input parameter **content**
-    /// is invalid.
+    ///   [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **filter** is nullptr or the input parameter **content**
+    ///   is invalid.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -556,10 +556,10 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK): The operation is successful.
-    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **capture** or **filter** is nullptr.
-    /// [`AV_SCREEN_CAPTURE_ERR_UNSUPPORT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_UNSUPPORT): The operation is not supported. For streams, the AudioCapturer API must be
-    /// called for the operation to take effect during the start.
-    /// For captured files, the Recorder API must be called for the operation to take effect during the start.
+    ///   [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **capture** or **filter** is nullptr.
+    ///   [`AV_SCREEN_CAPTURE_ERR_UNSUPPORT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_UNSUPPORT): The operation is not supported. For streams, the AudioCapturer API must be
+    ///   called for the operation to take effect during the start.
+    ///   For captured files, the Recorder API must be called for the operation to take effect during the start.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -608,9 +608,9 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK): The operation is successful.
-    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **capture** is nullptr.
-    /// **AV_SCREEN_CAPTURE_ERR_UNSUPPORT** (available since API version 20): The device does not support the operation.
-    /// [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
+    ///   [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **capture** is nullptr.
+    ///   **AV_SCREEN_CAPTURE_ERR_UNSUPPORT** (available since API version 20): The device does not support the operation.
+    ///   [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -634,9 +634,9 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK): The operation is successful.
-    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **capture** is nullptr.
-    /// **AV_SCREEN_CAPTURE_ERR_UNSUPPORT** (available since API version 20): The device does not support the operation.
-    /// [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
+    ///   [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **capture** is nullptr.
+    ///   **AV_SCREEN_CAPTURE_ERR_UNSUPPORT** (available since API version 20): The device does not support the operation.
+    ///   [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -664,10 +664,10 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK): The operation is successful.
-    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **capture** is nullptr, or the input parameter **
-    /// frameRate** is not supported.
-    /// **AV_SCREEN_CAPTURE_ERR_UNSUPPORT** (available since API version 20): The device does not support the operation.
-    /// [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
+    ///   [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **capture** is nullptr, or the input parameter **
+    ///   frameRate** is not supported.
+    ///   **AV_SCREEN_CAPTURE_ERR_UNSUPPORT** (available since API version 20): The device does not support the operation.
+    ///   [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
     ///
     /// Available since API-level: 14
     #[cfg(feature = "api-14")]
@@ -687,9 +687,9 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK): The operation is successful.
-    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **capture** is nullptr.
-    /// **AV_SCREEN_CAPTURE_ERR_UNSUPPORT** (available since API version 20): The device does not support the operation.
-    /// [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT): The operation is not allowed. The cursor setting fails.
+    ///   [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **capture** is nullptr.
+    ///   **AV_SCREEN_CAPTURE_ERR_UNSUPPORT** (available since API version 20): The device does not support the operation.
+    ///   [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT): The operation is not allowed. The cursor setting fails.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
@@ -714,8 +714,8 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK): The operation is successful.
-    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **capture** is a nullptr, the input **displayId** does
-    /// not exist, or the input **area** is abnormal.
+    ///   [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **capture** is a nullptr, the input **displayId** does
+    ///   not exist, or the input **area** is abnormal.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -736,7 +736,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK): The operation is successful.
-    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **capture** is nullptr or **config** is invalid.
+    ///   [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **capture** is nullptr or **config** is invalid.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -755,12 +755,12 @@ extern "C" {
     /// * `callback` - user selection callback function, see [`OH_AVScreenCapture_OnUserSelected`](crate::avscreen_capture_base::OH_AVScreenCapture_OnUserSelected)
     ///
     /// * `userData` - The control block pointer passed by the application is carried to the application when it is
-    /// returned
+    ///   returned
     ///
     /// # Returns
     ///
     /// * [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK): The operation is successful.
-    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **capture** is nullptr.
+    ///   [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **capture** is nullptr.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -779,12 +779,12 @@ extern "C" {
     /// * `selection` - Pointer to an OH_AVScreenCapture_UserSelectionInfo instance
     ///
     /// * `type` - The capture object type selected by the user,
-    /// 0: represents the screen, 1: represents the window, 2: represents the app.
+    ///   0: represents the screen, 1: represents the window, 2: represents the app.
     ///
     /// # Returns
     ///
     /// * [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK): The operation is successful.
-    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **selection** is nullptr.
+    ///   [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **selection** is nullptr.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -805,7 +805,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK): The operation is successful.
-    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **selection** is nullptr.
+    ///   [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **selection** is nullptr.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -834,7 +834,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK): The operation is successful.
-    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **strategy** is nullptr.
+    ///   [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **strategy** is nullptr.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -850,13 +850,13 @@ extern "C" {
     /// * `capture` - Pointer to an OH_AVScreenCapture which need to be setted.
     ///
     /// * `strategy` - Pointer to an OH_AVScreenCapture_CaptureStrategy which want to
-    /// set.
+    ///   set.
     ///
     /// # Returns
     ///
     /// * [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK): The operation is successful.
-    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **capture** or **strategy** is nullptr.
-    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_STATE`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_STATE): This function is called after screen capture starts.
+    ///   [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **capture** or **strategy** is nullptr.
+    ///   [`AV_SCREEN_CAPTURE_ERR_INVALID_STATE`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_STATE): This function is called after screen capture starts.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -877,12 +877,12 @@ extern "C" {
     /// * `strategy` - Pointer to an OH_AVScreenCapture_CaptureStrategy instance
     ///
     /// * `value` - The default value is false, which means that screen recording is not allowed during cellular
-    /// calls.
+    ///   calls.
     ///
     /// # Returns
     ///
     /// * [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK): The operation is successful.
-    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **strategy** is nullptr.
+    ///   [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **strategy** is nullptr.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -897,14 +897,14 @@ extern "C" {
     /// * `strategy` - Pointer to an OH_AVScreenCapture_CaptureStrategy instance
     ///
     /// * `value` - If set to 0, it means that when there is a privacy window interface, the output screen image is completely black.
-    /// If set to 1, it means that when there is a privacy window interface, only the privacy window area of the output screen becomes black,
-    /// and other values returns an error.
+    ///   If set to 1, it means that when there is a privacy window interface, only the privacy window area of the output screen becomes black,
+    ///   and other values returns an error.
     ///
     /// # Returns
     ///
     /// * Function result code.
-    /// [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK) if the execution is successful.
-    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL) strategy is nullptr or value is invalid.
+    ///   [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK) if the execution is successful.
+    ///   [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL) strategy is nullptr or value is invalid.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -928,7 +928,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK): The operation is successful.
-    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **strategy** is nullptr.
+    ///   [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **strategy** is nullptr.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -948,13 +948,13 @@ extern "C" {
     /// * `strategy` - Pointer to an OH_AVScreenCapture_CaptureStrategy instance
     ///
     /// * `value` - The default value is False, which means that the width and height of the VirtualDisplay
-    /// remain the initial settings. If set to True, it means that the width and height of the VirtualDisplay rotates
-    /// with the rotation of the screen..
+    ///   remain the initial settings. If set to True, it means that the width and height of the VirtualDisplay rotates
+    ///   with the rotation of the screen..
     ///
     /// # Returns
     ///
     /// * [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK): The operation is successful.
-    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **strategy** is nullptr.
+    ///   [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **strategy** is nullptr.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -970,13 +970,13 @@ extern "C" {
     /// * `strategy` - Pointer to an OH_AVScreenCapture_CaptureStrategy instance
     ///
     /// * `value` - If set to false, it means that the APP don't need to pop up the Picker after screen capture starts;
-    /// If set to True, the Picker will pop up uniformly after screen capture starts;
-    /// If not set, it means using the system recommended behavior.
+    ///   If set to True, the Picker will pop up uniformly after screen capture starts;
+    ///   If not set, it means using the system recommended behavior.
     ///
     /// # Returns
     ///
     /// * [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK): The operation is successful.
-    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **strategy** is nullptr or **value** is invalid.
+    ///   [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **strategy** is nullptr or **value** is invalid.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -996,7 +996,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK): The operation is successful.
-    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **strategy** is nullptr.
+    ///   [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **strategy** is nullptr.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -1014,14 +1014,14 @@ extern "C" {
     /// * `callback` - Callback function for returning the display ID.
     ///
     /// * `userData` - Pointer to the user-defined data. The data is returned as an input parameter when the state change
-    /// callback is triggered.
+    ///   callback is triggered.
     ///
     /// # Returns
     ///
     /// * [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK): The operation is successful.
-    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **capture** or **callback** is nullptr.
-    /// [`AV_SCREEN_CAPTURE_ERR_NO_MEMORY`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_NO_MEMORY): The memory fails to be allocated due to insufficient memory.
-    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_STATE`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_STATE): The callback must be called before the **start** function.
+    ///   [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **capture** or **callback** is nullptr.
+    ///   [`AV_SCREEN_CAPTURE_ERR_NO_MEMORY`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_NO_MEMORY): The memory fails to be allocated due to insufficient memory.
+    ///   [`AV_SCREEN_CAPTURE_ERR_INVALID_STATE`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_STATE): The callback must be called before the **start** function.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
@@ -1049,9 +1049,9 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK): The operation is successful.
-    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **capture** is nullptr or **excludedWindowIDs** is
-    /// invalid.
-    /// [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
+    ///   [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **capture** is nullptr or **excludedWindowIDs** is
+    ///   invalid.
+    ///   [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -1077,8 +1077,8 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK): The operation is successful.
-    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **capture** is nullptr or **pickerMode** is invalid.
-    /// [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
+    ///   [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **capture** is nullptr or **pickerMode** is invalid.
+    ///   [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -1105,8 +1105,8 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK): The operation is successful.
-    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **capture** is nullptr.
-    /// [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
+    ///   [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **capture** is nullptr.
+    ///   [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT): The operation is not allowed.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -1130,8 +1130,8 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK): The operation is successful.
-    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **capture** is a null pointer.
-    /// [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT): The operation is not allowed, and data fails to be obtained.
+    ///   [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **capture** is a null pointer.
+    ///   [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT): The operation is not allowed, and data fails to be obtained.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -1151,14 +1151,14 @@ extern "C" {
     /// * `selection` - Pointer to the OH_AVScreenCapture_UserSelectionInfo instance.
     ///
     /// * `displayIds` - Double pointer to the array of display IDs selected by the user. The memory of the **displayIds**
-    /// parameter is managed by **OH_AVScreenCapture_UserSelectionInfo** and does not need to be manually released.
+    ///   parameter is managed by **OH_AVScreenCapture_UserSelectionInfo** and does not need to be manually released.
     ///
     /// * `count` - Pointer to the number of display IDs selected by the user.
     ///
     /// # Returns
     ///
     /// * [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK): The operation is successful.
-    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **selection** is a null pointer.
+    ///   [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input parameter **selection** is a null pointer.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -1178,12 +1178,12 @@ extern "C" {
     /// * `callback` - Privacy protection callback function.
     ///
     /// * `userData` - Pointer to the user-defined data. The data is returned as an input parameter when the state change
-    /// callback is triggered.
+    ///   callback is triggered.
     ///
     /// # Returns
     ///
     /// * [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK): The operation is successful.
-    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input screen capture instance or callback is a null pointer.
+    ///   [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): The input screen capture instance or callback is a null pointer.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -1203,8 +1203,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code.
-    /// [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK): the execution is successful.
-    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): strategy value is nullptr.
+    ///   [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK): the execution is successful.
+    ///   [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): strategy value is nullptr.
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]
@@ -1221,9 +1221,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code.
-    /// [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK): the execution is successful.
-    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): capture value is nullptr.
-    /// [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT): operation not permitted.
+    ///   [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK): the execution is successful.
+    ///   [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): capture value is nullptr.
+    ///   [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT): operation not permitted.
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]
@@ -1239,9 +1239,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code.
-    /// [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK): the execution is successful.
-    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): capture value is nullptr.
-    /// [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT): operation not permitted.
+    ///   [`AV_SCREEN_CAPTURE_ERR_OK`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OK): the execution is successful.
+    ///   [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_INVALID_VAL): capture value is nullptr.
+    ///   [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`](crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode::AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT): operation not permitted.
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]

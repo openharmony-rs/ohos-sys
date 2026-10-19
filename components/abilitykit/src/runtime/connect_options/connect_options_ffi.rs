@@ -83,8 +83,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a newly created OH_AbilityRuntime_ConnectOptions object.
-    /// The caller is responsible for destroying the returned object by calling
-    /// [`OH_AbilityRuntime_DestroyConnectOptions`](crate::runtime::connect_options::OH_AbilityRuntime_DestroyConnectOptions) to avoid memory leaks.
+    ///   The caller is responsible for destroying the returned object by calling
+    ///   [`OH_AbilityRuntime_DestroyConnectOptions`](crate::runtime::connect_options::OH_AbilityRuntime_DestroyConnectOptions) to avoid memory leaks.
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]
@@ -99,8 +99,8 @@ extern "C" {
     /// # Returns
     ///
     /// * The error code.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the connectOptions is invalid.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the connectOptions is invalid.
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]
@@ -116,13 +116,13 @@ extern "C" {
     /// * `connectOptions` - Pointer to an [`OH_AbilityRuntime_ConnectOptions`](crate::runtime::connect_options::OH_AbilityRuntime_ConnectOptions) instance to be set.
     ///
     /// * `onConnectCallback` - Represents [`OH_AbilityRuntime_ConnectOptions_OnConnectCallback`](crate::runtime::connect_options::OH_AbilityRuntime_ConnectOptions_OnConnectCallback) instance
-    /// which will be set in.
+    ///   which will be set in.
     ///
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) success.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) parameter check failed.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) success.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) parameter check failed.
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]
@@ -139,13 +139,13 @@ extern "C" {
     /// * `connectOptions` - Pointer to an [`OH_AbilityRuntime_ConnectOptions`](crate::runtime::connect_options::OH_AbilityRuntime_ConnectOptions) instance to be set.
     ///
     /// * `onDisconnectCallback` - Represents [`OH_AbilityRuntime_ConnectOptions_OnDisconnectCallback`](crate::runtime::connect_options::OH_AbilityRuntime_ConnectOptions_OnDisconnectCallback) instance
-    /// which will be set in.
+    ///   which will be set in.
     ///
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) success.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) parameter check failed.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) success.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) parameter check failed.
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]
@@ -162,13 +162,13 @@ extern "C" {
     /// * `connectOptions` - Pointer to an [`OH_AbilityRuntime_ConnectOptions`](crate::runtime::connect_options::OH_AbilityRuntime_ConnectOptions) instance to be set.
     ///
     /// * `onFailedCallback` - Represents [`OH_AbilityRuntime_ConnectOptions_OnFailedCallback`](crate::runtime::connect_options::OH_AbilityRuntime_ConnectOptions_OnFailedCallback) instance
-    /// which will be set in.
+    ///   which will be set in.
     ///
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) success.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) parameter check failed.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) success.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) parameter check failed.
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]

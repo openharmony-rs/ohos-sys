@@ -22,14 +22,14 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns 0 if the operation is successful.
-    /// <br>Returns 1 if the file does not exist.
-    /// <br>Returns 2 if opening the file fails.
-    /// <br>Returns 3 if reading the file fails.
-    /// <br>Returns 4 if seeking the file fails.
-    /// <br>Returns 5 if obtaining the file size fails.
-    /// <br>Returns 8 if fontCollection is NULL.
-    /// <br>Returns 9 if the file is corrupted.
+    ///   <br>Returns 0 if the operation is successful.
+    ///   <br>Returns 1 if the file does not exist.
+    ///   <br>Returns 2 if opening the file fails.
+    ///   <br>Returns 3 if reading the file fails.
+    ///   <br>Returns 4 if seeking the file fails.
+    ///   <br>Returns 5 if obtaining the file size fails.
+    ///   <br>Returns 8 if fontCollection is NULL.
+    ///   <br>Returns 9 if the file is corrupted.
     ///
     /// Available since API-level: 11
     ///
@@ -58,10 +58,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns 0 if the operation is successful.
-    /// <br>Returns 6 if fontBuffer is NULL.
-    /// <br>Returns 7 if the buffer size is zero.
-    /// <br>Returns 8 if fontCollection is NULL.
+    ///   <br>Returns 0 if the operation is successful.
+    ///   <br>Returns 6 if fontBuffer is NULL.
+    ///   <br>Returns 7 if the buffer size is zero.
+    ///   <br>Returns 8 if fontCollection is NULL.
     ///
     /// Available since API-level: 11
     ///
@@ -85,13 +85,13 @@ extern "C" {
     /// * `familySrc` - Path of the font file to register.
     ///
     /// * `index` - Index of the font in the ttc/otc file. The value ranges from 0 to the total number of fonts minus 1.
-    /// For non-ttc/otc files, set this parameter to 0.
+    ///   For non-ttc/otc files, set this parameter to 0.
     ///
     /// # Returns
     ///
     /// * Result code. 0 indicates function execution is successful, 1 indicates file does not exist, 2 indicates file
-    /// opening failure, 3 indicates file reading failure, 4 indicates file seeking failure, 5 indicates size obtaining
-    /// failure, 8 indicates fontCollection is NULL, and 9 indicates file corruption.
+    ///   opening failure, 3 indicates file reading failure, 4 indicates file seeking failure, 5 indicates size obtaining
+    ///   failure, 8 indicates fontCollection is NULL, and 9 indicates file corruption.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -115,16 +115,16 @@ extern "C" {
     /// * `length` - Length of the byte stream data, which must match the actual length of fontBuffer.
     ///
     /// * `index` - Index of the font in the ttc/otc file. The value ranges from 0 to the number of fonts minus 1. For
-    /// files in non-ttc/otc formats, set this parameter to 0.
+    ///   files in non-ttc/otc formats, set this parameter to 0.
     ///
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns 0 the function is executed successfully.
-    /// <br>Returns 6 if fontBuffer is NULL.
-    /// <br>Returns 7 if the buffer size is zero.
-    /// <br>Returns 8 if fontCollection is NULL.
-    /// <br>Returns 9 if the file is corrupted.
+    ///   <br>Returns 0 the function is executed successfully.
+    ///   <br>Returns 6 if fontBuffer is NULL.
+    ///   <br>Returns 7 if the buffer size is zero.
+    ///   <br>Returns 8 if fontCollection is NULL.
+    ///   <br>Returns 9 if the file is corrupted.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -152,7 +152,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code. Returns 0 if the function is executed successfully, 8 if the input parameter is invalid, and 1
-    /// if the unregistration fails.
+    ///   if the unregistration fails.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]

@@ -423,10 +423,10 @@ pub struct ArkUI_NativeGestureAPI_1 {
     /// # Arguments
     ///
     /// * `countNum` - Number of consecutive taps. If the value is less than 1 or is not set, the default value **1** is
-    /// used.
+    ///   used.
     ///
     /// * `fingersNum` - Number of fingers required to trigger the tap gesture. The value ranges from 1 to 10. If the
-    /// value is less than 1 or is not set, the default value **1** is used.
+    ///   value is less than 1 or is not set, the default value **1** is used.
     ///
     /// # Returns
     ///
@@ -439,13 +439,13 @@ pub struct ArkUI_NativeGestureAPI_1 {
     /// # Arguments
     ///
     /// * `fingersNum` - Minimum number of fingers to trigger a long press gesture. The value ranges from 1 to 10. If
-    /// the value is out of the range, the default value **1** is used.
+    ///   the value is out of the range, the default value **1** is used.
     ///
     /// * `repeatResult` - Whether to continuously trigger the event callback.
-    /// <br>The value **true** means to continuously trigger event callbacks, and **false** means the opposite.
+    ///   <br>The value **true** means to continuously trigger event callbacks, and **false** means the opposite.
     ///
     /// * `durationNum` - Minimum hold-down time, in ms. If the value is less than or equal to 0, the default value **
-    /// 500** is used.
+    ///   500** is used.
     ///
     /// # Returns
     ///
@@ -462,12 +462,12 @@ pub struct ArkUI_NativeGestureAPI_1 {
     /// # Arguments
     ///
     /// * `fingersNum` - Minimum number of fingers to trigger a pan gesture. The value ranges from 1 to 10. If the value
-    /// is less than 1 or is not set, the default value **1** is used.
+    ///   is less than 1 or is not set, the default value **1** is used.
     ///
     /// * `directions` - Pan direction. The value supports the AND (&) and OR (\|) operations.
     ///
     /// * `distanceNum` - Minimum pan distance to trigger the gesture, in px. If this parameter is set to a value less
-    /// than or equal to 0, the default value **5px** is used.
+    ///   than or equal to 0, the default value **5px** is used.
     ///
     /// # Returns
     ///
@@ -484,10 +484,10 @@ pub struct ArkUI_NativeGestureAPI_1 {
     /// # Arguments
     ///
     /// * `fingersNum` - Minimum number of fingers required to trigger the pinch gesture. The value ranges from 2 to 5.
-    /// If the value is out of the range, the default value **2** is used.
+    ///   If the value is out of the range, the default value **2** is used.
     ///
     /// * `distanceNum` - Minimum recognition distance, in px. If this parameter is set to a value less than or equal to
-    /// 0, the default value **5px** is used.
+    ///   0, the default value **5px** is used.
     ///
     /// # Returns
     ///
@@ -503,8 +503,8 @@ pub struct ArkUI_NativeGestureAPI_1 {
     /// 5. If the value is out of the range, the default value **2** is used.
     ///
     /// * `angleNum` - Minimum angle change required to trigger the rotation gesture, in degrees (deg). The default
-    /// value is **1**. If this parameter is set to a value less than or equal to 0 or greater than 360, the default
-    /// value **1** is used.
+    ///   value is **1**. If this parameter is set to a value less than or equal to 0 or greater than 360, the default
+    ///   value **1** is used.
     ///
     /// # Returns
     ///
@@ -522,7 +522,7 @@ pub struct ArkUI_NativeGestureAPI_1 {
     /// * `directions` - Directions in which the swipe gesture can be recognized.
     ///
     /// * `speedNum` - Minimum speed required to recognize the swipe gesture, in px/s. If this parameter is set to a
-    /// value less than or equal to 0, the default value **100px/s** is used.
+    ///   value less than or equal to 0, the default value **100px/s** is used.
     ///
     /// # Returns
     ///
@@ -564,9 +564,9 @@ pub struct ArkUI_NativeGestureAPI_1 {
     /// # Returns
     ///
     /// * Error code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs, for example, attempting to
-    /// add a gesture to an object that is not a gesture group.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs, for example, attempting to
+    ///   add a gesture to an object that is not a gesture group.
     pub addChildGesture: ::core::option::Option<
         unsafe extern "C" fn(
             group: *mut ArkUI_GestureRecognizer,
@@ -584,8 +584,8 @@ pub struct ArkUI_NativeGestureAPI_1 {
     /// # Returns
     ///
     /// * Error code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     pub removeChildGesture: ::core::option::Option<
         unsafe extern "C" fn(
             group: *mut ArkUI_GestureRecognizer,
@@ -599,19 +599,19 @@ pub struct ArkUI_NativeGestureAPI_1 {
     /// * `recognizer` - Pointer to a gesture recognizer.
     ///
     /// * `actionTypeMask` - Gesture event types. Multiple callbacks can be registered at once, with the callback event
-    /// types distinguished in the callbacks. Example: actionTypeMask = GESTURE_EVENT_ACTION_ACCEPT \|
-    /// GESTURE_EVENT_ACTION_UPDATE;
+    ///   types distinguished in the callbacks. Example: actionTypeMask = GESTURE_EVENT_ACTION_ACCEPT \|
+    ///   GESTURE_EVENT_ACTION_UPDATE;
     ///
     /// * `extraParams` - Context passed in the **targetReceiver** callback.
     ///
     /// * `targetReceiver` - Callback to register for processing the gesture event types. **event** indicates the
-    /// gesture callback data.
+    ///   gesture callback data.
     ///
     /// # Returns
     ///
     /// * Error code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     pub setGestureEventTarget: ::core::option::Option<
         unsafe extern "C" fn(
             recognizer: *mut ArkUI_GestureRecognizer,
@@ -640,8 +640,8 @@ pub struct ArkUI_NativeGestureAPI_1 {
     /// # Returns
     ///
     /// * Error code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     pub addGestureToNode: ::core::option::Option<
         unsafe extern "C" fn(
             node: ArkUI_NodeHandle,
@@ -661,8 +661,8 @@ pub struct ArkUI_NativeGestureAPI_1 {
     /// # Returns
     ///
     /// * Error code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     pub removeGestureFromNode: ::core::option::Option<
         unsafe extern "C" fn(
             node: ArkUI_NodeHandle,
@@ -676,15 +676,15 @@ pub struct ArkUI_NativeGestureAPI_1 {
     /// * `node` - Pointer to the ArkUI node for which you want to set a gesture interruption callback.
     ///
     /// * `interrupter` - Indicates the gesture interruption callback to set.
-    /// <b>info</b> indicates the gesture interruption data. If <b>interrupter</b> returns
-    /// <b>GESTURE_INTERRUPT_RESULT_CONTINUE</b>, the gesture recognition process continues. If it returns
-    /// <b>GESTURE_INTERRUPT_RESULT_REJECT</b>, the gesture recognition process is paused.
+    ///   <b>info</b> indicates the gesture interruption data. If <b>interrupter</b> returns
+    ///   <b>GESTURE_INTERRUPT_RESULT_CONTINUE</b>, the gesture recognition process continues. If it returns
+    ///   <b>GESTURE_INTERRUPT_RESULT_REJECT</b>, the gesture recognition process is paused.
     ///
     /// # Returns
     ///
     /// * Error code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     pub setGestureInterrupterToNode: ::core::option::Option<
         unsafe extern "C" fn(
             node: ArkUI_NodeHandle,
@@ -714,18 +714,18 @@ pub struct ArkUI_NativeGestureAPI_1 {
     /// # Arguments
     ///
     /// * `node` - Pointer to the ArkUI node for which you want to set the callback of the parallel internal gesture
-    /// event.
+    ///   event.
     ///
     /// * `userData` - Custom data.
     ///
     /// * `parallelInnerGesture` - Parallel internal gesture event. **event** returns the data of the parallel internal
-    /// gesture event. **parallelInnerGesture** returns the pointer to the gesture recognizer that requires parallel
-    /// recognition.
+    ///   gesture event. **parallelInnerGesture** returns the pointer to the gesture recognizer that requires parallel
+    ///   recognition.
     ///
     /// # Returns
     ///
     /// * Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     pub setInnerGestureParallelTo: ::core::option::Option<
         unsafe extern "C" fn(
             node: ArkUI_NodeHandle,
@@ -742,13 +742,13 @@ pub struct ArkUI_NativeGestureAPI_1 {
     /// # Arguments
     ///
     /// * `countNum` - Number of consecutive taps. If the value is less than 1 or is not set, the default value **1** is
-    /// used.
+    ///   used.
     ///
     /// * `fingersNum` - Number of fingers required to trigger the tap gesture. The value ranges from 1 to 10. If the
-    /// value is less than 1 or is not set, the default value **1** is used.
+    ///   value is less than 1 or is not set, the default value **1** is used.
     ///
     /// * `distanceThreshold` - Allowed moving distance of a finger. If the value is less than 0 or is not set, it will
-    /// be converted to the default value of infinity.
+    ///   be converted to the default value of infinity.
     ///
     /// # Returns
     ///
@@ -781,15 +781,15 @@ pub struct ArkUI_NativeGestureAPI_2 {
     /// * `userData` - Pointer to user-defined data.
     ///
     /// * `interrupter` - Gesture interruption callback to set. <b>info</b> indicates the gesture interruption data.
-    /// If <b>interrupter</b> returns <b>GESTURE_INTERRUPT_RESULT_CONTINUE</b>, the gesture recognition process
-    /// proceeds
-    /// properly. If it returns <b>GESTURE_INTERRUPT_RESULT_REJECT</b>, the gesture recognition process is paused.
+    ///   If <b>interrupter</b> returns <b>GESTURE_INTERRUPT_RESULT_CONTINUE</b>, the gesture recognition process
+    ///   proceeds
+    ///   properly. If it returns <b>GESTURE_INTERRUPT_RESULT_REJECT</b>, the gesture recognition process is paused.
     ///
     /// # Returns
     ///
     /// * Error code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     pub setGestureInterrupterToNode: ::core::option::Option<
         unsafe extern "C" fn(
             node: ArkUI_NodeHandle,
@@ -832,7 +832,7 @@ pub struct ArkUI_NativeGestureAPI_3 {
     /// # Returns
     ///
     /// * [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>[`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>[`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 26
     pub setGestureParallelTo: ::core::option::Option<
@@ -906,7 +906,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Type of the system built-in gesture to trigger. The value is defined in [`ArkUI_GestureRecognizerType`](crate::native_gesture::ArkUI_GestureRecognizerType).
-    /// If the triggered gesture is not a built-in gesture, **-1** is returned.
+    ///   If the triggered gesture is not a built-in gesture, **-1** is returned.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -927,8 +927,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
@@ -965,8 +965,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
@@ -1016,7 +1016,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Whether the event is a repeated trigger event. The value **1** means that the event is a repeated trigger
-    /// event, and **0** means the opposite.
+    ///   event, and **0** means the opposite.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1031,7 +1031,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Velocity of the pan gesture along the main axis, in px/s. The value is the square root of the sum of the
-    /// squares of the velocity on the x-axis and y-axis.
+    ///   squares of the velocity on the x-axis and y-axis.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1106,7 +1106,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Angle of the swipe gesture, which is the result obtained based on the aforementioned formula.
-    /// The unit is deg.
+    ///   The unit is deg.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1164,7 +1164,7 @@ extern "C" {
     /// # Returns
     ///
     /// * X-coordinate of the center of the pinch gesture, in px, relative to the upper left corner of the current
-    /// component.
+    ///   component.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1180,7 +1180,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Y-coordinate of the center of the pinch gesture, in px, relative to the upper left corner of the current
-    /// component.
+    ///   component.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1199,8 +1199,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1217,13 +1217,13 @@ extern "C" {
     /// * `recognizer` - Pointer to the gesture recognizer instance.
     ///
     /// * `enabled` - Enabled state. The value **true** means that the gesture recognizer is enabled, and **false** means
-    /// the opposite.
+    ///   the opposite.
     ///
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1240,14 +1240,14 @@ extern "C" {
     /// * `recognizer` - Pointer to the gesture recognizer instance.
     ///
     /// * `limitFingerCount` - Whether to enable strict finger count checking.
-    /// <br>**true**: Enforce the exact number of fingers touching the screen.
-    /// <br>**false**: Do not enforce the exact number of fingers touching the screen.
+    ///   <br>**true**: Enforce the exact number of fingers touching the screen.
+    ///   <br>**false**: Do not enforce the exact number of fingers touching the screen.
     ///
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
@@ -1265,7 +1265,7 @@ extern "C" {
     /// # Returns
     ///
     /// * **true**: enabled.
-    /// <br>**false**: disabled.
+    ///   <br>**false**: disabled.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1282,8 +1282,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1303,8 +1303,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1320,14 +1320,14 @@ extern "C" {
     /// * `info` - Pointer to the information about a gesture event target.
     ///
     /// * `ret` - Pointer to the **ret** parameter indicating whether this scrollable container component is scrolled to the
-    /// top. The value **true** means that the component is scrolled to the top, and **false** means the opposite.
+    ///   top. The value **true** means that the component is scrolled to the top, and **false** means the opposite.
     ///
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NON_SCROLLABLE_CONTAINER`](crate::error_code::ArkUiErrorCode::NON_SCROLLABLE_CONTAINER) if the component is not a scrollable container.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NON_SCROLLABLE_CONTAINER`](crate::error_code::ArkUiErrorCode::NON_SCROLLABLE_CONTAINER) if the component is not a scrollable container.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1343,14 +1343,14 @@ extern "C" {
     /// * `info` - Pointer to the information about a gesture event target.
     ///
     /// * `ret` - Pointer to the **ret** parameter indicating whether this scrollable container component is scrolled to the
-    /// bottom. The value **true** means that the component is scrolled to the bottom, and **false** means the opposite.
+    ///   bottom. The value **true** means that the component is scrolled to the bottom, and **false** means the opposite.
     ///
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NON_SCROLLABLE_CONTAINER`](crate::error_code::ArkUiErrorCode::NON_SCROLLABLE_CONTAINER) if the component is not a scrollable container.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NON_SCROLLABLE_CONTAINER`](crate::error_code::ArkUiErrorCode::NON_SCROLLABLE_CONTAINER) if the component is not a scrollable container.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1370,8 +1370,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1389,7 +1389,7 @@ extern "C" {
     /// # Returns
     ///
     /// * **true**: built-in gesture.
-    /// <br>**false**: non-built-in gesture.
+    ///   <br>**false**: non-built-in gesture.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1410,9 +1410,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>Returns [`ARKUI_ERROR_CODE_BUFFER_SIZE_NOT_ENOUGH`](crate::error_code::ArkUiErrorCode::BUFFER_SIZE_NOT_ENOUGH) if the buffer is not large enough.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_BUFFER_SIZE_NOT_ENOUGH`](crate::error_code::ArkUiErrorCode::BUFFER_SIZE_NOT_ENOUGH) if the buffer is not large enough.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1438,9 +1438,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>Returns [`ARKUI_ERROR_CODE_BUFFER_SIZE_NOT_ENOUGH`](crate::error_code::ArkUiErrorCode::BUFFER_SIZE_NOT_ENOUGH) if the buffer is not large enough.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_BUFFER_SIZE_NOT_ENOUGH`](crate::error_code::ArkUiErrorCode::BUFFER_SIZE_NOT_ENOUGH) if the buffer is not large enough.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1460,7 +1460,7 @@ extern "C" {
     /// # Returns
     ///
     /// * **true**: The gesture recognizer is valid.
-    /// <br>**false**: The gesture recognizer is invalid.
+    ///   <br>**false**: The gesture recognizer is invalid.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1511,8 +1511,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1535,8 +1535,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1557,8 +1557,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -1578,8 +1578,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -1595,14 +1595,14 @@ extern "C" {
     /// * `recognizer` - Pointer to the gesture recognizer instance.
     ///
     /// * `isLimited` - Pointer to the parameter indicating whether the gesture recognizer has a finger count limit.
-    /// **true** indicates that the gesture recognizer has a finger count limit.
-    /// **false** indicates that the gesture recognizer does not have a finger count limit.
+    ///   **true** indicates that the gesture recognizer has a finger count limit.
+    ///   **false** indicates that the gesture recognizer does not have a finger count limit.
     ///
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -1618,14 +1618,14 @@ extern "C" {
     /// * `recognizer` - Pointer to the gesture recognizer instance.
     ///
     /// * `isRepeat` - Pointer to the parameter indicating whether the gesture recognizer continuously triggers event
-    /// callbacks. The value **true** means to continuously trigger event callbacks, and false means the opposite.
+    ///   callbacks. The value **true** means to continuously trigger event callbacks, and false means the opposite.
     ///
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_RECOGNIZER_TYPE_NOT_SUPPORTED`](crate::error_code::ArkUiErrorCode::RECOGNIZER_TYPE_NOT_SUPPORTED) if the gesture recognizer type is not
-    /// supported.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_RECOGNIZER_TYPE_NOT_SUPPORTED`](crate::error_code::ArkUiErrorCode::RECOGNIZER_TYPE_NOT_SUPPORTED) if the gesture recognizer type is not
+    ///   supported.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -1645,9 +1645,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_RECOGNIZER_TYPE_NOT_SUPPORTED`](crate::error_code::ArkUiErrorCode::RECOGNIZER_TYPE_NOT_SUPPORTED) if the gesture recognizer type is not
-    /// supported.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_RECOGNIZER_TYPE_NOT_SUPPORTED`](crate::error_code::ArkUiErrorCode::RECOGNIZER_TYPE_NOT_SUPPORTED) if the gesture recognizer type is not
+    ///   supported.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -1667,9 +1667,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_RECOGNIZER_TYPE_NOT_SUPPORTED`](crate::error_code::ArkUiErrorCode::RECOGNIZER_TYPE_NOT_SUPPORTED) if the gesture recognizer type is not
-    /// supported.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_RECOGNIZER_TYPE_NOT_SUPPORTED`](crate::error_code::ArkUiErrorCode::RECOGNIZER_TYPE_NOT_SUPPORTED) if the gesture recognizer type is not
+    ///   supported.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -1689,9 +1689,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_RECOGNIZER_TYPE_NOT_SUPPORTED`](crate::error_code::ArkUiErrorCode::RECOGNIZER_TYPE_NOT_SUPPORTED) if the gesture recognizer type is not
-    /// supported.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_RECOGNIZER_TYPE_NOT_SUPPORTED`](crate::error_code::ArkUiErrorCode::RECOGNIZER_TYPE_NOT_SUPPORTED) if the gesture recognizer type is not
+    ///   supported.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -1711,9 +1711,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_RECOGNIZER_TYPE_NOT_SUPPORTED`](crate::error_code::ArkUiErrorCode::RECOGNIZER_TYPE_NOT_SUPPORTED) if the gesture recognizer type is not
-    /// supported.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_RECOGNIZER_TYPE_NOT_SUPPORTED`](crate::error_code::ArkUiErrorCode::RECOGNIZER_TYPE_NOT_SUPPORTED) if the gesture recognizer type is not
+    ///   supported.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -1733,9 +1733,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_RECOGNIZER_TYPE_NOT_SUPPORTED`](crate::error_code::ArkUiErrorCode::RECOGNIZER_TYPE_NOT_SUPPORTED) if the gesture recognizer type is not
-    /// supported.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_RECOGNIZER_TYPE_NOT_SUPPORTED`](crate::error_code::ArkUiErrorCode::RECOGNIZER_TYPE_NOT_SUPPORTED) if the gesture recognizer type is not
+    ///   supported.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -1751,15 +1751,15 @@ extern "C" {
     /// * `recognizer` - Pointer to the gesture recognizer instance.
     ///
     /// * `allowableMovement` - Pointer to the maximum movement distance allowed for gesture recognition by the long press
-    /// gesture recognizer.
+    ///   gesture recognizer.
     ///
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>Returns [`ARKUI_ERROR_CODE_RECOGNIZER_TYPE_NOT_SUPPORTED`](crate::error_code::ArkUiErrorCode::RECOGNIZER_TYPE_NOT_SUPPORTED) if the gesture recognizer type is not
-    /// supported.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_RECOGNIZER_TYPE_NOT_SUPPORTED`](crate::error_code::ArkUiErrorCode::RECOGNIZER_TYPE_NOT_SUPPORTED) if the gesture recognizer type is not
+    ///   supported.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -1777,17 +1777,17 @@ extern "C" {
     /// * `size` - Size of the array of minimum sliding distance thresholds.
     ///
     /// * `toolTypeArray` - Pointer to the array of tool types for which thresholds are set. If a value other than
-    /// `UI_INPUT_EVENT_TOOL_TYPE`_XXX is set, the setting does not take effect.
+    ///   `UI_INPUT_EVENT_TOOL_TYPE`_XXX is set, the setting does not take effect.
     ///
     /// * `distanceArray` - Pointer to the array of minimum sliding distances. The unit is px.
     ///
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>Returns [`ARKUI_ERROR_CODE_RECOGNIZER_TYPE_NOT_SUPPORTED`](crate::error_code::ArkUiErrorCode::RECOGNIZER_TYPE_NOT_SUPPORTED) if the gesture recognizer type is not
-    /// supported.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_RECOGNIZER_TYPE_NOT_SUPPORTED`](crate::error_code::ArkUiErrorCode::RECOGNIZER_TYPE_NOT_SUPPORTED) if the gesture recognizer type is not
+    ///   supported.
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
@@ -1814,10 +1814,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>Returns [`ARKUI_ERROR_CODE_RECOGNIZER_TYPE_NOT_SUPPORTED`](crate::error_code::ArkUiErrorCode::RECOGNIZER_TYPE_NOT_SUPPORTED) if the gesture recognizer type is not
-    /// supported.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_RECOGNIZER_TYPE_NOT_SUPPORTED`](crate::error_code::ArkUiErrorCode::RECOGNIZER_TYPE_NOT_SUPPORTED) if the gesture recognizer type is not
+    ///   supported.
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
@@ -1846,8 +1846,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -1891,8 +1891,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -1907,17 +1907,17 @@ extern "C" {
     /// * `recognizer` - Pointer to the gesture recognizer instance.
     ///
     /// * `allowableMovement` - Maximum movement distance allowed for gesture recognition by the long press gesture
-    /// recognizer.
-    /// <br>The unit is px.
-    /// <br>Value range: (0, +∞). If the value is less than or equal to 0, the default value **15** is used.
+    ///   recognizer.
+    ///   <br>The unit is px.
+    ///   <br>Value range: (0, +∞). If the value is less than or equal to 0, the default value **15** is used.
     ///
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    /// <br>Returns [`ARKUI_ERROR_CODE_RECOGNIZER_TYPE_NOT_SUPPORTED`](crate::error_code::ArkUiErrorCode::RECOGNIZER_TYPE_NOT_SUPPORTED) if the gesture recognizer type is not
-    /// supported.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>Returns [`ARKUI_ERROR_CODE_RECOGNIZER_TYPE_NOT_SUPPORTED`](crate::error_code::ArkUiErrorCode::RECOGNIZER_TYPE_NOT_SUPPORTED) if the gesture recognizer type is not
+    ///   supported.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -1939,7 +1939,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>[`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>[`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]
@@ -1962,7 +1962,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>[`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>[`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]
@@ -1979,12 +1979,12 @@ extern "C" {
     /// * `info` - Pointer to the gesture collection interception information.
     ///
     /// * `intervention` - Gesture collection intervention mode, which is of the
-    /// [`OH_ArkUI_GestureCollectIntervention`](crate::native_gesture::OH_ArkUI_GestureCollectIntervention) type.
+    ///   [`OH_ArkUI_GestureCollectIntervention`](crate::native_gesture::OH_ArkUI_GestureCollectIntervention) type.
     ///
     /// # Returns
     ///
     /// * [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>[`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>[`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]
@@ -2004,7 +2004,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    /// <br>[`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   <br>[`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]
@@ -2024,7 +2024,7 @@ extern "C" {
     /// # Returns
     ///
     /// * **true** if the node bound to the touch recognizer is a descendant node of the passed component; **false**
-    /// otherwise.
+    ///   otherwise.
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]
@@ -2044,7 +2044,7 @@ extern "C" {
     /// # Returns
     ///
     /// * **true** if the node bound to the gesture recognizer is a descendant node of the passed component; **false**
-    /// otherwise.
+    ///   otherwise.
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]

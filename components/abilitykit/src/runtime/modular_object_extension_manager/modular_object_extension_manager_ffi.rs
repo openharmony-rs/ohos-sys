@@ -137,8 +137,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the arguments provided are invalid.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the arguments provided are invalid.
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]
@@ -158,8 +158,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the arguments provided are invalid.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the arguments provided are invalid.
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]
@@ -179,8 +179,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the arguments provided are invalid.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the arguments provided are invalid.
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]
@@ -200,8 +200,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the arguments provided are invalid.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the arguments provided are invalid.
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]
@@ -221,8 +221,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the arguments provided are invalid.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the arguments provided are invalid.
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]
@@ -240,9 +240,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the arguments provided are invalid.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_NOT_SUPPORTED`](crate::runtime::AbilityRuntimeErrorCode::NOT_SUPPORTED) if the device does not support.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the arguments provided are invalid.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_NOT_SUPPORTED`](crate::runtime::AbilityRuntimeErrorCode::NOT_SUPPORTED) if the device does not support.
     ///
     /// **Note:** Release `outOwnedAllExtensionInfos` with [`OH_AbilityRuntime_ReleaseAllExtensionInfos`](crate::runtime::modular_object_extension_manager::OH_AbilityRuntime_ReleaseAllExtensionInfos).
     ///
@@ -261,8 +261,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the arguments provided are invalid.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the arguments provided are invalid.
     ///
     /// **See also:** [`OH_AbilityRuntime_AcquireSelfModularObjectExtensionInfos`](crate::runtime::modular_object_extension_manager::OH_AbilityRuntime_AcquireSelfModularObjectExtensionInfos)
     ///
@@ -283,8 +283,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the arguments provided are invalid.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the arguments provided are invalid.
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]
@@ -306,8 +306,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the arguments provided are invalid.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the arguments provided are invalid.
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]
@@ -322,7 +322,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `want` - Indicates the modular object extension ability to connect.
-    /// For details, see [`AbilityBase_Want`](crate::base::want::AbilityBase_Want).
+    ///   For details, see [`AbilityBase_Want`](crate::base::want::AbilityBase_Want).
     ///
     /// * `connectOptions` - Indicates the connection options.
     ///
@@ -364,9 +364,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the call is successful.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the arguments provided are invalid.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_INTERNAL`](crate::runtime::AbilityRuntimeErrorCode::INTERNAL) if an internal error occurs.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the call is successful.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the arguments provided are invalid.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_INTERNAL`](crate::runtime::AbilityRuntimeErrorCode::INTERNAL) if an internal error occurs.
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]

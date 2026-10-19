@@ -43,7 +43,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **recorder** is nullptr or the preparation fails.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **recorder** is nullptr or the preparation fails.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -66,8 +66,8 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **recorder** is nullptr or **config** is not nullptr.
-    /// [`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): The memory fails to be allocated due to insufficient memory.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **recorder** is nullptr or **config** is not nullptr.
+    ///   [`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): The memory fails to be allocated due to insufficient memory.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -89,7 +89,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **recorder** is nullptr.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **recorder** is nullptr.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -110,8 +110,8 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **recorder** is nullptr, **rotation** is invalid, or the update
-    /// operation fails.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **recorder** is nullptr, **rotation** is invalid, or the update
+    ///   operation fails.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -130,7 +130,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **recorder** is nullptr or recording fails to start.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **recorder** is nullptr or recording fails to start.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -149,7 +149,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **recorder** is nullptr or recording fails to pause.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **recorder** is nullptr or recording fails to pause.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -166,7 +166,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **recorder** is nullptr or recording fails to resume.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **recorder** is nullptr or recording fails to resume.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -185,7 +185,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **recorder** is nullptr or recording fails to stop.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **recorder** is nullptr or recording fails to stop.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -205,7 +205,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **recorder** is nullptr or recording fails to reset.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **recorder** is nullptr or recording fails to reset.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -224,7 +224,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **recorder** is nullptr or recording fails to release.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **recorder** is nullptr or recording fails to release.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -245,8 +245,8 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **recorder** is nullptr.
-    /// [`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): The memory fails to be allocated due to insufficient memory.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **recorder** is nullptr.
+    ///   [`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): The memory fails to be allocated due to insufficient memory.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -270,7 +270,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **recorder** or **callback** is nullptr.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **recorder** or **callback** is nullptr.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -294,7 +294,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **recorder** or **callback** is nullptr.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **recorder** or **callback** is nullptr.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -311,14 +311,14 @@ extern "C" {
     /// * `recorder` - Pointer to the OH_AVRecorder instance.
     ///
     /// * `muteWhenInterrupted` - Sets whether to enable the mute interruption mode. The value **true** indicates that the
-    /// application remains muted instead of being interrupted when recording is required. The value **false** indicates
-    /// that the application stops recording instead of remain muted when the recording is interrupted.
+    ///   application remains muted instead of being interrupted when recording is required. The value **false** indicates
+    ///   that the application stops recording instead of remain muted when the recording is interrupted.
     ///
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **recorder** or **callback** is nullptr.
-    /// [`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE): The function is called in an invalid state. It must be in the prepared state.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The input parameter **recorder** or **callback** is nullptr.
+    ///   [`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE): The function is called in an invalid state. It must be in the prepared state.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -344,11 +344,11 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): input recorder is nullptr or amplitude is nullptr.
-    /// [`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE): function called in invalid state.
-    /// [`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): failed to malloc memory.
-    /// [`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): unknown error.
+    ///   [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): the execution is successful.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): input recorder is nullptr or amplitude is nullptr.
+    ///   [`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE): function called in invalid state.
+    ///   [`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): failed to malloc memory.
+    ///   [`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): unknown error.
     ///
     ///
     /// Available since API-level: 26
@@ -368,18 +368,18 @@ extern "C" {
     /// * `recorder` - Pointer to an OH_AVRecorder instance
     ///
     /// * `metadata` - The key-value pairs added to the the recording file.
-    /// The key string should start with "com.openharmony.",
-    /// the length of value can't be more than 256 bytes.
+    ///   The key string should start with "com.openharmony.",
+    ///   the length of value can't be more than 256 bytes.
     ///
     /// # Returns
     ///
     /// * Function result code.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): input recorder is nullptr or metadata is nullptr
-    /// or the length of value exceed max length.
-    /// [`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE): function called in invalid state.
-    /// [`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): failed to malloc memory.
-    /// [`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): unknown error.
+    ///   [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): the execution is successful.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): input recorder is nullptr or metadata is nullptr
+    ///   or the length of value exceed max length.
+    ///   [`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE): function called in invalid state.
+    ///   [`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): failed to malloc memory.
+    ///   [`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): unknown error.
     ///
     ///
     /// Available since API-level: 26

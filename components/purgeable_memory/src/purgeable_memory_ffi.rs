@@ -26,7 +26,10 @@ pub type OH_PurgeableMemory = PurgMem;
 /// * `size_t` - Data size of the content.
 ///
 /// * `void` - *: other private parameters.
-/// build content result, true means success, while false is fail.
+///
+/// # Returns
+///
+/// * build content result, true means success, while false is fail.
 ///
 ///
 /// Available since API-level: 10
@@ -50,7 +53,10 @@ extern "C" {
     /// * `func` - Function pointer, it is used to recover data when the PurgMem obj's content is purged.
     ///
     /// * `funcPara` - Parameters used by @func.
-    /// a PurgMem obj.
+    ///
+    /// # Returns
+    ///
+    /// * a PurgMem obj.
     ///
     ///
     /// Available since API-level: 10
@@ -67,8 +73,11 @@ extern "C" {
     /// # Arguments
     ///
     /// * `purgObj` - A PurgMem obj to be destroyed.
-    /// true is success, while false is fail. return true if @purgObj is NULL.
-    /// If return true, @purgObj will be set to NULL to avoid Use-After-Free.
+    ///
+    /// # Returns
+    ///
+    /// * true is success, while false is fail. return true if @purgObj is NULL.
+    ///   If return true, @purgObj will be set to NULL to avoid Use-After-Free.
     ///
     ///
     /// Available since API-level: 10
@@ -81,12 +90,15 @@ extern "C" {
     /// # Arguments
     ///
     /// * `purgObj` - A PurgMem obj.
-    /// return true if @purgObj's content is present.
-    /// If content is purged(no present), system will recover its data,
-    /// return false if content is purged and recovered failed.
-    /// While return true if content recover success.
-    /// OS cannot reclaim the memory of @purgObj's content when this
-    /// function return true, until PurgMemEndRead() is called.
+    ///
+    /// # Returns
+    ///
+    /// * return true if @purgObj's content is present.
+    ///   If content is purged(no present), system will recover its data,
+    ///   return false if content is purged and recovered failed.
+    ///   While return true if content recover success.
+    ///   OS cannot reclaim the memory of @purgObj's content when this
+    ///   function return true, until PurgMemEndRead() is called.
     ///
     ///
     /// Available since API-level: 10
@@ -99,8 +111,8 @@ extern "C" {
     /// # Arguments
     ///
     /// * `purgObj` - A PurgMem obj.
-    /// OS may reclaim the memory of @purgObj's content
-    /// at a later time when this function returns.
+    ///   OS may reclaim the memory of @purgObj's content
+    ///   at a later time when this function returns.
     ///
     ///
     /// Available since API-level: 10
@@ -113,12 +125,15 @@ extern "C" {
     /// # Arguments
     ///
     /// * `purgObj` - A PurgMem obj.
-    /// return true if @purgObj's content is present.
-    /// if content is purged(no present), system will recover its data,
-    /// return false if content is purged and recovered failed.
-    /// While return true if content is successfully recovered.
-    /// OS cannot reclaim the memory of @purgObj's content when this
-    /// function return true, until PurgMemEndWrite() is called.
+    ///
+    /// # Returns
+    ///
+    /// * return true if @purgObj's content is present.
+    ///   if content is purged(no present), system will recover its data,
+    ///   return false if content is purged and recovered failed.
+    ///   While return true if content is successfully recovered.
+    ///   OS cannot reclaim the memory of @purgObj's content when this
+    ///   function return true, until PurgMemEndWrite() is called.
     ///
     ///
     /// Available since API-level: 10
@@ -131,8 +146,8 @@ extern "C" {
     /// # Arguments
     ///
     /// * `purgObj` - A PurgMem obj.
-    /// OS may reclaim the memory of @purgObj's content
-    /// at a later time when this function returns.
+    ///   OS may reclaim the memory of @purgObj's content
+    ///   at a later time when this function returns.
     ///
     ///
     /// Available since API-level: 10
@@ -145,10 +160,13 @@ extern "C" {
     /// # Arguments
     ///
     /// * `purgObj` - A PurgMem obj.
-    /// return start address of a PurgMem obj's content.
-    /// Return NULL if @purgObj is NULL.
-    /// This function should be protect by PurgMemBeginRead()/PurgMemEndRead()
-    /// or PurgMemBeginWrite()/PurgMemEndWrite()
+    ///
+    /// # Returns
+    ///
+    /// * return start address of a PurgMem obj's content.
+    ///   Return NULL if @purgObj is NULL.
+    ///   This function should be protect by PurgMemBeginRead()/PurgMemEndRead()
+    ///   or PurgMemBeginWrite()/PurgMemEndWrite()
     ///
     ///
     /// Available since API-level: 10
@@ -163,8 +181,11 @@ extern "C" {
     /// # Arguments
     ///
     /// * `purgObj` - A PurgMem obj.
-    /// return content size of @purgObj.
-    /// Return 0 if @purgObj is NULL.
+    ///
+    /// # Returns
+    ///
+    /// * return content size of @purgObj.
+    ///   Return 0 if @purgObj is NULL.
     ///
     ///
     /// Available since API-level: 10
@@ -181,7 +202,10 @@ extern "C" {
     /// * `func` - Function pointer, it will modify content of @PurgMem.
     ///
     /// * `funcPara` - Parameters used by @func.
-    ///  append result, true is success, while false is fail.
+    ///
+    /// # Returns
+    ///
+    /// *  append result, true is success, while false is fail.
     ///
     ///
     /// Available since API-level: 10

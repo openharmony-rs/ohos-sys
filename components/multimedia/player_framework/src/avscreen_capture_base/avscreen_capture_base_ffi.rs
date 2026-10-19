@@ -717,7 +717,7 @@ pub struct OH_AVScreenCapture_UserSelectionInfo {
 /// * `capture` - Pointer to an OH_AVScreenCapture instance
 ///
 /// * `selections` - The recording parameter information
-/// selected by the user on the authorization interface
+///   selected by the user on the authorization interface
 ///
 /// * `userData` - Pointer to user specific data
 ///

@@ -11,13 +11,13 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns one of the following values:
-    /// <br>**phone** (or **default**),
-    /// <br>**wearable**,
-    /// <br>**liteWearable**,
-    /// <br>**tablet**,
-    /// <br>**tv**,
-    /// <br>**car**,
-    /// <br>**smartVision**
+    ///   <br>**phone** (or **default**),
+    ///   <br>**wearable**,
+    ///   <br>**liteWearable**,
+    ///   <br>**tablet**,
+    ///   <br>**tv**,
+    ///   <br>**car**,
+    ///   <br>**smartVision**
     ///
     /// Required System Capabilities: SystemCapability.Startup.SystemInfo
     ///
@@ -160,7 +160,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns an OS release type. The options include **Release**, **Beta**, and **Canary**.
-    /// <br>A specific release type may be **Release**, **Beta1**, or another similar type.
+    ///   <br>A specific release type may be **Release**, **Beta1**, or another similar type.
     ///
     /// Required System Capabilities: SystemCapability.Startup.SystemInfo
     ///
@@ -270,7 +270,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns an ISV distribution OS name.
-    /// <br>If no ISV is specified, an empty string is returned.
+    ///   <br>If no ISV is specified, an empty string is returned.
     ///
     /// Required System Capabilities: SystemCapability.Startup.SystemInfo
     ///
@@ -282,7 +282,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns an ISV distribution OS version.
-    /// <br>If no ISV is specified, the value of [`OH_GetOSFullName`](crate::OH_GetOSFullName) is returned.
+    ///   <br>If no ISV is specified, the value of [`OH_GetOSFullName`](crate::OH_GetOSFullName) is returned.
     ///
     /// Required System Capabilities: SystemCapability.Startup.SystemInfo
     ///
@@ -294,7 +294,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns an ISV distribution OS API version.
-    /// <br>If no ISV is specified, the value of [`OH_GetSdkApiVersion`](crate::OH_GetSdkApiVersion) is returned.
+    ///   <br>If no ISV is specified, the value of [`OH_GetSdkApiVersion`](crate::OH_GetSdkApiVersion) is returned.
     ///
     /// Required System Capabilities: SystemCapability.Startup.SystemInfo
     ///
@@ -306,7 +306,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns an ISV distribution OS release type.
-    /// <br>If no ISV is specified, the value of [`OH_GetOsReleaseType`](crate::OH_GetOsReleaseType) is returned.
+    ///   <br>If no ISV is specified, the value of [`OH_GetOsReleaseType`](crate::OH_GetOsReleaseType) is returned.
     ///
     /// Required System Capabilities: SystemCapability.Startup.SystemInfo
     ///

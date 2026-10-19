@@ -38,9 +38,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Pointer to the `NativeResourceManager` object. If the initialization fails, `NULL` is returned. The possible
-    /// cause is that the `env` or `jsResMgr` parameter is invalid.
-    /// <br>The memory is allocated by this function and must be released through
-    /// [`OH_ResourceManager_ReleaseNativeResourceManager`](crate::raw_file_manager::OH_ResourceManager_ReleaseNativeResourceManager) after use.
+    ///   cause is that the `env` or `jsResMgr` parameter is invalid.
+    ///   <br>The memory is allocated by this function and must be released through
+    ///   [`OH_ResourceManager_ReleaseNativeResourceManager`](crate::raw_file_manager::OH_ResourceManager_ReleaseNativeResourceManager) after use.
     ///
     /// Available since API-level: 8
     ///
@@ -54,7 +54,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `resMgr` - Input parameter. Pointer to the `NativeResourceManager` object to be released. After the release, the
-    /// `resMgr` pointer becomes invalid and cannot be used for other operations.
+    ///   `resMgr` pointer becomes invalid and cannot be used for other operations.
     ///
     /// Available since API-level: 8
     ///
@@ -67,12 +67,12 @@ extern "C" {
     /// * `mgr` - Input parameter. Pointer to the `NativeResourceManager` object.
     ///
     /// * `dirName` - Input parameter. Path of the directory to be opened. Path relative to the `rawfile` root directory,
-    /// for example, `images/icons`. If the value is an empty string, the `rawfile` root directory is opened.
+    ///   for example, `images/icons`. If the value is an empty string, the `rawfile` root directory is opened.
     ///
     /// # Returns
     ///
     /// * Pointer to the `RawDir` object. If the call fails or `mgr` is null, `NULL` is returned. After use, call
-    /// [`OH_ResourceManager_CloseRawDir`](crate::raw_dir::OH_ResourceManager_CloseRawDir) to release it.
+    ///   [`OH_ResourceManager_CloseRawDir`](crate::raw_dir::OH_ResourceManager_CloseRawDir) to release it.
     ///
     /// **See also:** [`OH_ResourceManager_InitNativeResourceManager`](crate::raw_file_manager::OH_ResourceManager_InitNativeResourceManager)
     ///
@@ -92,12 +92,12 @@ extern "C" {
     /// * `mgr` - Input parameter. Pointer to the `NativeResourceManager` object.
     ///
     /// * `fileName` - Input parameter. Path of the file to be opened. Path relative to the `rawfile` root directory, for
-    /// example, `images/icons/1.png`.
+    ///   example, `images/icons/1.png`.
     ///
     /// # Returns
     ///
     /// * Pointer to the `RawFile` object. If the call fails or the input parameter is null, `NULL` is returned. After
-    /// use, call [`OH_ResourceManager_CloseRawFile`](crate::raw_file::OH_ResourceManager_CloseRawFile) to release it.
+    ///   use, call [`OH_ResourceManager_CloseRawFile`](crate::raw_file::OH_ResourceManager_CloseRawFile) to release it.
     ///
     /// **See also:** [`OH_ResourceManager_InitNativeResourceManager`](crate::raw_file_manager::OH_ResourceManager_InitNativeResourceManager)
     ///
@@ -118,12 +118,12 @@ extern "C" {
     /// * `mgr` - Input parameter. Pointer to the `NativeResourceManager` object.
     ///
     /// * `fileName` - Input parameter. Path of the file to be opened. Path relative to the `rawfile` root directory, for
-    /// example, `images/icons/1.png`.
+    ///   example, `images/icons/1.png`.
     ///
     /// # Returns
     ///
     /// * Pointer to the `RawFile` object. If the call fails or the input parameter is null, `NULL` is returned. After
-    /// use, call [`OH_ResourceManager_CloseRawFile64`](crate::raw_file::OH_ResourceManager_CloseRawFile64) to release it.
+    ///   use, call [`OH_ResourceManager_CloseRawFile64`](crate::raw_file::OH_ResourceManager_CloseRawFile64) to release it.
     ///
     /// **See also:** [`OH_ResourceManager_InitNativeResourceManager`](crate::raw_file_manager::OH_ResourceManager_InitNativeResourceManager)
     ///

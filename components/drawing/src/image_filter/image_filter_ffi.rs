@@ -16,17 +16,17 @@ extern "C" {
     /// * `sigmaY` - Standard deviation of the Gaussian blur to apply along the Y axis. The value must be greater than 0.
     ///
     /// * `tileMode` - Tile mode of the shader effect. For details about the available options, see
-    /// [`OH_Drawing_TileMode`](crate::shader_effect::OH_Drawing_TileMode)
-    /// .
+    ///   [`OH_Drawing_TileMode`](crate::shader_effect::OH_Drawing_TileMode)
+    ///   .
     ///
     /// * `imageFilter` - Pointer to the filter to which the image filter will be applied. If NULL is passed in, the image
-    /// filter is directly applied to the original image.
+    ///   filter is directly applied to the original image.
     ///
     /// # Returns
     ///
     /// * Returns the pointer to the <b>OH_Drawing_ImageFilter</b> object created.
-    /// If nullptr is returned, the creation fails.
-    /// The possible cause of the failure is that the available memory is empty.
+    ///   If nullptr is returned, the creation fails.
+    ///   The possible cause of the failure is that the available memory is empty.
     ///
     /// Available since API-level: 12
     ///
@@ -48,14 +48,14 @@ extern "C" {
     /// * `sigmaY` - Standard deviation of the Gaussian blur to apply along the Y axis. The value must be greater than 0.0.
     ///
     /// * `tileMode` - Tile mode of the shader effect. For details about the available options, see
-    /// [`OH_Drawing_TileMode`](crate::shader_effect::OH_Drawing_TileMode)
-    /// .
+    ///   [`OH_Drawing_TileMode`](crate::shader_effect::OH_Drawing_TileMode)
+    ///   .
     ///
     /// * `input` - Pointer to the filter to which the image filter will be applied. If NULL is passed in, the image filter
-    /// is directly applied to the original image.
+    ///   is directly applied to the original image.
     ///
     /// * `rect` - Pointer to the rectangular region to be cropped. If NULL is passed in, the blur effect is directly
-    /// applied to the entire image.
+    ///   applied to the entire image.
     ///
     /// # Returns
     ///
@@ -82,14 +82,14 @@ extern "C" {
     /// * `colorFilter` - Pointer to an [`OH_Drawing_ColorFilter`](crate::types::OH_Drawing_ColorFilter) object.
     ///
     /// * `imageFilter` - Pointer to the filter to which the image filter will be applied. If NULL is passed in, the image
-    /// filter is directly applied to the original image.
+    ///   filter is directly applied to the original image.
     ///
     /// # Returns
     ///
     /// * Returns the pointer to the <b>OH_Drawing_ImageFilter</b> object created.
-    /// If nullptr is returned, the creation fails.
-    /// The possible cause of the failure is that the available memory is empty or
-    /// a nullptr <b>OH_Drawing_ColorFilter</b> is passed.
+    ///   If nullptr is returned, the creation fails.
+    ///   The possible cause of the failure is that the available memory is empty or
+    ///   a nullptr <b>OH_Drawing_ColorFilter</b> is passed.
     ///
     /// Available since API-level: 12
     ///
@@ -109,13 +109,13 @@ extern "C" {
     /// * `y` - Distance to translate on the Y axis.
     ///
     /// * `imageFilter` - Filter to be translated. If NULL is passed in, the drawing result without the filtering effect is
-    /// translated.
+    ///   translated.
     ///
     /// # Returns
     ///
     /// * Returns the pointer to the <b>OH_Drawing_ImageFilter</b> object created.
-    /// If nullptr is returned, the creation fails.
-    /// The possible cause of the failure is that the available memory is empty.
+    ///   If nullptr is returned, the creation fails.
+    ///   The possible cause of the failure is that the available memory is empty.
     ///
     /// Available since API-level: 20
     ///
@@ -136,9 +136,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the pointer to the <b>OH_Drawing_ImageFilter</b> object created.
-    /// If nullptr is returned, the creation fails.
-    /// The possible cause of the failure is that the available memory is empty or
-    /// a nullptr <b>OH_Drawing_ShaderEffect</b> is passed.
+    ///   If nullptr is returned, the creation fails.
+    ///   The possible cause of the failure is that the available memory is empty or
+    ///   a nullptr <b>OH_Drawing_ShaderEffect</b> is passed.
     ///
     /// Available since API-level: 20
     ///

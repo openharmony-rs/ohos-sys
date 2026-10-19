@@ -166,8 +166,8 @@ extern "C" {
     /// * `userData` - Pointer to the user-defined data.
     ///
     /// * `callback` - Callback that returns the row and column span for the grid item at the specified index.
-    /// itemIndex: grid item index, which must be within the range set by
-    /// [`OH_ArkUI_GridLayoutOptions_SetIrregularIndexes`](crate::node_attributes::grid::OH_ArkUI_GridLayoutOptions_SetIrregularIndexes).
+    ///   itemIndex: grid item index, which must be within the range set by
+    ///   [`OH_ArkUI_GridLayoutOptions_SetIrregularIndexes`](crate::node_attributes::grid::OH_ArkUI_GridLayoutOptions_SetIrregularIndexes).
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -192,8 +192,8 @@ extern "C" {
     /// * `userData` - Pointer to the user-defined data.
     ///
     /// * `callback` - Callback that returns the starting row, starting column, row span,
-    /// and column span for the grid item at the specified index.
-    /// itemIndex: grid item index.
+    ///   and column span for the grid item at the specified index.
+    ///   itemIndex: grid item index.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]

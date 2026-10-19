@@ -15,7 +15,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`OH_HTTP_RESULT_OK`](crate::net_http_type::Http_ErrCode::OH_HTTP_RESULT_OK) 0 -if the operation is successful.
-    /// [`OH_HTTP_PERMISSION_DENIED`](crate::net_http_type::Http_ErrCode::OH_HTTP_PERMISSION_DENIED) 201 -if permission is denied.
+    ///   [`OH_HTTP_PERMISSION_DENIED`](crate::net_http_type::Http_ErrCode::OH_HTTP_PERMISSION_DENIED) 201 -if permission is denied.
     ///
     /// Required Permissions: ohos.permission.INTERNET
     ///
@@ -36,7 +36,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`OH_HTTP_RESULT_OK`](crate::net_http_type::Http_ErrCode::OH_HTTP_RESULT_OK) 0 -if the operation is successful.
-    /// [`OH_HTTP_PERMISSION_DENIED`](crate::net_http_type::Http_ErrCode::OH_HTTP_PERMISSION_DENIED) 201 -if permission is denied.
+    ///   [`OH_HTTP_PERMISSION_DENIED`](crate::net_http_type::Http_ErrCode::OH_HTTP_PERMISSION_DENIED) 201 -if permission is denied.
     ///
     /// Required Permissions: ohos.permission.INTERNET
     ///
@@ -57,7 +57,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`OH_HTTP_RESULT_OK`](crate::net_http_type::Http_ErrCode::OH_HTTP_RESULT_OK) 0 -if the operation is successful.
-    /// [`OH_HTTP_PERMISSION_DENIED`](crate::net_http_type::Http_ErrCode::OH_HTTP_PERMISSION_DENIED) 201 -if permission is denied.
+    ///   [`OH_HTTP_PERMISSION_DENIED`](crate::net_http_type::Http_ErrCode::OH_HTTP_PERMISSION_DENIED) 201 -if permission is denied.
     ///
     /// Required Permissions: ohos.permission.INTERNET
     ///
@@ -74,7 +74,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`OH_HTTP_RESULT_OK`](crate::net_http_type::Http_ErrCode::OH_HTTP_RESULT_OK) 0 -if the operation is successful.
-    /// [`OH_HTTP_PERMISSION_DENIED`](crate::net_http_type::Http_ErrCode::OH_HTTP_PERMISSION_DENIED) 201 -if permission is denied.
+    ///   [`OH_HTTP_PERMISSION_DENIED`](crate::net_http_type::Http_ErrCode::OH_HTTP_PERMISSION_DENIED) 201 -if permission is denied.
     ///
     /// Required Permissions: ohos.permission.INTERNET
     ///
@@ -97,7 +97,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`OH_HTTP_RESULT_OK`](crate::net_http_type::Http_ErrCode::OH_HTTP_RESULT_OK) 0 -if the operation is successful.
-    /// [`OH_HTTP_PERMISSION_DENIED`](crate::net_http_type::Http_ErrCode::OH_HTTP_PERMISSION_DENIED) 201 -if permission is denied.
+    ///   [`OH_HTTP_PERMISSION_DENIED`](crate::net_http_type::Http_ErrCode::OH_HTTP_PERMISSION_DENIED) 201 -if permission is denied.
     ///
     /// Required Permissions: ohos.permission.INTERNET
     ///
@@ -114,7 +114,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`OH_HTTP_RESULT_OK`](crate::net_http_type::Http_ErrCode::OH_HTTP_RESULT_OK) 0 -if the operation is successful.
-    /// [`OH_HTTP_PERMISSION_DENIED`](crate::net_http_type::Http_ErrCode::OH_HTTP_PERMISSION_DENIED) 201 -if permission is denied.
+    ///   [`OH_HTTP_PERMISSION_DENIED`](crate::net_http_type::Http_ErrCode::OH_HTTP_PERMISSION_DENIED) 201 -if permission is denied.
     ///
     /// Required Permissions: ohos.permission.INTERNET
     ///

@@ -17,7 +17,7 @@ use ohos_sys_opaque_types::{Input_MouseEvent, Input_TouchEvent};
 /// # Returns
 ///
 /// * Returns whether to filter this event. Returning true prevents the window from dispatching it further;
-/// Returns false indicates that the event is not intercepted.
+///   Returns false indicates that the event is not intercepted.
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
@@ -32,7 +32,7 @@ pub type OH_NativeWindowManager_KeyEventFilter =
 /// # Returns
 ///
 /// * Returns whether to filter this event. Returning true prevents the window from dispatching it further;
-/// returning false indicates that the event is not intercepted.
+///   returning false indicates that the event is not intercepted.
 ///
 /// Available since API-level: 15
 #[cfg(feature = "api-15")]
@@ -47,7 +47,7 @@ pub type OH_NativeWindowManager_MouseEventFilter =
 /// # Returns
 ///
 /// * Returns whether to filter this event. Returning true prevents the window from dispatching it further;
-/// returning false indicates that the event is not intercepted.
+///   returning false indicates that the event is not intercepted.
 ///
 /// Available since API-level: 15
 #[cfg(feature = "api-15")]
@@ -182,7 +182,7 @@ extern "C" {
     /// * `windowId` - ID of the window.
     ///
     /// * `outKeyEventFilter` - Output parameter for the registered key event filter callback.
-    /// If no filter has been registered, *outKeyEventFilter will return NULL.
+    ///   If no filter has been registered, *outKeyEventFilter will return NULL.
     ///
     /// # Returns
     ///
@@ -205,7 +205,7 @@ extern "C" {
     /// * `windowId` - ID of the window.
     ///
     /// * `outMouseEventFilter` - Output parameter for the registered mouse event filter callback.
-    /// If no filter has been registered, *outMouseEventFilter will return NULL.
+    ///   If no filter has been registered, *outMouseEventFilter will return NULL.
     ///
     /// # Returns
     ///
@@ -228,7 +228,7 @@ extern "C" {
     /// * `windowId` - ID of the window.
     ///
     /// * `outTouchEventFilter` - Output parameter for the registered touch event filter callback.
-    /// If no filter has been registered, *outTouchEventFilter will return NULL.
+    ///   If no filter has been registered, *outTouchEventFilter will return NULL.
     ///
     /// # Returns
     ///

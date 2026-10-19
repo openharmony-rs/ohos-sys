@@ -79,7 +79,7 @@ pub struct Pasteboard_ProgressInfo {
 /// # Arguments
 ///
 /// * `progressInfo` - A struct for the progress information.
-/// This information is reported only when [`Pasteboard_ProgressInfo`](crate::Pasteboard_ProgressInfo) is set to **NONE**.
+///   This information is reported only when [`Pasteboard_ProgressInfo`](crate::Pasteboard_ProgressInfo) is set to **NONE**.
 ///
 /// Available since API-level: 15
 #[cfg(feature = "api-15")]
@@ -151,9 +151,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a pointer to the [`OH_PasteboardObserver`](crate::OH_PasteboardObserver) instance created if the operation is successful;
-    /// returns **nullptr** otherwise.
-    /// If this pointer is no longer required, use [`OH_PasteboardObserver_Destroy`](crate::OH_PasteboardObserver_Destroy) to destroy it. Otherwise, memory
-    /// leaks may occur.
+    ///   returns **nullptr** otherwise.
+    ///   If this pointer is no longer required, use [`OH_PasteboardObserver_Destroy`](crate::OH_PasteboardObserver_Destroy) to destroy it. Otherwise, memory
+    ///   leaks may occur.
     ///
     /// **See also:** [`OH_PasteboardObserver`](crate::OH_PasteboardObserver).
     ///
@@ -170,8 +170,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns an error code. For details about the error codes, see [`PASTEBOARD_ErrCode`](crate::PASTEBOARD_ErrCode).
-    /// Returns **ERR_OK** if the operation is successful.
-    /// Returns **ERR_INVALID_PARAMETER** if an invalid parameter is passed in.
+    ///   Returns **ERR_OK** if the operation is successful.
+    ///   Returns **ERR_INVALID_PARAMETER** if an invalid parameter is passed in.
     ///
     /// **See also:** [`OH_PasteboardObserver`](crate::OH_PasteboardObserver) [`PASTEBOARD_ErrCode`](crate::PASTEBOARD_ErrCode).
     ///
@@ -192,13 +192,13 @@ extern "C" {
     /// * `callback` - Callback to be invoked when the data changes. For details, see [`Pasteboard_Notify`](crate::Pasteboard_Notify).
     ///
     /// * `finalize` - Optional callback, which can be used to release context data when the pasteboard observer is
-    /// destroyed. For details, see [`Pasteboard_Finalize`](crate::Pasteboard_Finalize).
+    ///   destroyed. For details, see [`Pasteboard_Finalize`](crate::Pasteboard_Finalize).
     ///
     /// # Returns
     ///
     /// * Returns an error code. For details about the error codes, see [`PASTEBOARD_ErrCode`](crate::PASTEBOARD_ErrCode).
-    /// Returns **ERR_OK** if the operation is successful.
-    /// Returns **ERR_INVALID_PARAMETER** if an invalid parameter is passed in.
+    ///   Returns **ERR_OK** if the operation is successful.
+    ///   Returns **ERR_INVALID_PARAMETER** if an invalid parameter is passed in.
     ///
     /// **See also:** [`OH_PasteboardObserver`](crate::OH_PasteboardObserver) [`Pasteboard_Notify`](crate::Pasteboard_Notify) [`PASTEBOARD_ErrCode`](crate::PASTEBOARD_ErrCode).
     ///
@@ -217,9 +217,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a pointer to the [`OH_Pasteboard`](crate::OH_Pasteboard) instance created if the operation is successful;
-    /// returns **nullptr** otherwise.
-    /// If this pointer is no longer required, use [`OH_Pasteboard_Destroy`](crate::OH_Pasteboard_Destroy) to destroy it. Otherwise, memory
-    /// leaks may occur.
+    ///   returns **nullptr** otherwise.
+    ///   If this pointer is no longer required, use [`OH_Pasteboard_Destroy`](crate::OH_Pasteboard_Destroy) to destroy it. Otherwise, memory
+    ///   leaks may occur.
     ///
     /// **See also:** [`OH_Pasteboard`](crate::OH_Pasteboard).
     ///
@@ -248,13 +248,13 @@ extern "C" {
     /// * `type` - Subscribed data change type of the pasteboard. For details, see [`Pasteboard_NotifyType`](crate::Pasteboard_NotifyType).
     ///
     /// * `observer` - Pointer to an [`OH_PasteboardObserver`](crate::OH_PasteboardObserver) instance. It specifies the callback to be invoked when
-    /// the pasteboard data changes. For details, see [`OH_PasteboardObserver`](crate::OH_PasteboardObserver).
+    ///   the pasteboard data changes. For details, see [`OH_PasteboardObserver`](crate::OH_PasteboardObserver).
     ///
     /// # Returns
     ///
     /// * Returns an error code. For details about the error codes, see [`PASTEBOARD_ErrCode`](crate::PASTEBOARD_ErrCode).
-    /// Returns **ERR_OK** if the operation is successful.
-    /// Returns **ERR_INVALID_PARAMETER** if an invalid parameter is passed in.
+    ///   Returns **ERR_OK** if the operation is successful.
+    ///   Returns **ERR_INVALID_PARAMETER** if an invalid parameter is passed in.
     ///
     /// **See also:** [`OH_Pasteboard`](crate::OH_Pasteboard) [`OH_PasteboardObserver`](crate::OH_PasteboardObserver) [`Pasteboard_NotifyType`](crate::Pasteboard_NotifyType) [`PASTEBOARD_ErrCode`](crate::PASTEBOARD_ErrCode).
     ///
@@ -275,13 +275,13 @@ extern "C" {
     /// * `type` - Subscribed data change type of the pasteboard. For details, see [`Pasteboard_NotifyType`](crate::Pasteboard_NotifyType).
     ///
     /// * `observer` - Pointer to an [`OH_PasteboardObserver`](crate::OH_PasteboardObserver) instance. It specifies the callback to be invoked when
-    /// the pasteboard data changes. For details, see [`OH_PasteboardObserver`](crate::OH_PasteboardObserver).
+    ///   the pasteboard data changes. For details, see [`OH_PasteboardObserver`](crate::OH_PasteboardObserver).
     ///
     /// # Returns
     ///
     /// * Returns an error code. For details about the error codes, see [`PASTEBOARD_ErrCode`](crate::PASTEBOARD_ErrCode).
-    /// Returns **ERR_OK** if the operation is successful.
-    /// Returns **ERR_INVALID_PARAMETER** if an invalid parameter is passed in.
+    ///   Returns **ERR_OK** if the operation is successful.
+    ///   Returns **ERR_INVALID_PARAMETER** if an invalid parameter is passed in.
     ///
     /// **See also:** [`OH_Pasteboard`](crate::OH_Pasteboard) [`OH_PasteboardObserver`](crate::OH_PasteboardObserver) [`Pasteboard_NotifyType`](crate::Pasteboard_NotifyType) [`PASTEBOARD_ErrCode`](crate::PASTEBOARD_ErrCode).
     ///
@@ -302,7 +302,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a Boolean value indicating whether the data comes from a remote device. The value **true** means the
-    /// data is from a remote device; **false** means the data is from the local device.
+    ///   data is from a remote device; **false** means the data is from the local device.
     ///
     /// **See also:** [`OH_Pasteboard`](crate::OH_Pasteboard).
     ///
@@ -317,16 +317,16 @@ extern "C" {
     /// * `pasteboard` - Pointer to an [`OH_Pasteboard`](crate::OH_Pasteboard) instance.
     ///
     /// * `source` - Pointer to the pasteboard data source instance. You need to allocate the memory for the pointer before
-    /// calling this API.
+    ///   calling this API.
     ///
     /// * `len` - Memory length corresponding to the source. If the memory length is insufficient, the API call will fail.
-    /// The recommended length is 128 bytes.
+    ///   The recommended length is 128 bytes.
     ///
     /// # Returns
     ///
     /// * Returns an error code. For details about the error codes, see [`PASTEBOARD_ErrCode`](crate::PASTEBOARD_ErrCode).
-    /// Returns **ERR_OK** if the operation is successful.
-    /// Returns **ERR_INVALID_PARAMETER** if an invalid parameter is passed in.
+    ///   Returns **ERR_OK** if the operation is successful.
+    ///   Returns **ERR_INVALID_PARAMETER** if an invalid parameter is passed in.
     ///
     /// **See also:** [`OH_Pasteboard`](crate::OH_Pasteboard) [`PASTEBOARD_ErrCode`](crate::PASTEBOARD_ErrCode).
     ///
@@ -345,13 +345,13 @@ extern "C" {
     /// * `pasteboard` - Pointer to an [`OH_Pasteboard`](crate::OH_Pasteboard) instance.
     ///
     /// * `type` - Data type to be checked, which includes the basic data types and custom data types. The options of the
-    /// basic data types are as follows: **"text/plain"**, **"text/html"**, **"text/uri"**, **"text/want"**,
-    /// and **"pixelMap"**. For details, see `Macros`.
+    ///   basic data types are as follows: **"text/plain"**, **"text/html"**, **"text/uri"**, **"text/want"**,
+    ///   and **"pixelMap"**. For details, see `Macros`.
     ///
     /// # Returns
     ///
     /// * Returns a Boolean value indicating whether the pasteboard contains data of the specified type. The value
-    /// **true** means the pasteboard contains data of the specified type; the value **false** means the opposite.
+    ///   **true** means the pasteboard contains data of the specified type; the value **false** means the opposite.
     ///
     /// **See also:** [`OH_Pasteboard`](crate::OH_Pasteboard).
     ///
@@ -371,7 +371,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a Boolean value indicating whether the pasteboard contains data. The value **true** means the
-    /// pasteboard contains data; the value **false** means the opposite.
+    ///   pasteboard contains data; the value **false** means the opposite.
     ///
     /// **See also:** [`OH_Pasteboard`](crate::OH_Pasteboard).
     ///
@@ -390,7 +390,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the check result. The value **true** indicates that the pasteboard data is on a remote device,
-    /// and **false** indicates the opposite. Default value: **false**.
+    ///   and **false** indicates the opposite. Default value: **false**.
     ///
     /// **See also:** [`OH_Pasteboard`](crate::OH_Pasteboard).
     ///
@@ -407,12 +407,12 @@ extern "C" {
     /// * `pasteboard` - Pointer to an [`OH_Pasteboard`](crate::OH_Pasteboard) instance.
     ///
     /// * `status` - Output parameter, indicating the error code of the operation.
-    /// For details about the error codes, see [`PASTEBOARD_ErrCode`](crate::PASTEBOARD_ErrCode).
+    ///   For details about the error codes, see [`PASTEBOARD_ErrCode`](crate::PASTEBOARD_ErrCode).
     ///
     /// # Returns
     ///
     /// * Returns the pointer to an [`OH_UdmfData`](ohos_sys_opaque_types::OH_UdmfData) instance obtained if the operation is successful; returns a
-    /// null pointer otherwise.
+    ///   null pointer otherwise.
     ///
     /// **See also:** [`OH_Pasteboard`](crate::OH_Pasteboard) [`OH_UdmfData`](ohos_sys_opaque_types::OH_UdmfData) [`PASTEBOARD_ErrCode`](crate::PASTEBOARD_ErrCode).
     ///
@@ -434,8 +434,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns an error code. For details about the error codes, see [`PASTEBOARD_ErrCode`](crate::PASTEBOARD_ErrCode).
-    /// Returns **ERR_OK** if the operation is successful.
-    /// Returns **ERR_INVALID_PARAMETER** if an invalid parameter is passed in.
+    ///   Returns **ERR_OK** if the operation is successful.
+    ///   Returns **ERR_INVALID_PARAMETER** if an invalid parameter is passed in.
     ///
     /// **See also:** [`OH_Pasteboard`](crate::OH_Pasteboard) [`OH_UdmfData`](ohos_sys_opaque_types::OH_UdmfData) [`PASTEBOARD_ErrCode`](crate::PASTEBOARD_ErrCode).
     ///
@@ -455,8 +455,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns an error code. For details about the error codes, see [`PASTEBOARD_ErrCode`](crate::PASTEBOARD_ErrCode).
-    /// Returns **ERR_OK** if the operation is successful.
-    /// Returns **ERR_INVALID_PARAMETER** if an invalid parameter is passed in.
+    ///   Returns **ERR_OK** if the operation is successful.
+    ///   Returns **ERR_INVALID_PARAMETER** if an invalid parameter is passed in.
     ///
     /// **See also:** [`OH_Pasteboard`](crate::OH_Pasteboard) [`PASTEBOARD_ErrCode`](crate::PASTEBOARD_ErrCode).
     ///
@@ -494,12 +494,12 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the number of pasteboard content changes if this API is called successfully;
-    /// otherwise, returns **0**.
-    /// Even though the pasteboard data expires, or the data becomes empty because of the called **OH_Pasteboard_ClearData**
-    /// API, the number of data changes remains.
-    /// When the system is restarted, or the pasteboard service is restarted due to an exception, the number of pasteboard
-    /// data changes counts from 0. In addition, copying the same data repeatedly is considered to change the data for
-    /// multiple times. Therefore, each time the data is copied, the number of data changes increases.
+    ///   otherwise, returns **0**.
+    ///   Even though the pasteboard data expires, or the data becomes empty because of the called **OH_Pasteboard_ClearData**
+    ///   API, the number of data changes remains.
+    ///   When the system is restarted, or the pasteboard service is restarted due to an exception, the number of pasteboard
+    ///   data changes counts from 0. In addition, copying the same data repeatedly is considered to change the data for
+    ///   multiple times. Therefore, each time the data is copied, the number of data changes increases.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -511,9 +511,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a pointer to the [`Pasteboard_GetDataParams`](crate::Pasteboard_GetDataParams) instance created if the operation is successful;
-    /// returns **nullptr** otherwise.
-    /// If this pointer is no longer required, use [`OH_Pasteboard_GetDataParams_Destroy`](crate::OH_Pasteboard_GetDataParams_Destroy) to destroy it. Otherwise,
-    /// memory leaks may occur.
+    ///   returns **nullptr** otherwise.
+    ///   If this pointer is no longer required, use [`OH_Pasteboard_GetDataParams_Destroy`](crate::OH_Pasteboard_GetDataParams_Destroy) to destroy it. Otherwise,
+    ///   memory leaks may occur.
     ///
     /// **See also:** [`Pasteboard_GetDataParams`](crate::Pasteboard_GetDataParams).
     ///
@@ -648,12 +648,12 @@ extern "C" {
     /// * `params` - Pointer to an **Pasteboard_GetDataParams** instance.
     ///
     /// * `status` - Output parameter, indicating the error code of the operation.
-    /// For details about the error codes, see [`PASTEBOARD_ErrCode`](crate::PASTEBOARD_ErrCode).
+    ///   For details about the error codes, see [`PASTEBOARD_ErrCode`](crate::PASTEBOARD_ErrCode).
     ///
     /// # Returns
     ///
     /// * Returns a pointer to the **OH_UdmfData** instance obtained if the operation is successful; returns a null
-    /// pointer otherwise.
+    ///   pointer otherwise.
     ///
     /// **See also:** [`OH_Pasteboard`](crate::OH_Pasteboard) `OH_PasteData` [`PASTEBOARD_ErrCode`](crate::PASTEBOARD_ErrCode).
     ///

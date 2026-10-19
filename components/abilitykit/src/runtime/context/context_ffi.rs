@@ -35,15 +35,15 @@ extern "C" {
     /// * `bufferSize` - The length of the buffer.
     ///
     /// * `writeLength` - The string length actually written to the buffer,
-    /// when returning [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult).
+    ///   when returning [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult).
     ///
     /// # Returns
     ///
     /// * The error code.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the buffer or writeLength is null,
-    /// or the buffer size is less than the minimum buffer size.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_CONTEXT_NOT_EXIST`](crate::runtime::AbilityRuntimeErrorCode::CONTEXT_NOT_EXIST) if the context does not exist.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the buffer or writeLength is null,
+    ///   or the buffer size is less than the minimum buffer size.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_CONTEXT_NOT_EXIST`](crate::runtime::AbilityRuntimeErrorCode::CONTEXT_NOT_EXIST) if the context does not exist.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -65,15 +65,15 @@ extern "C" {
     /// * `bufferSize` - The length of the buffer.
     ///
     /// * `writeLength` - The string length actually written to the buffer,
-    /// when returning [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult).
+    ///   when returning [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult).
     ///
     /// # Returns
     ///
     /// * The error code.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the buffer or writeLength is null,
-    /// or the buffer size is less than the minimum buffer size.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_CONTEXT_NOT_EXIST`](crate::runtime::AbilityRuntimeErrorCode::CONTEXT_NOT_EXIST) if the context does not exist.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the buffer or writeLength is null,
+    ///   or the buffer size is less than the minimum buffer size.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_CONTEXT_NOT_EXIST`](crate::runtime::AbilityRuntimeErrorCode::CONTEXT_NOT_EXIST) if the context does not exist.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -95,15 +95,15 @@ extern "C" {
     /// * `bufferSize` - The length of the buffer.
     ///
     /// * `writeLength` - The string length actually written to the buffer,
-    /// when returning [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult).
+    ///   when returning [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult).
     ///
     /// # Returns
     ///
     /// * The error code.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the buffer or writeLength is null,
-    /// or the buffer size is less than the minimum buffer size.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_CONTEXT_NOT_EXIST`](crate::runtime::AbilityRuntimeErrorCode::CONTEXT_NOT_EXIST) if the context does not exist.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the buffer or writeLength is null,
+    ///   or the buffer size is less than the minimum buffer size.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_CONTEXT_NOT_EXIST`](crate::runtime::AbilityRuntimeErrorCode::CONTEXT_NOT_EXIST) if the context does not exist.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -125,15 +125,15 @@ extern "C" {
     /// * `bufferSize` - The length of the buffer.
     ///
     /// * `writeLength` - The string length actually written to the buffer,
-    /// when returning [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult).
+    ///   when returning [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult).
     ///
     /// # Returns
     ///
     /// * The error code.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the buffer or writeLength is null,
-    /// or the buffer size is less than the minimum buffer size.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_CONTEXT_NOT_EXIST`](crate::runtime::AbilityRuntimeErrorCode::CONTEXT_NOT_EXIST) if the context does not exist.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the buffer or writeLength is null,
+    ///   or the buffer size is less than the minimum buffer size.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_CONTEXT_NOT_EXIST`](crate::runtime::AbilityRuntimeErrorCode::CONTEXT_NOT_EXIST) if the context does not exist.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -155,15 +155,15 @@ extern "C" {
     /// * `bufferSize` - The length of the buffer.
     ///
     /// * `writeLength` - The string length actually written to the buffer,
-    /// when returning [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult).
+    ///   when returning [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult).
     ///
     /// # Returns
     ///
     /// * The error code.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the buffer or writeLength is null,
-    /// or the buffer size is less than the minimum buffer size.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_CONTEXT_NOT_EXIST`](crate::runtime::AbilityRuntimeErrorCode::CONTEXT_NOT_EXIST) if the context does not exist.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the buffer or writeLength is null,
+    ///   or the buffer size is less than the minimum buffer size.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_CONTEXT_NOT_EXIST`](crate::runtime::AbilityRuntimeErrorCode::CONTEXT_NOT_EXIST) if the context does not exist.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -185,15 +185,15 @@ extern "C" {
     /// * `bufferSize` - The length of the buffer.
     ///
     /// * `writeLength` - The string length actually written to the buffer,
-    /// when returning [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult).
+    ///   when returning [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult).
     ///
     /// # Returns
     ///
     /// * The error code.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the buffer or writeLength is null,
-    /// or the buffer size is less than the minimum buffer size.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_CONTEXT_NOT_EXIST`](crate::runtime::AbilityRuntimeErrorCode::CONTEXT_NOT_EXIST) if the context does not exist.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the buffer or writeLength is null,
+    ///   or the buffer size is less than the minimum buffer size.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_CONTEXT_NOT_EXIST`](crate::runtime::AbilityRuntimeErrorCode::CONTEXT_NOT_EXIST) if the context does not exist.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -215,15 +215,15 @@ extern "C" {
     /// * `bufferSize` - The length of the buffer.
     ///
     /// * `writeLength` - The string length actually written to the buffer,
-    /// when returning [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult).
+    ///   when returning [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult).
     ///
     /// # Returns
     ///
     /// * The error code.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the buffer or writeLength is null,
-    /// or the buffer size is less than the minimum buffer size.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_CONTEXT_NOT_EXIST`](crate::runtime::AbilityRuntimeErrorCode::CONTEXT_NOT_EXIST) if the context does not exist.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the buffer or writeLength is null,
+    ///   or the buffer size is less than the minimum buffer size.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_CONTEXT_NOT_EXIST`](crate::runtime::AbilityRuntimeErrorCode::CONTEXT_NOT_EXIST) if the context does not exist.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -245,15 +245,15 @@ extern "C" {
     /// * `bufferSize` - The length of the buffer.
     ///
     /// * `writeLength` - The string length actually written to the buffer,
-    /// when returning [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult).
+    ///   when returning [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult).
     ///
     /// # Returns
     ///
     /// * The error code.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the buffer or writeLength is null,
-    /// or the buffer size is less than the minimum buffer size.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_CONTEXT_NOT_EXIST`](crate::runtime::AbilityRuntimeErrorCode::CONTEXT_NOT_EXIST) if the context does not exist.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the buffer or writeLength is null,
+    ///   or the buffer size is less than the minimum buffer size.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_CONTEXT_NOT_EXIST`](crate::runtime::AbilityRuntimeErrorCode::CONTEXT_NOT_EXIST) if the context does not exist.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -275,15 +275,15 @@ extern "C" {
     /// * `bufferSize` - The length of the buffer.
     ///
     /// * `writeLength` - The string length actually written to the buffer,
-    /// when returning [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult).
+    ///   when returning [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult).
     ///
     /// # Returns
     ///
     /// * The error code.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the buffer or writeLength is null,
-    /// or the buffer size is less than the minimum buffer size.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_CONTEXT_NOT_EXIST`](crate::runtime::AbilityRuntimeErrorCode::CONTEXT_NOT_EXIST) if the context does not exist.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the buffer or writeLength is null,
+    ///   or the buffer size is less than the minimum buffer size.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_CONTEXT_NOT_EXIST`](crate::runtime::AbilityRuntimeErrorCode::CONTEXT_NOT_EXIST) if the context does not exist.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -305,9 +305,9 @@ extern "C" {
     /// # Returns
     ///
     /// * The error code.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the areaMode is null.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_CONTEXT_NOT_EXIST`](crate::runtime::AbilityRuntimeErrorCode::CONTEXT_NOT_EXIST) if the context does not exist.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the areaMode is null.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_CONTEXT_NOT_EXIST`](crate::runtime::AbilityRuntimeErrorCode::CONTEXT_NOT_EXIST) if the context does not exist.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -327,9 +327,9 @@ extern "C" {
     /// # Returns
     ///
     /// * The error code.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the areaMode is null.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_CONTEXT_NOT_EXIST`](crate::runtime::AbilityRuntimeErrorCode::CONTEXT_NOT_EXIST) if the context does not exist.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the areaMode is null.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_CONTEXT_NOT_EXIST`](crate::runtime::AbilityRuntimeErrorCode::CONTEXT_NOT_EXIST) if the context does not exist.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -349,15 +349,15 @@ extern "C" {
     /// * `bufferSize` - The length of the buffer.
     ///
     /// * `writeLength` - The string length actually written to the buffer,
-    /// when returning [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult).
+    ///   when returning [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult).
     ///
     /// # Returns
     ///
     /// * The error code.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the buffer or writeLength is null,
-    /// or the buffer size is less than the minimum buffer size.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_CONTEXT_NOT_EXIST`](crate::runtime::AbilityRuntimeErrorCode::CONTEXT_NOT_EXIST) if the context does not exist.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the buffer or writeLength is null,
+    ///   or the buffer size is less than the minimum buffer size.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_CONTEXT_NOT_EXIST`](crate::runtime::AbilityRuntimeErrorCode::CONTEXT_NOT_EXIST) if the context does not exist.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]
@@ -379,15 +379,15 @@ extern "C" {
     /// * `bufferSize` - The length of the buffer.
     ///
     /// * `writeLength` - The string length actually written to the buffer,
-    /// when returning [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult).
+    ///   when returning [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult).
     ///
     /// # Returns
     ///
     /// * The error code.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the buffer or writeLength is null,
-    /// or the buffer size is less than the minimum buffer size.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_CONTEXT_NOT_EXIST`](crate::runtime::AbilityRuntimeErrorCode::CONTEXT_NOT_EXIST) if the context does not exist.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the buffer or writeLength is null,
+    ///   or the buffer size is less than the minimum buffer size.
+    ///   [`ABILITY_RUNTIME_ERROR_CODE_CONTEXT_NOT_EXIST`](crate::runtime::AbilityRuntimeErrorCode::CONTEXT_NOT_EXIST) if the context does not exist.
     ///
     /// Available since API-level: 24
     #[cfg(feature = "api-24")]

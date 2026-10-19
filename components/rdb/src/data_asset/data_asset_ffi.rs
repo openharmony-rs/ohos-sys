@@ -44,9 +44,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) - success.
-    /// [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) - The error code for common invalid args.
-    /// Specific error codes can be referenced [`OH_Rdb_ErrCode`](crate::relational_store_error_code::OH_Rdb_ErrCode).
+    ///   [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) - success.
+    ///   [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) - The error code for common invalid args.
+    ///   Specific error codes can be referenced [`OH_Rdb_ErrCode`](crate::relational_store_error_code::OH_Rdb_ErrCode).
     ///
     /// **See also:** [`Data_Asset`](ohos_sys_opaque_types::Data_Asset)
     ///
@@ -68,9 +68,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) - success.
-    /// [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) - The error code for common invalid args.
-    /// Specific error codes can be referenced [`OH_Rdb_ErrCode`](crate::relational_store_error_code::OH_Rdb_ErrCode).
+    ///   [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) - success.
+    ///   [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) - The error code for common invalid args.
+    ///   Specific error codes can be referenced [`OH_Rdb_ErrCode`](crate::relational_store_error_code::OH_Rdb_ErrCode).
     ///
     /// **See also:** [`Data_Asset`](ohos_sys_opaque_types::Data_Asset)
     ///
@@ -92,9 +92,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) - success.
-    /// [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) - The error code for common invalid args.
-    /// Specific error codes can be referenced [`OH_Rdb_ErrCode`](crate::relational_store_error_code::OH_Rdb_ErrCode).
+    ///   [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) - success.
+    ///   [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) - The error code for common invalid args.
+    ///   Specific error codes can be referenced [`OH_Rdb_ErrCode`](crate::relational_store_error_code::OH_Rdb_ErrCode).
     ///
     /// **See also:** [`Data_Asset`](ohos_sys_opaque_types::Data_Asset)
     ///
@@ -112,14 +112,14 @@ extern "C" {
     /// * `asset` - Represents a pointer to an [`Data_Asset`](ohos_sys_opaque_types::Data_Asset) instance.
     ///
     /// * `createTime` - Indicates the create time to set.
-    /// There is no specific unit. Developers can specify it themselves.
+    ///   There is no specific unit. Developers can specify it themselves.
     ///
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) - success.
-    /// [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) - The error code for common invalid args.
-    /// Specific error codes can be referenced [`OH_Rdb_ErrCode`](crate::relational_store_error_code::OH_Rdb_ErrCode).
+    ///   [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) - success.
+    ///   [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) - The error code for common invalid args.
+    ///   Specific error codes can be referenced [`OH_Rdb_ErrCode`](crate::relational_store_error_code::OH_Rdb_ErrCode).
     ///
     /// **See also:** [`Data_Asset`](ohos_sys_opaque_types::Data_Asset)
     ///
@@ -137,14 +137,14 @@ extern "C" {
     /// * `asset` - Represents a pointer to an [`Data_Asset`](ohos_sys_opaque_types::Data_Asset) instance.
     ///
     /// * `modifyTime` - Indicates the create time to set.
-    /// There is no specific unit. Developers can specify it themselves.
+    ///   There is no specific unit. Developers can specify it themselves.
     ///
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) - success.
-    /// [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) - The error code for common invalid args.
-    /// Specific error codes can be referenced [`OH_Rdb_ErrCode`](crate::relational_store_error_code::OH_Rdb_ErrCode).
+    ///   [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) - success.
+    ///   [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) - The error code for common invalid args.
+    ///   Specific error codes can be referenced [`OH_Rdb_ErrCode`](crate::relational_store_error_code::OH_Rdb_ErrCode).
     ///
     /// **See also:** [`Data_Asset`](ohos_sys_opaque_types::Data_Asset)
     ///
@@ -166,9 +166,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) - success.
-    /// [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) - The error code for common invalid args.
-    /// Specific error codes can be referenced [`OH_Rdb_ErrCode`](crate::relational_store_error_code::OH_Rdb_ErrCode).
+    ///   [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) - success.
+    ///   [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) - The error code for common invalid args.
+    ///   Specific error codes can be referenced [`OH_Rdb_ErrCode`](crate::relational_store_error_code::OH_Rdb_ErrCode).
     ///
     /// **See also:** [`Data_Asset`](ohos_sys_opaque_types::Data_Asset)
     ///
@@ -187,9 +187,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) - success.
-    /// [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) - The error code for common invalid args.
-    /// Specific error codes can be referenced [`OH_Rdb_ErrCode`](crate::relational_store_error_code::OH_Rdb_ErrCode).
+    ///   [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) - success.
+    ///   [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) - The error code for common invalid args.
+    ///   Specific error codes can be referenced [`OH_Rdb_ErrCode`](crate::relational_store_error_code::OH_Rdb_ErrCode).
     ///
     /// **See also:** [`Data_Asset`](ohos_sys_opaque_types::Data_Asset), [`Data_AssetStatus`](crate::data_asset::Data_AssetStatus)
     ///
@@ -207,17 +207,17 @@ extern "C" {
     /// * `asset` - Represents a pointer to an [`Data_Asset`](ohos_sys_opaque_types::Data_Asset) instance.
     ///
     /// * `name` - This parameter is the output parameter,
-    /// and the name of the asset as a char * is written to this variable.
+    ///   and the name of the asset as a char * is written to this variable.
     ///
     /// * `length` - Indicates the length of the name.
     ///
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`RDB_ERR`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_ERR) - Indicates that the function execution exception.
-    /// [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) - success.
-    /// [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) - The error code for common invalid args.
-    /// Specific error codes can be referenced [`OH_Rdb_ErrCode`](crate::relational_store_error_code::OH_Rdb_ErrCode).
+    ///   [`RDB_ERR`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_ERR) - Indicates that the function execution exception.
+    ///   [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) - success.
+    ///   [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) - The error code for common invalid args.
+    ///   Specific error codes can be referenced [`OH_Rdb_ErrCode`](crate::relational_store_error_code::OH_Rdb_ErrCode).
     ///
     /// **See also:** [`Data_Asset`](ohos_sys_opaque_types::Data_Asset)
     ///
@@ -236,17 +236,17 @@ extern "C" {
     /// * `asset` - Represents a pointer to an [`Data_Asset`](ohos_sys_opaque_types::Data_Asset) instance.
     ///
     /// * `uri` - This parameter is the output parameter,
-    /// and the uri of the asset as a char * is written to this variable.
+    ///   and the uri of the asset as a char * is written to this variable.
     ///
     /// * `length` - Indicates the length of the uri.
     ///
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`RDB_ERR`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_ERR) - Indicates that the function execution exception.
-    /// [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) - success.
-    /// [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) - The error code for common invalid args.
-    /// Specific error codes can be referenced [`OH_Rdb_ErrCode`](crate::relational_store_error_code::OH_Rdb_ErrCode).
+    ///   [`RDB_ERR`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_ERR) - Indicates that the function execution exception.
+    ///   [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) - success.
+    ///   [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) - The error code for common invalid args.
+    ///   Specific error codes can be referenced [`OH_Rdb_ErrCode`](crate::relational_store_error_code::OH_Rdb_ErrCode).
     ///
     /// **See also:** [`Data_Asset`](ohos_sys_opaque_types::Data_Asset)
     ///
@@ -265,17 +265,17 @@ extern "C" {
     /// * `asset` - Represents a pointer to an [`Data_Asset`](ohos_sys_opaque_types::Data_Asset) instance.
     ///
     /// * `path` - This parameter is the output parameter,
-    /// and the path of the asset as a char * is written to this variable.
+    ///   and the path of the asset as a char * is written to this variable.
     ///
     /// * `length` - Indicates the length of the path.
     ///
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`RDB_ERR`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_ERR) - Indicates that the function execution exception.
-    /// [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) - success.
-    /// [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) - The error code for common invalid args.
-    /// Specific error codes can be referenced [`OH_Rdb_ErrCode`](crate::relational_store_error_code::OH_Rdb_ErrCode).
+    ///   [`RDB_ERR`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_ERR) - Indicates that the function execution exception.
+    ///   [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) - success.
+    ///   [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) - The error code for common invalid args.
+    ///   Specific error codes can be referenced [`OH_Rdb_ErrCode`](crate::relational_store_error_code::OH_Rdb_ErrCode).
     ///
     /// **See also:** [`Data_Asset`](ohos_sys_opaque_types::Data_Asset)
     ///
@@ -294,16 +294,16 @@ extern "C" {
     /// * `asset` - Represents a pointer to an [`Data_Asset`](ohos_sys_opaque_types::Data_Asset) instance.
     ///
     /// * `createTime` - This parameter is the output parameter,
-    /// and the create time of the asset as a int64_t is written to this variable.
-    /// There is no specific unit. Developers can specify it themselves.
+    ///   and the create time of the asset as a int64_t is written to this variable.
+    ///   There is no specific unit. Developers can specify it themselves.
     ///
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`RDB_ERR`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_ERR) - Indicates that the function execution exception.
-    /// [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) - success.
-    /// [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) - The error code for common invalid args.
-    /// Specific error codes can be referenced [`OH_Rdb_ErrCode`](crate::relational_store_error_code::OH_Rdb_ErrCode).
+    ///   [`RDB_ERR`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_ERR) - Indicates that the function execution exception.
+    ///   [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) - success.
+    ///   [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) - The error code for common invalid args.
+    ///   Specific error codes can be referenced [`OH_Rdb_ErrCode`](crate::relational_store_error_code::OH_Rdb_ErrCode).
     ///
     /// **See also:** [`Data_Asset`](ohos_sys_opaque_types::Data_Asset)
     ///
@@ -321,16 +321,16 @@ extern "C" {
     /// * `asset` - Represents a pointer to an [`Data_Asset`](ohos_sys_opaque_types::Data_Asset) instance.
     ///
     /// * `modifyTime` - This parameter is the output parameter,
-    /// and the create time of the asset as a int64_t is written to this variable.
-    /// There is no specific unit. Developers can specify it themselves.
+    ///   and the create time of the asset as a int64_t is written to this variable.
+    ///   There is no specific unit. Developers can specify it themselves.
     ///
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`RDB_ERR`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_ERR) - Indicates that the function execution exception.
-    /// [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) - success.
-    /// [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) - The error code for common invalid args.
-    /// Specific error codes can be referenced [`OH_Rdb_ErrCode`](crate::relational_store_error_code::OH_Rdb_ErrCode).
+    ///   [`RDB_ERR`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_ERR) - Indicates that the function execution exception.
+    ///   [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) - success.
+    ///   [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) - The error code for common invalid args.
+    ///   Specific error codes can be referenced [`OH_Rdb_ErrCode`](crate::relational_store_error_code::OH_Rdb_ErrCode).
     ///
     /// **See also:** [`Data_Asset`](ohos_sys_opaque_types::Data_Asset)
     ///
@@ -348,15 +348,15 @@ extern "C" {
     /// * `asset` - Represents a pointer to an [`Data_Asset`](ohos_sys_opaque_types::Data_Asset) instance.
     ///
     /// * `size` - This parameter is the output parameter,
-    /// and the size of the asset as a size_t is written to this variable.
+    ///   and the size of the asset as a size_t is written to this variable.
     ///
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`RDB_ERR`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_ERR) - Indicates that the function execution exception.
-    /// [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) - success.
-    /// [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) - The error code for common invalid args.
-    /// Specific error codes can be referenced [`OH_Rdb_ErrCode`](crate::relational_store_error_code::OH_Rdb_ErrCode).
+    ///   [`RDB_ERR`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_ERR) - Indicates that the function execution exception.
+    ///   [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) - success.
+    ///   [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) - The error code for common invalid args.
+    ///   Specific error codes can be referenced [`OH_Rdb_ErrCode`](crate::relational_store_error_code::OH_Rdb_ErrCode).
     ///
     /// **See also:** [`Data_Asset`](ohos_sys_opaque_types::Data_Asset)
     ///
@@ -371,14 +371,14 @@ extern "C" {
     /// * `asset` - Represents a pointer to an [`Data_Asset`](ohos_sys_opaque_types::Data_Asset) instance.
     ///
     /// * `status` - This parameter is the output parameter,
-    /// and the size of the status as a [`Data_AssetStatus`](crate::data_asset::Data_AssetStatus) is written to this variable.
+    ///   and the size of the status as a [`Data_AssetStatus`](crate::data_asset::Data_AssetStatus) is written to this variable.
     ///
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) - success.
-    /// [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) - The error code for common invalid args.
-    /// Specific error codes can be referenced [`OH_Rdb_ErrCode`](crate::relational_store_error_code::OH_Rdb_ErrCode).
+    ///   [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) - success.
+    ///   [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) - The error code for common invalid args.
+    ///   Specific error codes can be referenced [`OH_Rdb_ErrCode`](crate::relational_store_error_code::OH_Rdb_ErrCode).
     ///
     /// **See also:** [`Data_Asset`](ohos_sys_opaque_types::Data_Asset) [`Data_AssetStatus`](crate::data_asset::Data_AssetStatus).
     ///
@@ -395,7 +395,7 @@ extern "C" {
     /// # Returns
     ///
     /// * If the creation is successful, a pointer to the instance of the Data_Asset} structure is returned,
-    /// otherwise NULL is returned.
+    ///   otherwise NULL is returned.
     ///
     /// **See also:** [`Data_Asset`](ohos_sys_opaque_types::Data_Asset).
     ///
@@ -412,9 +412,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution. Successful execution returns RDB_OK,
-    /// <br>while failure returns a specific error code.
-    /// <br>[`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) - success.
-    /// <br>Specific error codes can be referenced [`OH_Rdb_ErrCode`](crate::relational_store_error_code::OH_Rdb_ErrCode).
+    ///   <br>while failure returns a specific error code.
+    ///   <br>[`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) - success.
+    ///   <br>Specific error codes can be referenced [`OH_Rdb_ErrCode`](crate::relational_store_error_code::OH_Rdb_ErrCode).
     ///
     /// **See also:** [`Data_Asset`](ohos_sys_opaque_types::Data_Asset), [`OH_Rdb_ErrCode`](crate::relational_store_error_code::OH_Rdb_ErrCode).
     ///
@@ -431,7 +431,7 @@ extern "C" {
     /// # Returns
     ///
     /// * If the creation is successful, a pointer to the instance of the [`Data_Asset`](ohos_sys_opaque_types::Data_Asset) structure is returned.
-    /// If the creation is unsuccessful, NULL is returned.
+    ///   If the creation is unsuccessful, NULL is returned.
     ///
     /// **See also:** [`Data_Asset`](ohos_sys_opaque_types::Data_Asset).
     ///
@@ -450,9 +450,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution. Successful execution returns RDB_OK,
-    /// <br>while failure returns a specific error code.
-    /// <br>[`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) - success.
-    /// <br>Specific error codes can be referenced [`OH_Rdb_ErrCode`](crate::relational_store_error_code::OH_Rdb_ErrCode).
+    ///   <br>while failure returns a specific error code.
+    ///   <br>[`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) - success.
+    ///   <br>Specific error codes can be referenced [`OH_Rdb_ErrCode`](crate::relational_store_error_code::OH_Rdb_ErrCode).
     ///
     /// **See also:** [`Data_Asset`](ohos_sys_opaque_types::Data_Asset), [`OH_Rdb_ErrCode`](crate::relational_store_error_code::OH_Rdb_ErrCode).
     ///

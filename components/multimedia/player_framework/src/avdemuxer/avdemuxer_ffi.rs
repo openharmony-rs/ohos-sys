@@ -83,10 +83,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Pointer to an OH_AVDemuxer instance.
-    /// <br>If the operation fails, NULL is returned.
-    /// <br>The possible causes of an operation failure are as follows:
-    /// <br>1. The value of **source** is invalid (either nullptr or a pointer to a non-OH_AVSource instance).
-    /// <br>2. The value of **source** does not point to an OH_AVSource instance.
+    ///   <br>If the operation fails, NULL is returned.
+    ///   <br>The possible causes of an operation failure are as follows:
+    ///   <br>1. The value of **source** is invalid (either nullptr or a pointer to a non-OH_AVSource instance).
+    ///   <br>2. The value of **source** does not point to an OH_AVSource instance.
     ///
     /// Available since API-level: 10
     pub fn OH_AVDemuxer_CreateWithSource(source: *mut OH_AVSource) -> *mut OH_AVDemuxer;
@@ -102,7 +102,7 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The value of **demuxer** is nullptr or does not point to a demuxer instance.
+    ///   <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The value of **demuxer** is nullptr or does not point to a demuxer instance.
     ///
     /// Available since API-level: 10
     pub fn OH_AVDemuxer_Destroy(demuxer: *mut OH_AVDemuxer) -> OH_AVErrCode;
@@ -122,11 +122,11 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL):
-    /// <br>1. The value of **demuxer** is nullptr or does not point to a demuxer instance.
-    /// <br>2. The track index is out of range.
-    /// <br>3. Track reading is not supported.
-    /// <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The demuxer is not correctly initialized.
+    ///   <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL):
+    ///   <br>1. The value of **demuxer** is nullptr or does not point to a demuxer instance.
+    ///   <br>2. The track index is out of range.
+    ///   <br>3. Track reading is not supported.
+    ///   <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The demuxer is not correctly initialized.
     ///
     /// Available since API-level: 10
     pub fn OH_AVDemuxer_SelectTrackByID(
@@ -149,8 +149,8 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The value of **demuxer** is nullptr or does not point to a demuxer instance.
-    /// <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The demuxer is not correctly initialized.
+    ///   <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The value of **demuxer** is nullptr or does not point to a demuxer instance.
+    ///   <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The demuxer is not correctly initialized.
     ///
     /// Available since API-level: 10
     pub fn OH_AVDemuxer_UnselectTrackByID(
@@ -175,17 +175,17 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL):
-    /// <br>1. The value of **demuxer** is nullptr or does not point to a demuxer instance.
-    /// <br>2. The track index is out of range.
-    /// <br>3. Track reading is not supported.
-    /// <br>4. The value of **sample** is null.
-    /// <br>5. The value of **info** is null.
-    /// <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT):
-    /// <br>1. The track with the specified index is not selected.
-    /// <br>2. The demuxer is not correctly initialized.
-    /// <br>[`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): The sample capacity is insufficient to store all frame data.
-    /// <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): Failed to read or parse the frame from the file.
+    ///   <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL):
+    ///   <br>1. The value of **demuxer** is nullptr or does not point to a demuxer instance.
+    ///   <br>2. The track index is out of range.
+    ///   <br>3. Track reading is not supported.
+    ///   <br>4. The value of **sample** is null.
+    ///   <br>5. The value of **info** is null.
+    ///   <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT):
+    ///   <br>1. The track with the specified index is not selected.
+    ///   <br>2. The demuxer is not correctly initialized.
+    ///   <br>[`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): The sample capacity is insufficient to store all frame data.
+    ///   <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): Failed to read or parse the frame from the file.
     ///
     /// **Deprecated** since 11
     ///
@@ -215,16 +215,16 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL):
-    /// <br>1. The value of **demuxer** is nullptr or does not point to a demuxer instance.
-    /// <br>2. The value of **sample** is nullptr.
-    /// <br>3. The track index is out of range.
-    /// <br>4. The value of **sample** is null.
-    /// <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT):
-    /// <br>1. The track with the specified index is not selected.
-    /// <br>2. The demuxer is not correctly initialized.
-    /// <br>[`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): The sample capacity is insufficient to store all frame data.
-    /// <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): Failed to read or parse the frame from the file.
+    ///   <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL):
+    ///   <br>1. The value of **demuxer** is nullptr or does not point to a demuxer instance.
+    ///   <br>2. The value of **sample** is nullptr.
+    ///   <br>3. The track index is out of range.
+    ///   <br>4. The value of **sample** is null.
+    ///   <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT):
+    ///   <br>1. The track with the specified index is not selected.
+    ///   <br>2. The demuxer is not correctly initialized.
+    ///   <br>[`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): The sample capacity is insufficient to store all frame data.
+    ///   <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): Failed to read or parse the frame from the file.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -247,17 +247,17 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL):
-    /// <br>1. The value of **demuxer** is nullptr or does not point to a demuxer instance.
-    /// <br>2. The value of **millisecond** is out of range.
-    /// <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT):
-    /// <br>1. The track with the specified index is not selected.
-    /// <br>2. The demuxer is not correctly initialized.
-    /// <br>3. The seek operation cannot be performed on the resource.
-    /// <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN):
-    /// <br>1. The seek operation fails.
-    /// <br>2. **OH_AVSeekMode** is set to **SEEK_MODE_NEXT_SYNC** and there is no I-frame
-    /// following the specified position.
+    ///   <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL):
+    ///   <br>1. The value of **demuxer** is nullptr or does not point to a demuxer instance.
+    ///   <br>2. The value of **millisecond** is out of range.
+    ///   <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT):
+    ///   <br>1. The track with the specified index is not selected.
+    ///   <br>2. The demuxer is not correctly initialized.
+    ///   <br>3. The seek operation cannot be performed on the resource.
+    ///   <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN):
+    ///   <br>1. The seek operation fails.
+    ///   <br>2. **OH_AVSeekMode** is set to **SEEK_MODE_NEXT_SYNC** and there is no I-frame
+    ///   following the specified position.
     ///
     /// Available since API-level: 10
     pub fn OH_AVDemuxer_SeekToTime(
@@ -276,8 +276,8 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The demuxer is not correctly initialized.
-    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The value of **demuxer** is nullptr or does not point to a demuxer instance.
+    ///   <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The demuxer is not correctly initialized.
+    ///   <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The value of **demuxer** is nullptr or does not point to a demuxer instance.
     ///
     /// **Deprecated** since 14
     ///
@@ -305,8 +305,8 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The demuxer is not correctly initialized.
-    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The value of **demuxer** is nullptr or does not point to a demuxer instance.
+    ///   <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The demuxer is not correctly initialized.
+    ///   <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The value of **demuxer** is nullptr or does not point to a demuxer instance.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -327,10 +327,10 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The demuxer engine is not initialized or fails to be initialized.
-    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL):
-    /// <br>1. The value of **demuxer** is nullptr or does not point to a demuxer instance.
-    /// <br>2. The value of **mediaKeySystemInfo** is nullptr.
+    ///   <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The demuxer engine is not initialized or fails to be initialized.
+    ///   <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL):
+    ///   <br>1. The value of **demuxer** is nullptr or does not point to a demuxer instance.
+    ///   <br>2. The value of **mediaKeySystemInfo** is nullptr.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]

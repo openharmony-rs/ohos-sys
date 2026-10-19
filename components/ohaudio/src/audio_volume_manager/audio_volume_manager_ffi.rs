@@ -69,7 +69,7 @@ extern "C" {
     /// # Returns
     ///
     /// *  [`AUDIOCOMMON_RESULT_SUCCESS`](crate::audio_common::OH_AudioCommon_Result) if execution succeeds
-    /// [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) if input param is nullptr
+    ///    [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) if input param is nullptr
     ///
     ///
     /// Available since API-level: 20
@@ -83,7 +83,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `volumeManager` - [`OH_AudioVolumeManager`](crate::audio_volume_manager::OH_AudioVolumeManager) handle
-    /// provided by [`OH_AudioManager_GetAudioVolumeManager`](crate::audio_volume_manager::OH_AudioManager_GetAudioVolumeManager).
+    ///   provided by [`OH_AudioManager_GetAudioVolumeManager`](crate::audio_volume_manager::OH_AudioManager_GetAudioVolumeManager).
     ///
     /// * `usage` - the stream usage type used to map a specific volume type.
     ///
@@ -92,8 +92,8 @@ extern "C" {
     /// # Returns
     ///
     /// *  [`AUDIOCOMMON_RESULT_SUCCESS`](crate::audio_common::OH_AudioCommon_Result) if execution succeeds
-    /// [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) if input param is nullptr or invalid
-    /// [`AUDIOCOMMON_RESULT_ERROR_SYSTEM`](crate::audio_common::OH_AudioCommonErrorCode::SYSTEM) system process error occurs
+    ///    [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) if input param is nullptr or invalid
+    ///    [`AUDIOCOMMON_RESULT_ERROR_SYSTEM`](crate::audio_common::OH_AudioCommonErrorCode::SYSTEM) system process error occurs
     ///
     ///
     /// Available since API-level: 20
@@ -109,7 +109,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `volumeManager` - [`OH_AudioVolumeManager`](crate::audio_volume_manager::OH_AudioVolumeManager) handle
-    /// provided by [`OH_AudioManager_GetAudioVolumeManager`](crate::audio_volume_manager::OH_AudioManager_GetAudioVolumeManager).
+    ///   provided by [`OH_AudioManager_GetAudioVolumeManager`](crate::audio_volume_manager::OH_AudioManager_GetAudioVolumeManager).
     ///
     /// * `usage` - the stream usage type used to map a specific volume type.
     ///
@@ -118,8 +118,8 @@ extern "C" {
     /// # Returns
     ///
     /// *  [`AUDIOCOMMON_RESULT_SUCCESS`](crate::audio_common::OH_AudioCommon_Result) if execution succeeds
-    /// [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) if input param is nullptr or invalid
-    /// [`AUDIOCOMMON_RESULT_ERROR_SYSTEM`](crate::audio_common::OH_AudioCommonErrorCode::SYSTEM) system process error occurs
+    ///    [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) if input param is nullptr or invalid
+    ///    [`AUDIOCOMMON_RESULT_ERROR_SYSTEM`](crate::audio_common::OH_AudioCommonErrorCode::SYSTEM) system process error occurs
     ///
     ///
     /// Available since API-level: 20
@@ -135,7 +135,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `volumeManager` - [`OH_AudioVolumeManager`](crate::audio_volume_manager::OH_AudioVolumeManager) handle
-    /// provided by [`OH_AudioManager_GetAudioVolumeManager`](crate::audio_volume_manager::OH_AudioManager_GetAudioVolumeManager).
+    ///   provided by [`OH_AudioManager_GetAudioVolumeManager`](crate::audio_volume_manager::OH_AudioManager_GetAudioVolumeManager).
     ///
     /// * `usage` - the stream usage type used to map a specific volume type.
     ///
@@ -144,8 +144,8 @@ extern "C" {
     /// # Returns
     ///
     /// *  [`AUDIOCOMMON_RESULT_SUCCESS`](crate::audio_common::OH_AudioCommon_Result) if execution succeeds
-    /// [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) if input param is nullptr or invalid
-    /// [`AUDIOCOMMON_RESULT_ERROR_SYSTEM`](crate::audio_common::OH_AudioCommonErrorCode::SYSTEM) system process error occurs
+    ///    [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) if input param is nullptr or invalid
+    ///    [`AUDIOCOMMON_RESULT_ERROR_SYSTEM`](crate::audio_common::OH_AudioCommonErrorCode::SYSTEM) system process error occurs
     ///
     ///
     /// Available since API-level: 20
@@ -161,7 +161,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `volumeManager` - [`OH_AudioVolumeManager`](crate::audio_volume_manager::OH_AudioVolumeManager) handle
-    /// provided by [`OH_AudioManager_GetAudioVolumeManager`](crate::audio_volume_manager::OH_AudioManager_GetAudioVolumeManager).
+    ///   provided by [`OH_AudioManager_GetAudioVolumeManager`](crate::audio_volume_manager::OH_AudioManager_GetAudioVolumeManager).
     ///
     /// * `usage` - the stream usage type used to map a specific volume type.
     ///
@@ -170,8 +170,8 @@ extern "C" {
     /// # Returns
     ///
     /// *  [`AUDIOCOMMON_RESULT_SUCCESS`](crate::audio_common::OH_AudioCommon_Result) if execution succeeds
-    /// [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) if input param is nullptr or invalid
-    /// [`AUDIOCOMMON_RESULT_ERROR_SYSTEM`](crate::audio_common::OH_AudioCommonErrorCode::SYSTEM) system process error occurs
+    ///    [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) if input param is nullptr or invalid
+    ///    [`AUDIOCOMMON_RESULT_ERROR_SYSTEM`](crate::audio_common::OH_AudioCommonErrorCode::SYSTEM) system process error occurs
     ///
     ///
     /// Available since API-level: 20
@@ -187,7 +187,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `volumeManager` - [`OH_AudioVolumeManager`](crate::audio_volume_manager::OH_AudioVolumeManager) handle
-    /// provided by [`OH_AudioManager_GetAudioVolumeManager`](crate::audio_volume_manager::OH_AudioManager_GetAudioVolumeManager).
+    ///   provided by [`OH_AudioManager_GetAudioVolumeManager`](crate::audio_volume_manager::OH_AudioManager_GetAudioVolumeManager).
     ///
     /// * `usage` - the stream usage type used to map a specific volume type which caller want to listen.
     ///
@@ -198,8 +198,8 @@ extern "C" {
     /// # Returns
     ///
     /// *  [`AUDIOCOMMON_RESULT_SUCCESS`](crate::audio_common::OH_AudioCommon_Result) if execution succeeds
-    /// [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) if input param is nullptr or invalid
-    /// [`AUDIOCOMMON_RESULT_ERROR_SYSTEM`](crate::audio_common::OH_AudioCommonErrorCode::SYSTEM) system process error occurs
+    ///    [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) if input param is nullptr or invalid
+    ///    [`AUDIOCOMMON_RESULT_ERROR_SYSTEM`](crate::audio_common::OH_AudioCommonErrorCode::SYSTEM) system process error occurs
     ///
     ///
     /// Available since API-level: 20
@@ -216,16 +216,16 @@ extern "C" {
     /// # Arguments
     ///
     /// * `volumeManager` - [`OH_AudioVolumeManager`](crate::audio_volume_manager::OH_AudioVolumeManager) handle
-    /// provided by [`OH_AudioManager_GetAudioVolumeManager`](crate::audio_volume_manager::OH_AudioManager_GetAudioVolumeManager).
+    ///   provided by [`OH_AudioManager_GetAudioVolumeManager`](crate::audio_volume_manager::OH_AudioManager_GetAudioVolumeManager).
     ///
     /// * `callback` - callback function which registered in
-    /// [`OH_AudioVolumeManager_RegisterStreamVolumeChangeCallback`](crate::audio_volume_manager::OH_AudioVolumeManager_RegisterStreamVolumeChangeCallback).
+    ///   [`OH_AudioVolumeManager_RegisterStreamVolumeChangeCallback`](crate::audio_volume_manager::OH_AudioVolumeManager_RegisterStreamVolumeChangeCallback).
     ///
     /// # Returns
     ///
     /// *  [`AUDIOCOMMON_RESULT_SUCCESS`](crate::audio_common::OH_AudioCommon_Result) if execution succeeds
-    /// [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) if input param is nullptr
-    /// [`AUDIOCOMMON_RESULT_ERROR_SYSTEM`](crate::audio_common::OH_AudioCommonErrorCode::SYSTEM) system process error occurs
+    ///    [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) if input param is nullptr
+    ///    [`AUDIOCOMMON_RESULT_ERROR_SYSTEM`](crate::audio_common::OH_AudioCommonErrorCode::SYSTEM) system process error occurs
     ///
     ///
     /// Available since API-level: 20
@@ -240,15 +240,15 @@ extern "C" {
     /// # Arguments
     ///
     /// * `volumeManager` - [`OH_AudioVolumeManager`](crate::audio_volume_manager::OH_AudioVolumeManager) handle
-    /// provided by [`OH_AudioManager_GetAudioVolumeManager`](crate::audio_volume_manager::OH_AudioManager_GetAudioVolumeManager).
+    ///   provided by [`OH_AudioManager_GetAudioVolumeManager`](crate::audio_volume_manager::OH_AudioManager_GetAudioVolumeManager).
     ///
     /// * `ringerMode` - output parameter to get the ringer mode.
     ///
     /// # Returns
     ///
     /// *  [`AUDIOCOMMON_RESULT_SUCCESS`](crate::audio_common::OH_AudioCommon_Result) if execution succeeds
-    /// [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) if input param is nullptr
-    /// [`AUDIOCOMMON_RESULT_ERROR_SYSTEM`](crate::audio_common::OH_AudioCommonErrorCode::SYSTEM) system process error occurs
+    ///    [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) if input param is nullptr
+    ///    [`AUDIOCOMMON_RESULT_ERROR_SYSTEM`](crate::audio_common::OH_AudioCommonErrorCode::SYSTEM) system process error occurs
     ///
     ///
     /// Available since API-level: 20
@@ -263,7 +263,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `volumeManager` - [`OH_AudioVolumeManager`](crate::audio_volume_manager::OH_AudioVolumeManager) handle
-    /// provided by [`OH_AudioManager_GetAudioVolumeManager`](crate::audio_volume_manager::OH_AudioManager_GetAudioVolumeManager).
+    ///   provided by [`OH_AudioManager_GetAudioVolumeManager`](crate::audio_volume_manager::OH_AudioManager_GetAudioVolumeManager).
     ///
     /// * `callback` - callback function which will be called when ringer mode changed.
     ///
@@ -272,8 +272,8 @@ extern "C" {
     /// # Returns
     ///
     /// *  [`AUDIOCOMMON_RESULT_SUCCESS`](crate::audio_common::OH_AudioCommon_Result) if execution succeeds
-    /// [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) if input param is nullptr
-    /// [`AUDIOCOMMON_RESULT_ERROR_SYSTEM`](crate::audio_common::OH_AudioCommonErrorCode::SYSTEM) system process error occurs
+    ///    [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) if input param is nullptr
+    ///    [`AUDIOCOMMON_RESULT_ERROR_SYSTEM`](crate::audio_common::OH_AudioCommonErrorCode::SYSTEM) system process error occurs
     ///
     ///
     /// Available since API-level: 20
@@ -289,16 +289,16 @@ extern "C" {
     /// # Arguments
     ///
     /// * `volumeManager` - [`OH_AudioVolumeManager`](crate::audio_volume_manager::OH_AudioVolumeManager) handle
-    /// provided by [`OH_AudioManager_GetAudioVolumeManager`](crate::audio_volume_manager::OH_AudioManager_GetAudioVolumeManager).
+    ///   provided by [`OH_AudioManager_GetAudioVolumeManager`](crate::audio_volume_manager::OH_AudioManager_GetAudioVolumeManager).
     ///
     /// * `callback` - callback function which registered in
-    /// [`OH_AudioVolumeManager_RegisterRingerModeChangeCallback`](crate::audio_volume_manager::OH_AudioVolumeManager_RegisterRingerModeChangeCallback).
+    ///   [`OH_AudioVolumeManager_RegisterRingerModeChangeCallback`](crate::audio_volume_manager::OH_AudioVolumeManager_RegisterRingerModeChangeCallback).
     ///
     /// # Returns
     ///
     /// *  [`AUDIOCOMMON_RESULT_SUCCESS`](crate::audio_common::OH_AudioCommon_Result) if execution succeeds
-    /// [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) if input param is nullptr
-    /// [`AUDIOCOMMON_RESULT_ERROR_SYSTEM`](crate::audio_common::OH_AudioCommonErrorCode::SYSTEM) system process error occurs
+    ///    [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) if input param is nullptr
+    ///    [`AUDIOCOMMON_RESULT_ERROR_SYSTEM`](crate::audio_common::OH_AudioCommonErrorCode::SYSTEM) system process error occurs
     ///
     ///
     /// Available since API-level: 20

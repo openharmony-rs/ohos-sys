@@ -16,8 +16,8 @@ extern "C" {
     /// # Returns
     ///
     /// * **0**: Success. **201**: Missing permissions.
-    /// <br>**401**: Parameter error. **2100002**: Service connection failure.
-    /// <br>**2100003**: Internal error.
+    ///   <br>**401**: Parameter error. **2100002**: Service connection failure.
+    ///   <br>**2100003**: Internal error.
     ///
     /// Required Permissions: ohos.permission.GET_NETWORK_INFO
     ///
@@ -38,8 +38,8 @@ extern "C" {
     /// # Returns
     ///
     /// * **0**: Success. **201**: Missing permissions.
-    /// <br>**401**: Parameter error. **2100002**: Service connection failure.
-    /// <br>**2100003**: Internal error.
+    ///   <br>**401**: Parameter error. **2100002**: Service connection failure.
+    ///   <br>**2100003**: Internal error.
     ///
     /// Required Permissions: ohos.permission.GET_NETWORK_INFO
     ///
@@ -60,8 +60,8 @@ extern "C" {
     /// # Returns
     ///
     /// * **0**: Success. **201**: Missing permissions.
-    /// <br>**401**: Parameter error. **2100002**: Service connection failure.
-    /// <br>**2100003**: Internal error.
+    ///   <br>**401**: Parameter error. **2100002**: Service connection failure.
+    ///   <br>**2100003**: Internal error.
     ///
     /// Required Permissions: ohos.permission.GET_NETWORK_INFO
     ///
@@ -84,8 +84,8 @@ extern "C" {
     /// # Returns
     ///
     /// * **0**: Success. **201**: Missing permissions.
-    /// <br>**401**: Parameter error. **2100002**: Service connection failure.
-    /// <br>**2100003**: Internal error.
+    ///   <br>**401**: Parameter error. **2100002**: Service connection failure.
+    ///   <br>**2100003**: Internal error.
     ///
     /// Required Permissions: ohos.permission.GET_NETWORK_INFO
     ///
@@ -111,8 +111,8 @@ extern "C" {
     /// # Returns
     ///
     /// * **0**: Success. **201**: Missing permissions.
-    /// <br>**401**: Parameter error. **2100002**: Service connection failure.
-    /// <br>**2100003**: Internal error.
+    ///   <br>**401**: Parameter error. **2100002**: Service connection failure.
+    ///   <br>**2100003**: Internal error.
     ///
     /// Required Permissions: ohos.permission.GET_NETWORK_INFO
     ///
@@ -136,8 +136,8 @@ extern "C" {
     /// # Returns
     ///
     /// * **0**: Success. **201**: Missing permissions.
-    /// <br>**401**: Parameter error. **2100002**: Service connection failure.
-    /// <br>**2100003**: Internal error.
+    ///   <br>**401**: Parameter error. **2100002**: Service connection failure.
+    ///   <br>**2100003**: Internal error.
     ///
     /// Required System Capabilities: SystemCapability.Communication.NetManager.Core
     ///
@@ -164,8 +164,8 @@ extern "C" {
     /// # Returns
     ///
     /// * **0**: Success. **201**: Missing permissions.
-    /// <br>**401**: Parameter error. **2100002**: Service connection failure.
-    /// <br>**2100003**: Internal error.
+    ///   <br>**401**: Parameter error. **2100002**: Service connection failure.
+    ///   <br>**2100003**: Internal error.
     ///
     /// Required Permissions: ohos.permission.INTERNET
     ///
@@ -192,8 +192,8 @@ extern "C" {
     /// # Returns
     ///
     /// * **0**: Success. **201**: Missing permissions.
-    /// <br>**401**: Parameter error. **2100002**: Service connection failure.
-    /// <br>**2100003**: Internal error.
+    ///   <br>**401**: Parameter error. **2100002**: Service connection failure.
+    ///   <br>**2100003**: Internal error.
     ///
     /// Required Permissions: ohos.permission.INTERNET
     ///
@@ -214,8 +214,8 @@ extern "C" {
     /// # Returns
     ///
     /// * **0**: Success. **201**: Missing permissions.
-    /// <br>**401**: Parameter error. **2100002**: Service connection failure.
-    /// <br>**2100003**: Internal error.
+    ///   <br>**401**: Parameter error. **2100002**: Service connection failure.
+    ///   <br>**2100003**: Internal error.
     ///
     /// Required Permissions: ohos.permission.GET_NETWORK_INFO
     ///
@@ -236,7 +236,7 @@ extern "C" {
     /// # Returns
     ///
     /// * **0**: Success. **401**: Parameter error.
-    /// <br>**2100002**: Service connection failure. **2100003**: Internal error.
+    ///   <br>**2100002**: Service connection failure. **2100003**: Internal error.
     ///
     /// Required System Capabilities: SystemCapability.Communication.NetManager.Core
     ///
@@ -257,8 +257,8 @@ extern "C" {
     /// # Returns
     ///
     /// * **0**: Success.
-    /// <br>**2100002**: Service connection failure.
-    /// <br>**2100003**: Internal error.
+    ///   <br>**2100002**: Service connection failure.
+    ///   <br>**2100003**: Internal error.
     ///
     /// Required System Capabilities: SystemCapability.Communication.NetManager.Core
     ///
@@ -282,8 +282,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>**NETMANAGER_EXT_SUCCESS**: Operation success.
-    /// <br>**NETMANAGER_ERR_PARAMETER_ERROR**: Parameter error. Enter a correct parameter.
+    ///   <br>**NETMANAGER_EXT_SUCCESS**: Operation success.
+    ///   <br>**NETMANAGER_ERR_PARAMETER_ERROR**: Parameter error. Enter a correct parameter.
     ///
     /// **Deprecated** since 26
     ///
@@ -305,8 +305,8 @@ extern "C" {
     /// # Returns
     ///
     /// * **0**: Success.
-    /// <br>**2100002**: Service connection failure.
-    /// <br>**2100003**: Internal error.
+    ///   <br>**2100002**: Service connection failure.
+    ///   <br>**2100003**: Internal error.
     ///
     /// **Deprecated** since 26
     ///
@@ -329,13 +329,13 @@ extern "C" {
     /// # Arguments
     ///
     /// * `resolver` - Pointer to the custom DNS resolver. If the resolver returns 0, skip system DNS;
-    /// otherwise, fallback to system DNS.
+    ///   otherwise, fallback to system DNS.
     ///
     /// # Returns
     ///
     /// * 0 - Success.
-    /// 401 - Parameter error. Please enter a correct parameter.
-    /// 2101008 - Resolver already exists. use OH_NetConn_UnregisterCustomDnsResolver before registering a new one.
+    ///   401 - Parameter error. Please enter a correct parameter.
+    ///   2101008 - Resolver already exists. use OH_NetConn_UnregisterCustomDnsResolver before registering a new one.
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]
@@ -347,7 +347,7 @@ extern "C" {
     /// # Returns
     ///
     /// * 0 - Success.
-    /// 2100003 - Internal error.
+    ///   2100003 - Internal error.
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]
@@ -364,9 +364,9 @@ extern "C" {
     /// # Returns
     ///
     /// * **0**: Success.
-    /// <br>**401**: Parameter error.
-    /// <br>**2100002**: Service connection failure.
-    /// <br>**2100003**: Internal error.
+    ///   <br>**401**: Parameter error.
+    ///   <br>**2100002**: Service connection failure.
+    ///   <br>**2100003**: Internal error.
     ///
     /// Required System Capabilities: SystemCapability.Communication.NetManager.Core
     ///
@@ -385,7 +385,7 @@ extern "C" {
     /// # Returns
     ///
     /// * **0**: Success.
-    /// <br>**401**: Parameter error.
+    ///   <br>**401**: Parameter error.
     ///
     /// Required System Capabilities: SystemCapability.Communication.NetManager.Core
     ///
@@ -406,7 +406,7 @@ extern "C" {
     /// # Returns
     ///
     /// * **0**: Success.
-    /// <br>**401**: Parameter error.
+    ///   <br>**401**: Parameter error.
     ///
     /// Required System Capabilities: SystemCapability.Communication.NetManager.Core
     ///
@@ -457,7 +457,7 @@ extern "C" {
     /// * `callback` - The one-shot callback used to receive the re-authentication result. It must not be NULL.
     ///
     /// * `userContext` - The user-defined data passed to the callback. It can be NULL. The system does
-    /// not access, copy, or release it.
+    ///   not access, copy, or release it.
     ///
     /// # Returns
     ///
@@ -487,12 +487,12 @@ extern "C" {
     /// # Returns
     ///
     /// * **0**: Success.
-    /// <br>**201**: Missing permissions.
-    /// <br>**401**: Parameter error.
-    /// <br>**2100002**: Service connection failure.
-    /// <br>**2100003**: Internal error.
-    /// <br>**2101008**: Callback already registered.
-    /// <br>**2101022**: Maximum number of requests exceeded.
+    ///   <br>**201**: Missing permissions.
+    ///   <br>**401**: Parameter error.
+    ///   <br>**2100002**: Service connection failure.
+    ///   <br>**2100003**: Internal error.
+    ///   <br>**2101008**: Callback already registered.
+    ///   <br>**2101022**: Maximum number of requests exceeded.
     ///
     /// Required Permissions: ohos.permission.GET_NETWORK_INFO
     ///
@@ -520,12 +520,12 @@ extern "C" {
     /// # Returns
     ///
     /// * **0**: Success.
-    /// <br>**201**: Missing permissions.
-    /// <br>**401**: Parameter error.
-    /// <br>**2100002**: Service connection failure.
-    /// <br>**2100003**: Internal error.
-    /// <br>**2101008**: Callback already registered.
-    /// <br>**2101022**: Maximum number of requests exceeded.
+    ///   <br>**201**: Missing permissions.
+    ///   <br>**401**: Parameter error.
+    ///   <br>**2100002**: Service connection failure.
+    ///   <br>**2100003**: Internal error.
+    ///   <br>**2101008**: Callback already registered.
+    ///   <br>**2101022**: Maximum number of requests exceeded.
     ///
     /// Required Permissions: ohos.permission.GET_NETWORK_INFO
     ///
@@ -549,11 +549,11 @@ extern "C" {
     /// # Returns
     ///
     /// * **0**: Success.
-    /// <br>**201**: Missing permissions.
-    /// <br>**401**: Parameter error.
-    /// <br>**2100002**: Service connection failure.
-    /// <br>**2100003**: Internal error.
-    /// <br>**2101007**: Callback not exist.
+    ///   <br>**201**: Missing permissions.
+    ///   <br>**401**: Parameter error.
+    ///   <br>**2100002**: Service connection failure.
+    ///   <br>**2100003**: Internal error.
+    ///   <br>**2101007**: Callback not exist.
     ///
     /// Required Permissions: ohos.permission.GET_NETWORK_INFO
     ///
@@ -575,11 +575,11 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code defined in [`NetConn_ErrorCode`](crate::net_connection_type::NetConn_ErrorCode).
-    /// <br>[`NETCONN_SUCCESS`](crate::net_connection_type::NetConn_ErrorCode::NETCONN_SUCCESS): success.
-    /// <br>[`NETCONN_PERMISSION_DENIED`](crate::net_connection_type::NetConn_ErrorCode::NETCONN_PERMISSION_DENIED): permission denied.
-    /// <br>[`NETCONN_PARAMETER_ERROR`](crate::net_connection_type::NetConn_ErrorCode::NETCONN_PARAMETER_ERROR): parameter error.
-    /// <br>[`NETCONN_OPERATION_FAILED`](crate::net_connection_type::NetConn_ErrorCode::NETCONN_OPERATION_FAILED): unable to connect to the service.
-    /// <br>[`NETCONN_INTERNAL_ERROR`](crate::net_connection_type::NetConn_ErrorCode::NETCONN_INTERNAL_ERROR): internal error.
+    ///   <br>[`NETCONN_SUCCESS`](crate::net_connection_type::NetConn_ErrorCode::NETCONN_SUCCESS): success.
+    ///   <br>[`NETCONN_PERMISSION_DENIED`](crate::net_connection_type::NetConn_ErrorCode::NETCONN_PERMISSION_DENIED): permission denied.
+    ///   <br>[`NETCONN_PARAMETER_ERROR`](crate::net_connection_type::NetConn_ErrorCode::NETCONN_PARAMETER_ERROR): parameter error.
+    ///   <br>[`NETCONN_OPERATION_FAILED`](crate::net_connection_type::NetConn_ErrorCode::NETCONN_OPERATION_FAILED): unable to connect to the service.
+    ///   <br>[`NETCONN_INTERNAL_ERROR`](crate::net_connection_type::NetConn_ErrorCode::NETCONN_INTERNAL_ERROR): internal error.
     ///
     /// Required Permissions: ohos.permission.SET_PAC_URL
     ///
@@ -596,10 +596,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code defined in [`NetConn_ErrorCode`](crate::net_connection_type::NetConn_ErrorCode).
-    /// <br>[`NETCONN_SUCCESS`](crate::net_connection_type::NetConn_ErrorCode::NETCONN_SUCCESS): success.
-    /// <br>[`NETCONN_PARAMETER_ERROR`](crate::net_connection_type::NetConn_ErrorCode::NETCONN_PARAMETER_ERROR): parameter error.
-    /// <br>[`NETCONN_OPERATION_FAILED`](crate::net_connection_type::NetConn_ErrorCode::NETCONN_OPERATION_FAILED): unable to connect to the service.
-    /// <br>[`NETCONN_INTERNAL_ERROR`](crate::net_connection_type::NetConn_ErrorCode::NETCONN_INTERNAL_ERROR): internal error.
+    ///   <br>[`NETCONN_SUCCESS`](crate::net_connection_type::NetConn_ErrorCode::NETCONN_SUCCESS): success.
+    ///   <br>[`NETCONN_PARAMETER_ERROR`](crate::net_connection_type::NetConn_ErrorCode::NETCONN_PARAMETER_ERROR): parameter error.
+    ///   <br>[`NETCONN_OPERATION_FAILED`](crate::net_connection_type::NetConn_ErrorCode::NETCONN_OPERATION_FAILED): unable to connect to the service.
+    ///   <br>[`NETCONN_INTERNAL_ERROR`](crate::net_connection_type::NetConn_ErrorCode::NETCONN_INTERNAL_ERROR): internal error.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
@@ -612,20 +612,20 @@ extern "C" {
     /// # Arguments
     ///
     /// * `destination` - Target domain name or IP address to be detected. For a domain name, the domain name is resolved
-    /// to the target IP address before the detection, and then the detection is initiated. The domain name resolution
-    /// time is not included in the probe duration indicated by duration.
+    ///   to the target IP address before the detection, and then the detection is initiated. The domain name resolution
+    ///   time is not included in the probe duration indicated by duration.
     ///
     /// * `duration` - Probe duration. in seconds. The detection interval is 1 second. Therefore, you can use this field to
-    /// control the number of detections.
+    ///   control the number of detections.
     ///
     /// * `probeResultInfo` - Packet loss rate and round-trip time (RTT).
     ///
     /// # Returns
     ///
     /// * **0**: Success.
-    /// <br>**201**: Missing permissions.
-    /// <br>**401**: Parameter error.
-    /// <br>**2100003**: Internal error.
+    ///   <br>**201**: Missing permissions.
+    ///   <br>**401**: Parameter error.
+    ///   <br>**2100003**: Internal error.
     ///
     /// Required Permissions: ohos.permission.INTERNET
     ///
@@ -646,13 +646,13 @@ extern "C" {
     /// * `option` - Route options.
     ///
     /// * `traceRouteInfo` - Route result. An array pointer needs to be passed. The array size indicates the number of
-    /// route hops, which is **30** by default. If you customize the number of hops, ensure that the array size is the
-    /// same as the value of **maxJumpNumber** in the **option** field.
+    ///   route hops, which is **30** by default. If you customize the number of hops, ensure that the array size is the
+    ///   same as the value of **maxJumpNumber** in the **option** field.
     ///
     /// # Returns
     ///
     /// * **0**: Success.
-    /// <br>**201**: Missing permissions.
+    ///   <br>**201**: Missing permissions.
     ///
     /// Required Permissions: ohos.permission.INTERNET and ohos.permission.LOCATION and ohos.permission.ACCESS_NET_TRACE_INFO
     ///

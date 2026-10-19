@@ -32,9 +32,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Pointer to the OH_AVBuffer instance created. If the operation fails, NULL is returned.
-    /// <br>The possible causes of an operation failure are as follows:
-    /// <br>1. The value of **capacity** is less than or equal to **0**.
-    /// <br>2. An internal error occurs, or the system does not have resources.
+    ///   <br>The possible causes of an operation failure are as follows:
+    ///   <br>1. The value of **capacity** is less than or equal to **0**.
+    ///   <br>2. An internal error occurs, or the system does not have resources.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -49,8 +49,8 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The value of **buffer** is nullptr or fails format verification.
-    /// <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The input buffer is not created by the user.
+    ///   <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The value of **buffer** is nullptr or fails format verification.
+    ///   <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The input buffer is not created by the user.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -67,9 +67,9 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The possible causes are as follows:
-    /// <br>1. The value of **buffer** or **attr** is nullptr.
-    /// <br>2. The value of **buffer** fails parameter structure verification.
+    ///   <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The possible causes are as follows:
+    ///   <br>1. The value of **buffer** or **attr** is nullptr.
+    ///   <br>2. The value of **buffer** fails parameter structure verification.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -89,10 +89,10 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The possible causes are as follows:
-    /// <br>1. The value of **buffer** or **attr** is nullptr.
-    /// <br>2. The value of **buffer** fails parameter structure verification.
-    /// <br>3. The memory size or offset of the buffer is invalid.
+    ///   <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The possible causes are as follows:
+    ///   <br>1. The value of **buffer** or **attr** is nullptr.
+    ///   <br>2. The value of **buffer** fails parameter structure verification.
+    ///   <br>3. The memory size or offset of the buffer is invalid.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -111,10 +111,10 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The possible causes are as follows:
-    /// <br>1. The value of **buffer** is nullptr.
-    /// <br>2. The meta of the buffer is nullptr.
-    /// <br>3. The value of **buffer** fails parameter structure verification.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The possible causes are as follows:
+    ///   <br>1. The value of **buffer** is nullptr.
+    ///   <br>2. The meta of the buffer is nullptr.
+    ///   <br>3. The value of **buffer** fails parameter structure verification.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -131,10 +131,10 @@ extern "C" {
     /// # Returns
     ///
     /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The possible causes are as follows:
-    /// <br>1. The value of **buffer** or **format** is nullptr.
-    /// <br>2. The meta of the buffer is nullptr.
-    /// <br>3. The value of **buffer** fails parameter structure verification.
+    ///   [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The possible causes are as follows:
+    ///   <br>1. The value of **buffer** or **format** is nullptr.
+    ///   <br>2. The meta of the buffer is nullptr.
+    ///   <br>3. The value of **buffer** fails parameter structure verification.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -152,10 +152,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Virtual address. If the operation fails, NULL is returned.
-    /// <br>The possible causes of an operation failure are as follows:
-    /// <br>1. The value of **buffer** is a null pointer.
-    /// <br>2. The value of **OH_AVBuffer** fails parameter structure verification.
-    /// <br>3. An internal error occurs.
+    ///   <br>The possible causes of an operation failure are as follows:
+    ///   <br>1. The value of **buffer** is a null pointer.
+    ///   <br>2. The value of **OH_AVBuffer** fails parameter structure verification.
+    ///   <br>3. An internal error occurs.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -170,10 +170,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Capacity. If the operation fails, **-1** is returned.
-    /// <br>The possible causes of an operation failure are as follows:
-    /// <br>1. The value of **buffer** is a null pointer.
-    /// <br>2. The value of **OH_AVBuffer** fails parameter structure verification.
-    /// <br>3. An internal error occurs.
+    ///   <br>The possible causes of an operation failure are as follows:
+    ///   <br>1. The value of **buffer** is a null pointer.
+    ///   <br>2. The value of **OH_AVBuffer** fails parameter structure verification.
+    ///   <br>3. An internal error occurs.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -189,10 +189,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Pointer to the OH_NativeBuffer instance created. If the operation fails, NULL is returned.
-    /// <br>The possible causes of an operation failure are as follows:
-    /// <br>1. The value of **buffer** is a null pointer.
-    /// <br>2. The value of **OH_AVBuffer** fails parameter structure verification.
-    /// <br>3. An internal error occurs.
+    ///   <br>The possible causes of an operation failure are as follows:
+    ///   <br>1. The value of **buffer** is a null pointer.
+    ///   <br>2. The value of **OH_AVBuffer** fails parameter structure verification.
+    ///   <br>3. An internal error occurs.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]

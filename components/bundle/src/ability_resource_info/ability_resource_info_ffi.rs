@@ -134,8 +134,8 @@ extern "C" {
     /// * `abilityResourceInfo` - Pointer to the ability resource information.
     ///
     /// * `isDefault` - Pointer to the check result for whether the application is a default application. A default
-    /// application is the preferred application set by the user for a specific file type or operation. **true** if the
-    /// application is a default application, **false** otherwise.
+    ///   application is the preferred application set by the user for a specific file type or operation. **true** if the
+    ///   application is a default application, **false** otherwise.
     ///
     /// # Returns
     ///

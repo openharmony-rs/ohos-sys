@@ -12,12 +12,12 @@ extern "C" {
     /// # Arguments
     ///
     /// * `nativePixelMap` - Pointer to a [`NativePixelMap_`](ohos_sys_opaque_types::NativePixelMap_) object, which is the pixel map defined by the image
-    /// framework.
+    ///   framework.
     ///
     /// # Returns
     ///
     /// * Returns the pointer to an [`OH_Drawing_PixelMap`](crate::types::OH_Drawing_PixelMap) object, which is the pixel map defined by this module.
-    /// If NULL is returned, the creation fails. The possible failure cause is that **NativePixelMap_** is NULL.
+    ///   If NULL is returned, the creation fails. The possible failure cause is that **NativePixelMap_** is NULL.
     ///
     /// Available since API-level: 12
     ///
@@ -32,12 +32,12 @@ extern "C" {
     /// # Arguments
     ///
     /// * `pixelmapNative` - Pointer to a [`OH_PixelmapNative`](ohos_sys_opaque_types::OH_PixelmapNative) object, which is the pixel map defined by the image
-    /// framework.
+    ///   framework.
     ///
     /// # Returns
     ///
     /// * Returns the pointer to an [`OH_Drawing_PixelMap`](crate::types::OH_Drawing_PixelMap) object, which is the pixel map defined by this module.
-    /// If NULL is returned, the creation fails. The possible failure cause is that **OH_PixelmapNative** is NULL.
+    ///   If NULL is returned, the creation fails. The possible failure cause is that **OH_PixelmapNative** is NULL.
     ///
     /// Available since API-level: 12
     ///

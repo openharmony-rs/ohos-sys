@@ -22,7 +22,7 @@ pub struct OH_VObject {
     /// * `value` - Represents a pointer to an int64_t input parameter or the array of type int64_t.
     ///
     /// * `count` - If value is a pointer to a single numerical value, count = 1;
-    /// if value is a pointer to an array, count is the size of the array.
+    ///   if value is a pointer to an array, count is the size of the array.
     ///
     /// # Returns
     ///
@@ -47,7 +47,7 @@ pub struct OH_VObject {
     /// * `value` - Represents a pointer to an double input parameter or the array of type double.
     ///
     /// * `count` - If value is a pointer to a single numerical value, count = 1;
-    /// if value is a pointer to an array, count is the size of the array.
+    ///   if value is a pointer to an array, count is the size of the array.
     ///
     /// # Returns
     ///

@@ -64,12 +64,12 @@ extern "C" {
     /// # Arguments
     ///
     /// * `useExclusiveThread` - Whether the **OH_DisplaySoloist** instance is an exclusive thread. **true** means yes; **
-    /// false** otherwise.
+    ///   false** otherwise.
     ///
     /// # Returns
     ///
     /// * Returns the pointer to the [`OH_DisplaySoloist`](crate::OH_DisplaySoloist) instance created if the operation is successful;
-    /// returns a null pointer otherwise. The failure cause may be out of memory.
+    ///   returns a null pointer otherwise. The failure cause may be out of memory.
     ///
     /// Available since API-level: 12
     ///

@@ -122,17 +122,17 @@ extern "C" {
     /// # Arguments
     ///
     /// * `roiStrInOut` - A double pointer to the target string. The pointer itself must not be NULL.
-    /// If *roiStrInOut is NULL, a new string is allocated.
+    ///   If *roiStrInOut is NULL, a new string is allocated.
     ///
     /// * `format` - The OH_AVFormat handle containing the ROI parameters to be appended, must not be NULL.
     ///
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the string is successfully formatted and appended.
-    /// <br>Returns [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if the roiStrInOut pointer or format handle is NULL,
-    /// or if the format lacks required ROI keys.
-    /// <br>Returns [`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY) if internal memory allocation or reallocation fails.
+    ///   <br>Returns [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the string is successfully formatted and appended.
+    ///   <br>Returns [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if the roiStrInOut pointer or format handle is NULL,
+    ///   or if the format lacks required ROI keys.
+    ///   <br>Returns [`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY) if internal memory allocation or reallocation fails.
     ///
     /// **Note:** Release `roiStrInOut` with `free`.
     ///
@@ -157,8 +157,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the operation is successful.
-    /// <br>Returns [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if the roiStr or outCount pointer is NULL.
+    ///   <br>Returns [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the operation is successful.
+    ///   <br>Returns [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if the roiStr or outCount pointer is NULL.
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]
@@ -173,7 +173,7 @@ extern "C" {
     /// **Note:** The caller takes ownership of every successfully created OH_AVFormat handle. Upon return,
     /// the valid handles are stored in the first *outCount elements of the outOwnedFormats array.
     /// - On full or partial success (*outCount > 0), the caller must individually destroy
-    /// each valid handle using [`OH_AVFormat_Destroy`](crate::avformat::OH_AVFormat_Destroy) to prevent memory leaks.
+    ///   each valid handle using [`OH_AVFormat_Destroy`](crate::avformat::OH_AVFormat_Destroy) to prevent memory leaks.
     /// - On total failure (*outCount == 0), no handles are created and no destruction is needed.
     ///
     /// # Arguments
@@ -181,18 +181,18 @@ extern "C" {
     /// * `roiStr` - The input ROI configuration string.
     ///
     /// * `outOwnedFormats` - \[OUT\] A pointer array allocated by the caller to receive the parsed
-    /// OH_AVFormat handles. The caller owns each non-NULL handle in this array.
+    ///   OH_AVFormat handles. The caller owns each non-NULL handle in this array.
     ///
     /// * `maxCapacity` - \[IN\] Indicates the maximum physical capacity of the outOwnedFormats array to prevent
-    /// out-of-bounds writes.
+    ///   out-of-bounds writes.
     ///
     /// * `outCount` - \[OUT\] Returns the actual number of ROIs successfully parsed and populated into the array.
     ///
     /// # Returns
     ///
     /// * Result code.
-    /// <br>Returns [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the operation is successful.
-    /// <br>Returns [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if roiStr, outOwnedFormats, or outCount is NULL.
+    ///   <br>Returns [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the operation is successful.
+    ///   <br>Returns [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if roiStr, outOwnedFormats, or outCount is NULL.
     ///
     /// **Note:** Release `outOwnedFormats` with [`OH_AVFormat_Destroy`](crate::avformat::OH_AVFormat_Destroy).
     ///
