@@ -19,6 +19,10 @@
   `appIdentifier`, fingerprint, compatible device type, debug-mode flag),
   main-element discovery, module metadata, and the API-21 file-type intent
   discovery flow (`OH_NativeBundle_GetAbilityResourceInfo`).
+- `display-soloist` — `ohos-native-display-soloist-sys` (`libnative_display_soloist.so`):
+  frame callbacks with an expected frame rate range, from API-12.
+- `purgeable-memory` — `ohos-purgeable-memory-sys` (`libpurgeable_memory_ndk.z.so`):
+  memory that the system can reclaim and rebuild on demand.
 - `hiappevent` — `ohos-hiappevent-sys` (HiAppEvent, `libhiappevent_ndk.z.so`):
   application event logging, event watchers, configuration and data processors,
   plus framework memory-anomaly reporting at API-26.
