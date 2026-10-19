@@ -152,6 +152,7 @@ jobs:
           - basic-services-kit-print
           - basic-services-kit-scan
           - basic-services-kit-time-service
+          - bundle
           - crypto
           - deviceinfo
           - display-soloist
@@ -164,10 +165,12 @@ jobs:
           - image-kit-image-packer
           - image-kit-image-receiver
           - image-kit-image-source
+          - image-kit-picture
           - image-kit-pixelmap
           - inputmethod
           - ipckit
           - locationkit
+          - media
           - multimodal-input
           - napi
           - native_buffer
@@ -179,11 +182,15 @@ jobs:
           - ohaudio
           - pasteboard
           - purgeable-memory
+          - qos
           - rawfile
           - rdb
           - sensors
           - transient-task
           - udmf
+          - video-processing-engine
+          - video-processing-engine-image-processing
+          - video-processing-engine-video-processing
           - vsync
           - web
           - window_manager
