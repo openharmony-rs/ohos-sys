@@ -441,9 +441,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    ///  - <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    ///  - <br>Returns [`ARKUI_ERROR_CODE_PARAM_ERROR`](crate::error_code::ArkUiErrorCode::PARAM_ERROR) if the component type of the node is incorrect.
-    ///  - <br>Returns [`ARKUI_ERROR_CODE_NODE_NOT_ON_MAIN_TREE`](crate::error_code::ArkUiErrorCode::NODE_NOT_ON_MAIN_TREE) if the node is not mounted to the component tree.
+    ///   - <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   - <br>Returns [`ARKUI_ERROR_CODE_PARAM_ERROR`](crate::error_code::ArkUiErrorCode::PARAM_ERROR) if the component type of the node is incorrect.
+    ///   - <br>Returns [`ARKUI_ERROR_CODE_NODE_NOT_ON_MAIN_TREE`](crate::error_code::ArkUiErrorCode::NODE_NOT_ON_MAIN_TREE) if the node is not mounted to the component tree.
     ///
     /// Available since API-level: 21
     #[cfg(feature = "api-21")]
@@ -461,9 +461,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    ///  - <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    ///  - <br>Returns [`ARKUI_ERROR_CODE_PARAM_ERROR`](crate::error_code::ArkUiErrorCode::PARAM_ERROR) if the component type of the node is incorrect.
-    ///  - <br>Returns [`ARKUI_ERROR_CODE_NODE_NOT_ON_MAIN_TREE`](crate::error_code::ArkUiErrorCode::NODE_NOT_ON_MAIN_TREE) if the node is not mounted to the component tree.
+    ///   - <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   - <br>Returns [`ARKUI_ERROR_CODE_PARAM_ERROR`](crate::error_code::ArkUiErrorCode::PARAM_ERROR) if the component type of the node is incorrect.
+    ///   - <br>Returns [`ARKUI_ERROR_CODE_NODE_NOT_ON_MAIN_TREE`](crate::error_code::ArkUiErrorCode::NODE_NOT_ON_MAIN_TREE) if the node is not mounted to the component tree.
     ///
     /// Available since API-level: 21
     #[cfg(feature = "api-21")]

@@ -14901,9 +14901,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Error code.
-    ///  - [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) Success.
-    ///  - [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
-    ///  - [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if CAPI init error.
+    ///   - [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) Success.
+    ///   - [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
+    ///   - [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if CAPI init error.
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]
@@ -14923,9 +14923,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Error code.
-    ///  - [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) Success.
-    ///  - [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
-    ///  - [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if CAPI init error.
+    ///   - [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) Success.
+    ///   - [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
+    ///   - [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::error_code::ArkUiErrorCode::CAPI_INIT_ERROR) if CAPI init error.
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]

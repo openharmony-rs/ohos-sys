@@ -30,8 +30,8 @@ extern "C" {
     /// # Returns
     ///
     /// * One of the following operation results:
-    ///  - [`BUNDLE_MANAGER_ERROR_CODE_NO_ERROR`](crate::bundle_manager_common::BundleManager_ErrorCode::BUNDLE_MANAGER_ERROR_CODE_NO_ERROR): The retrieval is successful.
-    ///  - [`BUNDLE_MANAGER_ERROR_CODE_PARAM_INVALID`](crate::bundle_manager_common::BundleManager_ErrorCode::BUNDLE_MANAGER_ERROR_CODE_PARAM_INVALID): The retrieval fails because the **abilityResourceInfo** parameter is nullptr.
+    ///   - [`BUNDLE_MANAGER_ERROR_CODE_NO_ERROR`](crate::bundle_manager_common::BundleManager_ErrorCode::BUNDLE_MANAGER_ERROR_CODE_NO_ERROR): The retrieval is successful.
+    ///   - [`BUNDLE_MANAGER_ERROR_CODE_PARAM_INVALID`](crate::bundle_manager_common::BundleManager_ErrorCode::BUNDLE_MANAGER_ERROR_CODE_PARAM_INVALID): The retrieval fails because the **abilityResourceInfo** parameter is nullptr.
     ///
     /// Available since API-level: 21
     #[cfg(feature = "api-21")]
@@ -52,8 +52,8 @@ extern "C" {
     /// # Returns
     ///
     /// * One of the following operation results:
-    ///  - [`BUNDLE_MANAGER_ERROR_CODE_NO_ERROR`](crate::bundle_manager_common::BundleManager_ErrorCode::BUNDLE_MANAGER_ERROR_CODE_NO_ERROR): The retrieval is successful.
-    ///  - [`BUNDLE_MANAGER_ERROR_CODE_PARAM_INVALID`](crate::bundle_manager_common::BundleManager_ErrorCode::BUNDLE_MANAGER_ERROR_CODE_PARAM_INVALID): The retrieval fails because the **abilityResourceInfo** parameter is nullptr.
+    ///   - [`BUNDLE_MANAGER_ERROR_CODE_NO_ERROR`](crate::bundle_manager_common::BundleManager_ErrorCode::BUNDLE_MANAGER_ERROR_CODE_NO_ERROR): The retrieval is successful.
+    ///   - [`BUNDLE_MANAGER_ERROR_CODE_PARAM_INVALID`](crate::bundle_manager_common::BundleManager_ErrorCode::BUNDLE_MANAGER_ERROR_CODE_PARAM_INVALID): The retrieval fails because the **abilityResourceInfo** parameter is nullptr.
     ///
     /// Available since API-level: 21
     #[cfg(feature = "api-21")]
@@ -74,8 +74,8 @@ extern "C" {
     /// # Returns
     ///
     /// * One of the following operation results:
-    ///  - [`BUNDLE_MANAGER_ERROR_CODE_NO_ERROR`](crate::bundle_manager_common::BundleManager_ErrorCode::BUNDLE_MANAGER_ERROR_CODE_NO_ERROR): The retrieval is successful.
-    ///  - [`BUNDLE_MANAGER_ERROR_CODE_PARAM_INVALID`](crate::bundle_manager_common::BundleManager_ErrorCode::BUNDLE_MANAGER_ERROR_CODE_PARAM_INVALID): The retrieval fails because the **abilityResourceInfo** parameter is nullptr.
+    ///   - [`BUNDLE_MANAGER_ERROR_CODE_NO_ERROR`](crate::bundle_manager_common::BundleManager_ErrorCode::BUNDLE_MANAGER_ERROR_CODE_NO_ERROR): The retrieval is successful.
+    ///   - [`BUNDLE_MANAGER_ERROR_CODE_PARAM_INVALID`](crate::bundle_manager_common::BundleManager_ErrorCode::BUNDLE_MANAGER_ERROR_CODE_PARAM_INVALID): The retrieval fails because the **abilityResourceInfo** parameter is nullptr.
     ///
     /// Available since API-level: 21
     #[cfg(feature = "api-21")]
@@ -96,8 +96,8 @@ extern "C" {
     /// # Returns
     ///
     /// * One of the following operation results:
-    ///  - [`BUNDLE_MANAGER_ERROR_CODE_NO_ERROR`](crate::bundle_manager_common::BundleManager_ErrorCode::BUNDLE_MANAGER_ERROR_CODE_NO_ERROR): The retrieval is successful.
-    ///  - [`BUNDLE_MANAGER_ERROR_CODE_PARAM_INVALID`](crate::bundle_manager_common::BundleManager_ErrorCode::BUNDLE_MANAGER_ERROR_CODE_PARAM_INVALID): The retrieval fails because the **abilityResourceInfo** parameter is nullptr.
+    ///   - [`BUNDLE_MANAGER_ERROR_CODE_NO_ERROR`](crate::bundle_manager_common::BundleManager_ErrorCode::BUNDLE_MANAGER_ERROR_CODE_NO_ERROR): The retrieval is successful.
+    ///   - [`BUNDLE_MANAGER_ERROR_CODE_PARAM_INVALID`](crate::bundle_manager_common::BundleManager_ErrorCode::BUNDLE_MANAGER_ERROR_CODE_PARAM_INVALID): The retrieval fails because the **abilityResourceInfo** parameter is nullptr.
     ///
     /// Available since API-level: 21
     #[cfg(feature = "api-21")]
@@ -117,8 +117,8 @@ extern "C" {
     /// # Returns
     ///
     /// * One of the following operation results:
-    ///  - [`BUNDLE_MANAGER_ERROR_CODE_NO_ERROR`](crate::bundle_manager_common::BundleManager_ErrorCode::BUNDLE_MANAGER_ERROR_CODE_NO_ERROR): The retrieval is successful.
-    ///  - [`BUNDLE_MANAGER_ERROR_CODE_PARAM_INVALID`](crate::bundle_manager_common::BundleManager_ErrorCode::BUNDLE_MANAGER_ERROR_CODE_PARAM_INVALID): The retrieval fails because the ** abilityResourceInfo** parameter is nullptr.
+    ///   - [`BUNDLE_MANAGER_ERROR_CODE_NO_ERROR`](crate::bundle_manager_common::BundleManager_ErrorCode::BUNDLE_MANAGER_ERROR_CODE_NO_ERROR): The retrieval is successful.
+    ///   - [`BUNDLE_MANAGER_ERROR_CODE_PARAM_INVALID`](crate::bundle_manager_common::BundleManager_ErrorCode::BUNDLE_MANAGER_ERROR_CODE_PARAM_INVALID): The retrieval fails because the ** abilityResourceInfo** parameter is nullptr.
     ///
     /// Available since API-level: 21
     #[cfg(feature = "api-21")]
@@ -140,8 +140,8 @@ extern "C" {
     /// # Returns
     ///
     /// * One of the following operation results:
-    ///  - [`BUNDLE_MANAGER_ERROR_CODE_NO_ERROR`](crate::bundle_manager_common::BundleManager_ErrorCode::BUNDLE_MANAGER_ERROR_CODE_NO_ERROR): The query is successful.
-    ///  - [`BUNDLE_MANAGER_ERROR_CODE_PARAM_INVALID`](crate::bundle_manager_common::BundleManager_ErrorCode::BUNDLE_MANAGER_ERROR_CODE_PARAM_INVALID): The query fails because the abilityResourceInfo parameter is nullptr.
+    ///   - [`BUNDLE_MANAGER_ERROR_CODE_NO_ERROR`](crate::bundle_manager_common::BundleManager_ErrorCode::BUNDLE_MANAGER_ERROR_CODE_NO_ERROR): The query is successful.
+    ///   - [`BUNDLE_MANAGER_ERROR_CODE_PARAM_INVALID`](crate::bundle_manager_common::BundleManager_ErrorCode::BUNDLE_MANAGER_ERROR_CODE_PARAM_INVALID): The query fails because the abilityResourceInfo parameter is nullptr.
     ///
     /// Available since API-level: 21
     #[cfg(feature = "api-21")]
@@ -161,8 +161,8 @@ extern "C" {
     /// # Returns
     ///
     /// * One of the following operation results:
-    ///  - [`BUNDLE_MANAGER_ERROR_CODE_NO_ERROR`](crate::bundle_manager_common::BundleManager_ErrorCode::BUNDLE_MANAGER_ERROR_CODE_NO_ERROR): The release is successful.
-    ///  - [`BUNDLE_MANAGER_ERROR_CODE_PARAM_INVALID`](crate::bundle_manager_common::BundleManager_ErrorCode::BUNDLE_MANAGER_ERROR_CODE_PARAM_INVALID): The release fails because the **abilityResourceInfo** parameter is nullptr.
+    ///   - [`BUNDLE_MANAGER_ERROR_CODE_NO_ERROR`](crate::bundle_manager_common::BundleManager_ErrorCode::BUNDLE_MANAGER_ERROR_CODE_NO_ERROR): The release is successful.
+    ///   - [`BUNDLE_MANAGER_ERROR_CODE_PARAM_INVALID`](crate::bundle_manager_common::BundleManager_ErrorCode::BUNDLE_MANAGER_ERROR_CODE_PARAM_INVALID): The release fails because the **abilityResourceInfo** parameter is nullptr.
     ///
     /// Available since API-level: 21
     #[cfg(feature = "api-21")]
@@ -194,8 +194,8 @@ extern "C" {
     /// # Returns
     ///
     /// * One of the following operation results:
-    ///  - [`BUNDLE_MANAGER_ERROR_CODE_NO_ERROR`](crate::bundle_manager_common::BundleManager_ErrorCode::BUNDLE_MANAGER_ERROR_CODE_NO_ERROR): The retrieval is successful.
-    ///  - [`BUNDLE_MANAGER_ERROR_CODE_PARAM_INVALID`](crate::bundle_manager_common::BundleManager_ErrorCode::BUNDLE_MANAGER_ERROR_CODE_PARAM_INVALID): The retrieval fails because the **abilityResourceInfo** parameter is nullptr.
+    ///   - [`BUNDLE_MANAGER_ERROR_CODE_NO_ERROR`](crate::bundle_manager_common::BundleManager_ErrorCode::BUNDLE_MANAGER_ERROR_CODE_NO_ERROR): The retrieval is successful.
+    ///   - [`BUNDLE_MANAGER_ERROR_CODE_PARAM_INVALID`](crate::bundle_manager_common::BundleManager_ErrorCode::BUNDLE_MANAGER_ERROR_CODE_PARAM_INVALID): The retrieval fails because the **abilityResourceInfo** parameter is nullptr.
     ///
     /// Available since API-level: 21
     #[cfg(feature = "api-21")]

@@ -974,8 +974,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    ///  - [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
-    ///  - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if a parameter error occurs.
+    ///   - [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
+    ///   - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 8
     ///
@@ -1000,8 +1000,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    ///  - [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
-    ///  - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if a parameter error occurs.
+    ///   - [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
+    ///   - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 8
     ///
@@ -1030,8 +1030,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    ///  - [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
-    ///  - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if a parameter error occurs.
+    ///   - [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
+    ///   - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 8
     ///
@@ -1055,8 +1055,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    ///  - [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
-    ///  - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if a parameter error occurs.
+    ///   - [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
+    ///   - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 8
     ///
@@ -1079,8 +1079,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    ///  - [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
-    ///  - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if a parameter error occurs.
+    ///   - [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
+    ///   - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 9
     ///
@@ -1103,8 +1103,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    ///  - [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
-    ///  - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if a parameter error occurs.
+    ///   - [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
+    ///   - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 9
     ///
@@ -1127,8 +1127,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    ///  - [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
-    ///  - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if a parameter error occurs.
+    ///   - [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
+    ///   - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 9
     ///
@@ -1153,8 +1153,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    ///  - [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
-    ///  - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if the component, windowX, or native XComponent is a null pointer.
+    ///   - [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
+    ///   - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if the component, windowX, or native XComponent is a null pointer.
     ///
     /// Available since API-level: 12
     ///
@@ -1181,8 +1181,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    ///  - [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
-    ///  - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if the component, windowY, or native XComponent is a null pointer.
+    ///   - [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
+    ///   - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if the component, windowY, or native XComponent is a null pointer.
     ///
     /// Available since API-level: 12
     ///
@@ -1208,8 +1208,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    ///  - [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
-    ///  - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if the component, displayX, or native XComponent is a null pointer.
+    ///   - [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
+    ///   - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if the component, displayX, or native XComponent is a null pointer.
     ///
     /// Available since API-level: 12
     ///
@@ -1235,8 +1235,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    ///  - [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
-    ///  - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if the component, displayY, or native XComponent is a null pointer.
+    ///   - [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
+    ///   - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if the component, displayY, or native XComponent is a null pointer.
     ///
     /// Available since API-level: 12
     ///
@@ -1267,8 +1267,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    ///  - [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
-    ///  - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if a parameter error occurs.
+    ///   - [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
+    ///   - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 10
     ///
@@ -1292,8 +1292,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    ///  - [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
-    ///  - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if a parameter error occurs.
+    ///   - [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
+    ///   - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 9
     ///
@@ -1314,8 +1314,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    ///  - [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
-    ///  - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if a parameter error occurs.
+    ///   - [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
+    ///   - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 8
     ///
@@ -1335,8 +1335,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    ///  - [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
-    ///  - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if a parameter error occurs.
+    ///   - [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
+    ///   - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 9
     ///
@@ -1356,8 +1356,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    ///  - [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::error_code::ArkUiResult) if the operation is successful.
-    ///  - [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   - [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::error_code::ArkUiResult) if the operation is successful.
+    ///   - [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 20
     ///
@@ -1379,8 +1379,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    ///  - [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::error_code::ArkUiResult) if the operation is successful.
-    ///  - [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   - [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::error_code::ArkUiResult) if the operation is successful.
+    ///   - [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 20
     ///
@@ -1402,8 +1402,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    ///  - [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
-    ///  - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if a parameter error occurs.
+    ///   - [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
+    ///   - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 10
     ///
@@ -1428,8 +1428,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    ///  - [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
-    ///  - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if a parameter error occurs.
+    ///   - [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
+    ///   - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 10
     ///
@@ -1460,9 +1460,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    ///  - [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
-    ///  - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if a parameter error occurs.
-    ///  - [`OH_NATIVEXCOMPONENT_RESULT_FAILED`](crate::XcomponentResult::FAILED) if any other error occurs
+    ///   - [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
+    ///   - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if a parameter error occurs.
+    ///   - [`OH_NATIVEXCOMPONENT_RESULT_FAILED`](crate::XcomponentResult::FAILED) if any other error occurs
     ///
     /// Available since API-level: 14
     #[cfg(feature = "api-14")]
@@ -1487,8 +1487,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    ///  - [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
-    ///  - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if a parameter error occurs.
+    ///   - [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
+    ///   - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 10
     ///
@@ -1513,8 +1513,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    ///  - [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
-    ///  - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if a parameter error occurs.
+    ///   - [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
+    ///   - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 10
     ///
@@ -1534,8 +1534,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    ///  - [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
-    ///  - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if a parameter error occurs.
+    ///   - [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
+    ///   - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 10
     ///
@@ -1555,8 +1555,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    ///  - [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
-    ///  - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if a parameter error occurs.
+    ///   - [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
+    ///   - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 10
     ///
@@ -1576,8 +1576,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    ///  - [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
-    ///  - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if a parameter error occurs.
+    ///   - [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
+    ///   - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 10
     ///
@@ -1597,8 +1597,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    ///  - [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
-    ///  - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if a parameter error occurs.
+    ///   - [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
+    ///   - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 10
     ///
@@ -1618,8 +1618,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    ///  - [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
-    ///  - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if a parameter error occurs.
+    ///   - [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
+    ///   - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 10
     ///
@@ -1639,8 +1639,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    ///  - [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::error_code::ArkUiResult) if the operation is successful.
-    ///  - [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   - [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::error_code::ArkUiResult) if the operation is successful.
+    ///   - [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 20
     ///
@@ -1663,8 +1663,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    ///  - [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::error_code::ArkUiResult) if the operation is successful.
-    ///  - [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   - [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::error_code::ArkUiResult) if the operation is successful.
+    ///   - [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 20
     ///
@@ -1687,8 +1687,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    ///  - [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::error_code::ArkUiResult) if the operation is successful.
-    ///  - [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   - [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::error_code::ArkUiResult) if the operation is successful.
+    ///   - [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 20
     ///
@@ -1711,8 +1711,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    ///  - [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::error_code::ArkUiResult) if the operation is successful.
-    ///  - [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   - [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::error_code::ArkUiResult) if the operation is successful.
+    ///   - [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 20
     ///
@@ -1735,8 +1735,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    ///  - [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
-    ///  - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if a parameter error occurs.
+    ///   - [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
+    ///   - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 11
     ///
@@ -1759,8 +1759,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    ///  - [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
-    ///  - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if a parameter error occurs.
+    ///   - [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
+    ///   - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 11
     ///
@@ -1787,8 +1787,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    ///  - [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
-    ///  - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if a parameter error occurs.
+    ///   - [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
+    ///   - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 11
     ///
@@ -1810,8 +1810,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    ///  - [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
-    ///  - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if a parameter error occurs.
+    ///   - [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
+    ///   - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     ///
@@ -1834,8 +1834,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    ///  - [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
-    ///  - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if a parameter error occurs.
+    ///   - [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
+    ///   - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     ///
@@ -1863,8 +1863,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    ///  - [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
-    ///  - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if a parameter error occurs.
+    ///   - [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
+    ///   - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     ///
@@ -1895,8 +1895,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
-    ///  - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if a parameter error occurs.
-    ///  - [`OH_NATIVEXCOMPONENT_RESULT_FAILED`](crate::XcomponentResult::FAILED) if any other error occurs.
+    ///   - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if a parameter error occurs.
+    ///   - [`OH_NATIVEXCOMPONENT_RESULT_FAILED`](crate::XcomponentResult::FAILED) if any other error occurs.
     ///
     /// Available since API-level: 12
     ///
@@ -1919,8 +1919,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
-    ///  - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if a parameter error occurs.
-    ///  - [`OH_NATIVEXCOMPONENT_RESULT_FAILED`](crate::XcomponentResult::FAILED) if any other error occurs.
+    ///   - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if a parameter error occurs.
+    ///   - [`OH_NATIVEXCOMPONENT_RESULT_FAILED`](crate::XcomponentResult::FAILED) if any other error occurs.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -1964,8 +1964,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    ///  - [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::error_code::ArkUiResult) if the operation is successful.
-    ///  - [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   - [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::error_code::ArkUiResult) if the operation is successful.
+    ///   - [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
@@ -2080,8 +2080,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    ///  - [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::error_code::ArkUiResult) if the operation is successful.
-    ///  - [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   - [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::error_code::ArkUiResult) if the operation is successful.
+    ///   - [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
@@ -2101,8 +2101,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    ///  - [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::error_code::ArkUiResult) if the operation is successful.
-    ///  - [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   - [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::error_code::ArkUiResult) if the operation is successful.
+    ///   - [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
@@ -2142,8 +2142,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    ///  - [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::error_code::ArkUiResult) if the operation is successful.
-    ///  - [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   - [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::error_code::ArkUiResult) if the operation is successful.
+    ///   - [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
@@ -2161,9 +2161,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    ///  - [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::error_code::ArkUiResult) if the operation is successful.
-    ///  - [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    ///  - [`ARKUI_ERROR_CODE_XCOMPONENT_STATE_INVALID`](arkui_sys::error_code::ArkUiErrorCode::XCOMPONENT_STATE_INVALID) if the surface held by the **XComponent** component has been initialized.
+    ///   - [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::error_code::ArkUiResult) if the operation is successful.
+    ///   - [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   - [`ARKUI_ERROR_CODE_XCOMPONENT_STATE_INVALID`](arkui_sys::error_code::ArkUiErrorCode::XCOMPONENT_STATE_INVALID) if the surface held by the **XComponent** component has been initialized.
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
@@ -2178,9 +2178,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    ///  - [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::error_code::ArkUiResult) if the operation is successful.
-    ///  - [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    ///  - [`ARKUI_ERROR_CODE_XCOMPONENT_STATE_INVALID`](arkui_sys::error_code::ArkUiErrorCode::XCOMPONENT_STATE_INVALID) if the surface held by the **XComponent** component has been destroyed.
+    ///   - [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::error_code::ArkUiResult) if the operation is successful.
+    ///   - [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   - [`ARKUI_ERROR_CODE_XCOMPONENT_STATE_INVALID`](arkui_sys::error_code::ArkUiErrorCode::XCOMPONENT_STATE_INVALID) if the surface held by the **XComponent** component has been destroyed.
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
@@ -2198,8 +2198,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    ///  - [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::error_code::ArkUiResult) if the operation is successful.
-    ///  - [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   - [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::error_code::ArkUiResult) if the operation is successful.
+    ///   - [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
@@ -2219,8 +2219,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    ///  - [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::error_code::ArkUiResult) if the operation is successful.
-    ///  - [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   - [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::error_code::ArkUiResult) if the operation is successful.
+    ///   - [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 20
     ///
@@ -2242,8 +2242,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    ///  - [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::error_code::ArkUiResult) if the operation is successful.
-    ///  - [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   - [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::error_code::ArkUiResult) if the operation is successful.
+    ///   - [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 20
     ///
@@ -2265,8 +2265,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    ///  - [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::error_code::ArkUiResult) if the operation is successful.
-    ///  - [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   - [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::error_code::ArkUiResult) if the operation is successful.
+    ///   - [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 20
     ///
@@ -2286,8 +2286,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    ///  - [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::error_code::ArkUiResult) if the operation is successful.
-    ///  - [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   - [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::error_code::ArkUiResult) if the operation is successful.
+    ///   - [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -2412,8 +2412,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    ///  - [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::error_code::ArkUiResult) if the operation is successful.
-    ///  - [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   - [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::error_code::ArkUiResult) if the operation is successful.
+    ///   - [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]

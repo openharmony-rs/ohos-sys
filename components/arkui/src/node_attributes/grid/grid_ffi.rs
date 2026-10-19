@@ -116,9 +116,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    ///  - <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    ///  - <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    ///  - <br>A possible cause is that mandatory parameters are left unspecified.
+    ///   - <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   - <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   - <br>A possible cause is that mandatory parameters are left unspecified.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -144,10 +144,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    ///  - <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
-    ///  - <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
-    ///  - <br>Returns [`ARKUI_ERROR_CODE_BUFFER_SIZE_ERROR`](crate::error_code::ArkUiErrorCode::BUFFER_SIZE_ERROR) if the buffer size is insufficient.
-    ///  - <br>A possible cause is that mandatory parameters are left unspecified.
+    ///   - <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    ///   - <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   - <br>Returns [`ARKUI_ERROR_CODE_BUFFER_SIZE_ERROR`](crate::error_code::ArkUiErrorCode::BUFFER_SIZE_ERROR) if the buffer size is insufficient.
+    ///   - <br>A possible cause is that mandatory parameters are left unspecified.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]

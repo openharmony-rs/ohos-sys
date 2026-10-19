@@ -1030,9 +1030,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Return the result code.
-    ///  - [`OK`](crate::window_comm::WindowManagerResult) the function call is successful.
-    ///  - [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM) parameter error. Possible cause: Can not find the PiP controller corresponding to the controllerId ID.
-    ///  - [`WINDOW_MANAGER_ERRORCODE_PIP_INTERNAL_ERROR`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_PIP_INTERNAL_ERROR) pip internal error. Possible cause: The PiP controller has been destroyed.
+    ///   - [`OK`](crate::window_comm::WindowManagerResult) the function call is successful.
+    ///   - [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM) parameter error. Possible cause: Can not find the PiP controller corresponding to the controllerId ID.
+    ///   - [`WINDOW_MANAGER_ERRORCODE_PIP_INTERNAL_ERROR`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_PIP_INTERNAL_ERROR) pip internal error. Possible cause: The PiP controller has been destroyed.
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]

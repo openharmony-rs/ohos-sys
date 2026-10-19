@@ -575,12 +575,12 @@ extern "C" {
     /// # Returns
     ///
     /// * Fetch cookie result code.
-    ///  - [`ARKWEB_SUCCESS`](crate::arkweb_error_code::ArkWeb_ErrorCode) fetch cookie success.
-    ///  - [`ARKWEB_INVALID_URL`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::INVALID_URL) invalid url.
-    ///  - [`ARKWEB_INVALID_PARAM`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::INVALID_PARAM) cookieValue is nullptr.
-    ///  - [`ARKWEB_LIBRARY_OPEN_FAILURE`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::LIBRARY_OPEN_FAILURE) Failed to open the library.
-    ///  - [`ARKWEB_LIBRARY_SYMBOL_NOT_FOUND`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::LIBRARY_SYMBOL_NOT_FOUND) The required symbol was not found in the library.
-    ///  - [`ARKWEB_COOKIE_MANAGER_NOT_INITIALIZED`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::COOKIE_MANAGER_NOT_INITIALIZED) It is not allowed to call on a non-UI thread without initializing the CookieManager interface. please initialize the CookieManager interface using OH_ArkWeb_GetNativeAPI first.
+    ///   - [`ARKWEB_SUCCESS`](crate::arkweb_error_code::ArkWeb_ErrorCode) fetch cookie success.
+    ///   - [`ARKWEB_INVALID_URL`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::INVALID_URL) invalid url.
+    ///   - [`ARKWEB_INVALID_PARAM`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::INVALID_PARAM) cookieValue is nullptr.
+    ///   - [`ARKWEB_LIBRARY_OPEN_FAILURE`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::LIBRARY_OPEN_FAILURE) Failed to open the library.
+    ///   - [`ARKWEB_LIBRARY_SYMBOL_NOT_FOUND`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::LIBRARY_SYMBOL_NOT_FOUND) The required symbol was not found in the library.
+    ///   - [`ARKWEB_COOKIE_MANAGER_NOT_INITIALIZED`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::COOKIE_MANAGER_NOT_INITIALIZED) It is not allowed to call on a non-UI thread without initializing the CookieManager interface. please initialize the CookieManager interface using OH_ArkWeb_GetNativeAPI first.
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]
