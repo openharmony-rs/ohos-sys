@@ -2,7 +2,7 @@
 
 Raw FFI bindings to the OpenHarmony Purgeable Memory API (available since API level 10).
 
-Development guide: https://gitcode.com/openharmony/docs/blob/master/zh-cn/application-dev/kernel-enhance/purgeable-memory-guidelines.md
+Development guide: https://gitcode.com/openharmony/docs/blob/master/en/application-dev/kernel-enhance/purgeable-memory-guidelines.md
 
 ## Development
 
