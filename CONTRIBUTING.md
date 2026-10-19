@@ -60,7 +60,9 @@
     Make sure to replace `libname` with the actual library name.
 9. Verify that the crate name you chose is not already taken on crates.io. If it is change it. 
   Then update the root Readme and mark the module as supported.
-10. You now have created the skeleton. Continue in the next section to fix any errors and fine-tune the bindings.
+10. Add the feature that enables the crate in the root `Cargo.toml` to the `api_minimal_features` matrix in
+    `.github/workflows/ci.yml`, so that CI builds the crate without other components for every API level.
+11. You now have created the skeleton. Continue in the next section to fix any errors and fine-tune the bindings.
 
 ### Fixing and Fine-tuning the bindings
 
