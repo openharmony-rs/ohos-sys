@@ -1,6 +1,6 @@
-## Hiappevent native bindings for OpenHarmony
+## HiAppEvent native bindings for OpenHarmony
 
-Raw bindings to the native hiappevent APIs on OpenHarmony.
+Raw bindings to the native HiAppEvent APIs on OpenHarmony.
 
 C API reference: https://gitcode.com/openharmony/docs/blob/master/en/application-dev/dfx/hiappevent-intro.md
 

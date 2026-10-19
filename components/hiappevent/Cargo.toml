@@ -3,7 +3,7 @@ name = "ohos-hiappevent-sys"
 version = "0.1.0"
 edition = "2021"
 rust-version.workspace = true
-description = "Raw bindings to the Hiappevent (application event logging and fault monitoring) API of OpenHarmony"
+description = "Raw bindings to the HiAppEvent (application event logging and fault monitoring) API of OpenHarmony"
 license = "Apache-2.0"
 repository = "https://github.com/openharmony-rs/ohos-sys"
 keywords = ["OpenHarmony", "HarmonyOS", "ffi", "hiappevent", "telemetry"]
@@ -20,30 +20,30 @@ api-10 = []
 ## Enables bindings for OpenHarmony API-level 11 (No changes).
 api-11 = ["api-10"]
 ## Enables bindings for OpenHarmony API-level 12, which adds
-## `HiAppEvent_AppEventInfo`, `HiAppEvent_AppEventGroup`, `HiAppEvent_Watcher`
+## `HiAppEvent_AppEventInfo`, `HiAppEvent_AppEventGroup`, `HiAppEvent_Watcher`,
 ## `OH_HiAppEvent_OnReceive`, `OH_HiAppEvent_OnTrigger`, `OH_HiAppEvent_OnTake`,
 ## `OH_HiAppEvent_CreateWatcher`, `OH_HiAppEvent_DestroyWatcher`, `OH_HiAppEvent_SetTriggerCondition`,
 ## `OH_HiAppEvent_SetAppEventFilter`, `OH_HiAppEvent_SetWatcherOnTrigger`, `OH_HiAppEvent_SetWatcherOnReceive`,
 ## `OH_HiAppEvent_TakeWatcherData`, `OH_HiAppEvent_AddWatcher`, `OH_HiAppEvent_RemoveWatcher`,
-## `OH_HiAppEvent_ClearData`
+## `OH_HiAppEvent_ClearData`.
 api-12 = ["api-11"]
 ## Enables bindings for OpenHarmony API-level 13 (No changes).
 api-13 = ["api-12"]
 ## Enables bindings for OpenHarmony API-level 14 (No changes).
 api-14 = ["api-13"]
 ## Enables bindings for OpenHarmony API-level 15, which adds
-## `HiAppEvent_ErrorCode`, `HiAppEvent_Config`, `OH_HiAppEvent_CreateConfig`
-## `OH_HiAppEvent_DestroyConfig`, `OH_HiAppEvent_SetConfigItem`, `OH_HiAppEvent_SetEventConfig`
+## `HiAppEvent_ErrorCode`, `HiAppEvent_Config`, `OH_HiAppEvent_CreateConfig`,
+## `OH_HiAppEvent_DestroyConfig`, `OH_HiAppEvent_SetConfigItem`, `OH_HiAppEvent_SetEventConfig`.
 api-15 = ["api-14"]
 ## Enables bindings for OpenHarmony API-level 16 (No changes).
 api-16 = ["api-15"]
 ## Enables bindings for OpenHarmony API-level 17 (No changes).
 api-17 = ["api-16"]
 ## Enables bindings for OpenHarmony API-level 18, which adds
-## `HiAppEvent_Processor`, `OH_HiAppEvent_CreateProcessor`, `OH_HiAppEvent_SetReportRoute`
-## `OH_HiAppEvent_SetReportPolicy`, `OH_HiAppEvent_SetReportEvent`, `OH_HiAppEvent_SetCustomConfig`
-## `OH_HiAppEvent_SetConfigId`, `OH_HiAppEvent_SetReportUserId`, `OH_HiAppEvent_SetReportUserProperty`
-## `OH_HiAppEvent_AddProcessor`, `OH_HiAppEvent_DestroyProcessor`, `OH_HiAppEvent_RemoveProcessor`
+## `HiAppEvent_Processor`, `OH_HiAppEvent_CreateProcessor`, `OH_HiAppEvent_SetReportRoute`,
+## `OH_HiAppEvent_SetReportPolicy`, `OH_HiAppEvent_SetReportEvent`, `OH_HiAppEvent_SetCustomConfig`,
+## `OH_HiAppEvent_SetConfigId`, `OH_HiAppEvent_SetReportUserId`, `OH_HiAppEvent_SetReportUserProperty`,
+## `OH_HiAppEvent_AddProcessor`, `OH_HiAppEvent_DestroyProcessor`, `OH_HiAppEvent_RemoveProcessor`.
 api-18 = ["api-17"]
 ## Enables bindings for OpenHarmony API-level 19 (No changes).
 api-19 = ["api-18"]
@@ -61,7 +61,7 @@ api-24 = ["api-23"]
 ## Enables bindings for OpenHarmony API-level 25 (No changes).
 api-25 = ["api-24"]
 ## Enables bindings for OpenHarmony API-level 26, which adds
-## `OH_HiAppEvent_FrameworkType`, `OH_HiAppEvent_ReportFrameworkMemAnomaly`
+## `OH_HiAppEvent_FrameworkType`, `OH_HiAppEvent_ReportFrameworkMemAnomaly`.
 api-26 = ["api-25"]
 ## Document available features when building the documentation
 document-features = ["dep:document-features"]

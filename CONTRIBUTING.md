@@ -26,8 +26,8 @@
    ```rust
     //! ## Feature flags
     #![cfg_attr(
-    feature = "document-features",
-    cfg_attr(doc, doc = ::document_features::document_features!())
+        feature = "document-features",
+        cfg_attr(doc, doc = ::document_features::document_features!())
     )]
     #![cfg_attr(docsrs, feature(doc_cfg))]
     ```
