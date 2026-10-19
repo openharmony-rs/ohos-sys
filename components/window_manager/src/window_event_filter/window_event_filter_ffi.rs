@@ -66,10 +66,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    ///  - Returns [`OK`](crate::window_comm::WindowManagerResult) if the operation is successful.
-    ///  - Returns [`INVALID_WINDOW_ID`](crate::window_comm::WindowManagerErrorCode::INVALID_WINDOW_ID) if the windowId is invalid.
-    ///  - Returns [`WINDOW_MANAGER_ERRORCODE_INVALID_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INVALID_PARAM) if the keyEventFilter is invalid.
-    ///  - Returns [`SERVICE_ERROR`](crate::window_comm::WindowManagerErrorCode::SERVICE_ERROR) if the window manager service error occurs.
+    ///   - Returns [`OK`](crate::window_comm::WindowManagerResult) if the operation is successful.
+    ///   - Returns [`INVALID_WINDOW_ID`](crate::window_comm::WindowManagerErrorCode::INVALID_WINDOW_ID) if the windowId is invalid.
+    ///   - Returns [`WINDOW_MANAGER_ERRORCODE_INVALID_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INVALID_PARAM) if the keyEventFilter is invalid.
+    ///   - Returns [`SERVICE_ERROR`](crate::window_comm::WindowManagerErrorCode::SERVICE_ERROR) if the window manager service error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -87,9 +87,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    ///  - Returns [`OK`](crate::window_comm::WindowManagerResult) if the operation is successful.
-    ///  - Returns [`INVALID_WINDOW_ID`](crate::window_comm::WindowManagerErrorCode::INVALID_WINDOW_ID) if the windowId is invalid.
-    ///  - Returns [`SERVICE_ERROR`](crate::window_comm::WindowManagerErrorCode::SERVICE_ERROR) if the window manager service error occurs.
+    ///   - Returns [`OK`](crate::window_comm::WindowManagerResult) if the operation is successful.
+    ///   - Returns [`INVALID_WINDOW_ID`](crate::window_comm::WindowManagerErrorCode::INVALID_WINDOW_ID) if the windowId is invalid.
+    ///   - Returns [`SERVICE_ERROR`](crate::window_comm::WindowManagerErrorCode::SERVICE_ERROR) if the window manager service error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -106,10 +106,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    ///  - Returns [`OK`](crate::window_comm::WindowManagerResult) if the operation is successful.
-    ///  - Returns [`INVALID_WINDOW_ID`](crate::window_comm::WindowManagerErrorCode::INVALID_WINDOW_ID) if the windowId is invalid.
-    ///  - Returns [`WINDOW_MANAGER_ERRORCODE_INVALID_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INVALID_PARAM) if the mouseEventFilter is invalid.
-    ///  - Returns [`SERVICE_ERROR`](crate::window_comm::WindowManagerErrorCode::SERVICE_ERROR) if the window manager service error occurs.
+    ///   - Returns [`OK`](crate::window_comm::WindowManagerResult) if the operation is successful.
+    ///   - Returns [`INVALID_WINDOW_ID`](crate::window_comm::WindowManagerErrorCode::INVALID_WINDOW_ID) if the windowId is invalid.
+    ///   - Returns [`WINDOW_MANAGER_ERRORCODE_INVALID_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INVALID_PARAM) if the mouseEventFilter is invalid.
+    ///   - Returns [`SERVICE_ERROR`](crate::window_comm::WindowManagerErrorCode::SERVICE_ERROR) if the window manager service error occurs.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
@@ -127,9 +127,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    ///  - Returns [`OK`](crate::window_comm::WindowManagerResult) if the operation is successful.
-    ///  - Returns [`INVALID_WINDOW_ID`](crate::window_comm::WindowManagerErrorCode::INVALID_WINDOW_ID) if the windowId is invalid.
-    ///  - Returns [`SERVICE_ERROR`](crate::window_comm::WindowManagerErrorCode::SERVICE_ERROR) if the window manager service error occurs.
+    ///   - Returns [`OK`](crate::window_comm::WindowManagerResult) if the operation is successful.
+    ///   - Returns [`INVALID_WINDOW_ID`](crate::window_comm::WindowManagerErrorCode::INVALID_WINDOW_ID) if the windowId is invalid.
+    ///   - Returns [`SERVICE_ERROR`](crate::window_comm::WindowManagerErrorCode::SERVICE_ERROR) if the window manager service error occurs.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
@@ -146,10 +146,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    ///  - Returns [`OK`](crate::window_comm::WindowManagerResult) if the operation is successful.
-    ///  - Returns [`INVALID_WINDOW_ID`](crate::window_comm::WindowManagerErrorCode::INVALID_WINDOW_ID) if the windowId is invalid.
-    ///  - Returns [`WINDOW_MANAGER_ERRORCODE_INVALID_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INVALID_PARAM) if the touchEventFilter is invalid.
-    ///  - Returns [`SERVICE_ERROR`](crate::window_comm::WindowManagerErrorCode::SERVICE_ERROR) if the window manager service error occurs.
+    ///   - Returns [`OK`](crate::window_comm::WindowManagerResult) if the operation is successful.
+    ///   - Returns [`INVALID_WINDOW_ID`](crate::window_comm::WindowManagerErrorCode::INVALID_WINDOW_ID) if the windowId is invalid.
+    ///   - Returns [`WINDOW_MANAGER_ERRORCODE_INVALID_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INVALID_PARAM) if the touchEventFilter is invalid.
+    ///   - Returns [`SERVICE_ERROR`](crate::window_comm::WindowManagerErrorCode::SERVICE_ERROR) if the window manager service error occurs.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
@@ -167,9 +167,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    ///  - Returns [`OK`](crate::window_comm::WindowManagerResult) if the operation is successful.
-    ///  - Returns [`INVAILD_WINDOW_ID`](crate::window_comm::WindowManagerErrorCode::INVAILD_WINDOW_ID) if the window id is invalid.
-    ///  - Returns [`SERVICE_ERROR`](crate::window_comm::WindowManagerErrorCode::SERVICE_ERROR) if the window manager service error occurs.
+    ///   - Returns [`OK`](crate::window_comm::WindowManagerResult) if the operation is successful.
+    ///   - Returns [`INVAILD_WINDOW_ID`](crate::window_comm::WindowManagerErrorCode::INVAILD_WINDOW_ID) if the window id is invalid.
+    ///   - Returns [`SERVICE_ERROR`](crate::window_comm::WindowManagerErrorCode::SERVICE_ERROR) if the window manager service error occurs.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
@@ -187,9 +187,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code defined by [`WindowManager_ErrorCode`](crate::window_comm::WindowManagerResult).
-    ///  - Returns [`OK`](crate::window_comm::WindowManagerResult) if the operation is successful.
-    ///  - Returns [`INVALID_WINDOW_ID`](crate::window_comm::WindowManagerErrorCode::INVALID_WINDOW_ID) if the windowId is invalid.
-    ///  - Returns [`WINDOW_MANAGER_ERRORCODE_INVALID_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INVALID_PARAM) if the outKeyEventFilter is NULL.
+    ///   - Returns [`OK`](crate::window_comm::WindowManagerResult) if the operation is successful.
+    ///   - Returns [`INVALID_WINDOW_ID`](crate::window_comm::WindowManagerErrorCode::INVALID_WINDOW_ID) if the windowId is invalid.
+    ///   - Returns [`WINDOW_MANAGER_ERRORCODE_INVALID_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INVALID_PARAM) if the outKeyEventFilter is NULL.
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]
@@ -210,9 +210,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code defined by [`WindowManager_ErrorCode`](crate::window_comm::WindowManagerResult).
-    ///  - Returns [`OK`](crate::window_comm::WindowManagerResult) if the operation is successful.
-    ///  - Returns [`INVALID_WINDOW_ID`](crate::window_comm::WindowManagerErrorCode::INVALID_WINDOW_ID) if the windowId is invalid.
-    ///  - Returns [`WINDOW_MANAGER_ERRORCODE_INVALID_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INVALID_PARAM) if the outMouseEventFilter is NULL.
+    ///   - Returns [`OK`](crate::window_comm::WindowManagerResult) if the operation is successful.
+    ///   - Returns [`INVALID_WINDOW_ID`](crate::window_comm::WindowManagerErrorCode::INVALID_WINDOW_ID) if the windowId is invalid.
+    ///   - Returns [`WINDOW_MANAGER_ERRORCODE_INVALID_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INVALID_PARAM) if the outMouseEventFilter is NULL.
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]
@@ -233,9 +233,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code defined by [`WindowManager_ErrorCode`](crate::window_comm::WindowManagerResult).
-    ///  - Returns [`OK`](crate::window_comm::WindowManagerResult) if the operation is successful.
-    ///  - Returns [`INVALID_WINDOW_ID`](crate::window_comm::WindowManagerErrorCode::INVALID_WINDOW_ID) if the windowId is invalid.
-    ///  - Returns [`WINDOW_MANAGER_ERRORCODE_INVALID_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INVALID_PARAM) if the outTouchEventFilter is NULL.
+    ///   - Returns [`OK`](crate::window_comm::WindowManagerResult) if the operation is successful.
+    ///   - Returns [`INVALID_WINDOW_ID`](crate::window_comm::WindowManagerErrorCode::INVALID_WINDOW_ID) if the windowId is invalid.
+    ///   - Returns [`WINDOW_MANAGER_ERRORCODE_INVALID_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INVALID_PARAM) if the outTouchEventFilter is NULL.
     ///
     /// Available since API-level: 26
     #[cfg(feature = "api-26")]

@@ -67,8 +67,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    ///  - [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
-    ///  - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if a parameter error occurs.
+    ///   - [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
+    ///   - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     ///
@@ -93,8 +93,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    ///  - [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
-    ///  - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if a parameter error occurs.
+    ///   - [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
+    ///   - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     ///
@@ -122,8 +122,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    ///  - [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::error_code::ArkUiResult) if the operation is successful.
-    ///  - [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   - [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::error_code::ArkUiResult) if the operation is successful.
+    ///   - [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -152,8 +152,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    ///  - [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::error_code::ArkUiResult) if the operation is successful.
-    ///  - [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   - [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::error_code::ArkUiResult) if the operation is successful.
+    ///   - [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -182,7 +182,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::error_code::ArkUiResult) if the operation is successful.
-    ///  - [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   - [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -207,7 +207,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::error_code::ArkUiResult) if the operation is successful.
-    ///  - [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    ///   - [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
