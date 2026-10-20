@@ -198,3 +198,7 @@ pub struct OH_Drawing_TextBox {
 pub struct OH_Drawing_PositionAndAffinity {
     _unused: [u8; 0],
 }
+#[repr(C)]
+pub struct OH_MediaAsset {
+    _unused: [u8; 0],
+}

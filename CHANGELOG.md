@@ -4,6 +4,9 @@
 
 ### Added
 
+- `ohcamera` — `ohos-ohcamera-sys` raw Camera NDK bindings for API 11–26,
+  available through the top-level `ohcamera` feature.
+- `ohos-sys-opaque-types` 0.1.13: `OH_MediaAsset`, used by the Camera NDK photo asset callback.
 - Bindings for API-24, API-25 and API-26 (OpenHarmony 7.0), behind the new `api-24`,
   `api-25` and `api-26` features. See the changelogs of the individual crates for details.
 - `ohaudio-sys`: the `audio_session_base` module, and the `audio_accessory_*`,

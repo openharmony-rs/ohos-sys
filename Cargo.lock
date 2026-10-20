@@ -243,6 +243,16 @@ dependencies = [
 ]
 
 [[package]]
+name = "ohos-ohcamera-sys"
+version = "0.1.0"
+dependencies = [
+ "document-features",
+ "ohos-image-kit-sys",
+ "ohos-sys-opaque-types",
+ "ohos-window-sys",
+]
+
+[[package]]
 name = "ohos-pasteboard-sys"
 version = "0.1.6"
 dependencies = [
@@ -311,6 +321,7 @@ dependencies = [
  "ohos-net-ssl-sys",
  "ohos-netmanager-sys",
  "ohos-netstack-sys",
+ "ohos-ohcamera-sys",
  "ohos-pasteboard-sys",
  "ohos-purgeable-memory-sys",
  "ohos-rawfile-sys",
@@ -328,7 +339,7 @@ dependencies = [
 
 [[package]]
 name = "ohos-sys-opaque-types"
-version = "0.1.12"
+version = "0.1.13"
 
 [[package]]
 name = "ohos-transient-task-sys"

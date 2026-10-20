@@ -8,6 +8,7 @@ pub(crate) static ENUM_PREFIX_MAP: LazyLock<HashMap<&'static str, &'static str>>
     LazyLock::new(|| {
         HashMap::from([
             ("Image_ErrorCode", "IMAGE_"),
+            ("Camera_ErrorCode", "CAMERA_"),
             ("OH_Drawing_ErrorCode", "OH_DRAWING_ERROR_"),
             ("AbilityRuntime_ErrorCode", "ABILITY_RUNTIME_ERROR_CODE_"),
             ("AbilityBase_ErrorCode", "ABILITY_BASE_ERROR_CODE_"),

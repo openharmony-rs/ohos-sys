@@ -180,6 +180,7 @@ jobs:
           - netmanager
           - netstack
           - ohaudio
+          - ohcamera
           - pasteboard
           - purgeable-memory
           - qos
@@ -201,6 +202,7 @@ jobs:
       - uses: actions/checkout@v6
       - uses: dtolnay/rust-toolchain@stable
       - name: Build minimal features API-10
+        if: matrix.component != 'ohcamera'
         run: cargo build --features api-10 --features ${{ matrix.component }}
       - name: Build minimal features API-11
         run: cargo build --features api-11 --features ${{ matrix.component }}

@@ -67,7 +67,7 @@ already been generated.
 | network/netstack/net_ssl                | ✅      | 26        | [ohos-net-ssl-sys]        |
 | neural_network_runtime                  |        |           |                           |
 | ohaudio                                 | ✅      | 26        | [ohaudio-sys]             |
-| ohcamera                                |        |           |                           |
+| ohcamera                                | ✅      | 26        | [ohos-ohcamera-sys]       |
 | ohmidi                                  |        |           |                           |
 | Pasteboard                              | ✅      | 26        | [ohos-pasteboard-sys]     |
 | purgeable_memory                        | ✅      | 26        | [ohos-purgeable-memory-sys] |
@@ -109,6 +109,7 @@ already been generated.
 [ohos-abilitykit-sys]: https://docs.rs/ohos-abilitykit-sys/latest/ohos_abilitykit_sys/
 [ohos-vsync-sys]: https://docs.rs/ohos-vsync-sys/latest/ohos_vsync_sys/
 [ohos-native-display-soloist-sys]: https://docs.rs/ohos-native-display-soloist-sys/latest/ohos_native_display_soloist_sys/
+[ohos-ohcamera-sys]: https://docs.rs/ohos-ohcamera-sys/latest/ohos_ohcamera_sys/
 [ohos-libbundle-sys]: https://docs.rs/ohos-libbundle-sys/latest/ohos_libbundle_sys/
 [ohos-libqos-sys]: https://docs.rs/ohos-libqos-sys/latest/ohos_libqos_sys/
 [udmf-sys]: https://docs.rs/udmf-sys/latest/udmf_sys/

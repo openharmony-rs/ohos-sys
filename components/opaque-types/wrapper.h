@@ -22,3 +22,4 @@
 #include "arkui/drawable_descriptor.h"
 #include "ace/xcomponent/native_interface_xcomponent.h"
 #include "native_drawing/drawing_text_declaration.h"
+#include "multimedia/media_library/media_asset_base_capi.h"

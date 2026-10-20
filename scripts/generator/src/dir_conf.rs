@@ -100,6 +100,54 @@ fn arkui_builder_opts(
 pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
     vec![
         DirBindingsConf {
+            directory: "ohcamera".to_string(),
+            output_dir: "components/ohcamera/src".to_string(),
+            set_builder_opts: Box::new(|file_stem, header_path, builder| {
+                let builder = builder
+                    .allowlist_file(header_path.to_str().unwrap())
+                    .clang_args(["-x", "c++"])
+                    .result_error_enum("Camera_ErrorCode");
+                let builder = if file_stem == "camera" {
+                    builder
+                        .parse_callbacks(Box::new(ResultEnumParseCallbacks {
+                            rename_item: Box::new(|original_item_name| match original_item_name {
+                                "Camera_ErrorCode" => Some("CameraResult".to_string()),
+                                _ => None,
+                            }),
+                            ..Default::default()
+                        }))
+                } else {
+                    builder.raw_line("#[allow(unused_imports)] use crate::camera::*;")
+                        .raw_line("#[allow(unused_imports)] use crate::camera::CameraResult as Camera_ErrorCode;")
+                };
+                match file_stem {
+                    "camera_manager" => builder.raw_line(
+                        "use crate::{camera_input::Camera_Input, capture_session::Camera_CaptureSession, \
+                         metadata_output::Camera_MetadataOutput, photo_output::Camera_PhotoOutput, \
+                         preview_output::Camera_PreviewOutput, video_output::Camera_VideoOutput};",
+                    ),
+                    "capture_session" => builder
+                        .raw_line(
+                            "use crate::{camera_input::Camera_Input, metadata_output::Camera_MetadataOutput, \
+                             photo_output::Camera_PhotoOutput, preview_output::Camera_PreviewOutput, \
+                             video_output::Camera_VideoOutput};",
+                        )
+                        .raw_line("#[cfg(feature = \"api-12\")] use ohos_window_sys::native_buffer::buffer_common::OH_NativeBuffer_ColorSpace;"),
+                    "metadata_output" => builder.raw_line(
+                        "#[cfg(feature = \"api-26\")] use crate::metadata_object_ext::OH_Camera_MetadataObjectExt;",
+                    ),
+                    "photo_native" => builder
+                        .raw_line("use ohos_image_kit_sys::native_image::image::OH_ImageNative;")
+                        .raw_line("#[cfg(feature = \"api-23\")] use ohos_sys_opaque_types::OH_PictureNative;"),
+                    "photo_output" => builder
+                        .raw_line("#[cfg(feature = \"api-12\")] use crate::photo_native::OH_PhotoNative;")
+                        .raw_line("#[cfg(feature = \"api-12\")] use ohos_sys_opaque_types::OH_MediaAsset;"),
+                    _ => builder,
+                }
+            }),
+            ..Default::default()
+        },
+        DirBindingsConf {
             directory: "multimedia/video_processing_engine".to_string(),
             output_dir: "components/multimedia/video_processing_engine/src".to_string(),
             rename_output_file: None,
