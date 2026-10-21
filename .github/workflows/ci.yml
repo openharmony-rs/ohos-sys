@@ -180,6 +180,7 @@ jobs:
           - netmanager
           - netstack
           - ohaudio
+          - ohmidi
           - pasteboard
           - purgeable-memory
           - qos
@@ -201,32 +202,46 @@ jobs:
       - uses: actions/checkout@v6
       - uses: dtolnay/rust-toolchain@stable
       - name: Build minimal features API-10
+        if: matrix.component != 'ohmidi'
         run: cargo build --features api-10 --features ${{ matrix.component }}
       - name: Build minimal features API-11
+        if: matrix.component != 'ohmidi'
         run: cargo build --features api-11 --features ${{ matrix.component }}
       - name: Build minimal features API-12
+        if: matrix.component != 'ohmidi'
         run: cargo build --features api-12 --features ${{ matrix.component }}
       - name: Build minimal features API-13
+        if: matrix.component != 'ohmidi'
         run: cargo build --features api-13 --features ${{ matrix.component }}
       - name: Build minimal features API-14
+        if: matrix.component != 'ohmidi'
         run: cargo build --features api-14 --features ${{ matrix.component }}
       - name: Build minimal features API-15
+        if: matrix.component != 'ohmidi'
         run: cargo build --features api-15 --features ${{ matrix.component }}
       - name: Build minimal features API-16
+        if: matrix.component != 'ohmidi'
         run: cargo build --features api-16 --features ${{ matrix.component }}
       - name: Build minimal features API-17
+        if: matrix.component != 'ohmidi'
         run: cargo build --features api-17 --features ${{ matrix.component }}
       - name: Build minimal features API-18
+        if: matrix.component != 'ohmidi'
         run: cargo build --features api-18 --features ${{ matrix.component }}
       - name: Build minimal features API-19
+        if: matrix.component != 'ohmidi'
         run: cargo build --features api-19 --features ${{ matrix.component }}
       - name: Build minimal features API-20
+        if: matrix.component != 'ohmidi'
         run: cargo build --features api-20 --features ${{ matrix.component }}
       - name: Build minimal features API-21
+        if: matrix.component != 'ohmidi'
         run: cargo build --features api-21 --features ${{ matrix.component }}
       - name: Build minimal features API-22
+        if: matrix.component != 'ohmidi'
         run: cargo build --features api-22 --features ${{ matrix.component }}
       - name: Build minimal features API-23
+        if: matrix.component != 'ohmidi'
         run: cargo build --features api-23 --features ${{ matrix.component }}
       - name: Build minimal features API-24
         run: cargo build --features api-24 --features ${{ matrix.component }}

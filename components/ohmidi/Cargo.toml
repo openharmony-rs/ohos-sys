@@ -1,0 +1,29 @@
+[package]
+name = "ohos-ohmidi-sys"
+version = "0.1.0"
+edition = "2021"
+rust-version.workspace = true
+description = "Raw bindings to the OpenHarmony MIDI NDK"
+license = "Apache-2.0"
+repository = "https://github.com/openharmony-rs/ohos-sys"
+keywords = ["OpenHarmony", "HarmonyOS", "ffi", "midi"]
+readme = "README.md"
+
+[dependencies]
+document-features = { version = "0.2", optional = true }
+
+[features]
+default = []
+## Enables the MIDI NDK, available since OpenHarmony API level 24.
+api-24 = []
+## Enables OpenHarmony API level 25 (no new MIDI APIs).
+api-25 = ["api-24"]
+## Enables OpenHarmony API level 26 (no new MIDI APIs).
+api-26 = ["api-25"]
+## Document available features when building the documentation.
+document-features = ["dep:document-features"]
+
+[package.metadata.docs.rs]
+features = ["document-features"]
+targets = ["aarch64-unknown-linux-ohos", "armv7-unknown-linux-ohos", "x86_64-unknown-linux-ohos"]
+all-features = true

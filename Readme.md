@@ -68,7 +68,7 @@ already been generated.
 | neural_network_runtime                  |        |           |                           |
 | ohaudio                                 | ✅      | 26        | [ohaudio-sys]             |
 | ohcamera                                |        |           |                           |
-| ohmidi                                  |        |           |                           |
+| ohmidi                                  | ✅      | 26        | [ohos-ohmidi-sys]         |
 | Pasteboard                              | ✅      | 26        | [ohos-pasteboard-sys]     |
 | purgeable_memory                        | ✅      | 26        | [ohos-purgeable-memory-sys] |
 | qos                                     | ✅      | 26        | [ohos-libqos-sys]         |
@@ -99,6 +99,7 @@ already been generated.
 [ohos-media-sys]: https://docs.rs/ohos-media-sys/latest/ohos_media_sys/
 [ohos-video-processing-engine-sys]: https://docs.rs/ohos-video-processing-engine-sys/latest/ohos_video_processing_engine_sys/
 [ohaudio-sys]: https://docs.rs/ohaudio-sys/latest/ohaudio_sys/
+[ohos-ohmidi-sys]: https://docs.rs/ohos-ohmidi-sys/latest/ohos_ohmidi_sys/
 [ohos-pasteboard-sys]: https://docs.rs/ohos-pasteboard-sys/latest/ohos_pasteboard_sys/
 [ohos-purgeable-memory-sys]: https://docs.rs/ohos-purgeable-memory-sys/latest/ohos_purgeable_memory_sys/
 [ohos-rawfile-sys]: https://docs.rs/ohos-rawfile-sys/latest/ohos_rawfile_sys/
