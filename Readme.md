@@ -73,7 +73,7 @@ already been generated.
 | purgeable_memory                        | ✅      | 26        | [ohos-purgeable-memory-sys] |
 | qos                                     | ✅      | 26        | [ohos-libqos-sys]         |
 | rawfile                                 | ✅      | 26        | [ohos-rawfile-sys]        |
-| resourcemanager                         |        |           |                           |
+| resourcemanager                         | ✅      | 26        | [ohos-resmgr-sys]         |
 | sensors                                 | ✅      | 26        | [ohos-sensors-sys]        |
 | SCSI Peripherals                        |        |           |                           |
 | telephony                               |        |           |                           |
@@ -122,7 +122,7 @@ already been generated.
 [ohos-deviceinfo-sys]: https://docs.rs/ohos-deviceinfo-sys/latest/ohos_deviceinfo_sys/
 [ohos-transient-task-sys]: https://docs.rs/ohos-transient-task-sys/latest/ohos_transient_task_sys/
 [ohos-hiappevent-sys]: https://docs.rs/ohos-hiappevent-sys/latest/ohos_hiappevent_sys/
-
+[ohos-resmgr-sys]: https://docs.rs/ohos-resmgr-sys/latest/ohos_resmgr_sys/
 
 ## Development
 

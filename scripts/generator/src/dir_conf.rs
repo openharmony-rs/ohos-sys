@@ -1520,5 +1520,36 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
             }),
             ..Default::default()
         },
+        DirBindingsConf {
+            directory: "resourcemanager".to_string(),
+            output_dir: "components/resmgr/src".to_string(),
+            rename_output_file: None,
+            set_builder_opts: Box::new(|file_stem, header_path, builder| {
+                let builder = 
+                    builder.allowlist_file(header_path.to_str().unwrap())
+                        .prepend_enum_name(false)
+                        // Some functions are only declared for C++ (they use default arguments).
+                        .clang_args(&["-x", "c++"])
+                        .parse_callbacks(Box::new(ResultEnumParseCallbacks {
+                            rename_item: Box::new(|enum_name| match enum_name {
+                                "ResourceManager_ErrorCode" => {
+                                    Some("ResourceManagerResult".to_string())
+                                }
+                                _ => None,
+                            }),
+                            ..Default::default()
+                        }));
+                match file_stem {
+                    "ohresmgr" => builder
+                    .raw_line("use crate::resmgr_common::*;")
+                    .raw_line("use ohos_rawfile_sys::raw_file_manager::NativeResourceManager;")
+                    .raw_line("use ohos_sys_opaque_types::ArkUI_DrawableDescriptor;"),
+                     "resmgr_common" => builder.result_error_enum("ResourceManager_ErrorCode"),
+                    _ => builder,
+                }
+            }),
+            ..Default::default()
+        },
+
     ]
 }

@@ -26,6 +26,10 @@
 - `hiappevent` — `ohos-hiappevent-sys` (HiAppEvent, `libhiappevent_ndk.z.so`):
   application event logging, event watchers, configuration and data processors,
   plus framework memory-anomaly reporting at API-26.
+- `resmgr` — `ohos-resmgr-sys` (ResourceManager, `libohresmgr.so`): obtain strings,
+  string arrays, plural strings, colors, numbers, booleans, media, drawable descriptors,
+  symbols, locales and the device configuration by resource ID or name, and add or remove
+  overlay resources, from API-12.
 
 ### Changed 
 

@@ -20,6 +20,7 @@ pub(crate) static ENUM_PREFIX_MAP: LazyLock<HashMap<&'static str, &'static str>>
                 "IMAGE_CROP_AND_SCALE_STRATEGY_",
             ),
             ("InputMethod_ErrorCode", "IME_ERR_"),
+            ("ResourceManager_ErrorCode", "ERROR_CODE_"),
             ("OH_AudioCommon_Result", "AUDIOCOMMON_RESULT_ERROR_"),
             ("OH_AudioStream_Result", "AUDIOSTREAM_ERROR_"),
             ("ArkWeb_ErrorCode", "ARKWEB_"),

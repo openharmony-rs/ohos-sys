@@ -185,6 +185,7 @@ jobs:
           - qos
           - rawfile
           - rdb
+          - resmgr
           - sensors
           - transient-task
           - udmf
